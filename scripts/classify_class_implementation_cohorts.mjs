@@ -9,8 +9,29 @@ const check=args.includes('--check');
 function classify(entry){
   const explicit=[];
   for(const dep of entry.dependencies||[]){
-    const m=String(dep).match(/^Cohort:\\s*(.+?)\\.?$/i);
-    if(m) for(const tag of m[1].replace(/\\.$/,'').split(/\\s*\\+\\s*/)) if(tag.trim()) explicit.push(tag.trim());
+    const m=String(dep).match(/^Cohort:\\s*([^.]*)/i);
+    if(m){
+      const canonical={
+        'action/resource and feature-reconciliation':'class actions/resources and feature reconciliation',
+        'casting/progression':'ordinary prestige spellcasting/selected caster advancement',
+        'performance/action-resource':'bardic music/performance resources',
+        'persistent choice':'persistent feature choices',
+        'transformation/wild-shape':'transformations/wild-shape',
+        'psionics/manifesting':'psionics/manifesting',
+        'domain/divine':'domains/deity progression',
+        'favored-enemy':'Favored Enemy variants',
+        'paladin/favored-enemy':'Favored Enemy variants',
+        'companion/cohort':'companions/mounts/cohorts',
+        'companion/mount':'companions/mounts/cohorts',
+        'incarnum':'incarnum/soulmelds',
+        'binding':'binding/vestiges',
+        'truenaming':'truenaming'
+      };
+      for(const raw of m[1].split(/\\s*,\\s*/)){
+        const tag=canonical[raw.trim()]||raw.trim();
+        if(tag)explicit.push(tag);
+      }
+    }
   }
   if(explicit.length) return [...new Set(explicit)];
   const text=[entry.name,entry.sourceBook,entry.nextAction,...(entry.gaps||[]),...(entry.dependencies||[])].filter(Boolean).join(' ').toLowerCase();

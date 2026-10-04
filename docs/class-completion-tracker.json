@@ -28262,9 +28262,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Stonespeaker Guardian exact-source profile as part of the transformation/wild-shape, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "transformation/wild-shape, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/storm-disciple-281",
@@ -28295,9 +28296,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Storm Disciple exact-source profile as part of the psionics/manifesting cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "psionics/manifesting. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "psionics/manifesting"
       ],
-      "implementationCohort": "psionics/manifesting. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "psionics/manifesting"
     },
     {
       "sourceId": "classes/storm-sentry-421",
@@ -28328,9 +28329,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Storm Sentry exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/stormcaster-831",
@@ -28361,9 +28362,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Stormcaster exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/stormlord-251",
@@ -28394,9 +28395,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Stormlord exact-source profile as part of the casting/progression, domain/divine cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/stormlord-492",
@@ -28427,9 +28429,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Stormlord exact-source profile as part of the casting/progression, domain/divine cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/stormsinger-507",
@@ -28460,9 +28463,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Stormsinger exact-source profile as part of the casting/progression, performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/stormtalon-746",
@@ -28493,9 +28497,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Stormtalon exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/streetfighter-197",
@@ -28526,9 +28530,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Streetfighter exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/strifeleader-493",
@@ -28559,9 +28563,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Strifeleader exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/sublime-chord-219",
@@ -28592,9 +28596,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Sublime Chord exact-source profile as part of the casting/progression, performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/suel-arcanamach-220",
@@ -28625,9 +28630,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Suel Arcanamach exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/sun-soul-monk-305",
@@ -28658,9 +28663,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Sun Soul Monk exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/sunmaster-544",
@@ -28691,9 +28696,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Sunmaster exact-source profile as part of the transformation/wild-shape, casting/progression, domain/divine cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape, casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape",
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "transformation/wild-shape, casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/survivor-822",
@@ -28724,9 +28731,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Survivor exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/swanmay-154",
@@ -28757,9 +28764,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Swanmay exact-source profile as part of the transformation/wild-shape, casting/progression, favored-enemy cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape, casting/progression, favored-enemy. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape",
+        "ordinary prestige spellcasting/selected caster advancement",
+        "Favored Enemy variants"
       ],
-      "implementationCohort": "transformation/wild-shape, casting/progression, favored-enemy. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/swashbuckler-23",
@@ -28816,9 +28825,12 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Swift Scion exact-source profile as part of the casting/progression, performance/action-resource, favored-enemy, persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource, favored-enemy, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources",
+        "Favored Enemy variants",
+        "persistent feature choices"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource, favored-enemy, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/swift-wing-376",
@@ -28849,9 +28861,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Swift Wing exact-source profile as part of the casting/progression, domain/divine cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/swiftblade-1039",
@@ -28882,9 +28895,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Swiftblade exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/sword-dancer-494",
@@ -28915,9 +28928,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Sword Dancer exact-source profile as part of the casting/progression, performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/sword-of-righteousness-155",
@@ -28948,9 +28962,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Sword of Righteousness exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/swordsage-116",
@@ -29012,9 +29026,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Sybil exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/tactical-soldier-579",
@@ -29045,9 +29059,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tactical Soldier exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/tainted-scholar-535",
@@ -29078,9 +29092,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tainted Scholar exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/tainted-sorcerer-881",
@@ -29111,9 +29125,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tainted Sorcerer exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/tainted-warrior-882",
@@ -29144,9 +29158,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tainted Warrior exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/talon-of-tiamat-410",
@@ -29177,9 +29191,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Talon of Tiamat exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/talontar-blightlord-892",
@@ -29210,9 +29224,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Talontar Blightlord exact-source profile as part of the casting/progression, domain/divine cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/tamer-of-beasts-620",
@@ -29243,9 +29258,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tamer of Beasts exact-source profile as part of the companion/cohort, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/tattooed-monk-336",
@@ -29276,9 +29292,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tattooed Monk exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/tattooed-monk-647",
@@ -29309,9 +29325,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tattooed Monk exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/techsmith-495",
@@ -29342,9 +29358,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Techsmith exact-source profile as part of the companion/cohort, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/telflammar-shadowlord-893",
@@ -29375,9 +29392,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Telflammar Shadowlord exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/tempest-198",
@@ -29408,9 +29425,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tempest exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/tempest-621",
@@ -29441,9 +29458,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tempest exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/templar-369",
@@ -29474,9 +29491,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Templar exact-source profile as part of the casting/progression, persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "persistent feature choices"
       ],
-      "implementationCohort": "casting/progression, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/temple-raider-of-olidammara-252",
@@ -29507,9 +29525,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Temple Raider of Olidammara exact-source profile as part of the casting/progression, domain/divine cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/temple-raider-of-olidammara-761",
@@ -29540,9 +29559,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Temple Raider of Olidammara exact-source profile as part of the performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "bardic music/performance resources"
     },
     {
       "sourceId": "classes/tenebrous-apostate-854",
@@ -29573,9 +29592,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tenebrous Apostate exact-source profile as part of the binding cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "binding. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "binding/vestiges"
       ],
-      "implementationCohort": "binding. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "binding/vestiges"
     },
     {
       "sourceId": "classes/thaumaturgist-393",
@@ -29606,9 +29625,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thaumaturgist exact-source profile as part of the companion/cohort, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/thayan-gladiator-287",
@@ -29639,9 +29659,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thayan Gladiator exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/thayan-knight-337",
@@ -29672,9 +29692,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thayan Knight exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/thayan-knight-538",
@@ -29733,9 +29753,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thayan Slaver exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/thief-of-life-469",
@@ -29766,9 +29786,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thief of Life exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/thief-acrobat-199",
@@ -29799,9 +29819,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thief-acrobat exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/thief-acrobat-762",
@@ -29832,9 +29852,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thief-acrobat exact-source profile as part of the performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "bardic music/performance resources"
     },
     {
       "sourceId": "classes/thrall-of-demogorgon-173",
@@ -29865,9 +29885,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thrall of Demogorgon exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/thrall-of-eltab-1053",
@@ -29898,9 +29918,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thrall of Eltab exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/thrall-of-grazzt-174",
@@ -29931,9 +29951,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thrall of Graz'zt exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/thrall-of-juiblex-175",
@@ -29964,9 +29984,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thrall of Juiblex exact-source profile as part of the transformation/wild-shape cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "transformation/wild-shape. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/thrall-of-orcus-176",
@@ -29997,9 +30017,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thrall of Orcus exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/thrallherd-915",
@@ -30030,9 +30050,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thrallherd exact-source profile as part of the psionics/manifesting cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "psionics/manifesting. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "psionics/manifesting"
       ],
-      "implementationCohort": "psionics/manifesting. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "psionics/manifesting"
     },
     {
       "sourceId": "classes/thri-kreen-racial-class-17",
@@ -30063,9 +30083,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thri-kreen Racial Class exact-source profile as part of the psionics/manifesting cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "psionics/manifesting. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "psionics/manifesting"
       ],
-      "implementationCohort": "psionics/manifesting. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "psionics/manifesting"
     },
     {
       "sourceId": "classes/thug-132",
@@ -30128,9 +30148,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Thunder Guide exact-source profile as part of the performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "bardic music/performance resources"
     },
     {
       "sourceId": "classes/tomb-warden-554",
@@ -30161,9 +30181,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tomb Warden exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/topaz-guardian-563",
@@ -30194,9 +30214,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Topaz Guardian exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/totem-barbarian-133",
@@ -30227,9 +30247,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Totem Barbarian exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/totem-rager-597",
@@ -30260,9 +30280,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Totem Rager exact-source profile as part of the incarnum cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "incarnum. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "incarnum/soulmelds"
       ],
-      "implementationCohort": "incarnum. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "incarnum/soulmelds"
     },
     {
       "sourceId": "classes/totemist-83",
@@ -30324,9 +30344,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Transmuter Variant exact-source profile as part of the transformation/wild-shape cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "transformation/wild-shape. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/trapsmith-433",
@@ -30357,9 +30377,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Trapsmith exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/triadic-knight-922",
@@ -30390,9 +30410,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Triadic Knight exact-source profile as part of the companion/cohort, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/tribal-protector-781",
@@ -30423,9 +30444,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Tribal Protector exact-source profile as part of the favored-enemy, persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "favored-enemy, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "Favored Enemy variants",
+        "persistent feature choices"
       ],
-      "implementationCohort": "favored-enemy, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "Favored Enemy variants"
     },
     {
       "sourceId": "classes/troubadour-of-stars-156",
@@ -30456,9 +30478,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Troubadour of Stars exact-source profile as part of the casting/progression, performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/true-necromancer-555",
@@ -30489,9 +30512,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the True Necromancer exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/true-necromancer-849",
@@ -30550,9 +30573,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Truenamer exact-source profile as part of the truenaming cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "truenaming. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "truenaming"
       ],
-      "implementationCohort": "truenaming. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "truenaming"
     },
     {
       "sourceId": "classes/twisted-lord-790",
@@ -30583,9 +30606,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Twisted Lord exact-source profile as part of the transformation/wild-shape cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "transformation/wild-shape. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/ultimate-magus-272",
@@ -30616,9 +30639,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Ultimate Magus exact-source profile as part of the casting/progression, persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "persistent feature choices"
       ],
-      "implementationCohort": "casting/progression, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/umbral-disciple-598",
@@ -30649,9 +30673,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Umbral Disciple exact-source profile as part of the incarnum cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "incarnum. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "incarnum/soulmelds"
       ],
-      "implementationCohort": "incarnum. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "incarnum/soulmelds"
     },
     {
       "sourceId": "classes/unbound-scroll-422",
@@ -30682,9 +30706,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Unbound Scroll exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/uncanny-trickster-301",
@@ -30715,9 +30739,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Uncanny Trickster exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/unholy-ravager-of-tiamat-411",
@@ -30748,9 +30772,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Unholy Ravager of Tiamat exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/union-sentinel-461",
@@ -30781,9 +30805,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Union Sentinel exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/unseen-seer-273",
@@ -30814,9 +30838,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Unseen Seer exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/ur-priest-177",
@@ -30847,9 +30871,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Ur-priest exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/ur-priest-253",
@@ -30880,9 +30904,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Ur-priest exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/urban-adept-111",
@@ -30913,9 +30937,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Urban Adept exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/urban-druid-979",
@@ -30946,9 +30970,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Urban Druid exact-source profile as part of the companion/cohort, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/urban-ranger-134",
@@ -30979,9 +31004,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Urban Ranger exact-source profile as part of the companion/cohort, casting/progression, favored-enemy cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression, favored-enemy. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement",
+        "Favored Enemy variants"
       ],
-      "implementationCohort": "companion/cohort, casting/progression, favored-enemy. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/urban-savant-263",
@@ -31012,9 +31039,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Urban Savant exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/urban-soul-711",
@@ -31045,9 +31072,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Urban Soul exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/vadalis-beastkeeper-423",
@@ -31078,9 +31105,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vadalis Beastkeeper exact-source profile as part of the companion/cohort, casting/progression, persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "companion/cohort, casting/progression, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement",
+        "persistent feature choices"
       ],
-      "implementationCohort": "companion/cohort, casting/progression, persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/vassal-of-bahamut-157",
@@ -31111,9 +31140,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vassal of Bahamut exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/vengeance-knight-288",
@@ -31144,9 +31173,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vengeance Knight exact-source profile as part of the persistent choice cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/verdant-lord-622",
@@ -31177,9 +31206,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Verdant Lord exact-source profile as part of the transformation/wild-shape, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "transformation/wild-shape, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/vermin-keeper-905",
@@ -31210,9 +31240,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vermin Keeper exact-source profile as part of the transformation/wild-shape, companion/cohort, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape, companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape",
+        "companions/mounts/cohorts",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "transformation/wild-shape, companion/cohort, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/vermin-lord-178",
@@ -31243,9 +31275,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vermin Lord exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/vigilant-eye-helm-paladin-945",
@@ -31276,9 +31308,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vigilant Eye of Helm (Paladin) exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/vigilant-sentinel-of-aerenal-589",
@@ -31309,9 +31341,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vigilant Sentinel of Aerenal exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/vigilante-200",
@@ -31342,9 +31374,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vigilante exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/vigilante-763",
@@ -31375,9 +31407,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Vigilante exact-source profile as part of the performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "bardic music/performance resources"
     },
     {
       "sourceId": "classes/virtuoso-201",
@@ -31408,9 +31440,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Virtuoso exact-source profile as part of the casting/progression, performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/virtuoso-764",
@@ -31441,9 +31474,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Virtuoso exact-source profile as part of the casting/progression, performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/visionary-seeker-693",
@@ -31474,9 +31508,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Visionary Seeker exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/void-disciple-254",
@@ -31507,9 +31541,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Void Disciple exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/void-disciple-648",
@@ -31540,9 +31574,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Void Disciple exact-source profile as part of the casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/void-incarnate-1057",
@@ -31573,9 +31607,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Void Incarnate exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/walker-in-the-waste-754",
@@ -31606,9 +31640,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement the Walker In the Waste exact-source profile as part of the transformation/wild-shape, casting/progression cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "transformation/wild-shape, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape",
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "transformation/wild-shape, casting/progression. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/war-chanter-338",
@@ -31639,9 +31674,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the War Chanter exact-source profile as part of the performance/action-resource cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
       "implementationCohorts": [
-        "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "performance/action-resource. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "bardic music/performance resources"
     },
     {
       "sourceId": "classes/war-hulk-580",
@@ -31672,9 +31707,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement War Hulk in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/war-mind-916",
@@ -31705,9 +31740,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement War Mind in the psionics/manifesting cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "psionics/manifesting. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "psionics/manifesting"
       ],
-      "implementationCohort": "psionics/manifesting. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "psionics/manifesting"
     },
     {
       "sourceId": "classes/war-weaver-529",
@@ -31738,9 +31773,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement War Weaver in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/war-wizard-of-cormyr-574",
@@ -31771,9 +31806,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement War Wizard of Cormyr in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/warblade-117",
@@ -31835,9 +31870,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warchief in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/warforged-juggernaut-440",
@@ -31868,9 +31903,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warforged Juggernaut in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/warlock-4",
@@ -31931,9 +31966,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warlord of Utterdark in the persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/warmage-5",
@@ -32016,9 +32051,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warmaster in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/warpriest-255",
@@ -32049,9 +32084,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warpriest in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/warpriest-370",
@@ -32082,9 +32118,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warpriest in the casting/progression, domain/divine, paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, domain/divine, paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression",
+        "Favored Enemy variants"
       ],
-      "implementationCohort": "casting/progression, domain/divine, paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/warrior-28",
@@ -32213,9 +32251,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warrior of Darkness in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/warrior-skald-701",
@@ -32246,9 +32284,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warrior Skald in the performance/action-resource cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "performance/action-resource. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "bardic music/performance resources"
       ],
-      "implementationCohort": "performance/action-resource. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "bardic music/performance resources"
     },
     {
       "sourceId": "classes/warshaper-339",
@@ -32279,9 +32317,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warshaper in the transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/warsling-sniper-702",
@@ -32312,9 +32350,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Warsling Sniper in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/wary-swordknight-paladin-946",
@@ -32345,9 +32383,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wary Swordknight (Paladin) in the paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "Favored Enemy variants"
       ],
-      "implementationCohort": "paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "Favored Enemy variants"
     },
     {
       "sourceId": "classes/watch-detective-623",
@@ -32378,9 +32416,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Watch Detective in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/wavekeeper-832",
@@ -32411,9 +32449,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wavekeeper in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/waverider-824",
@@ -32444,9 +32482,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Waverider in the companion/mount cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts"
       ],
-      "implementationCohort": "companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/waveservant-496",
@@ -32477,9 +32515,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Waveservant in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wayfarer-guide-221",
@@ -32510,9 +32549,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wayfarer Guide in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wayfarer-guide-850",
@@ -32571,9 +32610,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Weapon Master in the persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/weapon-master-kensei-649",
@@ -32604,9 +32643,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Weapon Master (Kensei) in the persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "persistent feature choices"
       ],
-      "implementationCohort": "persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "persistent feature choices"
     },
     {
       "sourceId": "classes/wearer-of-purple-424",
@@ -32637,9 +32676,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wearer of Purple in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wearer-of-purple-497",
@@ -32670,9 +32710,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wearer of Purple in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/weretouched-master-441",
@@ -32703,9 +32744,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Weretouched Master in the transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/whisperknife-747",
@@ -32736,9 +32777,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Whisperknife in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/wild-mage-222",
@@ -32769,9 +32810,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wild Mage in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wild-plains-outrider-202",
@@ -32802,9 +32843,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wild Plains Outrider in the companion/mount cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "companions/mounts/cohorts"
       ],
-      "implementationCohort": "companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "companions/mounts/cohorts"
     },
     {
       "sourceId": "classes/wild-scout-813",
@@ -32863,9 +32904,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wild Soul in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wilder-140",
@@ -32961,9 +33002,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wildrunner in the transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "transformations/wild-shape"
     },
     {
       "sourceId": "classes/windrider-624",
@@ -32994,9 +33035,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement Windrider in the casting/progression, companion/mount, persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, companion/mount, persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "companions/mounts/cohorts",
+        "persistent feature choices"
       ],
-      "implementationCohort": "casting/progression, companion/mount, persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/windwalker-498",
@@ -33027,9 +33070,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement Windwalker in the casting/progression, performance/action-resource, paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, performance/action-resource, paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "bardic music/performance resources",
+        "Favored Enemy variants"
       ],
-      "implementationCohort": "casting/progression, performance/action-resource, paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/windwright-captain-446",
@@ -33060,9 +33105,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Windwright Captain in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/winterhaunt-of-iborighu-508",
@@ -33093,9 +33138,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Winterhaunt of Iborighu in the casting/progression, transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "transformations/wild-shape"
       ],
-      "implementationCohort": "casting/progression, transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/witch-hunter-650",
@@ -33126,9 +33172,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Witch Hunter in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/witch-slayer-855",
@@ -33159,9 +33205,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Witch Slayer in the paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "Favored Enemy variants"
       ],
-      "implementationCohort": "paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "Favored Enemy variants"
     },
     {
       "sourceId": "classes/witchborn-binder-599",
@@ -33192,9 +33238,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Witchborn Binder in the incarnum cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "incarnum. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "incarnum/soulmelds"
       ],
-      "implementationCohort": "incarnum. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "incarnum/soulmelds"
     },
     {
       "sourceId": "classes/wizard-110",
@@ -33342,9 +33388,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wizard of High Sorcery in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wizard-variant-959",
@@ -33406,9 +33452,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wonderworker in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/wu-jen-6",
@@ -33498,9 +33544,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Wyrm Wizard in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/yakuza-651",
@@ -33531,9 +33577,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Yakuza in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/yathchol-webrider-906",
@@ -33564,9 +33610,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Yathchol Webrider in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/yathrinshee-683",
@@ -33597,9 +33643,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Yathrinshee in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement"
       ],
-      "implementationCohort": "casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/yuan-ti-cultist-825",
@@ -33630,9 +33676,11 @@
       "ciRunUrl": null,
       "nextAction": "Implement Yuan-ti Cultist in the psionics/manifesting, casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "psionics/manifesting, casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "psionics/manifesting",
+        "ordinary prestige spellcasting/selected caster advancement",
+        "domains/deity progression"
       ],
-      "implementationCohort": "psionics/manifesting, casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "psionics/manifesting"
     },
     {
       "sourceId": "classes/zerth-cenobite-282",
@@ -33663,9 +33711,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement Zerth Cenobite in the psionics/manifesting cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "psionics/manifesting. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "psionics/manifesting"
       ],
-      "implementationCohort": "psionics/manifesting. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "psionics/manifesting"
     },
     {
       "sourceId": "classes/zhentarim-skymage-539",
@@ -33696,9 +33744,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Zhentarim Skymage in the casting/progression, companion/mount cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "casting/progression, companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "ordinary prestige spellcasting/selected caster advancement",
+        "companions/mounts/cohorts"
       ],
-      "implementationCohort": "casting/progression, companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "ordinary prestige spellcasting/selected caster advancement"
     },
     {
       "sourceId": "classes/zhentarim-spy-684",
@@ -33729,10 +33778,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement Zhentarim Spy in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
       "implementationCohorts": [
-        "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     }
   ],
-  "lastUpdatedNote": "Implementation phase initialized: all needs-review records now carry reusable implementation-cohort metadata; completion status remains unchanged pending runtime wiring and regression validation."
+  "lastUpdatedNote": "Implementation phase initialized: all 960 needs-review records are classified into canonical reusable implementation cohorts; completion status is unchanged pending runtime wiring and regression validation."
 }
