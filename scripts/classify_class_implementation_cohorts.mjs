@@ -46,7 +46,7 @@ function classify(entry){
   add('shadowcasting/mysteries',/shadowcast|mysteries known|mystery progression|paths? of shadow/);
   add('spellfire',/\bspellfire\b/);
   add('transformations/wild-shape',/wild shape|alternate form|shapechange|\btransform(?:ation|ing)?\b|bear form|dragon form|form of /);
-  add('companions/mounts/cohorts',/animal companion|\bcompanion\b|\bfamiliar\b|special mount|\bmount\b|\bcohort\b|\bfollowers?\b|vermin servant|tether hound|acquire ship|shipbond/);
+  add('companions/mounts/cohorts',/animal companion|\bcompanion\b|\bfamiliar\b|special mount|\bmount\b|leadership cohort|cohort\/follower|\bfollowers?\b|vermin servant|tether hound|acquire ship|shipbond/);
   add('domains/deity progression',/\bdomains?\b|deity-specific|patron deity|deity progression|domain progression/);
   add('Favored Enemy variants',/favou?red enemy/);
   add('bardic music/performance resources',/bardic music|music uses?|\bperformance\b|\bsong\b|inspire courage|inspire competence/);
