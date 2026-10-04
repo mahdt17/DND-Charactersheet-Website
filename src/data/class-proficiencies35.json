@@ -3565,6 +3565,106 @@
         }
       ],
       "verified": true
+    },
+    "classes/cavelord-896": {
+      "name": "Cavelord",
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "proficiencyText": "Weapon and Armor Proficiency: Cavelords are proficient with all simple and martial weapons, with all types of armor, and with all types of shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/daidoji-bodyguard-630": {
+      "name": "Daidoji Bodyguard",
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "proficiencyText": "Weapon and Armor Proficiency: Daidoji bodyguards do not gain any additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/dark-lantern-475": {
+      "name": "Dark Lantern",
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "proficiencyText": "Weapon and Armor Proficiency: As a Dark Lantern, you gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/deepwarden-729": {
+      "name": "Deepwarden",
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "proficiencyText": "Weapon and Armor Proficiency: Deepwardens are proficient with all types of simple and martial weapons, all types of armor, and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/astral-dancer-686": {
+      "name": "Astral Dancer",
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "proficiencyText": "Weapon and Armor Proficiency: Astral dancers gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
     }
   }
 }
