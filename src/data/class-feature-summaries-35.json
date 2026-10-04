@@ -7458,5 +7458,369 @@
       "description": "Once per day transform your body into flame for up to 10 minutes. Gain fire immunity and damage reduction 30/+1. Creatures you touch must make Reflex DC 15 or catch fire for 1d4 rounds; creatures hitting you with natural weapons or unarmed attacks take 2d6 fire damage and also risk catching fire on the same save.",
       "actionType": "Standard action"
     }
+  ],
+  "classes/deepwood-sniper-609": [
+    {
+      "name": "Keen Arrows",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "Every projectile you fire is treated as keen in addition to its other properties; this does not stack with another keen effect."
+    },
+    {
+      "name": "Range Increment Bonus",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "Increase the range increment of each projectile weapon you use by 10 feet per Deepwood Sniper level, applying this increase after other range multipliers."
+    },
+    {
+      "name": "Concealment Reduction",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "Reduce your miss chance against concealment by 10 percentage points at 2nd level, 20 points at 6th, and 30 points at 10th, never below 0%."
+    },
+    {
+      "name": "Magic Weapon",
+      "level": 2,
+      "actionType": "1 action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Magic Weapon refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "Once per day, use magic weapon on projectile weapons only, with caster level equal to your Deepwood Sniper level."
+    },
+    {
+      "name": "Projectile Improved Critical",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "Increase the critical damage multiplier of projectile weapons by 1 at 2nd level and by another 1 at 7th level."
+    },
+    {
+      "name": "Safe Poison Use",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "You can apply and use poison without risking accidental self-poisoning."
+    },
+    {
+      "name": "Take Aim",
+      "level": 4,
+      "actionType": "Full-round action",
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "As a full-round action, carefully aim at a stationary target for a +2 attack bonus; the bonus is lost if the target moves more than 5 feet during the aiming period. The bonus improves to +4 at 8th level."
+    },
+    {
+      "name": "Consistent Aim",
+      "level": 5,
+      "actionType": "Triggered",
+      "resource": {
+        "maxByLevel": {
+          "5": 1,
+          "7": 2,
+          "9": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Consistent Aim daily uses scale with class level and refresh with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "After making a projectile attack roll, reroll it and keep the new result. Use this once per day at 5th level, twice at 7th, and three times at 9th and higher."
+    },
+    {
+      "name": "Keen Edge",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "The source advancement table lists keen edge at 6th level, but the class-feature rules do not define a separate keen edge ability; no additional use or effect is automated beyond the source-supported text."
+    },
+    {
+      "name": "True Strike",
+      "level": 10,
+      "actionType": "1 action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "True Strike refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "description": "Once per day, use true strike with caster level equal to your Deepwood Sniper level; this spell-like ability applies only to projectile weapons."
+    }
+  ],
+  "classes/tempest-621": [
+    {
+      "name": "Improved Two-Weapon Fighting",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor and not using a double weapon, fight with two weapons as though you had Improved Two-Weapon Fighting."
+    },
+    {
+      "name": "Off-Hand Parry",
+      "level": 2,
+      "featName": "Off-Hand Parry",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "Gain Off-Hand Parry as a bonus feat. The class improves the AC benefit from this feat as you advance, reaching the source's higher listed bonuses at later Tempest levels."
+    },
+    {
+      "name": "Greater Two-Weapon Fighting",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor and not using a double weapon, fight with two weapons as though you had Greater Two-Weapon Fighting."
+    },
+    {
+      "name": "Absolute Ambidexterity",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor, reduce the attack penalties for fighting with two weapons by 2."
+    },
+    {
+      "name": "Supreme Two-Weapon Fighting",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor and not using a double weapon, gain a fourth off-hand attack at a -15 penalty after the normal off-hand iterative attacks."
+    }
+  ],
+  "classes/yakuza-651": [
+    {
+      "name": "Uncanny Dodge",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "description": "Retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent unless immobilized. At 4th level you normally cannot be flanked except by a sufficiently higher-level rogue; at 8th level gain +1 on Reflex saves against traps. Levels in other classes that grant uncanny dodge combine as the source specifies."
+    },
+    {
+      "name": "Defensive Roll",
+      "level": 1,
+      "actionType": "Triggered",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Defensive Roll refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "description": "Once per day, when combat damage from a weapon or similar blow would reduce you to 0 hit points or lower, make a Reflex save with DC equal to the damage dealt; on success take half damage. You must be aware of and able to react to the attack."
+    },
+    {
+      "name": "Improved Evasion",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "description": "While wearing light or no armor, take no damage on a successful Reflex save against an effect that normally deals half damage and only half damage on a failed save."
+    },
+    {
+      "name": "Yakuza Knowledge",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "description": "Make a special local-knowledge check using your Yakuza level plus Intelligence modifier to recall information about local people and places; you cannot take 10 or 20 on this check."
+    },
+    {
+      "name": "Leadership",
+      "level": 5,
+      "featName": "Leadership",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "description": "Gain Leadership as a bonus feat. If you already have Leadership, instead gain the source's permanent +2 bonus to your Leadership score."
+    },
+    {
+      "name": "Slippery Mind",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "description": "If you fail a save against magic that controls or compels you, attempt one new save 1 round later at the same DC."
+    }
+  ],
+  "classes/tomb-warden-554": [
+    {
+      "name": "Turn Immunity",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/tomb-warden-554",
+      "description": "While within the tomb, graveyard, or other resting place you protect, you are immune to turning and rebuking attempts, though you can still be bolstered."
+    },
+    {
+      "name": "Tomb Sense",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/tomb-warden-554",
+      "description": "While within the protected resting place, automatically know the precise location of every intruder there, even without line of effect."
+    },
+    {
+      "name": "Power of the Dead",
+      "level": 3,
+      "actionType": "Free action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Power of the Dead refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/tomb-warden-554",
+      "description": "Once per day as a free action while within the place you protect, gain an insight bonus on attack rolls, damage rolls, and saving throws equal to your Charisma modifier (minimum +1) for 10 minutes. Leaving the protected site for more than seven days or relinquishing guardianship causes the source's class-feature loss until atonement."
+    }
+  ],
+  "classes/warsling-sniper-702": [
+    {
+      "name": "Warsling Sneak Attack",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
+      "description": "Deal +1d6 ranged sneak attack damage with a warsling at 1st level, +2d6 at 3rd, and +3d6 at 5th. The target must be within 30 feet, and this damage stacks with sneak attack from other classes."
+    },
+    {
+      "name": "Sniper’s Vision",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
+      "description": "Gain +2 on sling attacks against targets benefiting from cover. When a skiprock attack misses because of concealment, reroll the concealment miss chance."
+    },
+    {
+      "name": "Improved Critical",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
+      "description": "Gain Improved Critical for the halfling warsling as a source-specified bonus feat."
+    },
+    {
+      "name": "Improved Ricochet",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
+      "description": "Once per round when a skiprock ricochets from one target to another, make the second attack without the normal -2 penalty."
+    }
+  ],
+  "classes/tainted-warrior-882": [
+    {
+      "name": "Taint Suppression",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/tainted-warrior-882",
+      "description": "Your taint is normally hidden internally: do not apply your taint score as a Constitution penalty, and apply only half your taint score as a Wisdom penalty. The source's appearance exceptions still apply in tainted areas or when internal corruption is exposed."
+    },
+    {
+      "name": "Damage Reduction",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/tainted-warrior-882",
+      "description": "Gain damage reduction 1/good at 2nd level, increasing by 1 at every even-numbered Tainted Warrior level, reaching 5/good at 10th."
+    },
+    {
+      "name": "Tainted Strike",
+      "level": 3,
+      "actionType": "Attack",
+      "resource": {
+        "maxByLevel": {
+          "3": 1,
+          "7": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Tainted Strike daily uses scale with class level and refresh with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/tainted-warrior-882",
+      "description": "Infuse a melee attack with taint, adding your taint score to damage and increasing the target's taint score by 1 unless it is immune to taint. Use this once per day at 3rd level and twice per day from 7th level onward."
+    }
+  ],
+  "classes/whisperknife-747": [
+    {
+      "name": "Rapid Shot",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "When throwing light weapons, you are treated as having Rapid Shot even if you do not meet its normal prerequisites."
+    },
+    {
+      "name": "Uncanny Dodge",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "Retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent unless immobilized. If another class already grants uncanny dodge, use the source's improved-uncanny-dodge stacking rule."
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "Gain +1d6 sneak attack at 2nd level, +2d6 at 5th, and +3d6 at 8th; ranged sneak attacks work only within 30 feet."
+    },
+    {
+      "name": "Defensive Throw",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "Attacking with a thrown weapon no longer provokes attacks of opportunity; other ranged weapons are unaffected."
+    },
+    {
+      "name": "Improved Catch",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "After a ranged attack with a returning weapon, you can move and still have the weapon return so long as line of sight to it exists at the beginning of your next turn."
+    },
+    {
+      "name": "Close Defense",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "While adjacent to a Medium or larger foe, gain a +2 dodge bonus to AC against attacks from foes adjacent to you; ranged and reach attacks do not receive this penalty."
+    },
+    {
+      "name": "Fast Movement",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "Increase land speed by 10 feet while wearing no, light, or medium armor and not carrying a heavy load."
+    },
+    {
+      "name": "Poison Use",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "Apply poison to a blade without risking accidental self-poisoning."
+    },
+    {
+      "name": "Vengeful Strike",
+      "level": 7,
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "7": 1,
+          "10": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Vengeful Strike daily uses scale with class level and refresh with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "As a standard action, make one melee or ranged attack against a victim whose name you know. Gain +2 morale on the attack; on a hit the target must save against DC 10 + your class level + your Dexterity modifier or be stunned for 1d4 rounds. Use once per day at 7th level and three times per day at 10th."
+    },
+    {
+      "name": "Superior Catch",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "Improve your use of returning weapons so two returning weapons can each be used for two attacks in a round, or one can be used for three attacks, subject to the source's range-increment restriction."
+    },
+    {
+      "name": "Improved Uncanny Dodge",
+      "level": 9,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "You can no longer normally be flanked, subject to the standard higher-level rogue exception and the source's class-level stacking rules."
+    },
+    {
+      "name": "Ranged Flank",
+      "level": 9,
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "description": "When within 10 feet of a foe, you can flank that foe with a ranged weapon as though using a reach weapon, but this does not itself let you threaten the foe or make ranged attacks of opportunity."
+    }
+  ],
+  "classes/ephemeral-exemplar-547": [
+    {
+      "name": "Improved Deflection",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
+      "description": "Add your Ephemeral Exemplar class level to your deflection bonus to AC."
+    },
+    {
+      "name": "Turn Resistance",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
+      "description": "Add your Ephemeral Exemplar class level to your turn resistance."
+    },
+    {
+      "name": "Enhanced Spawn",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
+      "description": "Spawn you create gain a +4 enhancement bonus to Dexterity while you remain in existence; they lose the bonus if you are destroyed."
+    },
+    {
+      "name": "Ghostly Grasp",
+      "level": 3,
+      "featName": "Ghostly Grasp",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
+      "description": "Gain Ghostly Grasp as a bonus feat even if you do not meet its prerequisite."
+    }
   ]
 }
