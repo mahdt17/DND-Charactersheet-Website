@@ -9,6 +9,32 @@ const reference=[...classes,...feats];
 const exact=id=>annotateClassGrantKinds(classes.find(record=>record.sourceId===id),reference);
 const base=row=>({id:'ordinary-prestige-test',name:'Ordinary Prestige Test',ruleset:'3.5',mechanics:'3.5',level:row.level,className:row.name,classDefinition:row.definition,classLevels:[row],abilities:{str:14,dex:16,con:14,int:14,wis:12,cha:12},hp:{current:30,max:30,temp:0},actions:[{id:'manual-action',name:'Manual action'}],feats:[{id:'manual-feat',name:'Manual feat'}],resources:[],spells:[],trainingGrants:[],featureChoices:{}});
 const row=(definition,level)=>({catalogId:definition.catalogId,name:definition.name,edition:'3.5',level,definition});
+// Parenthetical names can identify independent abilities, not scaling labels.
+// Each eye has its own unlock level and expenditure; no future eye may leak in.
+for(const [level,eyes] of [[2,[]],[3,['Disdain']],[6,['Disdain','Fear']],[9,['Disdain','Fear','Curses']]]){
+ const definition=exact('classes/blessed-gruumsh-982');
+ let character=reconcileClassGrants(base(row(definition,level)));
+ assert.deepEqual(character.resources.filter(r=>r.name.startsWith('Evil Eye')).map(r=>r.name).sort(),eyes.map(eye=>'Evil Eye (Eye of '+eye+')').sort());
+ if(level===9){
+  const disdain=character.resources.find(r=>r.name==='Evil Eye (Eye of Disdain)');
+  character.resources=character.resources.map(r=>r.id===disdain.id?{...r,used:1}:r);
+  character=reconcileClassGrants(character);
+  assert.equal(character.resources.find(r=>r.name==='Evil Eye (Eye of Disdain)').used,1);
+  assert.equal(character.resources.find(r=>r.name==='Evil Eye (Eye of Fear)').used,0);
+  assert.match(character.grantedFeatures.find(f=>f.name==='Evil Eye (Eye of Curses)').description,/Fortitude/);
+  assert.match(character.grantedFeatures.find(f=>f.name==='Evil Eye (Eye of Fear)').description,/Will/);
+ }
+}
+{
+ const definition=exact('classes/blessed-gruumsh-982');
+ const legacy={id:'class-grant:dndtools:classes/blessed-gruumsh-982:resource:evil-eye',name:'Evil Eye',max:1,used:1,reset:'long',automatic:true,sourceType:'class',sourceClassId:'dndtools:classes/blessed-gruumsh-982',sourceFeatureId:'evil-eye-eye-of-disdain'};
+ const character=reconcileClassGrants({...base(row(definition,9)),resources:[legacy,{id:'manual-eye',name:'Evil Eye',max:5,used:3}]});
+ assert.equal(character.resources.find(r=>r.name==='Evil Eye (Eye of Disdain)').used,1,'renaming a managed feature must preserve saved expenditure');
+ assert.equal(character.resources.find(r=>r.name==='Evil Eye (Eye of Fear)').used,0);
+ assert.equal(character.resources.find(r=>r.id==='manual-eye').used,3);
+ assert(!character.resources.some(r=>r.id===legacy.id));
+ assert.deepEqual(reconcileClassGrants(character),character);
+}
 const cases=[
  {id:'classes/streetfighter-197',level:5,features:['Always Ready','Streetwise','Stand Tough','Sneak Attack','Uncanny Dodge'],resource:['Stand Tough',2],training:[]},
  {id:'classes/survivor-822',level:5,features:['Uncanny Dodge','Evasion','Improved Evasion','Damage Reduction'],training:[]},

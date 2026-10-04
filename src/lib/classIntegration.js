@@ -54,8 +54,8 @@ function reviewedFeatureRows(record){
   const inherited=inheritedId&&Array.isArray(legacyFeatureSummaries[inheritedId])?legacyFeatureSummaries[inheritedId]:null;
   if(direct){
     if(!inherited)return direct;
-    const merged=new Map(inherited.map(item=>[featureMatchKey(item?.name),item]));
-    for(const item of direct)merged.set(featureMatchKey(item?.name),item);
+    const merged=new Map(inherited.map(item=>[norm(item?.name),item]));
+    for(const item of direct)merged.set(norm(item?.name),item);
     return [...merged.values()];
   }
   const sourceId=keys[0];
@@ -67,12 +67,22 @@ function reviewedFeatureRows(record){
 }
 function reviewedFeatureRow(record,name){
   const key=featureMatchKey(name),rows=reviewedFeatureRows(record);
-  const direct=rows.find(item=>featureMatchKey(item?.name)===key);
+  const direct=rows.find(item=>norm(item?.name)===norm(name));
   if(direct)return direct;
-  const alias=rows.find(item=>Array.isArray(item?.aliases)&&item.aliases.some(value=>featureMatchKey(value)===key));
+  const alias=rows.find(item=>Array.isArray(item?.aliases)&&item.aliases.some(value=>norm(value)===norm(name)));
   if(alias)return alias;
+  const matches=rows.filter(item=>featureMatchKey(item?.name)===key||item?.aliases?.some(value=>featureMatchKey(value)===key));
+  if(matches.length===1)return matches[0];
+  if(matches.length>1)return null;
   if(key.startsWith('wild shape'))return rows.find(item=>featureMatchKey(item?.name)==='wild shape')||null;
   return null;
+}
+function distinctReviewedFeature(record,name){
+  const key=featureMatchKey(name);
+  return reviewedFeatureRows(record).filter(item=>featureMatchKey(item?.name)===key).length>1;
+}
+function featureIdentityKey(record,name){
+  return distinctReviewedFeature(record,name)?norm(name):featureMatchKey(name);
 }
 function reviewedFeatureDescription(record,name){
   const row=reviewedFeatureRow(record,name);
@@ -516,12 +526,12 @@ function rawClassFeatures(row){
   const supplementReviewed=features=>{
     const list=features.map(decorateLegacy);
     if(edition!=='3.5')return list;
-    const seen=new Set(list.map(feature=>featureMatchKey(feature.name)));
+    const seen=new Set(list.map(feature=>featureIdentityKey(record,feature.name)));
     for(const detail of reviewedFeatureRows(record)){
       const level=Math.max(1,Number(detail?.level)||1),name=String(detail?.name||'').trim();
-      if(!name||level>maximum||featureSuppressed(record,name,level)||seen.has(featureMatchKey(name)))continue;
+      if(!name||level>maximum||featureSuppressed(record,name,level)||seen.has(featureIdentityKey(record,name)))continue;
       list.push({level,name,description:String(detail.description||'').trim(),...reviewedFeatureMetadata(record,name)});
-      seen.add(featureMatchKey(name));
+      seen.add(featureIdentityKey(record,name));
     }
     return list;
   };
@@ -549,12 +559,13 @@ function coalesceFeatures(row){
   for(const feature of rawClassFeatures(row)){
     const name=String(feature.name||'').trim();
     if(!name)continue;
-    const key=norm(name.replace(/\s*\([^)]*\)\s*$/,''));
+    const displayName=distinctReviewedFeature(row.definition,name)?name:name.replace(/\s*\([^)]*\)\s*$/,'');
+    const key=norm(displayName);
     const current=map.get(key);
     const description=feature.description||sourceFeatureDescription(row.definition||{},name);
     const history={level:feature.level,text:feature.progressionText||name};
     if(!current){
-      map.set(key,{...feature,name:name.replace(/\s*\([^)]*\)\s*$/,''),level:feature.level,description,history:[history]});
+      map.set(key,{...feature,name:displayName,level:feature.level,description,history:[history]});
     }else{
       current.level=Math.min(current.level,feature.level);
       current.latestLevel=Math.max(current.latestLevel||current.level,feature.level);
@@ -855,7 +866,18 @@ function mergeDerived(existing,derived,{resource=false,feat=false}={}){
   if(!resource&&!feat)return [...manual,...derived];
   const old=new Map(list.filter(isOldClassFeature).map(entry=>[entry.id,entry]));
   if(feat)return [...manual,...derived.map(entry=>({...entry,...(old.get(entry.id)?.magicChoices?{magicChoices:old.get(entry.id).magicChoices}:{})}))];
-  return [...manual,...derived.map(entry=>({...entry,used:Math.max(0,Math.min(Number(entry.max)||0,Number(old.get(entry.id)?.used)||0))}))];
+  const derivedIds=new Set(derived.map(entry=>entry.id));
+  const sameFeature=(a,b)=>a.sourceClassId===b.sourceClassId&&a.sourceFeatureId===b.sourceFeatureId;
+  return [...manual,...derived.map(entry=>{
+    let previous=old.get(entry.id);
+    // A corrected display name may change a resource ID. Migrate only a retired,
+    // unambiguous managed pool with the same exact class and source feature.
+    if(!previous&&entry.sourceClassId&&entry.sourceFeatureId&&derived.filter(other=>sameFeature(other,entry)).length===1){
+      const candidates=[...old.values()].filter(other=>!derivedIds.has(other.id)&&sameFeature(other,entry));
+      if(candidates.length===1)previous=candidates[0];
+    }
+    return {...entry,used:Math.max(0,Math.min(Number(entry.max)||0,Number(previous?.used)||0))};
+  })];
 }
 
 export function reconcileClassGrants(character){
