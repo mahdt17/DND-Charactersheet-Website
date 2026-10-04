@@ -3665,6 +3665,123 @@
       "proficiencies": [],
       "verified": true,
       "explicitNoProficiencies": true
+    },
+    "classes/disciple-of-baalzebul-166": {
+      "name": "Disciple of Baalzebul",
+      "sourceUrl": "https://www.realmshelps.net/charbuild/classes/prestige/evil/disciplebaalzebul.shtml",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Baalzebul are proficient with all simple and martial weapons, all light armors, but no shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/disciple-of-dispater-167": {
+      "name": "Disciple of Dispater",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Dispater are proficient with all simple and martial weapons, with all types of armor, and with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/disciple-of-mammon-168": {
+      "name": "Disciple of Mammon",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Mammon are proficient with all simple and martial weapons, but no type of armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/disciple-of-mephistopheles-169": {
+      "name": "Disciple of Mephistopheles",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Mephistopheles are proficient with all simple and martial weapons, with all types of armor, and with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
