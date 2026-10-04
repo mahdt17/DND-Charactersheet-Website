@@ -3782,6 +3782,95 @@
         }
       ],
       "verified": true
+    },
+    "classes/deepwood-sniper-609": {
+      "name": "Deepwood Sniper",
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "proficiencyText": "Weapon and Armor Proficiency: Deepwood snipers gain no weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tempest-621": {
+      "name": "Tempest",
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "proficiencyText": "Weapon and Armor Proficiency: Tempests gain no weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/yakuza-651": {
+      "name": "Yakuza",
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "proficiencyText": "Weapon and Armor Proficiency: Yakuzas gain no additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/warsling-sniper-702": {
+      "name": "Warsling Sniper",
+      "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
+      "proficiencyText": "Weapon and Armor Proficiency: Warsling snipers gain no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tainted-warrior-882": {
+      "name": "Tainted Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/tainted-warrior-882",
+      "proficiencyText": "Weapon and Armor Proficiency: Tainted warriors do not gain any additional weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/whisperknife-747": {
+      "name": "Whisperknife",
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "proficiencyText": "Weapon and Armor Proficiency: You gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/ephemeral-exemplar-547": {
+      "name": "Ephemeral Exemplar",
+      "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
+      "proficiencyText": "Weapon and Armor Proficiency: Ephemeral exemplars gain no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tomb-warden-554": {
+      "name": "Tomb Warden",
+      "sourceUrl": "https://new.dndtools.org/classes/tomb-warden-554",
+      "proficiencyText": "Weapon and Armor Proficiency: Tomb wardens gain proficiency with simple and martial weapons, and with light, medium, and heavy armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
