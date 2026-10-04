@@ -5903,27 +5903,28 @@
       "name": "Deepwood Sniper",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Masters of the Wild Deepwood Sniper needs BAB +5, Hide/Move Silently/Spot 4, Far Shot, Point Blank Shot and Weapon Focus with a bow/crossbow, plus projectile-range, concealment, critical and poison mechanics."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact source gate and projectile-only checks, keen/range scaling, concealment reduction, improved critical multipliers, safe poison use and daily precision abilities.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -9831,27 +9832,28 @@
       "name": "Ephemeral Exemplar",
       "sourceBook": "Prestige Class Libris Mortis: The Book of Undead",
       "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Libris Mortis Ephemeral Exemplar is source-verified for incorporeal undead with BAB +3 and base Will +5; its progression strengthens incorporeal defenses and interaction with corporeal objects."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa source-faithful discovery and SRD/D&DTools/RealmsHelps mirrors verified the record's source/version, entry rules or progression.",
         "The Tavily bulk exact-page extraction was attempted for this 75-record batch but returned empty results; it was not treated as evidence.",
         "Epic Level Handbook 3.0 progressions and Dungeon Master's Guide v3.5 epic progressions were kept as separate source records.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact undead/incorporeal gate and every exemplar defense, turning resistance and corporeal-manipulation feature.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -29158,17 +29160,15 @@
       "name": "Tainted Warrior",
       "sourceBook": "Prestige Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/tainted-warrior-882",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Tainted Warrior; verified mechanics requiring integration include Taint Suppression, Damage Reduction, Tainted Strike. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -29176,11 +29176,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Unearthed Arcana record at https://new.dndtools.org/classes/tainted-warrior-882.",
         "Exact-page mechanics identified include: Taint Suppression, Damage Reduction, Tainted Strike.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Tainted Warrior exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -29459,17 +29462,15 @@
       "name": "Tempest",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Tempest; verified mechanics requiring integration include Prestige Class Masters of the Wild, Improved Two-Weapon Fighting, Off-Hand Parry, Greater Two-Weapon Fighting, Absolute Ambidexterity, Supreme Two-Weapon Fighting. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -29477,11 +29478,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers record at https://new.dndtools.org/classes/tempest-621.",
         "Exact-page mechanics identified include: Prestige Class Masters of the Wild, Improved Two-Weapon Fighting, Off-Hand Parry, Greater Two-Weapon Fighting, Absolute Ambidexterity, Supreme Two-Weapon Fighting.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Tempest exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -30183,17 +30187,15 @@
       "name": "Tomb Warden",
       "sourceBook": "Prestige Class Libris Mortis: The Book of Undead",
       "sourceUrl": "https://new.dndtools.org/classes/tomb-warden-554",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Tomb Warden; verified mechanics requiring integration include Prestige Class Libris Mortis, Turn Immunity, Tomb Sense, Power of the Dead. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -30201,11 +30203,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Libris Mortis: The Book of Undead record at https://new.dndtools.org/classes/tomb-warden-554.",
         "Exact-page mechanics identified include: Prestige Class Libris Mortis, Turn Immunity, Tomb Sense, Power of the Dead.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Tomb Warden exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -32352,17 +32357,15 @@
       "name": "Warsling Sniper",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Warsling Sniper; verified mechanics requiring integration include Warsling Sneak Attack, Sniper’s Vision, Improved Critical, Improved Ricochet. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -32370,11 +32373,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Races of Faerûn record at https://new.dndtools.org/classes/warsling-sniper-702.",
         "Exact-page mechanics identified include: Warsling Sneak Attack, Sniper’s Vision, Improved Critical, Improved Ricochet.",
         "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Warsling Sniper in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -32779,17 +32785,15 @@
       "name": "Whisperknife",
       "sourceBook": "Prestige Class Races of the Wild",
       "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Whisperknife; verified mechanics requiring integration include Rapid Shot, Uncanny Dodge, Sneak Attack, Defensive Throw, Improved Catch, Close Defense, Fast Movement, Poison Use, Vengeful Strike. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -32797,11 +32801,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Races of the Wild record at https://new.dndtools.org/classes/whisperknife-747.",
         "Exact-page mechanics identified include: Rapid Shot, Uncanny Dodge, Sneak Attack, Defensive Throw, Improved Catch, Close Defense, Fast Movement, Poison Use, Vengeful Strike.",
         "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Whisperknife in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -33579,17 +33586,15 @@
       "name": "Yakuza",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Yakuza; verified mechanics requiring integration include Uncanny Dodge, Defensive Roll, Improved Evasion, Yakuza Knowledge, Leadership, Slippery Mind. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -33597,11 +33602,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Oriental Adventures record at https://new.dndtools.org/classes/yakuza-651.",
         "Exact-page mechanics identified include: Uncanny Dodge, Defensive Roll, Improved Evasion, Yakuza Knowledge, Leadership, Slippery Mind.",
         "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, exact proficiency/training behavior, source-owned actions/resources and fixed feat grants where applicable, with level-correct resource scaling.",
+        "Duplicate-name prestige fallback handling was hardened so concrete source/version records no longer inherit another source's entry gate; Tempest is pinned to its Masters of the Wild historical record and Whisperknife's truncated gate was restored from the source-faithful mirror.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701 passed the eight-class ordinary-mechanics regression, enrichment self-test, source identity/description audit, class automation and lifecycle checks, full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Yakuza in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
+      "verifiedCommit": "8e414689fbd75c20daa9666a6e3124b40d098e04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37171548701",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
