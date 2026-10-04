@@ -1412,12 +1412,9 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
-        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
-        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
       ],
-      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -3592,12 +3589,9 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
-        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
-        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
       ],
-      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -5382,12 +5376,9 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
-        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
-        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
       ],
-      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -5450,12 +5441,9 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
-        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
-        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
       ],
-      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -5900,12 +5888,9 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
-        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
-        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
       ],
-      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -6488,27 +6473,28 @@
       "name": "Disciple of Baalzebul",
       "sourceBook": "Prestige Class Book of Vile Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Book of Vile Darkness Disciple of Baalzebul needs its full source gate and sect initiation rite, then deception, sneak-attack and devil-summoning progression."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and full source-specific prerequisite recovery for the Book of Vile Darkness disciple cohort.",
+        "The class-enrichment fallback was generalized for prestige records whose rebuilt source page exposes only a special requirement, recovering omitted alignment/skills/feats/BAB categories from the identity-checked historical D&D Tools mirror without overwriting source-present rules.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975 passed the Vile Disciple cohort regression, enrichment self-test, source identity/description audit, class automation/lifecycle checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact prerequisites/ritual state plus tongue/suggestion/sneak-attack, summoning and all source-specific social/fiend features.",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -6519,27 +6505,28 @@
       "name": "Disciple of Dispater",
       "sourceBook": "Prestige Class Book of Vile Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Book of Vile Darkness Disciple of Dispater needs its full source gate and iron-altar initiation rite, then device lore, iron weapon power, rusting and devil-summoning mechanics."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and full source-specific prerequisite recovery for the Book of Vile Darkness disciple cohort.",
+        "The class-enrichment fallback was generalized for prestige records whose rebuilt source page exposes only a special requirement, recovering omitted alignment/skills/feats/BAB categories from the identity-checked historical D&D Tools mirror without overwriting source-present rules.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975 passed the Vile Disciple cohort regression, enrichment self-test, source identity/description audit, class automation/lifecycle checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement source-exact prerequisites/ritual state and device lore, iron hews/power, rusting grasp, summoning and later Dispater features.",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -6550,27 +6537,28 @@
       "name": "Disciple of Mammon",
       "sourceBook": "Prestige Class Book of Vile Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Book of Vile Darkness Disciple of Mammon needs its full source gate and source initiation/betrayal rite, then lie/cheat/thief/steal, attack diversion and devil-summoning mechanics."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and full source-specific prerequisite recovery for the Book of Vile Darkness disciple cohort.",
+        "The class-enrichment fallback was generalized for prestige records whose rebuilt source page exposes only a special requirement, recovering omitted alignment/skills/feats/BAB categories from the identity-checked historical D&D Tools mirror without overwriting source-present rules.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975 passed the Vile Disciple cohort regression, enrichment self-test, source identity/description audit, class automation/lifecycle checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact prerequisites and a non-graphic initiation-state flag, then all Mammon deception/theft/combat-redirection and fiend-summoning features.",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -6581,27 +6569,28 @@
       "name": "Disciple of Mephistopheles",
       "sourceBook": "Prestige Class Book of Vile Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Book of Vile Darkness Disciple of Mephistopheles needs its full source gate and fire-sacrifice initiation rite, then hellfire, fire resistance and fiend-summoning progression."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and full source-specific prerequisite recovery for the Book of Vile Darkness disciple cohort.",
+        "The class-enrichment fallback was generalized for prestige records whose rebuilt source page exposes only a special requirement, recovering omitted alignment/skills/feats/BAB categories from the identity-checked historical D&D Tools mirror without overwriting source-present rules.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975 passed the Vile Disciple cohort regression, enrichment self-test, source identity/description audit, class automation/lifecycle checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact prerequisites/ritual state and hellfire grasp/blast/storm, fire resistance/flare, summoning and remaining Mephistopheles features.",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37170136975",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
