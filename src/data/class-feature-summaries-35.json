@@ -6527,5 +6527,290 @@
       "description": "After studying an orc for 3 rounds, make a damaging melee sneak attack within the next 3 rounds to attempt a killing blow. The Fortitude save DC is 10 + Darkwood Stalker level + Wisdom modifier.",
       "sourceSha256": "3ce58fbcd6f28ab31a6d605b29ffde4a29c4ff8c15af62345e16adb5f502932e"
     }
+  ],
+  "classes/avenging-executioner-289": [
+    {
+      "name": "Bloody Blade",
+      "level": 1,
+      "description": "Whenever a melee sudden strike deals damage, the target and visible opponents within 30 feet are shaken for a number of rounds equal to your Avenging Executioner level unless they succeed on a Will save (DC 10 + class level + Charisma modifier). Creatures with more HD than your character level are unaffected.",
+      "sourceSha256": "9f88d404a560a461fd9a3d0e3f4f6ada6870590ce62759ff82aac11c9ed70e64"
+    },
+    {
+      "name": "Sudden Strike",
+      "level": 1,
+      "description": "Deal extra precision damage when an opponent is unable to defend effectively. The progression grants +1d6 at 1st level, +2d6 at 3rd, and +3d6 at 5th.",
+      "sourceSha256": "b993471f31d93e53801a0d141ff3e340b4737d11e1576b7f20ea952c8c74106a"
+    },
+    {
+      "name": "Rapid Intimidation",
+      "level": 2,
+      "actionType": "Move action",
+      "description": "Demoralize an opponent with Intimidate as a move action instead of a standard action. If you have Favored Enemy, add its bonus to demoralize checks against the matching enemy type.",
+      "sourceSha256": "fe1c72cbff35be8658651b7fd3a9c399246321ce90293ab2627c5a39bb2ee829"
+    },
+    {
+      "name": "Dread Blade",
+      "level": 4,
+      "description": "Treat shaken, frightened, or panicked creatures as flat-footed for the purpose of dealing sudden strike damage.",
+      "sourceSha256": "7ad286b4383f7b93b98820456a753fa8b9d66104a98258da488119db6634378e"
+    },
+    {
+      "name": "Bloody Murder",
+      "level": 5,
+      "description": "When a melee attack drops a creature, visible enemies within 30 feet become frightened for 1 round unless they succeed on a Will save (DC 10 + class level + Charisma modifier); a successful save reduces this to shaken. Creatures with more HD than your character level are unaffected.",
+      "sourceSha256": "7ce8afd1c44084f7445c0c8c8ca165f86e6c6f26a13fd7ff5815dd303efa0c7d"
+    }
+  ],
+  "classes/chaotician-687": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain proficiency with all simple and martial weapons, all armor, and shields.",
+      "sourceSha256": "ea42211013dd3f5d943b6ee0eed9da5da958d9bc9d97fa270412aa4f889ca145"
+    },
+    {
+      "name": "Chaotic Contagion",
+      "level": 1,
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Chaotic Contagion daily uses refresh with the character's daily recovery."
+      },
+      "description": "On a successful melee touch attack, impose -2 AC against your attacks, -2 on saves against your spells or abilities, and -2 on skill checks opposed by you for 1 hour per class level. A Will save (DC 10 + class level + Charisma modifier) negates it and grants 24-hour immunity to your further attempts. Uses per day equal class level.",
+      "sourceSha256": "9a6761bcff712b7217539f84c47f56918be85bf0cb7ac12a082fed7c5931fcd8"
+    },
+    {
+      "name": "Scofflaw",
+      "level": 1,
+      "actionType": "Free action",
+      "description": "Lawful creatures must succeed on a caster-level check against DC 15 + class level + Charisma bonus to use divinations successfully against you. You may suppress or resume this protection as a free action.",
+      "sourceSha256": "1b4132f22dc343f366e5c6ba64d2e7fe3480ba48c447f6133d085777cc56ceaa"
+    },
+    {
+      "name": "Anarchic Grace",
+      "level": 2,
+      "actionType": "Free action",
+      "resource": {
+        "maxByLevel": {
+          "2": 1,
+          "4": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Anarchic Grace daily uses refresh with the character's daily recovery."
+      },
+      "description": "As a free action, gain a 50% miss chance against attacks for a number of rounds equal to class level, then become fatigued for 1 minute. Use once per day at 2nd level and twice per day at 4th.",
+      "sourceSha256": "994f4f96ea4f9c2e5dc3be0c855e487077c4d2d6ebbef3aaee6d29d9a129e6b6"
+    },
+    {
+      "name": "Babble",
+      "level": 3,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Babble refreshes with the character's daily recovery."
+      },
+      "description": "Once per day create a 10-foot-radius emanation in which sounds become unintelligible: verbal communication and verbal spell/item activation fail, sound-dependent effects do not function, and sonic damage has no effect.",
+      "sourceSha256": "0543959dab0f1c1279347a5847b71e1e14d2b9c93fbafc0acc4ab8d62df08ddc"
+    },
+    {
+      "name": "Clarity of Confusion",
+      "level": 3,
+      "description": "Gain +2 insight on saves against illusion (pattern), enchantment (compulsion), and spells with the lawful descriptor.",
+      "sourceSha256": "24bee1878a2167868b24f97ba1bfc3ec7ec5fb2a1c0f67be1d3995ece50d95e2"
+    },
+    {
+      "name": "Destiny’s Arbiter",
+      "level": 5,
+      "actionType": "Free action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Destiny's Arbiter refreshes with the character's daily recovery."
+      },
+      "description": "Once per day as a free action immediately after a roll is known, reroll your own result or force a visible creature within 60 feet to reroll; the second result stands.",
+      "sourceSha256": "a8ecc0b9b9e362bf890392a152332b73167f634ea055274c4e86f678cf371f09"
+    }
+  ],
+  "classes/cragtop-archer-727": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain no new weapon or armor proficiencies from Cragtop Archer.",
+      "sourceSha256": "df17611e29e01112f51503a4ae4275e3c3b95fdba6fc8825a8cce89a209b2584"
+    },
+    {
+      "name": "Adept Climber",
+      "level": 1,
+      "description": "Retain your Dexterity bonus to AC while climbing.",
+      "sourceSha256": "b2bfc5d1c39faf594bc4658e47d3a8e12170fbb34edf5b4c874c5a847b7ac1a3"
+    },
+    {
+      "name": "Farsight",
+      "level": 1,
+      "description": "Take only half the normal Spot penalty for distance (-1 per 20 feet) and half the normal ranged-attack penalty per range increment (-1 rather than -2).",
+      "sourceSha256": "b0a3f730d1d6bafbfdfe5f068acfc7de45090820cde4449fe831229cbb64d06c"
+    },
+    {
+      "name": "Strike From Above",
+      "level": 2,
+      "description": "Gain +2 damage on ranged attacks made from higher ground than the target.",
+      "sourceSha256": "ccd6f1ecb141b18d43bc7e2fcc81a805fedc899d52b08338d97d1baf6c1ad9e0"
+    },
+    {
+      "name": "Arcing Shot",
+      "level": 3,
+      "description": "With at least 40 feet of overhead clearance, a projectile weapon's maximum range becomes fifteen range increments instead of ten.",
+      "sourceSha256": "99d2812d3438708fa88a651c22facf6e8dbd5ce0b10363b52f30983479eeee5a"
+    },
+    {
+      "name": "Horizon Shot",
+      "level": 4,
+      "actionType": "Full-round action",
+      "description": "As a full-round action make one projectile-weapon attack with no range penalty, while retaining your normal maximum range and benefiting from other range-extending abilities.",
+      "sourceSha256": "73e138889af3cb2721f72eb80ea075dfae8b59225c1417311ca9cb1e93f33add"
+    },
+    {
+      "name": "Mountain Skin",
+      "level": 5,
+      "actionType": "Free action",
+      "resource": {
+        "max": 3,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Mountain Skin daily uses refresh with the character's daily recovery."
+      },
+      "description": "Three times per day as a free action, gain damage reduction 5/adamantine for 5 + Constitution modifier rounds.",
+      "sourceSha256": "64b170877d12bdfe815a31c4aa584a61237819b593a05cc6e393edc78bdb0a60"
+    }
+  ],
+  "classes/divine-seeker-663": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain proficiency with all simple weapons and light armor, but not shields.",
+      "sourceSha256": "4bcdbef588fd9fc29a5348984286deef129de605f9c1ffbb0498bafa71c2b53c"
+    },
+    {
+      "name": "Sacred Stealth",
+      "level": 1,
+      "actionType": "Standard action",
+      "resource": {
+        "ability": "cha",
+        "abilityMinimum": 1,
+        "reset": "long",
+        "unit": "minute",
+        "recoveryText": "Sacred Stealth's daily minute pool refreshes with the character's daily recovery."
+      },
+      "description": "As a standard action gain +10 sacred (or profane for an evil patron) on Hide and Move Silently. The daily duration is a number of minutes equal to Charisma modifier, minimum 1, and may be split into increments as small as 1 round; ending it is a free action.",
+      "sourceSha256": "91608c202ac69685c5e486453d3f9a80d10c52b07ac6755a0b2acb6959ed231d"
+    },
+    {
+      "name": "Thwart Magic Trap",
+      "level": 1,
+      "description": "Gain +3 on Disable Device and Search checks made to locate, disable, or bypass magic traps.",
+      "sourceSha256": "57036e534af72c37369613193623986724c15ced84e14bc10ebd881f0889c591"
+    },
+    {
+      "name": "Sacred Defense",
+      "level": 2,
+      "description": "Gain +1 on saves against divine spells and outsider spell-like or supernatural abilities, increasing to +2 at 4th level.",
+      "sourceSha256": "0d039d686b3500a0fc4ac870fde85d23aa80da82c4433ac751a39d86b661a1e3"
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 2,
+      "description": "Gain +1d6 sneak attack at 2nd level and +2d6 at 5th. It stacks with sneak attack from other sources, and Divine Seeker levels stack with appropriate classes for overcoming Improved Uncanny Dodge.",
+      "sourceSha256": "42a669040714c111acc08cc0f3185ea79c5a5de6d0a70d3fe7cb2e88d9b0da8c"
+    },
+    {
+      "name": "Locate Creature",
+      "level": 3,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Locate Creature refreshes with the character's daily recovery."
+      },
+      "description": "Use locate creature once per day at caster level equal to Divine Seeker level + Charisma modifier.",
+      "sourceSha256": "c25c1cbc9ad91e092288a7714d8901788d35997e14cc770b8716538ad18c41b7"
+    },
+    {
+      "name": "Locate Object",
+      "level": 3,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Locate Object refreshes with the character's daily recovery."
+      },
+      "description": "Use locate object once per day at caster level equal to Divine Seeker level + Charisma modifier.",
+      "sourceSha256": "a1544b4616c1026d0bb649f3da433840d3761fe661826422c0e8fa3446100630"
+    },
+    {
+      "name": "Divine Perseverance",
+      "level": 4,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Divine Perseverance refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, when brought to -1 hit points or lower, automatically heal 3d6 + Charisma bonus hit points.",
+      "sourceSha256": "9d493b77ec2287f2b2c7c641c6b5b6562b0e6652d4963c326c3aee4d7dc7610d"
+    },
+    {
+      "name": "Find the Path",
+      "level": 5,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Find the Path refreshes with the character's daily recovery."
+      },
+      "description": "Use find the path once per day at caster level equal to Divine Seeker level + Charisma modifier.",
+      "sourceSha256": "9efdf57a90ef936c66a8a63139582355f905e1f4f2e7fa2d37ce43f1a94f6bbb"
+    }
+  ],
+  "classes/menacing-brute-707": [
+    {
+      "name": "Demoralizing Stare",
+      "level": 1,
+      "description": "Gain a competence bonus on Intimidate equal to Menacing Brute level. A creature you successfully demoralize remains shaken for one additional round per class level.",
+      "sourceSha256": "c19e673b996127a27e4c846b6b4689e60309591e8b936a8bd175ee9039da516b"
+    },
+    {
+      "name": "Resourceful Search",
+      "level": 2,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Resourceful Search refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, make the source-defined Search check to find a nonmagical, non-masterwork item worth at most 200 gp without paying for it; DC, search time, and minimum community size scale with item value.",
+      "sourceSha256": "de70399c2df343aa03642468319228499c63d902395a61bfaa5eddcd30d67b7f"
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 3,
+      "description": "Gain +1d6 sneak attack damage when flanking or when the target is denied Dexterity to AC, with the source's point-blank restriction for ranged attacks.",
+      "sourceSha256": "9ce891ae67061356a3f8e8994487a60a4c4be649790a6c2553b334d6ae909f1c"
+    },
+    {
+      "name": "Ruthless Cut",
+      "level": 4,
+      "description": "Gain +4 on rolls to confirm a critical threat.",
+      "sourceSha256": "743da3a34d029d791870222eb96b98a73d3cababb19bae1b6c17253b0790f982"
+    },
+    {
+      "name": "Making an Example",
+      "level": 5,
+      "description": "When a melee attack drops a creature, foes within 30 feet must make a Will save (DC 15 + Charisma modifier) or cower until the start of their next turn; if the dropping blow was a critical hit, increase the save DC by 4.",
+      "sourceSha256": "4151f0c0087ce50024b08a0358d15ee1d420879ebb6b5f0ffc8e4f0d8db3ca03"
+    }
   ]
 }

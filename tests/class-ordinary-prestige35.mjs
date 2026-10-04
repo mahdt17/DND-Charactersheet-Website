@@ -15,7 +15,12 @@ const cases=[
  {id:'classes/tempest-198',level:5,features:['Tempest Defense','Ambidexterity','Two-Weapon Versatility','Two-Weapon Spring Attack'],action:'Two-Weapon Spring Attack',training:[]},
  {id:'classes/thief-acrobat-199',level:5,features:['Fast Acrobatics','Kip Up','Steady Stance','Agile Fighting','Slow Fall','Acrobatic Charge','Defensive Roll','Skill Mastery','Improved Evasion'],resource:['Defensive Roll',2],action:'Kip Up',training:['simple-weapons']},
  {id:'classes/dark-hunter-307',level:5,features:['Improved Stonecunning','Enhanced Darkvision','Sneak Attack','Stone’s Hue','Death Attack'],action:'Death Attack',training:[]},
- {id:'classes/darkwood-stalker-308',level:10,features:['Ancient Foe','Uncanny Dodge','Sneak Attack','Darkvision','Improved Uncanny Dodge','Dodge Critical','Death Attack'],resource:['Dodge Critical',1],action:'Death Attack',training:[]}
+ {id:'classes/darkwood-stalker-308',level:10,features:['Ancient Foe','Uncanny Dodge','Sneak Attack','Darkvision','Improved Uncanny Dodge','Dodge Critical','Death Attack'],resource:['Dodge Critical',1],action:'Death Attack',training:[]},
+ {id:'classes/avenging-executioner-289',level:5,features:['Bloody Blade','Sudden Strike','Rapid Intimidation','Dread Blade','Bloody Murder'],actions:['Rapid Intimidation'],training:[]},
+ {id:'classes/chaotician-687',level:5,features:['Chaotic Contagion','Scofflaw','Anarchic Grace','Babble','Clarity of Confusion','Destiny’s Arbiter'],resources:[['Chaotic Contagion',5],['Anarchic Grace',2],['Babble',1],['Destiny’s Arbiter',1]],actions:['Scofflaw','Anarchic Grace','Destiny’s Arbiter'],training:['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']},
+ {id:'classes/cragtop-archer-727',level:5,features:['Adept Climber','Farsight','Strike From Above','Arcing Shot','Horizon Shot','Mountain Skin'],resources:[['Mountain Skin',3]],actions:['Horizon Shot','Mountain Skin'],training:[]},
+ {id:'classes/divine-seeker-663',level:5,features:['Sacred Stealth','Thwart Magic Trap','Sacred Defense','Sneak Attack','Locate Creature','Locate Object','Divine Perseverance','Find the Path'],resources:[['Sacred Stealth',1],['Locate Creature',1],['Locate Object',1],['Divine Perseverance',1],['Find the Path',1]],actions:['Sacred Stealth'],training:['light-armor','simple-weapons']},
+ {id:'classes/menacing-brute-707',level:5,features:['Demoralizing Stare','Resourceful Search','Sneak Attack','Ruthless Cut','Making an Example'],resources:[['Resourceful Search',1]],training:[]}
 ];
 for(const spec of cases){
  const definition=exact(spec.id);
@@ -28,11 +33,12 @@ for(const spec of cases){
    assert.equal(feature.descriptionSource,'rule-text',spec.id+' '+name+' must use reviewed rule text');
  }
  assert.equal(classAutomationReport(once).classes[0].descriptionComplete,true,spec.id+' reviewed descriptions must be complete');
- if(spec.resource){
-   const [name,max]=spec.resource;
+ for(const [name,max] of [...(spec.resource?[spec.resource]:[]),...(spec.resources||[])]){
    assert.equal(once.resources.find(item=>item.name===name)?.max,max,spec.id+' '+name+' resource maximum');
  }
- if(spec.action)assert(once.actions.some(item=>item.name===spec.action&&item.sourceClassId===definition.catalogId),spec.id+' action '+spec.action);
+ for(const name of [...(spec.action?[spec.action]:[]),...(spec.actions||[])]){
+   assert(once.actions.some(item=>item.name===name&&item.sourceClassId===definition.catalogId),spec.id+' action '+name);
+ }
  const training=once.trainingGrants.flatMap(item=>item.proficiencies||[]).map(item=>item.index);
  assert.deepEqual(training.sort(),[...spec.training].sort(),spec.id+' exact starting training');
  const survivor={catalogId:'test:survivor',name:'Surviving Class',edition:'3.5',level:1,definition:{name:'Surviving Class',edition:'3.5'}};

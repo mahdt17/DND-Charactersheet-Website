@@ -3501,6 +3501,70 @@
       "proficiencies": [],
       "verified": true,
       "explicitNoProficiencies": true
+    },
+    "classes/chaotician-687": {
+      "name": "Chaotician",
+      "sourceUrl": "https://new.dndtools.org/classes/chaotician-687",
+      "proficiencyText": "Weapon and Armor Proficiency: Chaoticians are proficient with all simple and martial weapons, with all types of armor, and with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/cragtop-archer-727": {
+      "name": "Cragtop Archer",
+      "sourceUrl": "https://new.dndtools.org/classes/cragtop-archer-727",
+      "proficiencyText": "Weapon and Armor Proficiency: Cragtop archers gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/divine-seeker-663": {
+      "name": "Divine Seeker",
+      "sourceUrl": "https://new.dndtools.org/classes/divine-seeker-663",
+      "proficiencyText": "Weapon and Armor Proficiency: A divine seeker is proficient with all simple weapons and with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
