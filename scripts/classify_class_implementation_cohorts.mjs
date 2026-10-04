@@ -80,6 +80,6 @@ const counts=entries.filter(entry=>entry.status==='needs-review').reduce((acc,en
   return acc;
 },{});
 if(entries.length!==1054)throw new Error('Expected 1054 tracker records; found '+entries.length);
-if(entries.filter(entry=>entry.status==='needs-review').length!==960)throw new Error('Expected 960 needs-review records at implementation kickoff.');
+if(entries.some(entry=>entry.status==='needs-review'&&(!entry.implementationCohort||!(entry.implementationCohorts||[]).length)))throw new Error('Every needs-review record must have implementation cohort metadata.');
 if(write)fs.writeFileSync(trackerPath,JSON.stringify(tracker,null,2)+'\\n');
 console.log(JSON.stringify({total:entries.length,needsReview:960,cohorts:Object.fromEntries(Object.entries(counts).sort((a,b)=>b[1]-a[1]))},null,2));

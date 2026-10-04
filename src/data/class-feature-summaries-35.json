@@ -6247,5 +6247,189 @@
       "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
       "actionType": "As spell or readied action"
     }
+  ],
+  "classes/streetfighter-197": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain no new weapon or armor proficiencies from Streetfighter.",
+      "sourceSha256": "341ce29240c1d44785caa0bbc06eb8a6df47b5a253ea3922841bdc7411e25a15"
+    },
+    {
+      "name": "Always Ready",
+      "level": 1,
+      "description": "Gain a competence bonus on initiative checks: +1 at 1st level, +2 at 3rd, and +3 at 5th.",
+      "sourceSha256": "82aa0567b3bd5b16df6f229084aec4f990fb5af558d4f76eaba223754dc9cc5b"
+    },
+    {
+      "name": "Streetwise",
+      "level": 1,
+      "description": "Gain a +2 competence bonus on Gather Information and Knowledge (local) checks.",
+      "sourceSha256": "37f3053be8fa6c8242377425d656b85311b4fdc324d18ea9042ed155f320a044"
+    },
+    {
+      "name": "Stand Tough",
+      "level": 2,
+      "resource": {
+        "maxByLevel": {
+          "2": 1,
+          "4": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Stand Tough daily uses refresh with the character's daily recovery."
+      },
+      "description": "When damaged by a weapon or other blow rather than a spell or special ability, attempt a Fortitude save against the damage dealt; on success take no lethal damage and instead take nonlethal damage equal to half the original damage. Use once per day at 2nd level and twice per day at 4th.",
+      "sourceSha256": "9946aa83f8cddf25bf531f271402dc670926795590952ad3763831dc008f42c4"
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 3,
+      "description": "Deal +1d6 sneak attack damage when flanking or when the target is denied its Dexterity bonus; ranged sneak attacks require the target to be within 30 feet. This stacks with sneak attack from other sources.",
+      "sourceSha256": "67a4dc8b41ca7426f00b0f00a03c23c70ea1bbe1b767b5ed7af4c5918db5e83b"
+    },
+    {
+      "name": "Uncanny Dodge",
+      "level": 5,
+      "description": "Retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent. If another class already grants Uncanny Dodge, use the normal Improved Uncanny Dodge interaction instead.",
+      "sourceSha256": "262f508a4f5d2ccf9dd3ce704dd436ba6bf638cd82bf23064111c957fd1f3743"
+    }
+  ],
+  "classes/survivor-822": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain no new weapon, armor, or shield proficiencies from Survivor.",
+      "sourceSha256": "52e3a8f5abfc110c79c785897e8607a48181174a9a35f48097336692cdd8d675"
+    },
+    {
+      "name": "Uncanny Dodge",
+      "level": 1,
+      "description": "Retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent unless immobilized. At 3rd level you can no longer normally be flanked, except by a rogue at least four levels higher than your Survivor level.",
+      "sourceSha256": "2d09952ae3208ff4e066cbd159fa871a3538d7595c78b45510be1570087c7e3f"
+    },
+    {
+      "name": "Evasion",
+      "level": 2,
+      "description": "While wearing light or no armor, take no damage on a successful Reflex save against an effect that normally deals half damage.",
+      "sourceSha256": "bbfbe886919d98c39e31ca510651f39439a15fde62a88a82ca80afe3dcbf43ce"
+    },
+    {
+      "name": "Improved Evasion",
+      "level": 4,
+      "description": "Take no damage on a successful Reflex save against effects that normally deal half damage, and only half damage on a failed save.",
+      "sourceSha256": "b03273c44b7e74a6af8d02c42d3219885feeab502b6e79bccaa3a97880e66971"
+    },
+    {
+      "name": "Damage Reduction",
+      "level": 5,
+      "description": "Gain damage reduction 5/—. It stacks with other damage reduction of the x/— type.",
+      "sourceSha256": "6bc04e20d25b14c4ccc05767e60530097578139b4af2b36cfb80f632d39084aa"
+    }
+  ],
+  "classes/tempest-198": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain no new weapon or armor proficiencies from Tempest.",
+      "sourceSha256": "c3718a1929ec6e512199f89486ceba2e63d9c54dadee4001d8fa836f613c4035"
+    },
+    {
+      "name": "Tempest Defense",
+      "level": 1,
+      "description": "While wielding a double weapon or two weapons other than natural weapons or unarmed strikes, gain +1 AC at 1st level, +2 at 3rd, and +3 at 5th. This benefit is lost in medium or heavy armor.",
+      "sourceSha256": "40aa1d2bdc3b5481ac4928648bb2d38dd580292133f5031ef2f3d9c1f0d55410"
+    },
+    {
+      "name": "Ambidexterity",
+      "level": 2,
+      "description": "Reduce two-weapon fighting attack penalties by 1 at 2nd level and by another 1 at 4th level, subject to the source's main-hand/off-hand values. This benefit is lost in medium or heavy armor.",
+      "sourceSha256": "36302be58ab8081692d3b69d287ea86e945324ed0f09865843b9e99e069dac3e"
+    },
+    {
+      "name": "Two-Weapon Versatility",
+      "level": 3,
+      "description": "While fighting with two weapons, apply Greater Weapon Focus, Greater Weapon Specialization, Improved Critical, Weapon Focus, and Weapon Specialization from one weapon to the other when legally applicable.",
+      "sourceSha256": "b0f20a945b2e9c9054ebc7d9ca27fe1e9a59f920a173887674ff9dc3a842ecca"
+    },
+    {
+      "name": "Two-Weapon Spring Attack",
+      "level": 5,
+      "actionType": "Attack action",
+      "description": "When making a spring attack, attack once each with two different weapons as the attack action. This benefit is lost in medium or heavy armor.",
+      "sourceSha256": "a113ea51c8547a23f5681c3a99dcd5aa2db61a5a9f65356ca76771cbffaf7003"
+    }
+  ],
+  "classes/thief-acrobat-199": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain proficiency with all simple weapons.",
+      "sourceSha256": "dff754a127acc8fad21ef7e402b6ebb1a58d8492083ff4c65dd14a7c2a7436e7"
+    },
+    {
+      "name": "Fast Acrobatics",
+      "level": 1,
+      "description": "Ignore the normal accelerated-movement penalties described by the source when balancing at full speed, climbing at half speed as a move action, or tumbling at full speed.",
+      "sourceSha256": "4f1d25b6fe1cb2bc9e3761d57694a8967353a7d554838aff0a7fb1e01e2f5644"
+    },
+    {
+      "name": "Kip Up",
+      "level": 1,
+      "actionType": "Free action",
+      "description": "Stand from prone as a free action without provoking attacks of opportunity while in light or no armor and carrying no more than a light load.",
+      "sourceSha256": "1c0786e22d847457352a9083cce3c418e6aca89f550c67e6ca583d04f19385ac"
+    },
+    {
+      "name": "Steady Stance",
+      "level": 1,
+      "description": "You are not flat-footed while balancing or climbing, and add your class level on Balance or Climb checks made to remain balancing or climbing after taking damage.",
+      "sourceSha256": "85c1f84a80e4866d30bb7d7a2274599d6f888d5933b891a812d61e9b73e93ee4"
+    },
+    {
+      "name": "Agile Fighting",
+      "level": 2,
+      "description": "Gain +1 dodge AC, or +2 while fighting defensively or using total defense; at 4th level these become +2 and +3. You also avoid the normal AC and melee attack penalties for kneeling, sitting, or prone. Requires light/no armor and no more than a light load.",
+      "sourceSha256": "05e346ae20034a41ec5e0449191e046691f71cb3dce6e1dca69f9198e2329116"
+    },
+    {
+      "name": "Slow Fall",
+      "level": 2,
+      "description": "Reduce effective falling distance by 20 feet at 2nd level and 30 feet at 4th. If another class grants Slow Fall, the distances stack as specified by the source.",
+      "sourceSha256": "7a5f2f6cf2ed2cdddf174764176da7cdc2ca1404970e54c17aa23e15cf1cf2fe"
+    },
+    {
+      "name": "Acrobatic Charge",
+      "level": 3,
+      "description": "Charge across difficult terrain or through allies that would normally prevent charging, while still making any movement checks the situation requires.",
+      "sourceSha256": "72d1e1f6af8e0e4961f9318bf1999be61dbaa6b35da5e42f7b38feba51b6fd9d"
+    },
+    {
+      "name": "Defensive Roll",
+      "level": 3,
+      "resource": {
+        "maxByLevel": {
+          "3": 1,
+          "5": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Defensive Roll daily uses refresh with the character's daily recovery."
+      },
+      "description": "Use Defensive Roll once per day at 3rd level and twice per day at 5th level, following the rogue Defensive Roll rules to reduce a potentially lethal blow.",
+      "sourceSha256": "8ded06620dbd2056a2271b0c4c9b1aad6222d26f5e7aeb4844301edae376f60b"
+    },
+    {
+      "name": "Skill Mastery",
+      "level": 4,
+      "description": "Take 10 on Balance, Climb, Jump, and Tumble checks even when stress or distractions would normally prevent taking 10.",
+      "sourceSha256": "e07724740e48e6d67426df253b8f7419372b9d8dcf6ef1517b427d9f3efed286"
+    },
+    {
+      "name": "Improved Evasion",
+      "level": 5,
+      "description": "Take no damage on a successful Reflex save against applicable attacks and only half damage on a failed save.",
+      "sourceSha256": "a1a7ff6417fdcb38f9395fc114ca07436e22a2f8e4f158deb769f6e92a7402bf"
+    }
   ]
 }

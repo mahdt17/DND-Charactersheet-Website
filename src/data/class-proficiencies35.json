@@ -3448,6 +3448,43 @@
       ],
       "verified": true,
       "verificationNote": "Complete Warrior Samurai source independently verified. Shield proficiency is intentionally absent; Daisho Proficiency remains a class-feature feat rather than generic starting-training data."
+    },
+    "classes/streetfighter-197": {
+      "name": "Streetfighter",
+      "sourceUrl": "https://new.dndtools.org/classes/streetfighter-197",
+      "proficiencyText": "Weapon and Armor Proficiency: Streetfighters gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/survivor-822": {
+      "name": "Survivor",
+      "sourceUrl": "https://new.dndtools.org/classes/survivor-822",
+      "proficiencyText": "Weapon and Armor Proficiency: A survivor neither gains nor loses proficiency with any weapon, armor, or shields by gaining levels in this class.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tempest-198": {
+      "name": "Tempest",
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-198",
+      "proficiencyText": "Weapon and Armor Proficiency: Tempests gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/thief-acrobat-199": {
+      "name": "Thief-acrobat",
+      "sourceUrl": "https://new.dndtools.org/classes/thief-acrobat-199",
+      "proficiencyText": "Weapon and Armor Proficiency: Thief-acrobats are proficient with all simple weapons.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
