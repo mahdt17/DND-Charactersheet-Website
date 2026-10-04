@@ -7796,5 +7796,39 @@
       "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
       "description": "Gain Ghostly Grasp as a bonus feat even if you do not meet its prerequisite."
     }
+  ],
+  "classes/tempest-621": [
+    {
+      "name": "Improved Two-Weapon Fighting",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor and not using a double weapon, fight with two weapons as though you had Improved Two-Weapon Fighting."
+    },
+    {
+      "name": "Off-Hand Parry",
+      "level": 2,
+      "featName": "Off-Hand Parry",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "Gain Off-Hand Parry as a bonus feat. The class improves the AC benefit from this feat as you advance, reaching the source's higher listed bonuses at later Tempest levels."
+    },
+    {
+      "name": "Greater Two-Weapon Fighting",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor and not using a double weapon, fight with two weapons as though you had Greater Two-Weapon Fighting."
+    },
+    {
+      "name": "Absolute Ambidexterity",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor, reduce the attack penalties for fighting with two weapons by 2."
+    },
+    {
+      "name": "Supreme Two-Weapon Fighting",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "description": "While wearing light or no armor and not using a double weapon, gain a fourth off-hand attack at a -15 penalty after the normal off-hand iterative attacks."
+    }
   ]
 }
