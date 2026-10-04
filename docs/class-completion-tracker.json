@@ -8225,11 +8225,10 @@
       "ciRunUrl": null,
       "nextAction": "Implement exact Bane/domain/feat/skill/cohort prerequisites, selected divine advancement, dominating aura, leadership scaling, special cohorts and fanatical loyalty.",
       "implementationCohorts": [
-        "companions/mounts/cohorts",
         "domains/deity progression",
         "persistent feature choices"
       ],
-      "implementationCohort": "companions/mounts/cohorts"
+      "implementationCohort": "domains/deity progression"
     },
     {
       "sourceId": "classes/drow-judicator-898",
@@ -14413,9 +14412,9 @@
       "ciRunUrl": null,
       "nextAction": "Implement the FRCS gate and progression independently from the Player's Guide revision, including dual-casting eligibility, cohort/place magic and circle/fear resources.",
       "implementationCohorts": [
-        "companions/mounts/cohorts"
+        "class actions/resources and feature reconciliation"
       ],
-      "implementationCohort": "companions/mounts/cohorts"
+      "implementationCohort": "class actions/resources and feature reconciliation"
     },
     {
       "sourceId": "classes/hathran-669",
@@ -33789,5 +33788,5 @@
       "implementationCohort": "class actions/resources and feature reconciliation"
     }
   ],
-  "lastUpdatedNote": "Implementation cohort checkpoint: Streetfighter, Survivor, Tempest, and Thief-acrobat promoted after exact-source profiles and class-level regression validation. Current statuses: 85 complete, 956 needs-review, 12 blocked, 1 source-conflict."
+  "lastUpdatedNote": "Implementation cohort checkpoint: Streetfighter, Survivor, Tempest, and Thief-acrobat promoted after exact-source profiles and class-level regression validation. Current statuses: 85 complete, 956 needs-review, 12 blocked, 1 source-conflict. Cohort metadata was normalized against the current deterministic classifier after heuristic tightening."
 }
