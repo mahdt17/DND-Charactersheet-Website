@@ -1489,27 +1489,28 @@
       "name": "Avenging Executioner",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/avenging-executioner-289",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 5,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Avenging Executioner needs nongood alignment, BAB +5, Hide 4/Intimidate 6/Move Silently 4 and tragic-wrong prerequisites, plus sudden-strike scaling and fear/intimidation state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
         "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
         "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
-        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Enforce exact entry requirements; add sudden-strike progression, Bloody Blade/Bloody Murder fear saves, Rapid Intimidation and Dread Blade reminders/state, then level regressions.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -3912,27 +3913,28 @@
       "name": "Chaotician",
       "sourceBook": "Prestige Class Planar Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/chaotician-687",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 7,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Planar Handbook Chaotician needs its full chaotic/three-save entry gate plus chaotic contagion, anarchic grace, babble and reroll resource mechanics."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
         "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
         "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Enforce complete source prerequisites and implement daily Anarchic Grace/Destiny's Arbiter plus remaining chaos-state abilities.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -4905,27 +4907,28 @@
       "name": "Cragtop Archer",
       "sourceBook": "Prestige Class Races of Stone",
       "sourceUrl": "https://new.dndtools.org/classes/cragtop-archer-727",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 7,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Races of Stone Cragtop Archer needs BAB +6 and its full climbing/archery entry gate plus long-range and elevation-based shot mechanics."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
         "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
         "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Enforce complete source prerequisites and implement climbing safety, farsight, Strike from Above, Arcing Shot and Horizon Shot calculations.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -5382,27 +5385,28 @@
       "name": "Dark Hunter",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/dark-hunter-307",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 6,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Complete Warrior Dark Hunter needs BAB +5, trapmaking/dungeoneering/movement/survival skills, Blind-Fight and Track, plus underground tracking, stonecunning, darkvision, sneak attack and death attack."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact prerequisites and all underground sensory/tracking and assassination mechanics, including stone's hue and source-specific death attack.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -5574,27 +5578,28 @@
       "name": "Darkwood Stalker",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/darkwood-stalker-308",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 8,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Complete Warrior Darkwood Stalker needs elf/half-elf, BAB +5, Hide/Listen/Move Silently/Spot/Survival 5, Orc language, Dodge and Track, plus anti-orc, sneak/death-attack and darkvision progression."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the exact gate and Ancient Foe bonuses, uncanny dodge, sneak attack, darkvision, dodge critical and death attack with source-specific target handling.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -7126,27 +7131,28 @@
       "name": "Divine Seeker",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/divine-seeker-663",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Player's Guide to Faerûn Divine Seeker is the revised source version with different proficiencies/saves and sacred-stealth/thwart-magic-trap progression."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the PGtF gate and progression independently and add source-isolation regressions against FRCS.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -19194,27 +19200,28 @@
       "name": "Menacing Brute",
       "sourceBook": "Prestige Class Races of Destiny",
       "sourceUrl": "https://new.dndtools.org/classes/menacing-brute-707",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 5,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Races of Destiny Menacing Brute is source-verified as a five-level intimidation-focused prestige class progressing through demoralizing stare, resourceful search, sneak attack, ruthless cut and making an example; its full entry gate remains an implementation-time source check."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery/recovery filled omitted prerequisite blocks and independently verified ambiguous or duplicate-source records.",
         "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
-        "No Firecrawl fallback and no Supabase write were required."
+        "No Firecrawl fallback and no Supabase write were required.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on 0f3a4933ad2535aece9b1cc3b4e39331a098664b.",
+        "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724 passed the 11-class cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the complete source prerequisite gate plus intimidation-duration, search, sneak-attack and ruthless/making-an-example mechanics.",
+      "verifiedCommit": "0f3a4933ad2535aece9b1cc3b4e39331a098664b",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37167409724",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -33788,5 +33795,5 @@
       "implementationCohort": "class actions/resources and feature reconciliation"
     }
   ],
-  "lastUpdatedNote": "Implementation cohort checkpoint: Streetfighter, Survivor, Tempest, and Thief-acrobat promoted after exact-source profiles and class-level regression validation. Current statuses: 85 complete, 956 needs-review, 12 blocked, 1 source-conflict. Cohort metadata was normalized against the current deterministic classifier after heuristic tightening."
+  "lastUpdatedNote": "Implementation checkpoint: seven additional ordinary-mechanics classes promoted after exact-source configuration and class-level validation. Current statuses: 92 complete, 949 needs-review, 12 blocked, 1 source-conflict. Dervish remains needs-review because the exact live source omits the Movement Mastery rule block."
 }
