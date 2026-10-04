@@ -1412,9 +1412,12 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
+        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
+        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -3589,9 +3592,12 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
+        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
+        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -5376,9 +5382,12 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
+        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
+        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -5441,9 +5450,12 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
+        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
+        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
@@ -5888,9 +5900,12 @@
         "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources/bonus feats where applicable, and verified proficiency behavior.",
         "A systemic class-enrichment fix now merges prerequisite categories omitted by truncated rebuilt pages from the identity-checked historical mirror without overwriting source-present categories; Dark Lantern's missing skill gate was restored and regression-locked.",
         "Shared ordinary-mechanics regression coverage verifies reviewed rule text, structured actions/resources and automatic bonus feats where applicable, exact training, prerequisite recovery, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
-        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion."
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the cohort regression, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort classifier, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and browser suites before promotion.",
+        "2026-10-03 implementation added exact sourceId-backed reviewed feature profiles, training/proficiency behavior, structured actions/resources where applicable, bonus-feat grants, and source-specific prerequisite recovery on the class-integration branch.",
+        "A generic enrichment fix now recovers prerequisite categories omitted by truncated primary class pages from the identity-checked historical D&D Tools mirror without overwriting source-present categories.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600 passed the ordinary-cohort regression, enrichment self-test, all-class lifecycle sweep, source identity/description audit, class automation audit, normalized cohort checker, multiclass/training/resources/feature-choice checks, full 3.5 class/feat/spell/item regressions, build, and all browser suites before promotion."
       ],
-      "verifiedCommit": "df688adbd567bfa597613e91cf678e2d9dd69b23",
+      "verifiedCommit": "e7510a73dbb5efb0215aa4940af9975270b3b34e",
       "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37169148600",
       "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
