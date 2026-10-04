@@ -7070,5 +7070,369 @@
       "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
       "description": "Your movement on the Astral Plane or a similar no-gravity environment never provokes attacks of opportunity."
     }
+  ],
+  "classes/disciple-of-baalzebul-166": [
+    {
+      "name": "Tongue of the Devil",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Add your Intelligence modifier as well as your Charisma modifier to Bluff checks."
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Deal +1d6 sneak attack damage at 2nd level, +2d6 at 5th, and +3d6 at 8th when the target is denied its Dexterity bonus to AC. Ranged sneak attacks work only within 30 feet; creatures without discernible vital areas or that are immune to critical hits are immune. Sneak attack damage from other sources stacks."
+    },
+    {
+      "name": "Suggestion",
+      "level": 3,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Suggestion refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Once per day produce an effect identical to suggestion. The save DC is 10 + your Disciple of Baalzebul level + your Charisma bonus."
+    },
+    {
+      "name": "Summon Osyluth",
+      "level": 4,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Osyluth refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Once per day summon one osyluth, functioning as a summon monster spell cast by a 15th-level caster."
+    },
+    {
+      "name": "Insect Plague",
+      "level": 6,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Insect Plague refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Once per day produce an effect identical to insect plague cast by a 15th-level spellcaster; the summoned insects are always biting flies."
+    },
+    {
+      "name": "Beguiling Nature",
+      "level": 7,
+      "resource": {
+        "max": 1,
+        "period": "every other day",
+        "unit": "use",
+        "recoveryText": "Beguiling Nature can be used once every other day."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Every other day produce an effect identical to mass charm. The Will save DC is 10 + your Disciple of Baalzebul level + your Charisma bonus."
+    },
+    {
+      "name": "Summon Cornugon",
+      "level": 9,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Cornugon refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Once per day summon one cornugon, functioning as a summon monster spell cast by a 15th-level caster."
+    },
+    {
+      "name": "King of Lies",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
+      "description": "Gain a +4 inherent bonus to Charisma."
+    }
+  ],
+  "classes/disciple-of-dispater-167": [
+    {
+      "name": "Device Lore",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Find traps made mostly of metal as a rogue can and gain a +2 competence bonus on Disable Device checks against devices made mostly of metal."
+    },
+    {
+      "name": "Iron Hews",
+      "level": 2,
+      "resource": {
+        "ability": "con",
+        "abilityMinimum": 0,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Daily uses equal your Constitution bonus."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Once per day per point of Constitution bonus, add a +3 divine bonus on damage from attacks made that round."
+    },
+    {
+      "name": "Rusting Grasp",
+      "level": 3,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Rusting Grasp refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Once per day produce an effect identical to rusting grasp cast by a 15th-level caster."
+    },
+    {
+      "name": "Iron Power",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "When using an iron or steel weapon, gain a +1 insight bonus on attack and damage rolls and double the weapon's threat range. At 8th level the insight bonus becomes +2 and the threat range triples. This does not stack with the keen weapon quality but does stack with Improved Critical."
+    },
+    {
+      "name": "Summon Erinyes",
+      "level": 5,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Erinyes refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Once per day summon one erinyes as a summon monster spell cast by a 15th-level caster. At 9th level the same daily use summons 1d4 erinyes instead."
+    },
+    {
+      "name": "Greater Iron Hews",
+      "level": 6,
+      "resource": {
+        "ability": "con",
+        "abilityMinimum": 0,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Daily uses equal your Constitution bonus and are separate from Iron Hews."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Once per day per point of Constitution bonus, add a +6 divine bonus on damage from attacks made that round. This does not stack with Iron Hews, but each ability has its own daily uses."
+    },
+    {
+      "name": "Ironskin",
+      "level": 7,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Ironskin refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Once per day produce an effect identical to stoneskin cast by a 15th-level caster, affecting yourself only."
+    },
+    {
+      "name": "Iron Body",
+      "level": 10,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Iron Body refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "description": "Once per day produce an effect identical to iron body cast by an 18th-level caster."
+    }
+  ],
+  "classes/disciple-of-mammon-168": [
+    {
+      "name": "Lie",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Gain a +4 competence bonus on Bluff checks and spell resistance 11 + class level against spells that reveal falsehood, even when spell resistance is normally not allowed."
+    },
+    {
+      "name": "Cheat",
+      "level": 2,
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Daily uses equal your Disciple of Mammon level."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Once per day per class level, produce an effect identical to cheat cast by a 15th-level caster."
+    },
+    {
+      "name": "Thief",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Gain a +4 competence bonus on Pick Pocket and Open Lock checks."
+    },
+    {
+      "name": "Steal",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Call a single unattended object weighing no more than 5 pounds to you as if using telekinesis cast by a 15th-level caster."
+    },
+    {
+      "name": "Divert Attack",
+      "level": 4,
+      "resource": {
+        "max": 3,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Divert Attack refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Three times per day, redirect an opponent's melee attack meant for you to another character within the attacker's reach. The new target must also be a foe of the attacker; if none is available, the maneuver fails."
+    },
+    {
+      "name": "Summon Osyluth",
+      "level": 5,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Osyluth refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Once per day summon one osyluth as a summon monster spell cast by a 15th-level caster."
+    },
+    {
+      "name": "Take Object",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Gain a +4 competence bonus on attempts to disarm a foe and draw no attacks of opportunity for making an unarmed disarm attempt."
+    },
+    {
+      "name": "Enhance Value",
+      "level": 7,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Spend 1 hour modifying a nonmagical item of value, then make an Appraise check; increase the object's value by 1% per point of the check result. You cannot enhance an item with an obvious fixed value such as a coin, and cannot enhance the same object twice."
+    },
+    {
+      "name": "Divert Spell",
+      "level": 8,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Divert Spell refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Once per day, redirect an opponent's spell targeted on you to another target within range that is also a foe of the attacker. If no such foe is available, the maneuver fails."
+    },
+    {
+      "name": "Nondetection",
+      "level": 9,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Constantly produce an effect identical to nondetection cast by an 18th-level caster. The ability cannot be dispelled, but it can be suppressed."
+    },
+    {
+      "name": "Summon Gelugon",
+      "level": 10,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Gelugon refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "description": "Once per day summon one gelugon as a summon monster spell cast by an 18th-level caster."
+    }
+  ],
+  "classes/disciple-of-mephistopheles-169": [
+    {
+      "name": "Hellfire Grasp",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "At will, deal 1d6 fire damage as a touch attack. This damage is added to damage dealt by other unarmed attacks."
+    },
+    {
+      "name": "Fire Adept",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "If you can cast spells, gain +1 caster level when casting a spell with the fire descriptor."
+    },
+    {
+      "name": "Fire Resistance",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Gain fire resistance 10 at 2nd level; it improves to fire resistance 20 at 6th level."
+    },
+    {
+      "name": "Hellfire Blast",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "At will, release hellfire as a ranged touch attack with a 30-foot range that deals 4d6 fire damage."
+    },
+    {
+      "name": "Flare",
+      "level": 4,
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Daily uses equal your Disciple of Mephistopheles level."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Once per day per class level, produce an effect identical to flare cast by a 15th-level caster."
+    },
+    {
+      "name": "Summon Hamatula",
+      "level": 5,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Hamatula refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Once per day summon one hamatula as a summon monster spell cast by a 15th-level caster. At 9th level the same daily use summons 1d4 hamatulas instead."
+    },
+    {
+      "name": "Hellfire",
+      "level": 6,
+      "resource": {
+        "max": 3,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Hellfire refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Three times per day produce an effect identical to hellfire cast by a 15th-level caster."
+    },
+    {
+      "name": "Fire Shield",
+      "level": 7,
+      "resource": {
+        "max": 2,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Fire Shield refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Twice per day produce an effect identical to fire shield cast by a 15th-level caster."
+    },
+    {
+      "name": "Hellfire Storm",
+      "level": 8,
+      "resource": {
+        "max": 2,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Hellfire Storm refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Twice per day produce an effect identical to hellfire storm cast by a 15th-level caster."
+    },
+    {
+      "name": "Body of Flame",
+      "level": 10,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Body of Flame refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "description": "Once per day transform your body into flame for up to 10 minutes. Gain fire immunity and damage reduction 30/+1. Creatures you touch must make Reflex DC 15 or catch fire for 1d4 rounds; creatures hitting you with natural weapons or unarmed attacks take 2d6 fire damage and also risk catching fire on the same save."
+    }
   ]
 }
