@@ -18,11 +18,12 @@ import gzip
 import json
 import re
 import time
+import unicodedata
 from html.parser import HTMLParser
 from http.client import RemoteDisconnected
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from urllib.request import Request, urlopen
 
 BASE = "https://new.dndtools.org"
@@ -58,6 +59,7 @@ class DetailParser(HTMLParser):
         self._row: list[str] | None = None
         self._cell: list[str] | None = None
         self.tables: list[list[list[str]]] = []
+        self.links: list[str] = []
         self._table: list[list[str]] | None = None
 
     def flush(self):
@@ -75,6 +77,10 @@ class DetailParser(HTMLParser):
             return
         if self._skip:
             return
+        if tag == "a":
+            href=dict(attrs).get("href")
+            if href:
+                self.links.append(href)
         if tag in BLOCK_TAGS:
             self.flush()
         if tag in HEADING_TAGS:
@@ -734,10 +740,20 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
     return {k:v for k,v in result.items() if v not in (None,"",[],{})}
 
 
+def class_book_key(value: str) -> str:
+    book=re.sub(r"^(?:Prestige|Base|NPC|Psionic|Racial|Monster) Class\s*", "", clean(value), flags=re.I)
+    # Historical D&D Tools uses this alternate subtitle for the same book.
+    book=book.replace("Libris Mortis: The Book of the Dead", "Libris Mortis: The Book of Undead")
+    book=unicodedata.normalize("NFKD", book)
+    return "".join(char for char in book if not unicodedata.combining(char)).replace("’", "'").casefold()
+
+
 def sibling_class_fallback(entry: dict) -> dict:
     candidates=[
         row for row in class_catalog_rows()
         if row.get("name")==entry.get("name") and row.get("id")!=entry.get("id")
+        and (not re.match(r"Prestige Class", entry.get("sourceBook", ""), re.I)
+             or (class_book_key(entry.get("sourceBook", "")) and class_book_key(row.get("sourceBook", ""))==class_book_key(entry.get("sourceBook", ""))))
     ]
     best={}
     best_score=-1
@@ -756,14 +772,45 @@ def sibling_class_fallback(entry: dict) -> dict:
     return best
 
 
-def legacy_class_fallback(entry: dict) -> dict:
-    url=legacy_class_url(entry)
-    raw=fetch_allowed(url,{urlparse(LEGACY_CLASS_BASE).netloc},0.05)
-    parser=DetailParser(); parser.feed(raw); parser.close()
+def legacy_class_source(entry: dict):
+    """Resolve an explicitly linked historical version, checking both name and book."""
+    initial=legacy_class_url(entry)
+    host=urlparse(LEGACY_CLASS_BASE).netloc
+    slug=urlparse(initial).path.rstrip("/").split("/")[-1]
+    urls=[initial]
     expected=clean(entry.get("name","")).replace("’","'").casefold()
-    visible={clean(line).replace("’","'").casefold() for line in parser.lines[:60]}
-    if expected and expected not in visible:
-        raise ValueError(f"Historical mirror identity mismatch for {entry.get('name')}")
+    expected_book=class_book_key(entry.get("sourceBook", ""))
+    error=f"Historical source book mismatch for {entry.get('name')}: expected {entry.get('sourceBook')}"
+    for url in urls:
+        try:
+            raw=fetch_allowed(url,{host},0.05)
+        except (OSError, ValueError, RemoteDisconnected):
+            if url==initial:
+                raise
+            continue
+        parser=DetailParser(); parser.feed(raw); parser.close()
+        visible={clean(line).replace("’","'").casefold() for line in parser.lines[:60]}
+        if expected and expected not in visible:
+            if url==initial:
+                raise ValueError(f"Historical mirror identity mismatch for {entry.get('name')}")
+            continue
+        historical_book=next((match.group(1) for line in parser.lines[:80]
+                             if (match:=re.match(r"^\(\s*(.+?)\s+variant(?:,\s*p\.\s*\d+)?\s*\)$", clean(line), re.I))), "")
+        if not expected_book or class_book_key(historical_book)==expected_book:
+            return url,parser
+        # Only follow source-specific alternatives actually published on the first
+        # page. Never construct a route or borrow a same-name rule from another book.
+        if url==initial:
+            for href in parser.links:
+                target=urljoin(initial,href)
+                parsed=urlparse(target)
+                if parsed.scheme=="https" and parsed.netloc==host and re.fullmatch(r"/classes/[^/]+/"+re.escape(slug)+r"/",parsed.path) and not parsed.query and not parsed.fragment and target not in urls:
+                    urls.append(target)
+    raise ValueError(error)
+
+
+def legacy_class_fallback(entry: dict) -> dict:
+    url,parser=legacy_class_source(entry)
     result={"fallbackSourceUrl":url}
     req=parse_requirement_lines(section(parser.lines,parser.headings,"Requirements"))
     if req: result["prerequisites"]=req
@@ -843,9 +890,7 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     # D&D Tools mirror still exposes. Use the mirror only to fill structured gaps.
     prerequisite_kinds={clean(item.get("kind","")).casefold() for item in enriched.get("prerequisites",[]) if isinstance(item,dict)}
     needs_fallback=(
-        (enriched.get("prestige") and not enriched.get("prerequisites"))
-        or (enriched.get("prestige") and enriched.get("minBab") and "skills" not in prerequisite_kinds)
-        or (enriched.get("prestige") and prerequisite_kinds and prerequisite_kinds <= {"special"})
+        (enriched.get("prestige") and not {"skills","feats"}.issubset(prerequisite_kinds))
         or not enriched.get("progression")
         or not enriched.get("classSkills")
         or not enriched.get("hit_die")

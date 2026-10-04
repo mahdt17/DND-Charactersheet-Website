@@ -41,6 +41,7 @@ jobs:
       - run: node tests/editions.mjs
       - run: npm run test:content
       - run: python scripts/enrich_dndtools.py --self-test
+      - run: python tests/class-source-isolation.py
       - run: python scripts/classify_spell_review_queue.py --self-test
       - run: python scripts/select_spell_review_batch.py --self-test
       - run: python scripts/select_spell_reference_batch.py --self-test
