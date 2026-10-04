@@ -3863,6 +3863,14 @@
         }
       ],
       "verified": true
+    },
+    "classes/tempest-621": {
+      "name": "Tempest",
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "proficiencyText": "Weapon and Armor Proficiency: Tempests gain no weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
     }
   }
 }
