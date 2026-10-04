@@ -324,27 +324,28 @@
       "name": "Akodo Champion",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No reviewed Akodo Champion block exists yet; exact entry rules (BAB +5, lawful good, Human [Lion], Knowledge (history) 4, Iron Will, Ki Shout, Weapon Focus [katana]) and Detect Evil, Ancestral Favor, Leadership, Smite Evil, Aura of Courage, Great Leader, and Inspire Greatness scaling are not structured."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29/30 Exa source discovery confirmed exact/fidelity references for this prestige-class record and its entry rules.",
         "2026-09-29/30 Tavily advanced extraction of the exact new.dndtools page retrieved class progression/features without login/footer contamination.",
         "Where the parsed D&DTools page omitted a labeled Requirements section, an alternate Exa-discovered source-faithful reference was used to verify the entry prerequisites.",
-        "No Firecrawl fallback and no Supabase write were required."
+        "No Firecrawl fallback and no Supabase write were required.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Add reviewed Akodo Champion summaries, implement prestige prerequisite validation and level-scaled leadership/inspiration actions, then regression-test all levels and source-specific 3.0 mechanics.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -6602,27 +6603,28 @@
       "name": "Disciple of the Eye",
       "sourceBook": "Prestige Class Races of the Dragon",
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Races of the Dragon Disciple of the Eye needs dragonblood subtype plus its remaining monk-oriented source gate, then monk stacking, natural armor, frightful attacks and draconic senses."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement complete prerequisites, monk speed/flurry stacking and all wandering-eye/frightful/glare/sense/natural-armor progression.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -13308,27 +13310,28 @@
       "name": "Ghostwalker",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Sword and Fist Ghostwalker is source-verified with BAB +6, Intimidate 4, Move Silently 4, Endurance, Iron Will, Toughness and a restricted alignment set; its 3.0 progression remains source-specific."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
         "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
         "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the exact 3.0 gate and all ghostwalker defensive/mobility/combat features independently.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -18874,27 +18877,28 @@
       "name": "Master of the Unseen Hand",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Complete Warrior Master of the Unseen Hand is source-verified with Concentration 8 and access to telekinesis as a spell, spell-like or supernatural ability; all five levels specialize telekinesis rather than normal casting advancement."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery/recovery filled omitted prerequisite blocks and independently verified ambiguous or duplicate-source records.",
         "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
-        "No Firecrawl fallback and no Supabase write were required."
+        "No Firecrawl fallback and no Supabase write were required.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the telekinesis gate and improved caster level, versatile telekinesis, telekinetic wielder, sustained concentration, full-attack telekinesis, flight and fling skyward.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -30812,17 +30816,15 @@
       "name": "Union Sentinel",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Union Sentinel; verified mechanics requiring integration include Sending, Shield of Law, Freedom, Knock, Dimensional Anchor, Portal Guardian, Forcecage, Imprisonment. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -30830,11 +30832,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Epic Level Handbook record at https://new.dndtools.org/classes/union-sentinel-461.",
         "Exact-page mechanics identified include: Sending, Shield of Law, Freedom, Knock, Dimensional Anchor, Portal Guardian, Forcecage, Imprisonment.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Union Sentinel's source-faithful epic gate was restored to base attack bonus +21 with lawful alignment, skill, feat, epic-feat, and demiplane-residence requirements rather than the rebuilt page's truncated +1 field.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Union Sentinel exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -31348,17 +31353,15 @@
       "name": "Vigilant Sentinel of Aerenal",
       "sourceBook": "Prestige Class Magic of Eberron",
       "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Vigilant Sentinel of Aerenal; verified mechanics requiring integration include Code of Conduct, Master of Disguise, Nondetection, Sneak Attack, Thought Theft, Dimension Leap. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -31366,11 +31369,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Magic of Eberron record at https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589.",
         "Exact-page mechanics identified include: Code of Conduct, Master of Disguise, Nondetection, Sneak Attack, Thought Theft, Dimension Leap.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Vigilant Sentinel of Aerenal exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -31614,17 +31620,15 @@
       "name": "Void Incarnate",
       "sourceBook": "Prestige Class Web 3.0",
       "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Void Incarnate; verified mechanics requiring integration include Blank Aura, Improved Evasion, Void Presence, Mettle of Fortitude, Blank Mind, Mettle of Will, Null Strike, Improved Mettle of Fortitude, Empty Form. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -31632,11 +31636,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Web 3.0 record at https://new.dndtools.org/classes/void-incarnate-1057.",
         "Exact-page mechanics identified include: Blank Aura, Improved Evasion, Void Presence, Mettle of Fortitude, Blank Mind, Mettle of Will, Null Strike, Improved Mettle of Fortitude, Empty Form.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Void Incarnate exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -33620,17 +33627,15 @@
       "name": "Yathchol Webrider",
       "sourceBook": "Prestige Class Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Yathchol Webrider; verified mechanics requiring integration include Web Hide, Web Ride, Spider Climbing, Summon Spider, Web Blast. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -33638,11 +33643,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Underdark record at https://new.dndtools.org/classes/yathchol-webrider-906.",
         "Exact-page mechanics identified include: Web Hide, Web Ride, Spider Climbing, Summon Spider, Web Blast.",
         "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03/04 implementation added an exact sourceId-backed reviewed feature profile, source-owned actions/resources, exact proficiency behavior, and restored complete source entry requirements for this ordinary-mechanics cohort.",
+        "Reviewed source data is reconciled idempotently and removed cleanly when the class source is removed, without overwriting unrelated manual character data.",
+        "Validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011 passed the cohort regression, enrichment and feature-review gates, lifecycle/source-identity/class-automation audits, full 3.5 class/feat/spell/item regressions, application build, all browser suites, and artifact upload before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Yathchol Webrider in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
+      "verifiedCommit": "d3cd81af9ff4b428b5aeefe106c69c22efda6cd6",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37173402011",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
