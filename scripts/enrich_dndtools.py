@@ -835,6 +835,7 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     needs_fallback=(
         (enriched.get("prestige") and not enriched.get("prerequisites"))
         or (enriched.get("prestige") and enriched.get("minBab") and "skills" not in prerequisite_kinds)
+        or (enriched.get("prestige") and prerequisite_kinds and prerequisite_kinds <= {"special"})
         or not enriched.get("progression")
         or not enriched.get("classSkills")
         or not enriched.get("hit_die")
@@ -2425,6 +2426,18 @@ def self_test():
     )
     assert {item["kind"] for item in merged_requirements}=={"skills","region_of_origin","special"}
     assert next(item for item in merged_requirements if item["kind"]=="skills")["text"].startswith("Bluff 4 ranks")
+
+    special_only=merge_class_prerequisites(
+        [{"kind":"special","label":"Special","text":"Complete the initiation ritual."}],
+        [
+            {"kind":"alignment","label":"Alignment","text":"Any evil"},
+            {"kind":"skills","label":"Skills","text":"Bluff 10 ranks"},
+            {"kind":"feats","label":"Feats","text":"Disciple of Darkness"},
+            {"kind":"special","label":"Special","text":"Complete the initiation ritual."},
+        ],
+        "",
+    )
+    assert {item["kind"] for item in special_only}=={"alignment","skills","feats","special"}
 
     # A secondary class-level casting table must not displace the real feature table.
     multi_table_html = """
