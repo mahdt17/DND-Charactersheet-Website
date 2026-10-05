@@ -438,23 +438,24 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
     folded=text.casefold().replace("’","'")
     grants=[]
 
+    def matched_positive(match) -> bool:
+        prefix=re.split(r"[.;:]|\bbut\b|\bhowever\b",folded[:match.start()])[-1]
+        # A negation applies across a coordinated list. Parenthetical exceptions
+        # do not negate the next grant outside that parenthesis.
+        prefix=re.sub(r"\([^)]*\)","",prefix)
+        return not bool(re.search(r"\b(?:not|no|without|except)\b",prefix))
+
     def positive(term: str) -> bool:
         for match in re.finditer(re.escape(term),folded):
-            prefix=folded[max(0,match.start()-42):match.start()]
-            if re.search(r"(?:\bnot\b|\bno\b|\bwithout\b|\bexcept\b)[^.;,:]{0,30}$",prefix):
-                continue
-            return True
+            if matched_positive(match):
+                return True
         return False
-
-    def matched_positive(match) -> bool:
-        prefix=folded[max(0,match.start()-42):match.start()]
-        return not bool(re.search(r"(?:\bnot\b|\bno\b|\bwithout\b|\bexcept\b)[^.;,:]{0,30}$",prefix))
 
     def add(index: str, name: str, kind: str):
         if not any(item["index"]==index for item in grants):
             grants.append({"index":index,"name":name,"kind":kind})
 
-    all_armor_match=re.search(r"\b(?:all|any type of)\s+armor\b",folded)
+    all_armor_match=re.search(r"\b(?:all(?: types? of)?|any type of)\s+armor\b",folded)
     if all_armor_match and matched_positive(all_armor_match):
         add("light-armor","Light armor","armor")
         add("medium-armor","Medium armor","armor")
@@ -475,16 +476,17 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
         add("heavy-shields","Heavy shields","armor")
     if "tower shield" in folded and positive("tower shield"):
         add("tower-shields","Tower shields","armor")
-    broad_shields=bool(re.search(r"\bshields?\b",folded)) and not re.search(r"\b(?:light|heavy|tower) shields?\b",folded)
-    if broad_shields and positive("shield"):
+    broad_shields=any(matched_positive(match) and not re.search(r"\b(?:light|heavy|tower)\s+$",folded[:match.start()])
+                      for match in re.finditer(r"\bshields?\b",folded))
+    if broad_shields:
         if re.search(r"shields?[^.;]{0,30}except[^.;]{0,20}tower",folded):
             add("shields-except-tower","Shields (except tower shields)","armor")
         else:
             add("shields","Shields","armor")
-    if "simple weapon" in folded and positive("simple weapon"):
-        add("simple-weapons","Simple weapons","weapons")
-    if "martial weapon" in folded and positive("martial weapon"):
-        add("martial-weapons","Martial weapons","weapons")
+    for match in re.finditer(r"\b((?:simple|martial)(?:\s*,?\s*(?:and|or)\s*(?:simple|martial))?)\s+weapons?\b",folded):
+        if matched_positive(match):
+            for kind in re.findall(r"\b(?:simple|martial)\b",match.group(1)):
+                add(f"{kind}-weapons",f"{kind.title()} weapons","weapons")
 
     for weapon in class_weapon_catalog():
         for alias in weapon["aliases"]:
@@ -2375,8 +2377,18 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     validate_details(entry, category, parser, details)
     gaps = enrichment_gaps(category, details)
     details["generatedDescription"]=candidate_summary(entry,category,details)
+    refreshed_entry=dict(entry)
+    if category=="classes":
+        # A new source decision must replace old recovery output, including an
+        # obsolete sibling's entry gate or an error from an earlier fetch.
+        for key in ("prerequisites","minBab","hit_die","skillPoints","classSkills",
+                    "classSkillRule","proficiencies","proficiencyText","proficiencyParseIncomplete",
+                    "progression","advancement","inheritsFrom","inheritsFromOptions",
+                    "siblingSourceId","siblingSourceUrl",
+                    "fallbackSourceUrl","fallbackMechanicsPresence","fallbackError"):
+            refreshed_entry.pop(key,None)
     return {
-        **entry,
+        **refreshed_entry,
         **details,
         "edition": "3.5-reference",
         "enrichment": {

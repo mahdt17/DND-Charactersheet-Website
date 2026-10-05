@@ -92,6 +92,7 @@ function reviewedFeatureMetadata(record,name){
   const row=reviewedFeatureRow(record,name);
   if(!row)return {};
   const metadata={};
+  if(row.grantKind)metadata.grantKind=row.grantKind;
   if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
   for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceOptionsFromFeatureMechanic','choiceParts','uniqueChoiceCombination','choiceFromProficiencyId','choiceFeatPrefix','choiceFeatType','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
@@ -470,7 +471,8 @@ export function annotateClassGrantKinds(record,entries=[]){
   if(!parsed.length&&!additions.length)return resolved;
   const choiceOverrides=Array.isArray(resolved.featureChoiceOverrides)?resolved.featureChoiceOverrides:[];
   const inherited=parsed.filter(grant=>!featureSuppressed(resolved,grant.name,grant.level)).map(grant=>{
-    const exact=byName.get(norm(grant.name))||byName.get(norm(grant.name.replace(/\s*\([^)]*\)\s*$/,'')));
+    const reviewed=reviewedFeatureRow(resolved,grant.name);
+    const exact=reviewed?.grantKind==='feature'?null:byName.get(norm(grant.name))||byName.get(norm(grant.name.replace(/\s*\([^)]*\)\s*$/,'')));
     let result=!exact
       ?{...grant,kind:'feature',description:sourceFeatureDescription(resolved,grant.name)}
       :{...grant,kind:'feat',featId:exact.catalogId||exact.id,description:exact.description||exact.effectSummary||exact.effect||sourceFeatureDescription(resolved,grant.name),sourceUrl:exact.sourceUrl||resolved.sourceUrl};
@@ -650,6 +652,7 @@ function animalCompanionProgression(level){
 }
 
 function isConcreteFeat(feature){
+  if(feature.grantKind==='feature')return false;
   if(feature.choiceKind)return false;
   if(feature.kind==='feat')return true;
   if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return false;

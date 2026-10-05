@@ -84,6 +84,51 @@ class SourceIsolation(unittest.TestCase):
             result = d35.legacy_class_fallback(entry)
         self.assertEqual(result["fallbackSourceUrl"], "https://dndtools.net/classes/old--3/test/")
 
+    def test_refresh_discards_obsolete_recovery_metadata(self):
+        entry = {"id": "classes/test", "name": "Test", "url": "https://new.dndtools.org/classes/test", "sourceBook": "Prestige Class Exact Book",
+                 "siblingSourceId": "classes/wrong-book", "siblingSourceUrl": "https://new.dndtools.org/classes/wrong-book",
+                 "prerequisites": [{"kind": "feats", "text": "Stale Feat"}], "fallbackError": "Old failure"}
+        primary = page("Test", "Exact Book", "<p>Skills: Hide 4 ranks</p><p>Feats: Current Feat</p>")
+        with patch.object(d35, "class_catalog_rows", return_value=[entry]), patch.object(d35, "fetch", return_value=primary):
+            result = d35.enrich_entry(entry, "classes", 0)
+        self.assertNotIn("siblingSourceId", result)
+        self.assertNotIn("siblingSourceUrl", result)
+        self.assertNotIn("fallbackError", result)
+        self.assertEqual(result["prerequisites"][-1]["text"], "Current Feat")
+
+    def test_failed_recovery_does_not_preserve_wrong_book_mechanics(self):
+        entry = {"id": "classes/test", "name": "Test", "url": "https://new.dndtools.org/classes/test", "sourceBook": "Prestige Class Exact Book",
+                 "siblingSourceId": "classes/wrong-book", "classSkills": ["Wrong skill"], "inheritsFrom": "Wrong parent"}
+        primary = page("Test", "Exact Book", "").replace('<p>Hide, Move Silently</p>', '')
+        with patch.object(d35, "class_catalog_rows", return_value=[entry]), patch.object(d35, "fetch", return_value=primary), patch.object(d35, "fetch_allowed", side_effect=OSError('unavailable')):
+            result = d35.enrich_entry(entry, "classes", 0)
+        self.assertNotIn("classSkills", result)
+        self.assertNotIn("inheritsFrom", result)
+        self.assertIn("fallbackError", result)
+        self.assertTrue(result["enrichment"]["partial"])
+
+
+class ProficiencyExtraction(unittest.TestCase):
+    def test_coordinated_categories_and_shield_exceptions(self):
+        cases = [
+            ("Proficient with all simple and martial weapons, all types of armor, and shields.",
+             {"simple-weapons", "martial-weapons", "light-armor", "medium-armor", "heavy-armor", "shields"}),
+            ("Proficient with all simple and martial weapons, but no type of armor or shield.",
+             {"simple-weapons", "martial-weapons"}),
+            ("Proficient with light, medium, and heavy armor, and shields (including tower shields).",
+             {"light-armor", "medium-armor", "heavy-armor", "shields", "tower-shields"}),
+            ("Proficient with shields (except tower shields).", {"shields-except-tower"}),
+            ("Proficient with tower shields but not simple or martial weapons.", {"tower-shields"}),
+            ("Not proficient with any type of armor, shields, simple or martial weapons.", set()),
+        ]
+        for text, expected in cases:
+            with self.subTest(text=text):
+                parser=d35.DetailParser()
+                parser.feed('<h2>Class Features</h2><p>Weapon and Armor Proficiency: '+text+'</p>')
+                parser.close()
+                result=d35.parse_class_proficiencies(parser)
+                self.assertEqual({p['index'] for p in result['proficiencies']}, expected)
+
 
 if __name__ == "__main__":
     unittest.main()
