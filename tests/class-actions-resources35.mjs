@@ -15,7 +15,7 @@ const prerequisiteTexts=definition=>(definition.prerequisites||[]).map(item=>ite
 
 const expected={
   'classes/arcane-archer-378':{
-    name:'Arcane Archer',level:10,minBab:'6',
+    name:'Arcane Archer',sourceBook:"Dungeon Master's Guide v.3.5",level:10,minBab:'6',
     features:['Enhance Arrow','Imbue Arrow','Seeker Arrow','Phase Arrow','Hail of Arrows','Arrow of Death'],
     skills:['Craft','Hide','Listen','Move Silently','Ride','Spot','Survival','Use Rope'],
     prerequisites:['Race:Elf or half-elf','Feats:Point Blank Shot','Feats:Precise Shot','Feats:Weapon Focus (longbow or shortbow)','Spells:Ability to cast 1st-level arcane spells'],
@@ -24,13 +24,41 @@ const expected={
     actions:['Imbue Arrow','Seeker Arrow','Phase Arrow','Hail of Arrows']
   },
   'classes/dwarven-defender-385':{
-    name:'Dwarven Defender',level:10,minBab:'7',
+    name:'Dwarven Defender',sourceBook:"Dungeon Master's Guide v.3.5",level:10,minBab:'7',
     features:['AC Bonus','Defensive Stance','Uncanny Dodge','Trap Sense','Damage Reduction','Improved Uncanny Dodge','Mobile Defense'],
     skills:['Craft','Listen','Sense Motive','Spot'],
     prerequisites:['Race:Dwarf','Alignment:Any lawful','Feats:Dodge','Feats:Endurance','Feats:Toughness'],
     training:['heavy-armor','light-armor','martial-weapons','medium-armor','shields','simple-weapons'],
     resources:[['Defensive Stance',5]],
     actions:['Defensive Stance']
+  },
+  'classes/duelist-384':{
+    name:'Duelist',sourceBook:"Dungeon Master's Guide v.3.5",level:10,minBab:'6',
+    features:['Canny Defense','Improved Reaction','Enhanced Mobility','Grace','Precise Strike','Acrobatic Charge','Elaborate Parry','Deflect Arrows'],
+    skills:['Balance','Bluff','Escape Artist','Jump','Listen','Perform','Sense Motive','Spot','Tumble'],
+    prerequisites:['Skills:Perform 3 ranks','Skills:Tumble 5 ranks','Feats:Dodge','Feats:Mobility','Feats:Weapon Finesse'],
+    training:['martial-weapons','simple-weapons'],resources:[],actions:[]
+  },
+  'classes/dread-commando-527':{
+    name:'Dread Commando',sourceBook:'Heroes of Battle',level:5,minBab:'5',
+    features:['Sudden Strike','Team Initiative Bonus','Armored Ease','Stealthy Movement'],
+    skills:['Climb','Craft','Disable Device','Disguise','Escape Artist','Hide','Jump','Knowledge (geography)','Listen','Move Silently','Open Lock','Profession','Search','Spot','Swim','Use Rope'],
+    prerequisites:['Skills:Hide 6 ranks','Skills:Move Silently 6 ranks','Feats:Dodge','Feats:Mobility'],
+    training:[],resources:[],actions:[]
+  },
+  'classes/ghost-faced-killer-186':{
+    name:'Ghost-faced Killer',sourceBook:'Complete Adventurer',level:10,minBab:'5',
+    features:['Ghost Step','Sudden Strike','Frightful Attack','Ghost Sight','Frightful Cleave'],
+    skills:['Bluff','Climb','Concentration','Hide','Intimidate','Jump','Listen','Move Silently','Open Lock','Search','Spot','Swim','Tumble'],
+    prerequisites:['Alignment:Any evil','Skills:Hide 6 ranks','Skills:Concentration 4 ranks','Skills:Intimidate 8 ranks','Skills:Move Silently 6 ranks','Feats:Improved Initiative','Feats:Power Attack'],
+    training:['light-armor','martial-weapons','simple-weapons'],resources:[['Ghost Step',4],['Frightful Attack',3]],actions:['Ghost Step','Frightful Attack']
+  },
+  'classes/warchief-581':{
+    name:'Warchief',sourceBook:'Miniatures Handbook',level:10,minBab:'3',
+    features:['Tribal Frenzy','Ability Boost','Devoted Bodyguards'],
+    skills:['Bluff','Climb','Craft','Diplomacy','Handle Animal','Intimidate','Jump','Ride','Sense Motive','Swim'],
+    prerequisites:['Special:Must have led a tribe in battle.'],
+    training:[],resources:[],actions:['Tribal Frenzy']
   }
 };
 
@@ -38,6 +66,9 @@ for(const [id,spec] of Object.entries(expected)){
   const definition=exact(id);
   assert(definition,`missing exact source record ${id}`);
   assert.equal(definition.name,spec.name);
+  assert.equal(definition.sourceId,id,`${spec.name} source ID drift`);
+  assert.equal(definition.sourceBook,spec.sourceBook,`${spec.name} source book drift`);
+  assert.equal(definition.sourceVersion,'D&D 3.5',`${spec.name} source version drift`);
   assert.equal(definition.reviewBatch,REVIEW_BATCH,`${spec.name} must be published through the reviewed action/resource overlay`);
   assert.equal(definition.referenceOnly,false,`${spec.name} must be source-verified`);
   assert.equal(String(definition.minBab||definition.stats?.minBab||''),spec.minBab,`${spec.name} BAB prerequisite drift`);
@@ -79,4 +110,43 @@ for(const [id,spec] of Object.entries(expected)){
   assert.match(level6.grantedFeatures.find(item=>item.name==='Damage Reduction')?.description||'',/3\/-/);
 }
 
-console.log('PASS action/resource core batch: 2 exact-source classes with reviewed mechanics, training, lifecycle, and conditional state.');
+{
+  const duelist=exact('classes/duelist-384');
+  assert.deepEqual(duelist.conditionalMechanics?.cannyDefense,{requiresNoArmor:true,requiresNoShield:true,requiresMeleeWeapon:true,ability:'intelligence',maximumBonusFormula:'duelist class level'});
+  assert.equal(duelist.conditionalMechanics?.preciseStrike?.damageAtLevel10,'2d6');
+  assert.equal(duelist.conditionalMechanics?.elaborateParry?.dodgeBonusPerDuelistLevel,1);
+  const level10=reconcileClassGrants(base(duelist,10));
+  assert.match(level10.grantedFeatures.find(item=>item.name==='Improved Reaction')?.description||'',/\+4/);
+}
+
+{
+  const commando=exact('classes/dread-commando-527');
+  assert.equal(commando.proficiencyReview?.grantsNewProficiencies,false);
+  assert.equal(commando.conditionalMechanics?.teamInitiativeBonus?.bonusFormula,'dread commando class level');
+  assert.equal(commando.conditionalMechanics?.armoredEase?.reductionAtLevel4,4);
+  const level5=reconcileClassGrants(base(commando,5));
+  assert.match(level5.grantedFeatures.find(item=>item.name==='Sudden Strike')?.description||'',/3d6/);
+}
+
+{
+  const killer=exact('classes/ghost-faced-killer-186');
+  assert.equal(killer.conditionalMechanics?.frightfulAttack?.targetSaveDC,'10 + ghost-faced killer class level + Charisma modifier');
+  assert.equal(killer.conditionalMechanics?.frightfulAttack?.minimumPowerAttackPenalty,1);
+  assert.deepEqual(killer.conditionalMechanics?.ghostStep?.modesByLevel,{1:['invisible'],6:['invisible','ethereal']});
+  const level10=reconcileClassGrants(base(killer,10));
+  assert.equal(level10.actions.find(item=>item.name==='Ghost Step')?.type,'Swift action');
+  assert.equal(level10.actions.find(item=>item.name==='Frightful Attack')?.type,'Special attack');
+}
+
+{
+  const warchief=exact('classes/warchief-581');
+  assert.equal(warchief.proficiencyReview?.grantsNewProficiencies,false);
+  assert.deepEqual(warchief.conditionalMechanics?.tribalFrenzy?.strengthBonusByLevel,{1:2,3:4,5:6,7:8,9:10});
+  assert.equal(warchief.conditionalMechanics?.tribalFrenzy?.affectedAllyDamagePerHitDiePerTurn,1);
+  assert.equal(warchief.conditionalMechanics?.devotedBodyguards?.reflexSaveDC,15);
+  const level10=reconcileClassGrants(base(warchief,10));
+  assert.equal(level10.actions.find(item=>item.name==='Tribal Frenzy')?.type,'Standard action');
+  assert.match(level10.grantedFeatures.find(item=>item.name==='Ability Boost')?.description||'',/\+6 Charisma/);
+}
+
+console.log('PASS action/resource core batch: 6 exact-source classes with reviewed mechanics, training, lifecycle, and conditional state.');
