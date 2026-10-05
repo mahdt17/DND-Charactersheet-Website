@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node tests/rules.mjs",
+    "test": "node tests/rules.mjs && node tests/class-implementation-cohorts35.mjs",
     "test:content": "node tests/content.mjs",
     "test:editions": "node tests/editions.mjs",
     "test:browser": "node tests/browser.mjs"
