@@ -116,7 +116,7 @@ assert.equal(featureTotal,38,'the reviewed six-class batch must contain exactly 
   const low=reconcileClassGrants(base(definition,10,{str:10,dex:10,con:10,int:10,wis:10,cha:8}));
   const lowPool=low.resources.find(resource=>resource.name==='Retributive Attack');
   assert.equal(lowPool?.max,1);
-  assert.match(lowPool?.recoveryText||'',/one per round/i);
+  assert.match(lowPool?.recoveryText||'',/one retributive attack per round/i);
   const high=reconcileClassGrants(base(definition,10,{str:10,dex:10,con:10,int:10,wis:10,cha:18}));
   assert.equal(high.resources.find(resource=>resource.name==='Retributive Attack')?.max,4);
 }
