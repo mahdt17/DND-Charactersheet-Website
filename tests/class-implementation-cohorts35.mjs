@@ -56,3 +56,4 @@ fs.mkdirSync(resultDir, { recursive: true });
 fs.writeFileSync(path.join(resultDir, 'class-implementation-cohorts.json'), JSON.stringify(result, null, 2) + '\n');
 
 console.log(`class implementation cohort export ok (${target.length} tracked; ${actionableTarget.length} actionable; ${excludedFinalized.length} protected exclusions)`);
+console.log(`ACTION_RESOURCE_COHORT=${actionableTarget.map((entry) => entry.sourceId).join(',')}`);
