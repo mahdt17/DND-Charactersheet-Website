@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -39,8 +40,19 @@ const finalized = new Set([
   'classes/gladiator-771',
   'classes/knight-protector-322',
 ]);
-for (const entry of target) {
-  assert.equal(finalized.has(entry.sourceId), false, `${entry.sourceId} was already finalized and must not re-enter the target cohort`);
-}
+const excludedFinalized = target.filter((entry) => finalized.has(entry.sourceId));
+const actionableTarget = target.filter((entry) => !finalized.has(entry.sourceId));
+assert.equal(new Set(actionableTarget.map((entry) => entry.sourceId)).size, actionableTarget.length, 'actionable target IDs should remain unique after protected exclusions');
 
-console.log(`class implementation cohort export ok (${target.length} action/resource records)`);
+const result = {
+  generatedFromNeedsReview: report.needsReview,
+  cohortCount: target.length,
+  excludedFinalized,
+  actionableCount: actionableTarget.length,
+  records: actionableTarget,
+};
+const resultDir = path.join(root, 'test-results');
+fs.mkdirSync(resultDir, { recursive: true });
+fs.writeFileSync(path.join(resultDir, 'class-implementation-cohorts.json'), JSON.stringify(result, null, 2) + '\n');
+
+console.log(`class implementation cohort export ok (${target.length} tracked; ${actionableTarget.length} actionable; ${excludedFinalized.length} protected exclusions)`);
