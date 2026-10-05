@@ -5,6 +5,7 @@ const args=process.argv.slice(2);
 const trackerPath=args.find(arg=>!arg.startsWith('--'))||'docs/class-completion-tracker.json';
 const write=args.includes('--write');
 const check=args.includes('--check');
+const includeRecords=args.includes('--records');
 
 function classify(entry){
   const explicit=[];
@@ -75,11 +76,27 @@ for(const entry of entries){
     entry.implementationCohort=expected[0];
   }
 }
-const counts=entries.filter(entry=>entry.status==='needs-review').reduce((acc,entry)=>{
+const needsReviewEntries=entries.filter(entry=>entry.status==='needs-review');
+const counts=needsReviewEntries.reduce((acc,entry)=>{
   acc[entry.implementationCohort]=(acc[entry.implementationCohort]||0)+1;
   return acc;
 },{});
 if(entries.length!==1054)throw new Error('Expected 1054 tracker records; found '+entries.length);
 if(entries.some(entry=>entry.status==='needs-review'&&(!entry.implementationCohort||!(entry.implementationCohorts||[]).length)))throw new Error('Every needs-review record must have implementation cohort metadata.');
 if(write)fs.writeFileSync(trackerPath,JSON.stringify(tracker,null,2)+'\n');
-console.log(JSON.stringify({total:entries.length,needsReview:entries.filter(entry=>entry.status==='needs-review').length,cohorts:Object.fromEntries(Object.entries(counts).sort((a,b)=>b[1]-a[1]))},null,2));
+const report={
+  total:entries.length,
+  needsReview:needsReviewEntries.length,
+  cohorts:Object.fromEntries(Object.entries(counts).sort((a,b)=>b[1]-a[1]))
+};
+if(includeRecords){
+  report.records=needsReviewEntries.map(entry=>({
+    sourceId:entry.sourceId,
+    name:entry.name,
+    sourceBook:entry.sourceBook,
+    sourcePage:entry.sourcePage,
+    implementationCohort:entry.implementationCohort,
+    implementationCohorts:entry.implementationCohorts
+  }));
+}
+console.log(JSON.stringify(report,null,2));
