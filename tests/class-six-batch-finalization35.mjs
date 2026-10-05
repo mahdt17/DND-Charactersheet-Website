@@ -35,7 +35,7 @@ const expected={
   },
   'classes/goliath-liberator-732':{
     name:'Goliath Liberator',level:5,
-    features:['Avoid Reach','Avoid Thrown Weapons','Equal Footing','Favored Enemy (Giant)'],
+    features:['Avoid Reach','Avoid Thrown Weapons','Equal Footing','Favored Enemy'],
     feats:['Improved Trip'],training:['light-armor','martial-weapons','medium-armor'],minBab:'7',
     skills:['Climb','Craft','Heal','Hide','Jump','Listen','Move Silently','Search','Spot','Survival','Use Rope'],
     prerequisites:['Feats:Track','Race:Goliath','Skills:Hide 5 ranks','Skills:Move Silently 5 ranks','Special:Must have participated in the successful rescue of captives held by giants, or have been imprisoned by giants and escaped']
