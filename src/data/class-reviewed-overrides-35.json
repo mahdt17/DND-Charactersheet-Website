@@ -1,4 +1,244 @@
 {
   "version": 1,
-  "entries": {}
+  "entries": {
+    "classes/arcane-archer-378": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-dmg-core",
+      "name": "Arcane Archer",
+      "sourceBook": "Dungeon Master's Guide v.3.5",
+      "sourcePage": 176,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-archer-378",
+      "minBab": "6",
+      "prerequisites": [
+        "Race:Elf or half-elf",
+        "Feats:Point Blank Shot",
+        "Feats:Precise Shot",
+        "Feats:Weapon Focus (longbow or shortbow)",
+        "Spells:Ability to cast 1st-level arcane spells"
+      ],
+      "classSkills": [
+        "Craft",
+        "Hide",
+        "Listen",
+        "Move Silently",
+        "Ride",
+        "Spot",
+        "Survival",
+        "Use Rope"
+      ],
+      "proficiencies": [
+        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
+        {"index": "martial-weapons", "name": "Martial weapons", "kind": "weapons"},
+        {"index": "light-armor", "name": "Light armor", "kind": "armor"},
+        {"index": "medium-armor", "name": "Medium armor", "kind": "armor"},
+        {"index": "shields", "name": "Shields", "kind": "armor"}
+      ],
+      "proficiencyText": "An arcane archer is proficient with all simple and martial weapons, light armor, medium armor, and shields.",
+      "proficiencyReview": {
+        "verified": true,
+        "sourceUrl": "https://new.dndtools.org/classes/arcane-archer-378",
+        "note": "Exact Dungeon Master's Guide v.3.5 training grant verified against the class feature text."
+      },
+      "conditionalMechanics": {
+        "arrowOfDeath": {
+          "kind": "prepared-ammunition",
+          "craftingTimeDays": 1,
+          "maxActive": 1,
+          "durationYears": 1,
+          "fortitudeSaveDC": 20,
+          "onFailedSave": "slain immediately"
+        }
+      },
+      "levelGrants": [
+        {
+          "level": 1,
+          "name": "Enhance Arrow",
+          "progressionText": "Enhance Arrow +1",
+          "description": "Every nonmagical arrow the arcane archer nocks and fires becomes magical for her, gaining a +1 enhancement bonus at 1st level. The bonus improves to +2 at 3rd level, +3 at 5th, +4 at 7th, and +5 at 9th; these arrows function as enhanced arrows only for the arcane archer."
+        },
+        {
+          "level": 2,
+          "name": "Imbue Arrow",
+          "actionType": "Standard action",
+          "description": "Place an area spell upon an arrow and fire it as part of the same standard action. The spell's area is centered where the arrow lands, allowing the bow's range to replace the spell's normal range; the arrow must be fired in the round the spell is cast or the spell is wasted."
+        },
+        {
+          "level": 3,
+          "name": "Enhance Arrow",
+          "progressionText": "Enhance Arrow +2",
+          "description": "Enhance Arrow improves to a +2 enhancement bonus."
+        },
+        {
+          "level": 4,
+          "name": "Seeker Arrow",
+          "actionType": "Standard action",
+          "resource": {"max": 1, "period": "day"},
+          "description": "Once per day as a standard action, launch an arrow at a known target within range. The arrow can travel around corners and ignores cover and concealment modifiers, though an unavoidable obstacle or the limit of the arrow's range stops it; otherwise resolve the attack normally."
+        },
+        {
+          "level": 5,
+          "name": "Enhance Arrow",
+          "progressionText": "Enhance Arrow +3",
+          "description": "Enhance Arrow improves to a +3 enhancement bonus."
+        },
+        {
+          "level": 6,
+          "name": "Phase Arrow",
+          "actionType": "Standard action",
+          "resource": {"max": 1, "period": "day"},
+          "description": "Once per day as a standard action, launch an arrow in a straight path at a known target within range. It passes through nonmagical barriers and ignores cover, concealment, and armor modifiers; magical barriers such as wall of force or wall of fire still stop it, and the attack is otherwise resolved normally."
+        },
+        {
+          "level": 7,
+          "name": "Enhance Arrow",
+          "progressionText": "Enhance Arrow +4",
+          "description": "Enhance Arrow improves to a +4 enhancement bonus."
+        },
+        {
+          "level": 8,
+          "name": "Hail of Arrows",
+          "resource": {"max": 1, "period": "day"},
+          "description": "Once per day in place of regular attacks, fire one arrow at each target within range, up to one target per arcane archer class level. Each attack uses the archer's primary attack bonus, and each enemy can be targeted by only one arrow."
+        },
+        {
+          "level": 9,
+          "name": "Enhance Arrow",
+          "progressionText": "Enhance Arrow +5",
+          "description": "Enhance Arrow improves to a +5 enhancement bonus."
+        },
+        {
+          "level": 10,
+          "name": "Arrow of Death",
+          "description": "Create an arrow of death in one day. A creature damaged by it must succeed on a DC 20 Fortitude save or be slain immediately. The arrow functions only for its creator, lasts no longer than one year, and the arcane archer can have only one arrow of death in existence at a time."
+        }
+      ]
+    },
+    "classes/dwarven-defender-385": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-dmg-core",
+      "name": "Dwarven Defender",
+      "sourceBook": "Dungeon Master's Guide v.3.5",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/dwarven-defender-385",
+      "minBab": "7",
+      "prerequisites": [
+        "Race:Dwarf",
+        "Alignment:Any lawful",
+        "Feats:Dodge",
+        "Feats:Endurance",
+        "Feats:Toughness"
+      ],
+      "classSkills": [
+        "Craft",
+        "Listen",
+        "Sense Motive",
+        "Spot"
+      ],
+      "proficiencies": [
+        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
+        {"index": "martial-weapons", "name": "Martial weapons", "kind": "weapons"},
+        {"index": "light-armor", "name": "Light armor", "kind": "armor"},
+        {"index": "medium-armor", "name": "Medium armor", "kind": "armor"},
+        {"index": "heavy-armor", "name": "Heavy armor", "kind": "armor"},
+        {"index": "shields", "name": "Shields", "kind": "armor"}
+      ],
+      "proficiencyText": "A dwarven defender is proficient with all simple and martial weapons, all types of armor, and shields.",
+      "proficiencyReview": {
+        "verified": true,
+        "sourceUrl": "https://new.dndtools.org/classes/dwarven-defender-385",
+        "note": "Exact Dungeon Master's Guide v.3.5 training grant verified against the class feature text."
+      },
+      "conditionalMechanics": {
+        "defensiveStance": {
+          "kind": "stance",
+          "bonuses": {
+            "strength": 2,
+            "constitution": 4,
+            "savesResistance": 2,
+            "acDodge": 4
+          },
+          "durationFormula": "3 + improved Constitution modifier rounds",
+          "movementRestriction": "cannot move from the defended spot until Mobile Defense",
+          "endingPenalty": {
+            "strength": -2,
+            "duration": "remainder of encounter"
+          },
+          "mobileDefenseAtLevel": 8,
+          "mobileDefenseMovement": "one 5-foot step per round"
+        }
+      },
+      "levelGrants": [
+        {
+          "level": 1,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +1",
+          "description": "Gain a +1 dodge bonus to Armor Class at 1st level. The class AC bonus improves to +2 at 4th level, +3 at 7th level, and +4 at 10th level."
+        },
+        {
+          "level": 1,
+          "name": "Defensive Stance",
+          "resource": {"maxByLevel": {"1": 1, "3": 2, "5": 3, "7": 4, "9": 5}, "period": "day"},
+          "description": "Enter a defensive stance during your own action, gaining +2 Strength, +4 Constitution, +2 resistance on all saves, and +4 dodge AC while unable to leave the defended spot. The Constitution increase adds 2 hit points per character level while the stance lasts. The stance lasts 3 + the improved Constitution modifier rounds and can be ended early; when it ends, you are winded and take -2 Strength for the rest of the encounter. Daily uses increase from 1/day at 1st level to 2/day at 3rd, 3/day at 5th, 4/day at 7th, and 5/day at 9th."
+        },
+        {
+          "level": 2,
+          "name": "Uncanny Dodge",
+          "description": "Retain your Dexterity bonus to AC when flat-footed or attacked by an invisible opponent unless immobilized. If another class already grants uncanny dodge, the combined interaction grants improved uncanny dodge instead."
+        },
+        {
+          "level": 4,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +2",
+          "description": "The class dodge bonus to Armor Class improves to +2."
+        },
+        {
+          "level": 4,
+          "name": "Trap Sense",
+          "progressionText": "Trap Sense +1",
+          "description": "Gain +1 on Reflex saves against traps and +1 dodge AC against trap attacks. Both bonuses improve to +2 at 8th level and stack with trap sense bonuses from other classes."
+        },
+        {
+          "level": 6,
+          "name": "Damage Reduction",
+          "progressionText": "Damage Reduction 3/-",
+          "description": "Gain damage reduction 3/-. At 10th level this improves to 6/-. Damage reduction can reduce damage to 0 but not below 0."
+        },
+        {
+          "level": 6,
+          "name": "Improved Uncanny Dodge",
+          "description": "You can no longer be flanked except by a rogue at least four levels higher than your effective level for this ability. Levels from classes granting uncanny dodge stack to determine that effective level."
+        },
+        {
+          "level": 7,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +3",
+          "description": "The class dodge bonus to Armor Class improves to +3."
+        },
+        {
+          "level": 8,
+          "name": "Mobile Defense",
+          "description": "While maintaining Defensive Stance, take one 5-foot step each round without losing the stance's benefits."
+        },
+        {
+          "level": 8,
+          "name": "Trap Sense",
+          "progressionText": "Trap Sense +2",
+          "description": "Trap Sense improves to +2 on Reflex saves against traps and +2 dodge AC against trap attacks."
+        },
+        {
+          "level": 10,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +4",
+          "description": "The class dodge bonus to Armor Class improves to +4."
+        },
+        {
+          "level": 10,
+          "name": "Damage Reduction",
+          "progressionText": "Damage Reduction 6/-",
+          "description": "Damage Reduction improves to 6/-."
+        }
+      ]
+    }
+  }
 }
