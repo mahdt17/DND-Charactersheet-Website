@@ -10,108 +10,29 @@
       "sourceVersion": "D&D 3.5",
       "sourceUrl": "https://new.dndtools.org/classes/arcane-archer-378",
       "minBab": "6",
-      "prerequisites": [
-        "Race:Elf or half-elf",
-        "Feats:Point Blank Shot",
-        "Feats:Precise Shot",
-        "Feats:Weapon Focus (longbow or shortbow)",
-        "Spells:Ability to cast 1st-level arcane spells"
-      ],
-      "classSkills": [
-        "Craft",
-        "Hide",
-        "Listen",
-        "Move Silently",
-        "Ride",
-        "Spot",
-        "Survival",
-        "Use Rope"
-      ],
+      "prerequisites": ["Race:Elf or half-elf","Feats:Point Blank Shot","Feats:Precise Shot","Feats:Weapon Focus (longbow or shortbow)","Spells:Ability to cast 1st-level arcane spells"],
+      "classSkills": ["Craft","Hide","Listen","Move Silently","Ride","Spot","Survival","Use Rope"],
       "proficiencies": [
-        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
-        {"index": "martial-weapons", "name": "Martial weapons", "kind": "weapons"},
-        {"index": "light-armor", "name": "Light armor", "kind": "armor"},
-        {"index": "medium-armor", "name": "Medium armor", "kind": "armor"},
-        {"index": "shields", "name": "Shields", "kind": "armor"}
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
       ],
       "proficiencyText": "An arcane archer is proficient with all simple and martial weapons, light armor, medium armor, and shields.",
-      "proficiencyReview": {
-        "verified": true,
-        "sourceUrl": "https://new.dndtools.org/classes/arcane-archer-378",
-        "note": "Exact Dungeon Master's Guide v.3.5 training grant verified against the class feature text."
-      },
-      "conditionalMechanics": {
-        "arrowOfDeath": {
-          "kind": "prepared-ammunition",
-          "craftingTimeDays": 1,
-          "maxActive": 1,
-          "durationYears": 1,
-          "fortitudeSaveDC": 20,
-          "onFailedSave": "slain immediately"
-        }
-      },
+      "proficiencyReview": {"verified":true,"sourceUrl":"https://new.dndtools.org/classes/arcane-archer-378","note":"Exact Dungeon Master's Guide v.3.5 training grant verified against the class feature text."},
+      "conditionalMechanics": {"arrowOfDeath":{"kind":"prepared-ammunition","craftingTimeDays":1,"maxActive":1,"durationYears":1,"fortitudeSaveDC":20,"onFailedSave":"slain immediately"}},
       "levelGrants": [
-        {
-          "level": 1,
-          "name": "Enhance Arrow",
-          "progressionText": "Enhance Arrow +1",
-          "description": "Every nonmagical arrow the arcane archer nocks and fires becomes magical for her, gaining a +1 enhancement bonus at 1st level. The bonus improves to +2 at 3rd level, +3 at 5th, +4 at 7th, and +5 at 9th; these arrows function as enhanced arrows only for the arcane archer."
-        },
-        {
-          "level": 2,
-          "name": "Imbue Arrow",
-          "actionType": "Standard action",
-          "description": "Place an area spell upon an arrow and fire it as part of the same standard action. The spell's area is centered where the arrow lands, allowing the bow's range to replace the spell's normal range; the arrow must be fired in the round the spell is cast or the spell is wasted."
-        },
-        {
-          "level": 3,
-          "name": "Enhance Arrow",
-          "progressionText": "Enhance Arrow +2",
-          "description": "Enhance Arrow improves to a +2 enhancement bonus."
-        },
-        {
-          "level": 4,
-          "name": "Seeker Arrow",
-          "actionType": "Standard action",
-          "resource": {"max": 1, "period": "day"},
-          "description": "Once per day as a standard action, launch an arrow at a known target within range. The arrow can travel around corners and ignores cover and concealment modifiers, though an unavoidable obstacle or the limit of the arrow's range stops it; otherwise resolve the attack normally."
-        },
-        {
-          "level": 5,
-          "name": "Enhance Arrow",
-          "progressionText": "Enhance Arrow +3",
-          "description": "Enhance Arrow improves to a +3 enhancement bonus."
-        },
-        {
-          "level": 6,
-          "name": "Phase Arrow",
-          "actionType": "Standard action",
-          "resource": {"max": 1, "period": "day"},
-          "description": "Once per day as a standard action, launch an arrow in a straight path at a known target within range. It passes through nonmagical barriers and ignores cover, concealment, and armor modifiers; magical barriers such as wall of force or wall of fire still stop it, and the attack is otherwise resolved normally."
-        },
-        {
-          "level": 7,
-          "name": "Enhance Arrow",
-          "progressionText": "Enhance Arrow +4",
-          "description": "Enhance Arrow improves to a +4 enhancement bonus."
-        },
-        {
-          "level": 8,
-          "name": "Hail of Arrows",
-          "resource": {"max": 1, "period": "day"},
-          "description": "Once per day in place of regular attacks, fire one arrow at each target within range, up to one target per arcane archer class level. Each attack uses the archer's primary attack bonus, and each enemy can be targeted by only one arrow."
-        },
-        {
-          "level": 9,
-          "name": "Enhance Arrow",
-          "progressionText": "Enhance Arrow +5",
-          "description": "Enhance Arrow improves to a +5 enhancement bonus."
-        },
-        {
-          "level": 10,
-          "name": "Arrow of Death",
-          "description": "Create an arrow of death in one day. A creature damaged by it must succeed on a DC 20 Fortitude save or be slain immediately. The arrow functions only for its creator, lasts no longer than one year, and the arcane archer can have only one arrow of death in existence at a time."
-        }
+        {"level":1,"name":"Enhance Arrow","progressionText":"Enhance Arrow +1","description":"Every nonmagical arrow the arcane archer nocks and fires becomes magical for her, gaining a +1 enhancement bonus at 1st level. The bonus improves to +2 at 3rd level, +3 at 5th, +4 at 7th, and +5 at 9th; these arrows function as enhanced arrows only for the arcane archer."},
+        {"level":2,"name":"Imbue Arrow","actionType":"Standard action","description":"Place an area spell upon an arrow and fire it as part of the same standard action. The spell's area is centered where the arrow lands, allowing the bow's range to replace the spell's normal range; the arrow must be fired in the round the spell is cast or the spell is wasted."},
+        {"level":3,"name":"Enhance Arrow","progressionText":"Enhance Arrow +2","description":"Enhance Arrow improves to a +2 enhancement bonus."},
+        {"level":4,"name":"Seeker Arrow","actionType":"Standard action","resource":{"max":1,"period":"day"},"description":"Once per day as a standard action, launch an arrow at a known target within range. The arrow can travel around corners and ignores cover and concealment modifiers, though an unavoidable obstacle or the limit of the arrow's range stops it; otherwise resolve the attack normally."},
+        {"level":5,"name":"Enhance Arrow","progressionText":"Enhance Arrow +3","description":"Enhance Arrow improves to a +3 enhancement bonus."},
+        {"level":6,"name":"Phase Arrow","actionType":"Standard action","resource":{"max":1,"period":"day"},"description":"Once per day as a standard action, launch an arrow in a straight path at a known target within range. It passes through nonmagical barriers and ignores cover, concealment, and armor modifiers; magical barriers such as wall of force or wall of fire still stop it, and the attack is otherwise resolved normally."},
+        {"level":7,"name":"Enhance Arrow","progressionText":"Enhance Arrow +4","description":"Enhance Arrow improves to a +4 enhancement bonus."},
+        {"level":8,"name":"Hail of Arrows","resource":{"max":1,"period":"day"},"description":"Once per day in place of regular attacks, fire one arrow at each target within range, up to one target per arcane archer class level. Each attack uses the archer's primary attack bonus, and each enemy can be targeted by only one arrow."},
+        {"level":9,"name":"Enhance Arrow","progressionText":"Enhance Arrow +5","description":"Enhance Arrow improves to a +5 enhancement bonus."},
+        {"level":10,"name":"Arrow of Death","description":"Create an arrow of death in one day. A creature damaged by it must succeed on a DC 20 Fortitude save or be slain immediately. The arrow functions only for its creator, lasts no longer than one year, and the arcane archer can have only one arrow of death in existence at a time."}
       ]
     },
     "classes/dwarven-defender-385": {
@@ -122,122 +43,163 @@
       "sourceVersion": "D&D 3.5",
       "sourceUrl": "https://new.dndtools.org/classes/dwarven-defender-385",
       "minBab": "7",
-      "prerequisites": [
-        "Race:Dwarf",
-        "Alignment:Any lawful",
-        "Feats:Dodge",
-        "Feats:Endurance",
-        "Feats:Toughness"
-      ],
-      "classSkills": [
-        "Craft",
-        "Listen",
-        "Sense Motive",
-        "Spot"
-      ],
+      "prerequisites": ["Race:Dwarf","Alignment:Any lawful","Feats:Dodge","Feats:Endurance","Feats:Toughness"],
+      "classSkills": ["Craft","Listen","Sense Motive","Spot"],
       "proficiencies": [
-        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
-        {"index": "martial-weapons", "name": "Martial weapons", "kind": "weapons"},
-        {"index": "light-armor", "name": "Light armor", "kind": "armor"},
-        {"index": "medium-armor", "name": "Medium armor", "kind": "armor"},
-        {"index": "heavy-armor", "name": "Heavy armor", "kind": "armor"},
-        {"index": "shields", "name": "Shields", "kind": "armor"}
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
       ],
       "proficiencyText": "A dwarven defender is proficient with all simple and martial weapons, all types of armor, and shields.",
-      "proficiencyReview": {
-        "verified": true,
-        "sourceUrl": "https://new.dndtools.org/classes/dwarven-defender-385",
-        "note": "Exact Dungeon Master's Guide v.3.5 training grant verified against the class feature text."
-      },
+      "proficiencyReview": {"verified":true,"sourceUrl":"https://new.dndtools.org/classes/dwarven-defender-385","note":"Exact Dungeon Master's Guide v.3.5 training grant verified against the class feature text."},
+      "conditionalMechanics": {"defensiveStance":{"kind":"stance","bonuses":{"strength":2,"constitution":4,"savesResistance":2,"acDodge":4},"durationFormula":"3 + improved Constitution modifier rounds","movementRestriction":"cannot move from the defended spot until Mobile Defense","endingPenalty":{"strength":-2,"duration":"remainder of encounter"},"mobileDefenseAtLevel":8,"mobileDefenseMovement":"one 5-foot step per round"}},
+      "levelGrants": [
+        {"level":1,"name":"AC Bonus","progressionText":"AC Bonus +1","description":"Gain a +1 dodge bonus to Armor Class at 1st level. The class AC bonus improves to +2 at 4th level, +3 at 7th level, and +4 at 10th level."},
+        {"level":1,"name":"Defensive Stance","resource":{"maxByLevel":{"1":1,"3":2,"5":3,"7":4,"9":5},"period":"day"},"description":"Enter a defensive stance during your own action, gaining +2 Strength, +4 Constitution, +2 resistance on all saves, and +4 dodge AC while unable to leave the defended spot. The Constitution increase adds 2 hit points per character level while the stance lasts. The stance lasts 3 + the improved Constitution modifier rounds and can be ended early; when it ends, you are winded and take -2 Strength for the rest of the encounter. Daily uses increase from 1/day at 1st level to 2/day at 3rd, 3/day at 5th, 4/day at 7th, and 5/day at 9th."},
+        {"level":2,"name":"Uncanny Dodge","description":"Retain your Dexterity bonus to AC when flat-footed or attacked by an invisible opponent unless immobilized. If another class already grants uncanny dodge, the combined interaction grants improved uncanny dodge instead."},
+        {"level":4,"name":"AC Bonus","progressionText":"AC Bonus +2","description":"The class dodge bonus to Armor Class improves to +2."},
+        {"level":4,"name":"Trap Sense","progressionText":"Trap Sense +1","description":"Gain +1 on Reflex saves against traps and +1 dodge AC against trap attacks. Both bonuses improve to +2 at 8th level and stack with trap sense bonuses from other classes."},
+        {"level":6,"name":"Damage Reduction","progressionText":"Damage Reduction 3/-","description":"Gain damage reduction 3/-. At 10th level this improves to 6/-. Damage reduction can reduce damage to 0 but not below 0."},
+        {"level":6,"name":"Improved Uncanny Dodge","description":"You can no longer be flanked except by a rogue at least four levels higher than your effective level for this ability. Levels from classes granting uncanny dodge stack to determine that effective level."},
+        {"level":7,"name":"AC Bonus","progressionText":"AC Bonus +3","description":"The class dodge bonus to Armor Class improves to +3."},
+        {"level":8,"name":"Mobile Defense","description":"While maintaining Defensive Stance, take one 5-foot step each round without losing the stance's benefits."},
+        {"level":8,"name":"Trap Sense","progressionText":"Trap Sense +2","description":"Trap Sense improves to +2 on Reflex saves against traps and +2 dodge AC against trap attacks."},
+        {"level":10,"name":"AC Bonus","progressionText":"AC Bonus +4","description":"The class dodge bonus to Armor Class improves to +4."},
+        {"level":10,"name":"Damage Reduction","progressionText":"Damage Reduction 6/-","description":"Damage Reduction improves to 6/-."}
+      ]
+    },
+    "classes/duelist-384": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-dmg-core",
+      "name": "Duelist",
+      "sourceBook": "Dungeon Master's Guide v.3.5",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/duelist-384",
+      "minBab": "6",
+      "prerequisites": ["Skills:Perform 3 ranks","Skills:Tumble 5 ranks","Feats:Dodge","Feats:Mobility","Feats:Weapon Finesse"],
+      "classSkills": ["Balance","Bluff","Escape Artist","Jump","Listen","Perform","Sense Motive","Spot","Tumble"],
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"}
+      ],
+      "proficiencyText": "A duelist is proficient with all simple and martial weapons, but gains no armor or shield proficiency.",
+      "proficiencyReview": {"verified":true,"sourceUrl":"https://new.dndtools.org/classes/duelist-384","note":"Dungeon Master's Guide v.3.5 weapon proficiencies and explicit lack of armor/shield proficiency reviewed."},
       "conditionalMechanics": {
-        "defensiveStance": {
-          "kind": "stance",
-          "bonuses": {
-            "strength": 2,
-            "constitution": 4,
-            "savesResistance": 2,
-            "acDodge": 4
-          },
-          "durationFormula": "3 + improved Constitution modifier rounds",
-          "movementRestriction": "cannot move from the defended spot until Mobile Defense",
-          "endingPenalty": {
-            "strength": -2,
-            "duration": "remainder of encounter"
-          },
-          "mobileDefenseAtLevel": 8,
-          "mobileDefenseMovement": "one 5-foot step per round"
-        }
+        "cannyDefense":{"requiresNoArmor":true,"requiresNoShield":true,"requiresMeleeWeapon":true,"ability":"intelligence","maximumBonusFormula":"duelist class level"},
+        "preciseStrike":{"weapon":"light or one-handed piercing weapon","requiresEmptyOffHand":true,"requiresNoShield":true,"requiresDiscernibleAnatomy":true,"damageAtLevel5":"1d6","damageAtLevel10":"2d6","criticalImmuneTargetsImmune":true},
+        "elaborateParry":{"requiresDefensiveCombat":true,"dodgeBonusPerDuelistLevel":1}
       },
       "levelGrants": [
-        {
-          "level": 1,
-          "name": "AC Bonus",
-          "progressionText": "AC Bonus +1",
-          "description": "Gain a +1 dodge bonus to Armor Class at 1st level. The class AC bonus improves to +2 at 4th level, +3 at 7th level, and +4 at 10th level."
-        },
-        {
-          "level": 1,
-          "name": "Defensive Stance",
-          "resource": {"maxByLevel": {"1": 1, "3": 2, "5": 3, "7": 4, "9": 5}, "period": "day"},
-          "description": "Enter a defensive stance during your own action, gaining +2 Strength, +4 Constitution, +2 resistance on all saves, and +4 dodge AC while unable to leave the defended spot. The Constitution increase adds 2 hit points per character level while the stance lasts. The stance lasts 3 + the improved Constitution modifier rounds and can be ended early; when it ends, you are winded and take -2 Strength for the rest of the encounter. Daily uses increase from 1/day at 1st level to 2/day at 3rd, 3/day at 5th, 4/day at 7th, and 5/day at 9th."
-        },
-        {
-          "level": 2,
-          "name": "Uncanny Dodge",
-          "description": "Retain your Dexterity bonus to AC when flat-footed or attacked by an invisible opponent unless immobilized. If another class already grants uncanny dodge, the combined interaction grants improved uncanny dodge instead."
-        },
-        {
-          "level": 4,
-          "name": "AC Bonus",
-          "progressionText": "AC Bonus +2",
-          "description": "The class dodge bonus to Armor Class improves to +2."
-        },
-        {
-          "level": 4,
-          "name": "Trap Sense",
-          "progressionText": "Trap Sense +1",
-          "description": "Gain +1 on Reflex saves against traps and +1 dodge AC against trap attacks. Both bonuses improve to +2 at 8th level and stack with trap sense bonuses from other classes."
-        },
-        {
-          "level": 6,
-          "name": "Damage Reduction",
-          "progressionText": "Damage Reduction 3/-",
-          "description": "Gain damage reduction 3/-. At 10th level this improves to 6/-. Damage reduction can reduce damage to 0 but not below 0."
-        },
-        {
-          "level": 6,
-          "name": "Improved Uncanny Dodge",
-          "description": "You can no longer be flanked except by a rogue at least four levels higher than your effective level for this ability. Levels from classes granting uncanny dodge stack to determine that effective level."
-        },
-        {
-          "level": 7,
-          "name": "AC Bonus",
-          "progressionText": "AC Bonus +3",
-          "description": "The class dodge bonus to Armor Class improves to +3."
-        },
-        {
-          "level": 8,
-          "name": "Mobile Defense",
-          "description": "While maintaining Defensive Stance, take one 5-foot step each round without losing the stance's benefits."
-        },
-        {
-          "level": 8,
-          "name": "Trap Sense",
-          "progressionText": "Trap Sense +2",
-          "description": "Trap Sense improves to +2 on Reflex saves against traps and +2 dodge AC against trap attacks."
-        },
-        {
-          "level": 10,
-          "name": "AC Bonus",
-          "progressionText": "AC Bonus +4",
-          "description": "The class dodge bonus to Armor Class improves to +4."
-        },
-        {
-          "level": 10,
-          "name": "Damage Reduction",
-          "progressionText": "Damage Reduction 6/-",
-          "description": "Damage Reduction improves to 6/-."
-        }
+        {"level":1,"name":"Canny Defense","description":"While wearing no armor, using no shield, and wielding a melee weapon, add Intelligence bonus to the Dexterity-based Armor Class modifier, limited to one point of Intelligence bonus per duelist class level. Losing the Dexterity bonus to AC also removes this benefit."},
+        {"level":2,"name":"Improved Reaction","progressionText":"Improved Reaction +2","description":"Gain a +2 bonus on initiative checks; this improves to +4 at 8th level and stacks with Improved Initiative."},
+        {"level":3,"name":"Enhanced Mobility","description":"While wearing no armor and using no shield, gain an additional +4 AC against attacks of opportunity caused by movement out of a threatened square."},
+        {"level":4,"name":"Grace","description":"While wearing no armor and using no shield, gain a +2 competence bonus on Reflex saving throws."},
+        {"level":5,"name":"Precise Strike","progressionText":"Precise Strike +1d6","description":"With a light or one-handed piercing weapon, deal +1d6 precision damage when not attacking with a weapon in the other hand and not using a shield. The target must be a living creature with discernible anatomy and vulnerable to critical hits. The extra damage improves to +2d6 at 10th level."},
+        {"level":6,"name":"Acrobatic Charge","description":"Charge through difficult terrain or other terrain that would normally prevent a charge, making any appropriate movement checks required by the obstacle."},
+        {"level":7,"name":"Elaborate Parry","description":"When fighting defensively or using total defense in melee combat, gain an additional +1 dodge bonus to AC for each duelist class level."},
+        {"level":8,"name":"Improved Reaction","progressionText":"Improved Reaction +4","description":"Improved Reaction increases to a +4 bonus on initiative checks."},
+        {"level":9,"name":"Deflect Arrows","description":"Gain the benefit of Deflect Arrows while using a light or one-handed piercing weapon."},
+        {"level":10,"name":"Precise Strike","progressionText":"Precise Strike +2d6","description":"Precise Strike extra damage improves to +2d6."}
+      ]
+    },
+    "classes/dread-commando-527": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-dmg-core",
+      "name": "Dread Commando",
+      "sourceBook": "Heroes of Battle",
+      "sourcePage": 103,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/dread-commando-527",
+      "minBab": "5",
+      "prerequisites": ["Skills:Hide 6 ranks","Skills:Move Silently 6 ranks","Feats:Dodge","Feats:Mobility"],
+      "classSkills": ["Climb","Craft","Disable Device","Disguise","Escape Artist","Hide","Jump","Knowledge (geography)","Listen","Move Silently","Open Lock","Profession","Search","Spot","Swim","Use Rope"],
+      "proficiencies": [],
+      "proficiencyText": "Dread Commando grants no new weapon or armor proficiency; Armored Ease applies only to armor in which the character is already proficient.",
+      "proficiencyReview": {"verified":true,"grantsNewProficiencies":false,"sourceUrl":"https://new.dndtools.org/classes/dread-commando-527","note":"Heroes of Battle class feature review confirms no new training grant; Armored Ease explicitly refers to armor with which the character is already proficient."},
+      "conditionalMechanics": {
+        "teamInitiativeBonus":{"rangeFeet":30,"requiresAllyCanSeeDreadCommando":true,"includesSelf":true,"bonusType":"competence","bonusFormula":"dread commando class level"},
+        "armoredEase":{"reductionAtLevel2":2,"reductionAtLevel4":4,"minimumArmorCheckPenalty":0,"requiresExistingArmorProficiency":true},
+        "stealthyMovement":{"normalSpeedPenalty":0,"runningOrChargingPenalty":-10}
+      },
+      "levelGrants": [
+        {"level":1,"name":"Sudden Strike","progressionText":"Sudden Strike +1d6","description":"Deal +1d6 damage when the target is denied its Dexterity bonus to AC. Ranged sudden strikes require the target within 30 feet, and the target must have discernible anatomy and be vulnerable to critical-hit extra damage. The bonus becomes +2d6 at 3rd level and +3d6 at 5th level."},
+        {"level":1,"name":"Team Initiative Bonus","description":"The dread commando and allies within 30 feet who can see the dread commando gain a competence bonus on initiative checks equal to the dread commando class level."},
+        {"level":2,"name":"Armored Ease","progressionText":"Armored Ease 2","description":"Reduce the armor check penalty of armor with which the dread commando is proficient by 2, to a minimum of 0. At 4th level the reduction becomes 4."},
+        {"level":3,"name":"Sudden Strike","progressionText":"Sudden Strike +2d6","description":"Sudden Strike increases to +2d6 damage."},
+        {"level":4,"name":"Armored Ease","progressionText":"Armored Ease 4","description":"Armored Ease reduces the armor check penalty by 4, to a minimum of 0."},
+        {"level":4,"name":"Stealthy Movement","description":"Take no Hide or Move Silently penalty while moving up to normal speed, and only a -10 penalty while running or charging instead of the normal -20."},
+        {"level":5,"name":"Sudden Strike","progressionText":"Sudden Strike +3d6","description":"Sudden Strike increases to +3d6 damage."}
+      ]
+    },
+    "classes/ghost-faced-killer-186": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-dmg-core",
+      "name": "Ghost-faced Killer",
+      "sourceBook": "Complete Adventurer",
+      "sourcePage": 51,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/ghost-faced-killer-186",
+      "minBab": "5",
+      "prerequisites": ["Alignment:Any evil","Skills:Hide 6 ranks","Skills:Concentration 4 ranks","Skills:Intimidate 8 ranks","Skills:Move Silently 6 ranks","Feats:Improved Initiative","Feats:Power Attack"],
+      "classSkills": ["Bluff","Climb","Concentration","Hide","Intimidate","Jump","Listen","Move Silently","Open Lock","Search","Spot","Swim","Tumble"],
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"}
+      ],
+      "proficiencyText": "Ghost-faced killers are proficient with all simple and martial weapons and with light armor.",
+      "proficiencyReview": {"verified":true,"sourceUrl":"https://new.dndtools.org/classes/ghost-faced-killer-186","note":"Complete Adventurer p.51 training grant reviewed against the exact class feature text."},
+      "conditionalMechanics": {
+        "ghostStep":{"modesByLevel":{"1":["invisible"],"6":["invisible","ethereal"]},"durationRounds":1,"actionType":"Swift action","provokesAttacksOfOpportunity":false},
+        "frightfulAttack":{"requiresMeleeSuddenStrike":true,"requiresPowerAttack":true,"minimumPowerAttackPenalty":1,"targetSave":"Will","targetSaveDC":"10 + ghost-faced killer class level + Charisma modifier","success":"shaken for 1 round per ghost-faced killer class level","failure":"dies of fear","witnessRadiusFeet":30,"witnessDuration":"1 round per ghost-faced killer class level","witnessSaveAddsPowerAttackDamageBonus":true,"immuneIfMindAffectingImmune":true,"immuneIfFearImmune":true,"immuneIfHitDiceExceedCharacterLevel":true}
+      },
+      "levelGrants": [
+        {"level":1,"name":"Ghost Step","actionType":"Swift action","resource":{"maxByLevel":{"1":1,"4":2,"7":3,"10":4},"period":"day"},"description":"As a swift action that does not provoke attacks of opportunity, become invisible for 1 round. Uses are 1/day at 1st level, 2/day at 4th, 3/day at 7th, and 4/day at 10th. From 6th level onward the same activation can instead make the ghost-faced killer ethereal for the round."},
+        {"level":2,"name":"Sudden Strike","progressionText":"Sudden Strike +1d6","description":"Deal +1d6 precision damage when the target is denied its Dexterity bonus to AC. The bonus improves to +2d6 at 5th level and +3d6 at 8th level, following the ninja sudden strike restrictions."},
+        {"level":3,"name":"Frightful Attack","actionType":"Special attack","resource":{"maxByLevel":{"3":1,"6":2,"9":3},"period":"day"},"description":"Designate a melee sudden strike made with Power Attack and at least a -1 attack penalty as frightful. A damaged victim makes a Will save at DC 10 + ghost-faced killer class level + Charisma modifier; success leaves it shaken for one round per class level and failure slays it from fear. Eligible onlookers within 30 feet are also subject to the class's panic-or-shaken fear effect. Uses are 1/day at 3rd, 2/day at 6th, and 3/day at 9th."},
+        {"level":4,"name":"Ghost Step","progressionText":"Ghost Step 2/day","description":"Ghost Step increases to 2/day."},
+        {"level":5,"name":"Sudden Strike","progressionText":"Sudden Strike +2d6","description":"Sudden Strike increases to +2d6 damage."},
+        {"level":6,"name":"Frightful Attack","progressionText":"Frightful Attack 2/day","description":"Frightful Attack increases to 2/day."},
+        {"level":6,"name":"Ghost Step","progressionText":"Ghost Step (ethereal)","description":"Ghost Step can now make the ghost-faced killer ethereal for 1 round instead of invisible."},
+        {"level":7,"name":"Ghost Sight","description":"See ethereal and invisible creatures and objects as easily as material creatures and objects."},
+        {"level":7,"name":"Ghost Step","progressionText":"Ghost Step 3/day","description":"Ghost Step increases to 3/day."},
+        {"level":8,"name":"Sudden Strike","progressionText":"Sudden Strike +3d6","description":"Sudden Strike increases to +3d6 damage."},
+        {"level":9,"name":"Frightful Attack","progressionText":"Frightful Attack 3/day","description":"Frightful Attack increases to 3/day."},
+        {"level":10,"name":"Frightful Cleave","description":"When a frightful attack slays its target, immediately make one extra melee attack against another target within reach. If that target is flat-footed, the extra attack also carries the frightful attack effect without consuming another daily use."},
+        {"level":10,"name":"Ghost Step","progressionText":"Ghost Step 4/day","description":"Ghost Step increases to 4/day."}
+      ]
+    },
+    "classes/warchief-581": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-dmg-core",
+      "name": "Warchief",
+      "sourceBook": "Miniatures Handbook",
+      "sourcePage": 24,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/warchief-581",
+      "minBab": "3",
+      "prerequisites": ["Special:Must have led a tribe in battle."],
+      "classSkills": ["Bluff","Climb","Craft","Diplomacy","Handle Animal","Intimidate","Jump","Ride","Sense Motive","Swim"],
+      "proficiencies": [],
+      "proficiencyText": "Warchiefs gain no proficiency with any weapon or armor.",
+      "proficiencyReview": {"verified":true,"grantsNewProficiencies":false,"sourceUrl":"https://new.dndtools.org/classes/warchief-581","note":"Miniatures Handbook p.24 explicitly grants no weapon or armor proficiency."},
+      "conditionalMechanics": {
+        "tribalFrenzy":{"activation":"Standard action","maintenance":"Free action each turn","rangeFeet":30,"requiresSameRace":true,"requiresSameTribe":true,"requiresCanHearWarchief":true,"selfExcluded":true,"strengthBonusByLevel":{"1":2,"3":4,"5":6,"7":8,"9":10},"affectedAllyDamagePerHitDiePerTurn":1},
+        "devotedBodyguards":{"usesPerRound":1,"trigger":"warchief is hit by an attack","reflexSaveDC":15,"target":"adjacent tribe member able to act","effect":"redirect the hit to the bodyguard regardless of Armor Class or other defensive effects"}
+      },
+      "levelGrants": [
+        {"level":1,"name":"Tribal Frenzy","actionType":"Standard action","progressionText":"Tribal Frenzy (Str +2)","description":"As a standard action, begin a tribal frenzy and maintain it as a free action each turn. Same-race, same-tribe allies that start their turns within 30 feet and can hear the warchief gain +2 Strength; the warchief is not affected. Each affected ally takes 1 point of damage per Hit Die at the start of each turn. The Strength bonus improves to +4 at 3rd level, +6 at 5th, +8 at 7th, and +10 at 9th."},
+        {"level":2,"name":"Ability Boost","progressionText":"Ability Boost (Cha +2)","description":"Charisma increases by +2 at 2nd level, by another +2 at 6th level, and by another +2 at 10th level, for a total +6 Charisma by 10th level. These increases stack."},
+        {"level":3,"name":"Tribal Frenzy","progressionText":"Tribal Frenzy (Str +4)","description":"Tribal Frenzy's Strength bonus improves to +4."},
+        {"level":5,"name":"Tribal Frenzy","progressionText":"Tribal Frenzy (Str +6)","description":"Tribal Frenzy's Strength bonus improves to +6."},
+        {"level":6,"name":"Ability Boost","progressionText":"Ability Boost (Cha +2)","description":"The cumulative Charisma increase becomes +4."},
+        {"level":7,"name":"Tribal Frenzy","progressionText":"Tribal Frenzy (Str +8)","description":"Tribal Frenzy's Strength bonus improves to +8."},
+        {"level":8,"name":"Devoted Bodyguards","description":"Once per round when an attack hits the warchief, a DC 15 Reflex save can redirect that hit to an adjacent tribe member able to act. The redirected attack is treated as hitting the bodyguard regardless of the bodyguard's Armor Class or other defensive effects."},
+        {"level":9,"name":"Tribal Frenzy","progressionText":"Tribal Frenzy (Str +10)","description":"Tribal Frenzy's Strength bonus improves to +10."},
+        {"level":10,"name":"Ability Boost","progressionText":"Ability Boost (Cha +2)","description":"The cumulative Charisma increase becomes +6 Charisma."}
       ]
     }
   }
