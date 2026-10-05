@@ -1,6 +1,7 @@
 import descriptionOverrides35 from '../data/source-description-overrides-35.json' with {type:'json'};
 import classSixBatchReview35 from '../data/class-six-batch-review-35.json' with {type:'json'};
 import classReviewedOverrides35 from '../data/class-reviewed-overrides-35.json' with {type:'json'};
+import classReviewedMartialOverrides35 from '../data/class-reviewed-overrides-35-martial.json' with {type:'json'};
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
 export const isBoilerplate = value => /logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators/i.test(String(value || ''));
@@ -12,7 +13,7 @@ export function normalizeCatalogRecord(row, source, category) {
   const catalogId=row.catalogId||(source==='dndtools'?`dndtools:${row.id}`:row.id);
   const integrityIssues=['effect','effectSummary','description'].filter(k=>isBoilerplate(row[k])).map(k=>`Invalid source text in ${k}`);
   const descriptionOverride=source==='dndtools'?descriptionOverrides35.entries?.[row.id]:null;
-  const reviewedClassOverride=source==='dndtools'&&category==='classes'?{...(classSixBatchReview35.entries?.[row.id]||{}),...(classReviewedOverrides35.entries?.[row.id]||{})}:null;
+  const reviewedClassOverride=source==='dndtools'&&category==='classes'?{...(classSixBatchReview35.entries?.[row.id]||{}),...(classReviewedOverrides35.entries?.[row.id]||{}),...(classReviewedMartialOverrides35.entries?.[row.id]||{})}:null;
   const clean={...row,...(reviewedClassOverride||{}),...(descriptionOverride?.effectSummary?{effectSummary:descriptionOverride.effectSummary,descriptionOverrideVerified:true,descriptionOverrideProvenance:descriptionOverride.provenance||[]}:{}),...(descriptionOverride?.description?{description:descriptionOverride.description}:{}),...(descriptionOverride?.effect?{effect:descriptionOverride.effect}:{}),...(descriptionOverride?.benefit?{benefit:descriptionOverride.benefit}:{}),...(descriptionOverride?.normalRule?{normalRule:descriptionOverride.normalRule}:{}),...(descriptionOverride?.specialRule?{specialRule:descriptionOverride.specialRule}:{})};
   for(const k of ['effect','effectSummary','description']) if(isBoilerplate(clean[k])) delete clean[k];
   const description=[clean.description||clean.effectSummary||clean.effect||clean.benefit,clean.normalRule&&`Normal: ${clean.normalRule}`,clean.specialRule&&`Special: ${clean.specialRule}`].filter(Boolean).join('\n\n');
