@@ -20,21 +20,56 @@ const candidates=[
 const deferred=new Map([
   ['classes/cavestalker-426','Persistent exotic-combat-style choice is coupled to ranger combat style and conditional weapon proficiency.'],
   ['classes/corrupt-avenger-530','Depends on the taint/corruption subsystem and taint-driven spellcasting state.'],
+  ['classes/cultist-of-the-shattered-peak-540','Uses a dedicated source-specific arcane spell table and restricted spell list that need prestige-casting support before completion.'],
   ['classes/deaths-chosen-545','Class benefits depend on a persistent designated sentient-undead master bond that must reconcile cleanly.'],
   ['classes/defiant-689','Supports ex-cleric level exchange/replacement and threshold benefits that require substitution-state support.'],
+  ['classes/disciple-of-thrym-501','Uses a dedicated source-specific divine spell table and class spell list that need prestige-casting support before completion.'],
   ['classes/dragon-devotee-714','Persistent combat-technique choices and draconic-template transformation belong to later choice/transformation work.'],
   ['classes/dragon-lord-373','Draconic aura selection is a persistent repeated choice with option-specific projected effects.'],
+  ['classes/drunken-master-310','Alcohol consumable state drives ability-score choices and class actions, including expenditure by Breath of Flame.'],
   ['classes/dungeon-delver-183','Skill Mastery requires persistent multi-skill selection and reconciliation.'],
+  ['classes/dungeon-lord-918','Class mechanics depend on a persistent designated dungeon and whether the character is currently inside it.'],
+  ['classes/ebonmar-infiltrator-261','Uses a dedicated source-specific arcane spell table and spell list that need prestige-casting support before completion.'],
   ['classes/eldeen-ranger-435','Persistent sect choice branches into option-specific features and favored-enemy interaction.'],
   ['classes/elemental-master-404','Elemental attunement and breath-weapon expenditure/recharge require shared-state mechanics.'],
-  ['classes/elemental-warrior-691','Persistent elemental-affinity choice branches into option-specific resistance, movement, manifestation, and strike mechanics.']
+  ['classes/elemental-warrior-691','Persistent elemental-affinity choice branches into option-specific resistance, movement, manifestation, and strike mechanics.'],
+  ['classes/emissary-of-barachiel-143','Uses a dedicated Charisma-based divine spells-known table and class spell list that need prestige-casting support.'],
+  ['classes/enlightened-fist-210','Several abilities consume the shared Stunning Fist daily-attempt pool, which must reconcile across classes.'],
+  ['classes/evangelist-240','Great Orator depends on bardic-performance state and Skill Mastery adds persistent selected-skill state.'],
+  ['classes/exemplar-184','Repeated Skill Artistry and Skill Mastery selections plus the outsider transformation require persistent choice/transformation support.'],
+  ['classes/exorcist-of-the-silver-flame-436','Multiple features depend on one persistent chosen weapon of the exorcist and its evolving properties.'],
+  ['classes/exotic-weapon-master-311','Each class level grants one permanent unique exotic-weapon stunt with option-specific mechanics.'],
+  ['classes/extreme-explorer-437','Core abilities spend and modify the Eberron action-point subsystem and include repeated bonus-feat choices.'],
+  ['classes/eye-of-gruumsh-312','Rage uses and progression stack directly with barbarian Rage and require a shared rage resource/state.'],
+  ['classes/fatemaker-692','Uses a dedicated spontaneous spell table with source-specific spells known and spell replacement.'],
+  ['classes/fiend-blooded-533','Fiendish Companion and repeated Fiendish Sorcery spell acquisition require companion and spell-acquisition integration.'],
+  ['classes/fochlucan-lyrist-185','Advances both arcane and divine casting while also advancing shared bardic-music uses and ability strength.'],
+  ['classes/fortunes-friend-293','Extra Fortune and class actions depend on the shared luck-reroll pool plus repeated luck-feat choices.'],
+  ['classes/frost-mage-502','Gain Knowledge adds source-specific spells and 10th level applies the cold subtype transformation.'],
+  ['classes/frostrager-503','Most class features turn on only while raging and therefore require shared Rage state/resource integration.'],
+  ['classes/geometer-212','Spellglyphs require persistent crafted-item state while Glyph features modify a spellbook.'],
+  ['classes/glorious-servitor-541','Bestial Form depends on patron-deity-specific transformation and the class later changes creature type.'],
+  ['classes/gray-guard-294','Debilitating and Devastating Touch consume shared Lay on Hands while smites share smite resources and conduct state.'],
+  ['classes/great-sea-corsair-793','This is an adapted parent-class record with a persistent changeable patron designation and inherited mechanics.'],
+  ['classes/justice-of-weald-and-woe-284','Uses a dedicated Wisdom-based spell table and class spell list that need prestige-casting support before completion.'],
+  ['classes/knight-of-the-chalice-321','Uses a dedicated prepared divine spell table and class spell list that need prestige-casting support before completion.'],
+  ['classes/master-inquisitive-439','Persistent NPC contacts, action-point spending, and repeated bonus-feat choices require additional state support.'],
+  ['classes/tactical-soldier-579','Sidestep grants a different feat when already owned, requiring conditional feat-selection state rather than a fixed grant.'],
+  ['classes/thayan-gladiator-287','Class progression depends on one persistent chosen natural weapon and later permanent magic-ability choices.'],
+  ['classes/thief-of-life-469','Borrowed vitality and immortality persist beyond encounters and can interact with Incarnum essentia.'],
+  ['classes/trapsmith-433','Booby-trap construction/state and its dedicated arcane casting table need separate trap/casting subsystem support.'],
+  ['classes/urban-soul-711','Chosen-city/substitution state and Urban Skill Mastery require persistent location and skill-choice support.'],
+  ['classes/zhentarim-spy-684','Cover identities, unlikely covers, and deep-cover identities are persistent character state with replacement rules.'],
+  ['classes/black-blood-cultist-283','Feral Rage progression and most natural-attack benefits depend on shared Rage state.'],
+  ['classes/black-blood-hunter-658','Lycanthrope forms, curse DC, form-change timing, and form-specific item behavior require transformation state.'],
+  ['classes/cyre-scout-414','Dragonmark Conduit and Blindsense Mark spend shared dragonmark uses and the class also has a dedicated infusion subsystem.']
 ]);
 
 assert.equal(candidates.length,63,'wave 2 must keep the 63-record attempted candidate batch visible');
 assert.equal(new Set(candidates).size,63,'wave 2 candidate IDs must be unique');
-assert.equal(deferred.size,10,'source review must preserve the ten currently proven subsystem blockers');
+assert.equal(deferred.size,45,'source review must preserve every proven subsystem blocker');
 const clean=candidates.filter(id=>!deferred.has(id));
-assert.equal(clean.length,53,'wave 2 must retain more than fifty clean implementation targets');
+assert.equal(clean.length,18,'wave 2 must retain exactly the source-reviewed classes compatible with current mechanics');
 assert.deepEqual(Object.keys(wave2.entries).sort(),clean.slice().sort(),'review manifest must contain exactly the clean wave targets');
 
 for(const id of candidates){
