@@ -2,58 +2,84 @@
   "version": 1,
   "reviewBatch": "2026-10-05-actions-resources-wave2",
   "entries": {
-    "classes/arcane-devotee-657": {"sourceBook":"Player's Guide to Faerûn"},
-    "classes/argent-savant-224": {"sourceBook":"Complete Arcane"},
-    "classes/cipher-adept-688": {"sourceBook":"Planar Handbook"},
-    "classes/cloud-anchorite-499": {"sourceBook":"Frostburn"},
-    "classes/crimson-scourge-262": {"sourceBook":"CityScape"},
-    "classes/cultist-of-the-shattered-peak-540": {"sourceBook":"Lost Empires of Faerûn"},
-    "classes/disciple-of-thrym-501": {"sourceBook":"Frostburn"},
-    "classes/divine-champion-661": {"sourceBook":"Player's Guide to Faerûn"},
-    "classes/dread-fang-of-lolth-428": {"sourceBook":"Drow of the Underdark"},
-    "classes/drunken-master-310": {"sourceBook":"Complete Warrior"},
-    "classes/dungeon-lord-918": {"sourceBook":"Dungeonscape"},
-    "classes/ebonmar-infiltrator-261": {"sourceBook":"CityScape"},
-    "classes/emissary-of-barachiel-143": {"sourceBook":"Book of Exalted Deeds"},
-    "classes/enlightened-fist-210": {"sourceBook":"Complete Arcane"},
-    "classes/escalation-mage-467": {"sourceBook":"Faiths of Eberron"},
-    "classes/evangelist-240": {"sourceBook":"Complete Divine"},
-    "classes/exemplar-184": {"sourceBook":"Complete Adventurer"},
-    "classes/exorcist-of-the-silver-flame-436": {"sourceBook":"Eberron Campaign Setting"},
-    "classes/exotic-weapon-master-311": {"sourceBook":"Complete Warrior"},
-    "classes/extreme-explorer-437": {"sourceBook":"Eberron Campaign Setting"},
-    "classes/eye-of-gruumsh-312": {"sourceBook":"Complete Warrior"},
-    "classes/eye-of-lolth-429": {"sourceBook":"Drow of the Underdark"},
-    "classes/fatemaker-692": {"sourceBook":"Planar Handbook"},
-    "classes/fatespinner-211": {"sourceBook":"Complete Arcane"},
-    "classes/fiend-blooded-533": {"sourceBook":"Heroes of Horror"},
-    "classes/fist-of-raziel-145": {"sourceBook":"Book of Exalted Deeds"},
-    "classes/fochlucan-lyrist-185": {"sourceBook":"Complete Adventurer"},
-    "classes/forest-reeve-227": {"sourceBook":"Complete Champion"},
-    "classes/fortunes-friend-293": {"sourceBook":"Complete Scoundrel"},
-    "classes/frost-mage-502": {"sourceBook":"Frostburn"},
-    "classes/frostrager-503": {"sourceBook":"Frostburn"},
-    "classes/geometer-212": {"sourceBook":"Complete Arcane"},
-    "classes/glorious-servitor-541": {"sourceBook":"Lost Empires of Faerûn"},
-    "classes/gnome-giant-slayer-314": {"sourceBook":"Complete Warrior"},
-    "classes/gray-guard-294": {"sourceBook":"Complete Scoundrel"},
-    "classes/great-sea-corsair-793": {"sourceBook":"Shining South"},
-    "classes/justice-of-weald-and-woe-284": {"sourceBook":"Champions of Ruin"},
-    "classes/knight-of-the-chalice-321": {"sourceBook":"Complete Warrior"},
-    "classes/master-inquisitive-439": {"sourceBook":"Eberron Campaign Setting"},
-    "classes/nightcloak-971": {"sourceBook":"Complete Divine"},
-    "classes/stormtalon-746": {"sourceBook":"Races of the Wild"},
-    "classes/sword-of-righteousness-155": {"sourceBook":"Book of Exalted Deeds"},
-    "classes/tactical-soldier-579": {"sourceBook":"Miniatures Handbook"},
-    "classes/thayan-gladiator-287": {"sourceBook":"Champions of Ruin"},
-    "classes/thayan-knight-337": {"sourceBook":"Complete Warrior"},
-    "classes/thief-of-life-469": {"sourceBook":"Faiths of Eberron"},
-    "classes/trapsmith-433": {"sourceBook":"Dungeonscape"},
-    "classes/urban-soul-711": {"sourceBook":"Races of Destiny"},
-    "classes/zhentarim-spy-684": {"sourceBook":"Player's Guide to Faerûn"},
-    "classes/black-blood-cultist-283": {"sourceBook":"Champions of Ruin"},
-    "classes/black-blood-hunter-658": {"sourceBook":"Player's Guide to Faerûn"},
-    "classes/blade-bravo-726": {"sourceBook":"Races of Stone"},
-    "classes/cyre-scout-414": {"sourceBook":"Dragonmarked"}
+    "classes/arcane-devotee-657": {
+      "sourceBook":"Player's Guide to Faerûn","sourceUrl":"https://new.dndtools.org/classes/arcane-devotee-657","proficiencies":[],
+      "proficiencyText":"Arcane devotees gain no proficiency with weapons, armor, or shields."
+    },
+    "classes/argent-savant-224": {
+      "sourceBook":"Complete Arcane","sourceUrl":"https://new.dndtools.org/classes/argent-savant-224","proficiencies":[],
+      "proficiencyText":"Argent savants gain no proficiency with weapons or armor."
+    },
+    "classes/cipher-adept-688": {
+      "sourceBook":"Planar Handbook","sourceUrl":"https://new.dndtools.org/classes/cipher-adept-688","proficiencies":[],
+      "proficiencyText":"Cipher adepts gain no proficiency with weapons or armor."
+    },
+    "classes/cloud-anchorite-499": {
+      "sourceBook":"Frostburn","sourceUrl":"https://new.dndtools.org/classes/cloud-anchorite-499","proficiencies":[],
+      "proficiencyText":"Cloud anchorites gain no proficiency with weapons, armor, or shields."
+    },
+    "classes/crimson-scourge-262": {
+      "sourceBook":"CityScape","sourceUrl":"https://new.dndtools.org/classes/crimson-scourge-262",
+      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},{"index":"light-armor","name":"Light armor","kind":"armor"},{"index":"medium-armor","name":"Medium armor","kind":"armor"},{"index":"shields-except-tower","name":"Shields (except tower shields)","kind":"armor"}],
+      "proficiencyChoices":[{"id":"scourge-free-weapon","label":"Crimson scourge free weapon proficiency","kind":"weapons","count":1,"options":["Bolas","Net","Whip"],"sourceText":"Choose proficiency with bolas, net, or whip."}],
+      "proficiencyText":"Crimson scourges gain simple and martial weapons, light and medium armor, shields except tower shields, and choose bolas, net, or whip as one additional weapon proficiency."
+    },
+    "classes/divine-champion-661": {
+      "sourceBook":"Player's Guide to Faerûn","sourceUrl":"https://new.dndtools.org/classes/divine-champion-661",
+      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"}],
+      "proficiencyText":"Divine champions gain simple and martial weapon proficiency but no armor or shield proficiency."
+    },
+    "classes/dread-fang-of-lolth-428": {
+      "sourceBook":"Drow of the Underdark","sourceUrl":"https://new.dndtools.org/classes/dread-fang-of-lolth-428","proficiencies":[],
+      "proficiencyText":"The Drow of the Underdark class feature list grants no new weapon, armor, or shield proficiency."
+    },
+    "classes/escalation-mage-467": {
+      "sourceBook":"Faiths of Eberron","sourceUrl":"https://new.dndtools.org/classes/escalation-mage-467","proficiencies":[],
+      "proficiencyText":"The Faiths of Eberron class feature list grants no new weapon, armor, or shield proficiency."
+    },
+    "classes/eye-of-lolth-429": {
+      "sourceBook":"Drow of the Underdark","sourceUrl":"https://new.dndtools.org/classes/eye-of-lolth-429","proficiencies":[],
+      "proficiencyText":"The Eye of Lolth class feature list grants no new weapon, armor, or shield proficiency."
+    },
+    "classes/fatespinner-211": {
+      "sourceBook":"Complete Arcane","sourceUrl":"https://new.dndtools.org/classes/fatespinner-211","proficiencies":[],
+      "proficiencyText":"Fatespinners gain no proficiency with weapons or armor."
+    },
+    "classes/fist-of-raziel-145": {
+      "sourceBook":"Book of Exalted Deeds","sourceUrl":"https://new.dndtools.org/classes/fist-of-raziel-145",
+      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},{"index":"light-armor","name":"Light armor","kind":"armor"},{"index":"medium-armor","name":"Medium armor","kind":"armor"},{"index":"heavy-armor","name":"Heavy armor","kind":"armor"},{"index":"shields-except-tower","name":"Shields (except tower shields)","kind":"armor"}],
+      "proficiencyText":"Fists of Raziel gain all simple and martial weapons, all armor, and shields except tower shields."
+    },
+    "classes/forest-reeve-227": {
+      "sourceBook":"Complete Champion","sourceUrl":"https://new.dndtools.org/classes/forest-reeve-227","proficiencies":[],
+      "proficiencyText":"The Complete Champion class feature list grants no new weapon, armor, or shield proficiency."
+    },
+    "classes/gnome-giant-slayer-314": {
+      "sourceBook":"Complete Warrior","sourceUrl":"https://new.dndtools.org/classes/gnome-giant-slayer-314",
+      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},{"index":"light-armor","name":"Light armor","kind":"armor"},{"index":"medium-armor","name":"Medium armor","kind":"armor"},{"index":"shields","name":"Shields","kind":"armor"}],
+      "proficiencyText":"Gnome giant-slayers gain simple and martial weapons, light and medium armor, and shields."
+    },
+    "classes/nightcloak-971": {
+      "sourceBook":"Complete Divine","sourceUrl":"https://new.dndtools.org/classes/nightcloak-971","proficiencies":[],
+      "proficiencyText":"Nightcloaks gain no proficiency with weapons, armor, or shields."
+    },
+    "classes/stormtalon-746": {
+      "sourceBook":"Races of the Wild","sourceUrl":"https://new.dndtools.org/classes/stormtalon-746","proficiencies":[],
+      "proficiencyText":"Stormtalon grants no general weapon, armor, or shield proficiency; Foot Talons separately makes the character proficient with those natural attacks."
+    },
+    "classes/sword-of-righteousness-155": {
+      "sourceBook":"Book of Exalted Deeds","sourceUrl":"https://new.dndtools.org/classes/sword-of-righteousness-155","proficiencies":[],
+      "proficiencyText":"Swords of righteousness gain no proficiency with weapons or armor."
+    },
+    "classes/thayan-knight-337": {
+      "sourceBook":"Complete Warrior","sourceUrl":"https://new.dndtools.org/classes/thayan-knight-337",
+      "proficiencies":[{"index":"tower-shields","name":"Tower shields","kind":"armor"}],
+      "proficiencyText":"Thayan knights gain proficiency with tower shields."
+    },
+    "classes/blade-bravo-726": {
+      "sourceBook":"Races of Stone","sourceUrl":"https://new.dndtools.org/classes/blade-bravo-726",
+      "proficiencies":[{"index":"light-armor","name":"Light armor","kind":"armor"}],
+      "proficiencyText":"Blade bravos gain light armor proficiency but no new weapon proficiency."
+    }
   }
 }
