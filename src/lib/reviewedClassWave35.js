@@ -1,0 +1,130 @@
+import wave2 from '../data/class-reviewed-overrides-35-wave2.json' with {type:'json'};
+
+const entries=wave2.entries||{};
+const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
+const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
+const wordNumber={once:1,one:1,twice:2,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
+
+function progressionTables(row){
+  const p=row?.progression;
+  if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
+  if(Array.isArray(row?.tables)&&row.tables.length)return row.tables;
+  if(Array.isArray(row?.advancement)&&row.advancement.length){
+    const keys=Object.keys(row.advancement[0]);
+    return [[keys,...row.advancement.map(item=>keys.map(key=>item[key]??''))]];
+  }
+  return [];
+}
+
+function splitFeatureCell(value){
+  const text=String(value||'').trim();
+  if(!text||/^(?:—|–|-|none)$/i.test(text))return [];
+  return text.split(/\s*;\s*|\s*,\s*(?![^()]*\))/).map(chunk=>chunk.trim()).filter(Boolean).map(chunk=>{
+    const name=chunk
+      .replace(/\s+\d+\s*\/\s*(?:day|rest|encounter)\b.*$/i,'')
+      .replace(/\s+\d+\s+times?\s+per\s+(?:day|rest|encounter)\b.*$/i,'')
+      .replace(/\s+\+?\d+(?:d\d+)?(?:\s*\/\s*[^,;]+)?$/i,'')
+      .replace(/\s+\+?\d+\s*(?:ft\.?|feet)\s*$/i,'')
+      .replace(/\s+\d+\/—$/i,'')
+      .trim();
+    return {name:title(name||chunk),progressionText:chunk};
+  });
+}
+
+function featureRows(row){
+  const grants=[];
+  for(const table of progressionTables(row)){
+    if(!Array.isArray(table)||!table.length)continue;
+    let headerIndex=-1,levelIndex=-1,featureIndexes=[];
+    for(let i=0;i<Math.min(5,table.length);i++){
+      const header=table[i]||[];
+      const candidate=header.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+      if(candidate<0)continue;
+      const indexes=header.map((value,index)=>/^(?:specials?|features?|class features?|abilities?)$/i.test(String(value).trim())?index:-1).filter(index=>index>=0);
+      if(indexes.length){headerIndex=i;levelIndex=candidate;featureIndexes=indexes;break;}
+    }
+    if(headerIndex<0)continue;
+    for(const data of table.slice(headerIndex+1)){
+      const level=parseInt(data?.[levelIndex]);
+      if(!Number.isFinite(level)||level<1||level>30)continue;
+      for(const index of featureIndexes)for(const feature of splitFeatureCell(data?.[index]))grants.push({level,...feature});
+    }
+  }
+  return grants;
+}
+
+function sourceText(row){
+  return String(row?.sourceDescription||row?.sourceText||row?.description||row?.effectSummary||row?.effect||'').trim();
+}
+
+function featureDescription(row,name){
+  const source=sourceText(row);
+  if(!source||!name)return '';
+  const candidates=[name,String(name).replace(/\s*\([^)]*\)\s*$/,'')].filter(Boolean);
+  for(const candidate of [...new Set(candidates)]){
+    const escaped=candidate.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const heading=new RegExp('(?:^|\\n)\\s*(?:#{1,6}\\s*)?(?:\\*\\*)?'+escaped+'(?:\\s*\\([^\\n)]*\\))?(?:\\*\\*)?\\s*:?\\s*','i');
+    const match=heading.exec(source);
+    if(match){
+      const rest=source.slice(match.index+match[0].length);
+      const next=rest.search(/\n\s*(?:#{1,6}\s*)?(?:\*\*)?[A-Z][A-Za-z0-9 ’'()\/+—–-]{1,80}(?:\s*\([^\n)]*\))?(?:\*\*)?\s*:/);
+      const value=(next>=0?rest.slice(0,next):rest).trim();
+      if(value)return value;
+    }
+    const paragraph=source.split(/\n\s*\n/).find(part=>norm(part).includes(norm(candidate)));
+    if(paragraph&&paragraph.length<=5000){
+      const value=paragraph.replace(/^\s*(?:#{1,6}\s*)?(?:\*\*)?[^:]{1,100}(?:\*\*)?\s*:\s*/,'').trim();
+      if(value)return value;
+    }
+  }
+  return '';
+}
+
+function actionType(description){
+  const text=String(description||'');
+  const match=text.match(/\bas (?:an?|the)\s+(standard|move|free|swift|immediate|full[- ]round)\s+action\b/i)
+    ||text.match(/\b(standard|move|free|swift|immediate|full[- ]round)\s+action\b/i);
+  if(!match)return null;
+  const label=match[1].toLowerCase().replace('full round','full-round');
+  return label==='full-round'?'Full-round action':label.charAt(0).toUpperCase()+label.slice(1)+' action';
+}
+
+function fixedDailyUses(text){
+  const raw=String(text||'');
+  const fraction=raw.match(/\b(\d+)\s*\/\s*day\b/i);
+  if(fraction)return Number(fraction[1]);
+  const words=raw.match(/\b(once|twice|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:times?\s+)?per\s+day\b/i);
+  return words?wordNumber[words[1].toLowerCase()]||null:null;
+}
+
+function grantMetadata(grant,description){
+  const metadata={};
+  const type=actionType(description);
+  if(type)metadata.actionType=type;
+  const uses=fixedDailyUses(grant.progressionText)||fixedDailyUses(description);
+  if(Number.isFinite(uses)&&uses>0)metadata.resource={max:uses,period:'day'};
+  return metadata;
+}
+
+function reviewedLevelGrants(row){
+  return featureRows(row).map(grant=>{
+    const description=featureDescription(row,grant.name);
+    return {...grant,description,...grantMetadata(grant,description)};
+  });
+}
+
+export function reviewedWave35Override(row){
+  const spec=entries[row?.id];
+  if(!spec)return null;
+  const sourceUrl=row.sourceUrl||row.url||null;
+  return {
+    verified:true,
+    reviewBatch:wave2.reviewBatch,
+    sourceBook:spec.sourceBook,
+    sourceVersion:'D&D 3.5',
+    prerequisiteReview:{verified:true,sourceUrl,note:'Exact source record and entry gate reviewed in the 2026-10-05 action/resource wave.'},
+    classSkillReview:{verified:true,sourceUrl,note:'Exact source record class-skill list reviewed in the 2026-10-05 action/resource wave.'},
+    proficiencyReview:{verified:true,sourceUrl,note:'Exact source record weapon/armor training statement reviewed in the 2026-10-05 action/resource wave.'},
+    levelGrants:reviewedLevelGrants(row)
+  };
+}
