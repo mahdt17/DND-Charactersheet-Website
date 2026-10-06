@@ -14,4 +14,4 @@ const summarize=value=>{
 const report={id,rowKeys:Object.keys(row),fields:Object.fromEntries(Object.entries(row).map(([key,value])=>[key,summarize(value)]))};
 await fs.mkdir('test-results',{recursive:true});
 await fs.writeFile('test-results/class-record-shape.json',JSON.stringify(report,null,2));
-console.log(`CLASS_RECORD_SHAPE=${JSON.stringify({id,rowKeys:report.rowKeys})}`);
+console.log(`CLASS_RECORD_SHAPE=${JSON.stringify(report)}`);
