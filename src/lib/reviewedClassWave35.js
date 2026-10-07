@@ -1,11 +1,13 @@
 import wave2 from '../data/class-reviewed-overrides-35-wave2.json' with {type:'json'};
 import candidate75 from '../data/class-reviewed-overrides-35-candidates75.json' with {type:'json'};
+import candidate75Ordinary2 from '../data/class-reviewed-overrides-35-candidates75-ordinary2.json' with {type:'json'};
 import reviewedFeaturesWave2 from '../data/class-reviewed-features-35-wave2.json' with {type:'json'};
 import reviewedFeaturesCandidate75 from '../data/class-reviewed-features-35-candidates75.json' with {type:'json'};
+import reviewedFeaturesCandidate75Ordinary2 from '../data/class-reviewed-features-35-candidates75-ordinary2.json' with {type:'json'};
 
-const waves=[wave2,candidate75];
+const waves=[wave2,candidate75,candidate75Ordinary2];
 const entries=Object.assign({},...waves.map(wave=>wave.entries||{}));
-const reviewedFeatureEntries={...(reviewedFeaturesWave2.entries||{}),...(reviewedFeaturesCandidate75.entries||{})};
+const reviewedFeatureEntries={...(reviewedFeaturesWave2.entries||{}),...(reviewedFeaturesCandidate75.entries||{}),...(reviewedFeaturesCandidate75Ordinary2.entries||{})};
 const waveFor=id=>waves.find(wave=>wave.entries?.[id])||null;
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
