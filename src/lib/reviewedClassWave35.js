@@ -1,7 +1,12 @@
 import wave2 from '../data/class-reviewed-overrides-35-wave2.json' with {type:'json'};
-import reviewedFeatures from '../data/class-reviewed-features-35-wave2.json' with {type:'json'};
+import candidate75 from '../data/class-reviewed-overrides-35-candidates75.json' with {type:'json'};
+import reviewedFeaturesWave2 from '../data/class-reviewed-features-35-wave2.json' with {type:'json'};
+import reviewedFeaturesCandidate75 from '../data/class-reviewed-features-35-candidates75.json' with {type:'json'};
 
-const entries=wave2.entries||{};
+const waves=[wave2,candidate75];
+const entries=Object.assign({},...waves.map(wave=>wave.entries||{}));
+const reviewedFeatureEntries={...(reviewedFeaturesWave2.entries||{}),...(reviewedFeaturesCandidate75.entries||{})};
+const waveFor=id=>waves.find(wave=>wave.entries?.[id])||null;
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
 const wordNumber={once:1,one:1,twice:2,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
@@ -108,7 +113,7 @@ function grantMetadata(grant,description){
 }
 
 function reviewedLevelGrants(row){
-  const reviewed=reviewedFeatures.entries[row.id]||[];
+  const reviewed=reviewedFeatureEntries[row.id]||[];
   const grants=featureRows(row).map(grant=>{
     // Only explicit aliases or numeric progression suffixes may join names.
     // Semantic qualifiers such as Favored Enemy (Giant) remain part of identity.
@@ -130,18 +135,19 @@ function reviewedLevelGrants(row){
 }
 
 export function reviewedWave35Override(row){
-  const spec=entries[row?.id];
-  if(!spec)return null;
+  const spec=entries[row?.id],wave=waveFor(row?.id);
+  if(!spec||!wave)return null;
   const sourceUrl=row.sourceUrl||row.url||null;
+  const reviewDate=spec.reviewEvidence?.reviewDate||'2026-10-05';
   return {
     ...spec,
     verified:true,
-    reviewBatch:wave2.reviewBatch,
+    reviewBatch:wave.reviewBatch,
     sourceBook:spec.sourceBook,
-    sourceVersion:'D&D 3.5',
+    sourceVersion:spec.sourceVersion||'D&D 3.5',
     prerequisiteReview:{verified:true,sourceUrl:spec.reviewEvidence?.requirementsUrl||sourceUrl,note:'Exact source entry gate recovered from the same-book/version requirements section.'},
     classSkillReview:{verified:true,sourceUrl:spec.reviewEvidence?.classSkillsUrl||sourceUrl,note:'Exact source class-skill table, excluding skill mentions in feature prose.'},
-    proficiencyReview:{verified:true,sourceUrl,note:'Exact source record weapon/armor training statement reviewed in the 2026-10-05 action/resource wave.'},
+    proficiencyReview:{verified:true,sourceUrl,note:`Exact source record weapon/armor training statement reviewed in the ${reviewDate} action/resource wave.`},
     levelGrants:reviewedLevelGrants(row)
   };
 }
