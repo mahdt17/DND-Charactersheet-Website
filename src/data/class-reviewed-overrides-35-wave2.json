@@ -3,83 +3,1175 @@
   "reviewBatch": "2026-10-05-actions-resources-wave2",
   "entries": {
     "classes/arcane-devotee-657": {
-      "sourceBook":"Player's Guide to Faerûn","sourceUrl":"https://new.dndtools.org/classes/arcane-devotee-657","proficiencies":[],
-      "proficiencyText":"Arcane devotees gain no proficiency with weapons, armor, or shields."
+      "sourceBook": "Player's Guide to Faerûn",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-devotee-657",
+      "proficiencies": [],
+      "proficiencyText": "Arcane devotees gain no proficiency with weapons, armor, or shields.",
+      "name": "Arcane Devotee",
+      "prerequisites": [
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Enlarge Spell"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (religion) 5 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Spellcraft 8 ranks"
+        },
+        {
+          "kind": "spells",
+          "label": "Spells",
+          "text": "Able to cast 4th-level arcane spells."
+        },
+        {
+          "kind": "patron_deity",
+          "label": "Patron Deity",
+          "text": "An arcane devotee must have a patron deity, and it must be the one he serves as an arcane devotee."
+        }
+      ],
+      "classSkills": [
+        "Concentration",
+        "Craft",
+        "Decipher Script",
+        "Profession",
+        "Spellcraft",
+        "Knowledge"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/arcane-devotee-657",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=657",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=657",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/argent-savant-224": {
-      "sourceBook":"Complete Arcane","sourceUrl":"https://new.dndtools.org/classes/argent-savant-224","proficiencies":[],
-      "proficiencyText":"Argent savants gain no proficiency with weapons or armor."
+      "sourceBook": "Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/argent-savant-224",
+      "proficiencies": [],
+      "proficiencyText": "Argent savants gain no proficiency with weapons or armor.",
+      "name": "Argent Savant",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (arcana) 6 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Spellcraft 12 ranks"
+        },
+        {
+          "kind": "spells",
+          "label": "Spells",
+          "text": "Able to cast at least five spells with the force descriptor, at least one of which must be 5th level or higher."
+        }
+      ],
+      "classSkills": [
+        "Concentration",
+        "Craft",
+        "Knowledge (arcana)",
+        "Knowledge (architecture and engineering)",
+        "Knowledge (dungeoneering)",
+        "Knowledge (geography)",
+        "Knowledge (history)",
+        "Knowledge (local)",
+        "Knowledge (nature)",
+        "Knowledge (nobility and royalty)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Spellcraft",
+        "Knowledge (psionics)"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/argent-savant-224",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=224",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=224",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/cipher-adept-688": {
-      "sourceBook":"Planar Handbook","sourceUrl":"https://new.dndtools.org/classes/cipher-adept-688","proficiencies":[],
-      "proficiencyText":"Cipher adepts gain no proficiency with weapons or armor."
+      "sourceBook": "Planar Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/cipher-adept-688",
+      "proficiencies": [],
+      "proficiencyText": "Cipher adepts gain no proficiency with weapons or armor.",
+      "name": "Cipher Adept",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Neutral"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Agile"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Dodge"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Improved Initiative"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Balance 5 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Listen 10 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Survival 5 ranks"
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Ride",
+        "Bluff",
+        "Concentration",
+        "Disable Device",
+        "Escape Artist",
+        "Handle Animal",
+        "Hide",
+        "Move Silently",
+        "Sense Motive",
+        "Spot",
+        "Survival",
+        "Swim",
+        "Tumble",
+        "Use Magic Device"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/cipher-adept-688",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=688",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=688",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/cloud-anchorite-499": {
-      "sourceBook":"Frostburn","sourceUrl":"https://new.dndtools.org/classes/cloud-anchorite-499","proficiencies":[],
-      "proficiencyText":"Cloud anchorites gain no proficiency with weapons, armor, or shields."
+      "sourceBook": "Frostburn",
+      "sourceUrl": "https://new.dndtools.org/classes/cloud-anchorite-499",
+      "proficiencies": [],
+      "proficiencyText": "Cloud anchorites gain no proficiency with weapons, armor, or shields.",
+      "name": "Cloud Anchorite",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any nonchaotic"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Mountaineer"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Improved Unarmed Strike"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Climb 9 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Jump 9 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (religion) 9 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Survival 4 ranks"
+        },
+        {
+          "kind": "base_fortitude_save",
+          "label": "Base Fortitude Save",
+          "text": "+5."
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "The prospective student must live for a week on her own in a wilderness region, during which time she can travel no lower than 12,000 feet in altitude."
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Jump",
+        "Climb",
+        "Concentration",
+        "Craft",
+        "Escape Artist",
+        "Knowledge (nature)",
+        "Knowledge (religion)",
+        "Listen",
+        "Spot",
+        "Survival",
+        "Tumble",
+        "Use Rope"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/cloud-anchorite-499",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=499",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=499",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/crimson-scourge-262": {
-      "sourceBook":"CityScape","sourceUrl":"https://new.dndtools.org/classes/crimson-scourge-262",
-      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},{"index":"light-armor","name":"Light armor","kind":"armor"},{"index":"medium-armor","name":"Medium armor","kind":"armor"},{"index":"shields-except-tower","name":"Shields (except tower shields)","kind":"armor"}],
-      "proficiencyChoices":[{"id":"scourge-free-weapon","label":"Crimson scourge free weapon proficiency","kind":"weapons","count":1,"options":["Bolas","Net","Whip"],"sourceText":"Choose proficiency with bolas, net, or whip."}],
-      "proficiencyText":"Crimson scourges gain simple and martial weapons, light and medium armor, shields except tower shields, and choose bolas, net, or whip as one additional weapon proficiency."
+      "sourceBook": "CityScape",
+      "sourceUrl": "https://new.dndtools.org/classes/crimson-scourge-262",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "scourge-free-weapon",
+          "label": "Crimson scourge free weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "options": [
+            "Bolas",
+            "Net",
+            "Whip"
+          ],
+          "sourceText": "Choose proficiency with bolas, net, or whip."
+        }
+      ],
+      "proficiencyText": "Crimson scourges gain simple and martial weapons, light and medium armor, shields except tower shields, and choose bolas, net, or whip as one additional weapon proficiency.",
+      "minBab": "4",
+      "name": "Crimson Scourge",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any nongood"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Urban Tracking"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Gather Information 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Handle Animal 8 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Heal 1 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Intimidate 3 ranks"
+        },
+        {
+          "kind": "base_fort_save",
+          "label": "Base Fort Save",
+          "text": "+3"
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Ride",
+        "Jump",
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Diplomacy",
+        "Disable Device",
+        "Disguise",
+        "Escape Artist",
+        "Gather Information",
+        "Handle Animal",
+        "Hide",
+        "Intimidate",
+        "Knowledge (local)",
+        "Listen",
+        "Move Silently",
+        "Search",
+        "Sense Motive",
+        "Spot",
+        "Survival",
+        "Swim",
+        "Use Rope"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/crimson-scourge-262",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=262",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=262",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/divine-champion-661": {
-      "sourceBook":"Player's Guide to Faerûn","sourceUrl":"https://new.dndtools.org/classes/divine-champion-661",
-      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"}],
-      "proficiencyText":"Divine champions gain simple and martial weapon proficiency but no armor or shield proficiency."
+      "sourceBook": "Player's Guide to Faerûn",
+      "sourceUrl": "https://new.dndtools.org/classes/divine-champion-661",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyText": "Divine champions gain simple and martial weapon proficiency but no armor or shield proficiency.",
+      "minBab": "7",
+      "name": "Divine Champion",
+      "prerequisites": [
+        {
+          "kind": "special",
+          "label": "Feats",
+          "text": "Weapon Focus (deity's favored weapon)"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (religion) 3 ranks"
+        },
+        {
+          "kind": "patron_deity",
+          "label": "Patron Deity",
+          "text": "A divine champion must have a patron deity, and it must be the one he serves as a divine champion."
+        }
+      ],
+      "classSkills": [
+        "Ride",
+        "Jump",
+        "Climb",
+        "Craft",
+        "Handle Animal",
+        "Intimidate",
+        "Knowledge (religion)",
+        "Swim"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/divine-champion-661",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=661",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=661",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/dread-fang-of-lolth-428": {
-      "sourceBook":"Drow of the Underdark","sourceUrl":"https://new.dndtools.org/classes/dread-fang-of-lolth-428","proficiencies":[],
-      "proficiencyText":"The Drow of the Underdark class feature list grants no new weapon, armor, or shield proficiency."
+      "sourceBook": "Drow of the Underdark",
+      "sourceUrl": "https://new.dndtools.org/classes/dread-fang-of-lolth-428",
+      "proficiencies": [],
+      "proficiencyText": "The Drow of the Underdark class feature list grants no new weapon, armor, or shield proficiency.",
+      "minBab": "5",
+      "name": "Dread Fang of Lolth",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Lawful evil"
+        },
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Drow"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Hide 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Listen 2 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Move Silently 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Spot 2 ranks"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Evasion, Sneak attack +2d6."
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Jump",
+        "Climb",
+        "Escape Artist",
+        "Hide",
+        "Intimidate",
+        "Listen",
+        "Move Silently",
+        "Spot",
+        "Tumble"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/dread-fang-of-lolth-428",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=428",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=428",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/escalation-mage-467": {
-      "sourceBook":"Faiths of Eberron","sourceUrl":"https://new.dndtools.org/classes/escalation-mage-467","proficiencies":[],
-      "proficiencyText":"The Faiths of Eberron class feature list grants no new weapon, armor, or shield proficiency."
+      "sourceBook": "Faiths of Eberron",
+      "sourceUrl": "https://new.dndtools.org/classes/escalation-mage-467",
+      "proficiencies": [],
+      "proficiencyText": "The Faiths of Eberron class feature list grants no new weapon, armor, or shield proficiency.",
+      "name": "Escalation Mage",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Concentration 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (arcana) 8 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Any metamagic feat."
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Caster level 5th, must worship the Shadow."
+        }
+      ],
+      "classSkills": [
+        "Bluff",
+        "Concentration",
+        "Craft",
+        "Decipher Script",
+        "Hide",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Sense Motive",
+        "Spellcraft",
+        "Use Magic Device"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/escalation-mage-467",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=467",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=467",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/eye-of-lolth-429": {
-      "sourceBook":"Drow of the Underdark","sourceUrl":"https://new.dndtools.org/classes/eye-of-lolth-429","proficiencies":[],
-      "proficiencyText":"The Eye of Lolth class feature list grants no new weapon, armor, or shield proficiency."
+      "sourceBook": "Drow of the Underdark",
+      "sourceUrl": "https://new.dndtools.org/classes/eye-of-lolth-429",
+      "proficiencies": [],
+      "proficiencyText": "The Eye of Lolth class feature list grants no new weapon, armor, or shield proficiency.",
+      "name": "Eye of Lolth",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Drow"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Cautious Attack"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Hide 8 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (religion) 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Listen 8 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Spot 8 ranks"
+        },
+        {
+          "kind": "domain",
+          "label": "Domain",
+          "text": "Trickery."
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Evasion, Sneak attack +2d6 or skirmish +2d6."
+        }
+      ],
+      "classSkills": [
+        "Bluff",
+        "Concentration",
+        "Disguise",
+        "Gather Information",
+        "Hide",
+        "Intimidate",
+        "Knowledge (local)",
+        "Knowledge (religion)",
+        "Listen",
+        "Move Silently",
+        "Search",
+        "Sense Motive",
+        "Spot"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/eye-of-lolth-429",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=429",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=429",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/fatespinner-211": {
-      "sourceBook":"Complete Arcane","sourceUrl":"https://new.dndtools.org/classes/fatespinner-211","proficiencies":[],
-      "proficiencyText":"Fatespinners gain no proficiency with weapons or armor."
+      "sourceBook": "Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/fatespinner-211",
+      "proficiencies": [],
+      "proficiencyText": "Fatespinners gain no proficiency with weapons or armor.",
+      "name": "Fatespinner",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (arcana) 10 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Profession (gambler) 5 ranks"
+        },
+        {
+          "kind": "spells",
+          "label": "Spells",
+          "text": "Able to cast 4th-level arcane spells, including at least one divination spell of 1st level or higher."
+        }
+      ],
+      "classSkills": [
+        "Appraise",
+        "Concentration",
+        "Craft",
+        "Knowledge (arcana)",
+        "Profession",
+        "Sleight of Hand",
+        "Spellcraft"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/fatespinner-211",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=211",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=211",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/fist-of-raziel-145": {
-      "sourceBook":"Book of Exalted Deeds","sourceUrl":"https://new.dndtools.org/classes/fist-of-raziel-145",
-      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},{"index":"light-armor","name":"Light armor","kind":"armor"},{"index":"medium-armor","name":"Medium armor","kind":"armor"},{"index":"heavy-armor","name":"Heavy armor","kind":"armor"},{"index":"shields-except-tower","name":"Shields (except tower shields)","kind":"armor"}],
-      "proficiencyText":"Fists of Raziel gain all simple and martial weapons, all armor, and shields except tower shields."
+      "sourceBook": "Book of Exalted Deeds",
+      "sourceUrl": "https://new.dndtools.org/classes/fist-of-raziel-145",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        }
+      ],
+      "proficiencyText": "Fists of Raziel gain all simple and martial weapons, all armor, and shields except tower shields.",
+      "minBab": "6",
+      "name": "Fist of Raziel",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Lawful good"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Power Attack"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Servant of the Heavens"
+        },
+        {
+          "kind": "spells",
+          "label": "Spells",
+          "text": "Able to cast divine favor"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Diplomacy 5 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (religion) 5 ranks"
+        }
+      ],
+      "classSkills": [
+        "Concentration",
+        "Craft",
+        "Diplomacy",
+        "Heal",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Sense Motive"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/fist-of-raziel-145",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=145",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=145",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/forest-reeve-227": {
-      "sourceBook":"Complete Champion","sourceUrl":"https://new.dndtools.org/classes/forest-reeve-227","proficiencies":[],
-      "proficiencyText":"The Complete Champion class feature list grants no new weapon, armor, or shield proficiency."
+      "sourceBook": "Complete Champion",
+      "sourceUrl": "https://new.dndtools.org/classes/forest-reeve-227",
+      "proficiencies": [],
+      "proficiencyText": "The Complete Champion class feature list grants no new weapon, armor, or shield proficiency.",
+      "minBab": "5",
+      "name": "Forest Reeve",
+      "prerequisites": [
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Endurance"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Track"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (nature) 2 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Listen 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Spot 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Survival 6 ranks"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Must be chosen as a forest reeve by the leaders of a band of Guardians of the Green, then serve a six-month apprenticeship to a Guardian of the Green who has at least three forest reeve levels. This requirement can be waived if the would-be forest reeve performs an extraordinary service for the Guardians of the Green."
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Jump",
+        "Climb",
+        "Craft",
+        "Handle Animal",
+        "Heal",
+        "Hide",
+        "Intimidate",
+        "Knowledge (geography)",
+        "Knowledge (nature)",
+        "Listen",
+        "Move Silently",
+        "Search",
+        "Spot",
+        "Survival",
+        "Swim",
+        "Use Rope"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/forest-reeve-227",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=227",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=227",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/gnome-giant-slayer-314": {
-      "sourceBook":"Complete Warrior","sourceUrl":"https://new.dndtools.org/classes/gnome-giant-slayer-314",
-      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},{"index":"light-armor","name":"Light armor","kind":"armor"},{"index":"medium-armor","name":"Medium armor","kind":"armor"},{"index":"shields","name":"Shields","kind":"armor"}],
-      "proficiencyText":"Gnome giant-slayers gain simple and martial weapons, light and medium armor, and shields."
+      "sourceBook": "Complete Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/gnome-giant-slayer-314",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        }
+      ],
+      "proficiencyText": "Gnome giant-slayers gain simple and martial weapons, light and medium armor, and shields.",
+      "name": "Gnome Giant-slayer",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Gnome"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Dodge"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Mobility"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Spring Attack"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Escape Artist 3 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Tumble 3 ranks"
+        },
+        {
+          "kind": "speak_language",
+          "label": "Speak Language",
+          "text": "Giant."
+        }
+      ],
+      "classSkills": [
+        "Jump",
+        "Climb",
+        "Craft",
+        "Escape Artist",
+        "Hide",
+        "Intimidate",
+        "Move Silently",
+        "Tumble",
+        "Use Rope"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/gnome-giant-slayer-314",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=314",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=314",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/nightcloak-971": {
-      "sourceBook":"Complete Divine","sourceUrl":"https://new.dndtools.org/classes/nightcloak-971","proficiencies":[],
-      "proficiencyText":"Nightcloaks gain no proficiency with weapons, armor, or shields."
+      "sourceBook": "Complete Divine",
+      "sourceUrl": "https://new.dndtools.org/classes/nightcloak-971",
+      "proficiencies": [],
+      "proficiencyText": "Nightcloaks gain no proficiency with weapons, armor, or shields.",
+      "minBab": "3",
+      "name": "Nightcloak",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any evil"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Iron Will"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Spell Focus (Enchantment, Illusion, or Necro.)"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 2 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Hide 4 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Move Silently 2 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Perform (any) 4 ranks"
+        },
+        {
+          "kind": "spells",
+          "label": "Spells",
+          "text": "Ability to cast 3rd-level divine spells. A cleric candidate must have access to the Evil domain."
+        }
+      ],
+      "classSkills": [
+        "Bluff",
+        "Concentration",
+        "Craft",
+        "Diplomacy",
+        "Heal",
+        "Hide",
+        "Knowledge (arcana)",
+        "Knowledge (history)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Sense Motive",
+        "Spellcraft"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/nightcloak-971",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=971",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=971",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/stormtalon-746": {
-      "sourceBook":"Races of the Wild","sourceUrl":"https://new.dndtools.org/classes/stormtalon-746","proficiencies":[],
-      "proficiencyText":"Stormtalon grants no general weapon, armor, or shield proficiency; Foot Talons separately makes the character proficient with those natural attacks."
+      "sourceBook": "Races of the Wild",
+      "sourceUrl": "https://new.dndtools.org/classes/stormtalon-746",
+      "proficiencies": [],
+      "proficiencyText": "Stormtalon grants no general weapon, armor, or shield proficiency; Foot Talons separately makes the character proficient with those natural attacks.",
+      "minBab": "5",
+      "name": "Stormtalon",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Raptoran"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Flight extraordinary ability."
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Jump",
+        "Climb",
+        "Craft",
+        "Intimidate",
+        "Spot",
+        "Tumble"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/stormtalon-746",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=746",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=746",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/sword-of-righteousness-155": {
-      "sourceBook":"Book of Exalted Deeds","sourceUrl":"https://new.dndtools.org/classes/sword-of-righteousness-155","proficiencies":[],
-      "proficiencyText":"Swords of righteousness gain no proficiency with weapons or armor."
+      "sourceBook": "Book of Exalted Deeds",
+      "sourceUrl": "https://new.dndtools.org/classes/sword-of-righteousness-155",
+      "proficiencies": [],
+      "proficiencyText": "Swords of righteousness gain no proficiency with weapons or armor.",
+      "minBab": "6",
+      "name": "Sword of Righteousness",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any good"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Either Favored of the Companions, Knight of Stars, or Servant of the Heavens, plus one additional exalted feat."
+        }
+      ],
+      "classSkills": [
+        "Ride",
+        "Jump",
+        "Climb",
+        "Craft",
+        "Diplomacy",
+        "Handle Animal",
+        "Intimidate",
+        "Knowledge (nature)",
+        "Knowledge (religion)",
+        "Profession",
+        "Sense Motive",
+        "Swim"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/sword-of-righteousness-155",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=155",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=155",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/thayan-knight-337": {
-      "sourceBook":"Complete Warrior","sourceUrl":"https://new.dndtools.org/classes/thayan-knight-337",
-      "proficiencies":[{"index":"tower-shields","name":"Tower shields","kind":"armor"}],
-      "proficiencyText":"Thayan knights gain proficiency with tower shields."
+      "sourceBook": "Complete Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/thayan-knight-337",
+      "proficiencies": [
+        {
+          "index": "tower-shields",
+          "name": "Tower shields",
+          "kind": "armor"
+        }
+      ],
+      "proficiencyText": "Thayan knights gain proficiency with tower shields.",
+      "minBab": "5",
+      "name": "Thayan Knight",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any nongood"
+        },
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Human"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Iron Will"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Weapon Focus (longsword)"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Intimidate 2 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (arcana) 2 ranks"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (local) (Thay) 2 ranks"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Sworn allegiance to the Red Wizards of Thay"
+        }
+      ],
+      "classSkills": [
+        "Ride",
+        "Jump",
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Gather Information",
+        "Handle Animal",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (local)",
+        "Profession",
+        "Spot",
+        "Swim"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/thayan-knight-337",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=337",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=337",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     },
     "classes/blade-bravo-726": {
-      "sourceBook":"Races of Stone","sourceUrl":"https://new.dndtools.org/classes/blade-bravo-726",
-      "proficiencies":[{"index":"light-armor","name":"Light armor","kind":"armor"}],
-      "proficiencyText":"Blade bravos gain light armor proficiency but no new weapon proficiency."
+      "sourceBook": "Races of Stone",
+      "sourceUrl": "https://new.dndtools.org/classes/blade-bravo-726",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        }
+      ],
+      "proficiencyText": "Blade bravos gain light armor proficiency but no new weapon proficiency.",
+      "minBab": "5",
+      "name": "Blade Bravo",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Gnome"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Combat Expertise"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Weapon Finesse"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Weapon Focus (rapier)"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 4 ranks"
+        }
+      ],
+      "classSkills": [
+        "Balance",
+        "Jump",
+        "Bluff",
+        "Climb",
+        "Concentration",
+        "Escape Artist",
+        "Intimidate",
+        "Perform",
+        "Sense Motive",
+        "Tumble"
+      ],
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/blade-bravo-726",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=726",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=726",
+        "reviewDate": "2026-10-05",
+        "note": "Exact numeric source record compared with same-book/version alternate. Restored omitted requirements and used the class-skill table rather than mentions in feature prose."
+      }
     }
   }
 }

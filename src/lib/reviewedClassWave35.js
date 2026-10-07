@@ -1,4 +1,5 @@
 import wave2 from '../data/class-reviewed-overrides-35-wave2.json' with {type:'json'};
+import reviewedFeatures from '../data/class-reviewed-features-35-wave2.json' with {type:'json'};
 
 const entries=wave2.entries||{};
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
@@ -107,10 +108,25 @@ function grantMetadata(grant,description){
 }
 
 function reviewedLevelGrants(row){
-  return featureRows(row).map(grant=>{
+  const reviewed=reviewedFeatures.entries[row.id]||[];
+  const grants=featureRows(row).map(grant=>{
+    // Only explicit aliases or numeric progression suffixes may join names.
+    // Semantic qualifiers such as Favored Enemy (Giant) remain part of identity.
+    const key=norm(grant.name.replace(/\s*\([+-]?\d[^)]*\)\s*$/,''));
+    const detail=reviewed.find(item=>[item.name,...(item.aliases||[])].some(name=>norm(name)===key));
+    if(detail){
+      const {aliases:ignoredAliases,...metadata}=detail;
+      return {...grant,...metadata,preserveName:true,reviewedSourceUrl:entries[row.id].sourceUrl};
+    }
     const description=featureDescription(row,grant.name);
     return {...grant,description,...grantMetadata(grant,description)};
   });
+  for(const detail of reviewed){
+    if(!Number.isInteger(detail.level)||detail.level<1||grants.some(grant=>norm(grant.name)===norm(detail.name)))continue;
+    const {aliases:ignoredAliases,...metadata}=detail;
+    grants.push({...metadata,preserveName:true,reviewedSourceUrl:entries[row.id].sourceUrl});
+  }
+  return grants.sort((a,b)=>a.level-b.level);
 }
 
 export function reviewedWave35Override(row){
@@ -118,12 +134,13 @@ export function reviewedWave35Override(row){
   if(!spec)return null;
   const sourceUrl=row.sourceUrl||row.url||null;
   return {
+    ...spec,
     verified:true,
     reviewBatch:wave2.reviewBatch,
     sourceBook:spec.sourceBook,
     sourceVersion:'D&D 3.5',
-    prerequisiteReview:{verified:true,sourceUrl,note:'Exact source record and entry gate reviewed in the 2026-10-05 action/resource wave.'},
-    classSkillReview:{verified:true,sourceUrl,note:'Exact source record class-skill list reviewed in the 2026-10-05 action/resource wave.'},
+    prerequisiteReview:{verified:true,sourceUrl:spec.reviewEvidence?.requirementsUrl||sourceUrl,note:'Exact source entry gate recovered from the same-book/version requirements section.'},
+    classSkillReview:{verified:true,sourceUrl:spec.reviewEvidence?.classSkillsUrl||sourceUrl,note:'Exact source class-skill table, excluding skill mentions in feature prose.'},
     proficiencyReview:{verified:true,sourceUrl,note:'Exact source record weapon/armor training statement reviewed in the 2026-10-05 action/resource wave.'},
     levelGrants:reviewedLevelGrants(row)
   };

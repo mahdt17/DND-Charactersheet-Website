@@ -94,7 +94,7 @@ function reviewedFeatureMetadata(record,name){
   const metadata={};
   if(row.grantKind)metadata.grantKind=row.grantKind;
   if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
-  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceOptionsFromFeatureMechanic','choiceParts','uniqueChoiceCombination','choiceFromProficiencyId','choiceFeatPrefix','choiceFeatType','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceOptionsFromFeatureMechanic','choiceParts','uniqueChoiceCombination','choiceFromProficiencyId','choiceFeatPrefix','choiceFeatType','choiceValidatePrerequisites','choiceExcludeOptions','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -561,7 +561,7 @@ function coalesceFeatures(row){
   for(const feature of rawClassFeatures(row)){
     const name=String(feature.name||'').trim();
     if(!name)continue;
-    const displayName=distinctReviewedFeature(row.definition,name)?name:name.replace(/\s*\([^)]*\)\s*$/,'');
+    const displayName=feature.preserveName||distinctReviewedFeature(row.definition,name)?name:name.replace(/\s*\([^)]*\)\s*$/,'');
     const key=norm(displayName);
     const current=map.get(key);
     const description=feature.description||sourceFeatureDescription(row.definition||{},name);
@@ -574,7 +574,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceFromProficiencyId','choiceFeatPrefix','choiceFeatType','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceFromProficiencyId','choiceFeatPrefix','choiceFeatType','choiceValidatePrerequisites','choiceExcludeOptions','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
@@ -630,8 +630,8 @@ function structuredUsage(feature,classLevel,character=null){
   }
   if(Number.isFinite(Number(spec.minimum)))max=Math.max(Number(spec.minimum),max);
   max=Math.floor(max);
-  if(!Number.isFinite(max)||max<=0)return null;
-  return {max,period:spec.period||'',reset:spec.reset||'',recoveryText:spec.recoveryText||'',unit:spec.unit||''};
+  if(!Number.isFinite(max))return null;
+  return {max:Math.max(0,max),period:spec.period||'',reset:spec.reset||'',recoveryText:spec.recoveryText||'',unit:spec.unit||''};
 }
 function animalCompanionProgression(level){
   const effectiveDruidLevel=Math.max(0,Math.floor(Number(level)||0));
@@ -679,7 +679,7 @@ function derivedForRow(row,character=null){
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=feature.choiceRequired===false?false:Boolean(feature.choiceKind)||needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,choiceOptionsFromFeatureMechanic:feature.choiceOptionsFromFeatureMechanic||undefined,choiceParts:feature.choiceParts||undefined,uniqueChoiceCombination:feature.uniqueChoiceCombination||undefined,choiceFromProficiencyId:feature.choiceFromProficiencyId||undefined,choiceFeatPrefix:feature.choiceFeatPrefix||undefined,choiceFeatType:feature.choiceFeatType||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,companionLevelMultiplier:feature.companionLevelMultiplier||undefined,companionRelationshipType:feature.companionRelationshipType||undefined,companionProfileId:feature.companionProfileId||undefined,companionContribution:feature.companionContribution||undefined,companionChoiceRequired:feature.companionChoiceRequired,companionExceptions:feature.companionExceptions||undefined,companionDefaultCreatureId:feature.companionDefaultCreatureId||undefined,companionDefaultCreatureByMasterSize:feature.companionDefaultCreatureByMasterSize||undefined,companionTemplate:feature.companionTemplate||undefined,spellLists:feature.spellLists||undefined,spellSchools:feature.spellSchools||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,choiceOptionsFromFeatureMechanic:feature.choiceOptionsFromFeatureMechanic||undefined,choiceParts:feature.choiceParts||undefined,uniqueChoiceCombination:feature.uniqueChoiceCombination||undefined,choiceFromProficiencyId:feature.choiceFromProficiencyId||undefined,choiceFeatPrefix:feature.choiceFeatPrefix||undefined,choiceFeatType:feature.choiceFeatType||undefined,choiceValidatePrerequisites:feature.choiceValidatePrerequisites||undefined,choiceExcludeOptions:feature.choiceExcludeOptions||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,companionLevelMultiplier:feature.companionLevelMultiplier||undefined,companionRelationshipType:feature.companionRelationshipType||undefined,companionProfileId:feature.companionProfileId||undefined,companionContribution:feature.companionContribution||undefined,companionChoiceRequired:feature.companionChoiceRequired,companionExceptions:feature.companionExceptions||undefined,companionDefaultCreatureId:feature.companionDefaultCreatureId||undefined,companionDefaultCreatureByMasterSize:feature.companionDefaultCreatureByMasterSize||undefined,companionTemplate:feature.companionTemplate||undefined,spellLists:feature.spellLists||undefined,spellSchools:feature.spellSchools||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
     if(choice&&feature.choiceKind==='animal-companion'&&character?.featureChoices){
       const selectedEntry=Object.values(character.featureChoices)

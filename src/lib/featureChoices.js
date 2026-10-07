@@ -101,6 +101,18 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
             options=options.filter(name=>!owned.has(norm(name)));
           }
         }
+        if(choiceKind==='feat'&&feature.choiceValidatePrerequisites){
+          const featContext=Array.isArray(context.feats)?context.feats:[];
+          const eligibilityCharacter={...current,feats:patch.feats};
+          options=options.filter(name=>{
+            const matching=featContext.filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(name));
+            return matching.length>0&&matching.every(feat=>feature.ignorePrerequisites||qualified(requirements(feat,eligibilityCharacter,feat.prerequisiteConfirmations||{})));
+          });
+        }
+        if(Array.isArray(feature.choiceExcludeOptions)){
+          const excluded=feature.choiceExcludeOptions.map(norm);
+          options=options.filter(name=>!excluded.some(value=>norm(name)===value||norm(name).startsWith(value+' (')));
+        }
         if(Array.isArray(feature.choiceParts)&&feature.choiceParts.length){
           const existing=patch.featureChoices[id];
           if(existing)continue;
@@ -268,7 +280,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           return Array.isArray(requirements)?requirements.map(String):requirements?[String(requirements)]:[];
         };
         const unmetPrerequisites=selected.flatMap(value=>requirementsFor(value).filter(requiredName=>!priorSelections.some(existing=>norm(existing)===norm(requiredName))));
-        const requiresResolvedOptions=Boolean(feature.choiceOptionsFromFeatureMechanic); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
+        const requiresResolvedOptions=Boolean(feature.choiceOptionsFromFeatureMechanic||feature.choiceFeatType||feature.choiceValidatePrerequisites||feature.choiceExcludeOptions?.length||feature.choiceOptions?.length||feature.choiceOptionsByLevel?.[String(level)]?.length); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
         const detail=String(feature.description||'').trim();
         const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
         const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites,optionPrerequisites,unmetPrerequisites};
