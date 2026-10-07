@@ -16,7 +16,8 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])]},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
     const canonical=(context.feats||[]).find(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(value))||null;
-    patch.feats=patch.feats.filter(feat=>feat.sourceChoiceId!==id);
+    // Each selected feat shares a choice ID; preserve its siblings and saved state.
+    if(patch.feats.some(feat=>feat.sourceChoiceId===id&&norm(feat.name)===norm(value)))return;
     patch.feats.push({
       ...(canonical||{}),
       id:`class-choice:${id}:${slug(value)}`,
@@ -264,7 +265,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         }
         const existing=patch.featureChoices[id];
         if(existing){
-          if(choiceKind==='feat'&&!patch.feats.some(feat=>feat.sourceChoiceId===id))for(const value of existing.choices||[])addChoiceFeat(id,row,feature,level,value);
+          if(choiceKind==='feat')for(const value of existing.choices||[])addChoiceFeat(id,row,feature,level,value);
           continue;
         }
         const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
