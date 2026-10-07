@@ -22,6 +22,46 @@ function progressionTables(row){
   return [];
 }
 
+function pureCastingAdvancement(value){
+  const text=String(value||'').trim();
+  if(!text)return false;
+  const clauses=text.split(/\s*\/\s*|\s*;\s*/).map(item=>item.trim()).filter(Boolean);
+  return clauses.length>0&&clauses.every(clause=>/^\+?\s*1\s+level\s+of\s+(?:an?\s+)?(?:existing\s+)?(?:(?:arcane|divine)\s+)?(?:spellcasting\s+class|existing\s+class)$/i.test(clause));
+}
+
+function normalizeSpecialCastingProgression(row){
+  const source=row?.progression;
+  if(!Array.isArray(source)||!source.length||!Array.isArray(source[0])||Array.isArray(source[0][0]))return null;
+  const table=source.map(line=>Array.isArray(line)?[...line]:line);
+  let headerIndex=-1,specialIndexes=[];
+  for(let i=0;i<Math.min(5,table.length);i++){
+    const header=table[i]||[];
+    if(header.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()))<0)continue;
+    const indexes=header.map((value,index)=>/^(?:specials?|features?|class features?|abilities?)$/i.test(String(value).trim())?index:-1).filter(index=>index>=0);
+    if(indexes.length){headerIndex=i;specialIndexes=indexes;break;}
+  }
+  if(headerIndex<0)return null;
+  const hasMove=table.slice(headerIndex+1).some(line=>specialIndexes.some(index=>pureCastingAdvancement(line?.[index])));
+  if(!hasMove)return null;
+  const header=table[headerIndex];
+  let castingIndex=header.findIndex(value=>/^(?:spellcasting|spells? per day(?:\/spells? known)?)$/i.test(String(value).trim()));
+  if(castingIndex<0){castingIndex=header.length;header.push('Spellcasting');}
+  for(const line of table.slice(headerIndex+1)){
+    if(!Array.isArray(line))continue;
+    while(line.length<header.length)line.push('');
+    const moved=[];
+    for(const index of specialIndexes){
+      if(!pureCastingAdvancement(line[index]))continue;
+      moved.push(String(line[index]).trim());
+      line[index]='—';
+    }
+    if(!moved.length)continue;
+    const existing=String(line[castingIndex]||'').trim();
+    line[castingIndex]=[...(!existing||/^(?:—|–|-|none)$/i.test(existing)?[]:[existing]),...moved].join('/');
+  }
+  return table;
+}
+
 function splitFeatureCell(value){
   const text=String(value||'').trim();
   if(!text||/^(?:—|–|-|none)$/i.test(text))return [];
@@ -139,8 +179,11 @@ export function reviewedWave35Override(row){
   if(!spec||!wave)return null;
   const sourceUrl=row.sourceUrl||row.url||null;
   const reviewDate=spec.reviewEvidence?.reviewDate||'2026-10-05';
+  const normalizedProgression=normalizeSpecialCastingProgression(row);
+  const reviewedRow=normalizedProgression?{...row,progression:normalizedProgression}:row;
   return {
     ...spec,
+    ...(normalizedProgression?{progression:normalizedProgression}:{}),
     verified:true,
     reviewBatch:wave.reviewBatch,
     sourceBook:spec.sourceBook,
@@ -148,6 +191,6 @@ export function reviewedWave35Override(row){
     prerequisiteReview:{verified:true,sourceUrl:spec.reviewEvidence?.requirementsUrl||sourceUrl,note:'Exact source entry gate recovered from the same-book/version requirements section.'},
     classSkillReview:{verified:true,sourceUrl:spec.reviewEvidence?.classSkillsUrl||sourceUrl,note:'Exact source class-skill table, excluding skill mentions in feature prose.'},
     proficiencyReview:{verified:true,sourceUrl,note:`Exact source record weapon/armor training statement reviewed in the ${reviewDate} action/resource wave.`},
-    levelGrants:reviewedLevelGrants(row)
+    levelGrants:reviewedLevelGrants(reviewedRow)
   };
 }
