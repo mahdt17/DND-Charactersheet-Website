@@ -23,6 +23,20 @@ export function normalizeAdvancement(c) {
   return {...c,classLevels,subclass:classLevels[0]?.subclass||'',level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
 }
 export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,activeCastingClassId:row.catalogId,spells:spellsForClass(c,row.catalogId),otherClassLevels:characterClasses(c).filter(r=>r.catalogId!==row.catalogId).reduce((n,r)=>n+r.level,0),level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
+function normalizeNamedClassLevel(record,table) {
+  if(!record?.name||!Array.isArray(table))return table;
+  const key=value=>norm(value).replace(/\s+/g,' ');
+  const expected=key(record.name)+' level';
+  const headerIndex=table.slice(0,5).findIndex(row=>Array.isArray(row)&&row.some(value=>key(value)===expected));
+  if(headerIndex<0)return table;
+  const header=table[headerIndex],levelIndex=header.findIndex(value=>key(value)===expected);
+  // A named level alone also appears on companion and auxiliary tables.
+  if(!header.some(value=>/^(?:special|features?|class features?|abilities?)$/i.test(String(value).trim()))
+    ||header.some(value=>/bonus hd|natural armor|(?:str|dex|int)(?:\s*\/\s*(?:str|dex|int))?\s*(?:adj\.?|bonus)/i.test(String(value))))return table;
+  const rows=table.slice(headerIndex+1);
+  if(!rows.length||!rows.every((row,index)=>Array.isArray(row)&&/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(row[levelIndex]??'').trim())&&parseInt(row[levelIndex])===index+1))return table;
+  return table.map((row,index)=>index===headerIndex?row.map((value,column)=>column===levelIndex?'Level':value):row);
+}
 export function progressionTables(record) {
   // These source-linked reprints accidentally captured the familiar table.
   // Use the SRD Sorcerer progression, never familiar natural armor as class BAB.
@@ -33,9 +47,9 @@ export function progressionTables(record) {
   const companionReprints={Druid:['classes/druid-106','classes/druid-40','classes/druid-64','classes/druid-92'],Paladin:['classes/paladin-107','classes/paladin-43','classes/paladin-67','classes/paladin-95']};
   if(companionReprints[record?.name]?.includes(sourceId)&&record.progression?.[0]?.some(value=>/^Bonus HD$/i.test(String(value)))&&record.progression[0].some(value=>/armor adj/i.test(String(value))))return legacyCore.classes.find(c=>c.name===record.name).tables;
   const p=record?.progression;
-  if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
-  if(record?.tables?.length)return record.tables;
-  if(record?.advancement?.length){const keys=Object.keys(record.advancement[0]);return [ [keys,...record.advancement.map(r=>keys.map(k=>r[k]??''))] ];}
+  if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [normalizeNamedClassLevel(record,p)];
+  if(record?.tables?.length)return record.tables.map(table=>normalizeNamedClassLevel(record,table));
+  if(record?.advancement?.length){const keys=Object.keys(record.advancement[0]);return [normalizeNamedClassLevel(record,[keys,...record.advancement.map(r=>keys.map(k=>r[k]??''))])];}
   return [];
 }
 export function progressionRow(record,level) {
