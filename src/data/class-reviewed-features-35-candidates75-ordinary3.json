@@ -13,7 +13,7 @@
       {"name":"Terrifying Shriek","description":"At 10th level add a terrifying shriek to a Swoop. Creatures within 50 feet of the first attack make a Will save (DC 20 + Charisma modifier) or become panicked for 1d6+4 rounds."}
     ],
     "classes/exotic-weapon-master-610":[
-      {"name":"Partial Exotic Proficiency","description":"At 1st level reduce the nonproficiency penalty with exotic weapons from -4 to -2; at 2nd level reduce it to -1."},
+      {"name":"Partial Exotic Proficiency","aliases":["Partial Exotic Proficiency +2","Partial Exotic Proficiency+2","Partial Exotic Proficiency +3","Partial Exotic Proficiency+3"],"description":"At 1st level reduce the nonproficiency penalty with exotic weapons from -4 to -2; at 2nd level reduce it to -1."},
       {"name":"Full Exotic Proficiency","description":"At 3rd level become proficient with all exotic weapons."},
       {"name":"Improvised Throwing Weapons","description":"At 3rd level use artisan's tools and at least 1 hour to fashion an improvised throwing weapon from a liftable object. It has a 10-foot range increment, deals 1d6 damage, and has a 20/x2 critical; you are proficient with it."},
       {"name":"Exotic Focus","description":"At 4th level gain +1 on attack rolls with any exotic weapon; this does not stack with Weapon Focus."},
