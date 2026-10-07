@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/gatecrasher-602": [
+      {
+        "name": "Analyze Portal",
+        "description": "Gain analyze portal as a spell-like ability usable once per gatecrasher level per day, using character level as the sorcerer caster level.",
+        "resource": {"perLevel": 1, "period": "day"}
+      },
+      {
+        "name": "Bonus Language",
+        "description": "Choose one planar language at 1st level and again at 4th, 7th, and 10th level. The source lists Abyssal, Aquan, Auran, Celestial, Ignan, Infernal, and Terran as common choices.",
+        "choiceKind": "language",
+        "choiceRequired": true,
+        "choiceLevels": [1, 4, 7, 10],
+        "choiceCount": 1,
+        "uniqueChoices": true,
+        "choiceOptions": ["Abyssal", "Aquan", "Auran", "Celestial", "Ignan", "Infernal", "Terran"]
+      },
+      {
+        "name": "Comprehension",
+        "description": "At 2nd level gain a +2 insight bonus on Decipher Script and Use Magic Device checks and a +2 insight bonus when searching for or disabling magic traps."
+      },
+      {
+        "name": "Open Portal",
+        "description": "At 3rd level force a portal open with an Open Lock check using Intelligence instead of Dexterity. Opening a portal takes 1 round and is a full-round action; a successfully opened portal remains open for 1d4+1 rounds.",
+        "actionType": "Full-round action"
+      },
+      {
+        "name": "Summon Spell Dampening",
+        "description": "At 4th level, three times per day create a 100-foot dampening field for 10 rounds that suppresses summoning and calling spells and spell-like abilities within the field.",
+        "resource": {"max": 3, "period": "day"}
+      },
+      {
+        "name": "Silver Tongue",
+        "description": "At 5th level gain a +2 insight bonus on Bluff, Diplomacy, Gather Information, Intimidate, and Sense Motive checks."
+      },
+      {
+        "name": "Planar Survival",
+        "description": "At 6th level become personally immune to the natural planar effects that would be negated by avoid planar effects; this attunement does not protect against the same damage when it is not a natural effect of the current plane."
+      },
+      {
+        "name": "Damage Reduction",
+        "aliases": ["Damage Reduction 5/+1"],
+        "description": "At 7th level gain damage reduction 5/+1 under the D&D 3.0 rules: ignore the first 5 points of qualifying damage unless the attack is from a +1 or better magic weapon, a spell, or energy. It does not stack with other damage reduction."
+      },
+      {
+        "name": "Scramble Portal",
+        "description": "At 8th level use scramble portal as a spell-like ability three times per day, using gatecrasher level as the sorcerer caster level.",
+        "resource": {"max": 3, "period": "day"}
+      },
+      {
+        "name": "Plane Shift",
+        "description": "At 9th level use plane shift once per day as a spell-like ability, functioning as the spell cast by a 15th-level sorcerer.",
+        "resource": {"max": 1, "period": "day"}
+      },
+      {
+        "name": "Planar Dampening",
+        "description": "At 10th level, three times per day emit a 30-foot planar dampening field for 10 rounds. It suppresses newly used spells and spell-like abilities that access other planes and restricts summoning, calling, and shadow effects as described by the source.",
+        "resource": {"max": 3, "period": "day"}
+      }
+    ]
+  }
+}
