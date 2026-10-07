@@ -67,3 +67,21 @@ const removedLanguages=removeClassProgression({...languageAdvanced,languages:lan
 assert.equal(removedLanguages.languageGrants.filter(grant=>grant.sourceClassId===languageDefinition.catalogId).length,0);
 assert.deepEqual(removedLanguages.languages.split(/,\s*/).sort(),['Common','Draconic','Undercommon'],'class removal must remove only source-owned languages and preserve manual languages');
 console.log('PASS source language choice lifecycle: known-language filtering, milestones, persistence, and removal.');
+
+const ownedChoiceDefinition={catalogId:'test:owned-source-choice',name:'Owned Source Choice',edition:'3.5',levelGrants:[
+  {level:1,name:'Hated Enemy',description:'Choose one creature already selected as a favored enemy; this choice is irreversible.',choiceKind:'source',choiceCount:1,choiceLevels:[1],choiceOptionsFromCharacter:{choiceKind:'favored-enemy'}}
+]};
+const rangerChoice={className:'Ranger',classId:'test:ranger',sourceClassId:'test:ranger',edition:'3.5',level:1,feature:'Favored Enemy',choices:['Giants'],choiceKind:'favored-enemy'};
+const boostChoice={className:'Ranger',classId:'test:ranger',sourceClassId:'test:ranger',edition:'3.5',level:5,feature:'Favored Enemy Bonus Increase',choices:['Giants'],choiceKind:'favored-enemy-boost'};
+const ownedChoiceBase={...base,classLevels:[{catalogId:ownedChoiceDefinition.catalogId,name:ownedChoiceDefinition.name,edition:'3.5',level:1,definition:ownedChoiceDefinition}],featureChoices:{'old:ranger:1:favored-enemy:0':rangerChoice,'old:ranger:5:favored-enemy:0:boost':boostChoice}};
+const ownedPlan=featureChoicePlan(ownedChoiceBase,null,{},context);
+assert.equal(ownedPlan.groups.length,1);
+assert.deepEqual(ownedPlan.groups[0].options,['Giants'],'character-sourced choices must expose only matching prior selections, not related boost records');
+assert.equal(featureChoicePlan(ownedChoiceBase,null,{[ownedPlan.groups[0].id]:['Orcs']},context).groups[0].valid,false,'an arbitrary option not already owned must be rejected');
+const ownedSelected=applyFeatureChoices(ownedChoiceBase,null,{[ownedPlan.groups[0].id]:['Giants']},context);
+assert.equal(Object.values(ownedSelected.featureChoices).filter(choice=>choice?.sourceClassId===ownedChoiceDefinition.catalogId&&choice?.feature==='Hated Enemy').length,1);
+assert.equal(featureChoicePlan(ownedSelected,null,{},context).groups.length,0,'character-sourced choices must survive reopening');
+const removedOwned=removeClassProgression({...ownedSelected,classLevels:[...ownedSelected.classLevels,survivor],level:2},ownedChoiceDefinition.catalogId);
+assert(Object.values(removedOwned.featureChoices).some(choice=>choice?.sourceClassId==='test:ranger'&&choice?.choiceKind==='favored-enemy'),'removing the dependent class must preserve the source favored-enemy choice');
+assert(!Object.values(removedOwned.featureChoices).some(choice=>choice?.sourceClassId===ownedChoiceDefinition.catalogId),'removing the dependent class must remove only its dependent choice');
+console.log('PASS character-sourced choice lifecycle: filtered options, validation, persistence, and source preservation.');
