@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/arboreal-guardian-522": [
+      {"name": "Bond's Call", "aliases": ["Bond’s Call"], "description": "At 1st level, once per round determine the direction to the bonded spirit tree with the source's DC 15 direction check; under the Ghostwalk 3.5 skill update this uses Survival."},
+      {"name": "Forestwalk", "description": "At 1st level, while within the Spirit Wood, increase land speed by 10 feet; this bonus stacks with other speed bonuses."},
+      {"name": "Nature's Water", "aliases": ["Nature’s Water"], "description": "At 2nd level, acquire potions from the bonded spirit tree for their creation cost when the necessary herbs and ingredients are supplied."},
+      {"name": "Natural Armor", "aliases": ["+1 Natural Armor", "+2 Natural Armor", "+3 Natural Armor", "+4 Natural Armor", "+5 Natural Armor"], "description": "Beginning at 2nd level, gain an enhancement bonus to the character's existing natural armor bonus. The enhancement is +1 at 2nd, +2 at 4th, +3 at 6th, +4 at 8th, and +5 at 10th level, using the official Ghostwalk 3.5 correction."},
+      {"name": "Unhindered Charge", "description": "At 3rd level, when charging or taking an action, pass unhindered through normal inanimate living plants, including larger plants such as trees, similarly to woodland stride."},
+      {"name": "Wood Speech", "description": "At 3rd level, telepathically communicate with the bonded spirit tree or any of its other Arboreal Guardians at a range of 1 mile."},
+      {"name": "Hunter's Mercy", "aliases": ["Hunter’s Mercy"], "description": "At 5th level, once per day as a standard action, focus so the first successful bow attack in the next round is automatically a critical hit; activation does not provoke an attack of opportunity.", "actionType": "Standard action", "resource": {"max": 1, "period": "day"}},
+      {"name": "Blindsight", "description": "At 5th level, once per day as a free action gain blindsight out to 30 feet for a number of rounds equal to Arboreal Guardian class level.", "actionType": "Free action", "resource": {"max": 1, "period": "day"}},
+      {"name": "Nature's Defender", "aliases": ["Nature’s Defender"], "description": "At 7th level, while within 500 feet of the bonded spirit tree, gain a +1 morale bonus on attack rolls, weapon damage, checks, and saving throws."},
+      {"name": "Quench", "aliases": ["Quench 1/day"], "description": "At 7th level use quench as the spell once per day.", "resource": {"max": 1, "period": "day"}},
+      {"name": "Tree Stride", "aliases": ["Tree Stride 1/day"], "description": "At 9th level use tree stride as the spell once per day.", "resource": {"max": 1, "period": "day"}}
+    ]
+  }
+}
