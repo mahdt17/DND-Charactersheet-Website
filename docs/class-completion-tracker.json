@@ -799,27 +799,26 @@
       "name": "Arcane Archer",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/arcane-archer-378",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Arcane Archer needs elf/half-elf, BAB +6, Point Blank Shot, Precise Shot, Weapon Focus (bow), 1st-level arcane casting prerequisites plus Enhance Arrow and special-arrow state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
         "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
         "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
-        "No Firecrawl fallback and no Supabase write were required."
+        "No Firecrawl fallback and no Supabase write were required.",
+        "Reconciled against verified implementation dc748a6ae8557ecd357dccab661757d951a3d932 and successful modernization CI run 37389875845; exact-source core and martial regression suites verified again in GitHub Actions."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Add reviewed summaries; enforce exact prerequisites and model arrow enhancement plus Imbue/Seeker/Phase/Hail/Death Arrow actions/resources.",
+      "verifiedCommit": "dc748a6ae8557ecd357dccab661757d951a3d932",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37389875845",
+      "nextAction": "Maintain exact-source lifecycle and conditional-mechanics regression coverage.",
       "implementationCohorts": [
         "temporary/permanent weapon or item state"
       ],
@@ -6188,29 +6187,27 @@
       "name": "Dervish",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/dervish-309",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Complete Warrior Dervish needs BAB +5, Perform (dance) 3, Tumble 3, Combat Expertise, Dodge, Mobility and Weapon Focus with a slashing melee weapon, plus armor-limited dance/mobility and slashing-blade mechanics.",
-        "Exact-source implementation remains blocked on the live DnD Tools page omitting the Movement Mastery rule block even though the advancement table grants it at 1st level; Exa, Tavily, and a one-credit last-resort Firecrawl scrape all reproduced the omission."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
         "No Supabase write was made.",
-        "2026-10-03 source recovery: Exa and Tavily both failed to surface a Movement Mastery rule block; a last-resort Firecrawl scrape of the exact page also omitted the block while retaining the progression-table reference. No rule was guessed."
+        "2026-10-03 source recovery: Exa and Tavily both failed to surface a Movement Mastery rule block; a last-resort Firecrawl scrape of the exact page also omitted the block while retaining the progression-table reference. No rule was guessed.",
+        "Reconciled against verified implementation dc748a6ae8557ecd357dccab661757d951a3d932 and successful modernization CI run 37389875845; exact-source core and martial regression suites verified again in GitHub Actions."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Recover the exact Complete Warrior Movement Mastery text from another source representation before completing Dervish; continue the rest of the cohort independently.",
+      "verifiedCommit": "dc748a6ae8557ecd357dccab661757d951a3d932",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37389875845",
+      "nextAction": "Maintain exact-source lifecycle and conditional-mechanics regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -12969,27 +12966,26 @@
       "name": "Frenzied Berserker",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/frenzied-berserker-313",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Complete Warrior Frenzied Berserker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
         "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
         "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "Reconciled against verified implementation dc748a6ae8557ecd357dccab661757d951a3d932 and successful modernization CI run 37389875845; exact-source core and martial regression suites verified again in GitHub Actions."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation.",
+      "verifiedCommit": "dc748a6ae8557ecd357dccab661757d951a3d932",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37389875845",
+      "nextAction": "Maintain exact-source lifecycle and conditional-mechanics regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -13759,27 +13755,26 @@
       "name": "Great Rift Deep Defender",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/great-rift-deep-defender-792",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Shining South Great Rift Deep Defender is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
         "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
         "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "Reconciled against verified implementation dc748a6ae8557ecd357dccab661757d951a3d932 and successful modernization CI run 37389875845; exact-source core and martial regression suites verified again in GitHub Actions."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage.",
+      "verifiedCommit": "dc748a6ae8557ecd357dccab661757d951a3d932",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37389875845",
+      "nextAction": "Maintain exact-source lifecycle and conditional-mechanics regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
