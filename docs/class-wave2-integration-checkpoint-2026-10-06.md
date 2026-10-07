@@ -46,6 +46,6 @@ These are implementation gaps, not newly completed classes. The original 45 defe
 
 ## Verification boundary
 
-Fresh local wave-2, metadata, core/martial, class integration, all-1054-class lifecycle, feature-choice and resource tests pass. The automation audit and tracker classifier pass. `npm test` was attempted; Windows sandbox process creation denied Vite/esbuild with `spawn EPERM`. Full modernization CI is required before declaring this checkpoint verified. A passing lifecycle test is not evidence that every class mechanic is automated.
+Fresh local wave-2, metadata, core/martial, class integration, all-1054-class lifecycle, feature-choice and resource tests pass. The automation audit and tracker classifier pass. `npm test` was attempted; Windows sandbox process creation denied Vite/esbuild with `spawn EPERM`. Full modernization CI subsequently passed in [run 37562964555](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37562964555) at `2ed8ed9ce8f97813e040908881b48c8da3765a06`, including build and browser regressions. A passing lifecycle test is not evidence that every class mechanic is automated.
 
 Dragonstalker and Fist of the Forest remain needs-review. The qualified-name improvement is not, by itself, completion evidence for either class. No main/Pages deployment or Supabase change is included.
