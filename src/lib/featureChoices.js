@@ -13,7 +13,14 @@ const scholarSkills=['Arcana','History','Investigation','Medicine','Nature','Rel
 function sourceChoicePlan(c,previous,picks={},context={}) {
   const current=reconcileClassGrants(c),before=previous?reconcileClassGrants(previous):null;
   const rows=characterClasses(current),oldRows=before?characterClasses(before):[];
-  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])]},groups=[];
+  const languageGrants=[...(c.languageGrants||[])];
+  const rawLanguages=(Array.isArray(c.languages)?c.languages.map(value=>value?.name||value):String(c.languages||'').split(/[,;\n]/)).map(value=>String(value||'').trim()).filter(Boolean);
+  const managedLanguageNames=new Set(languageGrants.map(grant=>norm(grant?.name)).filter(Boolean));
+  const manualLanguages=rawLanguages.filter(name=>!managedLanguageNames.has(norm(name)));
+  const knownLanguages=[...manualLanguages];
+  const rememberLanguage=name=>{if(name&&!knownLanguages.some(value=>norm(value)===norm(name)))knownLanguages.push(String(name));};
+  for(const grant of languageGrants)rememberLanguage(grant?.name);
+  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])],languageGrants},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
     const canonical=(context.feats||[]).find(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(value))||null;
     // Each selected feat shares a choice ID; preserve its siblings and saved state.
@@ -28,6 +35,16 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
       sourceFeatureId:feature.sourceFeatureId||feature.id||null,edition:'3.5',source:row.name,
       sourceUrl:canonical?.sourceUrl||feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null
     });
+  };
+  const addChoiceLanguage=(id,row,feature,level,value)=>{
+    if(patch.languageGrants.some(grant=>grant.sourceChoiceId===id&&norm(grant.name)===norm(value))){rememberLanguage(value);return;}
+    patch.languageGrants.push({
+      id:`class-choice:${id}:language:${slug(value)}`,name:value,level,
+      sourceType:'class-choice',automatic:true,sourceChoiceId:id,sourceClassId:row.catalogId,sourceClassName:row.name,sourceClassLevel:level,
+      sourceFeatureId:feature.sourceFeatureId||feature.id||null,edition:'3.5',source:row.name,
+      sourceUrl:feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null
+    });
+    rememberLanguage(value);
   };
   for(const row of rows.filter(item=>item.edition==='3.5')) {
     const oldLevel=oldRows.find(item=>item.catalogId===row.catalogId)?.level||0;
@@ -91,6 +108,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           options=options.filter(value=>!already.has(norm(value)));
         }
         const choiceKind=feature.choiceKind||'source';
+        if(choiceKind==='language')options=options.filter(value=>!knownLanguages.some(name=>norm(name)===norm(value)));
         if(choiceKind==='feat'&&feature.choiceFeatType){
           const requiredType=norm(feature.choiceFeatType),owned=new Set((patch.feats||[]).map(feat=>contentKey(feat)||norm(feat?.name)));
           const featContext=Array.isArray(context.feats)?context.feats:[];
@@ -275,6 +293,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         const existing=patch.featureChoices[id];
         if(existing){
           if(choiceKind==='feat')for(const value of existing.choices||[])addChoiceFeat(id,row,feature,level,value);
+          if(choiceKind==='language')for(const value of existing.choices||[])addChoiceLanguage(id,row,feature,level,value);
           continue;
         }
         const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
@@ -298,6 +317,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         if(valid){
           patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText:group.sourceText,choiceKind};
           if(choiceKind==='feat')for(const value of selected)addChoiceFeat(id,row,feature,level,value);
+          if(choiceKind==='language')for(const value of selected)addChoiceLanguage(id,row,feature,level,value);
         }
       }
     }
@@ -339,6 +359,9 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
       if(valid)patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText,choiceKind:'class-skill'};
     }
   }
+  const mergedLanguages=[...manualLanguages];
+  for(const grant of patch.languageGrants||[])if(grant?.name&&!mergedLanguages.some(name=>norm(name)===norm(grant.name)))mergedLanguages.push(grant.name);
+  if(mergedLanguages.length||c.languages!=null)patch.languages=mergedLanguages.join(', ');
   return {groups,patch,valid:groups.every(group=>group.valid)};
 }
 
