@@ -45,3 +45,25 @@ assert.equal(legacyReopen.groups.length,0,'previously saved filtered-index IDs r
 assert.deepEqual(legacyReopen.patch.featureChoices,legacy.featureChoices,'legacy selections are preserved without silent migration');
 assert.equal(legacyReopen.patch.feats.filter(f=>f.sourceType==='class-choice').length,2);
 console.log('PASS repeated feat milestone persistence across level-up and reopening.');
+
+const languageDefinition={catalogId:'test:source-language-choices',name:'Source Language Choices',edition:'3.5',levelGrants:[
+  {level:1,name:'Bonus Language',description:'Choose a new planar language at 1st level and again at 4th level.',choiceKind:'language',choiceCount:1,choiceLevels:[1,4],choiceOptions:['Abyssal','Celestial','Draconic','Infernal'],uniqueChoices:true}
+]};
+const languageBase={...base,languages:'Common, Draconic',languageGrants:[],classLevels:[{catalogId:languageDefinition.catalogId,name:languageDefinition.name,edition:'3.5',level:1,definition:languageDefinition}]};
+const languageGroup=featureChoicePlan(languageBase,null,{},context).groups[0];
+assert(!languageGroup.options.includes('Draconic'),'source language choices must exclude languages the character already knows');
+const firstLanguage=applyFeatureChoices(languageBase,null,{[languageGroup.id]:['Abyssal']},context);
+assert.deepEqual(firstLanguage.languages.split(/,\s*/).sort(),['Abyssal','Common','Draconic']);
+assert.deepEqual((firstLanguage.languageGrants||[]).map(grant=>grant.name),['Abyssal']);
+assert.equal(firstLanguage.languageGrants[0].sourceClassId,languageDefinition.catalogId);
+const languageFourth={...firstLanguage,level:4,classLevels:[{...firstLanguage.classLevels[0],level:4}]};
+const fourthLanguageGroup=featureChoicePlan(languageFourth,firstLanguage,{},context).groups[0];
+assert(!fourthLanguageGroup.options.includes('Abyssal'),'later language milestones must exclude earlier source-owned choices');
+const languageAdvanced=applyFeatureChoices(languageFourth,firstLanguage,{[fourthLanguageGroup.id]:['Celestial']},context);
+assert.deepEqual(languageAdvanced.languages.split(/,\s*/).sort(),['Abyssal','Celestial','Common','Draconic']);
+assert.equal(languageAdvanced.languageGrants.filter(grant=>grant.sourceClassId===languageDefinition.catalogId).length,2);
+assert.equal(featureChoicePlan(languageAdvanced,null,{},context).groups.length,0,'source language choices must survive reopen without duplicate prompts');
+const removedLanguages=removeClassProgression({...languageAdvanced,languages:languageAdvanced.languages+', Undercommon',classLevels:[...languageAdvanced.classLevels,survivor],level:5},languageDefinition.catalogId);
+assert.equal(removedLanguages.languageGrants.filter(grant=>grant.sourceClassId===languageDefinition.catalogId).length,0);
+assert.deepEqual(removedLanguages.languages.split(/,\s*/).sort(),['Common','Draconic','Undercommon'],'class removal must remove only source-owned languages and preserve manual languages');
+console.log('PASS source language choice lifecycle: known-language filtering, milestones, persistence, and removal.');
