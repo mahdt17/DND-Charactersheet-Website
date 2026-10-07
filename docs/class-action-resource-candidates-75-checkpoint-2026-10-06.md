@@ -15,6 +15,8 @@ The initial preflight found seven empty feature sets. Three candidates have legi
 
 Black Dog's imported primary table contains poison recipes; Elemental Archon's contains companion progression. Their actual class tables were recovered from the exact pages, cross-checked against source-faithful alternatives, and added as narrowly scoped data repairs. Repairs require exact ID, name, book, and the full known damaged table to match; auxiliary data is retained separately and custom table edits are preserved. The regression failed as expected in [run 37568872583](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37568872583). Faith Scion and Mystic Theurge have casting-only tables; a zero generic feature count alone is not evidence of corrupted source data.
 
+Repeated feat-choice milestones also used the index after filtering earlier levels, so reopening could ask for an already saved selection again. Regression [37569069457](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37569069457) reproduced that failure. Event indices are now stable before filtering, and unambiguous legacy keys are reused so saved characters retain their selections.
+
 ## Verification
 
 The preceding Wave 2 integration checkpoint passed full modernization run [37562964555](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37562964555) at `2ed8ed9ce8f97813e040908881b48c8da3765a06`. This batch requires fresh full modernization CI after the parser and table-repair implementations. Neither green generic lifecycle tests nor recovered source packets satisfy the full per-class completion standard.

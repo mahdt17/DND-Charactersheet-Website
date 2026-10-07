@@ -42,10 +42,19 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
       const events=(Array.isArray(feature.choiceLevels)&&feature.choiceLevels.length
         ?feature.choiceLevels.map(level=>({level,text:feature.name}))
         :(feature.progressionHistory||[{level:feature.sourceClassLevel||feature.level,text:feature.description}]))
+        .map((event,choiceIndex)=>({...event,choiceIndex}))
         .filter(event=>Number(event.level)>oldLevel&&Number(event.level)<=row.level);
-      for(const [index,event] of events.entries()) {
+      for(const event of events) {
         const level=Number(event.level)||feature.sourceClassLevel||feature.level;
-        const id=`3.5:${row.catalogId}:${level}:${feature.sourceFeatureId||feature.id}:${index}`;
+        const prefix=`3.5:${row.catalogId}:${level}:${feature.sourceFeatureId||feature.id}:`;
+        // Milestone identity must not depend on which earlier events were filtered.
+        // Reuse an unambiguous older key, including paired favored-enemy choices.
+        const savedIds=[...new Set(Object.keys(patch.featureChoices).flatMap(key=>{
+          if(!key.startsWith(prefix))return [];
+          const match=/^(\d+)(?::(?:enemy|boost))?$/.exec(key.slice(prefix.length));
+          return match?[prefix+match[1]]:[];
+        }))];
+        const id=savedIds.length===1?savedIds[0]:prefix+event.choiceIndex;
         let options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
         if(feature.choiceOptionsFromFeatureMechanic&&typeof feature.choiceOptionsFromFeatureMechanic==='object'){
           const config=feature.choiceOptionsFromFeatureMechanic;
