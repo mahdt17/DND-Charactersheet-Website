@@ -10,7 +10,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Prepare divine spells from the adept list. Wisdom determines spell access, save DCs, and bonus spells per day. Adepts prepare spells through daily prayer or meditation and do not spontaneously convert prepared spells to cure or inflict spells.",
-      "sourceSha256": "88e2467469947d2e6215292c467cec91a23ef69b189c08d3519187259ed4c413"
+      "sourceSha256": "88e2467469947d2e6215292c467cec91a23ef69b189c08d3519187259ed4c413",
+      "castingTradition": "divine"
     },
     {
       "name": "Summon Familiar",
@@ -41,7 +42,8 @@
       "name": "Spellcasting",
       "level": 1,
       "description": "Casts divine spells from a prayerbook. Intelligence determines the highest spell level the archivist can learn, prepare, or cast and sets spell save DCs; Wisdom provides bonus spells per day. Spells are prepared after rest and study.",
-      "sourceSha256": "3fef0b4e4295ef7fda507423e80db7e4db96e77abf8d886c60a2b76a96a905f7"
+      "sourceSha256": "3fef0b4e4295ef7fda507423e80db7e4db96e77abf8d886c60a2b76a96a905f7",
+      "castingTradition": "divine"
     },
     {
       "name": "Prayerbook",
@@ -175,7 +177,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast arcane spells spontaneously from the beguiler list using Intelligence. When you gain access to a new spell level, you automatically know every beguiler-list spell of that level. Intelligence determines spell access, save DCs, and bonus spells per day; Advanced Learning can permanently add additional eligible spells.",
-      "sourceSha256": "fb218d6e817dfc30a2bea8633e5b7da2843eb33b3a4d296534f004f9449da5cd"
+      "sourceSha256": "fb218d6e817dfc30a2bea8633e5b7da2843eb33b3a4d296534f004f9449da5cd",
+      "castingTradition": "arcane"
     },
     {
       "name": "Armored Mage",
@@ -254,7 +257,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast divine spells from the cleric list. Wisdom determines the highest spell level you can prepare or cast, spell save DCs, and bonus spells per day. Cleric spells are prepared in advance, and domain slots are tracked separately from ordinary cleric slots.",
-      "sourceSha256": "51eb9a5214945904b538c82137aef89f38dd7b785aee5551060caa39d1392ebd"
+      "sourceSha256": "51eb9a5214945904b538c82137aef89f38dd7b785aee5551060caa39d1392ebd",
+      "castingTradition": "divine"
     },
     {
       "name": "Deity, Domains, and Domain Spells",
@@ -311,7 +315,8 @@
       "name": "Spellcasting",
       "level": 1,
       "description": "Use cleric spellcasting with the cloistered-cleric class adjustments, including the additional source-listed spells added to the class spell list at levels 0, 1, 2, 3, 6, 7, and 9.",
-      "sourceSha256": "f04f23412ee0e2df88891366e66966612b8e8f2f94321ec2a0610a96d06cb64d"
+      "sourceSha256": "f04f23412ee0e2df88891366e66966612b8e8f2f94321ec2a0610a96d06cb64d",
+      "castingTradition": "divine"
     }
   ],
   "classes/commoner-32": [
@@ -1117,7 +1122,8 @@
       "name": "Spellcasting",
       "level": 1,
       "description": "Cast arcane spells spontaneously from the dread-necromancer list. When a new spell level is unlocked, you automatically know the class-list spells of that level. Charisma determines spell access, save DCs, and bonus spells per day; Advanced Learning can add additional eligible necromancy spells.",
-      "sourceSha256": "80274aeab73b8783cc7ac89125e33adfe87b1df12910493a3035264c986edf41"
+      "sourceSha256": "80274aeab73b8783cc7ac89125e33adfe87b1df12910493a3035264c986edf41",
+      "castingTradition": "arcane"
     },
     {
       "name": "Charnel Touch",
@@ -1265,7 +1271,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Prepare and cast divine spells from the druid list. Wisdom determines the highest spell level you can prepare or cast, spell save DCs, and bonus spells per day. Druids prepare spells during daily meditation and do not receive cleric domains.",
-      "sourceSha256": "b5571fd3cc9231d0cf536a15f3d42c18aa74f4190086334b7568be7d22e115d1"
+      "sourceSha256": "b5571fd3cc9231d0cf536a15f3d42c18aa74f4190086334b7568be7d22e115d1",
+      "castingTradition": "divine"
     },
     {
       "name": "Spontaneous Casting",
@@ -1666,7 +1673,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast arcane spells from the duskblade list using Intelligence. Intelligence determines spell access, save DCs, and bonus spells per day, and duskblade caster level equals class level.",
-      "sourceSha256": "c9ba0a8c2e442dcfee6dfd7a437f2fe998b901205a6cd5d9f4f836f9e793f6ad"
+      "sourceSha256": "c9ba0a8c2e442dcfee6dfd7a437f2fe998b901205a6cd5d9f4f836f9e793f6ad",
+      "castingTradition": "arcane"
     },
     {
       "name": "Spells Known",
@@ -1936,7 +1944,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast divine spells spontaneously from the cleric list. Charisma determines spell access, spells per day, and bonus spells; Wisdom determines favored-soul spell save DCs. Begin with a fixed number of spells known and gain more with class level. Starting at 4th level and every even favored-soul level thereafter, you may replace one known spell under the source's same-level and maximum-level restrictions.",
-      "sourceSha256": "856a13c6cde9eec8a0ae33ae2429a6029e4d824d37f7dd9d6fb7d7e9bae9064a"
+      "sourceSha256": "856a13c6cde9eec8a0ae33ae2429a6029e4d824d37f7dd9d6fb7d7e9bae9064a",
+      "castingTradition": "divine"
     },
     {
       "name": "Deity’s Weapon Focus",
@@ -2037,7 +2046,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Prepare divine spells from the healer list using Wisdom. Wisdom determines spell access, save DCs, and bonus spells per day. After one hour of daily meditation or prayer, choose prepared spells from any healer-list spells of levels you can cast.",
-      "sourceSha256": "7f6d7c543f07581beddf483f9fdb1008580663c5aa8f236b7b03f6ca167d6555"
+      "sourceSha256": "7f6d7c543f07581beddf483f9fdb1008580663c5aa8f236b7b03f6ca167d6555",
+      "castingTradition": "divine"
     },
     {
       "name": "Healing Hands",
@@ -2237,7 +2247,8 @@
       "name": "Spells",
       "level": 4,
       "description": "Beginning at 4th level, cast a limited number of arcane hexblade spells spontaneously using Charisma. A printed 0 spells/day means that spell level is available only through applicable bonus spells. Caster level is one-half hexblade level once spellcasting begins, and the source permits limited same-level spell replacement at 12th, 15th, and 18th level.",
-      "sourceSha256": "0dbe7d0549308050e685bfe51d04f8e858365696294618557fe693d0ab9dbd87"
+      "sourceSha256": "0dbe7d0549308050e685bfe51d04f8e858365696294618557fe693d0ab9dbd87",
+      "castingTradition": "arcane"
     },
     {
       "name": "Bonus Feat",
@@ -2517,7 +2528,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Prepare arcane spells ahead of time. Intelligence determines spell save DCs and bonus spells. Magewrights do not use spellbooks and cannot learn spells from spellbooks or scrolls; a printed 0 on the progression grants only applicable bonus spells.",
-      "sourceSha256": "22bf3a74851ad1732eeee39a33091376c88357ae84b78ac98464abfd97c91eee"
+      "sourceSha256": "22bf3a74851ad1732eeee39a33091376c88357ae84b78ac98464abfd97c91eee",
+      "castingTradition": "arcane"
     },
     {
       "name": "Spell Mastery",
@@ -3231,7 +3243,8 @@
       "name": "Spells",
       "level": 4,
       "description": "Beginning at 4th level, prepare and cast divine spells from the paladin list. Wisdom determines spell access, save DCs, and bonus spells per day. A printed 0 on the progression means the spell level is available only through applicable bonus spells.",
-      "sourceSha256": "4f43a07c7c378d29a7820b3e8885dc537569a8bcf328ae5b1721e8bb49c934e9"
+      "sourceSha256": "4f43a07c7c378d29a7820b3e8885dc537569a8bcf328ae5b1721e8bb49c934e9",
+      "castingTradition": "divine"
     },
     {
       "name": "Special Mount (Sp)",
@@ -3474,7 +3487,8 @@
       "name": "Spells",
       "level": 4,
       "description": "Beginning at 4th level, prepare and cast divine spells from the ranger list. Wisdom determines spell access, save DCs, and bonus spells. A printed 0 on the progression means that level is available only through applicable bonus spells. Ranger caster level is one-half ranger level once spellcasting begins.",
-      "sourceSha256": "30e67b9b74a6da910c467641aa6a23e006acae0be1a0e444c4b2f4b540946974"
+      "sourceSha256": "30e67b9b74a6da910c467641aa6a23e006acae0be1a0e444c4b2f4b540946974",
+      "castingTradition": "divine"
     },
     {
       "name": "Improved Combat Style (Ex)",
@@ -3935,7 +3949,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast divine shugenja spells spontaneously using Charisma. Spell access, save DCs, and bonus spells depend on Charisma. Your spells known include order-determined spells plus additional spells, and at least half of the spells known at each spell level must belong to your favored element. Beginning at 4th level and every even shugenja level thereafter, you may replace one eligible known spell while still honoring elemental focus. Metamagic normally increases casting time, and shugenjas cannot use Quicken Spell.",
-      "sourceSha256": "9877e43fd6b4113e13ff5a520f9f2f12aa9a978c852ba93939d07ac400edac16"
+      "sourceSha256": "9877e43fd6b4113e13ff5a520f9f2f12aa9a978c852ba93939d07ac400edac16",
+      "castingTradition": "divine"
     },
     {
       "name": "Shugenja Order",
@@ -4066,7 +4081,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast arcane spells from the sorcerer/wizard list without preparing them in advance. Charisma determines the highest spell level you can learn or cast, spell save DCs, and bonus spells per day. Spells known follow the sorcerer table, and beginning at 4th level certain level gains allow one known spell to be exchanged for another spell of the same level under the class's replacement limits.",
-      "sourceSha256": "07950034ec89be7786efed06ba7f2bcb41b6fde3ada598bd1ae219a556c686f6"
+      "sourceSha256": "07950034ec89be7786efed06ba7f2bcb41b6fde3ada598bd1ae219a556c686f6",
+      "castingTradition": "arcane"
     },
     {
       "name": "Familiar",
@@ -4227,7 +4243,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast divine spells from the druid list using a daily spell-retrieval system. Wisdom determines the highest spell level you can retrieve or cast and bonus spells per day; Charisma sets spell save DCs. Each day you retrieve a limited selection of druid spells, then cast those retrieved spells spontaneously within your spells-per-day limits. Metamagic is applied when a spell is retrieved rather than on the fly.",
-      "sourceSha256": "9b94aa01a5bae076e4bf29dd1d8b5b419d87a8dd53dd6dca808e61de1105f018"
+      "sourceSha256": "9b94aa01a5bae076e4bf29dd1d8b5b419d87a8dd53dd6dca808e61de1105f018",
+      "castingTradition": "divine"
     },
     {
       "name": "Spirit Guide",
@@ -4521,7 +4538,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast arcane spells spontaneously from the warmage list using Charisma. Charisma determines the highest spell level you can cast, spell save DCs, and bonus spells per day; warmage spells do not require preparation.",
-      "sourceSha256": "ed3d929459199c7564abf8fcc37258825629b56cdec76a637717f0c744ede4a6"
+      "sourceSha256": "ed3d929459199c7564abf8fcc37258825629b56cdec76a637717f0c744ede4a6",
+      "castingTradition": "arcane"
     },
     {
       "name": "Armored Mage",
@@ -4715,7 +4733,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Prepare and cast arcane spells from the wizard list. Intelligence determines the highest spell level you can learn, prepare, or cast, spell save DCs, and bonus spells per day. Wizards can learn any number of spells but must prepare their daily spells after rest and spellbook study.",
-      "sourceSha256": "07445cb77f75544223d65c01f07af9ae345591a037f462dda5bb48fe63c777a6"
+      "sourceSha256": "07445cb77f75544223d65c01f07af9ae345591a037f462dda5bb48fe63c777a6",
+      "castingTradition": "arcane"
     },
     {
       "name": "Bonus Languages",
@@ -4770,7 +4789,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Prepare arcane spells from the wu jen list using Intelligence, much like a wizard. Intelligence determines spell access, bonus spells, and save DCs.",
-      "sourceSha256": "52f5ecdecf12f260473fb5c23d6f640b0d0a519fb83784bdc144d2ff8807c244"
+      "sourceSha256": "52f5ecdecf12f260473fb5c23d6f640b0d0a519fb83784bdc144d2ff8807c244",
+      "castingTradition": "arcane"
     },
     {
       "name": "Bonus Languages",
@@ -5435,7 +5455,8 @@
       "name": "Spells",
       "level": 1,
       "description": "Cast arcane spells from the Bard list without preparing them. Charisma determines the highest spell level you can cast, spell save DCs, and bonus spells per day. Bard spells have a verbal component, and spells known/spells per day follow the Bard progression.",
-      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#spells"
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#spells",
+      "castingTradition": "arcane"
     },
     {
       "name": "Bardic Knowledge",

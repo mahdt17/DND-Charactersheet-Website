@@ -278,15 +278,26 @@ function castingAdvancementGrants(record,classLevel){
 function supportsPsionicAdvancement(row){
   return progressionTracks(row.definition||{},Math.max(30,row.level||1)).some(track=>/power points|powers? known|powers? discovered|maximum power level/i.test(track.name));
 }
-function supportsSpellcastingAdvancement(row){
-  return Boolean(spellSlotProgression(row.definition||{},Math.max(30,row.level||1)));
+function supportsSpellcastingAdvancement(row,kind='spellcasting'){
+  const record=row.definition||{},level=Number(row.level)||0;
+  const progression=spellSlotProgression(record,level);
+  // A future casting table is not an existing casting progression. Printed
+  // zeroes unlock bonus spells, whereas dashes do not unlock spell levels.
+  if(!progression?.unlockedSpellLevels?.length)return false;
+  if(kind==='spellcasting')return true;
+  // Use reviewed source features (including explicitly bound inheritance),
+  // never a class name or mentions of another tradition in arbitrary prose.
+  return reviewedFeatureRows(record).some(feature=>
+    feature.castingTradition===kind&&featureLevel(feature)<=level
+    &&!featureSuppressed(record,feature.name,featureLevel(feature))
+  );
 }
 
 export function castingAdvancementPlan(character,record,nextClassLevel){
   if(!record)return {groups:[],valid:true};
   const sourceId=contentKey(record),rows=characterClasses(character).filter(row=>row.catalogId!==sourceId);
   const groups=castingAdvancementGrants(record,nextClassLevel).map((grant,index)=>{
-    const candidates=rows.filter(row=>grant.kind==='psionic'?supportsPsionicAdvancement(row):supportsSpellcastingAdvancement(row)).map(row=>({classId:row.catalogId,name:row.name,edition:row.edition}));
+    const candidates=rows.filter(row=>grant.kind==='psionic'?supportsPsionicAdvancement(row):supportsSpellcastingAdvancement(row,grant.kind)).map(row=>({classId:row.catalogId,name:row.name,edition:row.edition}));
     return {...grant,id:'casting-advance-'+index+'-'+grant.id,candidates};
   });
   return {sourceClassId:sourceId,sourceClassLevel:nextClassLevel,groups,valid:groups.every(group=>group.candidates.length>0)};
