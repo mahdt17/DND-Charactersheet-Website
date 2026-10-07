@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node tests/rules.mjs && node tests/class-implementation-cohorts35.mjs && node tests/class-actions-resources35.mjs && node tests/class-actions-resources35-martial.mjs && node scripts/inspect_class_record_shape.mjs classes/arcane-devotee-657 && node tests/class-actions-resources35-wave2.mjs && node tests/class-wave35-metadata.mjs && node tests/source-feat-choice-lifecycle35.mjs && node scripts/audit_class_candidate_batch35.mjs && node tests/named-class-progression35.mjs",
+    "test": "node tests/rules.mjs && node tests/class-implementation-cohorts35.mjs && node tests/class-actions-resources35.mjs && node tests/class-actions-resources35-martial.mjs && node scripts/inspect_class_record_shape.mjs classes/arcane-devotee-657 && node tests/class-actions-resources35-wave2.mjs && node tests/class-wave35-metadata.mjs && node tests/source-feat-choice-lifecycle35.mjs && node scripts/audit_class_candidate_batch35.mjs && node tests/named-class-progression35.mjs && node tests/class-progression-repairs35.mjs",
     "test:content": "node tests/content.mjs",
     "test:editions": "node tests/editions.mjs",
     "test:browser": "node tests/browser.mjs"
