@@ -1,3 +1,4 @@
+import classProgressionRepairs from '../data/class-progression-repairs.json' with {type:'json'};
 import descriptionOverrides35 from '../data/source-description-overrides-35.json' with {type:'json'};
 import classSixBatchReview35 from '../data/class-six-batch-review-35.json' with {type:'json'};
 import classReviewedOverrides35 from '../data/class-reviewed-overrides-35.json' with {type:'json'};
@@ -16,7 +17,16 @@ export function normalizeCatalogRecord(row, source, category) {
   const descriptionOverride=source==='dndtools'?descriptionOverrides35.entries?.[row.id]:null;
   const wave35Override=source==='dndtools'&&category==='classes'?reviewedWave35Override(row):null;
   const reviewedClassOverride=source==='dndtools'&&category==='classes'?{...(classSixBatchReview35.entries?.[row.id]||{}),...(classReviewedOverrides35.entries?.[row.id]||{}),...(classReviewedMartialOverrides35.entries?.[row.id]||{}),...(wave35Override||{})}:null;
-  const clean={...row,...(reviewedClassOverride||{}),...(descriptionOverride?.effectSummary?{effectSummary:descriptionOverride.effectSummary,descriptionOverrideVerified:true,descriptionOverrideProvenance:descriptionOverride.provenance||[]}:{}),...(descriptionOverride?.description?{description:descriptionOverride.description}:{}),...(descriptionOverride?.effect?{effect:descriptionOverride.effect}:{}),...(descriptionOverride?.benefit?{benefit:descriptionOverride.benefit}:{}),...(descriptionOverride?.normalRule?{normalRule:descriptionOverride.normalRule}:{}),...(descriptionOverride?.specialRule?{specialRule:descriptionOverride.specialRule}:{})};
+  const repair=source==='dndtools'&&category==='classes'?classProgressionRepairs.entries?.[row.id]:null;
+  const matchingRepair=repair&&repair.name===row.name&&repair.sourceBook===row.sourceBook
+    &&JSON.stringify(repair.expectedProgression)===JSON.stringify(row.progression);
+  const progressionRepair=matchingRepair?{
+    progression:repair.progression,
+    advancement:repair.progression.slice(1).map(values=>Object.fromEntries(repair.progression[0].map((key,index)=>[key,values[index]??'']))),
+    sourceAuxiliaryTables:[...(row.sourceAuxiliaryTables||[]),{kind:repair.replacedTableKind,table:row.progression,sourceUrl:row.sourceUrl||row.url}],
+    progressionRepairProvenance:{sourceUrls:repair.sourceUrls,reviewedAt:repair.reviewedAt,reviewScope:repair.reviewScope}
+  }:{};
+  const clean={...row,...progressionRepair,...(reviewedClassOverride||{}),...(descriptionOverride?.effectSummary?{effectSummary:descriptionOverride.effectSummary,descriptionOverrideVerified:true,descriptionOverrideProvenance:descriptionOverride.provenance||[]}:{}),...(descriptionOverride?.description?{description:descriptionOverride.description}:{}),...(descriptionOverride?.effect?{effect:descriptionOverride.effect}:{}),...(descriptionOverride?.benefit?{benefit:descriptionOverride.benefit}:{}),...(descriptionOverride?.normalRule?{normalRule:descriptionOverride.normalRule}:{}),...(descriptionOverride?.specialRule?{specialRule:descriptionOverride.specialRule}:{})};
   for(const k of ['effect','effectSummary','description']) if(isBoilerplate(clean[k])) delete clean[k];
   const description=[clean.description||clean.effectSummary||clean.effect||clean.benefit,clean.normalRule&&`Normal: ${clean.normalRule}`,clean.specialRule&&`Special: ${clean.specialRule}`].filter(Boolean).join('\n\n');
   const verified=Boolean(reviewedClassOverride?.verified)||(row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length);

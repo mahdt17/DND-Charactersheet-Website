@@ -26,7 +26,7 @@ for(const [id,expected] of fixtures){
  assert.equal(JSON.stringify(definition),original,'parser must not mutate canonical source data');
 }
 for(const id of ['classes/death-master-974','classes/drow-judicator-898','classes/elemental-archon-484','classes/skylord-151']){
- const definition=normalizeCatalogRecord(raw.find(r=>r.id===id),'dndtools','classes');
+ const definition=raw.find(r=>r.id===id);
  assert.equal(progressionTables(definition)[0][0][0],definition.progression[0][0],id+' companion table must not be interpreted as class progression');
 }
 const table=[['Sentinel Level','Special'],['1st','First benefit'],['2nd','Second benefit']];
