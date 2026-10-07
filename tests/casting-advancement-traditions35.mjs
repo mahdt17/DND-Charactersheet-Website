@@ -32,6 +32,21 @@ const generic={...mystic,progression:[['Level','Spellcasting'],['1st','+1 level 
 const genericPlan=castingAdvancementPlan(character([row(unknown,5),row(paladin,3)]),generic,1);
 assert.deepEqual(genericPlan.groups[0].candidates.map(c=>c.classId),[unknown.catalogId],'unrestricted advancement needs current casting, but not an arcane/divine classification');
 
+const martial={catalogId:'test:martial',id:'test:martial',name:'Martial Entry',edition:'3.5',progression:[['Level','Special'],['1st','Martial training']]};
+const optionalCasting={catalogId:'test:optional-casting',id:'test:optional-casting',name:'Optional Existing Casting',edition:'3.5',castingAdvancementOptionalWhenUnavailable:true,progression:[['Level','Spellcasting'],['1st','+1 level of existing spellcasting class']]};
+const martialCharacter=character([row(martial,8)]);
+const optionalMartialPlan=castingAdvancementPlan(martialCharacter,optionalCasting,1);
+assert.equal(optionalMartialPlan.groups.length,1);
+assert.equal(optionalMartialPlan.groups[0].candidates.length,0);
+assert.equal(optionalMartialPlan.valid,true,'a reviewed optional-when-unavailable advancement must not block a qualifying noncaster');
+assert.equal(castingAdvancementSelectionsValid(optionalMartialPlan,{}),true);
+assert.deepEqual(applyCastingAdvancementSelections(martialCharacter,optionalMartialPlan,{}),martialCharacter,'no phantom casting advancement is created for a noncaster');
+const optionalCasterPlan=castingAdvancementPlan(character([row(wizard,5)]),optionalCasting,1);
+assert.equal(optionalCasterPlan.groups[0].candidates.length,1);
+assert.equal(optionalCasterPlan.valid,true);
+assert.equal(castingAdvancementSelectionsValid(optionalCasterPlan,{}),false,'an available advancement still requires a target selection');
+assert.equal(castingAdvancementSelectionsValid(optionalCasterPlan,{[optionalCasterPlan.groups[0].id]:wizard.catalogId}),true);
+
 let advanced=base;
 for(let level=1;level<=10;level++){
   const p=castingAdvancementPlan(advanced,mystic,level);
