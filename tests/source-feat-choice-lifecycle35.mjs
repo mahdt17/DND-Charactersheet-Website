@@ -27,3 +27,21 @@ const removed=removeClassProgression({...chosen,classLevels:[...chosen.classLeve
 assert(!removed.feats.some(f=>f.sourceClassId===definition.catalogId));
 assert(removed.feats.some(f=>f.id==='manual'));
 console.log('PASS source feat choice lifecycle: multiple selections, partial recovery, idempotence, and source removal.');
+
+const repeatedDefinition={...definition,catalogId:'test:repeated-feat-choice',name:'Repeated Feat Choice',levelGrants:[{...definition.levelGrants[0],choiceCount:1,choiceLevels:[1,3]}]};
+const repeatedBase={...base,classLevels:[{catalogId:repeatedDefinition.catalogId,name:repeatedDefinition.name,edition:'3.5',level:1,definition:repeatedDefinition}]};
+const firstGroup=featureChoicePlan(repeatedBase,null,{},context).groups[0];
+const first=applyFeatureChoices(repeatedBase,null,{[firstGroup.id]:['Alertness']},context);
+const third={...first,level:3,classLevels:[{...first.classLevels[0],level:3}]};
+const thirdGroup=featureChoicePlan(third,first,{},context).groups[0];
+const advanced=applyFeatureChoices(third,first,{[thirdGroup.id]:['Endurance']},context);
+assert.equal(featureChoicePlan(advanced,null,{},context).groups.length,0,'reopening after leveling must recognize the saved milestone choice');
+assert.equal(advanced.feats.filter(f=>f.sourceType==='class-choice').length,2);
+const savedId=Object.keys(advanced.featureChoices).find(id=>advanced.featureChoices[id].level===3);
+const legacyId=savedId.replace(/:\d+$/,':0');
+const legacy={...advanced,featureChoices:Object.fromEntries(Object.entries(advanced.featureChoices).map(([id,value])=>[id===savedId?legacyId:id,value])),feats:advanced.feats.map(feat=>feat.sourceChoiceId===savedId?{...feat,sourceChoiceId:legacyId}:feat)};
+const legacyReopen=featureChoicePlan(legacy,null,{},context);
+assert.equal(legacyReopen.groups.length,0,'previously saved filtered-index IDs remain recognized');
+assert.deepEqual(legacyReopen.patch.featureChoices,legacy.featureChoices,'legacy selections are preserved without silent migration');
+assert.equal(legacyReopen.patch.feats.filter(f=>f.sourceType==='class-choice').length,2);
+console.log('PASS repeated feat milestone persistence across level-up and reopening.');
