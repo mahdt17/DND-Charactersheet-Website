@@ -43,5 +43,5 @@ for(let level=1;level<=10;level++){
 }
 const removed=removeClassProgression(advanced,mystic.catalogId);
 assert.equal(removed.castingAdvancements.length,0);
-for(const target of [wizard,cleric])assert.equal(removed.classSpellSlots.find(s=>s.sourceClassId===target.catalogId)?.effectiveClassLevel,3,'removal restores both original progressions');
+assert.deepEqual(removed.classSpellSlots,reconcileClassGrants(base).classSpellSlots,'removal restores the original spell slots, levels, histories, and provenance for both classes');
 console.log('Casting advancement tradition and lifecycle regressions passed.');
