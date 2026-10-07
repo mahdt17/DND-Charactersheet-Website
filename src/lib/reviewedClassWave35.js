@@ -66,9 +66,11 @@ function normalizeSpecialCastingProgression(row){
   return table;
 }
 
-function splitFeatureCell(value){
+function splitFeatureCell(value,known=[]){
   const text=String(value||'').trim();
   if(!text||/^(?:—|–|-|none)$/i.test(text))return [];
+  const exact=known.find(item=>[item.name,...(item.aliases||[])].some(name=>norm(name)===norm(text)));
+  if(exact)return [{name:exact.name,progressionText:text}];
   return text.split(/\s*;\s*|\s*,\s*(?![^()]*\))/).map(chunk=>chunk.trim()).filter(Boolean).map(chunk=>{
     const name=chunk
       .replace(/\s+\d+\s*\/\s*(?:day|rest|encounter)\b.*$/i,'')
@@ -82,7 +84,7 @@ function splitFeatureCell(value){
 }
 
 function featureRows(row){
-  const grants=[];
+  const grants=[],known=reviewedFeatureEntries[row.id]||[];
   for(const table of progressionTables(row)){
     if(!Array.isArray(table)||!table.length)continue;
     let headerIndex=-1,levelIndex=-1,featureIndexes=[];
@@ -97,7 +99,7 @@ function featureRows(row){
     for(const data of table.slice(headerIndex+1)){
       const level=parseInt(data?.[levelIndex]);
       if(!Number.isFinite(level)||level<1||level>30)continue;
-      for(const index of featureIndexes)for(const feature of splitFeatureCell(data?.[index]))grants.push({level,...feature});
+      for(const index of featureIndexes)for(const feature of splitFeatureCell(data?.[index],known))grants.push({level,...feature});
     }
   }
   return grants;
