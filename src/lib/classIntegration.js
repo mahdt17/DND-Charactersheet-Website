@@ -958,6 +958,13 @@ export function removeClassProgression(character,classId){
   const featureChoices=Object.fromEntries(Object.entries(character.featureChoices||{}).filter(([key,value])=>value?.classId!==classId&&value?.sourceClassId!==classId&&value?.className!==removedName&&!key.includes(':'+removedName+':')));
   const feats=(character.feats||[]).filter(feat=>!(feat.sourceType==='class-choice'&&feat.sourceClassId===classId));
   const castingAdvancements=(character.castingAdvancements||[]).filter(entry=>entry.sourceClassId!==classId&&entry.targetClassId!==classId);
+  const priorLanguageGrants=Array.isArray(character.languageGrants)?character.languageGrants:[];
+  const managedLanguageNames=new Set(priorLanguageGrants.map(grant=>norm(grant?.name)).filter(Boolean));
+  const manualLanguages=(Array.isArray(character.languages)?character.languages.map(value=>value?.name||value):String(character.languages||'').split(/[,;\n]/))
+    .map(value=>String(value||'').trim()).filter(Boolean).filter(name=>!managedLanguageNames.has(norm(name)));
+  const languageGrants=priorLanguageGrants.filter(grant=>grant.sourceClassId!==classId);
+  const languages=[...manualLanguages];
+  for(const grant of languageGrants)if(grant?.name&&!languages.some(name=>norm(name)===norm(grant.name)))languages.push(grant.name);
   return reconcileClassGrants({
     ...character,
     classLevels:rows,
@@ -968,6 +975,8 @@ export function removeClassProgression(character,classId){
     trainingGrants,
     spells,
     spellAccessGrants,
+    languageGrants,
+    languages:languages.join(', '),
     legacyCastingChoices:Object.fromEntries(Object.entries(character.legacyCastingChoices||{}).filter(([id])=>id!==classId)),
     legacyPreparation:Object.fromEntries(Object.entries(character.legacyPreparation||{}).filter(([id])=>id!==classId)),
     classSlotsUsed:Object.fromEntries(Object.entries(character.classSlotsUsed||{}).filter(([id])=>id!==classId)),
