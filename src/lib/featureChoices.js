@@ -73,6 +73,15 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         }))];
         const id=savedIds.length===1?savedIds[0]:prefix+event.choiceIndex;
         let options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        if(feature.choiceOptionsFromCharacter&&typeof feature.choiceOptionsFromCharacter==='object'){
+          const requiredKind=norm(feature.choiceOptionsFromCharacter.choiceKind);
+          options=[...new Set(Object.values(patch.featureChoices||{})
+            .filter(choice=>choice?.sourceClassId!==row.catalogId&&(!requiredKind||norm(choice?.choiceKind)===requiredKind))
+            .flatMap(choice=>choice?.choices||[])
+            .map(value=>String(value||'').trim())
+            .filter(Boolean))]
+            .sort((a,b)=>a.localeCompare(b));
+        }
         if(feature.choiceOptionsFromFeatureMechanic&&typeof feature.choiceOptionsFromFeatureMechanic==='object'){
           const config=feature.choiceOptionsFromFeatureMechanic;
           const driverName=String(config.feature||'').trim(),field=String(config.field||'').trim();
@@ -309,7 +318,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           return Array.isArray(requirements)?requirements.map(String):requirements?[String(requirements)]:[];
         };
         const unmetPrerequisites=selected.flatMap(value=>requirementsFor(value).filter(requiredName=>!priorSelections.some(existing=>norm(existing)===norm(requiredName))));
-        const requiresResolvedOptions=Boolean(feature.choiceOptionsFromFeatureMechanic||feature.choiceFeatType||feature.choiceValidatePrerequisites||feature.choiceExcludeOptions?.length||feature.choiceOptions?.length||feature.choiceOptionsByLevel?.[String(level)]?.length); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
+        const requiresResolvedOptions=Boolean(feature.choiceOptionsFromCharacter||feature.choiceOptionsFromFeatureMechanic||feature.choiceFeatType||feature.choiceValidatePrerequisites||feature.choiceExcludeOptions?.length||feature.choiceOptions?.length||feature.choiceOptionsByLevel?.[String(level)]?.length); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
         const detail=String(feature.description||'').trim();
         const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
         const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites,optionPrerequisites,unmetPrerequisites};
