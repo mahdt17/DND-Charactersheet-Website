@@ -1,0 +1,34 @@
+{
+  "version":1,
+  "entries":{
+    "classes/aerial-avenger-980":[
+      {"name":"Flyby Attack","description":"Gain Flyby Attack as a bonus feat at 1st level.","featName":"Flyby Attack"},
+      {"name":"Momentum","description":"While airborne, gain a competence bonus on damage rolls: +1 at 2nd level, +2 at 5th, and +3 at 8th."},
+      {"name":"Power Dive","description":"At 2nd level, a successful dive charge attack deals an additional 1d6 damage."},
+      {"name":"Maneuverability Increase","description":"Increase flight maneuverability by one category at 3rd level and again at 7th level, to a maximum of perfect."},
+      {"name":"Speed","aliases":["Speed +10 Feet","Speed +20 Feet"],"description":"Increase speed by 10 feet at 3rd level and by another 10 feet at 8th level, for +20 feet total."},
+      {"name":"Death From Above","description":"While airborne above a foe, gain a competence bonus on attacks: +1 at 4th level and +2 at 9th level."},
+      {"name":"Range Increase","description":"At 4th level while airborne, increase weapon range increments and the range of spells requiring ranged attack rolls by 50%."},
+      {"name":"Swoop","description":"At 6th level, as a full-round action while flying in a straight line, move your speed and make one melee attack against each declared foe within reach along the path. Each foe beyond the first imposes a cumulative -1 attack penalty; this movement does not provoke attacks of opportunity.","actionType":"Full-round action"},
+      {"name":"Terrifying Shriek","description":"At 10th level add a terrifying shriek to a Swoop. Creatures within 50 feet of the first attack make a Will save (DC 20 + Charisma modifier) or become panicked for 1d6+4 rounds."}
+    ],
+    "classes/exotic-weapon-master-610":[
+      {"name":"Partial Exotic Proficiency","description":"At 1st level reduce the nonproficiency penalty with exotic weapons from -4 to -2; at 2nd level reduce it to -1."},
+      {"name":"Full Exotic Proficiency","description":"At 3rd level become proficient with all exotic weapons."},
+      {"name":"Improvised Throwing Weapons","description":"At 3rd level use artisan's tools and at least 1 hour to fashion an improvised throwing weapon from a liftable object. It has a 10-foot range increment, deals 1d6 damage, and has a 20/x2 critical; you are proficient with it."},
+      {"name":"Exotic Focus","description":"At 4th level gain +1 on attack rolls with any exotic weapon; this does not stack with Weapon Focus."},
+      {"name":"Improvised Melee Weapons","description":"At 4th level use artisan's tools and at least 1 hour to fashion an improvised melee weapon from a liftable object. It deals 1d6 damage with a 20/x2 critical; long items can have reach and protruding items grant +2 on disarm attempts."},
+      {"name":"Exotic Specialization","description":"At 5th level gain +2 damage with exotic weapons; for ranged exotic weapons the target must be within 30 feet. This does not stack with Weapon Specialization."},
+      {"name":"Greater Improvised Weapons","description":"At 5th level your improvised throwing and melee weapons can deal 2d6 damage instead of 1d6."}
+    ],
+    "classes/iaijutsu-master-634":[
+      {"name":"Weapon Finesse","description":"At 1st level use Dexterity instead of Strength on attack rolls with a katana; this is the class feature version and applies even though normal Weapon Finesse would not apply to a katana."},
+      {"name":"Canny Defense","description":"At 1st level while unarmored and wielding a katana, add Intelligence bonus to the Dexterity bonus that modifies AC; positive modifiers are lost while flat-footed."},
+      {"name":"Lightning Blade","description":"At 2nd level add Charisma modifier to initiative checks in addition to Dexterity modifier."},
+      {"name":"Bonus Feat","description":"At 4th and 9th level choose a bonus feat from the iaijutsu master list, meeting any prerequisite chain shown by the source list.","choiceKind":"feat","choiceRequired":true,"choiceLevels":[4,9],"choiceCount":1,"choiceValidatePrerequisites":true,"choiceOptions":["Dodge","Mobility","Spring Attack","Combat Expertise","Improved Disarm","Improved Trip","Whirlwind Attack","Skill Focus (Iaijutsu Focus)","Toughness"]},
+      {"name":"Strike from the Void","description":"At 5th level add Charisma modifier to each extra damage die gained from the Iaijutsu Focus skill."},
+      {"name":"One Strike, Two Cuts","description":"At 8th level make two attacks with a katana as a standard action, allowing movement and two attacks in the same round or two attacks in an iaijutsu duel strike phase.","actionType":"Standard action"},
+      {"name":"Strike with No Thought","description":"At 10th level, if combat begins within melee range of an opponent, gain a free surprise round even when opponents know you are present; the only action in that surprise round is a katana attack action."}
+    ]
+  }
+}
