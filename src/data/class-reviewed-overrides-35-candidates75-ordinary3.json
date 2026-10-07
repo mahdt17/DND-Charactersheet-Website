@@ -1,0 +1,33 @@
+{
+  "version":1,
+  "reviewBatch":"2026-10-07-candidates75-ordinary3",
+  "entries":{
+    "classes/aerial-avenger-980":{
+      "name":"Aerial Avenger","sourceBook":"Prestige Class Dragon Compendium","sourceVersion":"D&D 3.5","sourceUrl":"https://new.dndtools.org/classes/aerial-avenger-980",
+      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"}],
+      "proficiencyText":"Aerial avengers are proficient with all simple and martial weapons but with no armor or shields.",
+      "prerequisites":[{"kind":"feats","label":"Feats","text":"Dodge"},{"kind":"feats","label":"Feats","text":"Mobility"},{"kind":"skills","label":"Skills","text":"Tumble 5 ranks"},{"kind":"base_save_bonus","label":"Base Save Bonus","text":"Reflex +3"},{"kind":"special","label":"Special","text":"Must have a fly speed or the ability to cast fly at least twice per day."}],
+      "classSkills":["Balance","Jump","Concentration","Craft","Escape Artist","Hide","Listen","Move Silently","Perform","Profession","Survival","Swim","Tumble"],
+      "conditionalMechanics":{"momentum":{"requiresAirborne":true,"damageBonusAt10":3,"progression":{"2":1,"5":2,"8":3}},"powerDive":{"extraDamage":"1d6","requiresDiveCharge":true},"maneuverabilityIncrease":{"stepsAtLevels":[3,7],"maximum":"perfect"},"speed":{"bonusFeetAt10":20,"progression":{"3":10,"8":20}},"deathFromAbove":{"requiresAirborneAboveFoe":true,"attackBonusAt10":2,"progression":{"4":1,"9":2}},"rangeIncrease":{"requiresAirborne":true,"multiplier":1.5},"terrifyingShriek":{"requiresSwoop":true,"radiusFeet":50,"save":"Will","dcFormula":"20 + Charisma modifier","failure":"panicked for 1d6+4 rounds"}},
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/aerial-avenger-980","requirementsUrl":"https://www.mordaedil.com/dnd/?cls=980","classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=980","reviewDate":"2026-10-07","note":"Exact Dragon Compendium record reviewed for entry gate, class skills, training, fixed Flyby Attack, airborne modifiers and Swoop action economy."}
+    },
+    "classes/exotic-weapon-master-610":{
+      "name":"Exotic Weapon Master","sourceBook":"Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers","sourceVersion":"D&D 3.0","sourceUrl":"https://new.dndtools.org/classes/exotic-weapon-master-610","minBab":"6",
+      "proficiencies":[],"proficiencyText":"Exotic weapon masters gain no weapon or armor proficiencies at entry.",
+      "proficiencyProgression":[{"level":3,"label":"Full Exotic Proficiency","proficiencies":[{"index":"all-exotic-weapons","name":"All exotic weapons","kind":"weapons"}]}],
+      "prerequisites":[{"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+6"},{"kind":"feats","label":"Feats","text":"Exotic Weapon Proficiency (any three)"},{"kind":"special","label":"Special","text":"Ability to rage."}],
+      "classSkills":["Craft","Profession"],
+      "conditionalMechanics":{"partialExoticProficiency":{"nonproficiencyPenaltyAt1":-2,"nonproficiencyPenaltyAt2":-1,"normalPenalty":-4},"fullExoticProficiency":{"level":3,"appliesTo":"all exotic weapons"},"improvisedThrowingWeapons":{"level":3,"craftTime":"at least 1 hour","rangeIncrementFeet":10,"damage":"1d6","critical":"20/x2"},"exoticFocus":{"attackBonus":1,"doesNotStackWith":"Weapon Focus"},"improvisedMeleeWeapons":{"level":4,"craftTime":"at least 1 hour","damage":"1d6","critical":"20/x2","protrudingObjectDisarmBonus":2},"exoticSpecialization":{"damageBonus":2,"rangedMaximumFeet":30,"doesNotStackWith":"Weapon Specialization"},"greaterImprovisedWeapons":{"level":5,"damage":"2d6"}},
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/exotic-weapon-master-610","requirementsUrl":"https://www.mordaedil.com/dnd/?cls=610","classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=610","reviewDate":"2026-10-07","note":"Exact Masters of the Wild D&D 3.0 record reviewed; level-3 full exotic proficiency is modeled as proficiency progression rather than starting training."}
+    },
+    "classes/iaijutsu-master-634":{
+      "name":"Iaijutsu Master","sourceBook":"Prestige Class Oriental Adventures","sourceVersion":"D&D 3.0","sourceUrl":"https://new.dndtools.org/classes/iaijutsu-master-634","minBab":"6",
+      "proficiencies":[{"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},{"index":"martial-weapons","name":"Martial weapons","kind":"weapons"}],
+      "proficiencyText":"Iaijutsu masters are proficient with all simple and martial weapons and gain no armor or shield proficiency.",
+      "prerequisites":[{"kind":"alignment","label":"Alignment","text":"Any lawful"},{"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+6"},{"kind":"feats","label":"Feats","text":"Improved Initiative"},{"kind":"feats","label":"Feats","text":"Quick Draw"},{"kind":"feats","label":"Feats","text":"Weapon Focus (katana)"},{"kind":"skills","label":"Skills","text":"Iaijutsu Focus 9 ranks"}],
+      "classSkills":["Balance","Ride","Jump","Climb","Craft","Diplomacy","Escape Artist","Perform","Profession","Sense Motive","Tumble","Iaijutsu Focus"],
+      "conditionalMechanics":{"weaponFinesse":{"weapon":"katana","attackAbility":"dex","replaces":"Strength modifier"},"cannyDefense":{"ability":"int","requiresUnarmored":true,"requiresWeapon":"katana","lostWhenFlatFooted":true},"lightningBlade":{"ability":"cha","appliesTo":"initiative checks"},"strikeFromTheVoid":{"ability":"cha","appliesTo":"each extra damage die from Iaijutsu Focus"},"oneStrikeTwoCuts":{"attacks":2,"weapon":"katana","action":"standard"},"strikeWithNoThought":{"level":10,"condition":"combat begins within melee range","benefit":"free surprise round with only a katana attack action"}},
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/iaijutsu-master-634","requirementsUrl":"https://www.mordaedil.com/dnd/?cls=634","classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=634","reviewDate":"2026-10-07","note":"Exact Oriental Adventures D&D 3.0 entry requirements, class skills, katana-specific modifiers and bonus-feat cadence reviewed."}
+    }
+  }
+}
