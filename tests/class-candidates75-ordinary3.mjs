@@ -32,7 +32,8 @@ for(const [id,spec] of Object.entries(specs)){
   assert.equal(definition.proficiencyReview?.verified,true);
   assert(Array.isArray(definition.prerequisites)&&definition.prerequisites.length,`${spec.name} needs structured prerequisites`);
   assert(Array.isArray(definition.classSkills)&&definition.classSkills.length,`${spec.name} needs reviewed class skills`);
-  assert((definition.levelGrants||[]).every(grant=>grant.name&&String(grant.description||'').trim().length>=12),`${spec.name} has undescribed grants`);
+  const unresolved=(definition.levelGrants||[]).filter(grant=>!grant.name||String(grant.description||'').trim().length<12).map(grant=>({level:grant.level,name:grant.name,progressionText:grant.progressionText,description:grant.description}));
+  assert.equal(unresolved.length,0,`${spec.name} has undescribed grants: ${JSON.stringify(unresolved)}`);
   const built=reconcileClassGrants(base(definition,spec.level));
   assert.deepEqual(training(built,definition.catalogId),spec.training.slice().sort(),`${spec.name} training drift`);
   assert.deepEqual(reconcileClassGrants(built),built,`${spec.name} reconciliation must be idempotent`);
