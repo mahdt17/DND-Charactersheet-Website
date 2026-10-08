@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/frenzied-berserker-614": [
+      {
+        "name": "Frenzy",
+        "description": "Enter a frenzy as a free action during your own action. While frenzied, gain +6 Strength, one extra attack each round at your highest attack bonus, take -4 AC, and take 2 points of subdual damage each round. The extra attack does not stack with haste. Frenzy lasts 3 + Constitution modifier rounds and can be ended early with a DC 20 Will save attempted once per round as a free action. Frenzy stacks with rage. Taking damage automatically triggers frenzy at the start of your next action if a daily use remains unless you succeed on a Will save with DC 10 + damage suffered since your last action. While frenzied you cannot use patient or concentration-based skills, cast spells, drink potions, activate magic items, or read scrolls, and if no perceived foes remain you attack the nearest creature. Daily uses are 1/day at 1st, 2/day at 3rd, 3/day at 5th, 4/day at 7th, and 5/day at 9th. After frenzy you are fatigued for the encounter until 10th level.",
+        "actionType": "Free action",
+        "resource": {"maxByLevel":{"1":1,"3":2,"5":3,"7":4,"9":5},"period":"day"}
+      },
+      {
+        "name": "Remain Conscious",
+        "featName": "Remain Conscious",
+        "featId": "dndtools:feats/remain-conscious-2421",
+        "ignorePrerequisites": true,
+        "description": "Gain Remain Conscious as a bonus feat. When reduced to 0 hit points, the feat allows one partial action on your turn each round until you reach -10 hit points."
+      },
+      {
+        "name": "Supreme Cleave",
+        "description": "When using Cleave or Great Cleave, you may take a 5-foot step between attacks. You remain limited to the normal single 5-foot adjustment per round."
+      },
+      {
+        "name": "Deathless Frenzy",
+        "description": "While frenzied, continue fighting normally at 0 hit points or below from hit point loss. When the frenzy ends, the effects of your wounds apply normally. This does not prevent death from effects such as slay living or disintegrate."
+      },
+      {
+        "name": "Improved Power Attack",
+        "description": "Beginning at 5th level, when using Power Attack gain +3 melee damage for every -2 penalty taken on melee attack rolls."
+      },
+      {
+        "name": "Inspire Frenzy",
+        "description": "While you are frenzied, inspire allies within 10 feet to gain the benefits and disadvantages of frenzy. An unwilling ally can resist with a Will save, DC 10 + Frenzied Berserker class level + Charisma modifier. An affected ally's frenzy lasts 3 + your Constitution modifier rounds. Uses are 1/day at 6th level, 2/day at 8th, and 3/day at 10th, and the ability can be used only once per encounter.",
+        "resource": {"maxByLevel":{"6":1,"8":2,"10":3},"period":"day"}
+      },
+      {
+        "name": "Greater Frenzy",
+        "description": "At 8th level, the Strength bonus from Frenzy increases from +6 to +10."
+      },
+      {
+        "name": "No Longer Winded After Frenzy",
+        "aliases": ["No longer winded after frenzy"],
+        "description": "At 10th level, you are no longer fatigued when a frenzy ends, though you still take the subdual damage accumulated while frenzied."
+      },
+      {
+        "name": "Supreme Power Attack",
+        "description": "At 10th level, when using Power Attack gain +2 melee damage for every -1 penalty taken on melee attack rolls. This replaces rather than stacks with Improved Power Attack."
+      }
+    ]
+  }
+}
