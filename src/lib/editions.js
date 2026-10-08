@@ -19,6 +19,7 @@ export const allSpells=[...spellCatalog.map(s=>normalizeSpell(s,'2014')),...mode
 export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homebrew.filter(x=>x.category==='spell'&&!x.integrityIssues?.length).map(s=>({...s,catalogId:s.catalogId||s.id,index:s.index||s.id}))].filter(s=>edition==='custom'||edition==='all'||s.edition===edition);}
 export function resolveSpell(s,char){return allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s;}
 export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'?modern.classes:is35(c)?legacy.classes:classes).find(x=>x.name===c.className);}
+const abilityKey=value=>({str:'str',strength:'str',dex:'dex',dexterity:'dex',con:'con',constitution:'con',int:'int',intelligence:'int',wis:'wis',wisdom:'wis',cha:'cha',charisma:'cha'}[String(value||'').trim().toLowerCase()]||'');
 export function levelRecord(c,level=c.level){if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
 function legacySlotProfile(c){
  const classId=c.classDefinition?.catalogId||c.classDefinition?.id;
@@ -32,7 +33,7 @@ function singleClassSlots(c){
  const subclass=subclassCasting(c);if(subclass)return subclass.slots;
  if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){
   const profile=legacySlotProfile(c),slots=slotArray(profile?.slots);
-  const bonusAbility={Wizard:'int',Cleric:'wis',Druid:'wis',Paladin:'wis',Ranger:'wis',Sorcerer:'cha',Bard:'cha',Archivist:'wis','Cloistered Cleric':'wis','Favored Soul':'cha','Spirit Shaman':'wis'}[c.className];
+  const bonusAbility=abilityKey(classRecord(c)?.spellcastingAbility)||{Wizard:'int',Cleric:'wis',Druid:'wis',Paladin:'wis',Ranger:'wis',Sorcerer:'cha',Bard:'cha',Archivist:'wis','Cloistered Cleric':'wis','Favored Soul':'cha','Spirit Shaman':'wis'}[c.className];
   const score=Number(c.abilities?.[bonusAbility])+Number(c.abilityBonuses?.[bonusAbility]||0),bonus=modifier(score);
   // Only source tables with explicit unlocked levels receive inferred bonuses;
   // old cached/manual totals may already include them.
@@ -48,7 +49,7 @@ export function spellSlotPools(c){
  return {standard:singleClassSlots(c),pact:Array(10).fill(0),restricted:slotArray(legacyProfile?.restrictedSlots),mode:is35(c)||c.ruleset==='custom'?(legacyProfile?'automatic':'manual'):'automatic',reason:is35(c)&&!legacyProfile?'No explicit spell-slot matrix is present in this class progression.':undefined};
 }
 export const characterSlots=c=>spellSlotPools(c).standard;
-export const castingKey=c=>c.castingAbility||subclassCasting(c)?.ability||(is35(c)?{Paladin:'wis',Ranger:'wis',Archivist:'int','Cloistered Cleric':'wis','Favored Soul':'wis','Spirit Shaman':'cha',Artificer:'int',Psion:'int','Psychic Warrior':'wis',Wilder:'cha'}[c.className]:c.className==='Artificer'?'int':null)||castingAbility[c.className]||'';
+export const castingKey=c=>c.castingAbility||subclassCasting(c)?.ability||abilityKey(classRecord(c)?.spellcastingAbility)||(is35(c)?{Paladin:'wis',Ranger:'wis',Archivist:'int','Cloistered Cleric':'wis','Favored Soul':'wis','Spirit Shaman':'cha',Artificer:'int',Psion:'int','Psychic Warrior':'wis',Wilder:'cha'}[c.className]:c.className==='Artificer'?'int':null)||castingAbility[c.className]||'';
 export function spellCounts(c,score=10){if(is35(c)||c.ruleset==='custom')return {cantrips:99,known:99,prepared:99,mode:'custom'};
  const subclass=subclassCasting(c);if(subclass)return subclass;
  if(c.className==='Artificer'&&mechanics(c)==='2014'){const row=progressionRow(classRecord(c),c.level);return {cantrips:Number(row['Cantrips Known'])||0,known:null,prepared:Math.max(1,Math.floor(c.level/2)+modifier(score)),mode:'prepared'};}
@@ -114,13 +115,13 @@ function legacyClassFeatures(record,level){
  return [...grouped.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
 }
 export function classFeatures(c){if(characterClasses(c).length>1)return characterClasses(c).flatMap(row=>{const model=classCharacter(c,row);return (classFeatures(model)||grantedClassFeatures(model)).map(f=>({...f,index:row.catalogId+':'+f.index,className:row.name,featureName:f.featureName||f.name,name:row.name+' · '+f.name}));});if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){const record=classRecord(c);const features=legacyClassFeatures(record,c.level);if(features.length)return features;return [{index:'class-reference',name:c.className+' progression',featureName:c.className+' progression',level:c.level,desc:[classRecord(c)?.description||'No structured class features are available for this source entry yet.'],sourceUrl:record?.sourceUrl||record?.url||''}];}
- if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,featureName:f.name,level:Number(f.level?.name?.match(/\d+$/)?.[0]||0),desc:[f.description]}));
+ if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match?.(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,featureName:f.name,level:Number(f.level?.name?.match?.(/\d+$/)?.[0]||0),desc:[f.description]}));
  return null;}
 export function legacyProgression(c){const d=classRecord(c),classId=c.classDefinition?.catalogId||c.classDefinition?.id||c.activeCastingClassId,r=baseProgression(d,c.level,c,classId);return Object.fromEntries(Object.entries(r).map(([k,v])=>[k,Number.isFinite(v)?v:0]));}
 export function validPack(value){const list=Array.isArray(value)?value:value?.entries;if(!Array.isArray(list)||!list.length||list.length>2000)throw Error('Use an array of 1–2,000 homebrew entries.');
  return list.map((e,i)=>{if(!e||!['class','race','spell','feat','trait'].includes(e.category)||typeof e.name!=='string'||!e.name.trim()||!editions.some(x=>x[0]===e.edition)||typeof e.description!=='string'||e.description.length>30000)throw Error(`Entry ${i+1}: provide category, name, edition and description.`);
  if(e.category==='spell'&&(!Number.isInteger(e.level)||e.level<0||e.level>9||!Array.isArray(e.classes)||e.classes.some(c=>typeof c!=='string')))throw Error(`Entry ${i+1}: spells need level 0–9 and a classes array.`);
- if(e.sourceUrl&&!/^https?:\/\//i.test(e.sourceUrl))throw Error(`Entry ${i+1}: sourceUrl must use https or http.`);
+ if(e.sourceUrl&&!/^https?:\/\//i.test(e.sourceUrl))throw Error('sourceUrl must use https or http.');
  if(e.hit_die!=null&&![4,6,8,10,12].includes(e.hit_die))throw Error(`Entry ${i+1}: hit_die must be 4, 6, 8, 10 or 12.`);
  if(e.speed!=null&&(!Number.isFinite(e.speed)||e.speed<0||e.speed>300))throw Error(`Entry ${i+1}: speed must be between 0 and 300.`);
  if(e.bonuses&&(typeof e.bonuses!=='object'||Object.entries(e.bonuses).some(([k,v])=>!['str','dex','con','int','wis','cha'].includes(k)||!Number.isFinite(v)||Math.abs(v)>30)))throw Error(`Entry ${i+1}: invalid ability bonuses.`);
