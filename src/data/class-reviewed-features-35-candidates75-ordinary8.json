@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/ebonmar-infiltrator-261": [
+      {
+        "name": "Piercing Insight",
+        "aliases": ["Piercing insight +1", "Piercing insight +2", "Piercing insight +3", "Piercing insight +4"],
+        "description": "Gain a +1 bonus on Search, Sense Motive, and Spot checks at 1st level. The bonus increases to +2 at 4th level, +3 at 7th level, and +4 at 10th level."
+      },
+      {
+        "name": "Speed Reader",
+        "description": "Read a single page of text as a full-round action, including text interpreted through comprehend languages or Decipher Script.",
+        "actionType": "Full-round action"
+      },
+      {
+        "name": "Spells",
+        "castingTradition": "arcane",
+        "description": "Cast arcane spells from the Ebonmar Infiltrator spell list using Intelligence. Bonus spells are based on Intelligence, save DC is 10 + spell level + Intelligence modifier, printed zeroes grant only bonus spells, and spells are prepared and cast as a wizard prepares and casts spells."
+      },
+      {
+        "name": "Sneak Attack",
+        "aliases": ["Sneak attack +1d6", "Sneak attack +2d6", "Sneak attack +3d6"],
+        "description": "Gain +1d6 sneak attack damage at 2nd level, increasing to +2d6 at 5th level and +3d6 at 8th level. This extra damage stacks with sneak attack from other sources."
+      },
+      {
+        "name": "Combat Anticipation",
+        "aliases": ["Combat anticipation +1", "Combat anticipation +2"],
+        "description": "While wearing light armor or no armor, gain +1 dodge AC, +1 Reflex, and +1 initiative at 3rd level; these bonuses improve to +2 at 6th level. The AC and Reflex bonuses apply only against humanoids, monstrous humanoids, and giants."
+      },
+      {
+        "name": "Uncanny Dodge",
+        "description": "Retain your Dexterity bonus to Armor Class when flat-footed or struck by an invisible attacker unless immobilized; existing uncanny dodge follows the normal multiclass improvement interaction."
+      },
+      {
+        "name": "Hide in Plain Sight",
+        "description": "At 8th level, use Hide in natural terrain even while being observed."
+      },
+      {
+        "name": "Hyper-Awareness",
+        "aliases": ["Hyper-awareness"],
+        "description": "At 9th level gain darkvision out to 30 feet and blindsense out to 5 feet."
+      },
+      {
+        "name": "Shadow in the Night",
+        "description": "Once per day as a spell-like ability, become ethereal for up to 1 round plus a number of additional rounds equal to your Intelligence modifier, otherwise functioning as ethereal jaunt.",
+        "actionType": "Standard action",
+        "resource": {"max": 1, "period": "day"}
+      }
+    ]
+  }
+}
