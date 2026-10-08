@@ -25,8 +25,6 @@ const assertClassSpell=(name,level)=>{
 
 assert.equal(definition.name,'Ebonmar Infiltrator');
 assert.equal(definition.sourceBook,'Prestige Class CityScape');
-for(const text of ['Decipher Script 4 ranks','Hide 8 ranks','Move Silently 8 ranks','Search 4 ranks','Sense Motive 4 ranks','House Ebonmar'])assert((definition.prerequisites||[]).some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Ebonmar Infiltrator source row missing prerequisite ${text}`);
-
 const slots=spellSlotProgression(definition,10);
 assert(slots,'Ebonmar Infiltrator must expose intrinsic spell slots');
 assert.deepEqual(slots.slots.slice(1,5),[3,3,3,3],'Ebonmar Infiltrator level 10 spell slots drift');
@@ -42,7 +40,7 @@ assert.equal(definition.sourceVersion,'D&D 3.5');
 assert.equal(definition.prerequisiteReview?.verified,true);
 assert.equal(definition.classSkillReview?.verified,true);
 assert.equal(definition.proficiencyReview?.verified,true);
-for(const text of ['Any two of the following','Alertness','Deceitful','Investigator','Negotiator','Stealthy'])assert((definition.prerequisites||[]).some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Ebonmar Infiltrator missing reviewed prerequisite ${text}`);
+for(const text of ['Decipher Script 4 ranks','Hide 8 ranks','Move Silently 8 ranks','Search 4 ranks','Sense Motive 4 ranks','Any two of the following','Alertness','Deceitful','Investigator','Negotiator','Stealthy','House Ebonmar'])assert((definition.prerequisites||[]).some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Ebonmar Infiltrator missing reviewed prerequisite ${text}`);
 for(const skill of ['Balance','Bluff','Climb','Craft','Decipher Script','Diplomacy','Disable Device','Disguise','Escape Artist','Forgery','Gather Information','Hide','Jump','Knowledge (nobility and royalty)','Listen','Move Silently','Open Lock','Search','Sense Motive','Sleight of Hand','Spot','Tumble','Use Rope'])assert((definition.classSkills||[]).includes(skill),`Ebonmar Infiltrator missing class skill ${skill}`);
 assert.deepEqual(definition.proficiencies||[],[],'Ebonmar Infiltrator must not invent new training');
 
