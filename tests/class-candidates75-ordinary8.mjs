@@ -5,7 +5,7 @@ import {annotateClassGrantKinds,reconcileClassGrants,removeClassProgression,spel
 
 const REVIEW_BATCH='2026-10-08-candidates75-ordinary8';
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
-const [classes,feats]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
+const [classes,feats,spells]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats'),service.load('3.5/spells')]);
 const reference=[...classes,...feats];
 const definition=annotateClassGrantKinds(classes.find(record=>record.sourceId==='classes/ebonmar-infiltrator-261'),reference);
 assert(definition,'missing exact Ebonmar Infiltrator record');
@@ -15,18 +15,17 @@ const source=(character,key)=>(character[key]||[]).filter(item=>item.sourceClass
 const training=character=>source(character,'trainingGrants').flatMap(item=>item.proficiencies||[]).map(item=>item.index).sort();
 const resource=(character,name)=>source(character,'resources').find(item=>item.name===name);
 const action=(character,name)=>source(character,'actions').find(item=>item.name===name);
+const exactSpell=name=>spells.find(spell=>spell.name===name&&spell.edition==='3.5');
+const assertClassSpell=(name,level)=>{
+  const spell=exactSpell(name);
+  assert(spell,`missing 3.5 spell ${name}`);
+  assert((spell.classes||[]).includes('Ebonmar Infiltrator'),`${name} must list Ebonmar Infiltrator`);
+  assert.equal(spell.classLevels?.['Ebonmar Infiltrator'],level,`${name} Ebonmar level drift`);
+};
 
 assert.equal(definition.name,'Ebonmar Infiltrator');
-assert.equal(definition.reviewBatch,REVIEW_BATCH,'Ebonmar Infiltrator must publish through ordinary slice 8');
-assert.equal(definition.referenceOnly,false);
-assert.equal(definition.sourceVersion,'D&D 3.5');
 assert.equal(definition.sourceBook,'Prestige Class CityScape');
-assert.equal(definition.prerequisiteReview?.verified,true);
-assert.equal(definition.classSkillReview?.verified,true);
-assert.equal(definition.proficiencyReview?.verified,true);
-for(const text of ['Decipher Script 4 ranks','Hide 8 ranks','Move Silently 8 ranks','Search 4 ranks','Sense Motive 4 ranks','Any two of the following','Alertness','Deceitful','Investigator','Negotiator','Stealthy','House Ebonmar'])assert((definition.prerequisites||[]).some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Ebonmar Infiltrator missing prerequisite ${text}`);
-for(const skill of ['Balance','Bluff','Climb','Craft','Decipher Script','Diplomacy','Disable Device','Disguise','Escape Artist','Forgery','Gather Information','Hide','Jump','Knowledge (nobility and royalty)','Listen','Move Silently','Open Lock','Search','Sense Motive','Sleight of Hand','Spot','Tumble','Use Rope'])assert((definition.classSkills||[]).includes(skill),`Ebonmar Infiltrator missing class skill ${skill}`);
-assert.deepEqual(definition.proficiencies||[],[],'Ebonmar Infiltrator must not invent new training');
+for(const text of ['Decipher Script 4 ranks','Hide 8 ranks','Move Silently 8 ranks','Search 4 ranks','Sense Motive 4 ranks','House Ebonmar'])assert((definition.prerequisites||[]).some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Ebonmar Infiltrator source row missing prerequisite ${text}`);
 
 const slots=spellSlotProgression(definition,10);
 assert(slots,'Ebonmar Infiltrator must expose intrinsic spell slots');
@@ -35,6 +34,17 @@ assert.deepEqual(slots.unlockedSpellLevels.filter(level=>level>=1&&level<=4),[1,
 const level1Slots=spellSlotProgression(definition,1);
 assert.equal(level1Slots?.slots?.[1],0,'Ebonmar Infiltrator level 1 printed zero slot must remain zero');
 assert(level1Slots?.unlockedSpellLevels?.includes(1),'printed zero slot must unlock bonus-spell access');
+for(const [name,level] of [['Comprehend Languages',1],['Detect Magic',1],['Invisibility',2],['Arcane Sight',3],['Dimension Door',4],['Greater Invisibility',4]])assertClassSpell(name,level);
+
+assert.equal(definition.reviewBatch,REVIEW_BATCH,'Ebonmar Infiltrator must publish through ordinary slice 8');
+assert.equal(definition.referenceOnly,false);
+assert.equal(definition.sourceVersion,'D&D 3.5');
+assert.equal(definition.prerequisiteReview?.verified,true);
+assert.equal(definition.classSkillReview?.verified,true);
+assert.equal(definition.proficiencyReview?.verified,true);
+for(const text of ['Any two of the following','Alertness','Deceitful','Investigator','Negotiator','Stealthy'])assert((definition.prerequisites||[]).some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Ebonmar Infiltrator missing reviewed prerequisite ${text}`);
+for(const skill of ['Balance','Bluff','Climb','Craft','Decipher Script','Diplomacy','Disable Device','Disguise','Escape Artist','Forgery','Gather Information','Hide','Jump','Knowledge (nobility and royalty)','Listen','Move Silently','Open Lock','Search','Sense Motive','Sleight of Hand','Spot','Tumble','Use Rope'])assert((definition.classSkills||[]).includes(skill),`Ebonmar Infiltrator missing class skill ${skill}`);
+assert.deepEqual(definition.proficiencies||[],[],'Ebonmar Infiltrator must not invent new training');
 
 const built=reconcileClassGrants(base());
 assert.deepEqual(training(built),[],'Ebonmar Infiltrator training drift');
