@@ -11,8 +11,8 @@ try {
     hit_die:6,
     spellcastingAbility:'int',
     progression:[
-      ['Level','BAB','Fort','Ref','Will','1st'],
-      ['1st','+0','+0','+0','+2','0']
+      ['Level','BAB','Fort','Ref','Will','1st','2nd'],
+      ['1st','+0','+0','+0','+2','0','—']
     ]
   };
   const character={
@@ -29,6 +29,7 @@ try {
   };
   assert.equal(e.castingKey(character),'int','reviewed fixed casting ability must come from the class definition');
   assert.equal(e.characterSlots(character)[1],1,'an unlocked printed-zero 1st-level slot must receive its Intelligence bonus slot');
+  assert.equal(e.characterSlots(character)[2],0,'a dash must not unlock bonus slots at that spell level');
   assert.equal(e.castingKey({...character,classDefinition:{...definition,spellcastingAbility:'Intelligence'}}),'int','long-form reviewed ability names must normalize to sheet ability keys');
   console.log('PASS reviewed fixed 3.5 casting ability drives spell UI and bonus slots.');
 } finally {
