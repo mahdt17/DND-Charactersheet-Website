@@ -33,7 +33,9 @@ for(const skill of ['Climb','Intimidate','Jump','Ride','Swim'])assert((definitio
 const built=reconcileClassGrants(base());
 const unresolved=(definition.levelGrants||[]).filter(grant=>!grant.name||String(grant.description||'').trim().length<12).map(grant=>({level:grant.level,name:grant.name,progressionText:grant.progressionText,description:grant.description}));
 assert.equal(unresolved.length,0,`Frenzied Berserker has undescribed grants: ${JSON.stringify(unresolved)}`);
-assert(source(built,'feats').some(feat=>feat.name==='Remain Conscious'),'Frenzied Berserker must grant Remain Conscious as a source-owned feat');
+const grantedRemain=source(built,'feats').find(feat=>feat.name==='Remain Conscious');
+assert(grantedRemain,'Frenzied Berserker must grant Remain Conscious as a source-owned feat');
+assert.equal(grantedRemain.catalogId,remainConscious.catalogId,'Frenzied Berserker must link its bonus feat to the exact Remain Conscious catalog record');
 assert.equal(resource(built,'Frenzy')?.max,5);
 assert.equal(resource(built,'Frenzy')?.period,'day');
 assert.equal(action(built,'Frenzy')?.type,'Free action');
