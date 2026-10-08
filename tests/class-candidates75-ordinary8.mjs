@@ -32,7 +32,7 @@ assert.deepEqual(slots.unlockedSpellLevels.filter(level=>level>=1&&level<=4),[1,
 const level1Slots=spellSlotProgression(definition,1);
 assert.equal(level1Slots?.slots?.[1],0,'Ebonmar Infiltrator level 1 printed zero slot must remain zero');
 assert(level1Slots?.unlockedSpellLevels?.includes(1),'printed zero slot must unlock bonus-spell access');
-for(const [name,level] of [['Comprehend Languages',1],['Detect Magic',1],['Invisibility',2],['Arcane Sight',3],['Dimension Door',4],['Greater Invisibility',4]])assertClassSpell(name,level);
+for(const [name,level] of [['Comprehend Languages',1],['Detect Magic',1],['Invisibility',2],['Arcane Sight',3],['Dimension Door',4],['Invisibility, Greater',4]])assertClassSpell(name,level);
 
 assert.equal(definition.reviewBatch,REVIEW_BATCH,'Ebonmar Infiltrator must publish through ordinary slice 8');
 assert.equal(definition.referenceOnly,false);
