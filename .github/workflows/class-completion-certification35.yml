@@ -1,0 +1,43 @@
+name: Class completion certification
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/class-completion-evidence35.json"
+      - "docs/class-completion-tracker.json"
+      - "scripts/class_completion_certification35.mjs"
+      - "scripts/build_class_completion_ledger.mjs"
+      - "scripts/build_class_review_queue.mjs"
+      - "scripts/select_class_research_batch.mjs"
+      - "tests/class-completion-certification35.mjs"
+      - "tests/source-choice-ui-context35.mjs"
+      - "src/LevelUp.jsx"
+      - "src/GuidedSetup.jsx"
+      - "package.json"
+      - ".github/workflows/class-completion-certification35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: class-completion-certification35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/class-completion-certification35.mjs
+      - run: node tests/source-choice-ui-context35.mjs
+      - run: node scripts/build_class_completion_ledger.mjs --output=/tmp/class-completion-ledger35.json
+      - run: node scripts/build_class_review_queue.mjs docs/class-completion-tracker.json --output=/tmp/class-review-queue35.json
+      - run: node scripts/select_class_research_batch.mjs docs/class-completion-tracker.json --limit=5 > /tmp/class-research-batch35.json
+      - name: Verify fail-closed queue behavior
+        run: |
+          node -e "const fs=require('fs');const tracker=JSON.parse(fs.readFileSync('docs/class-completion-tracker.json'));const ledger=JSON.parse(fs.readFileSync('/tmp/class-completion-ledger35.json'));const queue=JSON.parse(fs.readFileSync('/tmp/class-review-queue35.json'));if(ledger.total!==tracker.entries.length)process.exit(1);if(queue.total!==tracker.entries.length)process.exit(1);const oldComplete=tracker.entries.find(x=>x.status==='complete');if(oldComplete&&!queue.queue.some(x=>x.recordId===oldComplete.sourceId&&x.reasons.includes('tracker-complete-is-not-certification')))process.exit(1);"
