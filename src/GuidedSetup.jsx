@@ -54,7 +54,7 @@ function Picks({options,value,onChange,kind}){const [search,setSearch]=useState(
 export function focusDialog(ref){return ()=>{const root=ref.current,old=document.activeElement;root?.querySelector('input,button')?.focus();const key=e=>{if(e.key!=='Tab')return;const list=[...root.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea,a[href]')].filter(x=>x.getClientRects().length);if(!list.length)return;if(e.shiftKey&&document.activeElement===list[0]){e.preventDefault();list.at(-1).focus();}if(!e.shiftKey&&document.activeElement===list.at(-1)){e.preventDefault();list[0].focus();}};root?.addEventListener('keydown',key);return()=>{root?.removeEventListener('keydown',key);old?.focus();};};}
 export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[],onRoll=expression=>rollDice(expression)}){
  const [step,setStep]=useState(0),[draft,setDraft]=useState({ruleset:'2014',mechanics:'2014',name:'',className:'',race:'',background:'',level:1,abilities:basicScores,classSkills:[],bonusSkills:[],spellIds:[],cantripIds:[],gear:{},bgGear:{},subrace:'',subclass:'',method:'standard',bonusA:'',bonusB:'',bonusMode:'two',bonusC:'',notes:''});
- const reference=useReferenceIndex(step===1?['classes','feats']:step===2?['races']:step===6?['spells']:step===7?['feats','spells']:[],draft.ruleset),homebrew=[...customEntries,...reference.entries];
+ const reference=useReferenceIndex(step===1?['classes','feats']:step===2?['races']:step===6?['spells','feats','equipment']:step===7?['feats','spells','equipment']:[],draft.ruleset),homebrew=[...customEntries,...reference.entries];
  const shell=useRef(null);useEffect(focusDialog(shell),[]);useEffect(()=>{shell.current?.querySelector('.creation-scroll')?.scrollTo(0,0);},[step]);
  const patch=v=>setDraft(d=>({...d,...v})),rules=mechanics(draft),c=draft.classDefinition,r=draft.raceDefinition;
  const bg=rules==='2024'?modern.backgrounds.find(x=>x.name===draft.background):BACKGROUND_DATA[draft.background];
@@ -71,7 +71,7 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
  const invocationProfile=is35(draft)?invocationProfile35(acquisitionClassId):null;
  const invocationModel={...draft,classLevels:[{catalogId:acquisitionClassId,name:draft.className,edition:'3.5',level:1,definition:c}]};
  const invocationEvents=invocationProfile?invocationEvents35(invocationModel,{classId:acquisitionClassId,targetClassLevel:1}):[],invocationPicks=draft.invocationPicks35||{};
- const acquisitionFeatureContext={spells:homebrew.filter(entry=>entry?.category==='spell'),feats:homebrew.filter(entry=>/feat/i.test(entry?.category||''))};
+ const acquisitionFeatureContext={spells:homebrew.filter(entry=>entry?.category==='spell'),feats:homebrew.filter(entry=>/feat/i.test(entry?.category||'')),equipment:homebrew.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon')};
  const acquisitionChoiceBase=managedAcquisition?{...draft,classLevels:[{catalogId:acquisitionClassId,name:c?.name||draft.className,edition:'3.5',level:1,definition:c}],activeCastingClassId:acquisitionClassId}:draft;
  const acquisitionChoicePlan=managedAcquisition&&acquisitionProfile?.requiredFeatureChoices?.length?featureChoicePlan(acquisitionChoiceBase,null,draft.featurePicks||{},acquisitionFeatureContext):null;
  const acquisitionRequiredLabels=new Set(acquisitionProfile?.requiredFeatureChoices||[]);
@@ -89,7 +89,8 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
  const featureDraft={...draft,skillProf:Object.fromEntries([...bgSkills,...draft.classSkills,...(draft.bonusSkills||[])].map(n=>[n,true]))};
  const featureContext={
   spells:[...customEntries.filter(entry=>entry?.category==='spell'),...reference.entries.filter(entry=>entry?.category==='spell')],
-  feats:[...customEntries.filter(entry=>/feat/i.test(entry?.category||'')),...reference.entries.filter(entry=>/feat/i.test(entry?.category||''))]
+  feats:[...customEntries.filter(entry=>/feat/i.test(entry?.category||'')),...reference.entries.filter(entry=>/feat/i.test(entry?.category||''))],
+  equipment:[...customEntries.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon'),...reference.entries.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon')]
  };
  const featurePlan=featureChoicePlan(featureDraft,null,draft.featurePicks||{},featureContext);
  const featureApplied=featurePlan.valid?applyFeatureChoices(featureDraft,null,draft.featurePicks||{},featureContext):null;
