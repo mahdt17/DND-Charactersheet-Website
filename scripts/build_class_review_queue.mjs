@@ -4,11 +4,14 @@ import proficiencySupplements35 from '../src/data/class-proficiencies35.json' wi
 import featureSummaries35 from '../src/data/class-feature-summaries-35.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {progressionTables} from '../src/lib/advancement.js';
+import {certifyClassEvidence35} from './class_completion_certification35.mjs';
 
 const args=process.argv.slice(2);
 const trackerPath=args.find(a=>!a.startsWith('--'))||'docs/class-completion-tracker.json';
+const evidencePath=(args.find(a=>a.startsWith('--evidence='))||'--evidence=docs/class-completion-evidence35.json').split('=')[1];
 const outputArg=args.find(a=>a.startsWith('--output='));
 const tracker=JSON.parse(await fs.readFile(trackerPath,'utf8'));
+const evidenceManifest=JSON.parse(await fs.readFile(evidencePath,'utf8'));
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
 const classes=await service.load('3.5/classes');
 const byId=new Map(classes.map(r=>[r.sourceId,r]));
@@ -18,7 +21,8 @@ const raw=record=>[record?.description,record?.sourceDescription,record?.effect,
 const family=record=>{const t=norm(raw(record)),out=[];for(const [name,re] of [['binding',/vestiges?|soul binding|binder level/],['incarnum',/soulmeld|essentia|chakra bind/],['psionics',/power points|powers? known|manifester level|psionic/],['invocations',/invocations? known|eldritch blast/],['maneuvers',/maneuvers? known|maneuvers? readied|stances? known|initiator level/]])if(re.test(t))out.push(name);return out;};
 const queue=[];
 for(const entry of tracker.entries||[]){
- if(entry.status==='complete')continue;
+ const certification=certifyClassEvidence35({trackerEntry:entry,evidenceEntry:evidenceManifest.entries?.[entry.sourceId]});
+ if(certification.certified)continue;
  const record=byId.get(entry.sourceId),reasons=[],families=family(record);
  const summaries=Array.isArray(featureSummaries35[entry.sourceId])?featureSummaries35[entry.sourceId]:[];
  const supplement=supplements[entry.sourceId];
@@ -33,8 +37,25 @@ for(const entry of tracker.entries||[]){
  if(entry.status==='source-conflict')reasons.push('source-conflict');
  if(entry.status==='failed-extraction')reasons.push('failed-extraction');
  if(entry.status==='unresolved-source')reasons.push('unresolved-source');
- if(reasons.length)queue.push({recordId:entry.sourceId,name:entry.name,status:entry.status,sourceUrl:entry.sourceUrl,mechanicFamilies:families,reasons:[...new Set(reasons)],nextAction:entry.nextAction||null});
+ if(entry.status==='validation-failed')reasons.push('validation-failed');
+ reasons.push(...certification.blockers);
+ reasons.push(...certification.missingEvidence.map(axis=>`missing-certification-evidence:${axis}`));
+ if(entry.status==='complete'&&!certification.certified)reasons.push('tracker-complete-is-not-certification');
+ queue.push({
+   recordId:entry.sourceId,
+   name:entry.name,
+   status:entry.status,
+   certificationStatus:certification.status,
+   sourceUrl:entry.sourceUrl,
+   mechanicFamilies:families,
+   evidencePaths:certification.evidencePaths,
+   missingEvidence:certification.missingEvidence,
+   blockers:certification.blockers,
+   reasons:[...new Set(reasons)],
+   nextAction:entry.nextAction||null
+ });
 }
-const report={schemaVersion:1,generatedAt:new Date().toISOString(),sourceTracker:trackerPath,total:queue.length,queue};
+queue.sort((a,b)=>String(a.recordId).localeCompare(String(b.recordId)));
+const report={schemaVersion:2,generatedAt:new Date().toISOString(),sourceTracker:trackerPath,sourceEvidence:evidencePath,total:queue.length,queue};
 const out=JSON.stringify(report,null,2)+'\n';
 if(outputArg)await fs.writeFile(outputArg.split('=')[1],out);else process.stdout.write(out);
