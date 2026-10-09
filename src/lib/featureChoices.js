@@ -1,4 +1,5 @@
 import {sourceFeatTemplateOptions35} from './sourceFeatTemplates35.js';
+import {sourceChoiceProviderOptions35} from './sourceChoiceProviders35.js';
 import {characterClasses,requirements,qualified,contentKey} from './advancement.js';
 import {recordedTraining} from './training.js';
 import {reconcileClassGrants,spellSlotProgression} from './classIntegration.js';
@@ -23,7 +24,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   for(const grant of languageGrants)rememberLanguage(grant?.name);
   const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])],languageGrants},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
-    const template=sourceFeatTemplateOptions35(feature,context.feats||[]).find(option=>norm(option.name)===norm(value))?.feat
+    const template=sourceFeatTemplateOptions35(feature,context,{character:current,row}).find(option=>norm(option.name)===norm(value))?.feat
       ||(patch.featureChoices[id]?.featTemplateSelections||[]).find(feat=>norm(feat.name)===norm(value));
     const canonical=template||(context.feats||[]).find(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(value))||null;
     // Each selected feat shares a choice ID; preserve its siblings and saved state.
@@ -75,7 +76,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           return match?[prefix+match[1]]:[];
         }))];
         const id=savedIds.length===1?savedIds[0]:prefix+event.choiceIndex;
-        const templateOptions=sourceFeatTemplateOptions35(feature,context.feats||[]);
+        const templateOptions=sourceFeatTemplateOptions35(feature,context,{character:current,row});
         let options=[...new Set([...(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value)),...templateOptions.map(option=>option.name)])];
         const rawDefinitionGrants=Array.isArray(row.definition?.levelGrants)?row.definition.levelGrants:[];
         const sourceGrant=rawDefinitionGrants.find(grant=>norm(grant?.name)===norm(feature.name)&&Number(grant?.level||1)<=level);
@@ -343,6 +344,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   for(const report of current.classAutomation?.classes||[]) {
     if(report.edition!=='3.5')continue;
     const oldLevel=oldRows.find(item=>item.catalogId===report.classId)?.level||0;
+    const reportRow=rows.find(item=>item.catalogId===report.classId)||null;
     for(const choice of report.proficiencyChoices||[]) {
       const level=Math.max(1,Number(choice.level)||1);
       if(report.level<level||oldLevel>=level)continue;
@@ -350,12 +352,12 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
       if(patch.featureChoices[id])continue;
       const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
       const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
-      const options=(Array.isArray(choice.options)?choice.options:[]).map(value=>String(value));
-      const required=Math.max(1,Number(choice.count)||1),valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length||selected.every(value=>options.includes(value)));
+      const options=[...new Set([...(Array.isArray(choice.options)?choice.options:[]).map(value=>String(value)),...sourceChoiceProviderOptions35(choice.optionsProvider,{character:current,row:reportRow,context})])].sort((a,b)=>a.localeCompare(b));
+      const required=Math.max(1,Number(choice.count)||1),requiresResolvedOptions=Boolean(choice.optionsProvider||choice.options?.length),valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)));
       const group={id,level,kind:'source-choice',choiceKind:'proficiency',proficiencyKind:choice.kind||'weapons',count:required,required,label:choice.label||'Class proficiency choice',className:report.name,classId:report.classId,sourceClassId:report.classId,sourceText:choice.sourceText||'Choose the source-defined proficiency.',sourceUrl:choice.optionsSourceUrl||null,options,selected,valid};
       groups.push(group);
       if(valid){
-        patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText};
+        patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText,choiceKind:'proficiency'};
         const trainingId=`class-choice:${report.classId}:${choice.id||slug(group.label)}`;
         patch.trainingGrants=patch.trainingGrants.filter(grant=>grant.sourceChoiceId!==id);
         patch.trainingGrants.push({classId:trainingId,sourceClassId:report.classId,sourceChoiceId:id,className:report.name,edition:'3.5',proficiencies:selected.map(name=>({kind:group.proficiencyKind,name,index:slug(name)}))});
@@ -368,9 +370,9 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
       if(patch.featureChoices[id])continue;
       const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
       const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
-      const options=(Array.isArray(choice.options)?choice.options:[]).map(value=>String(value));
-      const required=Math.max(1,Number(choice.count)||1);
-      const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&selected.every(value=>options.includes(value));
+      const options=[...new Set([...(Array.isArray(choice.options)?choice.options:[]).map(value=>String(value)),...sourceChoiceProviderOptions35(choice.optionsProvider,{character:current,row:reportRow,context})])].sort((a,b)=>a.localeCompare(b));
+      const required=Math.max(1,Number(choice.count)||1),requiresResolvedOptions=Boolean(choice.optionsProvider||choice.options?.length);
+      const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)));
       const group={id,level,kind:'source-choice',choiceKind:'class-skill',count:required,required,label:choice.label||'Class skills',className:report.name,classId:report.classId,sourceClassId:report.classId,sourceText:choice.sourceText||'Choose the source-defined class skills.',sourceUrl:choice.sourceUrl||choice.optionsSourceUrl||null,options,selected,valid};
       groups.push(group);
       if(valid)patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText,choiceKind:'class-skill'};
