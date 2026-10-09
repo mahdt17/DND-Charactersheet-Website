@@ -10,6 +10,7 @@ on:
       - "src/GuidedSetup.jsx"
       - "src/LevelUp.jsx"
       - "tests/source-open-choice-providers35.mjs"
+      - "tests/source-choice-ui-context35.mjs"
       - ".github/workflows/source-open-choice35.yml"
 permissions:
   contents: read
@@ -31,5 +32,6 @@ jobs:
       - run: npm ci
       - run: node tests/source-feat-choice-lifecycle35.mjs
       - run: node tests/source-open-choice-providers35.mjs
+      - run: node tests/source-choice-ui-context35.mjs
       - run: node tests/class-integration.mjs
       - run: node tests/feature-choices.mjs
