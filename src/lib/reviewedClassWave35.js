@@ -7,6 +7,7 @@ import candidate75Ordinary5 from '../data/class-reviewed-overrides-35-candidates
 import candidate75Ordinary6 from '../data/class-reviewed-overrides-35-candidates75-ordinary6.json' with {type:'json'};
 import candidate75Ordinary7 from '../data/class-reviewed-overrides-35-candidates75-ordinary7.json' with {type:'json'};
 import candidate75Ordinary8 from '../data/class-reviewed-overrides-35-candidates75-ordinary8.json' with {type:'json'};
+import candidate75Ordinary9 from '../data/class-reviewed-overrides-35-candidates75-ordinary9.json' with {type:'json'};
 import reviewedFeaturesWave2 from '../data/class-reviewed-features-35-wave2.json' with {type:'json'};
 import reviewedFeaturesCandidate75 from '../data/class-reviewed-features-35-candidates75.json' with {type:'json'};
 import reviewedFeaturesCandidate75Ordinary2 from '../data/class-reviewed-features-35-candidates75-ordinary2.json' with {type:'json'};
@@ -17,9 +18,11 @@ import reviewedFeaturesCandidate75Ordinary6 from '../data/class-reviewed-feature
 import reviewedFeaturesCandidate75Ordinary7 from '../data/class-reviewed-features-35-candidates75-ordinary7.json' with {type:'json'};
 import reviewedFeaturesCandidate75Ordinary8 from '../data/class-reviewed-features-35-candidates75-ordinary8.json' with {type:'json'};
 
-const waves=[wave2,candidate75,candidate75Ordinary2,candidate75Ordinary3,candidate75Ordinary4,candidate75Ordinary5,candidate75Ordinary6,candidate75Ordinary7,candidate75Ordinary8];
+import reviewedFeaturesCandidate75Ordinary9 from '../data/class-reviewed-features-35-candidates75-ordinary9.json' with {type:'json'};
+
+const waves=[wave2,candidate75,candidate75Ordinary2,candidate75Ordinary3,candidate75Ordinary4,candidate75Ordinary5,candidate75Ordinary6,candidate75Ordinary7,candidate75Ordinary8,candidate75Ordinary9];
 const entries=Object.assign({},...waves.map(wave=>wave.entries||{}));
-const reviewedFeatureEntries={...(reviewedFeaturesWave2.entries||{}),...(reviewedFeaturesCandidate75.entries||{}),...(reviewedFeaturesCandidate75Ordinary2.entries||{}),...(reviewedFeaturesCandidate75Ordinary3.entries||{}),...(reviewedFeaturesCandidate75Ordinary4.entries||{}),...(reviewedFeaturesCandidate75Ordinary5.entries||{}),...(reviewedFeaturesCandidate75Ordinary6.entries||{}),...(reviewedFeaturesCandidate75Ordinary7.entries||{}),...(reviewedFeaturesCandidate75Ordinary8.entries||{})};
+const reviewedFeatureEntries={...(reviewedFeaturesWave2.entries||{}),...(reviewedFeaturesCandidate75.entries||{}),...(reviewedFeaturesCandidate75Ordinary2.entries||{}),...(reviewedFeaturesCandidate75Ordinary3.entries||{}),...(reviewedFeaturesCandidate75Ordinary4.entries||{}),...(reviewedFeaturesCandidate75Ordinary5.entries||{}),...(reviewedFeaturesCandidate75Ordinary6.entries||{}),...(reviewedFeaturesCandidate75Ordinary7.entries||{}),...(reviewedFeaturesCandidate75Ordinary8.entries||{}),...(reviewedFeaturesCandidate75Ordinary9.entries||{})};
 const waveFor=id=>waves.find(wave=>wave.entries?.[id])||null;
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
