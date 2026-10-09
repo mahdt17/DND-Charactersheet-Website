@@ -1,0 +1,35 @@
+name: Open 3.5 source choice providers
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/sourceFeatTemplates35.js"
+      - "src/lib/sourceChoiceProviders35.js"
+      - "src/lib/featureChoices.js"
+      - "src/lib/classIntegration.js"
+      - "src/GuidedSetup.jsx"
+      - "src/LevelUp.jsx"
+      - "tests/source-open-choice-providers35.mjs"
+      - ".github/workflows/source-open-choice35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: source-open-choice35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  providers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/source-feat-choice-lifecycle35.mjs
+      - run: node tests/source-open-choice-providers35.mjs
+      - run: node tests/class-integration.mjs
+      - run: node tests/feature-choices.mjs
