@@ -1,3 +1,4 @@
+import {sourceFeatTemplateOptions35} from './sourceFeatTemplates35.js';
 import {characterClasses,requirements,qualified,contentKey} from './advancement.js';
 import {recordedTraining} from './training.js';
 import {reconcileClassGrants,spellSlotProgression} from './classIntegration.js';
@@ -22,7 +23,9 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   for(const grant of languageGrants)rememberLanguage(grant?.name);
   const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])],languageGrants},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
-    const canonical=(context.feats||[]).find(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(value))||null;
+    const template=sourceFeatTemplateOptions35(feature,context.feats||[]).find(option=>norm(option.name)===norm(value))?.feat
+      ||(patch.featureChoices[id]?.featTemplateSelections||[]).find(feat=>norm(feat.name)===norm(value));
+    const canonical=template||(context.feats||[]).find(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(value))||null;
     // Each selected feat shares a choice ID; preserve its siblings and saved state.
     if(patch.feats.some(feat=>feat.sourceChoiceId===id&&norm(feat.name)===norm(value)))return;
     patch.feats.push({
@@ -72,7 +75,8 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           return match?[prefix+match[1]]:[];
         }))];
         const id=savedIds.length===1?savedIds[0]:prefix+event.choiceIndex;
-        let options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        const templateOptions=sourceFeatTemplateOptions35(feature,context.feats||[]);
+        let options=[...new Set([...(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value)),...templateOptions.map(option=>option.name)])];
         const rawDefinitionGrants=Array.isArray(row.definition?.levelGrants)?row.definition.levelGrants:[];
         const sourceGrant=rawDefinitionGrants.find(grant=>norm(grant?.name)===norm(feature.name)&&Number(grant?.level||1)<=level);
         const characterChoiceSource=feature.choiceOptionsFromCharacter||sourceGrant?.choiceOptionsFromCharacter;
@@ -145,7 +149,8 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           const featContext=Array.isArray(context.feats)?context.feats:[];
           const eligibilityCharacter={...current,feats:patch.feats};
           options=options.filter(name=>{
-            const matching=featContext.filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(name));
+            const template=templateOptions.find(option=>norm(option.name)===norm(name));
+            const matching=template?[template.feat]:featContext.filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(name));
             return matching.length>0&&matching.every(feat=>feature.ignorePrerequisites||qualified(requirements(feat,eligibilityCharacter,feat.prerequisiteConfirmations||{})));
           });
         }
@@ -321,13 +326,13 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           return Array.isArray(requirements)?requirements.map(String):requirements?[String(requirements)]:[];
         };
         const unmetPrerequisites=selected.flatMap(value=>requirementsFor(value).filter(requiredName=>!priorSelections.some(existing=>norm(existing)===norm(requiredName))));
-        const requiresResolvedOptions=Boolean(characterChoiceSource||feature.choiceOptionsFromFeatureMechanic||feature.choiceFeatType||feature.choiceValidatePrerequisites||feature.choiceExcludeOptions?.length||feature.choiceOptions?.length||feature.choiceOptionsByLevel?.[String(level)]?.length); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
+        const requiresResolvedOptions=Boolean(feature.choiceFeatTemplates?.length||characterChoiceSource||feature.choiceOptionsFromFeatureMechanic||feature.choiceFeatType||feature.choiceValidatePrerequisites||feature.choiceExcludeOptions?.length||feature.choiceOptions?.length||feature.choiceOptionsByLevel?.[String(level)]?.length); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
         const detail=String(feature.description||'').trim();
         const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
         const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites,optionPrerequisites,unmetPrerequisites};
         groups.push(group);
         if(valid){
-          patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText:group.sourceText,choiceKind};
+          patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText:group.sourceText,choiceKind,...(templateOptions.length?{featTemplateSelections:templateOptions.filter(option=>selected.includes(option.name)).map(option=>option.feat)}:{})};
           if(choiceKind==='feat')for(const value of selected)addChoiceFeat(id,row,feature,level,value);
           if(choiceKind==='language')for(const value of selected)addChoiceLanguage(id,row,feature,level,value);
         }
