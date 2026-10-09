@@ -790,7 +790,7 @@ function derivedForRow(row,character=null){
           if(edition==='3.5'&&effectUsage&&effectUsage.max>0){
             const reset=effectUsage.reset|| (effectUsage.period==='short rest'?'short':effectUsage.period==='rest'?'long':effectUsage.period==='day'||effectUsage.period==='long rest'?'long':'none');
             const recoveryText=effectUsage.recoveryText|| (effectUsage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
-            resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(effectName),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(effectName),name:effectName,max:effectUsage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:effectUsage.unit||undefined,...effectMeta});
+            resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(effectName),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(effectName),name:effectName,max:effectUsage.max,period:effectUsage.period,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:effectUsage.unit||undefined,...effectMeta});
           }
         }
         const mechanicUsage=structuredUsage(mechanic,row.level,character);
@@ -801,7 +801,7 @@ function derivedForRow(row,character=null){
         if(edition==='3.5'&&mechanicUsage&&mechanicUsage.max>0){
           const reset=mechanicUsage.reset|| (mechanicUsage.period==='short rest'?'short':mechanicUsage.period==='rest'?'long':mechanicUsage.period==='day'||mechanicUsage.period==='long rest'?'long':'none');
           const recoveryText=mechanicUsage.recoveryText|| (mechanicUsage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
-          resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(selectedName),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(selectedName),name:selectedName,max:mechanicUsage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:mechanicUsage.unit||undefined,...selectedMeta});
+          resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(selectedName),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(selectedName),name:selectedName,max:mechanicUsage.max,period:mechanicUsage.period,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:mechanicUsage.unit||undefined,...selectedMeta});
         }
       }
     }
@@ -826,7 +826,7 @@ function derivedForRow(row,character=null){
     if(edition==='3.5'&&usage&&usage.max>0){
       const reset=usage.reset|| (usage.period==='short rest'?'short':usage.period==='rest'?'long':usage.period==='day'||usage.period==='long rest'?'long':'none');
       const recoveryText=usage.recoveryText|| (usage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
-      resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:usage.unit||undefined,...meta});
+      resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,period:usage.period,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:usage.unit||undefined,...meta});
     }
   }
   const record=withProficiencySupplement(row.definition||{});
