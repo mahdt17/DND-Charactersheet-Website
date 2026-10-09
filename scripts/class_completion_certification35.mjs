@@ -49,7 +49,7 @@ const collectIds=(value,out)=>{
 
 export async function reviewedArtifactIds35({root='.',directories=['docs','src/data']}={}){
   const ids=new Set();
-  const artifactName=/(review|verification|finalization|candidate|ordinary|wave|completion)/i;
+  const artifactName=/(review|verification|finalization|candidate|ordinary|wave)/i;
   async function walk(relative){
     let entries=[];
     try{entries=await fs.readdir(path.join(root,relative),{withFileTypes:true});}catch{return;}
