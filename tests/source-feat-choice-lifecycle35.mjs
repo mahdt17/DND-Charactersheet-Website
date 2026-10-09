@@ -85,3 +85,41 @@ const removedOwned=removeClassProgression({...ownedSelected,classLevels:[...owne
 assert(Object.values(removedOwned.featureChoices).some(choice=>choice?.sourceClassId==='test:ranger'&&choice?.choiceKind==='favored-enemy'),'removing the dependent class must preserve the source favored-enemy choice');
 assert(!Object.values(removedOwned.featureChoices).some(choice=>choice?.sourceClassId===ownedChoiceDefinition.catalogId),'removing the dependent class must remove only its dependent choice');
 console.log('PASS character-sourced choice lifecycle: filtered options, validation, persistence, and source preservation.');
+
+const templateFeat={catalogId:'test:critical-source-a',name:'Improved Critical',edition:'3.5',sourceBook:'Source A',description:'Apply the feat to the chosen weapon.',prerequisites:[]};
+const wrongVariant={...templateFeat,catalogId:'test:critical-source-b',sourceBook:'Source B'};
+const templateContext={feats:[wrongVariant,templateFeat,...context.feats]};
+const templateDefinition={catalogId:'test:template-choice',name:'Template Choice',edition:'3.5',levelGrants:[{
+  level:1,name:'Weapon feat',description:'Choose a weapon for the source-defined bonus feat.',
+  choiceKind:'feat',choiceLevels:[1,3],choiceCount:1,uniqueChoices:true,choiceValidatePrerequisites:true,
+  choiceFeatTemplates:[{featId:'test:critical-source-a',subjects:['Longsword','Rapier']}]
+}]};
+const templateBase={...base,classLevels:[{catalogId:templateDefinition.catalogId,name:templateDefinition.name,edition:'3.5',level:1,definition:templateDefinition}]};
+const templateGroup=featureChoicePlan(templateBase,null,{},templateContext).groups[0];
+assert.deepEqual(templateGroup.options,['Improved Critical (Longsword)','Improved Critical (Rapier)'],'feat templates must expand into legal subject choices');
+assert.equal(featureChoicePlan(templateBase,null,{[templateGroup.id]:['Improved Critical']},templateContext).valid,false,'an unparameterized feat cannot satisfy a subject choice');
+assert.equal(featureChoicePlan(templateBase,null,{[templateGroup.id]:['Improved Critical (Axe)']},templateContext).valid,false,'unreviewed subjects must be rejected');
+assert.equal(featureChoicePlan(templateBase,null,{[templateGroup.id]:['Improved Critical (Longsword)']},{feats:[wrongVariant]}).valid,false,'a missing exact template must not resolve by name');
+const templateChosen=applyFeatureChoices(templateBase,null,{[templateGroup.id]:['Improved Critical (Longsword)']},templateContext);
+const subjectFeat=templateChosen.feats.find(feat=>feat.sourceClassId===templateDefinition.catalogId);
+assert.equal(subjectFeat.catalogId,'test:critical-source-a');
+assert.equal(subjectFeat.featTemplateId,'test:critical-source-a');
+assert.equal(subjectFeat.featSubject,'Longsword');
+assert.equal(subjectFeat.name,'Improved Critical (Longsword)');
+assert.equal(subjectFeat.sourceBook,'Source A','same-name variants must not replace the explicit source');
+assert.deepEqual(reconcileClassGrants(templateChosen),templateChosen);
+const savedTemplate=JSON.parse(JSON.stringify(templateChosen));
+assert.equal(featureChoicePlan(savedTemplate,null,{},templateContext).groups.length,0,'saved subject choices must not be asked again');
+const missingTemplateFeat={...savedTemplate,feats:savedTemplate.feats.filter(feat=>feat.sourceClassId!==templateDefinition.catalogId)};
+const recoveredTemplate=featureChoicePlan(missingTemplateFeat,null,{},{}).patch;
+assert.equal(recoveredTemplate.feats.find(feat=>feat.sourceClassId===templateDefinition.catalogId)?.featSubject,'Longsword','saved exact template snapshots repair missing feat rows without a loaded catalog');
+const templateThird={...templateChosen,level:3,classLevels:[{...templateChosen.classLevels[0],level:3}]};
+const laterTemplateGroup=featureChoicePlan(templateThird,templateChosen,{},templateContext).groups[0];
+assert.deepEqual(laterTemplateGroup.options,['Improved Critical (Rapier)'],'a repeated template milestone may select a different subject');
+const templateAdvanced=applyFeatureChoices(templateThird,templateChosen,{[laterTemplateGroup.id]:['Improved Critical (Rapier)']},templateContext);
+assert.equal(templateAdvanced.feats.filter(feat=>feat.featTemplateId==='test:critical-source-a').length,2);
+assert.equal(featureChoicePlan(templateAdvanced,null,{},templateContext).groups.length,0);
+const templateRemoved=removeClassProgression({...templateAdvanced,classLevels:[...templateAdvanced.classLevels,survivor],level:4},templateDefinition.catalogId);
+assert(!templateRemoved.feats.some(feat=>feat.sourceClassId===templateDefinition.catalogId));
+assert(templateRemoved.feats.some(feat=>feat.id==='manual'));
+console.log('PASS parameterized source feat choices: exact source, legal subjects, repeated milestones, save/reopen repair, and cleanup.');
