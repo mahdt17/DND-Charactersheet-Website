@@ -19,10 +19,11 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
   const [flow,setFlow]=useState('existing'),[selected,setSelected]=useState(''),[query,setQuery]=useState(''),[confirmations,setConfirmations]=useState({}),[proceed,setProceed]=useState(false),[reviewed,setReviewed]=useState(false);
   const [trainingChoices,setTrainingChoices]=useState({}),[pending,setPending]=useState(null),[featurePicks,setFeaturePicks]=useState({}),[featureFeatOverrides,setFeatureFeatOverrides]=useState({}),[inheritanceChoice,setInheritanceChoice]=useState(''),[castingTargets,setCastingTargets]=useState({});
   const ruleset=char.ruleset||'2014',spellReference=useReferenceIndex(['3.5','custom'].includes(ruleset)?['spells']:[],ruleset);
-  const catalog=useReferenceIndex(['classes','feats'],ruleset),rows=characterClasses(char);
+  const catalog=useReferenceIndex(['classes','feats','equipment'],ruleset),rows=characterClasses(char);
   const featureContext={
     spells:[...homebrew.filter(entry=>entry?.category==='spell'),...spellReference.entries],
-    feats:[...homebrew.filter(entry=>/feat/i.test(entry?.category||'')),...catalog.entries.filter(entry=>/feat/i.test(entry?.category||''))]
+    feats:[...homebrew.filter(entry=>/feat/i.test(entry?.category||'')),...catalog.entries.filter(entry=>/feat/i.test(entry?.category||''))],
+    equipment:[...homebrew.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon'),...catalog.entries.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon')]
   };
   const featurePlan=pending?featureChoicePlan(pending,char,featurePicks,featureContext):null;
   const featureApplied=pending&&featurePlan?.valid?applyFeatureChoices(pending,char,featurePicks,featureContext):null;
