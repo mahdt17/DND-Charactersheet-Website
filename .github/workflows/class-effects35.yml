@@ -13,6 +13,7 @@ on:
       - "tests/class-effects35-initiative.mjs"
       - "tests/class-effects35-ac.mjs"
       - "tests/browser-class-effects35.mjs"
+      - "tests/browser-class-effects35-ac.mjs"
       - ".github/workflows/class-effects35.yml"
 permissions:
   contents: read
@@ -38,3 +39,4 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - run: node tests/browser-class-effects35.mjs
+      - run: node tests/browser-class-effects35-ac.mjs
