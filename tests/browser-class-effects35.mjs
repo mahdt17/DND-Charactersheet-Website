@@ -27,6 +27,12 @@ const server=await createServer({server:{host:'127.0.0.1',port:5189}});await ser
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+rows.find(row=>row.name===name).id)).value);},name);
+const openEffect=async panel=>{
+  const detail=panel.locator('details').filter({hasText:'Sacred Defense'}).first();
+  await detail.locator('summary').click();
+  await detail.locator('p').first().waitFor();
+  return detail;
+};
 try{
   await page.goto('http://127.0.0.1:5189/');
   await page.getByRole('button',{name:'Explore the demo'}).click();
@@ -40,15 +46,18 @@ try{
   const panel=page.getByRole('region',{name:'Structured class effects'});
   await panel.waitFor();
   assert.match(await panel.innerText(),/Sacred Defense/i);
-  assert.match(await panel.innerText(),/\+2 save sacred bonus against divine spells and outsider spell-like or supernatural abilities/i);
+  let detail=await openEffect(panel);
+  assert.match(await detail.innerText(),/\+2 save sacred bonus against divine spells and outsider spell-like or supernatural abilities/i);
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.locator('.character-card').filter({hasText:imported.name}).getByRole('button',{name:'Open character'}).click();
   await page.getByRole('tab',{name:'Features',exact:true}).click();
-  assert.match(await page.getByRole('region',{name:'Structured class effects'}).innerText(),/\+2 save sacred bonus/i,'structured effect summary survives save and reopen');
+  const reopenedPanel=page.getByRole('region',{name:'Structured class effects'});
+  detail=await openEffect(reopenedPanel);
+  assert.match(await detail.innerText(),/\+2 save sacred bonus/i,'structured effect summary survives save and reopen');
   character=await saved(imported.name);
   assert.equal(character.classEffects35.filter(item=>item.sourceClassId===definition.catalogId).length,1,'reopen remains idempotent and does not duplicate structured effects');
   assert.deepEqual(errors,[],'structured class effects UI must not raise browser errors');
-  console.log('PASS structured class effects UI: exact reviewed effect materializes, renders and survives save/reopen');
+  console.log('PASS structured class effects UI: exact reviewed effect materializes, renders through disclosure and survives save/reopen');
 }finally{
   await browser.close();await server.close();
 }
