@@ -2,7 +2,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createCatalogService} from '../src/lib/catalog.js';
-import {annotateClassGrantKinds,reconcileClassGrants,removeClassProgression,describeClassEffect35,classEffectModifier35,classEffectMovementBonus35} from '../src/lib/classIntegration.js';
+import {annotateClassGrantKinds,reconcileClassGrants,removeClassProgression,describeClassEffect35} from '../src/lib/classIntegration.js';
+import {classEffectModifier35,classEffectMovementBonus35} from '../src/lib/classEffects35.js';
 
 const effectClass={
   catalogId:'dndtools:classes/effect-fixture-999',
