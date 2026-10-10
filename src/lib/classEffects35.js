@@ -162,17 +162,29 @@ function materializeFeatureEffect35(character,feature,effect,index){
   };
 }
 
-function reconcileInitiative35(character){
-  const priorDerived=Number(character?.classEffectInitiativeBonus35)||0;
-  const hasPrior=character?.classEffectInitiativeBonus35!=null;
-  const current=Number(character?.initiativeBonus)||0;
-  if(!hasPrior&&!classEffectModifier35(character,'initiative'))return character;
-  const storedManual=Number(character?.classEffectInitiativeManual35);
-  const priorManual=character?.classEffectInitiativeManual35!=null&&Number.isFinite(storedManual)?storedManual:current-priorDerived;
+function reconcileDerivedScalar35(character,{field,target,manualField,derivedField}){
+  const priorDerived=Number(character?.[derivedField])||0;
+  const hasPrior=character?.[derivedField]!=null;
+  const current=Number(character?.[field])||0;
+  const derived=classEffectModifier35(character,target);
+  if(!hasPrior&&!derived)return character;
+  const storedManual=Number(character?.[manualField]);
+  const priorManual=character?.[manualField]!=null&&Number.isFinite(storedManual)?storedManual:current-priorDerived;
   const expected=priorManual+priorDerived;
   const manual=current===expected?priorManual:current-priorDerived;
-  const derived=classEffectModifier35(character,'initiative');
-  return {...character,initiativeBonus:manual+derived,classEffectInitiativeManual35:manual,classEffectInitiativeBonus35:derived};
+  return {...character,[field]:manual+derived,[manualField]:manual,[derivedField]:derived};
+}
+
+function reconcileInitiative35(character){
+  return reconcileDerivedScalar35(character,{
+    field:'initiativeBonus',target:'initiative',manualField:'classEffectInitiativeManual35',derivedField:'classEffectInitiativeBonus35'
+  });
+}
+
+function reconcileArmorClass35(character){
+  return reconcileDerivedScalar35(character,{
+    field:'ac',target:'AC',manualField:'classEffectArmorClassManual35',derivedField:'classEffectArmorClassBonus35'
+  });
 }
 
 export function reconcileClassEffects35(character){
@@ -193,5 +205,6 @@ export function reconcileClassEffects35(character){
   const derivedEffects=[...unique.values()];
   const conditionalIds=new Set(derivedEffects.filter(classEffectRequiresActivation35).map(effect=>effect.id));
   const classEffectToggles35=Object.fromEntries(Object.entries(character?.classEffectToggles35||{}).filter(([id,value])=>conditionalIds.has(id)&&value===true));
-  return reconcileInitiative35({...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35});
+  const withEffects={...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35};
+  return reconcileArmorClass35(reconcileInitiative35(withEffects));
 }
