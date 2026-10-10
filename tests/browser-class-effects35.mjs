@@ -43,12 +43,15 @@ const server=await createServer({server:{host:'127.0.0.1',port:5189}});await ser
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+rows.find(row=>row.name===name).id)).value);},name);
-const waitForStoredToggle=async(name,id)=>page.waitForFunction(async({name,id})=>{
-  const index=await window.storage.get('char-index');if(!index)return false;
-  const rows=JSON.parse(index.value),row=rows.find(item=>item.name===name);if(!row)return false;
-  const detail=await window.storage.get('char-detail:'+row.id);if(!detail)return false;
-  return JSON.parse(detail.value)?.classEffectToggles35?.[id]===true;
-},{name,id});
+const waitForSavedToggle=async(name,id)=>{
+  let character=null;
+  for(let attempt=0;attempt<50;attempt++){
+    character=await saved(name);
+    if(character?.classEffectToggles35?.[id]===true)return character;
+    await page.waitForTimeout(50);
+  }
+  assert.fail(`persisted class effect toggle ${id} for ${name} did not become active`);
+};
 const openEffect=async (panel,name)=>{
   const detail=panel.locator('details').filter({hasText:name}).first();
   await detail.locator('summary').click();
@@ -86,8 +89,7 @@ try{
   assert.equal(await sacredToggle.isChecked(),false,'conditional effect control starts off');
   await sacredToggle.check();
   assert.equal(await willSaveButton().innerText(),'Roll +5','user-activated Sacred Defense contributes +2 to the real 3.5 Will save control');
-  await waitForStoredToggle(arcaneFixture.character.name,effect.id);
-  character=await saved(arcaneFixture.character.name);
+  character=await waitForSavedToggle(arcaneFixture.character.name,effect.id);
   assert.equal(character.classEffectToggles35?.[effect.id],true,'conditional-effect activation is persisted by the sheet control');
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.locator('.character-card').filter({hasText:arcaneFixture.character.name}).getByRole('button',{name:'Open character'}).click();
@@ -115,7 +117,8 @@ try{
   assert.equal(await movementToggle.isChecked(),false);
   await movementToggle.check();
   assert.match(await speedTile().innerText(),/50\s*ft\.\s*Walking speed/i,'player-activated +20 ft. Fast Movement raises the live Walking Speed tile from 30 to 50');
-  await waitForStoredToggle(cloudFixture.character.name,movement.id);
+  character=await waitForSavedToggle(cloudFixture.character.name,movement.id);
+  assert.equal(character.classEffectToggles35?.[movement.id],true,'Fast Movement activation is persisted by the sheet control');
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.locator('.character-card').filter({hasText:cloudFixture.character.name}).getByRole('button',{name:'Open character'}).click();
   assert.match(await speedTile().innerText(),/50\s*ft\.\s*Walking speed/i,'operational Fast Movement survives save and reopen');
