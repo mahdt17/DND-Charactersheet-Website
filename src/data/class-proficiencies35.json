@@ -1,0 +1,4153 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/adept-917": {
+      "name": "Adept",
+      "sourceUrl": "https://new.dndtools.org/classes/adept-917",
+      "proficiencyText": "Weapon and Armor Proficiency: Adepts are skilled with all simple weapons. Adepts are not proficient with any type of armor nor with shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/archivist-74": {
+      "name": "Archivist",
+      "sourceUrl": "https://new.dndtools.org/classes/archivist-74",
+      "proficiencyText": "Weapon and Armor Proficiency: Archivists are proficient with all simple weapons and with light and medium armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/ardent-10": {
+      "name": "Ardent",
+      "sourceUrl": "https://new.dndtools.org/classes/ardent-10",
+      "proficiencyText": "Weapon and Armor Proficiency: Ardents are proficient with all simple weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/aristocrat-31": {
+      "name": "Aristocrat",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/aristocrat.htm",
+      "proficiencyText": "Weapon and Armor Proficiency: The aristocrat is proficient in the use of all simple and martial weapons and with all types of armor and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "classSkillSourceUrl": "https://www.d20srd.org/srd/npcClasses/aristocrat.htm",
+      "classSkillText": "The aristocrat's class skills include Knowledge (all skills taken individually).",
+      "classSkills": [
+        "Appraise",
+        "Bluff",
+        "Diplomacy",
+        "Disguise",
+        "Forgery",
+        "Gather Information",
+        "Handle Animal",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (architecture and engineering)",
+        "Knowledge (dungeoneering)",
+        "Knowledge (geography)",
+        "Knowledge (history)",
+        "Knowledge (local)",
+        "Knowledge (nature)",
+        "Knowledge (nobility and royalty)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Listen",
+        "Perform",
+        "Ride",
+        "Sense Motive",
+        "Speak Language",
+        "Spot",
+        "Swim",
+        "Survival"
+      ]
+    },
+    "classes/artificer-36": {
+      "name": "Artificer",
+      "sourceUrl": "https://new.dndtools.org/classes/artificer-36",
+      "proficiencyText": "Weapon and Armor Proficiency: Artificers are proficient with all simple weapons, with light and medium armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/battle-dancer-973": {
+      "name": "Battle Dancer",
+      "sourceUrl": "https://new.dndtools.org/classes/battle-dancer-973",
+      "proficiencyText": "Weapon and Armor Proficiency: A battle dancer is proficient with all simple weapons. She is not proficient with any type of armor or shield.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/beguiler-100": {
+      "name": "Beguiler",
+      "sourceUrl": "https://new.dndtools.org/classes/beguiler-100",
+      "proficiencyText": "Weapon and Armor Proficiency: Beguilers are proficient with all simple weapons plus the hand crossbow, rapier, shortbow, and short sword. Beguilers are proficient with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "hand-crossbow",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/crusader-115": {
+      "name": "Crusader",
+      "sourceUrl": "https://new.dndtools.org/classes/crusader-115",
+      "proficiencyText": "Weapon and Armor Proficiency: As a crusader, you are proficient with simple weapons, martial weapons, light, medium, and heavy armor, and all shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/divine-mind-11": {
+      "name": "Divine Mind",
+      "sourceUrl": "https://new.dndtools.org/classes/divine-mind-11",
+      "proficiencyText": "Weapon and Armor Proficiency: Divine minds are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/death-master-974": {
+      "name": "Death Master",
+      "sourceUrl": "https://new.dndtools.org/classes/death-master-974",
+      "proficiencyText": "Weapon and Armor Proficiency: A death master is proficient with the club, crossbow (light and heavy), dagger, scimitar, scythe, sickle, and staff. Death masters are proficient with light armor but not with shields of any type.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "scimitar",
+          "name": "Scimitar",
+          "kind": "weapons"
+        },
+        {
+          "index": "scythe",
+          "name": "Scythe",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sickle",
+          "name": "Sickle",
+          "kind": "weapons"
+        },
+        {
+          "index": "staff",
+          "name": "Staff",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true,
+      "unresolvedNamedWeapons": [
+        "scythe",
+        "staff"
+      ],
+      "reviewNote": "Scythe and staff are retained as source-only 3.5 proficiencies because the modern equipment catalog has no exact compatible ID; they do not affect modern attack proficiency."
+    },
+    "classes/dragon-shaman-101": {
+      "name": "Dragon Shaman",
+      "sourceUrl": "https://new.dndtools.org/classes/dragon-shaman-101",
+      "proficiencyText": "Weapon and Armor Proficiency: Dragon shamans are proficient with simple weapons, with light and medium armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dragonfire-adept-29": {
+      "name": "Dragonfire Adept",
+      "sourceUrl": "https://new.dndtools.org/classes/dragonfire-adept-29",
+      "proficiencyText": "Weapon and Armor Proficiency: Dragonfire adepts are proficient with simple weapons, but not with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/drow-paragon-1000": {
+      "name": "Drow Paragon",
+      "sourceUrl": "https://new.dndtools.org/classes/drow-paragon-1000",
+      "proficiencyText": "Weapon and Armor Proficiency: Drow paragons are proficient with all simple weapons, rapiers, longswords, and hand crossbows, and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "longsword",
+          "name": "Longsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "hand-crossbow",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dread-necromancer-75": {
+      "name": "Dread Necromancer",
+      "sourceUrl": "https://new.dndtools.org/classes/dread-necromancer-75",
+      "proficiencyText": "Weapon and Armor Proficiency: A dread necromancer is proficient with all simple weapons and with one martial weapon of her choice. Dread necromancers are also proficient with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "martial-weapon",
+          "label": "Martial weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose one martial weapon when taking the first dread necromancer level; the choice cannot be changed."
+        }
+      ],
+      "verified": true
+    },
+    "classes/duskblade-102": {
+      "name": "Duskblade",
+      "sourceUrl": "https://new.dndtools.org/classes/duskblade-102",
+      "proficiencyText": "Weapon and Armor Proficiency: Duskblades are proficient with all simple and martial weapons, as well as all armors and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dwarf-paragon-1001": {
+      "name": "Dwarf Paragon",
+      "sourceUrl": "https://new.dndtools.org/classes/dwarf-paragon-1001",
+      "proficiencyText": "Weapon and Armor Proficiency: Dwarf paragons are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields (but not with tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/eidolon-72": {
+      "name": "Eidolon",
+      "sourceUrl": "https://new.dndtools.org/classes/eidolon-72",
+      "proficiencyText": "Weapon and Armor Proficiency: An eidolon gains no proficiency in any kind of weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/eidoloncer-73": {
+      "name": "Eidoloncer",
+      "sourceUrl": "https://new.dndtools.org/classes/eidoloncer-73",
+      "proficiencyText": "Weapon and Armor Proficiency: An eidoloncer gains no proficiency in any kind of weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/elf-paragon-1002": {
+      "name": "Elf Paragon",
+      "sourceUrl": "https://new.dndtools.org/classes/elf-paragon-1002",
+      "proficiencyText": "Weapon and Armor Proficiency: Elf paragons are proficient with all simple weapons, rapiers, longswords, shortbows, and longbows. Elf paragons are proficient with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "longsword",
+          "name": "Longsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "longbow",
+          "name": "Longbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/factotum-35": {
+      "name": "Factotum",
+      "sourceUrl": "https://new.dndtools.org/classes/factotum-35",
+      "proficiencyText": "Weapon and Armor Proficiency: A factotum is proficient with all simple and martial weapons, and with light armor and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/favored-soul-7": {
+      "name": "Favored Soul",
+      "sourceUrl": "https://new.dndtools.org/classes/favored-soul-7",
+      "proficiencyText": "Weapon and Armor Proficiency: Favored souls are proficient with all simple weapons, with light and medium armor, and with shields (except tower shields). A favored soul is also proficient with her deity’s favored weapon.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "deity-favored-weapon",
+          "label": "Deity’s favored weapon",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Record the character’s deity-favored weapon; Favored Soul grants proficiency with that weapon."
+        }
+      ],
+      "verified": true
+    },
+    "classes/healer-77": {
+      "name": "Healer",
+      "sourceUrl": "https://new.dndtools.org/classes/healer-77",
+      "proficiencyText": "Weapon and Armor Proficiency: Healers are proficient with all simple weapons and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/hexblade-19": {
+      "name": "Hexblade",
+      "sourceUrl": "https://new.dndtools.org/classes/hexblade-19",
+      "proficiencyText": "Weapon and Armor Proficiency: Hexblades are proficient with all simple and martial weapons, and with light armor but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/incarnate-81": {
+      "name": "Incarnate",
+      "sourceUrl": "https://new.dndtools.org/classes/incarnate-81",
+      "proficiencyText": "Weapon and Armor Proficiency: You are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/jester-975": {
+      "name": "Jester",
+      "sourceUrl": "https://new.dndtools.org/classes/jester-975",
+      "proficiencyText": "Weapon and Armor Proficiency: A jester is proficient with all simple weapons, plus the rapier, sap, short sword, shortbow, and whip. Jesters are proficient with light armor and all shields save for the tower shield.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "whip",
+          "name": "Whip",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/knight-103": {
+      "name": "Knight",
+      "sourceUrl": "https://new.dndtools.org/classes/knight-103",
+      "proficiencyText": "Weapon and Armor Proficiency: Knights are proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and all shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/lurk-12": {
+      "name": "Lurk",
+      "sourceUrl": "https://new.dndtools.org/classes/lurk-12",
+      "proficiencyText": "Weapon and Armor Proficiency: Lurks are proficient with all simple and martial weapons, with light armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/magewright-1029": {
+      "name": "Magewright",
+      "sourceUrl": "https://new.dndtools.org/classes/magewright-1029",
+      "proficiencyText": "Weapon and Armor Proficiency: Magewrights are proficient with all simple weapons. Magewrights are not proficient with any type of armor or with shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/marshal-78": {
+      "name": "Marshal",
+      "sourceUrl": "https://new.dndtools.org/classes/marshal-78",
+      "proficiencyText": "Weapon and Armor Proficiency: Marshals are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/mystic-26": {
+      "name": "Mystic",
+      "sourceUrl": "https://new.dndtools.org/classes/mystic-26",
+      "proficiencyText": "Weapon and Armor Proficiency: The mystic is proficient in the use of all simple weapons. Mystics are proficient with light and medium armor and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/ninja-1": {
+      "name": "Ninja",
+      "sourceUrl": "https://new.dndtools.org/classes/ninja-1",
+      "proficiencyText": "Weapon and Armor Proficiency: Ninjas are proficient with all simple weapons, plus the hand crossbow, kama, kukri, nunchaku, sai, shortbow, short sword, shuriken, and siangham. Ninjas are not proficient with any type of armor or shield.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "hand-crossbow",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "kama",
+          "name": "Kama",
+          "kind": "weapons"
+        },
+        {
+          "index": "kukri",
+          "name": "Kukri",
+          "kind": "weapons"
+        },
+        {
+          "index": "nunchaku",
+          "name": "Nunchaku",
+          "kind": "weapons"
+        },
+        {
+          "index": "sai",
+          "name": "Sai",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shuriken",
+          "name": "Shuriken",
+          "kind": "weapons"
+        },
+        {
+          "index": "siangham",
+          "name": "Siangham",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/noble-27": {
+      "name": "Noble",
+      "sourceUrl": "https://new.dndtools.org/classes/noble-27",
+      "proficiencyText": "Weapon and Armor Proficiency: The noble is proficient in the use of all simple and martial weapons, light armor, and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/pixie-948": {
+      "name": "Pixie",
+      "sourceUrl": "https://new.dndtools.org/classes/pixie-948",
+      "proficiencyText": "Weapon and Armor Proficiency: Pixies are proficient with all simple weapons, with the short sword, and with the composite longbow, but not with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "composite-longbow",
+          "name": "Composite Longbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/psychic-warrior-138": {
+      "name": "Psychic Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/psychic-warrior-138",
+      "proficiencyText": "Weapon and Armor Proficiency: Psychic warriors are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/shugenja-8": {
+      "name": "Shugenja",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-8",
+      "proficiencyText": "Weapon and Armor Proficiency: Shugenjas are proficient with all simple weapons and with the short sword. They are not proficient with any type of armor, nor with shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/soulborn-82": {
+      "name": "Soulborn",
+      "sourceUrl": "https://new.dndtools.org/classes/soulborn-82",
+      "proficiencyText": "Weapon and Armor Proficiency: Soulborns are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/spellthief-3": {
+      "name": "Spellthief",
+      "sourceUrl": "https://new.dndtools.org/classes/spellthief-3",
+      "proficiencyText": "Weapon and Armor Proficiency: Spellthieves are proficient with all simple weapons and with light armor but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/swashbuckler-23": {
+      "name": "Swashbuckler",
+      "sourceUrl": "https://new.dndtools.org/classes/swashbuckler-23",
+      "proficiencyText": "Weapon and Armor Proficiency: Swashbucklers are proficient with all simple and martial weapons, and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/swordsage-116": {
+      "name": "Swordsage",
+      "sourceUrl": "https://new.dndtools.org/classes/swordsage-116",
+      "proficiencyText": "Weapon and Armor Proficiency: Swordsages are proficient with simple weapons, martial melee weapons (including those usable as thrown weapons), and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-melee-weapons",
+          "name": "Martial melee weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/totemist-83": {
+      "name": "Totemist",
+      "sourceUrl": "https://new.dndtools.org/classes/totemist-83",
+      "proficiencyText": "Weapon and Armor Proficiency: Totemists are proficient with all simple weapons, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warblade-117": {
+      "name": "Warblade",
+      "sourceUrl": "https://new.dndtools.org/classes/warblade-117",
+      "proficiencyText": "Weapon and Armor Proficiency: Warblades are proficient with simple and martial melee weapons (including those usable as thrown weapons), light and medium armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-melee-weapons",
+          "name": "Martial melee weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warlock-4": {
+      "name": "Warlock",
+      "sourceUrl": "https://new.dndtools.org/classes/warlock-4",
+      "proficiencyText": "Weapon and Armor Proficiency: Warlocks are proficient with all simple weapons and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warmage-5": {
+      "name": "Warmage",
+      "sourceUrl": "https://new.dndtools.org/classes/warmage-5",
+      "proficiencyText": "Weapon and Armor Proficiency: Warmages are proficient with all simple weapons, light armor, and light shields; at 8th level they gain medium-armor proficiency.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "light-shields",
+          "name": "Light shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyProgression": [
+        {
+          "level": 8,
+          "label": "Armored Mage (medium)",
+          "proficiencies": [
+            {
+              "index": "medium-armor",
+              "name": "Medium armor",
+              "kind": "armor"
+            }
+          ]
+        }
+      ],
+      "verified": true
+    },
+    "classes/wilder-140": {
+      "name": "Wilder",
+      "sourceUrl": "https://new.dndtools.org/classes/wilder-140",
+      "proficiencyText": "Weapon and Armor Proficiency: Wilders are proficient with all simple weapons, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/wu-jen-6": {
+      "name": "Wu Jen",
+      "sourceUrl": "https://new.dndtools.org/classes/wu-jen-6",
+      "proficiencyText": "Weapon and Armor Proficiency: Wu jen are proficient with all simple weapons and are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/psion-137": {
+      "name": "Psion",
+      "sourceUrl": "https://new.dndtools.org/classes/psion-137",
+      "proficiencyText": "Psions are proficient with the club, dagger, heavy crossbow, light crossbow, quarterstaff, and shortspear; they are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/psychic-rogue-1050": {
+      "name": "Psychic Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/psychic-rogue-1050",
+      "proficiencyText": "Psychic rogues are proficient with all simple weapons, plus several named weapons, and with light armor but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Crossbow, hand",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/scout-2": {
+      "name": "Scout",
+      "sourceUrl": "https://new.dndtools.org/classes/scout-2",
+      "proficiencyText": "Scouts are proficient with all simple weapons, several named weapons, and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "handaxe",
+          "name": "Handaxe",
+          "kind": "weapons"
+        },
+        {
+          "index": "throwing-axe",
+          "name": "Throwing axe",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/soulknife-139": {
+      "name": "Soulknife",
+      "sourceUrl": "https://new.dndtools.org/classes/soulknife-139",
+      "proficiencyText": "Soulknives are proficient with all simple weapons, their own mind blades, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "mind-blade",
+          "name": "Mind blade",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/barbarian-89": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-89",
+      "proficiencyText": "A barbarian is proficient with all simple and martial weapons, light armor, medium armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/cleric-91": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-91",
+      "proficiencyText": "Clerics are proficient with all simple weapons, all armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/fighter-93": {
+      "name": "Fighter",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-93",
+      "proficiencyText": "A fighter is proficient with all simple and martial weapons, all armor, and shields including tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (including tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/paladin-95": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-95",
+      "proficiencyText": "Paladins are proficient with all simple and martial weapons, all armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/ranger-96": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-96",
+      "proficiencyText": "A ranger is proficient with all simple and martial weapons, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/sorcerer-98": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-98",
+      "proficiencyText": "Sorcerers are proficient with all simple weapons and are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/druid-92": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-92",
+      "proficiencyText": "Druids are proficient with club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, spear, natural attacks of wild-shape forms, light and medium nonmetal armor, and wooden shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light nonmetal armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium nonmetal armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Wooden shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "scimitar",
+          "name": "Scimitar",
+          "kind": "weapons"
+        },
+        {
+          "index": "sickle",
+          "name": "Sickle",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        },
+        {
+          "index": "spear",
+          "name": "Spear",
+          "kind": "weapons"
+        },
+        {
+          "index": "wild-shape-natural-attacks",
+          "name": "Natural attacks of wild-shape forms",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/wizard-99": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-99",
+      "proficiencyText": "Wizards are proficient with club, dagger, heavy crossbow, light crossbow, and quarterstaff, but not armor or shields.",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/monk-94": {
+      "name": "Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-94",
+      "proficiencyText": "Monks are proficient with club, light or heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shuriken, siangham, and sling; they are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "handaxe",
+          "name": "Handaxe",
+          "kind": "weapons"
+        },
+        {
+          "index": "javelin",
+          "name": "Javelin",
+          "kind": "weapons"
+        },
+        {
+          "index": "kama",
+          "name": "Kama",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "nunchaku",
+          "name": "Nunchaku",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "sai",
+          "name": "Sai",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shuriken",
+          "name": "Shuriken",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "siangham",
+          "name": "Siangham",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/rogue-97": {
+      "name": "Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-97",
+      "proficiencyText": "Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, sap, shortbow, and short sword; they are proficient with light armor but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Crossbow, hand",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/barbarian-37": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-37",
+      "proficiencyProfileFrom": "classes/barbarian-89",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/barbarian-61": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-61",
+      "proficiencyProfileFrom": "classes/barbarian-89",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/barbarian-104": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-104",
+      "proficiencyProfileFrom": "classes/barbarian-89",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/fighter-41": {
+      "name": "Fighter",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-41",
+      "proficiencyProfileFrom": "classes/fighter-93",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/fighter-65": {
+      "name": "Fighter",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-65",
+      "proficiencyProfileFrom": "classes/fighter-93",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/ranger-44": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-44",
+      "proficiencyProfileFrom": "classes/ranger-96",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/ranger-68": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-68",
+      "proficiencyProfileFrom": "classes/ranger-96",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/ranger-108": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-108",
+      "proficiencyProfileFrom": "classes/ranger-96",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/cleric-39": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-39",
+      "proficiencyProfileFrom": "classes/cleric-91",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/cleric-63": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-63",
+      "proficiencyProfileFrom": "classes/cleric-91",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/cleric-105": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-105",
+      "proficiencyProfileFrom": "classes/cleric-91",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/druid-40": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-40",
+      "proficiencyProfileFrom": "classes/druid-92",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/druid-64": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-64",
+      "proficiencyProfileFrom": "classes/druid-92",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/druid-106": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-106",
+      "proficiencyProfileFrom": "classes/druid-92",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/monk-42": {
+      "name": "Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-42",
+      "proficiencyProfileFrom": "classes/monk-94",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/monk-66": {
+      "name": "Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-66",
+      "proficiencyProfileFrom": "classes/monk-94",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/paladin-43": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-43",
+      "proficiencyProfileFrom": "classes/paladin-95",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/paladin-67": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-67",
+      "proficiencyProfileFrom": "classes/paladin-95",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/paladin-107": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-107",
+      "proficiencyProfileFrom": "classes/paladin-95",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/rogue-45": {
+      "name": "Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-45",
+      "proficiencyProfileFrom": "classes/rogue-97",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/rogue-69": {
+      "name": "Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-69",
+      "proficiencyProfileFrom": "classes/rogue-97",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/sorcerer-46": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-46",
+      "proficiencyProfileFrom": "classes/sorcerer-98",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/sorcerer-70": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-70",
+      "proficiencyProfileFrom": "classes/sorcerer-98",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/sorcerer-109": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-109",
+      "proficiencyProfileFrom": "classes/sorcerer-98",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/wizard-47": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-47",
+      "proficiencyProfileFrom": "classes/wizard-99",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/wizard-71": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-71",
+      "proficiencyProfileFrom": "classes/wizard-99",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/wizard-110": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-110",
+      "proficiencyProfileFrom": "classes/wizard-99",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/commoner-32": {
+      "name": "Commoner",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/commoner.htm",
+      "proficiencyText": "The commoner is proficient with one simple weapon and no armor or shields.",
+      "proficiencies": [],
+      "proficiencyChoices": [
+        {
+          "id": "simple-weapon",
+          "label": "Simple weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose the one simple weapon granted by the Commoner NPC class.",
+          "options": [
+            "Gauntlet",
+            "Unarmed strike",
+            "Dagger",
+            "Punching dagger",
+            "Spiked gauntlet",
+            "Light mace",
+            "Sickle",
+            "Club",
+            "Heavy mace",
+            "Morningstar",
+            "Shortspear",
+            "Longspear",
+            "Quarterstaff",
+            "Spear",
+            "Heavy crossbow",
+            "Light crossbow",
+            "Dart",
+            "Javelin",
+            "Sling"
+          ],
+          "optionsSourceUrl": "https://www.d20srd.org/srd/equipment/weapons.htm#tableWeapons"
+        }
+      ],
+      "verified": true,
+      "classSkillSourceUrl": "https://www.d20srd.org/srd/npcClasses/commoner.htm",
+      "classSkillText": "The commoner's class skills are Climb, Craft, Handle Animal, Jump, Listen, Profession, Ride, Spot, Swim, and Use Rope.",
+      "classSkills": [
+        "Climb",
+        "Craft",
+        "Handle Animal",
+        "Jump",
+        "Listen",
+        "Profession",
+        "Ride",
+        "Spot",
+        "Swim",
+        "Use Rope"
+      ]
+    },
+    "classes/expert-33": {
+      "name": "Expert",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/expert.htm",
+      "proficiencyText": "The expert NPC class is proficient with all simple weapons and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "classSkillChoices": [
+        {
+          "id": "class-skills",
+          "label": "Class skills",
+          "count": 10,
+          "sourceText": "Choose any ten skills to be class skills for the Expert NPC class.",
+          "sourceUrl": "https://www.d20srd.org/srd/npcClasses/expert.htm",
+          "optionsSourceUrl": "https://new.dndtools.org/classes/expert-33",
+          "options": [
+            "Appraise",
+            "Balance",
+            "Bluff",
+            "Climb",
+            "Concentration",
+            "Craft",
+            "Decipher Script",
+            "Diplomacy",
+            "Disable Device",
+            "Disguise",
+            "Escape Artist",
+            "Forgery",
+            "Gather Information",
+            "Handle Animal",
+            "Heal",
+            "Hide",
+            "Intimidate",
+            "Jump",
+            "Knowledge (arcana)",
+            "Knowledge (architecture and engineering)",
+            "Knowledge (dungeoneering)",
+            "Knowledge (geography)",
+            "Knowledge (history)",
+            "Knowledge (local)",
+            "Knowledge (nature)",
+            "Knowledge (nobility and royalty)",
+            "Knowledge (religion)",
+            "Knowledge (the planes)",
+            "Listen",
+            "Move Silently",
+            "Open Lock",
+            "Perform",
+            "Profession",
+            "Ride",
+            "Search",
+            "Sense Motive",
+            "Sleight of Hand",
+            "Speak Language",
+            "Spellcraft",
+            "Spot",
+            "Survival",
+            "Swim",
+            "Truespeak",
+            "Tumble",
+            "Use Magic Device",
+            "Use Rope"
+          ]
+        }
+      ]
+    },
+    "classes/warrior-34": {
+      "name": "Warrior",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/warrior.htm",
+      "proficiencyText": "The warrior NPC class is proficient with all simple and martial weapons and all armor and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "classSkillSourceUrl": "https://www.d20srd.org/srd/npcClasses/warrior.htm",
+      "classSkillText": "The warrior's class skills are Climb, Handle Animal, Intimidate, Jump, Ride, and Swim.",
+      "classSkills": [
+        "Climb",
+        "Handle Animal",
+        "Intimidate",
+        "Jump",
+        "Ride",
+        "Swim"
+      ]
+    },
+    "classes/expert2-124": {
+      "name": "Expert",
+      "sourceUrl": "https://new.dndtools.org/classes/expert2-124",
+      "proficiencyText": "The generic expert has all simple weapon and light armor proficiency and chooses one martial weapon.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "martial-weapon",
+          "label": "Martial weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose the one martial weapon granted by the generic Expert class."
+        }
+      ],
+      "verified": true
+    },
+    "classes/spellcaster-131": {
+      "name": "Spellcaster",
+      "sourceUrl": "https://www.d20srd.org/srd/variant/classes/genericClasses.htm",
+      "proficiencyText": "The generic spellcaster chooses one simple weapon and gains no armor proficiency.",
+      "proficiencies": [],
+      "proficiencyChoices": [
+        {
+          "id": "simple-weapon",
+          "label": "Simple weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose the one simple weapon granted by the generic Spellcaster class."
+        }
+      ],
+      "verified": true
+    },
+    "classes/warrior2-135": {
+      "name": "Warrior",
+      "sourceUrl": "https://www.d20srd.org/srd/variant/classes/genericClasses.htm",
+      "proficiencyText": "The generic warrior has all simple and martial weapons, light and medium armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/shadowcaster-113": {
+      "name": "Shadowcaster",
+      "sourceUrl": "https://new.dndtools.org/classes/shadowcaster-113",
+      "proficiencyText": "Shadowcasters are proficient with all simple weapons and are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/spirit-shaman-9": {
+      "name": "Spirit Shaman",
+      "sourceUrl": "https://new.dndtools.org/classes/spirit-shaman-9",
+      "proficiencyText": "Spirit shamans are proficient with a tribal weapon list, light armor, and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "handaxe",
+          "name": "Handaxe",
+          "kind": "weapons"
+        },
+        {
+          "index": "javelin",
+          "name": "Javelin",
+          "kind": "weapons"
+        },
+        {
+          "index": "longspear",
+          "name": "Longspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "spear",
+          "name": "Spear",
+          "kind": "weapons"
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "throwing-axe",
+          "name": "Throwing axe",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/shaman-85": {
+      "name": "Shaman",
+      "sourceUrl": "https://new.dndtools.org/classes/shaman-85",
+      "proficiencyText": "Shamans are proficient with all simple weapons and light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/shugenja-86": {
+      "name": "Shugenja",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-86",
+      "proficiencyText": "Shugenjas are proficient with all simple weapons and the wakizashi, and not armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "wakizashi",
+          "name": "Wakizashi",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/sohei-87": {
+      "name": "Sohei",
+      "sourceUrl": "https://new.dndtools.org/classes/sohei-87",
+      "proficiencyText": "Sohei are proficient with all simple and martial weapons and all armor, but no shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/wu-jen-88": {
+      "name": "Wu Jen",
+      "sourceUrl": "https://new.dndtools.org/classes/wu-jen-88",
+      "proficiencyText": "Wu jen are proficient with all simple weapons and not armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/favored-soul-76": {
+      "name": "Favored Soul",
+      "sourceUrl": "https://new.dndtools.org/classes/favored-soul-76",
+      "proficiencyProfileFrom": "classes/favored-soul-7",
+      "verified": true,
+      "verificationNote": "Complete Divine Favored Soul explicitly lists Miniatures Handbook as another published appearance."
+    },
+    "classes/warmage-79": {
+      "name": "Warmage",
+      "sourceUrl": "https://new.dndtools.org/classes/warmage-79",
+      "proficiencyProfileFrom": "classes/warmage-5",
+      "verified": true,
+      "verificationNote": "Miniatures Handbook Warmage explicitly lists Complete Arcane as another published appearance."
+    },
+    "classes/thug-132": {
+      "name": "Thug",
+      "sourceUrl": "https://new.dndtools.org/classes/thug-132",
+      "classSkillSourceUrl": "https://new.dndtools.org/classes/thug-132",
+      "proficiencyText": "Thugs are proficient with all simple and martial weapons and with light armor.",
+      "classSkills": [
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Gather Information",
+        "Handle Animal",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Ride",
+        "Sleight of Hand",
+        "Swim"
+      ],
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "featureSuppressions": [
+        {
+          "name": "Bonus Feats",
+          "levels": [
+            1
+          ],
+          "reason": "Unearthed Arcana Thug does not gain the normal Fighter bonus feat at 1st level."
+        }
+      ],
+      "featureChoiceOverrides": [
+        {
+          "name": "Bonus Feats",
+          "choiceKind": "feat",
+          "choiceFeatType": "Fighter Bonus Feat feat",
+          "choiceOptionsExtra": [
+            "Urban Tracking"
+          ],
+          "sourceUrl": "https://new.dndtools.org/classes/thug-132"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana Thug source independently reviewed. The class inherits Fighter baseline progression except for source-listed changes.",
+      "inheritanceSourceId": "classes/fighter-93"
+    },
+    "classes/wilderness-rogue-136": {
+      "name": "Wilderness Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136",
+      "classSkillSourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136",
+      "proficiencyText": "The Wilderness Rogue retains the standard Rogue weapon and armor proficiencies; the variant changes class skills and expands the Rogue special-ability choices.",
+      "classSkills": [
+        "Balance",
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Disable Device",
+        "Disguise",
+        "Escape Artist",
+        "Hide",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Listen",
+        "Move Silently",
+        "Open Lock",
+        "Perform",
+        "Profession",
+        "Search",
+        "Sense Motive",
+        "Sleight of Hand",
+        "Spot",
+        "Swim",
+        "Tumble",
+        "Use Magic Device",
+        "Use Rope",
+        "Handle Animal",
+        "Knowledge (geography)",
+        "Knowledge (nature)",
+        "Ride",
+        "Survival"
+      ],
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Crossbow, hand",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "featureChoiceOverrides": [
+        {
+          "name": "Special Abilities",
+          "choiceKind": "source",
+          "choiceCount": 1,
+          "choiceLevels": [
+            10,
+            13,
+            16,
+            19
+          ],
+          "choiceOptions": [
+            "Crippling Strike",
+            "Defensive Roll",
+            "Improved Evasion",
+            "Opportunist",
+            "Skill Mastery",
+            "Slippery Mind",
+            "Feat",
+            "Woodland Stride",
+            "Camouflage",
+            "Hide in Plain Sight"
+          ],
+          "choiceOptionPrerequisites": {
+            "Hide in Plain Sight": [
+              "Camouflage"
+            ]
+          },
+          "choiceOptionMechanics": {
+            "Woodland Stride": {
+              "description": "Move through natural undergrowth such as thorns, briars, and overgrown areas at normal speed without taking damage or suffering other impairment. Enchanted or magically manipulated undergrowth can still impede you.",
+              "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+            },
+            "Camouflage": {
+              "description": "Use Hide in any sort of natural terrain even when that terrain does not provide cover or concealment.",
+              "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+            },
+            "Hide in Plain Sight": {
+              "description": "While in any sort of natural terrain, use Hide even while being observed.",
+              "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+            }
+          },
+          "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana Wilderness Rogue source independently reviewed. It retains Rogue baseline class features except for the source-listed class-skill changes and added special-ability choices.",
+      "inheritanceSourceId": "classes/rogue-97"
+    },
+    "classes/fighter-variant-953": {
+      "name": "Fighter Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-variant-953",
+      "featureSuppressions": [
+        {
+          "name": "Bonus Feats"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Sneak Attack",
+          "levels": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19
+          ],
+          "referencedSourceId": "classes/rogue-97",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/rogue.htm#sneakAttack"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Fighter Variant independently reviewed. It retains Fighter baseline mechanics except that all Fighter bonus feats are exchanged for Rogue sneak-attack progression.",
+      "inheritanceSourceId": "classes/fighter-93"
+    },
+    "classes/rogue-variant-958": {
+      "name": "Rogue Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-variant-958",
+      "featureSuppressions": [
+        {
+          "name": "Sneak Attack"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Bonus Feats",
+          "levels": [
+            1,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20
+          ],
+          "choiceKind": "feat",
+          "choiceFeatType": "Fighter Bonus Feat feat",
+          "referencedSourceId": "classes/fighter-93",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Rogue Variant independently reviewed. It retains Rogue baseline mechanics except that sneak attack is exchanged for Fighter bonus-feat progression.",
+      "inheritanceSourceId": "classes/rogue-97"
+    },
+    "classes/wizard-variant-959": {
+      "name": "Wizard Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-variant-959",
+      "featureSuppressions": [
+        {
+          "name": "Scribe Scroll"
+        },
+        {
+          "name": "Bonus Feats"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Bonus Feats",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "feat",
+          "choiceFeatType": "Fighter Bonus Feat feat",
+          "referencedSourceId": "classes/fighter-93",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 59 Wizard Variant independently reviewed. It replaces Scribe Scroll and the normal Wizard bonus-feat list with Fighter-list bonus feats at 1st level and every five Wizard Variant levels thereafter.",
+      "inheritanceSourceId": "classes/wizard-99"
+    },
+    "classes/ranger-variant-956": {
+      "name": "Ranger Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-variant-956",
+      "inheritanceSourceId": "classes/ranger-96",
+      "featureSuppressions": [
+        {
+          "name": "Combat Style"
+        },
+        {
+          "name": "Improved Combat Style"
+        },
+        {
+          "name": "Combat Style Mastery"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Fast Movement",
+          "level": 1,
+          "referencedSourceId": "classes/barbarian-89",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#barbarianFastMovement"
+        },
+        {
+          "name": "Wild Shape",
+          "levels": [
+            5,
+            6,
+            7,
+            10,
+            14,
+            18
+          ],
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#wildShape"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Ranger Variant independently reviewed. It retains Ranger baseline mechanics except that Combat Style, Improved Combat Style, and Combat Style Mastery are exchanged for Barbarian Fast Movement and Druid Wild Shape restricted to Small or Medium animal forms."
+    },
+    "classes/monk-variant-954": {
+      "name": "Monk Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954",
+      "inheritanceSourceId": "classes/monk-94",
+      "featureSuppressions": [
+        {
+          "name": "Fast Movement"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Damage Reduction",
+          "levels": [
+            7,
+            10,
+            13,
+            16,
+            19
+          ],
+          "referencedSourceId": "classes/barbarian-89",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#damageReduction"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Monk Variant independently reviewed. It retains Monk baseline mechanics except that it loses the enhancement bonus to unarmored speed and the class-level unarmored AC bonus while retaining Wisdom to AC; it gains Barbarian damage reduction progression."
+    },
+    "classes/paladin-variant-955": {
+      "name": "Paladin Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-variant-955",
+      "inheritanceSourceId": "classes/paladin-95",
+      "featureSuppressions": [
+        {
+          "name": "Lay on Hands"
+        },
+        {
+          "name": "Turn Undead"
+        },
+        {
+          "name": "Remove Disease"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Favored Enemy (Ex)",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "favored-enemy",
+          "choiceOptions": [
+            "Aberration",
+            "Dragon",
+            "Giant",
+            "Monstrous Humanoid",
+            "Outsider (evil)",
+            "Undead"
+          ],
+          "uniqueChoices": true,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Paladin Variant independently reviewed. It retains the PHB Paladin baseline except Lay on Hands, Turn Undead, and Remove Disease, and gains Ranger Favored Enemy restricted to aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead."
+    },
+    "classes/barbarian-variant-950": {
+      "name": "Barbarian Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
+      "inheritanceSourceId": "classes/barbarian-89",
+      "featureSuppressions": [
+        {
+          "name": "Rage"
+        },
+        {
+          "name": "Greater Rage"
+        },
+        {
+          "name": "Indomitable Will"
+        },
+        {
+          "name": "Tireless Rage"
+        },
+        {
+          "name": "Mighty Rage"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Favored Enemy (Ex)",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "favored-enemy",
+          "uniqueChoices": true,
+          "choiceOptions": [
+            "Aberration",
+            "Animal",
+            "Construct",
+            "Dragon",
+            "Elemental",
+            "Fey",
+            "Giant",
+            "Humanoid (aquatic)",
+            "Humanoid (dwarf)",
+            "Humanoid (elf)",
+            "Humanoid (goblinoid)",
+            "Humanoid (gnoll)",
+            "Humanoid (gnome)",
+            "Humanoid (halfling)",
+            "Humanoid (human)",
+            "Humanoid (orc)",
+            "Humanoid (reptilian)",
+            "Magical beast",
+            "Monstrous Humanoid",
+            "Ooze",
+            "Outsider (air)",
+            "Outsider (chaotic)",
+            "Outsider (earth)",
+            "Outsider (evil)",
+            "Outsider (fire)",
+            "Outsider (good)",
+            "Outsider (lawful)",
+            "Outsider (native)",
+            "Outsider (water)",
+            "Plant",
+            "Undead",
+            "Vermin"
+          ],
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy"
+        },
+        {
+          "name": "Combat Style (Ex)",
+          "level": 2,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyle"
+        },
+        {
+          "name": "Improved Combat Style (Ex)",
+          "level": 6,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#improvedCombatStyle"
+        },
+        {
+          "name": "Combat Style Mastery (Ex)",
+          "level": 11,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyleMastery"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Barbarian Variant independently reviewed. It retains the PHB Barbarian baseline except Rage, Greater Rage, Indomitable Will, Tireless Rage, and Mighty Rage, and gains Ranger Favored Enemy plus the fixed Archery combat-style progression."
+    },
+    "classes/druid-variant-952": {
+      "name": "Druid Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "inheritanceSourceId": "classes/druid-92",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "scimitar",
+          "name": "Scimitar",
+          "kind": "weapons"
+        },
+        {
+          "index": "sickle",
+          "name": "Sickle",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        },
+        {
+          "index": "spear",
+          "name": "Spear",
+          "kind": "weapons"
+        },
+        {
+          "index": "wild-shape-natural-attacks",
+          "name": "Natural attacks of wild-shape forms",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "proficiencyText": "Retains the Druid's weapon proficiencies but loses all armor and shield proficiency.",
+      "featureSuppressions": [
+        {
+          "name": "Wild Shape"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "AC Bonus (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/monk-94",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/monk.htm#acBonus"
+        },
+        {
+          "name": "Fast Movement (Ex)",
+          "levels": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18
+          ],
+          "referencedSourceId": "classes/monk-94",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/monk.htm#fastMovement"
+        },
+        {
+          "name": "Favored Enemy (Ex)",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "favored-enemy",
+          "uniqueChoices": true,
+          "choiceOptions": [
+            "Aberration",
+            "Animal",
+            "Construct",
+            "Dragon",
+            "Elemental",
+            "Fey",
+            "Giant",
+            "Humanoid (aquatic)",
+            "Humanoid (dwarf)",
+            "Humanoid (elf)",
+            "Humanoid (goblinoid)",
+            "Humanoid (gnoll)",
+            "Humanoid (gnome)",
+            "Humanoid (halfling)",
+            "Humanoid (human)",
+            "Humanoid (orc)",
+            "Humanoid (reptilian)",
+            "Magical beast",
+            "Monstrous Humanoid",
+            "Ooze",
+            "Outsider (air)",
+            "Outsider (chaotic)",
+            "Outsider (earth)",
+            "Outsider (evil)",
+            "Outsider (fire)",
+            "Outsider (good)",
+            "Outsider (lawful)",
+            "Outsider (native)",
+            "Outsider (water)",
+            "Plant",
+            "Undead",
+            "Vermin"
+          ],
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy"
+        },
+        {
+          "name": "Swift Tracker (Ex)",
+          "level": 8,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#swiftTracker"
+        },
+        {
+          "name": "Track",
+          "level": 1,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#track"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Druid Variant independently reviewed. It retains the PHB Druid baseline except armor/shield proficiency and all Wild Shape progression, and gains Monk unarmored AC and Fast Movement plus Ranger Favored Enemy, Swift Tracker, and Track."
+    },
+    "classes/bard": {
+      "name": "Bard",
+      "sourceUrl": "https://new.dndtools.org/classes/bard",
+      "proficiencyText": "Bards are proficient with all simple weapons plus longsword, rapier, sap, short sword, shortbow, and whip; light armor; and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "longsword",
+          "name": "Longsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Short sword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "whip",
+          "name": "Whip",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/bard-variant-951": {
+      "name": "Bard Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
+      "inheritanceSourceId": "classes/bard",
+      "featureSuppressions": [
+        {
+          "name": "Bardic Knowledge"
+        },
+        {
+          "name": "Inspire Courage"
+        },
+        {
+          "name": "Inspire Competence"
+        },
+        {
+          "name": "Inspire Greatness"
+        },
+        {
+          "name": "Inspire Heroics"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Animal Companion (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+          "choiceKind": "animal-companion",
+          "choiceCount": 1,
+          "companionRelationshipType": "animal-companion",
+          "companionProfileId": "druid-animal-companion",
+          "companionContribution": {
+            "mode": "full"
+          },
+          "companionChoiceRequired": true
+        },
+        {
+          "name": "Nature Sense (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#natureSense"
+        },
+        {
+          "name": "Wild Empathy (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#wildEmpathy"
+        },
+        {
+          "name": "Resist Nature’s Lure (Ex)",
+          "level": 4,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#resistNaturesLure"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Bard Variant independently reviewed. It retains the Bard baseline except Bardic Knowledge and the four Inspire abilities, and gains the Druid Animal Companion, Nature Sense, Wild Empathy, and Resist Nature's Lure features."
+    },
+    "classes/sorcererwizard-variant-957": {
+      "name": "Sorcerer/Wizard Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcererwizard-variant-957",
+      "inheritsFromOptions": [
+        {
+          "name": "Sorcerer",
+          "sourceId": "classes/sorcerer-98"
+        },
+        {
+          "name": "Wizard",
+          "sourceId": "classes/wizard-99"
+        }
+      ],
+      "featureSuppressions": [
+        {
+          "name": "Familiar"
+        },
+        {
+          "name": "Familiar Basics"
+        },
+        {
+          "name": "Familiar Ability Descriptions"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Animal Companion (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+          "choiceKind": "animal-companion",
+          "choiceCount": 1,
+          "companionRelationshipType": "animal-companion",
+          "companionProfileId": "druid-animal-companion",
+          "companionContribution": {
+            "mode": "fraction",
+            "numerator": 1,
+            "denominator": 2
+          },
+          "companionChoiceRequired": true
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Sorcerer/Wizard Variant independently reviewed. The user must choose the exact PHB Sorcerer (classes/sorcerer-98) or Wizard (classes/wizard-99) parent progression; Familiar is removed and replaced with a Druid Animal Companion whose base effective druid level is one-half class level, rounded down under the general 3.5 fraction rule."
+    },
+    "classes/cleric-variant-972": {
+      "name": "Cleric Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
+      "inheritanceSourceId": "classes/cleric-91",
+      "featureSuppressions": [
+        {
+          "name": "Turn or Rebuke Undead (Su)"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Aura of Courage (Su)",
+          "level": 3,
+          "referencedSourceId": "classes/paladin-95",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#auraOfCourage"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Cleric Variant independently reviewed. It retains the exact PHB Cleric baseline except Turn/Rebuke Undead; the Cleric's positive/negative-energy polarity determines Smite Evil versus Smite Good using Paladin smite progression, and Aura of Courage is gained as the Paladin ability."
+    },
+    "classes/abjurer-variant-960": {
+      "name": "Abjurer Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
+      "inheritanceSourceId": "classes/wizard-99",
+      "specialistSchool": "Abjuration",
+      "specialistBonusSlots": false,
+      "featureSuppressions": [
+        {
+          "name": "Familiar"
+        },
+        {
+          "name": "Bonus Feat",
+          "levels": [
+            5,
+            10,
+            15,
+            20
+          ]
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Resistance to Energy (Su)",
+          "level": 1
+        },
+        {
+          "name": "Aura of Protection (Ex)",
+          "level": 5
+        },
+        {
+          "name": "Spontaneous Dispelling (Ex)",
+          "levels": [
+            5,
+            11
+          ]
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 59 Abjurer Variant independently reviewed. It is the exact PHB Wizard specialized in Abjuration, permanently loses Familiar, loses Wizard bonus feats gained at 5/10/15/20, and loses the specialist bonus spell per day. It gains Resistance to Energy, Aura of Protection, and Spontaneous Dispelling."
+    },
+    "classes/binder-112": {
+      "name": "Binder",
+      "sourceUrl": "https://new.dndtools.org/classes/binder-112",
+      "proficiencyText": "Weapon and Armor Proficiency: Binders are proficient with all simple weapons and with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "classSkillSourceUrl": "https://new.dndtools.org/classes/binder-112",
+      "classSkillText": "The binder class skills are Bluff, Concentration, Craft, Decipher Script, Diplomacy, Gather Information, Intimidate, Knowledge (arcana), Knowledge (religion), Knowledge (the planes), Profession, and Sense Motive.",
+      "classSkills": [
+        "Bluff",
+        "Concentration",
+        "Craft",
+        "Decipher Script",
+        "Diplomacy",
+        "Gather Information",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Sense Motive"
+      ],
+      "verificationNote": "Exact Tome of Magic Binder source was independently cross-checked. This supplement covers starting training and class skills only; vestige binding, Pact Augmentation repetition, and granted vestige abilities remain explicitly outside completion."
+    },
+    "classes/cloistered-cleric-120": {
+      "name": "Cloistered Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cloistered-cleric-120",
+      "proficiencyText": "Cloistered clerics are proficient with simple weapons and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Unearthed Arcana Cloistered Cleric source independently verified; unlike the PHB Cleric baseline it retains only simple-weapon and light-armor starting proficiencies."
+    },
+    "classes/samurai-22": {
+      "name": "Samurai",
+      "sourceUrl": "https://new.dndtools.org/classes/samurai-22",
+      "proficiencyText": "A samurai is proficient with all simple and martial weapons and with all types of armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Complete Warrior Samurai source independently verified. Shield proficiency is intentionally absent; Daisho Proficiency remains a class-feature feat rather than generic starting-training data."
+    },
+    "classes/streetfighter-197": {
+      "name": "Streetfighter",
+      "sourceUrl": "https://new.dndtools.org/classes/streetfighter-197",
+      "proficiencyText": "Weapon and Armor Proficiency: Streetfighters gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/survivor-822": {
+      "name": "Survivor",
+      "sourceUrl": "https://new.dndtools.org/classes/survivor-822",
+      "proficiencyText": "Weapon and Armor Proficiency: A survivor neither gains nor loses proficiency with any weapon, armor, or shields by gaining levels in this class.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tempest-198": {
+      "name": "Tempest",
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-198",
+      "proficiencyText": "Weapon and Armor Proficiency: Tempests gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/thief-acrobat-199": {
+      "name": "Thief-acrobat",
+      "sourceUrl": "https://new.dndtools.org/classes/thief-acrobat-199",
+      "proficiencyText": "Weapon and Armor Proficiency: Thief-acrobats are proficient with all simple weapons.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dark-hunter-307": {
+      "name": "Dark Hunter",
+      "sourceUrl": "https://new.dndtools.org/classes/dark-hunter-307",
+      "proficiencyText": "Weapon and Armor Proficiency: Dark hunters gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/darkwood-stalker-308": {
+      "name": "Darkwood Stalker",
+      "sourceUrl": "https://new.dndtools.org/classes/darkwood-stalker-308",
+      "proficiencyText": "Weapon and Armor Proficiency: Darkwood stalkers gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/chaotician-687": {
+      "name": "Chaotician",
+      "sourceUrl": "https://new.dndtools.org/classes/chaotician-687",
+      "proficiencyText": "Weapon and Armor Proficiency: Chaoticians are proficient with all simple and martial weapons, with all types of armor, and with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/cragtop-archer-727": {
+      "name": "Cragtop Archer",
+      "sourceUrl": "https://new.dndtools.org/classes/cragtop-archer-727",
+      "proficiencyText": "Weapon and Armor Proficiency: Cragtop archers gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/divine-seeker-663": {
+      "name": "Divine Seeker",
+      "sourceUrl": "https://new.dndtools.org/classes/divine-seeker-663",
+      "proficiencyText": "Weapon and Armor Proficiency: A divine seeker is proficient with all simple weapons and with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/cavelord-896": {
+      "name": "Cavelord",
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "proficiencyText": "Weapon and Armor Proficiency: Cavelords are proficient with all simple and martial weapons, with all types of armor, and with all types of shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/daidoji-bodyguard-630": {
+      "name": "Daidoji Bodyguard",
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "proficiencyText": "Weapon and Armor Proficiency: Daidoji bodyguards do not gain any additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/dark-lantern-475": {
+      "name": "Dark Lantern",
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "proficiencyText": "Weapon and Armor Proficiency: As a Dark Lantern, you gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/deepwarden-729": {
+      "name": "Deepwarden",
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "proficiencyText": "Weapon and Armor Proficiency: Deepwardens are proficient with all types of simple and martial weapons, all types of armor, and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/astral-dancer-686": {
+      "name": "Astral Dancer",
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "proficiencyText": "Weapon and Armor Proficiency: Astral dancers gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/disciple-of-baalzebul-166": {
+      "name": "Disciple of Baalzebul",
+      "sourceUrl": "https://www.realmshelps.net/charbuild/classes/prestige/evil/disciplebaalzebul.shtml",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Baalzebul are proficient with all simple and martial weapons, all light armors, but no shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/disciple-of-dispater-167": {
+      "name": "Disciple of Dispater",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Dispater are proficient with all simple and martial weapons, with all types of armor, and with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/disciple-of-mammon-168": {
+      "name": "Disciple of Mammon",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Mammon are proficient with all simple and martial weapons, but no type of armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/disciple-of-mephistopheles-169": {
+      "name": "Disciple of Mephistopheles",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciples of Mephistopheles are proficient with all simple and martial weapons, with all types of armor, and with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/deepwood-sniper-609": {
+      "name": "Deepwood Sniper",
+      "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
+      "proficiencyText": "Weapon and Armor Proficiency: Deepwood snipers gain no weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/yakuza-651": {
+      "name": "Yakuza",
+      "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
+      "proficiencyText": "Weapon and Armor Proficiency: Yakuzas gain no additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/warsling-sniper-702": {
+      "name": "Warsling Sniper",
+      "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
+      "proficiencyText": "Weapon and Armor Proficiency: Warsling snipers gain no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tainted-warrior-882": {
+      "name": "Tainted Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/tainted-warrior-882",
+      "proficiencyText": "Weapon and Armor Proficiency: Tainted warriors do not gain any additional weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/whisperknife-747": {
+      "name": "Whisperknife",
+      "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
+      "proficiencyText": "Weapon and Armor Proficiency: You gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/ephemeral-exemplar-547": {
+      "name": "Ephemeral Exemplar",
+      "sourceUrl": "https://new.dndtools.org/classes/ephemeral-exemplar-547",
+      "proficiencyText": "Weapon and Armor Proficiency: Ephemeral exemplars gain no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/tomb-warden-554": {
+      "name": "Tomb Warden",
+      "sourceUrl": "https://new.dndtools.org/classes/tomb-warden-554",
+      "proficiencyText": "Weapon and Armor Proficiency: Tomb wardens gain proficiency with simple and martial weapons, and with light, medium, and heavy armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/tempest-621": {
+      "name": "Tempest",
+      "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
+      "proficiencyText": "Weapon and Armor Proficiency: Tempests gain no weapon or armor proficiencies.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/akodo-champion-625": {
+      "name": "Akodo Champion",
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "proficiencyText": "Weapon and Armor Proficiency: Akodo champions do not gain any additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/master-of-the-unseen-hand-323": {
+      "name": "Master of the Unseen Hand",
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "proficiencyText": "Weapon and Armor Proficiency: Masters of the unseen hand gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/disciple-of-the-eye-712": {
+      "name": "Disciple of the Eye",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciple of the Eye grants no additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/void-incarnate-1057": {
+      "name": "Void Incarnate",
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "proficiencyText": "Weapon and Armor Proficiency: The void incarnate gains no proficiency in armor or weapons.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/vigilant-sentinel-of-aerenal-589": {
+      "name": "Vigilant Sentinel of Aerenal",
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "proficiencyText": "Weapon and Armor Proficiency: Vigilant Sentinel of Aerenal grants no additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/ghostwalker-770": {
+      "name": "Ghostwalker",
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "proficiencyText": "Weapon and Armor Proficiency: The ghostwalker is proficient with all simple and martial weapons, light and medium types of armor, and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/yathchol-webrider-906": {
+      "name": "Yathchol Webrider",
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "proficiencyText": "Weapon and Armor Proficiency: Yathchol webriders are proficient with the club, hand/light/heavy crossbows, daggers, dart, light and heavy mace, morningstar, quarterstaff, rapier, sap, shortbow, and short sword, plus light armor; no shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Light crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Heavy crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "light-mace",
+          "name": "Light mace",
+          "kind": "weapons"
+        },
+        {
+          "index": "heavy-mace",
+          "name": "Heavy mace",
+          "kind": "weapons"
+        },
+        {
+          "index": "morningstar",
+          "name": "Morningstar",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Short sword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/union-sentinel-461": {
+      "name": "Union Sentinel",
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "proficiencyText": "Weapon and Armor Proficiency: Union Sentinels are proficient with all simple and martial weapons, all armor, and all shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/battlerager-694": {
+      "name": "Battlerager",
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "proficiencyText": "Weapon and Armor Proficiency: Battleragers gain no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/warforged-juggernaut-440": {
+      "name": "Warforged Juggernaut",
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "proficiencyText": "Weapon and Armor Proficiency: Warforged juggernauts gain no proficiency with any weapons, armor, or shields except as class features explicitly state.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/bloodscaled-fury-394": {
+      "name": "Bloodscaled Fury",
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "proficiencyText": "Weapon and Armor Proficiency: A bloodscaled fury gains no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/sybil-823": {
+      "name": "Sybil",
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "proficiencyText": "Weapon and Armor Proficiency: A sybil neither gains nor loses proficiency with any weapons, armor, or shields by gaining levels in this class.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/sun-soul-monk-305": {
+      "name": "Sun Soul Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "proficiencyText": "Weapon and Armor Proficiency: Sun Soul monks are proficient with all simple weapons, but gain no new proficiency with any armor. A light mace counts as a special monk weapon for flurry of blows.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/blessed-gruumsh-982": {
+      "name": "Blessed of Gruumsh",
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "proficiencyText": "Weapon and Armor Proficiency: A blessed of Gruumsh is proficient with all simple and martial weapons, all types of armor, and with shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    }
+  }
+}

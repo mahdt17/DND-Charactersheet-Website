@@ -1,12 +1,16 @@
 import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
+import {applyFeatAbilityIncrease} from './featMagic.js';
+import {evaluatePrerequisite35,ownsPrerequisiteFeat35,prerequisiteDescription35} from './prerequisites35.js';
+import {evaluateCastingPrerequisite35,lowerCastingPrerequisite35,castingTextSafe35} from './castingPrerequisites35.js';
+import legacyCore from '../data/srd35.json' with {type:'json'};
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().replace(/[’]/g,"'").toLowerCase();
 const scores={strength:'str',dexterity:'dex',constitution:'con',intelligence:'int',wisdom:'wis',charisma:'cha',str:'str',dex:'dex',con:'con',int:'int',wis:'wis',cha:'cha'};
 export function characterClasses(c) {
-  if(Array.isArray(c.classLevels)&&c.classLevels.length)return c.classLevels.map(row=>({...row,level:Math.max(1,Math.floor(Number(row.level)||1)),edition:normalizeEdition(row.edition||c.ruleset)}));
+  if(Array.isArray(c.classLevels)&&c.classLevels.length)return c.classLevels.map((row,i)=>({...row,subclass:row.subclass??(i===0?c.subclass||'':''),level:Math.max(1,Math.floor(Number(row.level)||1)),edition:normalizeEdition(row.edition||c.ruleset)}));
   if(!c.className)return [];
   const definition=c.classDefinition||{name:c.className,index:c.className,edition:c.ruleset==='custom'?c.mechanics:c.ruleset,hit_die:Number(String(c.hitDie||'d8').slice(1))};
   return [{catalogId:contentKey(definition),name:c.className,edition:normalizeEdition(definition.edition||c.ruleset),level:Math.max(1,Number(c.level)||1),definition,subclass:c.subclass||''}];
@@ -18,33 +22,90 @@ export function spellsForClass(c,catalogId) {
 }
 export function normalizeAdvancement(c) {
   const classLevels=characterClasses(c);
-  return {...c,classLevels,level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
+  return {...c,classLevels,subclass:classLevels[0]?.subclass||'',level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
 }
-export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
+export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,activeCastingClassId:row.catalogId,spells:spellsForClass(c,row.catalogId),otherClassLevels:characterClasses(c).filter(r=>r.catalogId!==row.catalogId).reduce((n,r)=>n+r.level,0),level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
+function normalizeNamedClassLevel(record,table) {
+  if(!record?.name||!Array.isArray(table))return table;
+  const key=value=>norm(value).replace(/\s+/g,' ');
+  const expected=key(record.name)+' level';
+  const headerIndex=table.slice(0,5).findIndex(row=>Array.isArray(row)&&row.some(value=>key(value)===expected));
+  if(headerIndex<0)return table;
+  const header=table[headerIndex],levelIndex=header.findIndex(value=>key(value)===expected);
+  // A named level alone also appears on companion and auxiliary tables.
+  if(!header.some(value=>/^(?:special|features?|class features?|abilities?)$/i.test(String(value).trim()))
+    ||header.some(value=>/bonus hd|natural armor|(?:str|dex|int)(?:\s*\/\s*(?:str|dex|int))?\s*(?:adj\.?|bonus)/i.test(String(value))))return table;
+  const rows=table.slice(headerIndex+1);
+  if(!rows.length||!rows.every((row,index)=>Array.isArray(row)&&/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(row[levelIndex]??'').trim())&&parseInt(row[levelIndex])===index+1))return table;
+  return table.map((row,index)=>index===headerIndex?row.map((value,column)=>column===levelIndex?'Level':value):row);
+}
 export function progressionTables(record) {
+  // These source-linked reprints accidentally captured the familiar table.
+  // Use the SRD Sorcerer progression, never familiar natural armor as class BAB.
+  const sourceId=record?.sourceId||String(record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
+  if(record?.name==='Sorcerer'&&record.progression?.[0]?.some(value=>/^master class level$/i.test(String(value)))&&['classes/sorcerer-98','classes/sorcerer-109','classes/sorcerer-46','classes/sorcerer-70'].includes(sourceId))return legacyCore.classes.find(c=>c.name==='Sorcerer').tables;
+  // These source-linked reprints captured animal companion / special mount
+  // tables. Limit repair to the original damaged shape, preserving custom edits.
+  const companionReprints={Druid:['classes/druid-106','classes/druid-40','classes/druid-64','classes/druid-92'],Paladin:['classes/paladin-107','classes/paladin-43','classes/paladin-67','classes/paladin-95']};
+  if(companionReprints[record?.name]?.includes(sourceId)&&record.progression?.[0]?.some(value=>/^Bonus HD$/i.test(String(value)))&&record.progression[0].some(value=>/armor adj/i.test(String(value))))return legacyCore.classes.find(c=>c.name===record.name).tables;
   const p=record?.progression;
-  if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
-  if(record?.tables?.length)return record.tables;
-  if(record?.advancement?.length){const keys=Object.keys(record.advancement[0]);return [ [keys,...record.advancement.map(r=>keys.map(k=>r[k]??''))] ];}
+  if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [normalizeNamedClassLevel(record,p)];
+  if(record?.tables?.length)return record.tables.map(table=>normalizeNamedClassLevel(record,table));
+  if(record?.advancement?.length){const keys=Object.keys(record.advancement[0]);return [normalizeNamedClassLevel(record,[keys,...record.advancement.map(r=>keys.map(k=>r[k]??''))])];}
   return [];
 }
 export function progressionRow(record,level) {
   for(const t of progressionTables(record)) {
-    const i=t[0]?.findIndex(v=>/^(?:class )?level$/i.test(String(v).trim()));
-    if(i<0)continue;
-    const r=t.slice(1).find(r=>parseInt(r[i])===level);
-    if(r)return Object.fromEntries(t[0].map((k,j)=>[k,r[j]]));
+    for(let h=0;h<Math.min(5,t.length);h++){
+      const i=t[h]?.findIndex(v=>/^(?:class )?level$/i.test(String(v).trim()));
+      if(i<0)continue;
+      const r=t.slice(h+1).find(r=>/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(r[i]??'').trim())&&parseInt(r[i])===level);
+      if(r)return Object.fromEntries(t[h].map((k,j)=>[k,r[j]]));
+    }
   }
   return {};
 }
-export function baseProgression(record,level) {
+const genericSaveKeys={fortitude:'fort',reflex:'ref',will:'will'};
+function genericSaveChoices(character,classId){
+  const target=String(classId||'').replace(/^dndtools:/,'');
+  const match=Object.values(character?.featureChoices||{}).find(choice=>{
+    const source=String(choice?.sourceClassId||choice?.classId||'').replace(/^dndtools:/,'');
+    return source===target&&norm(choice?.feature)==='base save bonuses';
+  });
+  return new Set((match?.choices||[]).map(value=>genericSaveKeys[norm(value)]).filter(Boolean));
+}
+export function baseProgression(record,level,character=null,classId=null) {
   if(level===0)return {bab:0,fort:0,ref:0,will:0};
   const r=progressionRow(record,level),get=pattern=>{const key=Object.keys(r).find(k=>pattern.test(k));return key==null?null:parseInt(r[key]);};
-  return {bab:get(/^BAB$|Base Attack/i),fort:get(/^Fort/i),ref:get(/^Ref/i),will:get(/^Will/i)};
+  const bab=get(/^BAB$|Base Attack/i);
+  const explicit={fort:get(/^Fort/i),ref:get(/^Ref/i),will:get(/^Will/i)};
+  if(Object.values(explicit).some(Number.isFinite))return {bab,...explicit};
+  const good=get(/^Good Saves?$/i),poor=get(/^Poor Saves?$/i);
+  if(!Number.isFinite(good)||!Number.isFinite(poor))return {bab,...explicit};
+  const choices=genericSaveChoices(character,classId||contentKey(record));
+  if(!choices.size)return {bab,fort:null,ref:null,will:null};
+  return {bab,fort:choices.has('fort')?good:poor,ref:choices.has('ref')?good:poor,will:choices.has('will')?good:poor};
 }
-function evaluateOne(p,c) {
+export function recalculateLegacyBaseProgression35(character){
+  const total={bab:0,fort:0,ref:0,will:0};
+  for(const row of characterClasses(character)){
+    if(normalizeEdition(row.edition||row.definition?.edition)!=='3.5')continue;
+    const record=row.definition||(row.catalogId===contentKey(character.classDefinition||{})?character.classDefinition:null);
+    if(!record)continue;
+    const progression=baseProgression(record,row.level,character,row.catalogId||contentKey(record));
+    for(const key of Object.keys(total))if(Number.isFinite(progression[key]))total[key]+=progression[key];
+  }
+  return {...character,bab:total.bab,save35:{fort:total.fort,ref:total.ref,will:total.will}};
+}
+function evaluateOne(p,c,scope={}) {
+  if(!p||typeof p!=='object'||Array.isArray(p))return null;
+  if((p.kind||p.type)==='spellcasting'&&p.minimum!=null)return evaluateCastingPrerequisite35(p,c);
+  const casting=lowerCastingPrerequisite35(p);
+  if(casting)return scope.castingTextAllowed===false?null:evaluateOne(casting,c,scope);
+  const structured=evaluatePrerequisite35(p,c,{...scope,evaluate:node=>evaluateOne(node,c,scope)});
+  if(structured!==undefined)return structured;
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
-  const score=k=>Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0);
+  const score=k=>applyFeatAbilityIncrease(c,k,Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0));
   if(kind==='level'&&Number.isInteger(p.minimum)&&p.minimum>0)return totalLevel(c)>=p.minimum;
   if(kind==='ability_choice') {
     const options=p.options?.from?.options,choose=p.options?.choose;
@@ -59,9 +120,9 @@ function evaluateOne(p,c) {
     const parts=text.split(/\s*;\s*|,\s*(?![^()]*\))/),matches=parts.map(t=>t.match(/^([\w ()'-]+?)\s+(\d+)\s+ranks?\.?$/i));
     if(matches.every(Boolean))return matches.every(m=>Number(Object.entries(c.skillRanks||{}).find(([k])=>norm(k)===norm(m[1]))?.[1]||0)>=+m[2]);
   }
-  if(['feat','feats'].includes(kind)&&!/\b(or|any|one|two|three|choose)\b/i.test(text)) {
+  if(['feat','feats'].includes(kind)&&!/\b(or|any|one|two|three|choose)\b/i.test(text.replace(/Two-Weapon/gi,'DualWeapon'))) {
     const names=text.replace(/\.$/,'').split(/\s*;\s*|,\s*(?![^()]*\))/);
-    if(names.every(n=>/^[\w ()'-]+$/.test(n)))return names.every(n=>(c.feats||[]).some(f=>norm(f.name)===norm(n)));
+    if(names.every(n=>/^[\w ()'-]+$/.test(n)))return names.every(name=>ownsPrerequisiteFeat35(c,{name}));
   }
   if(kind==='race'&&/^[\w -]+\.?$/.test(text)&&!/\b(or|any|not|except)\b/i.test(text))return norm(c.race)===norm(text.replace(/\.$/,''));
   if(kind==='alignment') {
@@ -82,7 +143,7 @@ function evaluateOne(p,c) {
   // stay visible and unresolved; a partial match must never imply qualification.
   return null;
 }
-export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
+export function requirements(record,c,confirmations={}, {multiclass=false,subject=record?.featSubject,equipment=[]}={}) {
   const prerequisites=record?.prerequisites;
   let source=Array.isArray(prerequisites)?[...prerequisites]:prerequisites&&typeof prerequisites==='object'
     ?prerequisites.kind||prerequisites.type||prerequisites.ability_score?[prerequisites]:Object.entries(prerequisites).map(([kind,value])=>kind==='minimum_level'
@@ -90,7 +151,7 @@ export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
       :{kind,text:kind==='feature_named'?`Requires the ${value} feature`:JSON.stringify({[kind]:value})})
     :prerequisites?[{kind:'text',text:String(prerequisites)}]:[];
   if(record?.prerequisite_options)source.push({kind:'ability_choice',text:record.prerequisite_options.desc||'Review the prerequisite choices in the source.',options:record.prerequisite_options});
-  source=source.filter(p=>multiclass||p.kind!=='multiclass');
+  source=source.filter(p=>multiclass||p?.kind!=='multiclass');
   if(record?.minBab)source=[{kind:'base_attack_bonus',text:record.minBab,label:'Base attack bonus'},...source];
   if(multiclass&&record?.multi_classing) {
     const m=record.multi_classing;
@@ -101,15 +162,16 @@ export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
   if(multiclass&&normalizeEdition(record?.edition)!=='3.5'&&!source.length)source.push({kind:'text',text:'Multiclass entry and exit requirements are not structured. Verify the source requirements.'});
   if(prestige(record)&&!source.length)source.push({kind:'text',text:'Entry requirements are not structured. Verify every requirement in the source.'});
   return source.map(raw=>{
-    const p=typeof raw==='string'?{kind:'text',text:raw}:raw;
-    const text=p.text||p.description||p.name||(p.ability_score?`${p.ability_score.name} ${p.minimum_score}`:'Requirement needs source review');
-    const id=`${contentKey(record)}:${p.kind||'structured'}:${text}`;
-    let result=evaluateOne({...p,text},c);
+    const p=typeof raw==='string'?{kind:'text',text:raw}:raw&&typeof raw==='object'?raw:{kind:'text',text:'Requirement needs source review'};
+    const text=p.text||p.description||p.name||(p.ability_score?`${p.ability_score.name} ${p.minimum_score}`:prerequisiteDescription35(p));
+    const structuredIdentity=['all','any','count','feat_count','skill_count'].includes(p.kind||p.type)||(p.kind||p.type)==='spellcasting'&&p.minimum!=null||p.featId||p.subject!=null||p.proficiencyKind;
+    const id=`${contentKey(record)}:${p.kind||'structured'}:${structuredIdentity?JSON.stringify(p):text}${subject!=null?`:subject:${JSON.stringify(subject)}`:''}`;
+    let result=evaluateOne(p,c,{subject,equipment,castingTextAllowed:castingTextSafe35(record)});
     if(p.kind==='multiclass') {
       const names=[...text.matchAll(/Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma/gi)].map(x=>scores[x[0].toLowerCase()]);
       // Only the closed published ability-threshold sentence is automated.
       const residue=text.replace(/Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|scores?|of|13|or higher|and|or|an?|,/gi,'').trim();
-      if(names.length&&/13/.test(text)&&!residue){const ok=names.map(k=>Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0)>=13);result=/\bor\b/i.test(text.replace(/or higher/gi,''))?ok.some(Boolean):ok.every(Boolean);}
+      if(names.length&&/13/.test(text)&&!residue){const ok=names.map(k=>applyFeatAbilityIncrease(c,k,Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0))>=13);result=/\bor\b/i.test(text.replace(/or higher/gi,''))?ok.some(Boolean):ok.every(Boolean);}
     }
     return {id,text,label:p.label||p.kind||'Prerequisite',status:result===true?'met':result===false?'unmet':confirmations[id]?'confirmed':'manual'};
   });

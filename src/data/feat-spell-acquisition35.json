@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "feats": {
+    "feats/extra-spell-1044": {
+      "effect": "learned-spell",
+      "count": 1,
+      "required": true,
+      "affectsQuota": false,
+      "repeatable": true,
+      "maxSpellLevelOffset": -1,
+      "target": "acquisition-class",
+      "listRule": "target-class-list",
+      "sourceUrl": "https://new.dndtools.org/feats/extra-spell-1044"
+    },
+    "feats/spell-reprieve-2709": {
+      "effect": "access-only",
+      "count": 1,
+      "required": false,
+      "affectsQuota": false,
+      "repeatable": true,
+      "sourceUrl": "https://new.dndtools.org/feats/spell-reprieve-2709"
+    }
+  }
+}

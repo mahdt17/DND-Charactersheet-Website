@@ -41,6 +41,7 @@ jobs:
       - run: node tests/editions.mjs
       - run: npm run test:content
       - run: python scripts/enrich_dndtools.py --self-test
+      - run: python tests/class-source-isolation.py
       - run: python scripts/classify_spell_review_queue.py --self-test
       - run: python scripts/select_spell_review_batch.py --self-test
       - run: python scripts/select_spell_reference_batch.py --self-test
@@ -53,7 +54,34 @@ jobs:
       - run: python tests/enrichment_gate.py
       - run: node tests/setup-choices.mjs
       - run: node tests/integration-foundation.mjs
+      - run: node tests/class-integration.mjs
+      - run: node tests/class-ordinary-prestige35.mjs
+      - run: node tests/class-six-batch-finalization35.mjs
+      - run: node tests/spell-acquisition35.mjs
+      - run: node tests/feat-spell-acquisition35.mjs
+      - run: node tests/companions35.mjs
+      - run: python tests/class-feature-review.py
+      - run: node tests/class-catalog-lifecycle.mjs
+      - run: python scripts/audit_source_identity_and_descriptions.py
+      - run: node scripts/audit_class_automation.mjs
+      - run: node scripts/classify_class_implementation_cohorts.mjs docs/class-completion-tracker.json --check
+      - name: Validate research pipeline helpers
+        run: |
+          node --check scripts/validate_extraction.mjs
+          node --check scripts/select_class_research_batch.mjs
+          node --check scripts/generate_progress_report.mjs
+          node scripts/select_class_research_batch.mjs docs/class-completion-tracker.json --limit=5 > test-results/class-research-batch.json
+          node scripts/generate_progress_report.mjs docs/class-completion-tracker.json --output=test-results/project-progress.json
+          node --check scripts/build_class_review_queue.mjs
+          node scripts/build_class_review_queue.mjs docs/class-completion-tracker.json --output=test-results/class-review-queue.json
+          node -e "const q=require('./test-results/class-review-queue.json');if(!q.queue.some(x=>x.recordId==='classes/binder-112'&&x.reasons.includes('binding-subsystem-requires-structured-model')))process.exit(1)"
       - run: node tests/multiclass-casting.mjs
+      - run: node tests/spell-access.mjs
+      - run: node tests/subclass-feat-magic.mjs
+      - run: node tests/feat-gaps.mjs
+      - run: node tests/legacy-casting-choices.mjs
+      - run: node tests/legacy-special-casting.mjs
+      - run: node tests/legacy-preparation.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
       - run: node tests/resources.mjs
@@ -99,12 +127,27 @@ jobs:
       - name: Run catalog and advancement browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-integration.mjs
-      - name: Run class resource browser tests
+      - name: Run class spell access browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-spell-access.mjs
+      - name: Run subclass and feat magic browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-subclass-feat-magic.mjs
+      - name: Run domain, power, invocation and ritual browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-casting-gaps.mjs
+      - name: Run class resource tracker browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-resources.mjs
       - name: Run guided feature choice browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-feature-choices.mjs
+      - name: Run shared source prerequisite browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-source-prerequisites35.mjs
+      - name: Run casting prerequisite browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-casting-prerequisites35.mjs
       - name: Run level-up feat browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-feat-selection.mjs

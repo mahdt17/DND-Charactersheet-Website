@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-08-candidates75-ordinary7",
+  "entries": {
+    "classes/watch-detective-623": {
+      "name": "Watch Detective",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/watch-detective-623",
+      "proficiencies": [
+        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
+        {"index": "light-armor", "name": "Light armor", "kind": "armor"}
+      ],
+      "proficiencyText": "Watch detectives are proficient with all simple weapons and light armor.",
+      "prerequisites": [
+        {"kind": "alignment", "label": "Alignment", "text": "Any nonevil"},
+        {"kind": "skills", "label": "Skills", "text": "Gather Information 4 ranks"},
+        {"kind": "skills", "label": "Skills", "text": "Knowledge (any) 4 ranks"},
+        {"kind": "skills", "label": "Skills", "text": "Search 8 ranks"},
+        {"kind": "feats", "label": "Feats", "text": "Track"},
+        {"kind": "special", "label": "Special", "text": "The watch detective must honor the Rule of Evidence. If he abandons this code, he loses all special abilities of the prestige class until he retrains for six months under a local authority."}
+      ],
+      "classSkills": ["Appraise", "Bluff", "Climb", "Craft", "Diplomacy", "Disable Device", "Disguise", "Forgery", "Gather Information", "Heal", "Hide", "Innuendo", "Intimidate", "Intuit Direction", "Jump", "Knowledge", "Listen", "Move Silently", "Open Lock", "Profession", "Ride", "Search", "Sense Motive", "Spot", "Swim", "Use Rope"],
+      "conditionalMechanics": {
+        "cityWatchTraining": {"insightBonus": 2, "skills": ["Listen", "Search", "Sense Motive", "Spot"]},
+        "obsessiveSpecialty": {"bonusFormula": "Watch Detective class level", "appliesTo": "selected Knowledge skill"},
+        "profile": {"gatherInformationDc": 15, "followupInsightBonus": 2, "appliesTo": "further Gather Information checks with witnesses or acquaintances tied to the crime"},
+        "cooperativeInterrogation": {"allyBonus": 4, "skills": ["Bluff", "Diplomacy", "Intimidate", "Sense Motive"], "requiresSameTarget": true},
+        "superiorDisarming": {"attackBonus": 4, "appliesTo": "disarm attacks"},
+        "deductiveAugury": {"successChanceFormula": "70% + 1% per Watch Detective class level", "usesAtLevels": {"4": 1, "7": 2, "10": 3}},
+        "skillSynergy": {"bonus": 2, "requiresFiveRanksInBothSelectedSkills": true},
+        "senseSecretDoors": {"automaticSearchRangeFeet": 5, "elfSearchInsightBonus": 2},
+        "improvedSubdual": {"damageBonusAbility": "Intelligence", "minimumBonus": 0},
+        "forensics": {"searchDc": 20, "mayTake20": true},
+        "instantKnowledge": {"intelligenceCheckDc": 20, "insightBonus": 10, "usesPerDay": 1}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/watch-detective-623",
+        "requirementsUrl": "https://dndtools.net/classes/watch-detective/",
+        "classSkillsUrl": "https://dnd.arkalseif.info/classes/watch-detective/index.html",
+        "reviewDate": "2026-10-08",
+        "note": "Exact Masters of the Wild D&D 3.0 Watch Detective reviewed independently. Restored Track and the Rule of Evidence from source-faithful mirrors, preserved 3.0 skill names, and structured the two persistent choices plus daily investigative abilities."
+      }
+    }
+  }
+}

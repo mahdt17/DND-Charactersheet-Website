@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "classes/black-dog-412": {
+      "name": "Black Dog",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "expectedProgression": [
+        [
+          "Poison",
+          "Class Level",
+          "Type (Save)",
+          "Initial/Secondary Damage"
+        ],
+        [
+          "Arsenic",
+          "3rd",
+          "Ingested (DC 13)",
+          "1 Con/1d8 Con"
+        ],
+        [
+          "Dhurinda’s stench",
+          "3rd",
+          "Ingested (DC 14)",
+          "1d4 Cha/2d4 Cha"
+        ],
+        [
+          "Oil of taggit",
+          "3rd",
+          "Ingested (DC 15)",
+          "0/Unconsciousness"
+        ],
+        [
+          "Id moss",
+          "4th",
+          "Ingested (DC 14)",
+          "1d4 Int/2d6 Int"
+        ],
+        [
+          "Black adder venom",
+          "4th",
+          "Injury (DC 11)",
+          "1d6 Con/1d6 Con"
+        ],
+        [
+          "Bloody tal",
+          "5th",
+          "Ingested (DC 15)",
+          "1d6 Con/2d4 Con"
+        ],
+        [
+          "Medium spider venom",
+          "5th",
+          "Injury (DC 14)",
+          "1d4 Str/1d4 Str"
+        ]
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+2",
+          "+0",
+          "Heir’s mark, improved hospitality, poison use"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+3",
+          "+0",
+          "Death attack, Dhurinda’s trick"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+3",
+          "+1",
+          "Create poison, refine poison"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+4",
+          "+1",
+          "Empower poison, lost in the crowd"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+4",
+          "+1",
+          "Dhurinda’s touch"
+        ]
+      ],
+      "replacedTableKind": "poison recipes",
+      "sourceUrls": [
+        "https://new.dndtools.org/classes/black-dog-412",
+        "https://dndtools.org/classes/black-dog/"
+      ],
+      "reviewedAt": "2026-10-06",
+      "reviewScope": "Class advancement table only; no full automation claim."
+    },
+    "classes/elemental-archon-484": {
+      "name": "Elemental Archon",
+      "sourceBook": "Prestige Class Faiths & Pantheons",
+      "expectedProgression": [
+        [
+          "Elemental Archon Level",
+          "Bonus HD",
+          "Natural Armor",
+          "Str Adj.",
+          "Special"
+        ],
+        [
+          "1—2",
+          "—",
+          "—",
+          "—",
+          "Empathic link, improved evasion, share saving throws"
+        ],
+        [
+          "3—5",
+          "+2",
+          "+2",
+          "+1",
+          "Sycophantic fawning"
+        ],
+        [
+          "6—8",
+          "+4",
+          "+4",
+          "+2",
+          "Improved empathic link"
+        ],
+        [
+          "9—10",
+          "+6",
+          "+6",
+          "+3",
+          "Slavish sacrifice"
+        ]
+      ],
+      "progression": [
+        [
+          "Class Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special",
+          "Spells per Day"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+0",
+          "+2",
+          "Mephit underlings",
+          "+1 level of existing class"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+0",
+          "+3",
+          "Power of arrogance",
+          "+1 level of existing class"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+1",
+          "+3",
+          "Elemental resilience 10",
+          "—"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+1",
+          "+4",
+          "Elemental affinity",
+          "+1 level of existing class"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+1",
+          "+4",
+          "",
+          "+1 level of existing class"
+        ],
+        [
+          "6th",
+          "+4",
+          "+5",
+          "+2",
+          "+5",
+          "Elemental resilience 20",
+          "—"
+        ],
+        [
+          "7th",
+          "+5",
+          "+5",
+          "+2",
+          "+5",
+          "Elemental expertise",
+          "+1 level of existing class"
+        ],
+        [
+          "8th",
+          "+6",
+          "+6",
+          "+2",
+          "+6",
+          "",
+          "+1 level of existing class"
+        ],
+        [
+          "9th",
+          "+6",
+          "+6",
+          "+3",
+          "+6",
+          "Elemental resilience 30",
+          "—"
+        ],
+        [
+          "10th",
+          "+7",
+          "+7",
+          "+3",
+          "+7",
+          "Elemental transcendence",
+          "+1 level of existing class"
+        ]
+      ],
+      "replacedTableKind": "mephit companion progression",
+      "sourceUrls": [
+        "https://new.dndtools.org/classes/elemental-archon-484",
+        "https://www.realmshelps.net/charbuild/classes/prestige/realms/elementalarchon.shtml"
+      ],
+      "reviewedAt": "2026-10-06",
+      "reviewScope": "Class advancement table only; no full automation claim."
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-07-candidates75-ordinary2",
+  "entries": {
+    "classes/breachgnome-696": {
+      "name":"Breachgnome",
+      "sourceBook":"Prestige Class Races of Faerûn",
+      "sourceVersion":"D&D 3.0",
+      "sourceUrl":"https://new.dndtools.org/classes/breachgnome-696",
+      "minBab":"5",
+      "proficiencies":[
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
+      ],
+      "proficiencyText":"Breachgnomes are proficient with all simple and martial weapons, all types of armor, and shields.",
+      "prerequisites":[
+        {"kind":"race","label":"Race","text":"Gnome"},
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+5"},
+        {"kind":"feats","label":"Feats","text":"Combat Reflexes"},
+        {"kind":"feats","label":"Feats","text":"Dodge"},
+        {"kind":"feats","label":"Feats","text":"Improved Initiative"}
+      ],
+      "classSkills":["Bluff","Climb","Concentration","Craft","Handle Animal","Hide","Jump","Listen","Spot","Swim"],
+      "conditionalMechanics":{
+        "sealTheBreach":{"adjacentSolidObjectAcDodge":2,"oppositeSolidObjectsAcDodge":4,"level3":{"attacksOfOpportunityEnteringSquare":4,"bullRushResistance":4,"overrunTripResistance":4},"level5":{"attacksOfOpportunityMovement":4,"tumbleDcIncrease":10}},
+        "uncannyDodge":{"level2":"retain Dexterity bonus to AC when flat-footed or against invisible attackers","level5":"cannot be flanked except by a rogue at least four levels higher","stacksClassLevelsWithOtherUncannyDodgeSources":true}
+      },
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/breachgnome-696","requirementsUrl":"repo:scripts/class_supplements_35.json#classes/breachgnome-696","classSkillsUrl":"https://new.dndtools.org/classes/breachgnome-696","reviewDate":"2026-10-07","note":"Exact Races of Faerûn D&D 3.0 record plus provenance-backed repository supplement restore the gnome, BAB and feat entry gates."}
+    },
+    "classes/dwarf-paragon-1001": {
+      "name":"Dwarf Paragon",
+      "sourceBook":"Base Class Unearthed Arcana",
+      "sourceVersion":"D&D 3.5",
+      "sourceUrl":"https://new.dndtools.org/classes/dwarf-paragon-1001",
+      "proficiencies":[
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields-except-tower","name":"Shields (except tower shields)","kind":"armor"}
+      ],
+      "proficiencyText":"Dwarf paragons are proficient with all simple and martial weapons, light, medium, and heavy armor, and shields but not tower shields.",
+      "prerequisites":[{"kind":"race","label":"Race","text":"Dwarf"}],
+      "classSkills":["Appraise","Climb","Craft","Intimidate","Jump","Knowledge (dungeoneering)","Profession","Sense Motive","Survival"],
+      "conditionalMechanics":{
+        "craftExpertise":{"racialBonusFormula":"dwarf paragon class level","appliesTo":"Craft checks related to stone or metal items"},
+        "improvedStonecunning":{"searchRacialBonus":4,"automaticSearchRangeFeet":20,"undergroundNorthSenseEquivalentSurvivalRanks":5},
+        "improvedDarkvision":{"increaseFeet":30},
+        "saveBonus":{"racialBonusIncrease":1,"appliesTo":["poison","spells","spell-like effects"]},
+        "abilityBoost":{"constitution":2,"permanent":true}
+      },
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/dwarf-paragon-1001","requirementsUrl":"https://srd.dndtools.org/srd/variant/unearthedParagon.html","classSkillsUrl":"https://srd.dndtools.org/srd/variant/unearthedParagon.html","reviewDate":"2026-10-07","note":"Unearthed Arcana racial-paragon SRD verifies dwarf-only eligibility, exact skills, training and all three levels of racial progression."}
+    },
+    "classes/gray-hand-enforcer-302": {
+      "name":"Gray Hand Enforcer",
+      "sourceBook":"Prestige Class City of Splendors: Waterdeep",
+      "sourceVersion":"D&D 3.5",
+      "sourceUrl":"https://new.dndtools.org/classes/gray-hand-enforcer-302",
+      "minBab":null,
+      "proficiencies":[],
+      "proficiencyText":"Gray Hand enforcers gain no proficiency with any weapons, armor, or shields.",
+      "prerequisites":[
+        {"kind":"alignment","label":"Alignment","text":"Any nonevil"},
+        {"kind":"skills","label":"Skills","text":"Intimidate 5 ranks"},
+        {"kind":"entry_path","label":"Entry Path","text":"Either base attack bonus +7 with Endurance, Toughness, and Power Attack, or ability to cast 4th-level spells with Empower Spell."},
+        {"kind":"special","label":"Special","text":"Must be a member of the Gray Hands."}
+      ],
+      "prerequisiteAlternatives":[
+        [{"kind":"base_attack_bonus","text":"+7"},{"kind":"feats","text":"Endurance"},{"kind":"feats","text":"Toughness"},{"kind":"feats","text":"Power Attack"}],
+        [{"kind":"spells","text":"Ability to cast 4th-level spells"},{"kind":"feats","text":"Empower Spell"}]
+      ],
+      "classSkills":["Ride","Jump","Climb","Concentration","Escape Artist","Heal","Intimidate","Knowledge (local)","Listen","Spellcraft","Spot","Swim","Tumble","Use Magic Device","Use Rope"],
+      "conditionalMechanics":{
+        "damageReduction":{"byLevel":{"1":1,"3":2,"5":3},"bypass":"—"},
+        "grayHandToken":{"waterdeepOfficialCharismaSkillBonus":5,"legalProtection":"May not be arrested or hindered in Waterdeep except by a Lord, magistrate, or civilar of the Guard or Watch."},
+        "dragonwardStrike":{"waterdeepRangeMiles":10,"modes":{"melee":{"attackBonus":4,"damageBonusFormula":"Gray Hand enforcer class level"},"spell":{"effect":"Empower Spell without preparation or level increase"}}},
+        "spellResistance":{"formula":"5 + character level"},
+        "lordsBoon":{"dailyHealingPool":20}
+      },
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/gray-hand-enforcer-302","requirementsUrl":"https://www.mordaedil.com/dnd/?cls=302","classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=302","reviewDate":"2026-10-07","note":"Exact City of Splendors record reviewed; the martial and caster entry paths are preserved as alternatives rather than incorrectly forcing BAB +7 on casters."}
+    },
+    "classes/guardian-paramount-457": {
+      "name":"Guardian Paramount",
+      "sourceBook":"Prestige Class Epic Level Handbook",
+      "sourceVersion":"D&D 3.0",
+      "sourceUrl":"https://new.dndtools.org/classes/guardian-paramount-457",
+      "minBab":"15",
+      "proficiencies":[
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
+      ],
+      "proficiencyText":"A guardian paramount is proficient with all simple and martial weapons, all armor, and shields.",
+      "prerequisites":[
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+15"},
+        {"kind":"skills","label":"Skills","text":"Spot 13 ranks"},
+        {"kind":"feats","label":"Feats","text":"Alertness"},
+        {"kind":"feats","label":"Feats","text":"Lightning Reflexes"},
+        {"kind":"epic_feats","label":"Epic Feats","text":"Blinding Speed"},
+        {"kind":"epic_feats","label":"Epic Feats","text":"Superior Initiative"},
+        {"kind":"special","label":"Special","text":"Uncanny dodge and evasion."}
+      ],
+      "classSkills":["Bluff","Climb","Diplomacy","Intimidate","Jump","Listen","Profession","Spot"],
+      "conditionalMechanics":{
+        "uncannyDodgeEnabler":{"rangeFeet":5,"designationAction":"Free action once per round","extendsExistingUncannyDodgeFeatures":true},
+        "evasivePreceptor":{"rangeFeet":5,"extendsEvasionOrImprovedEvasion":true},
+        "protectiveAura":{"baseSpell":"shield other","casterLevel":8,"transferredDamageType":"subdual"},
+        "adjustProbability":{"rangeFeet":25,"eligibleRolls":["attack roll","check","saving throw"],"mustTakeSecondRoll":true,"outsideInitiativeOrder":true},
+        "callBack":{"baseSpell":"true resurrection","casterLevel":20,"targetMustHaveReceivedPriorGuardianAbility":true}
+      },
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/guardian-paramount-457","requirementsUrl":"https://srd.dndtools.org/srd/classes/prestigeEpic/guardianParamount.html","classSkillsUrl":"https://srd.dndtools.org/srd/classes/prestigeEpic/guardianParamount.html","reviewDate":"2026-10-07","note":"Epic Level Handbook SRD corrects the damaged imported BAB value to +15 and supplies the complete epic feat and skill entry gate."}
+    },
+    "classes/legendary-dreadnought-459": {
+      "name":"Legendary Dreadnought",
+      "sourceBook":"Prestige Class Epic Level Handbook",
+      "sourceVersion":"D&D 3.0",
+      "sourceUrl":"https://new.dndtools.org/classes/legendary-dreadnought-459",
+      "minBab":"23",
+      "proficiencies":[
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
+      ],
+      "proficiencyText":"A legendary dreadnought is proficient with all simple and martial weapons, all armor, and all shields.",
+      "prerequisites":[
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+23"},
+        {"kind":"skills","label":"Skills","text":"Intimidate 15 ranks"},
+        {"kind":"feats","label":"Feats","text":"Combat Reflexes"},
+        {"kind":"feats","label":"Feats","text":"Great Cleave"},
+        {"kind":"feats","label":"Feats","text":"Improved Bull Rush"},
+        {"kind":"feats","label":"Feats","text":"Improved Critical"}
+      ],
+      "classSkills":["Climb","Craft","Intimidate","Jump","Swim"],
+      "conditionalMechanics":{
+        "unstoppable":{"bonus":20,"uses":["Strength check to break or burst a door or item","Strength DC 32 check to break wall of force","single attack roll"]},
+        "unmovable":{"bonus":20,"uses":["grapple check to resist improved grab","Strength check against bull rush, trip, or movement","single saving throw"],"grantsWillSaveWhenMovementEffectNormallyAllowsNoSave":true},
+        "shrugOffPunishment":{"bonusHitPointsAtLevel10":24,"progression":"+12 hit points at 3rd level and every five levels thereafter"},
+        "thickSkinned":{"damageReductionAtLevel10":6,"bypass":"—","progression":"DR 3/— at 4th level, +3 every five levels thereafter"}
+      },
+      "reviewEvidence":{"sourceUrl":"https://new.dndtools.org/classes/legendary-dreadnought-459","requirementsUrl":"https://srd.dndtools.org/srd/classes/prestigeEpic/legendaryDreadnought.html","classSkillsUrl":"https://srd.dndtools.org/srd/classes/prestigeEpic/legendaryDreadnought.html","reviewDate":"2026-10-07","note":"Epic Level Handbook SRD corrects the damaged imported BAB value to +23 and restores the complete Intimidate/feat entry gate."}
+    }
+  }
+}

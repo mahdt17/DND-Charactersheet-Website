@@ -1,0 +1,1087 @@
+{
+  "version": 1,
+  "sourceUrls": {
+    "spellElements": "https://srd.dndtools.org/srd/magic/spells/classSpellLists/shugenjaSpells.html",
+    "orders": "https://srd.dndtools.org/srd/magic/spells/classSpellLists/shugenjaOrders.html"
+  },
+  "orderFavoredElements": {
+    "Order of the All-Seeing Eye": [
+      "Air"
+    ],
+    "Order of the Consuming Flame": [
+      "Fire"
+    ],
+    "Order of the Forbidding Wasteland": [
+      "Water"
+    ],
+    "Order of the Gentle Rain": [
+      "Water"
+    ],
+    "Order of the Impenetrable Crucible": [
+      "Earth"
+    ],
+    "Order of the Ineffable Mystery": [
+      "Air",
+      "Earth",
+      "Fire",
+      "Water",
+      "Void"
+    ],
+    "Order of the Perfect Sculpture": [
+      "Earth"
+    ],
+    "Order of the Spring Zephyr": [
+      "Air"
+    ]
+  },
+  "orders": {
+    "Order of the All-Seeing Eye": {
+      "0": "Guidance",
+      "1": "Detect Snares and Pits",
+      "2": "Detect Thoughts",
+      "3": "Clairaudience/Clairvoyance",
+      "4": "Divination",
+      "5": "Commune With Nature",
+      "6": "Find the Path",
+      "7": "Legend Lore",
+      "8": "Vision",
+      "9": "Foresight"
+    },
+    "Order of the Consuming Flame": {
+      "0": "Flare",
+      "1": "Burning Hands",
+      "2": "Produce Flame",
+      "3": "Searing Light",
+      "4": "Fireball",
+      "5": "Flame Strike",
+      "6": "Fires of Purity",
+      "7": "Fire Storm",
+      "8": "Delayed Blast Fireball",
+      "9": "Meteor Swarm"
+    },
+    "Order of the Forbidding Wasteland": {
+      "0": "Detect Magic",
+      "1": "Remove Fear",
+      "2": "Scent",
+      "3": "Restoration, Lesser",
+      "4": "Phantom Stag",
+      "5": "Dance of the Unicorn",
+      "6": "Control Weather",
+      "7": "Scrying, Greater",
+      "8": "Horrid Wilting",
+      "9": "Shambler"
+    },
+    "Order of the Gentle Rain": {
+      "0": "Cure Minor Wounds",
+      "1": "Cure Light Wounds",
+      "2": "Augury",
+      "3": "Cure Serious Wounds",
+      "4": "Cure Critical Wounds",
+      "5": "Commune",
+      "6": "Heal",
+      "7": "Resurrection",
+      "8": "Heal, Mass",
+      "9": "Soul Bind"
+    },
+    "Order of the Impenetrable Crucible": {
+      "0": "Resistance",
+      "1": "Magic Weapon",
+      "2": "Sound Burst",
+      "3": "Magic Weapon, Greater",
+      "4": "Dismissal",
+      "5": "Death Ward",
+      "6": "Banishment",
+      "7": "Repulsion",
+      "8": "Binding",
+      "9": "Imprisonment"
+    },
+    "Order of the Ineffable Mystery": {
+      "0": "Resistance",
+      "1": "Entropic Shield",
+      "2": "Obscure Object",
+      "3": "Dispel Magic",
+      "4": "Spell Immunity",
+      "5": "Spell Resistance",
+      "6": "Antimagic Field",
+      "7": "Spell Turning",
+      "8": "Protection from Spells",
+      "9": "Mordenkainen's Disjunction"
+    },
+    "Order of the Perfect Sculpture": {
+      "0": "Mending",
+      "1": "Magic Stone",
+      "2": "Soften Earth and Stone",
+      "3": "Stone Shape",
+      "4": "Subvert Planar Essence",
+      "5": "Transmute Rock to Mud",
+      "6": "Flesh to Stone",
+      "7": "Statue",
+      "8": "Earthquake",
+      "9": "Antipathy"
+    },
+    "Order of the Spring Zephyr": {
+      "0": "Daze",
+      "1": "Disguise Self",
+      "2": "Blur",
+      "3": "Invisibility",
+      "4": "Air Walk",
+      "5": "Invisibility, Greater",
+      "6": "Veil",
+      "7": "Mislead",
+      "8": "Screen",
+      "9": "Foresight"
+    }
+  },
+  "spellElements": [
+    {
+      "level": 0,
+      "element": "Air",
+      "name": "Daze"
+    },
+    {
+      "level": 0,
+      "element": "Air",
+      "name": "Ghost Sound"
+    },
+    {
+      "level": 0,
+      "element": "Air",
+      "name": "Guidance"
+    },
+    {
+      "level": 0,
+      "element": "Air",
+      "name": "Know Direction"
+    },
+    {
+      "level": 0,
+      "element": "Earth",
+      "name": "Mage Hand"
+    },
+    {
+      "level": 0,
+      "element": "Earth",
+      "name": "Mending"
+    },
+    {
+      "level": 0,
+      "element": "Earth",
+      "name": "Resistance"
+    },
+    {
+      "level": 0,
+      "element": "Earth",
+      "name": "Virtue"
+    },
+    {
+      "level": 0,
+      "element": "Fire",
+      "name": "Dancing Lights"
+    },
+    {
+      "level": 0,
+      "element": "Fire",
+      "name": "Disrupt Undead"
+    },
+    {
+      "level": 0,
+      "element": "Fire",
+      "name": "Flare"
+    },
+    {
+      "level": 0,
+      "element": "Fire",
+      "name": "Light"
+    },
+    {
+      "level": 0,
+      "element": "Water",
+      "name": "Create Water"
+    },
+    {
+      "level": 0,
+      "element": "Water",
+      "name": "Cure Minor Wounds"
+    },
+    {
+      "level": 0,
+      "element": "Water",
+      "name": "Detect Poison"
+    },
+    {
+      "level": 0,
+      "element": "Water",
+      "name": "Purify Food and Drink"
+    },
+    {
+      "level": 0,
+      "element": "All",
+      "name": "Detect Magic"
+    },
+    {
+      "level": 0,
+      "element": "All",
+      "name": "Read Magic"
+    },
+    {
+      "level": 1,
+      "element": "Air",
+      "name": "Detect Snares and Pits"
+    },
+    {
+      "level": 1,
+      "element": "Air",
+      "name": "Disguise Self"
+    },
+    {
+      "level": 1,
+      "element": "Air",
+      "name": "Expeditious Retreat"
+    },
+    {
+      "level": 1,
+      "element": "Air",
+      "name": "Feather Fall"
+    },
+    {
+      "level": 1,
+      "element": "Air",
+      "name": "Silent Image"
+    },
+    {
+      "level": 1,
+      "element": "Air",
+      "name": "Sleep"
+    },
+    {
+      "level": 1,
+      "element": "Earth",
+      "name": "Magic Stone"
+    },
+    {
+      "level": 1,
+      "element": "Earth",
+      "name": "Magic Weapon"
+    },
+    {
+      "level": 1,
+      "element": "Earth",
+      "name": "Pass Without Trace"
+    },
+    {
+      "level": 1,
+      "element": "Earth",
+      "name": "Sanctuary"
+    },
+    {
+      "level": 1,
+      "element": "Earth",
+      "name": "Shield of Faith"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Burning Hands"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Cause Fear"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Faerie Fire"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Hypnotism"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Shocking Grasp"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Speak with Animals"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Bless"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Cure Light Wounds"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Obscuring Mist"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Remove Fear"
+    },
+    {
+      "level": 1,
+      "element": "All",
+      "name": "Endure Elements"
+    },
+    {
+      "level": 2,
+      "element": "Air",
+      "name": "Detect Thoughts"
+    },
+    {
+      "level": 2,
+      "element": "Air",
+      "name": "Levitate"
+    },
+    {
+      "level": 2,
+      "element": "Air",
+      "name": "Minor Image"
+    },
+    {
+      "level": 2,
+      "element": "Air",
+      "name": "Silence"
+    },
+    {
+      "level": 2,
+      "element": "Air",
+      "name": "Color Spray"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Barkskin"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Bear's Endurance"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Bull's Strength"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Hold Person"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Make Whole"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Glitterdust"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Cat's Grace"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Flame Blade"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Flaming Sphere"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Heat Metal"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Produce Flame"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Fog Cloud"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Cure Moderate Wounds"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Delay Poison"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Lesser Restoration"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Locate Object"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Remove Paralysis"
+    },
+    {
+      "level": 2,
+      "element": "All",
+      "name": "Resist Energy"
+    },
+    {
+      "level": 3,
+      "element": "Air",
+      "name": "Clairaudience/Clairvoyance"
+    },
+    {
+      "level": 3,
+      "element": "Air",
+      "name": "Gust of Wind"
+    },
+    {
+      "level": 3,
+      "element": "Air",
+      "name": "Haste"
+    },
+    {
+      "level": 3,
+      "element": "Air",
+      "name": "Invisibility"
+    },
+    {
+      "level": 3,
+      "element": "Air",
+      "name": "Major Image"
+    },
+    {
+      "level": 3,
+      "element": "Air",
+      "name": "Wind Wall"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Greater Magic Weapon"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Meld Into Stone"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Plant Growth"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Prayer"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Stone Shape"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Call Lightning"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Daylight"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Fire Wings"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Keen Edge"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Searing Light"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Cure Serious Wounds"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Remove Blindness/Deafness"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Remove Curse"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Remove Disease"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Water Breathing"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Water Walk"
+    },
+    {
+      "level": 3,
+      "element": "All",
+      "name": "Dispel Magic"
+    },
+    {
+      "level": 3,
+      "element": "All",
+      "name": "Glyph of Warding"
+    },
+    {
+      "level": 3,
+      "element": "All",
+      "name": "Protection from Energy"
+    },
+    {
+      "level": 3,
+      "element": "All",
+      "name": "Summon Nature's Ally III (Small Elemental Only)"
+    },
+    {
+      "level": 4,
+      "element": "Air",
+      "name": "Air Walk"
+    },
+    {
+      "level": 4,
+      "element": "Air",
+      "name": "Detect Scrying"
+    },
+    {
+      "level": 4,
+      "element": "Air",
+      "name": "Discern Lies"
+    },
+    {
+      "level": 4,
+      "element": "Air",
+      "name": "Hallucinatory Terrain"
+    },
+    {
+      "level": 4,
+      "element": "Air",
+      "name": "Illusory Wall"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Death Ward"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Dismissal"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Spell Immunity"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Spike Stones"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Dimensional Anchor"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Fire Shield"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Flame Arrow"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Lightning Bolt"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Quench"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Wall of Fire"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Control Water"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Cure Critical Wounds"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Locate Creature"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Neutralize Poison"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Restoration"
+    },
+    {
+      "level": 5,
+      "element": "Air",
+      "name": "Control Winds"
+    },
+    {
+      "level": 5,
+      "element": "Air",
+      "name": "Dimension Door"
+    },
+    {
+      "level": 5,
+      "element": "Air",
+      "name": "Greater Invisibility"
+    },
+    {
+      "level": 5,
+      "element": "Air",
+      "name": "Mirage Arcana"
+    },
+    {
+      "level": 5,
+      "element": "Air",
+      "name": "Persistent Image"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Passwall"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Spell Resistance"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Wall of Iron"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Wall of Stone"
+    },
+    {
+      "level": 5,
+      "element": "Fire",
+      "name": "Energy Vortex (Fire Only)"
+    },
+    {
+      "level": 5,
+      "element": "Fire",
+      "name": "Confusion"
+    },
+    {
+      "level": 5,
+      "element": "Fire",
+      "name": "Feeblemind"
+    },
+    {
+      "level": 5,
+      "element": "Fire",
+      "name": "Dragon Breath (Red or Gold Only)"
+    },
+    {
+      "level": 5,
+      "element": "Fire",
+      "name": "Flame Strike"
+    },
+    {
+      "level": 5,
+      "element": "Water",
+      "name": "Atonement"
+    },
+    {
+      "level": 5,
+      "element": "Water",
+      "name": "Cure Light Wounds, Mass"
+    },
+    {
+      "level": 5,
+      "element": "Water",
+      "name": "Righteous Might"
+    },
+    {
+      "level": 5,
+      "element": "Water",
+      "name": "Scrying"
+    },
+    {
+      "level": 5,
+      "element": "Water",
+      "name": "Wall of Ice"
+    },
+    {
+      "level": 5,
+      "element": "All",
+      "name": "Commune With Nature"
+    },
+    {
+      "level": 5,
+      "element": "All",
+      "name": "Summon Nature's Ally V (Medium Elemental Only)"
+    },
+    {
+      "level": 6,
+      "element": "Air",
+      "name": "Cloudkill"
+    },
+    {
+      "level": 6,
+      "element": "Air",
+      "name": "Permanent Image"
+    },
+    {
+      "level": 6,
+      "element": "Air",
+      "name": "Teleport"
+    },
+    {
+      "level": 6,
+      "element": "Air",
+      "name": "Veil"
+    },
+    {
+      "level": 6,
+      "element": "Air",
+      "name": "Wind Walk"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Antimagic Field"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Banishment"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Move Earth"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Stone Tell"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Stoneskin"
+    },
+    {
+      "level": 6,
+      "element": "Fire",
+      "name": "Fire Seeds"
+    },
+    {
+      "level": 6,
+      "element": "Fire",
+      "name": "Fires of Purity"
+    },
+    {
+      "level": 6,
+      "element": "Fire",
+      "name": "Greater Glyph of Warding"
+    },
+    {
+      "level": 6,
+      "element": "Fire",
+      "name": "Anger of the Noonday Sun"
+    },
+    {
+      "level": 6,
+      "element": "Water",
+      "name": "Contingency"
+    },
+    {
+      "level": 6,
+      "element": "Water",
+      "name": "Control Weather"
+    },
+    {
+      "level": 6,
+      "element": "Water",
+      "name": "Heal"
+    },
+    {
+      "level": 6,
+      "element": "Water",
+      "name": "Master of the Rolling River"
+    },
+    {
+      "level": 6,
+      "element": "Water",
+      "name": "True Seeing"
+    },
+    {
+      "level": 6,
+      "element": "All",
+      "name": "Dispel Magic, Greater"
+    },
+    {
+      "level": 6,
+      "element": "All",
+      "name": "Summon Nature's Ally VI (Large Elemental Only)"
+    },
+    {
+      "level": 7,
+      "element": "Air",
+      "name": "Mass Invisibility"
+    },
+    {
+      "level": 7,
+      "element": "Air",
+      "name": "Mislead"
+    },
+    {
+      "level": 7,
+      "element": "Air",
+      "name": "Programmed Image"
+    },
+    {
+      "level": 7,
+      "element": "Air",
+      "name": "Teleport Object"
+    },
+    {
+      "level": 7,
+      "element": "Earth",
+      "name": "Disintegrate"
+    },
+    {
+      "level": 7,
+      "element": "Earth",
+      "name": "Spell Turning"
+    },
+    {
+      "level": 7,
+      "element": "Earth",
+      "name": "Statue"
+    },
+    {
+      "level": 7,
+      "element": "Earth",
+      "name": "Flesh to Stone"
+    },
+    {
+      "level": 7,
+      "element": "Fire",
+      "name": "Chain Lightning"
+    },
+    {
+      "level": 7,
+      "element": "Fire",
+      "name": "Fire Storm"
+    },
+    {
+      "level": 7,
+      "element": "Fire",
+      "name": "Sunbeam"
+    },
+    {
+      "level": 7,
+      "element": "Water",
+      "name": "Greater Restoration"
+    },
+    {
+      "level": 7,
+      "element": "Water",
+      "name": "Greater Scrying"
+    },
+    {
+      "level": 7,
+      "element": "Water",
+      "name": "Resurrection"
+    },
+    {
+      "level": 7,
+      "element": "Water",
+      "name": "Creeping Cold, Greater"
+    },
+    {
+      "level": 7,
+      "element": "All",
+      "name": "Summon Nature's Ally VII (Huge Elemental Only)"
+    },
+    {
+      "level": 8,
+      "element": "Air",
+      "name": "Screen"
+    },
+    {
+      "level": 8,
+      "element": "Air",
+      "name": "Teleport, Greater"
+    },
+    {
+      "level": 8,
+      "element": "Air",
+      "name": "Whirlwind"
+    },
+    {
+      "level": 8,
+      "element": "Earth",
+      "name": "Binding"
+    },
+    {
+      "level": 8,
+      "element": "Earth",
+      "name": "Earthquake"
+    },
+    {
+      "level": 8,
+      "element": "Earth",
+      "name": "Protection from Spells"
+    },
+    {
+      "level": 8,
+      "element": "Fire",
+      "name": "Incendiary Cloud"
+    },
+    {
+      "level": 8,
+      "element": "Fire",
+      "name": "Power Word Blind"
+    },
+    {
+      "level": 8,
+      "element": "Fire",
+      "name": "Sunburst"
+    },
+    {
+      "level": 8,
+      "element": "Water",
+      "name": "Discern Location"
+    },
+    {
+      "level": 8,
+      "element": "Water",
+      "name": "Mass Heal"
+    },
+    {
+      "level": 8,
+      "element": "Water",
+      "name": "Regenerate"
+    },
+    {
+      "level": 8,
+      "element": "All",
+      "name": "Summon Nature's Ally VIII (Greater Elemental Only)"
+    },
+    {
+      "level": 9,
+      "element": "Air",
+      "name": "Teleportation Circle"
+    },
+    {
+      "level": 9,
+      "element": "Air",
+      "name": "Etherealness"
+    },
+    {
+      "level": 9,
+      "element": "Earth",
+      "name": "Antipathy"
+    },
+    {
+      "level": 9,
+      "element": "Earth",
+      "name": "Imprisonment"
+    },
+    {
+      "level": 9,
+      "element": "Fire",
+      "name": "Meteor Swarm"
+    },
+    {
+      "level": 9,
+      "element": "Fire",
+      "name": "Implosion"
+    },
+    {
+      "level": 9,
+      "element": "Water",
+      "name": "True Resurrection"
+    },
+    {
+      "level": 9,
+      "element": "Water",
+      "name": "Storm of Vengeance"
+    },
+    {
+      "level": 9,
+      "element": "All",
+      "name": "Elemental Swarm"
+    },
+    {
+      "level": 9,
+      "element": "All",
+      "name": "Summon Nature's Ally IX (Elder Elemental Only)"
+    }
+  ]
+}

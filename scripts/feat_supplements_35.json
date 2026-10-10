@@ -134,7 +134,7 @@
     "feats/improved-familiar-1484": {
       "name": "Improved Familiar",
       "inheritsFromFeat": "feats/improved-familiar-1481",
-      "effectSummary": "Uses the core Improved Familiar rules and adds Forgotten Realms familiar choices from Player's Guide to Faerûn.",
+      "effectSummary": "Expands the familiars you may select when acquiring a new familiar. You may choose a deathfang (neutral evil, minimum arcane caster level 9th), flying snake (neutral, 3rd), lizard, spitting crawler (neutral, 3rd), lynx (neutral, 3rd), osquip (neutral evil, 5th), or tressym (neutral good, 5th). You must meet the listed minimum arcane caster level, and the familiar's alignment may be no more than one step from yours on each alignment axis.",
       "variantOptions": [
         {
           "name": "Deathfang",
@@ -181,7 +181,7 @@
     "feats/improved-familiar-1485": {
       "name": "Improved Familiar",
       "inheritsFromFeat": "feats/improved-familiar-1481",
-      "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Races of Faerûn.",
+      "effectSummary": "Expands the familiars you may select when acquiring a new familiar. You may choose a flying snake (neutral, minimum arcane caster level 3rd; master gains +2 on saves against acid), deathfang (neutral evil, 9th; master must be evil and have Spell Focus (Necromancy)), lizard, spitting crawler (neutral, 3rd; master gains +2 on saves against acid), lynx (neutral, 3rd; master gains +3 on Move Silently checks), or osquip (neutral, 5th; master gains +2 on Hide and Listen checks). You must meet the listed minimum arcane caster level and any listed special requirement, and the familiar's alignment may be no more than one step from yours on each alignment axis.",
       "variantOptions": [
         {
           "name": "Flying snake",

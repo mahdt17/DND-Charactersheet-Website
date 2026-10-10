@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-07-candidates75-ordinary1",
+  "entries": {
+    "classes/arcane-trickster-379": {
+      "name": "Arcane Trickster",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-trickster-379",
+      "proficiencies": [],
+      "proficiencyText": "Arcane tricksters gain no proficiency with any weapon or armor.",
+      "prerequisites": [
+        {"kind":"alignment","label":"Alignment","text":"Any nonlawful"},
+        {"kind":"skills","label":"Skills","text":"Decipher Script 7 ranks"},
+        {"kind":"skills","label":"Skills","text":"Disable Device 7 ranks"},
+        {"kind":"skills","label":"Skills","text":"Escape Artist 7 ranks"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (arcana) 4 ranks"},
+        {"kind":"spells","label":"Spells","text":"Ability to cast mage hand and at least one arcane spell of 3rd level or higher."},
+        {"kind":"special","label":"Special","text":"Sneak attack +2d6."}
+      ],
+      "classSkills": ["Appraise","Balance","Jump","Bluff","Climb","Concentration","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Gather Information","Hide","Knowledge (arcana)","Knowledge (architecture and engineering)","Knowledge (dungeoneering)","Knowledge (geography)","Knowledge (history)","Knowledge (local)","Knowledge (nature)","Knowledge (nobility and royalty)","Knowledge (religion)","Knowledge (the planes)","Listen","Move Silently","Open Lock","Profession","Search","Sense Motive","Sleight of Hand","Speak Language","Spellcraft","Spot","Swim","Tumble","Use Rope","Knowledge (psionics)"],
+      "reviewEvidence": {
+        "sourceUrl":"https://new.dndtools.org/classes/arcane-trickster-379",
+        "requirementsUrl":"https://www.mordaedil.com/dnd/?cls=379",
+        "classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=379",
+        "reviewDate":"2026-10-07",
+        "note":"Exact DMG v.3.5 numeric source record reviewed independently; restored the full alignment, skill, spell and sneak-attack entry gate and exact class-skill table."
+      }
+    },
+    "classes/eldritch-knight-386": {
+      "name": "Eldritch Knight",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/eldritch-knight-386",
+      "proficiencies": [],
+      "proficiencyText": "Eldritch knights gain no proficiency with any weapon or armor.",
+      "prerequisites": [
+        {"kind":"weapon_proficiency","label":"Weapon Proficiency","text":"Must be proficient with all martial weapons."},
+        {"kind":"spells","label":"Spells","text":"Able to cast 3rd-level arcane spells."}
+      ],
+      "classSkills": ["Ride","Jump","Concentration","Craft","Decipher Script","Knowledge (arcana)","Knowledge (nobility and royalty)","Sense Motive","Spellcraft","Swim"],
+      "reviewEvidence": {
+        "sourceUrl":"https://new.dndtools.org/classes/eldritch-knight-386",
+        "requirementsUrl":"https://www.mordaedil.com/dnd/?cls=386",
+        "classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=386",
+        "reviewDate":"2026-10-07",
+        "note":"Exact DMG v.3.5 record reviewed; the level-1 fighter bonus feat and level 2-10 arcane advancement are kept source-faithful."
+      }
+    },
+    "classes/mystic-theurge-390": {
+      "name": "Mystic Theurge",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/mystic-theurge-390",
+      "proficiencies": [],
+      "proficiencyText": "Mystic theurges gain no proficiency with any weapon or armor.",
+      "prerequisites": [
+        {"kind":"skills","label":"Skills","text":"Knowledge (arcana) 6 ranks"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (religion) 6 ranks"},
+        {"kind":"spells","label":"Spells","text":"Able to cast 2nd-level divine spells and 2nd-level arcane spells."}
+      ],
+      "classSkills": ["Concentration","Craft","Decipher Script","Knowledge (arcana)","Knowledge (religion)","Profession","Sense Motive","Spellcraft"],
+      "reviewEvidence": {
+        "sourceUrl":"https://new.dndtools.org/classes/mystic-theurge-390",
+        "requirementsUrl":"https://www.mordaedil.com/dnd/?cls=390",
+        "classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=390",
+        "reviewDate":"2026-10-07",
+        "note":"Exact DMG v.3.5 record reviewed; both Knowledge gates and simultaneous arcane/divine advancement are source-locked."
+      }
+    },
+    "classes/fist-of-hextor-769": {
+      "name": "Fist of Hextor",
+      "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/fist-of-hextor-769",
+      "minBab": "5",
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
+      ],
+      "proficiencyText": "Fists of Hextor are proficient with all simple and martial weapons, all types of armor, and shields.",
+      "prerequisites": [
+        {"kind":"alignment","label":"Alignment","text":"Lawful evil, neutral evil, or lawful neutral."},
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+5"},
+        {"kind":"feats","label":"Feats","text":"Power Attack"},
+        {"kind":"feats","label":"Feats","text":"Cleave"},
+        {"kind":"skills","label":"Skills","text":"Intimidate 4 ranks"},
+        {"kind":"skills","label":"Skills","text":"Spot 4 ranks"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (religion) 4 ranks"},
+        {"kind":"weapon_proficiency","label":"Weapon Proficiency","text":"Spiked gauntlet."},
+        {"kind":"patron_deity","label":"Patron Deity","text":"Must worship Hextor."},
+        {"kind":"special","label":"Special","text":"Must survive the ritual ceremony of induction into the Fists of Hextor."}
+      ],
+      "classSkills": ["Ride","Climb","Intimidate","Knowledge (religion)","Profession","Sense Motive","Spot"],
+      "reviewEvidence": {
+        "sourceUrl":"https://new.dndtools.org/classes/fist-of-hextor-769",
+        "requirementsUrl":"https://www.mordaedil.com/dnd/?cls=769",
+        "classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=769",
+        "reviewDate":"2026-10-07",
+        "note":"Exact Sword and Fist D&D 3.0 record reviewed independently, including its alignment, feat, skill, deity, induction and spiked-gauntlet requirements."
+      }
+    },
+    "classes/force-missile-mage-986": {
+      "name": "Force Missile Mage",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/force-missile-mage-986",
+      "proficiencies": [],
+      "proficiencyText": "Force missile mages gain no new weapon or armor proficiencies.",
+      "prerequisites": [
+        {"kind":"feats","label":"Feats","text":"Combat Casting"},
+        {"kind":"skills","label":"Skills","text":"Concentration 9 ranks"},
+        {"kind":"skills","label":"Skills","text":"Spellcraft 9 ranks"},
+        {"kind":"spells","label":"Spells","text":"Ability to cast magic missile once per day."}
+      ],
+      "classSkills": ["Concentration","Craft","Knowledge (arcana)","Profession","Spellcraft","Spot"],
+      "reviewEvidence": {
+        "sourceUrl":"https://new.dndtools.org/classes/force-missile-mage-986",
+        "requirementsUrl":"https://www.mordaedil.com/dnd/?cls=986",
+        "classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=986",
+        "reviewDate":"2026-10-07",
+        "note":"Exact Dragon Compendium record reviewed; source-specific magic-missile features and the level 2-5 unrestricted existing-caster advancement are preserved."
+      }
+    },
+    "classes/master-of-the-yuirwood-886": {
+      "name": "Master of the Yuirwood",
+      "sourceBook": "Prestige Class Unapproachable East",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-yuirwood-886",
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
+      ],
+      "proficiencyText": "Masters of the Yuirwood are proficient with all simple and martial weapons, light armor, and shields.",
+      "prerequisites": [
+        {"kind":"alignment","label":"Alignment","text":"Any nonevil"},
+        {"kind":"race","label":"Race","text":"Elf or half-elf"},
+        {"kind":"feats","label":"Feats","text":"Alertness"},
+        {"kind":"feats","label":"Feats","text":"Track"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (nature) 5 ranks"},
+        {"kind":"skills","label":"Skills","text":"Survival 10 ranks"},
+        {"kind":"regional_eligibility","label":"Special","text":"Must qualify to select regional feats from Aglarond or the star elf region; the region is the character's home region or the character has 2 ranks in Knowledge (local—Aglarond or star elf)."}
+      ],
+      "classSkills": ["Jump","Climb","Concentration","Handle Animal","Hide","Knowledge (nature)","Listen","Move Silently","Profession","Search","Spellcraft","Spot","Survival"],
+      "reviewEvidence": {
+        "sourceUrl":"https://new.dndtools.org/classes/master-of-the-yuirwood-886",
+        "requirementsUrl":"https://www.mordaedil.com/dnd/?cls=886",
+        "classSkillsUrl":"https://www.mordaedil.com/dnd/?cls=886",
+        "reviewDate":"2026-10-07",
+        "note":"Exact Unapproachable East D&D 3.0 record reviewed, including regional eligibility, training, all ten levels of casting advancement, menhir use scaling and SLAs."
+      }
+    }
+  }
+}

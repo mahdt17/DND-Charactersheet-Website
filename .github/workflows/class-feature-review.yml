@@ -1,0 +1,36 @@
+name: 3.5 class feature review
+
+on:
+  push:
+    branches: [codex/class-integration-engine]
+    paths:
+      - ".github/class-feature-review.request"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: class-feature-review-35
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export class feature source blocks
+        run: >
+          python scripts/export_class_feature_review.py
+          --shard-count 8 --shard-index ${{ matrix.shard }} --delay 0.08
+          --output test-results/class-features/shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: class-feature-review-${{ matrix.shard }}
+          path: test-results/class-features/shard-${{ matrix.shard }}.json
+          retention-days: 1

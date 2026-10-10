@@ -1,0 +1,809 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/arcane-devotee-657": [
+      {
+        "name": "Reach of the Holy",
+        "description": "Apply Enlarge Spell to a spell without changing its slot or casting time. Daily uses equal 1 + Charisma modifier, minimum 1.",
+        "resource": {
+          "max": 1,
+          "ability": "cha",
+          "minimum": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Sacred Defense",
+        "description": "Gain +1 on saves against divine spells and outsider spell-like or supernatural abilities; the bonus becomes +2 at 4th level."
+      },
+      {
+        "name": "Divine Synergy",
+        "description": "A harmless spell cast on you by another divine caster of your patron deity is empowered when Empower Spell can affect it."
+      },
+      {
+        "name": "Divine Shroud",
+        "description": "Once per day surround yourself with divine power that functions like spell resistance, using your arcane caster level.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/argent-savant-224": [
+      {
+        "name": "Force Specialization",
+        "description": "Gain +2 on attack rolls with force spells and add +1 damage per damage die, or +1 total when the spell does not roll damage dice."
+      },
+      {
+        "name": "Force Armor",
+        "description": "When you cast a force spell that grants an armor or shield AC bonus, increase that bonus by 2."
+      },
+      {
+        "name": "Enduring Force",
+        "aliases": [
+          "Extended Force"
+        ],
+        "description": "Your force spells have doubled duration without a higher slot or longer casting time, and the DC to counter or dispel them increases by 4."
+      },
+      {
+        "name": "Ablate Force",
+        "description": "Reduce force damage you take by your argent savant class level; a multi-hit force spell counts as one attack for this reduction."
+      },
+      {
+        "name": "Unbind Force",
+        "description": "As a standard action, attempt to dispel one force effect within 60 feet. A successful caster-level check ends it and releases force damage around it.",
+        "actionType": "Standard action"
+      }
+    ],
+    "classes/cipher-adept-688": [
+      {
+        "name": "Improved Unarmed Strike",
+        "description": "Gain Improved Unarmed Strike as a bonus feat.",
+        "featName": "Improved Unarmed Strike",
+        "ignorePrerequisites": true
+      },
+      {
+        "name": "Strike the Weak Spot",
+        "description": "As a standard action attack an unattended object; after a hit, a Concentration check can let that attack ignore the object's hardness.",
+        "actionType": "Standard action"
+      },
+      {
+        "name": "Evasion",
+        "description": "On a successful Reflex save for half damage, take no damage while wearing light armor or no armor."
+      },
+      {
+        "name": "Combat Instinct",
+        "description": "Gain +1 insight to AC and initiative at 3rd level, improving to +2 at 6th and +3 at 9th."
+      },
+      {
+        "name": "Bonus Feat",
+        "description": "Choose a listed bonus feat at 4th level and another at 8th level, meeting its prerequisites.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          4,
+          8
+        ],
+        "uniqueChoices": true,
+        "choiceOptions": [
+          "Acrobatic",
+          "Alertness",
+          "Animal Affinity",
+          "Combat Reflexes",
+          "Deft Hands",
+          "Improved Critical",
+          "Improved Disarm",
+          "Improved Sunder",
+          "Lightning Reflexes",
+          "Mobility",
+          "Nimble Fingers",
+          "Precise Shot",
+          "Self-Sufficient",
+          "Spring Attack"
+        ],
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      },
+      {
+        "name": "Combination Strike",
+        "description": "After confirming a melee critical hit, immediately attempt a disarm or sunder against that opponent as a free action.",
+        "actionType": "Free action"
+      },
+      {
+        "name": "Improved Evasion",
+        "description": "Take no damage on a successful Reflex save for half and only half damage on a failed save; helpless characters do not benefit."
+      },
+      {
+        "name": "Move Without Barriers",
+        "description": "Become ethereal for a daily total of 1 + Wisdom modifier rounds, minimum 1; the rounds need not be consecutive.",
+        "resource": {
+          "max": 1,
+          "ability": "wis",
+          "minimum": 1,
+          "period": "day",
+          "unit": "rounds"
+        }
+      }
+    ],
+    "classes/cloud-anchorite-499": [
+      {
+        "name": "Climb Speed",
+        "description": "Gain a climb speed that begins at 10 feet and increases by 10 feet at each odd class level; the benefit is lost in armor or with a medium or heavy load."
+      },
+      {
+        "name": "Wisdom of the Mountain",
+        "description": "Add Wisdom modifier on Balance, Climb, and Jump checks in mountain terrain and may take 10 on those skills even when normally prevented."
+      },
+      {
+        "name": "Slow Breath",
+        "description": "Hold breath twice as long and gain +2 on specified Fortitude saves against inhaled poison and altitude hazards; the save bonus becomes +6 at 6th level."
+      },
+      {
+        "name": "Bonus Feat",
+        "description": "Choose a listed bonus feat at 3rd level and again at 7th level, meeting its prerequisites.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          3,
+          7
+        ],
+        "uniqueChoices": true,
+        "choiceOptions": [
+          "Acrobatic",
+          "Agile",
+          "Athletic",
+          "Cold Endurance",
+          "Endurance",
+          "Great Fortitude",
+          "Improved Cold Endurance",
+          "Self-Sufficient",
+          "Skill Focus",
+          "Track"
+        ],
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      },
+      {
+        "name": "Resistance to Cold",
+        "description": "Gain cold resistance 5 at 4th level, increasing to cold resistance 10 at 8th level."
+      },
+      {
+        "name": "Fast Movement",
+        "description": "Gain +10 feet land speed at 4th level and +20 feet at 8th while unarmored and not carrying a medium or heavy load."
+      },
+      {
+        "name": "Empty Stride",
+        "description": "Walk over surfaces you would normally sink into while maintaining the required Concentration check; the check normally uses a standard action and can be maintained as a move action at higher DC."
+      },
+      {
+        "name": "Improved Slow Breath",
+        "description": "The Slow Breath saving-throw bonus improves to +6 against inhaled poisons, high-elevation fatigue, and altitude sickness."
+      },
+      {
+        "name": "Acrobatic Charge",
+        "description": "Charge across difficult terrain that would normally prevent a charge, making movement checks required by specific obstacles."
+      },
+      {
+        "name": "Walk on the Clouds",
+        "description": "Empty Stride can be maintained as a free action, and once per day you can use air walk as a quickened spell-like ability.",
+        "actionType": "Swift action",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Immortality of the Mountain",
+        "description": "You no longer die of old age, ignore altitude sickness and thin-air fatigue, and gain +2 sacred on Wisdom checks and saves in mountain terrain."
+      },
+      {
+        "level": 1,
+        "name": "Monk Abilities",
+        "description": "Cloud anchorite levels stack with monk levels to determine unarmed damage and the monk AC bonus."
+      }
+    ],
+    "classes/crimson-scourge-262": [
+      {
+        "name": "Kid Gloves",
+        "description": "Deal lethal or nonlethal weapon damage interchangeably without the normal -4 attack penalty."
+      },
+      {
+        "name": "Special Dispensation",
+        "description": "While bounty hunting is accepted locally, a slavers guild is present, or an influential patron supports you, gain the benefit of the Special Dispensation feat without its prerequisites."
+      },
+      {
+        "name": "Swift Tracker",
+        "description": "Starting at 2nd level, make Urban Tracking Gather Information checks every half-hour without the usual -5 penalty."
+      },
+      {
+        "name": "Painful Strike",
+        "description": "A qualifying melee attack that deals nonlethal damage to an unarmed foe deals +1d6 nonlethal damage at 3rd level, +2d6 at 6th, and +3d6 at 9th."
+      },
+      {
+        "name": "Immovable Heart",
+        "description": "Gain +2 competence on saves against enchantment spells and fear effects."
+      },
+      {
+        "name": "Improved Disarm",
+        "description": "Gain Improved Disarm as a bonus feat without needing its prerequisites.",
+        "featName": "Improved Disarm",
+        "ignorePrerequisites": true
+      },
+      {
+        "name": "Threaten",
+        "description": "Demoralize an opponent as a move action; success lasts for Strength modifier rounds, minimum 1, and you gain +2 on the Intimidate check.",
+        "actionType": "Move action"
+      },
+      {
+        "name": "Deadened Hide",
+        "description": "Become immune to nonlethal damage and to effects that inflict or manipulate pain."
+      },
+      {
+        "name": "Smell of Blood",
+        "description": "Gain scent and a +3 insight bonus on initiative checks."
+      }
+    ],
+    "classes/divine-champion-661": [
+      {
+        "name": "Lay on Hands",
+        "description": "Heal yourself or a creature with the same patron deity by touch as a paladin's lay on hands; the class-derived healing pool is based on divine champion level and Charisma bonus.",
+        "actionType": "Standard action",
+        "resource": {
+          "levelTimesAbility": 1,
+          "ability": "cha",
+          "abilityMinimum": 0,
+          "period": "day",
+          "unit": "hp"
+        }
+      },
+      {
+        "name": "Bonus Feat",
+        "description": "Choose a listed bonus feat at 2nd level and another at 4th level, meeting its prerequisites.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          2,
+          4
+        ],
+        "uniqueChoices": true,
+        "choiceOptions": [
+          "Blind-Fight",
+          "Combat Expertise",
+          "Combat Reflexes",
+          "Exotic Weapon Proficiency",
+          "Improved Critical",
+          "Improved Initiative",
+          "Improved Turning",
+          "Quick Draw",
+          "Weapon Focus"
+        ],
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      },
+      {
+        "name": "Sacred Defense",
+        "description": "Gain +1 on saves against divine spells and outsider spell-like or supernatural abilities; the bonus improves to +2 at 4th level."
+      },
+      {
+        "name": "Smite Infidel",
+        "description": "Once per day make a melee smite against a creature with a different patron deity, adding Charisma bonus to the attack and class level to damage.",
+        "actionType": "Special attack",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Divine Wrath",
+        "description": "Once per day gain damage reduction 5/-, plus +3 on attacks, damage, and saves for Charisma modifier rounds, minimum 1.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/dread-fang-of-lolth-428": [
+      {
+        "name": "Lolth's Will",
+        "description": "Your racial Will-save bonus against spells and spell-like abilities increases to +4."
+      },
+      {
+        "name": "Lolth's Whispers",
+        "description": "Gain +2 insight on damage rolls; as a swift action you can give up the bonus to grant it to a visible ally within 30 feet for 1 round.",
+        "actionType": "Swift action"
+      },
+      {
+        "name": "Sudden Strike",
+        "description": "Deal extra precision damage when a target is denied Dexterity to AC; the bonus begins at +1d6 and increases by +1d6 at each later odd class level."
+      },
+      {
+        "name": "Poison Use",
+        "description": "Never risk accidentally poisoning yourself when applying poison to a weapon."
+      },
+      {
+        "name": "Team Maneuverability",
+        "description": "Add half class level as an insight bonus on Climb and Jump; visible allies within 30 feet gain +2 competence on those checks."
+      },
+      {
+        "name": "Uncanny Dodge",
+        "description": "Retain Dexterity bonus to AC when flat-footed or attacked by an unseen foe; if already possessed, gain improved uncanny dodge instead."
+      },
+      {
+        "name": "Improved Evasion",
+        "description": "Take no damage on a successful Reflex save for half and only half damage on a failed save."
+      },
+      {
+        "name": "Team Defense",
+        "description": "Gain +1 dodge AC, improving to +2 at 8th level; as a swift action you can give up the bonus and grant it to a visible ally within 30 feet for 1 round.",
+        "actionType": "Swift action"
+      },
+      {
+        "name": "Spider Bite",
+        "description": "The save DC against the initial effect of poison delivered by your poisoned weapon increases by 2."
+      },
+      {
+        "name": "Opportunist",
+        "description": "Once per round make an attack of opportunity against an opponent just damaged in melee by another character."
+      },
+      {
+        "name": "Improved Uncanny Dodge",
+        "description": "You can no longer be flanked except by a sufficiently higher-level rogue, following the standard improved uncanny dodge interaction."
+      },
+      {
+        "name": "Ambush",
+        "description": "During a surprise round, act normally if aware of opponents; if surprised, you can still take a standard action."
+      }
+    ],
+    "classes/escalation-mage-467": [
+      {
+        "name": "The Shade Within",
+        "description": "At 1st level permanently gain hit points equal to 1 + Charisma modifier, minimum 1, then gain 1 additional hit point at each later class level."
+      },
+      {
+        "name": "Escalation",
+        "description": "You have escalation uses per day equal to class level. Normally as a swift action, spend a use to apply the unlocked Shadow Focus, Power, Growth, or Haste effect to the next spell within 1 round, accepting that mode's caster-level check and failure cost.",
+        "actionType": "Swift action",
+        "resource": {
+          "perLevel": 1,
+          "period": "day"
+        },
+        "aliases": [
+          "Escalation (Shadow Focus)",
+          "Escalation (Shadow Power)",
+          "Escalation (Shadow Growth)",
+          "Escalation (Shadow Haste)"
+        ]
+      },
+      {
+        "name": "Soul of Shadow",
+        "description": "Each day you may use each of the four escalation modes once without its caster-level check, in addition to normal escalation uses, but not on your highest available arcane spell level."
+      }
+    ],
+    "classes/eye-of-lolth-429": [
+      {
+        "name": "Aura of Truth",
+        "description": "Creatures within 20 feet must save or be unable to speak falsehoods, functioning like zone of truth with a DC based on class level and Charisma."
+      },
+      {
+        "name": "Blindsense",
+        "description": "Gain blindsense 10 feet at 1st level, increasing by 10 feet at 4th, 7th, and 9th levels."
+      },
+      {
+        "name": "Lolth's Vision",
+        "description": "Add class level to Spot checks; as a swift action grant that bonus to an ally within 30 feet for 1 round.",
+        "actionType": "Swift action"
+      },
+      {
+        "name": "Sneak Attack",
+        "description": "Gain +1d6 sneak attack at 2nd level, increasing to +2d6 at 5th and +3d6 at 8th."
+      },
+      {
+        "name": "Teamwork Observation",
+        "description": "After studying one target for 1 minute, you and allies within 30 feet gain +2 on attack and weapon damage against it for 5 rounds; the bonus becomes +4 at 7th level."
+      },
+      {
+        "name": "Hide in Plain Sight",
+        "description": "While within 10 feet of a shadow, you can use Hide even while observed."
+      },
+      {
+        "name": "Team Sense",
+        "description": "Gain +2 insight on initiative and Listen, Search, and Spot checks; allies within 30 feet gain the same bonus."
+      },
+      {
+        "name": "Team Stealth",
+        "description": "Reduce fast-movement penalties on Hide and Move Silently; as a swift action grant this benefit to a character within 30 feet for 1 round.",
+        "actionType": "Swift action"
+      },
+      {
+        "name": "Vanish",
+        "description": "As a swift action become invisible for 5 rounds. The ability is at will but cannot be used again until 1 minute has passed.",
+        "actionType": "Swift action"
+      }
+    ],
+    "classes/fatespinner-211": [
+      {
+        "name": "Spin Fate",
+        "description": "Each day gain spin points equal to fatespinner level; as a free action spend any number to raise the save DC of a spell by the same amount.",
+        "actionType": "Free action",
+        "resource": {
+          "perLevel": 1,
+          "period": "day",
+          "unit": "spin"
+        }
+      },
+      {
+        "name": "Fickle Finger of Fate",
+        "description": "Once per day as an immediate action force another visible creature to reroll a roll it just made and use the new result.",
+        "actionType": "Immediate action",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Spin Destiny",
+        "description": "You can spend the same Spin Fate pool before rolling to add spin points one-for-one to your own attack roll, saving throw, or skill check."
+      },
+      {
+        "name": "Deny Fate",
+        "description": "Once per day, the first stabilization check you would make while dying automatically succeeds.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Resist Fate",
+        "description": "Once per day reroll one roll you just made and keep the second result.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Seal Fate",
+        "description": "Once per day as a free action choose a visible creature within 30 feet with no more Hit Dice than you; its next save within 1 round gains +10 or suffers -10.",
+        "actionType": "Free action",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/fist-of-raziel-145": [
+      {
+        "name": "Magic Circle",
+        "description": "You are continuously surrounded by a magic circle against evil effect using your character level as caster level."
+      },
+      {
+        "name": "Smite Evil",
+        "description": "Smite evil uses increase from 1/day at 1st level to 5/day at 9th. The smite adds Charisma to the attack and class level to damage, with additional good-aligned, confirming, holy, fiendsmite, and chain benefits as class level rises.",
+        "actionType": "Special attack",
+        "resource": {
+          "maxByLevel": {
+            "1": 1,
+            "3": 2,
+            "5": 3,
+            "7": 4,
+            "9": 5
+          },
+          "period": "day"
+        }
+      },
+      {
+        "name": "Sanctify Martial Strike",
+        "description": "Gain Sanctify Martial Strike as a bonus feat at 4th level.",
+        "featName": "Sanctify Martial Strike",
+        "ignorePrerequisites": true
+      },
+      {
+        "name": "Sunder Evil Item",
+        "description": "Deal double damage when attacking an evil object or evil construct; this does not stack with Great Sunder."
+      },
+      {
+        "name": "Holy Martial Strike",
+        "description": "At 10th level, any weapon you wield is treated as holy and deals +2d6 damage to evil creatures, subject to the stated nonstacking rules."
+      }
+    ],
+    "classes/forest-reeve-227": [
+      {
+        "name": "Earth's Defender",
+        "description": "Once per day as a move action give one wielded weapon a temporary enhancement bonus for 1 minute per character level: +1 at 1st, +2 at 3rd, +3 at 5th; it does not stack with an existing enhancement bonus.",
+        "actionType": "Move action",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Fast Movement",
+        "description": "Base land speed increases by 10 feet and stacks with fast movement from other sources."
+      },
+      {
+        "name": "Nature's Rejuvenation",
+        "description": "After 1 minute touching a living plant or fertile ground, affect yourself as bear's endurance, cure moderate wounds, or lesser restoration. Uses are 1/day, 2/day at 3rd, and 3/day at 5th.",
+        "resource": {
+          "maxByLevel": {
+            "1": 1,
+            "3": 2,
+            "5": 3
+          },
+          "period": "day"
+        }
+      },
+      {
+        "name": "Woodland Stride",
+        "description": "Move through natural overgrowth at normal speed without harm; if you already have woodland stride, gain +10 feet land speed instead."
+      },
+      {
+        "name": "Swift Tracker",
+        "description": "Follow tracks at normal movement speed; if already possessed, lessen the tracking penalties by an additional 5."
+      },
+      {
+        "name": "Camouflage",
+        "description": "Use Hide in any natural terrain even while being observed.",
+        "aliases": [
+          "Camuflage"
+        ]
+      },
+      {
+        "name": "Whispers of the Forest",
+        "description": "Once per day ask a simple question about current events in wilderness on your land mass and receive a short answer through the surrounding natural world.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/gnome-giant-slayer-314": [
+      {
+        "name": "Favored Enemy (Giant)",
+        "description": "Gain +2 on specified skills and weapon damage against giants; the bonus increases by +2 every three class levels and stacks with ranger favored enemy (giant)."
+      },
+      {
+        "name": "Crafty Fighter",
+        "description": "Gain +4 dodge AC against giants or +2 against other creatures at least two sizes larger; the benefit is lost when Dexterity to AC is lost or while in heavy armor."
+      },
+      {
+        "name": "Slippery",
+        "description": "Add class level on checks to escape a grapple by a creature at least two sizes larger and may move through such creatures' spaces when physically possible."
+      },
+      {
+        "name": "Close Shot",
+        "description": "Using a ranged weapon while threatened by a giant does not provoke attacks of opportunity from that giant."
+      },
+      {
+        "name": "Fast Movement",
+        "description": "Gain +10 feet base land speed while in no, light, or medium armor and not carrying a heavy load."
+      },
+      {
+        "name": "Improved Mobility",
+        "description": "Gain +4 dodge AC while moving out of or within a giant's threatened area; this stacks with Mobility."
+      },
+      {
+        "name": "Annoying Strike",
+        "description": "Whenever you damage a giant in melee, that giant is shaken for 1 round."
+      },
+      {
+        "name": "Defensive Roll",
+        "description": "Once per day when a giant's weapon or blow would reduce you to 0 or fewer hit points, make a Reflex save against the damage with class level added; success halves the damage.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/nightcloak-971": [
+      {
+        "name": "Might of Darkness",
+        "description": "Cast spells with the darkness descriptor at +2 caster level."
+      },
+      {
+        "name": "Eyes of Night",
+        "description": "Gain darkvision 60 feet, see through magical darkness out to 10 feet, and cannot be blinded by magical effects."
+      },
+      {
+        "name": "Shadow Talk",
+        "description": "As a free action whisper a short mental message heard by worshipers of your patron deity within 500 feet; nearby observers may hear the actual whisper.",
+        "actionType": "Free action"
+      },
+      {
+        "name": "True Lies",
+        "description": "Once per day modify a creature's memories as modify memory, using character level as caster level and the class's stated save DC.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Grace of the Dark",
+        "description": "Add your Intelligence bonus, if any, to all saving throws."
+      },
+      {
+        "name": "Minions of Night",
+        "description": "Once per week as a standard action summon one shadow per nightcloak level for a number of rounds equal to class level; shadows they create disappear with them.",
+        "actionType": "Standard action",
+        "resource": {
+          "max": 1,
+          "period": "week"
+        }
+      },
+      {
+        "name": "Voice of Ineffable Evil",
+        "description": "Once per day command a creature as dominate monster for up to 24 hours, using character level as caster level; this spell-like ability has a verbal component.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/stormtalon-746": [
+      {
+        "name": "Foot Talons",
+        "description": "While airborne, your sharpened foot talons are natural weapons you are proficient with, dealing 1d6 plus Strength and usable as a secondary attack during a weapon full attack."
+      },
+      {
+        "name": "Bonus Aerial Feat",
+        "description": "At every even class level choose one feat from the stormtalon's aerial feat list.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          2,
+          4,
+          6,
+          8,
+          10
+        ],
+        "uniqueChoices": true,
+        "choiceOptions": [
+          "Aerial Reflexes",
+          "Aerial Superiority",
+          "Born Flyer",
+          "Diving Charge",
+          "Flyby Attack",
+          "Hover",
+          "Improved Flight",
+          "Multiattack",
+          "Wingover"
+        ],
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      },
+      {
+        "name": "Fast Flight",
+        "description": "Increase racial fly speed by 10 feet at 3rd level, 20 feet at 5th, and 40 feet at 9th, following the restrictions of barbarian fast movement."
+      },
+      {
+        "name": "Improved Foot Talons",
+        "description": "Foot talons improve to 1d8 damage and can be used even while not flying."
+      }
+    ],
+    "classes/sword-of-righteousness-155": [
+      {
+        "name": "Bonus Exalted Feat",
+        "description": "At each class level choose one bonus feat whose feat type is Exalted.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          1,
+          2,
+          3
+        ],
+        "choiceFeatType": "Exalted",
+        "uniqueChoices": true,
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      }
+    ],
+    "classes/thayan-knight-337": [
+      {
+        "name": "Horrors of Thay",
+        "description": "Gain +2 morale on saves against fear and +1 against charm, improving at 4th level to +4 and +2; these bonuses do not apply against Red Wizards."
+      },
+      {
+        "name": "Zulkir's Favor",
+        "description": "A magical tattoo grants +2 resistance on Reflex saves and +2 morale on Intimidate while visible, but you automatically fail saves against mind-affecting spells cast by a Red Wizard."
+      },
+      {
+        "name": "Zulkir's Defender",
+        "description": "Gain +2 morale on attack and damage against a creature that attacks you or that you have seen attack a Red Wizard."
+      },
+      {
+        "name": "Fighter Feat",
+        "description": "At 3rd level choose a fighter bonus feat other than Weapon Specialization.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          3
+        ],
+        "choiceCount": 1,
+        "choiceFeatType": "Fighter",
+        "choiceExcludeOptions": [
+          "Weapon Specialization"
+        ],
+        "choiceValidatePrerequisites": true
+      },
+      {
+        "name": "Final Stand",
+        "description": "Once per day as a standard action grant 2d10 temporary hit points to nearby allies; the number affected and duration both equal class level + Charisma modifier.",
+        "actionType": "Standard action",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      },
+      {
+        "name": "Zulkir's Champion",
+        "description": "Once per day add +2 luck to one saving throw after seeing the roll; the visible champion tattoo also raises the Intimidate morale bonus to +4.",
+        "resource": {
+          "max": 1,
+          "period": "day"
+        }
+      }
+    ],
+    "classes/blade-bravo-726": [
+      {
+        "name": "Flourish",
+        "description": "While in light or no armor, add blade bravo class level to Bluff checks made to feint in combat."
+      },
+      {
+        "name": "Goad",
+        "description": "Gain Goad as a bonus feat; with at least 5 Bluff ranks, the save DC against Goad increases by 2.",
+        "featName": "Goad",
+        "ignorePrerequisites": true
+      },
+      {
+        "name": "Mobile Fighting",
+        "description": "After moving at least 5 feet, gain +1 dodge AC until your next turn while in light or no armor and while retaining Dexterity to AC."
+      },
+      {
+        "name": "Bonus Feat",
+        "description": "Choose a listed combat-oriented bonus feat at 3rd, 6th, and 9th levels, meeting its prerequisites.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [
+          3,
+          6,
+          9
+        ],
+        "uniqueChoices": true,
+        "choiceOptions": [
+          "Acrobatic",
+          "Agile",
+          "Alertness",
+          "Blind-Fight",
+          "Combat Reflexes",
+          "Dodge",
+          "Greater Two-Weapon Fighting",
+          "Improved Critical",
+          "Improved Disarm",
+          "Improved Feint",
+          "Improved Trip",
+          "Improved Two-Weapon Fighting",
+          "Mobility",
+          "Spring Attack",
+          "Two-Weapon Fighting",
+          "Whirlwind Attack"
+        ],
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      },
+      {
+        "name": "Melee Sneak Attack",
+        "description": "Deal +1d6 sneak attack damage with melee attacks at 4th level and +2d6 at 8th when the target qualifies for sneak attack; it stacks with other sneak attack only in melee."
+      },
+      {
+        "name": "Size Advantage",
+        "description": "While in light or no armor, gain +2 dodge AC per size category by which an attacking foe is larger than you."
+      },
+      {
+        "name": "Small but Deadly",
+        "description": "Gain +4 on rolls to confirm melee critical hits against creatures larger than you."
+      },
+      {
+        "name": "Lethal Riposte",
+        "description": "Once per round while in light or no armor, a foe that misses you with a melee attack provokes an attack of opportunity and loses Dexterity to AC against that attack."
+      }
+    ]
+  }
+}

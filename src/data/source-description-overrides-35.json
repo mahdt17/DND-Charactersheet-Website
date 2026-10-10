@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Exact-source user-facing description overrides for reviewed 3.5 records whose source prose delegates core mechanics to another rule. Overrides never match by name and must retain provenance for every expanded dependency.",
+  "entries": {
+    "feats/craft-aboleth-glyph-446": {
+      "name": "Craft Aboleth Glyph",
+      "benefitSha256": "5f2463594d527c4f0a875dd04ed6ef8eba61aa02cbae272989987efd55e12ff2",
+      "effectSummary": "Create a permanent magical glyph on an object or on up to 5 square feet of area per caster level. When creating it, set a password and/or trigger conditions based on physical characteristics, creature type, subtype or kind, alignment, or religion; the trigger cannot be based on class, Hit Dice, or level. Invisible creatures trigger it normally, while creatures passing ethereally do not. Choose either a blast glyph or a spell glyph. A blast glyph deals 1d8 damage per two caster levels (maximum 5d8) of acid, cold, electricity, fire, or sonic damage to the triggering creature and creatures within 5 feet; Reflex halves and spell resistance applies. A spell glyph stores a harmful spell of 3rd level or lower that you know, uses your caster level for level-dependent effects, and targets or centers the stored effect on the triggering creature as appropriate. The glyph is nearly invisible, can be identified and disabled as a magic trap, and can be dispelled. Unlike an ordinary glyph, an aboleth glyph automatically reforms 1 minute after being discharged or dispelled. Crafting takes 1 day per 1,000 gp of base price; base price is caster level × spell level × 1,000 gp, with XP cost equal to 1/25 of base price and raw materials equal to half. It can be permanently destroyed only by effects or damage capable of destroying a magic item. You can instead create one of the source-listed master glyphs, which uses its own listed effect and base cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-aboleth-glyph-446",
+          "role": "primary Lords of Madness feat record and Benefit-field digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/glyphOfWarding.htm",
+          "role": "D&D 3.5 SRD glyph of warding mechanics used to resolve the source cross-reference"
+        }
+      ]
+    },
+    "feats/armor-proficiency-medium-117": {
+      "name": "Armor Proficiency (medium)",
+      "effectSummary": "Gain proficiency with medium armor. When you wear medium armor with which you are proficient, its armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.",
+      "normalRule": "If you wear medium armor without proficiency, its armor check penalty also applies to attack rolls and to all skill checks that involve moving, including Ride.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-medium-117",
+          "role": "exact source record; Benefit and Normal defer to Armor Proficiency (light)"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-light-115",
+          "role": "referenced proficiency mechanics expanded into a standalone medium-armor description"
+        }
+      ]
+    },
+    "feats/armor-proficiency-heavy-113": {
+      "name": "Armor Proficiency (heavy)",
+      "effectSummary": "Gain proficiency with heavy armor. When you wear heavy armor with which you are proficient, its armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.",
+      "normalRule": "If you wear heavy armor without proficiency, its armor check penalty also applies to attack rolls and to all skill checks that involve moving, including Ride.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-heavy-113",
+          "role": "exact source record; Benefit and Normal defer to Armor Proficiency (light)"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-light-115",
+          "role": "referenced proficiency mechanics expanded into a standalone heavy-armor description"
+        }
+      ]
+    },
+    "feats/improved-familiar-1484": {
+      "name": "Improved Familiar",
+      "effectSummary": "Expands the familiars you may select when acquiring a new familiar. You may choose a deathfang (neutral evil, minimum arcane caster level 9th), flying snake (neutral, 3rd), lizard, spitting crawler (neutral, 3rd), lynx (neutral, 3rd), osquip (neutral evil, 5th), or tressym (neutral good, 5th). You must meet the listed minimum arcane caster level, and the familiar's alignment may be no more than one step from yours on each alignment axis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1484",
+          "role": "exact Player's Guide to Faerûn feat record and prerequisite"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1481",
+          "role": "referenced Improved Familiar selection and alignment mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/feats/players-guide-to-faerun--22/improved-familiar--1484/index.html",
+          "role": "same-source familiar option table cross-check"
+        }
+      ]
+    },
+    "feats/improved-familiar-1485": {
+      "name": "Improved Familiar",
+      "effectSummary": "Expands the familiars you may select when acquiring a new familiar. You may choose a flying snake (neutral, minimum arcane caster level 3rd; master gains +2 on saves against acid), deathfang (neutral evil, 9th; master must be evil and have Spell Focus (Necromancy)), lizard, spitting crawler (neutral, 3rd; master gains +2 on saves against acid), lynx (neutral, 3rd; master gains +3 on Move Silently checks), or osquip (neutral, 5th; master gains +2 on Hide and Listen checks). You must meet the listed minimum arcane caster level and any listed special requirement, and the familiar's alignment may be no more than one step from yours on each alignment axis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1485",
+          "role": "exact Races of Faerûn feat pointer and prerequisite"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1481",
+          "role": "referenced Improved Familiar selection and alignment mechanics"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/nhbo/basic/151-200",
+          "role": "Races of Faerûn Table A-5 option levels and special rules cross-check"
+        }
+      ]
+    },
+    "feats/minor-malevolence-3548": {
+      "name": "Minor Malevolence",
+      "effectSummary": "As a standard action, enter the space of a living creature of your creature type, provoking an attack of opportunity from that creature, and attempt to possess it. The target makes a Will save against DC 10 + half your Hit Dice + your Charisma modifier. On a successful save, it resists and becomes immune to your feats on the path of the dominator for one day. On a failed save, your ghost body and any ghost touch equipment you carry vanish into the host while other carried items drop in its square; you control the host and perceive through its senses. The host can attempt a new Will save every 10 minutes to eject you into an adjacent space. The possession is mind-affecting and can last up to 10 minutes per Hit Die. You can attempt this possession a number of times per day equal to your Charisma modifier, minimum 1, and each use deals 2 points of Charisma damage to you. When you leave a host, your ghost touch equipment reforms with your ghost body.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/minor-malevolence-3548",
+          "role": "Exact Ghostwalk Minor Malevolence record; supplies the control exception, save-immunity rule, and Charisma-damage cost."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "Referenced Ghost Ride mechanics expanded into the standalone possession procedure, duration, uses, targeting, saves, and equipment handling."
+        }
+      ]
+    },
+    "feats/malevolence-3549": {
+      "name": "Malevolence",
+      "effectSummary": "As a standard action, enter the space of a living creature of your creature type, provoking an attack of opportunity from that creature, and attempt to possess and control it. The target makes a Will save against DC 10 + half your Hit Dice + your Charisma modifier. On a successful save, it resists and becomes immune to your feats on the path of the dominator for one day. On a failed save, your ghost body and any ghost touch equipment you carry vanish into the host while other carried items drop in its square; you control the host and perceive through its senses. The host can attempt a new Will save every 10 minutes to eject you into an adjacent space. The possession is mind-affecting and can last for a number of hours equal to your Hit Dice. You can attempt this possession a number of times per day equal to your Charisma modifier, minimum 1, and each use deals 2 points of Charisma damage to you. When you leave a host, your ghost touch equipment reforms with your ghost body.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/malevolence-3549",
+          "role": "Exact Ghostwalk Malevolence record; changes the inherited maximum possession duration to one hour per Hit Die and retains the listed save-immunity and Charisma-damage rules."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/minor-malevolence-3548",
+          "role": "Referenced Minor Malevolence control mechanics."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "Underlying Ghost Ride possession procedure, uses, targeting, saves, and equipment handling."
+        }
+      ]
+    },
+    "feats/grand-malevolence-3550": {
+      "name": "Grand Malevolence",
+      "effectSummary": "You can maintain possession and control of a number of living creatures of your creature type at the same time equal to your Charisma bonus. Each possession attempt is a standard action: enter that creature's space, provoking an attack of opportunity, and it makes a Will save against DC 10 + half your Hit Dice + your Charisma modifier. A successful save resists the attempt and makes that creature immune to your feats on the path of the dominator for one day. On a failed save, your ghost body remains hidden in the possessed hosts; non-ghost-touch equipment drops when you first possess a host, while ghost touch equipment stays with your vanished ghost form. Each host can attempt a new Will save every 10 minutes to eject your control, and each possession can last for a number of hours equal to your Hit Dice. The ability is mind-affecting. You can attempt possession a number of times per day equal to your Charisma modifier, minimum 1, and each use deals 2 points of Charisma damage to you. You can divide your actions among your hosts in any way you choose regardless of distance, and relaxing control of a host so it can act normally is a free action. When you leave your last possessed host, your ghost body and ghost touch equipment reform.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/grand-malevolence-3550",
+          "role": "Exact Ghostwalk Grand Malevolence record; supplies simultaneous-host limit, per-host action procedure, divided actions, free relaxation of control, and last-host equipment rule."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/malevolence-3549",
+          "role": "Referenced Malevolence duration and possession-control mechanics."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/minor-malevolence-3548",
+          "role": "Referenced Minor Malevolence control, save-immunity, and Charisma-damage mechanics."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "Underlying Ghost Ride targeting, save DC, daily-use, mind-affecting, and equipment mechanics."
+        }
+      ]
+    }
+  }
+}

@@ -1,3 +1,9 @@
+import classProgressionRepairs from '../data/class-progression-repairs.json' with {type:'json'};
+import descriptionOverrides35 from '../data/source-description-overrides-35.json' with {type:'json'};
+import classSixBatchReview35 from '../data/class-six-batch-review-35.json' with {type:'json'};
+import classReviewedOverrides35 from '../data/class-reviewed-overrides-35.json' with {type:'json'};
+import classReviewedMartialOverrides35 from '../data/class-reviewed-overrides-35-martial.json' with {type:'json'};
+import {reviewedWave35Override} from './reviewedClassWave35.js';
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
 export const isBoilerplate = value => /logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators/i.test(String(value || ''));
@@ -8,12 +14,24 @@ function freeze(value) {
 export function normalizeCatalogRecord(row, source, category) {
   const catalogId=row.catalogId||(source==='dndtools'?`dndtools:${row.id}`:row.id);
   const integrityIssues=['effect','effectSummary','description'].filter(k=>isBoilerplate(row[k])).map(k=>`Invalid source text in ${k}`);
-  const clean={...row};
+  const descriptionOverride=source==='dndtools'?descriptionOverrides35.entries?.[row.id]:null;
+  const wave35Override=source==='dndtools'&&category==='classes'?reviewedWave35Override(row):null;
+  const reviewedClassOverride=source==='dndtools'&&category==='classes'?{...(classSixBatchReview35.entries?.[row.id]||{}),...(classReviewedOverrides35.entries?.[row.id]||{}),...(classReviewedMartialOverrides35.entries?.[row.id]||{}),...(wave35Override||{})}:null;
+  const repair=source==='dndtools'&&category==='classes'?classProgressionRepairs.entries?.[row.id]:null;
+  const matchingRepair=repair&&repair.name===row.name&&repair.sourceBook===row.sourceBook
+    &&JSON.stringify(repair.expectedProgression)===JSON.stringify(row.progression);
+  const progressionRepair=matchingRepair?{
+    progression:repair.progression,
+    advancement:repair.progression.slice(1).map(values=>Object.fromEntries(repair.progression[0].map((key,index)=>[key,values[index]??'']))),
+    sourceAuxiliaryTables:[...(row.sourceAuxiliaryTables||[]),{kind:repair.replacedTableKind,table:row.progression,sourceUrl:row.sourceUrl||row.url}],
+    progressionRepairProvenance:{sourceUrls:repair.sourceUrls,reviewedAt:repair.reviewedAt,reviewScope:repair.reviewScope}
+  }:{};
+  const clean={...row,...progressionRepair,...(reviewedClassOverride||{}),...(descriptionOverride?.effectSummary?{effectSummary:descriptionOverride.effectSummary,descriptionOverrideVerified:true,descriptionOverrideProvenance:descriptionOverride.provenance||[]}:{}),...(descriptionOverride?.description?{description:descriptionOverride.description}:{}),...(descriptionOverride?.effect?{effect:descriptionOverride.effect}:{}),...(descriptionOverride?.benefit?{benefit:descriptionOverride.benefit}:{}),...(descriptionOverride?.normalRule?{normalRule:descriptionOverride.normalRule}:{}),...(descriptionOverride?.specialRule?{specialRule:descriptionOverride.specialRule}:{})};
   for(const k of ['effect','effectSummary','description']) if(isBoilerplate(clean[k])) delete clean[k];
   const description=[clean.description||clean.effectSummary||clean.effect||clean.benefit,clean.normalRule&&`Normal: ${clean.normalRule}`,clean.specialRule&&`Special: ${clean.specialRule}`].filter(Boolean).join('\n\n');
-  const verified=row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length;
-  const normalized=normalizeContentEntry({...clean,sourceId:row.id,id:catalogId,catalogId,index:row.id,category:contentType(category),edition:source==='dndtools'?'3.5':'2014',source:row.source||(source==='dndtools'?'DnD Tools':'D&D 5e Wikidot'),sourceUrl:row.sourceUrl||row.url,description,referenceOnly:!verified,integrityIssues,
-    tables:row.progression?.length&&Array.isArray(row.progression[0])&&!Array.isArray(row.progression[0][0])?[row.progression]:row.tables||[]});
+  const verified=Boolean(reviewedClassOverride?.verified)||(row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length);
+  const normalized=normalizeContentEntry({...clean,sourceId:row.id,id:catalogId,catalogId,index:row.id,category:contentType(category),edition:source==='dndtools'?'3.5':'2014',source:clean.source||(source==='dndtools'?'DnD Tools':'D&D 5e Wikidot'),sourceUrl:clean.sourceUrl||clean.url||row.sourceUrl||row.url,description,referenceOnly:!verified,integrityIssues,
+    tables:clean.progression?.length&&Array.isArray(clean.progression[0])&&!Array.isArray(clean.progression[0][0])?[clean.progression]:clean.tables||[]});
   if(integrityIssues.length) normalized.completeness={...normalized.completeness,complete:false,missing:[...normalized.completeness.missing,'effectIntegrity']};
   if(normalized.category==='spell') normalized.classes=(row.classes||[]).map(x=>typeof x==='string'?x:x.name);
   return freeze(normalized);

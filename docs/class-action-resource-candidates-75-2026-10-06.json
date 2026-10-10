@@ -1,0 +1,1136 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-10-06-action-resource-candidates-75",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "selectionBaseline": "2ed8ed9ce8f97813e040908881b48c8da3765a06",
+  "scope": "Candidate preflight only. Source packets are reused evidence; generic grant coverage is not full mechanic verification. This manifest does not promote tracker records.",
+  "candidateCount": 75,
+  "records": [
+    {
+      "sourceId": "classes/aerial-avenger-980",
+      "name": "Aerial Avenger",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "No reviewed Aerial Avenger block exists yet; Reflex/flying entry rules plus fly-speed/maneuverability changes, Momentum, Power Dive, Death from Above, range increases, Swoop, and Terrifying Shriek are not structured as movement/action state."
+      ],
+      "nextActions": [
+        "Add reviewed Aerial Avenger summaries and implement flight-state deltas plus aerial actions/resources, then add level 1-10 and prerequisite regressions."
+      ]
+    },
+    {
+      "sourceId": "classes/alchemist-savant-582",
+      "name": "Alchemist Savant",
+      "sourceBook": "Prestige Class Magic of Eberron",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "No reviewed Alchemist Savant block exists yet; 3rd-level arcane-or-infusion plus Cannith entry rules, full existing-class casting advancement, Efficient Alchemy scaling, spellvials, alchemical mixtures, universal potion creation, and item-production state are not structured."
+      ],
+      "nextActions": [
+        "Add reviewed Alchemist Savant summaries, implement mixed spell/infusion prerequisites and casting target, then model its alchemical crafting choices/resources with persistence regressions."
+      ]
+    },
+    {
+      "sourceId": "classes/arboreal-guardian-522",
+      "name": "Arboreal Guardian",
+      "sourceBook": "Prestige Class Ghostwalk",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Arboreal Guardian needs elf/half-elf-or-special-admission, skill/feat/entangle/patron prerequisites, selective divine advancement, natural-armor scaling, bonded-tree features, blindsight and daily SLAs."
+      ],
+      "nextActions": [
+        "Add reviewed summaries; implement exact prerequisites/casting target plus bonded-tree, armor, movement and SLA resources through level 10."
+      ]
+    },
+    {
+      "sourceId": "classes/arcane-trickster-379",
+      "name": "Arcane Trickster",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "DMG v.3.5 Arcane Trickster needs nonlawful alignment, four skill requirements, mage hand + 3rd-level arcane casting, sneak attack +2d6, full casting, ranged legerdemain uses and sneak-attack resources."
+      ],
+      "nextActions": [
+        "Add reviewed summaries; enforce exact prerequisites, full casting target and source-owned legerdemain/sneak-attack resources, then regression-test all ten levels."
+      ]
+    },
+    {
+      "sourceId": "classes/archmage-510",
+      "name": "Archmage",
+      "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "FRCS Archmage must remain source-independent from the later DMG record; its exact older High Arcana/casting behavior is not reviewed or structured."
+      ],
+      "nextActions": [
+        "Audit the FRCS record independently, preserve edition/source differences, and implement exact prerequisites plus source-specific High Arcana choices and casting advancement."
+      ]
+    },
+    {
+      "sourceId": "classes/battle-dancer-973",
+      "name": "Battle Dancer",
+      "sourceBook": "Base Class Dragon Compendium",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-29-profiled-8.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "No reviewed Battle Dancer feature-summary block exists yet; unarmored AC/speed/unarmed-damage progression, Tumble-rank-gated dance actions, and the irreversible Dancer's Strike alignment/material selections are not represented as structured sheet mechanics."
+      ],
+      "nextActions": [
+        "Add reviewed Battle Dancer feature summaries, model dance actions and Dancer's Strike choices, then regression-test AC/speed/unarmed scaling and persistence."
+      ]
+    },
+    {
+      "sourceId": "classes/bayushi-deceiver-627",
+      "name": "Bayushi Deceiver",
+      "sourceBook": "Prestige Class Oriental Adventures",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Oriental Adventures Bayushi Deceiver needs human (Scorpion), nonlawful alignment, BAB +3, Bluff 8, Diplomacy 8, Improved Initiative and sneak attack +2d6, plus source-specific poison, feint and sneak-attack progression."
+      ],
+      "nextActions": [
+        "Implement exact clan/race/alignment/skill/feat/sneak-attack gates; add sneak-attack scaling, Poison Use, Strike First/Last, Scorpion Feint and fixed Improved Disarm/Improved Critical grants."
+      ]
+    },
+    {
+      "sourceId": "classes/bear-warrior-628",
+      "name": "Bear Warrior",
+      "sourceBook": "Prestige Class Oriental Adventures",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-20c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Oriental Adventures Bear Warrior needs BAB +7, Power Attack and rage/fury/ki frenzy; unlike Complete Warrior it grants martial/simple proficiency, separate bear-form uses/timing (1/4/8) and extra raging at 5/10."
+      ],
+      "nextActions": [
+        "Implement the OA record independently with its own proficiencies, black/brown/dire use progression, Scent and extra-rage milestones; regression-lock same-name source isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/black-dog-412",
+      "name": "Black Dog",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75a.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragonmarked Black Dog needs its Mark of Hospitality/training entry gate and dragonmark-powered poison/death-attack subsystem."
+      ],
+      "nextActions": [
+        "Implement full source prerequisites, Heir's Mark caster-level stacking, Hospitality uses, poison inventory/creation/refinement/empowerment, Death Attack and Dhurinda abilities."
+      ]
+    },
+    {
+      "sourceId": "classes/blade-of-orien-413",
+      "name": "Blade of Orien",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75a.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragonmarked Blade of Orien needs its Mark of Passage entry gate and a reusable dragonmark-teleport resource model across all ten levels."
+      ],
+      "nextActions": [
+        "Implement exact Passage prerequisites, Heir's Mark caster-level stacking and improved/swift leap, grasp, twist, push, wrath, shadow shift, cloak and fury."
+      ]
+    },
+    {
+      "sourceId": "classes/bone-collector-523",
+      "name": "Bone Collector",
+      "sourceBook": "Prestige Class Ghostwalk",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75a.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Ghostwalk Bone Collector needs its full source entry gate, including prior harmful undead/necromancy exposure, plus bone crafting, negative-energy shroud and stored-undead-effect mechanics."
+      ],
+      "nextActions": [
+        "Implement the complete source gate, bone armor/weapon crafting choices, shroud side effects, undead-channel storage/discharge and remaining source progression."
+      ]
+    },
+    {
+      "sourceId": "classes/breachgnome-696",
+      "name": "Breachgnome",
+      "sourceBook": "Prestige Class Races of Faerûn",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75a.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Races of Faerûn Breachgnome needs its full source entry gate and Seal the Breach defensive progression, bonus feats and uncanny-dodge state."
+      ],
+      "nextActions": [
+        "Recover/enforce the complete source prerequisites and implement Seal the Breach milestones, bonus-feat choices and uncanny-dodge interactions."
+      ]
+    },
+    {
+      "sourceId": "classes/cabinet-trickster-718",
+      "name": "Cabinet Trickster",
+      "sourceBook": "Prestige Class Races of Eberron",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75a.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Races of Eberron Cabinet Trickster needs changeling/Cabinet trial entry state plus detect-thoughts uses, thought tricks, bonus feats and final change-shape mechanics."
+      ],
+      "nextActions": [
+        "Implement the exact source gate, detect-thoughts counters/bonuses, each thought trick and save DC, bonus-feat choices and persistent Change Shape."
+      ]
+    },
+    {
+      "sourceId": "classes/cannith-wand-adept-784",
+      "name": "Cannith Wand Adept",
+      "sourceBook": "Prestige Class Sharn: City of Towers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75a.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Sharn Cannith Wand Adept needs its full source entry gate plus wand identification/focus, quick-draw, dual-use, siphon-charge and dragonmark mechanics."
+      ],
+      "nextActions": [
+        "Recover/enforce the complete prerequisites and implement wand-specific caster/DC bonuses, dual activation, charge transfer and improved dragonmark state."
+      ]
+    },
+    {
+      "sourceId": "classes/deneith-warden-415",
+      "name": "Deneith Warden",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragonmarked Deneith Warden needs lawful alignment, BAB +4, Gather Information 4, Least Dragonmark (Mark of Sentinel) and Sentinel Marshal/House approval, plus Heir's Mark and law-enforcement progression."
+      ],
+      "nextActions": [
+        "Implement exact gate, dragonmark caster-level stacking, tracker/subduing strike, authority bonuses, devoted lawkeeper, uncanny dodge and source capstone features."
+      ]
+    },
+    {
+      "sourceId": "classes/doomdreamer-740",
+      "name": "Doomdreamer",
+      "sourceBook": "Prestige Class Return to the Temple of Elemental Evil",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Return to the Temple of Elemental Evil Doomdreamer needs qualifying Tharizdun-related/chaos/force spells and a dream communication with Tharizdun, then full cleric advancement plus secrets, dark lore and madness resources."
+      ],
+      "nextActions": [
+        "Implement exact spell-list/event gate, cleric advancement target and secret selections, chill soul, maddening howl, dark communion and remaining source features."
+      ]
+    },
+    {
+      "sourceId": "classes/dragon-ascendant-398",
+      "name": "Dragon Ascendant",
+      "sourceBook": "Prestige Class Draconomicon",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Draconomicon Dragon Ascendant needs true-dragon race, its epic prerequisites and consumption of an entire hoard worth at least 100,000 gp, then divine-ascension progression."
+      ],
+      "nextActions": [
+        "Implement complete epic gate, destructive hoard-consumption transaction and all ascendant divine/defensive/template-like progression with irreversible-state safeguards."
+      ]
+    },
+    {
+      "sourceId": "classes/dragonmark-heir-434",
+      "name": "Dragonmark Heir",
+      "sourceBook": "Prestige Class Eberron Campaign Setting",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75b.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Eberron Campaign Setting Dragonmark Heir needs the appropriate dragonmarked race/house, 7 ranks in any two skills, Favored in House and Least Dragonmark, then Lesser/Greater Dragonmark and improved mark uses."
+      ],
+      "nextActions": [
+        "Implement exact race/house/feat/skill gate, house status/action-point features, guided mark ability choices and improved least/lesser/greater mark resources."
+      ]
+    },
+    {
+      "sourceId": "classes/drunken-master-767",
+      "name": "Drunken Master",
+      "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Sword and Fist: A Guidebook to Monks and Fighters Drunken Master is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage with source/version isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/duraakash-416",
+      "name": "Duraak'ash",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragonmarked Duraak'ash is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/durthan-885",
+      "name": "Durthan",
+      "sourceBook": "Prestige Class Unapproachable East",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Unapproachable East Durthan is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/dwarf-paragon-1001",
+      "name": "Dwarf Paragon",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-29-profiled-8.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "No reviewed Dwarf Paragon feature-summary block exists yet; Craft Expertise, stonecunning/darkvision/save racial upgrades, and the automatic Con +2 ability boost are description-only rather than structured character-state changes."
+      ],
+      "nextActions": [
+        "Add reviewed Dwarf Paragon summaries and structured racial-trait/ability-score deltas, then verify levels 1-3 and save/reopen behavior."
+      ]
+    },
+    {
+      "sourceId": "classes/effigy-master-208",
+      "name": "Effigy Master",
+      "sourceBook": "Prestige Class Complete Arcane",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Complete Arcane Effigy Master is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/eldritch-knight-386",
+      "name": "Eldritch Knight",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dungeon Master's Guide v.3.5 Eldritch Knight is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/elemental-archon-484",
+      "name": "Elemental Archon",
+      "sourceBook": "Prestige Class Faiths & Pantheons",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Faiths & Pantheons Elemental Archon is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/elemental-scion-of-zilargo-585",
+      "name": "Elemental Scion of Zilargo",
+      "sourceBook": "Prestige Class Magic of Eberron",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Magic of Eberron Elemental Scion of Zilargo is source-verified with BAB +5, planar/nature knowledge, matching elemental language and an existing elemental graft; class features depend on preserving a chosen elemental graft affinity."
+      ],
+      "nextActions": [
+        "Implement the graft prerequisite/loss rules, persistent elemental affinity, sentient graft, grow elemental, merge and dodge progression."
+      ]
+    },
+    {
+      "sourceId": "classes/elven-high-mage-697",
+      "name": "Elven High Mage",
+      "sourceBook": "Prestige Class Races of Faerûn",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Races of Faerûn Elven High Mage is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/emancipated-spawn-816",
+      "name": "Emancipated Spawn",
+      "sourceBook": "Prestige Class Savage Species",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Savage Species Emancipated Spawn is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/enlightened-spirit-267",
+      "name": "Enlightened Spirit",
+      "sourceBook": "Prestige Class Complete Mage",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Complete Mage Enlightened Spirit is source-verified for good-aligned warlocks with Knowledge (planes) 8 and eldritch blast 3d6; its class grants fixed anti-evil invocations and loses features when no longer good."
+      ],
+      "nextActions": [
+        "Implement exact alignment/warlock gate, requirement-loss/atonement behavior and all fixed enlightened-spirit blast, aura, resistance and invocation features."
+      ]
+    },
+    {
+      "sourceId": "classes/entropist-1054",
+      "name": "Entropist",
+      "sourceBook": "Prestige Class Lords of Darkness",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75c.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Lords of Darkness Entropist is source-verified as a distinct prestige-class record; its exact entry gate, level progression, class-resource state and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement the exact source prerequisites, feature progression, persistent choices/resources and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/eternal-blade-869",
+      "name": "Eternal Blade",
+      "sourceBook": "Prestige Class Tome of Battle: The Book of Nine Swords",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Tome of Battle: The Book of Nine Swords Eternal Blade is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/eunuch-warlock-631",
+      "name": "Eunuch Warlock",
+      "sourceBook": "Prestige Class Oriental Adventures",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Oriental Adventures Eunuch Warlock is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/exotic-weapon-master-610",
+      "name": "Exotic Weapon Master",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Exotic Weapon Master is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/eye-of-gruumsh-611",
+      "name": "Eye of Gruumsh",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Eye of Gruumsh is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/eye-of-horus-re-665",
+      "name": "Eye of Horus-re",
+      "sourceBook": "Prestige Class Player's Guide to Faerûn",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Player's Guide to Faerûn Eye of Horus-re is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/faith-scion-875",
+      "name": "Faith Scion",
+      "sourceBook": "Prestige Class Unearthed Arcana",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Unearthed Arcana Faith Scion is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fang-of-sseth-804",
+      "name": "Fang of Sseth",
+      "sourceBook": "Prestige Class Serpent Kingdoms",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Serpent Kingdoms Fang of Sseth is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fiendbinder-865",
+      "name": "Fiendbinder",
+      "sourceBook": "Prestige Class Tome of Magic",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Tome of Magic Fiendbinder is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fist-of-dal-quor-814",
+      "name": "Fist of Dal Quor",
+      "sourceBook": "Prestige Class Secrets of Sarlona",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Secrets of Sarlona Fist of Dal Quor is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fist-of-hextor-769",
+      "name": "Fist of Hextor",
+      "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Sword and Fist: A Guidebook to Monks and Fighters Fist of Hextor is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fist-of-the-forest-226",
+      "name": "Fist of the Forest",
+      "sourceBook": "Prestige Class Complete Champion",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Complete Champion Fist of the Forest is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fleet-runner-ehlonna-984",
+      "name": "Fleet Runner of Ehlonna",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragon Compendium Fleet Runner of Ehlonna is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/fleshwarper-559",
+      "name": "Fleshwarper",
+      "sourceBook": "Prestige Class Lords of Madness",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Lords of Madness Fleshwarper is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/flux-adept-985",
+      "name": "Flux Adept",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragon Compendium Flux Adept is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/foe-hunter-612",
+      "name": "Foe Hunter",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Foe Hunter is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/force-missile-mage-986",
+      "name": "Force Missile Mage",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dragon Compendium Force Missile Mage is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/forest-master-485",
+      "name": "Forest Master",
+      "sourceBook": "Prestige Class Faiths & Pantheons",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Faiths & Pantheons Forest Master is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/forsaker-613",
+      "name": "Forsaker",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Forsaker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/frenzied-berserker-614",
+      "name": "Frenzied Berserker",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Frenzied Berserker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/gatecrasher-602",
+      "name": "Gatecrasher",
+      "sourceBook": "Prestige Class Manual of the Planes",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Manual of the Planes Gatecrasher is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/gatekeeper-mystagogue-652",
+      "name": "Gatekeeper Mystagogue",
+      "sourceBook": "Prestige Class Player's Guide to Eberron",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Player's Guide to Eberron Gatekeeper Mystagogue is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/geomancer-241",
+      "name": "Geomancer",
+      "sourceBook": "Prestige Class Complete Divine",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Complete Divine Geomancer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/geomancer-615",
+      "name": "Geomancer",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Geomancer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
+      ]
+    },
+    {
+      "sourceId": "classes/gnome-artificer-564",
+      "name": "Gnome Artificer",
+      "sourceBook": "Prestige Class Magic of Faerûn",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Magic of Faerûn Gnome Artificer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/goldeye-486",
+      "name": "Goldeye",
+      "sourceBook": "Prestige Class Faiths & Pantheons",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Faiths & Pantheons Goldeye is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/gray-hand-enforcer-302",
+      "name": "Gray Hand Enforcer",
+      "sourceBook": "Prestige Class City of Splendors: Waterdeep",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "City of Splendors: Waterdeep Gray Hand Enforcer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/great-rift-skyguard-698",
+      "name": "Great Rift Skyguard",
+      "sourceBook": "Prestige Class Races of Faerûn",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Races of Faerûn Great Rift Skyguard is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
+      "nextActions": [
+        "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/guardian-paramount-457",
+      "name": "Guardian Paramount",
+      "sourceBook": "Prestige Class Epic Level Handbook",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75d.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Epic Level Handbook Guardian Paramount is source-verified with BAB +15, Spot 13, Alertness, Lightning Reflexes, Blinding Speed, Superior Initiative, uncanny dodge and evasion; it needs ally-protection resource automation."
+      ],
+      "nextActions": [
+        "Implement exact epic gate, bonus-feat cadence, uncanny-dodge/evasion extension, protective aura, probability rerolls, callback and later Guardian Paramount abilities."
+      ]
+    },
+    {
+      "sourceId": "classes/guild-thief-514",
+      "name": "Guild Thief",
+      "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Forgotten Realms Campaign Setting Guild Thief is source-verified with thieves' guild membership plus stealth/social skill gates; it still needs sneak attack, doublespeak, uncanny dodge, reputation and bonus-feat automation."
+      ],
+      "nextActions": [
+        "Implement exact guild/skill entry rules and the five-level sneak-attack, reputation, uncanny-dodge and bonus-feat progression."
+      ]
+    },
+    {
+      "sourceId": "classes/hathran-516",
+      "name": "Hathran",
+      "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Forgotten Realms Campaign Setting Hathran is the earlier source version requiring both 2nd-level arcane and divine casting plus Witches of Rashemen membership/patronage; it uses full casting and its own cohort/place-magic/fear/circle progression."
+      ],
+      "nextActions": [
+        "Implement the FRCS gate and progression independently from the Player's Guide revision, including dual-casting eligibility, cohort/place magic and circle/fear resources."
+      ]
+    },
+    {
+      "sourceId": "classes/hellfire-warlock-463",
+      "name": "Hellfire Warlock",
+      "sourceBook": "Prestige Class Fiendish Codex II: Tyrants of the Nine Hells",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Fiendish Codex II Hellfire Warlock is source-verified with Infernal and brimstone blast or hellrime blast; all three levels advance invocations and scale hellfire blast while adding infusion, fire resistance and hellfire shield."
+      ],
+      "nextActions": [
+        "Implement exact invocation/language gate, full invocation advancement, hellfire-blast resource/cost rules, infusion, resistance and shield."
+      ]
+    },
+    {
+      "sourceId": "classes/hidecarved-dragon-405",
+      "name": "Hidecarved Dragon",
+      "sourceBook": "Prestige Class Draconomicon",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Draconomicon Hidecarved Dragon is source-verified for dragons with natural armor +20 and base Will +12; it needs dragon-specific spell resistance, weakness suppression, resistances/immunities, DR and natural-armor progression."
+      ],
+      "nextActions": [
+        "Implement exact dragon/natural-armor/Will gate and all hidecarved defensive scaling and immunity/DR state."
+      ]
+    },
+    {
+      "sourceId": "classes/hierophant-387",
+      "name": "Hierophant",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dungeon Master's Guide v3.5 Hierophant is source-verified with Knowledge (religion) 15, any metamagic feat and 7th-level divine casting; class levels improve caster level but not spell slots and grant one special ability per level."
+      ],
+      "nextActions": [
+        "Implement the 3.5 gate, no-slot caster-level advancement and guided special-ability choices with repeatability/eligibility rules."
+      ]
+    },
+    {
+      "sourceId": "classes/iaijutsu-master-634",
+      "name": "Iaijutsu Master",
+      "sourceBook": "Prestige Class Oriental Adventures",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Oriental Adventures Iaijutsu Master is source-verified as a lawful iaijutsu/katana specialist with Quick Draw, Weapon Focus (katana), Improved Initiative and Iaijutsu Focus requirements; it needs katana/initiative/Charisma damage automation."
+      ],
+      "nextActions": [
+        "Implement exact gate and Weapon Finesse/canny defense, Lightning Blade, Strike from the Void, bonus feats, One Strike Two Cuts and Strike with No Thought."
+      ]
+    },
+    {
+      "sourceId": "classes/illithid-savant-817",
+      "name": "Illithid Savant",
+      "sourceBook": "Prestige Class Savage Species",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Savage Species Illithid Savant is source-verified for mind flayers that consumed the brain of a CR 9+ creature; its progression acquires skills, feats, class features and special attacks/qualities from consumed creatures."
+      ],
+      "nextActions": [
+        "Implement exact race/event gate and a safe persistent acquisition model for consumed-creature skills, feats, class features, attacks and qualities."
+      ]
+    },
+    {
+      "sourceId": "classes/inquisitor-of-the-drowning-goddess-901",
+      "name": "Inquisitor of the Drowning Goddess",
+      "sourceBook": "Prestige Class Underdark",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Underdark Inquisitor of the Drowning Goddess is source-verified for lawful evil/neutral kuo-toa with Concentration 8, Knowledge (religion) 4, Improved Unarmed Strike and Blibdoolpoolp patronage; it needs fear/adhesive/devoted-mind automation."
+      ],
+      "nextActions": [
+        "Implement exact racial/religious gate and fear aura, mien of justice, adhesive, devoted mind, outcast mark and body-coating features."
+      ]
+    },
+    {
+      "sourceId": "classes/justiciar-of-taiia-355",
+      "name": "Justiciar of Taiia",
+      "sourceBook": "Prestige Class Deities and Demigods",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75e.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Deities and Demigods Justiciar of Taiia is source-verified as nongood, BAB +4, Knowledge (religion) 6 and Taiia patronage; it uses a dedicated 1st-4th spell table plus sneak attack, combat sense and divination spell-like abilities."
+      ],
+      "nextActions": [
+        "Implement exact 3.0 religious gate, dedicated spell table, bonus weapon proficiency, sneak attack/combat sense, augury/divination uses and church-favor loss rules."
+      ]
+    },
+    {
+      "sourceId": "classes/legendary-dreadnought-459",
+      "name": "Legendary Dreadnought",
+      "sourceBook": "Prestige Class Epic Level Handbook",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75f.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Epic Level Handbook Legendary Dreadnought is source-verified with BAB +23, Intimidate 15, Combat Reflexes, Great Cleave, Improved Bull Rush and Improved Critical; its epic progression centers on destructive martial scaling and bonus feats."
+      ],
+      "nextActions": [
+        "Implement the exact epic gate, unstoppable/destructive combat progression and source bonus-feat cadence."
+      ]
+    },
+    {
+      "sourceId": "classes/master-of-masks-297",
+      "name": "Master of Masks",
+      "sourceBook": "Prestige Class Complete Scoundrel",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75f.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Complete Scoundrel Master of Masks is source-verified with Bluff, Disguise and Perform (acting) 8, four languages and a successful impersonation; its core state is a persistent set of persona masks."
+      ],
+      "nextActions": [
+        "Implement the exact gate, mask acquisition/activation rules, persona-granted proficiencies/features and mask-switching persistence."
+      ]
+    },
+    {
+      "sourceId": "classes/master-of-shrouds-550",
+      "name": "Master of Shrouds",
+      "sourceBook": "Prestige Class Libris Mortis: The Book of Undead",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75f.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Libris Mortis Master of Shrouds is source-verified with nongood alignment, Concentration/Knowledge (religion)/Spellcraft 5, Augment Summoning, Spell Focus (Conjuration), Will +5, protection from good as a divine spell and rebuke undead; casting advances from 2nd level onward."
+      ],
+      "nextActions": [
+        "Implement the Libris Mortis gate, divine advancement, extra rebuking and level-scaled incorporeal summon system independently."
+      ]
+    },
+    {
+      "sourceId": "classes/master-of-the-yuirwood-886",
+      "name": "Master of the Yuirwood",
+      "sourceBook": "Prestige Class Unapproachable East",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75f.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Unapproachable East Master of the Yuirwood is source-verified for nonevil elves/half-elves with Knowledge (nature) 5, Survival 10, Alertness, Track and Aglarond/star-elf regional eligibility."
+      ],
+      "nextActions": [
+        "Implement exact regional/racial gate and all woodland perception, movement, tracking and source spell-like abilities."
+      ]
+    },
+    {
+      "sourceId": "classes/mystic-theurge-390",
+      "name": "Mystic Theurge",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75g.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Dungeon Master's Guide v3.5 Mystic Theurge is source-verified as a dual-progression arcane/divine prestige class; exact 2nd-level arcane plus 2nd-level divine entry and simultaneous advancement remain to be automated."
+      ],
+      "nextActions": [
+        "Implement the dual-casting prerequisite gate, persistent source-class choices for both progressions, all ten levels of simultaneous advancement and multiclass regression coverage."
+      ]
+    },
+    {
+      "sourceId": "classes/nightcloak-489",
+      "name": "Nightcloak",
+      "sourceBook": "Prestige Class Faiths & Pantheons",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-prestige-75g.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Faiths & Pantheons Nightcloak is the older source version and must remain independent from the Complete Divine revision; its religious prerequisites and progression require source-specific implementation."
+      ],
+      "nextActions": [
+        "Implement the Faiths & Pantheons entry gate and class table independently, then regression-lock against the Complete Divine Nightcloak."
+      ]
+    },
+    {
+      "sourceId": "classes/pixie-948",
+      "name": "Pixie",
+      "sourceBook": "Base Class Savage Species",
+      "sourcePackets": [
+        "docs/class-source-verification-batch-2026-09-30-profiled-22.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "No reviewed Savage Species Pixie feature-summary block exists yet; staged monster-class racial changes such as ability adjustments, flight/invisibility and spell-like abilities, damage reduction, spell resistance, and effective level progression are not modeled as structured racial/class deltas."
+      ],
+      "nextActions": [
+        "Add reviewed Pixie monster-class summaries and implement reusable staged racial/monster-class state changes with level-by-level persistence regressions."
+      ]
+    },
+    {
+      "sourceId": "classes/storm-sentry-421",
+      "name": "Storm Sentry",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "sourcePackets": [
+        "docs/class-source-verification-storm-sentry-2026-10-06.json"
+      ],
+      "status": "needs-review",
+      "completionGates": [
+        "Shared dragonmark expenditure, mark-tier-dependent effects, capped caster-level stacking, and temporary weapon state require integration. No independent daily pools may be invented for these actions."
+      ],
+      "nextActions": [
+        "Integrate the shared dragonmark subsystem, then add exact-source unlock, spending, expiry, multiclass and removal regressions."
+      ]
+    }
+  ]
+}

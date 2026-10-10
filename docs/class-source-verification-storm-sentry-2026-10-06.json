@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "discoveryProvider": "Exa",
+  "extractionProvider": "Tavily advanced exact-page extraction",
+  "firecrawlFallbacks": 0,
+  "records": [
+    {
+      "sourceId": "classes/storm-sentry-421",
+      "name": "Storm Sentry",
+      "sourceBook": "Prestige Class Dragonmarked",
+      "sourceVersion": "D&D 3.5",
+      "sourcePage": 124,
+      "sourceUrls": [
+        "https://new.dndtools.org/classes/storm-sentry-421",
+        "https://dndtools.org/classes/storm-sentry/"
+      ],
+      "status": "needs-review",
+      "reviewScope": "Identity, entry gate, skill list, progression and shared-resource dependencies; proficiency statement and full automation remain unverified.",
+      "prerequisites": {
+        "minBab": 4,
+        "skillRanks": {
+          "Balance": 4,
+          "Tumble": 4
+        },
+        "feat": "Least Dragonmark (Mark of Storm: gust of wind)"
+      },
+      "maxClassLevel": 5,
+      "dependencySummary": "Dragonmark powers fund the granted actions. Class levels increase gust uses and selected wind DCs; mark caster-level stacking is capped at five effective heir levels. Shield duration, bull-rush strength, and weapon charge effects depend on the expended mark tier. Weapon charges expire with duration or loss of possession.",
+      "gaps": [
+        "Shared dragonmark expenditure, mark-tier-dependent effects, capped caster-level stacking, and temporary weapon state require integration. No independent daily pools may be invented for these actions."
+      ],
+      "nextAction": "Integrate the shared dragonmark subsystem, then add exact-source unlock, spending, expiry, multiclass and removal regressions.",
+      "excludedDiscovery": "The Pathfinder conversion returned by search has different entry requirements and a ten-level table; it was not used as 3.5 evidence."
+    }
+  ]
+}

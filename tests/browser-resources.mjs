@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
 const server=await createServer({server:{host:'127.0.0.1',port:5178}});await server.listen();
-const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 const group=name=>page.getByRole('group',{name:`${name} resource`,exact:true});
 const remaining=async(name,expected)=>assert.equal(await group(name).locator('.resource-count').innerText(),expected);

@@ -18,11 +18,12 @@ import gzip
 import json
 import re
 import time
+import unicodedata
 from html.parser import HTMLParser
 from http.client import RemoteDisconnected
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from urllib.request import Request, urlopen
 
 BASE = "https://new.dndtools.org"
@@ -58,6 +59,7 @@ class DetailParser(HTMLParser):
         self._row: list[str] | None = None
         self._cell: list[str] | None = None
         self.tables: list[list[list[str]]] = []
+        self.links: list[str] = []
         self._table: list[list[str]] | None = None
 
     def flush(self):
@@ -75,6 +77,10 @@ class DetailParser(HTMLParser):
             return
         if self._skip:
             return
+        if tag == "a":
+            href=dict(attrs).get("href")
+            if href:
+                self.links.append(href)
         if tag in BLOCK_TAGS:
             self.flush()
         if tag in HEADING_TAGS:
@@ -264,6 +270,10 @@ def parse_requirement_lines(lines: list[str]) -> list[dict]:
 
 
 def legacy_class_url(entry: dict) -> str:
+    supplement=class_supplements().get(entry.get("id"),{})
+    source_specific=clean(supplement.get("legacySourceUrl",""))
+    if source_specific:
+        return source_specific
     slug=urlparse(entry.get("url","")).path.rstrip("/").split("/")[-1]
     slug=re.sub(r"-\d+$","",slug)
     return f"{LEGACY_CLASS_BASE}/{slug}/"
@@ -388,23 +398,148 @@ def parse_class_skills(parser: DetailParser) -> list[str]:
     return cleaned
 
 
+
+_CLASS_WEAPON_CACHE=None
+
+def class_weapon_catalog():
+    global _CLASS_WEAPON_CACHE
+    if _CLASS_WEAPON_CACHE is None:
+        path=CATALOG/"equipment.json"
+        rows=json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+        values=[]
+        for row in rows:
+            if row.get("kind")!="weapon":
+                continue
+            name=clean(row.get("name",""))
+            aliases={name.casefold()}
+            if "," in name:
+                left,right=[clean(part) for part in name.split(",",1)]
+                aliases.add(f"{right} {left}".casefold())
+            values.append({"index":str(row.get("id","")).split("/")[-1],"name":name,"aliases":aliases})
+        _CLASS_WEAPON_CACHE=values
+    return _CLASS_WEAPON_CACHE
+
+
+def parse_class_proficiencies(parser: DetailParser) -> dict:
+    """Extract only explicit, source-stated class weapon/armor proficiency grants.
+
+    Broad categories are normalized for automation. The original source sentence is
+    retained so unusual named-weapon clauses remain visible instead of being guessed.
+    """
+    features=section(parser.lines,parser.headings,"Class Features")
+    candidates=[]
+    for line in features:
+        value=clean(line)
+        if re.search(r"\b(?:weapon and armor proficiency|weapon proficiency|armor proficiency)\b",value,re.I):
+            candidates.append(value)
+    if not candidates:
+        return {}
+    text=" ".join(candidates)
+    folded=text.casefold().replace("’","'")
+    grants=[]
+
+    def matched_positive(match) -> bool:
+        prefix=re.split(r"[.;:]|\bbut\b|\bhowever\b",folded[:match.start()])[-1]
+        # A negation applies across a coordinated list. Parenthetical exceptions
+        # do not negate the next grant outside that parenthesis.
+        prefix=re.sub(r"\([^)]*\)","",prefix)
+        return not bool(re.search(r"\b(?:not|no|without|except)\b",prefix))
+
+    def positive(term: str) -> bool:
+        for match in re.finditer(re.escape(term),folded):
+            if matched_positive(match):
+                return True
+        return False
+
+    def add(index: str, name: str, kind: str):
+        if not any(item["index"]==index for item in grants):
+            grants.append({"index":index,"name":name,"kind":kind})
+
+    all_armor_match=re.search(r"\b(?:all(?: types? of)?|any type of)\s+armor\b",folded)
+    if all_armor_match and matched_positive(all_armor_match):
+        add("light-armor","Light armor","armor")
+        add("medium-armor","Medium armor","armor")
+        add("heavy-armor","Heavy armor","armor")
+    else:
+        armor_pattern=r"\b((?:light|medium|heavy)(?:\s*,\s*(?:light|medium|heavy))*(?:\s*,?\s*(?:and|or)\s*(?:light|medium|heavy))?)\s+armor\b"
+        for match in re.finditer(armor_pattern,folded):
+            phrase=match.group(0)
+            if not positive(phrase):
+                continue
+            levels=set(re.findall(r"\b(light|medium|heavy)\b",match.group(1)))
+            for level in ("light","medium","heavy"):
+                if level in levels:
+                    add(f"{level}-armor",f"{level.title()} armor","armor")
+    if "light shield" in folded and positive("light shield"):
+        add("light-shields","Light shields","armor")
+    if "heavy shield" in folded and positive("heavy shield"):
+        add("heavy-shields","Heavy shields","armor")
+    if "tower shield" in folded and positive("tower shield"):
+        add("tower-shields","Tower shields","armor")
+    broad_shields=any(matched_positive(match) and not re.search(r"\b(?:light|heavy|tower)\s+$",folded[:match.start()])
+                      for match in re.finditer(r"\bshields?\b",folded))
+    if broad_shields:
+        if re.search(r"shields?[^.;]{0,30}except[^.;]{0,20}tower",folded):
+            add("shields-except-tower","Shields (except tower shields)","armor")
+        else:
+            add("shields","Shields","armor")
+    for match in re.finditer(r"\b((?:simple|martial)(?:\s*,?\s*(?:and|or)\s*(?:simple|martial))?)\s+weapons?\b",folded):
+        if matched_positive(match):
+            for kind in re.findall(r"\b(?:simple|martial)\b",match.group(1)):
+                add(f"{kind}-weapons",f"{kind.title()} weapons","weapons")
+
+    for weapon in class_weapon_catalog():
+        for alias in weapon["aliases"]:
+            if alias and re.search(r"(?<![a-z])"+re.escape(alias)+r"(?![a-z])",folded) and positive(alias):
+                add(weapon["index"],weapon["name"],"weapons")
+                break
+
+    positive=bool(re.search(r"\bproficient\b",folded))
+    return {
+        "proficiencies":grants,
+        "proficiencyText":text,
+        "proficiencyParseIncomplete":bool(positive and not grants),
+    }
+
 def parse_progression_table(parser: DetailParser):
-    for table in parser.tables:
+    """Choose the strongest class-level progression table, not merely the first table with 'Class Level'.
+
+    Many 3.5 pages contain secondary tables (spell slots, poison scaling, mysteries, etc.)
+    before the actual BAB/save/Special advancement table.  Prefer a table exposing class
+    features and core progression, then fall back to named casting/manifesting tracks.
+    """
+    candidates=[]
+    feature_headers={"special","specials","feature","features","class feature","class features","abilities"}
+    core_headers={"bab","base attack bonus","attack bonus","fort","fortitude","fort save","ref","reflex","ref save","will","will save"}
+    track_pattern=re.compile(
+        r"(?:spellcasting|spells? per day|spells? known|manifesting|power points|powers? known|"
+        r"powers? discovered|maneuvers? known|maneuvers? readied|stances? known|invocations? known|"
+        r"soulmelds?|essentia|chakra binds?|mysteries?|vestiges?)",re.I
+    )
+    for table_index,table in enumerate(parser.tables):
         if not table:
             continue
         for idx,candidate in enumerate(table[:5]):
             header=[clean(c) for c in candidate]
             folded=[h.casefold() for h in header]
             has_level=any(h=="level" or h.endswith(" level") or h=="racial level" for h in folded)
-            has_progress=any(h in folded for h in ("bab","base attack bonus","fort","fortitude","ref","reflex","will","special","spellcasting","class level"))
-            if has_level and has_progress:
-                data_rows=table[idx+1:]
-                rows=[]
-                for row in data_rows:
-                    values=row+[""]*max(0,len(header)-len(row))
-                    rows.append({header[i] or f"column_{i+1}":clean(values[i]) for i in range(len(header))})
-                return [header]+data_rows,rows
-    return None,None
+            if not has_level:
+                continue
+            feature_count=sum(h in feature_headers for h in folded)
+            core_count=sum(h in core_headers for h in folded)
+            track_count=sum(bool(track_pattern.search(h)) for h in header)
+            if not (feature_count or core_count or track_count):
+                continue
+            score=feature_count*100+core_count*12+track_count*5+min(len(header),20)
+            candidates.append((score,-table_index,-idx,header,table[idx+1:]))
+    if not candidates:
+        return None,None
+    _,_,_,header,data_rows=max(candidates,key=lambda item:item[:3])
+    rows=[]
+    for row in data_rows:
+        values=row+[""]*max(0,len(header)-len(row))
+        rows.append({header[i] or f"column_{i+1}":clean(values[i]) for i in range(len(header))})
+    return [header]+data_rows,rows
 
 
 def class_source_kind(lines: list[str]) -> str:
@@ -416,11 +551,35 @@ def class_source_kind(lines: list[str]) -> str:
     return ""
 
 
+def explicit_variant_parents(lines: list[str], entry_name: str) -> list[str]:
+    """Return multiple valid base-class parents for a compound variant.
+
+    Some Unearthed Arcana variants apply to either of two base classes.  Preserve
+    that choice instead of collapsing it to an arbitrary parent.
+    """
+    known=(
+        "Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger",
+        "Rogue","Sorcerer","Wizard"
+    )
+    match=re.fullmatch(r"(.+?)\s+Variant",clean(entry_name or ""),re.I)
+    if match and "/" in match.group(1):
+        names=[clean(part).title() for part in match.group(1).split("/") if clean(part)]
+        if len(names)>1 and all(name in known for name in names):
+            return names
+    joined=" ".join(lines)
+    match=re.search(r"retained from base classes?[,]?\s*(?:the\s+)?([A-Za-z]+)\s+or\s+(?:the\s+)?([A-Za-z]+)",joined,re.I)
+    if match:
+        names=[clean(match.group(1)).title(),clean(match.group(2)).title()]
+        if all(name in known for name in names):
+            return names
+    return []
+
+
 def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
     joined=" ".join(lines)
     patterns=[
         r"same hit dice,.*?advancement as (?:a |the )?standard ([A-Za-z ]+?)(?:\s*\(|\s+except|\s+as|\.)",
-        r"retained from base class,?\s*(?:the\s+)?([A-Za-z]+)",
+        r"retained from base class\b,?\s*(?:the\s+)?([A-Za-z]+)",
         r"has all the standard ([A-Za-z ]+?) class features",
         r"standard ([A-Za-z]+) class feature",
         r"adapt(?:ing)? (?:the )?([A-Za-z' -]+?) prestige class",
@@ -496,7 +655,7 @@ def apply_class_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    merge_keys=("inheritsFrom","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
+    merge_keys=("inheritsFrom","inheritsFromOptions","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","proficiencies","proficiencyText","prerequisites","progression","featureNames")
     for key in merge_keys:
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
@@ -558,13 +717,20 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
         skill_rule=parse_class_skill_rule(parser)
         if skill_rule:
             result["classSkillRule"]=skill_rule
+    proficiency=parse_class_proficiencies(parser)
+    if proficiency:
+        result.update(proficiency)
     if progression:
         progression_headers={clean(x).casefold() for x in progression[0]}
         if "skill points" in progression_headers and progression_headers.intersection({"cr","challenge rating","hit dice"}):
             result["racialClass"]=True
-    parent=explicit_variant_parent(lines,entry.get("name",""))
-    if parent:
-        result["inheritsFrom"]=parent
+    parents=explicit_variant_parents(lines,entry.get("name",""))
+    if parents:
+        result["inheritsFromOptions"]=parents
+    else:
+        parent=explicit_variant_parent(lines,entry.get("name",""))
+        if parent:
+            result["inheritsFrom"]=parent
     has_special_progression=any(
         isinstance(row,dict) and any(str(key).casefold()=="special" for key in row)
         for row in result.get("advancement",[])
@@ -576,10 +742,20 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
     return {k:v for k,v in result.items() if v not in (None,"",[],{})}
 
 
+def class_book_key(value: str) -> str:
+    book=re.sub(r"^(?:Prestige|Base|NPC|Psionic|Racial|Monster) Class\s*", "", clean(value), flags=re.I)
+    # Historical D&D Tools uses this alternate subtitle for the same book.
+    book=book.replace("Libris Mortis: The Book of the Dead", "Libris Mortis: The Book of Undead")
+    book=unicodedata.normalize("NFKD", book)
+    return "".join(char for char in book if not unicodedata.combining(char)).replace("’", "'").casefold()
+
+
 def sibling_class_fallback(entry: dict) -> dict:
     candidates=[
         row for row in class_catalog_rows()
         if row.get("name")==entry.get("name") and row.get("id")!=entry.get("id")
+        and (not re.match(r"Prestige Class", entry.get("sourceBook", ""), re.I)
+             or (class_book_key(entry.get("sourceBook", "")) and class_book_key(row.get("sourceBook", ""))==class_book_key(entry.get("sourceBook", ""))))
     ]
     best={}
     best_score=-1
@@ -588,7 +764,7 @@ def sibling_class_fallback(entry: dict) -> dict:
             raw=fetch(row["url"],0.05)
             parser=DetailParser(); parser.feed(raw); parser.close()
             parsed=parse_class_core(parser,row)
-            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","classSkillRule","prerequisites","inheritsFrom"))
+            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","classSkillRule","proficiencies","prerequisites","inheritsFrom"))
             score+=2 if (parsed.get("mechanicsPresence") or {}).get("classFeatures") else 0
             if score>best_score:
                 best_score=score
@@ -598,14 +774,45 @@ def sibling_class_fallback(entry: dict) -> dict:
     return best
 
 
-def legacy_class_fallback(entry: dict) -> dict:
-    url=legacy_class_url(entry)
-    raw=fetch_allowed(url,{urlparse(LEGACY_CLASS_BASE).netloc},0.05)
-    parser=DetailParser(); parser.feed(raw); parser.close()
+def legacy_class_source(entry: dict):
+    """Resolve an explicitly linked historical version, checking both name and book."""
+    initial=legacy_class_url(entry)
+    host=urlparse(LEGACY_CLASS_BASE).netloc
+    slug=urlparse(initial).path.rstrip("/").split("/")[-1]
+    urls=[initial]
     expected=clean(entry.get("name","")).replace("’","'").casefold()
-    visible={clean(line).replace("’","'").casefold() for line in parser.lines[:60]}
-    if expected and expected not in visible:
-        raise ValueError(f"Historical mirror identity mismatch for {entry.get('name')}")
+    expected_book=class_book_key(entry.get("sourceBook", ""))
+    error=f"Historical source book mismatch for {entry.get('name')}: expected {entry.get('sourceBook')}"
+    for url in urls:
+        try:
+            raw=fetch_allowed(url,{host},0.05)
+        except (OSError, ValueError, RemoteDisconnected):
+            if url==initial:
+                raise
+            continue
+        parser=DetailParser(); parser.feed(raw); parser.close()
+        visible={clean(line).replace("’","'").casefold() for line in parser.lines[:60]}
+        if expected and expected not in visible:
+            if url==initial:
+                raise ValueError(f"Historical mirror identity mismatch for {entry.get('name')}")
+            continue
+        historical_book=next((match.group(1) for line in parser.lines[:80]
+                             if (match:=re.match(r"^\(\s*(.+?)\s+variant(?:,\s*p\.\s*\d+)?\s*\)$", clean(line), re.I))), "")
+        if not expected_book or class_book_key(historical_book)==expected_book:
+            return url,parser
+        # Only follow source-specific alternatives actually published on the first
+        # page. Never construct a route or borrow a same-name rule from another book.
+        if url==initial:
+            for href in parser.links:
+                target=urljoin(initial,href)
+                parsed=urlparse(target)
+                if parsed.scheme=="https" and parsed.netloc==host and re.fullmatch(r"/classes/[^/]+/"+re.escape(slug)+r"/",parsed.path) and not parsed.query and not parsed.fragment and target not in urls:
+                    urls.append(target)
+    raise ValueError(error)
+
+
+def legacy_class_fallback(entry: dict) -> dict:
+    url,parser=legacy_class_source(entry)
     result={"fallbackSourceUrl":url}
     req=parse_requirement_lines(section(parser.lines,parser.headings,"Requirements"))
     if req: result["prerequisites"]=req
@@ -619,6 +826,8 @@ def legacy_class_fallback(entry: dict) -> dict:
     else:
         skill_rule=parse_class_skill_rule(parser)
         if skill_rule: result["classSkillRule"]=skill_rule
+    proficiency=parse_class_proficiencies(parser)
+    if proficiency: result.update(proficiency)
     progression,advancement=parse_progression_table(parser)
     if progression:
         result["progression"]=progression
@@ -632,6 +841,27 @@ def legacy_class_fallback(entry: dict) -> dict:
     return result
 
 
+
+def merge_class_prerequisites(primary, fallback, min_bab=""):
+    """Fill prerequisite categories omitted by a truncated primary page without overwriting source-present rules."""
+    merged=list(primary or [])
+    existing={(clean(item.get("kind","")).casefold(), clean(item.get("text","")).replace("’","'").casefold()) for item in merged}
+    existing_kinds={clean(item.get("kind","")).casefold() for item in merged}
+    for item in fallback or []:
+        kind=clean(item.get("kind","")).casefold()
+        text_key=clean(item.get("text","")).replace("’","'").casefold()
+        if not kind or not text_key or (kind,text_key) in existing:
+            continue
+        if kind=="base_attack_bonus" and clean(min_bab):
+            continue
+        # A source-present category wins over a differing mirror rendering. The
+        # mirror only supplies categories the rebuilt page omitted entirely.
+        if kind in existing_kinds:
+            continue
+        merged.append(item)
+        existing.add((kind,text_key)); existing_kinds.add(kind)
+    return merged
+
 def parse_class(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     enriched=parse_class_core(parser,entry)
@@ -640,7 +870,13 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     # class name may contain the canonical mechanics (for example PHB vs setting books).
     sibling=sibling_class_fallback(entry)
     if sibling:
-        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
+        sibling_keys=("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","proficiencies","proficiencyText","proficiencyParseIncomplete","progression","advancement","inheritsFrom")
+        # A prestige record with its own minimum BAB is a concrete source/version,
+        # not a pointer. Do not borrow a same-named sibling's entry gate; let the
+        # identity-checked historical mirror recover that source's omitted gate.
+        if enriched.get("prestige") and enriched.get("minBab") and not enriched.get("prerequisites"):
+            sibling_keys=tuple(key for key in sibling_keys if key!="prerequisites")
+        for key in sibling_keys:
             if not enriched.get(key) and sibling.get(key):
                 enriched[key]=sibling[key]
         enriched["siblingSourceUrl"]=sibling.get("siblingSourceUrl")
@@ -654,8 +890,9 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
 
     # The rebuilt site omits some requirements/variant inheritance that the older
     # D&D Tools mirror still exposes. Use the mirror only to fill structured gaps.
+    prerequisite_kinds={clean(item.get("kind","")).casefold() for item in enriched.get("prerequisites",[]) if isinstance(item,dict)}
     needs_fallback=(
-        (enriched.get("prestige") and not enriched.get("prerequisites"))
+        (enriched.get("prestige") and not {"skills","feats"}.issubset(prerequisite_kinds))
         or not enriched.get("progression")
         or not enriched.get("classSkills")
         or not enriched.get("hit_die")
@@ -664,7 +901,13 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     if needs_fallback:
         try:
             fallback=legacy_class_fallback(entry)
-            for key in ("prerequisites","hit_die","skillPoints","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
+            if fallback.get("prerequisites"):
+                enriched["prerequisites"]=merge_class_prerequisites(
+                    enriched.get("prerequisites",[]),
+                    fallback.get("prerequisites",[]),
+                    enriched.get("minBab",""),
+                )
+            for key in ("hit_die","skillPoints","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
                 if not enriched.get(key) and fallback.get(key):
                     enriched[key]=fallback[key]
             enriched["fallbackSourceUrl"]=fallback.get("fallbackSourceUrl")
@@ -1946,7 +2189,7 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if not details.get("sourceBook"):
             raise ValueError("Class parse missing source book")
-        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","classSkillRule","inheritsFrom")
+        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","classSkillRule","inheritsFrom","inheritsFromOptions")
         if not any(details.get(key) for key in useful):
             # Some catalog records are source pointers (for example variant base
             # classes) with no mechanics on that exact page. They are safe to retain
@@ -2018,7 +2261,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
             for key in ("hit_die","skillPoints","classSkills"):
                 if key in gaps:
                     gaps.remove(key)
-        if details.get("inheritsFrom"):
+        if details.get("inheritsFrom") or details.get("inheritsFromOptions"):
             for key in ("progression","classSkills","hit_die","skillPoints"):
                 if key in gaps:
                     gaps.remove(key)
@@ -2088,6 +2331,7 @@ def candidate_summary(entry: dict, category: str, details: dict) -> str:
         if details.get("hit_die") is not None: bits.append(f"d{details['hit_die']} hit die")
         if details.get("skillPoints"): bits.append(f"{details['skillPoints']} skill points per level")
         if details.get("inheritsFrom"): bits.append(f"inherits baseline progression from {details['inheritsFrom']}")
+        if details.get("inheritsFromOptions"): bits.append("inherits baseline progression from choice of " + " or ".join(details["inheritsFromOptions"]))
         tail=(" with "+", ".join(bits)) if bits else ""
         return f"{name} is a D&D 3.5 {kind}{tail}. Source: {source}."
     if category=="feats":
@@ -2133,8 +2377,18 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     validate_details(entry, category, parser, details)
     gaps = enrichment_gaps(category, details)
     details["generatedDescription"]=candidate_summary(entry,category,details)
+    refreshed_entry=dict(entry)
+    if category=="classes":
+        # A new source decision must replace old recovery output, including an
+        # obsolete sibling's entry gate or an error from an earlier fetch.
+        for key in ("prerequisites","minBab","hit_die","skillPoints","classSkills",
+                    "classSkillRule","proficiencies","proficiencyText","proficiencyParseIncomplete",
+                    "progression","advancement","inheritsFrom","inheritsFromOptions",
+                    "siblingSourceId","siblingSourceUrl",
+                    "fallbackSourceUrl","fallbackMechanicsPresence","fallbackError"):
+            refreshed_entry.pop(key,None)
     return {
-        **entry,
+        **refreshed_entry,
         **details,
         "edition": "3.5-reference",
         "enrichment": {
@@ -2224,6 +2478,59 @@ def self_test():
     assert c["sourceBook"].endswith("Complete Warrior") and c["sourcePage"] == 79
     assert c["prerequisites"][0]["kind"] == "spells" and c["advancement"][0]["BAB"] == "+1"
 
+    merged_requirements=merge_class_prerequisites(
+        [
+            {"kind":"region_of_origin","label":"Region of Origin","text":"Breland."},
+            {"kind":"special","label":"Special","text":"Cannot be illiterate or affiliated with a religion."},
+        ],
+        [
+            {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+5"},
+            {"kind":"skills","label":"Skills","text":"Bluff 4 ranks; Diplomacy 4 ranks; Gather Information 4 ranks"},
+            {"kind":"region_of_origin","label":"Region of Origin","text":"Breland."},
+            {"kind":"special","label":"Special","text":"Cannot be illiterate or affiliated with a religion."},
+        ],
+        "+5",
+    )
+    assert {item["kind"] for item in merged_requirements}=={"skills","region_of_origin","special"}
+    assert next(item for item in merged_requirements if item["kind"]=="skills")["text"].startswith("Bluff 4 ranks")
+
+    special_only=merge_class_prerequisites(
+        [{"kind":"special","label":"Special","text":"Complete the initiation ritual."}],
+        [
+            {"kind":"alignment","label":"Alignment","text":"Any evil"},
+            {"kind":"skills","label":"Skills","text":"Bluff 10 ranks"},
+            {"kind":"feats","label":"Feats","text":"Disciple of Darkness"},
+            {"kind":"special","label":"Special","text":"Complete the initiation ritual."},
+        ],
+        "",
+    )
+    assert {item["kind"] for item in special_only}=={"alignment","skills","feats","special"}
+
+    assert legacy_class_url({
+        "id":"classes/tempest-621",
+        "url":"https://new.dndtools.org/classes/tempest-621",
+    })=="https://dndtools.net/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/tempest/"
+
+    # A secondary class-level casting table must not displace the real feature table.
+    multi_table_html = """
+    <h1>Shadow Test</h1><p>Base Class Example Book (EX), p. 1</p>
+    <table><tr><th>Class Level</th><th>1st</th><th>2nd</th></tr>
+    <tr><td>1st</td><td>1</td><td>—</td></tr></table>
+    <table><tr><th>Level</th><th>BAB</th><th>Fort</th><th>Ref</th><th>Will</th><th>Special</th></tr>
+    <tr><td>1st</td><td>+0</td><td>+0</td><td>+0</td><td>+2</td><td>Fundamentals, apprentice mysteries</td></tr></table>
+    """
+    p=DetailParser();p.feed(multi_table_html);p.close()
+    progression,advancement=parse_progression_table(p)
+    assert progression[0][-1]=="Special" and advancement[0]["Special"]=="Fundamentals, apprentice mysteries"
+
+    plural_special_html = """
+    <table><tr><th>Level</th><th>BAB</th><th>Fort</th><th>Ref</th><th>Will</th><th>Specials</th></tr>
+    <tr><td>1st</td><td>+0</td><td>+0</td><td>+0</td><td>+2</td><td>Focused talent</td></tr></table>
+    """
+    p=DetailParser();p.feed(plural_special_html);p.close()
+    progression,_=parse_progression_table(p)
+    assert progression[0][-1]=="Specials"
+
     base_with_prestige_prose = """
     <h1>Binder</h1><p>Base Class Tome of Magic (ToM), p. 9</p>
     <div>Hit Die</div><div>d8</div><div>Skill Points</div><div>2 + Int</div>
@@ -2236,6 +2543,49 @@ def self_test():
     p=DetailParser();p.feed(base_with_prestige_prose);p.close()
     binder=parse_class_core(p,{"name":"Binder"})
     assert not binder.get("prestige"), "incidental prose must not classify a base class as prestige"
+
+    proficiency_html = """
+    <h1>Archivist</h1><p>Base Class Heroes of Horror (HH), p. 82</p>
+    <h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: Archivists are proficient with all simple weapons and with light and medium armor, but not with shields.</p>
+    <p>Dark Knowledge: Three times per day, an archivist can draw upon his expansive knowledge.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(proficiency_html);p.close()
+    prof=parse_class_proficiencies(p)
+    assert {item["index"] for item in prof["proficiencies"]}=={"light-armor","medium-armor","simple-weapons"}, prof
+    assert "shields" not in [item["index"] for item in prof["proficiencies"]]
+    assert not prof["proficiencyParseIncomplete"]
+
+    limited_shield_html = """
+    <h1>Warmage</h1><h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: Warmages are proficient with all simple weapons, light armor, and light shields.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(limited_shield_html);p.close()
+    prof=parse_class_proficiencies(p)
+    indexes={item["index"] for item in prof["proficiencies"]}
+    assert "light-shields" in indexes and "shields" not in indexes
+
+    named_weapon_html = """
+    <h1>Wizard</h1><h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: Wizards are proficient with the club, dagger, heavy crossbow, light crossbow, and quarterstaff, but not with any type of armor or shield.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(named_weapon_html);p.close()
+    prof=parse_class_proficiencies(p)
+    indexes={item["index"] for item in prof["proficiencies"]}
+    assert {"club","dagger","crossbow-heavy","crossbow-light","quarterstaff"}.issubset(indexes)
+    assert "light-armor" not in indexes and "shields" not in indexes, prof
+
+    all_armor_html = """
+    <h1>Test Knight</h1><h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: A test knight is proficient with all martial weapons, all armor, and shields.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(all_armor_html);p.close()
+    prof=parse_class_proficiencies(p)
+    assert {item["index"] for item in prof["proficiencies"]}=={"martial-weapons","light-armor","medium-armor","heavy-armor","shields"}
 
     expert_html = """
     <h1>Expert</h1><p>NPC Class Unearthed Arcana (UA), p. 77</p>
@@ -2269,6 +2619,16 @@ def self_test():
     """
     p=DetailParser();p.feed(substitution_html);p.close()
     assert explicit_variant_parent(p.lines,"Fangshields Druid") == "Druid"
+
+    compound_variant_html = """
+    <h1>Sorcerer/Wizard Variant</h1><p>Base Class Unearthed Arcana (UA), p. 58</p>
+    <h2>Class Features</h2>
+    <p>All starting gold, skill points, class skills, hit dice, and class features all retained from base classes, sorcerer or Wizard, unless noted.</p>
+    """
+    p=DetailParser();p.feed(compound_variant_html);p.close()
+    compound=parse_class_core(p,{"name":"Sorcerer/Wizard Variant"})
+    assert compound.get("inheritsFromOptions")==["Sorcerer","Wizard"]
+    assert not compound.get("inheritsFrom"), "plural base classes must not be truncated to a bogus parent"
 
     racial_html = """
     <h1>Pixie</h1><p>Base Class Savage Species (SS), p. 190</p>

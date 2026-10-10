@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "description": "Explicit evidence required for certified-complete D&D 3.5 classes. Tracker status alone never certifies a class. Add a class only after every required evidence axis is supported and blockers are empty.",
+  "requiredEvidence": [
+    "sourceIdentity",
+    "prerequisites",
+    "training",
+    "mechanics",
+    "choices",
+    "progression",
+    "runtime",
+    "ui",
+    "persistence",
+    "cleanup",
+    "regressions"
+  ],
+  "entries": {}
+}

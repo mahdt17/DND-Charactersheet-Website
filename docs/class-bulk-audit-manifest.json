@@ -1,0 +1,1455 @@
+{
+  "schemaVersion": 1,
+  "snapshotCommit": "a6123fe36ddc952a07456a98a71233efd5bdf176",
+  "exactClassRecordCount": 1054,
+  "rule": "Exact source IDs remain independent. Catalog-identical fingerprints are candidate evidence only; source verification is required before mechanic sharing.",
+  "sameNameGroups": {
+    "total": 107,
+    "divergent": 92,
+    "catalogIdenticalCandidates": 15,
+    "divergentGroups": [
+      {
+        "name": "Acolyte of the Skin",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/acolyte-of-the-skin-207",
+          "classes/acolyte-of-the-skin-836"
+        ]
+      },
+      {
+        "name": "Alienist",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/alienist-223",
+          "classes/alienist-837"
+        ]
+      },
+      {
+        "name": "Animal Lord",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/animal-lord-181",
+          "classes/animal-lord-605"
+        ]
+      },
+      {
+        "name": "Arachnomancer",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/arachnomancer-895",
+          "classes/arachnomancer2-425"
+        ]
+      },
+      {
+        "name": "Arcane Devotee",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/arcane-devotee-509",
+          "classes/arcane-devotee-657"
+        ]
+      },
+      {
+        "name": "Arcane Trickster",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/arcane-trickster-379",
+          "classes/arcane-trickster-838"
+        ]
+      },
+      {
+        "name": "Archmage",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/archmage-380",
+          "classes/archmage-510"
+        ]
+      },
+      {
+        "name": "Bear Warrior",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/bear-warrior-340",
+          "classes/bear-warrior-628"
+        ]
+      },
+      {
+        "name": "Beholder Mage",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/beholder-mage-557",
+          "classes/beholder-mage-600"
+        ]
+      },
+      {
+        "name": "Black Flame Zealot",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/black-flame-zealot-256",
+          "classes/black-flame-zealot-884"
+        ]
+      },
+      {
+        "name": "Bladesinger",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 3,
+        "sourceIds": [
+          "classes/bladesinger-306",
+          "classes/bladesinger-695",
+          "classes/bladesinger-839"
+        ]
+      },
+      {
+        "name": "Blighter",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/blighter-257",
+          "classes/blighter-607"
+        ]
+      },
+      {
+        "name": "Blood Magus",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/blood-magus-225",
+          "classes/blood-magus-840"
+        ]
+      },
+      {
+        "name": "Bloodhound",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/bloodhound-204",
+          "classes/bloodhound-608"
+        ]
+      },
+      {
+        "name": "Cavalier",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/cavalier-341",
+          "classes/cavalier-765"
+        ]
+      },
+      {
+        "name": "Church Inquisitor",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/church-inquisitor-258",
+          "classes/church-inquisitor-357"
+        ]
+      },
+      {
+        "name": "Consecrated Harrier",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/consecrated-harrier-259",
+          "classes/consecrated-harrier-358"
+        ]
+      },
+      {
+        "name": "Constructor",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/constructor-1045",
+          "classes/constructor-995"
+        ]
+      },
+      {
+        "name": "Contemplative",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/contemplative-260",
+          "classes/contemplative-359"
+        ]
+      },
+      {
+        "name": "Crystal Master",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/crystal-master-1046",
+          "classes/crystal-master-996"
+        ]
+      },
+      {
+        "name": "Divine Champion",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/divine-champion-511",
+          "classes/divine-champion-661"
+        ]
+      },
+      {
+        "name": "Divine Disciple",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/divine-disciple-512",
+          "classes/divine-disciple-662"
+        ]
+      },
+      {
+        "name": "Divine Oracle",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/divine-oracle-238",
+          "classes/divine-oracle-360"
+        ]
+      },
+      {
+        "name": "Divine Seeker",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/divine-seeker-513",
+          "classes/divine-seeker-663"
+        ]
+      },
+      {
+        "name": "Dragon Disciple",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/dragon-disciple-383",
+          "classes/dragon-disciple-842"
+        ]
+      },
+      {
+        "name": "Dread Pirate",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/dread-pirate-182",
+          "classes/dread-pirate-755"
+        ]
+      },
+      {
+        "name": "Drunken Master",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/drunken-master-310",
+          "classes/drunken-master-767"
+        ]
+      },
+      {
+        "name": "Duelist",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/duelist-384",
+          "classes/duelist-768"
+        ]
+      },
+      {
+        "name": "Dungeon Delver",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/dungeon-delver-183",
+          "classes/dungeon-delver-756"
+        ]
+      },
+      {
+        "name": "Dweomerkeeper",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/dweomerkeeper-483",
+          "classes/dweomerkeeper-968"
+        ]
+      },
+      {
+        "name": "Elemental Savant",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/elemental-savant-209",
+          "classes/elemental-savant-843"
+        ]
+      },
+      {
+        "name": "Epic Barbarian",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-barbarian-48",
+          "classes/epic-barbarian-991"
+        ]
+      },
+      {
+        "name": "Epic Bard",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-bard-1012",
+          "classes/epic-bard-49"
+        ]
+      },
+      {
+        "name": "Epic Cleric",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-cleric-1013",
+          "classes/epic-cleric-50"
+        ]
+      },
+      {
+        "name": "Epic Druid",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-druid-1014",
+          "classes/epic-druid-51"
+        ]
+      },
+      {
+        "name": "Epic Fighter",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-fighter-1016",
+          "classes/epic-fighter-52"
+        ]
+      },
+      {
+        "name": "Epic Monk",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-monk-1017",
+          "classes/epic-monk-53"
+        ]
+      },
+      {
+        "name": "Epic Paladin",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-paladin-1018",
+          "classes/epic-paladin-54"
+        ]
+      },
+      {
+        "name": "Epic Ranger",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-ranger-1019",
+          "classes/epic-ranger-57"
+        ]
+      },
+      {
+        "name": "Epic Rogue",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-rogue-1020",
+          "classes/epic-rogue-58"
+        ]
+      },
+      {
+        "name": "Epic Sorcerer",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-sorcerer-1021",
+          "classes/epic-sorcerer-59"
+        ]
+      },
+      {
+        "name": "Epic Wizard",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/epic-wizard-1022",
+          "classes/epic-wizard-60"
+        ]
+      },
+      {
+        "name": "Exotic Weapon Master",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/exotic-weapon-master-311",
+          "classes/exotic-weapon-master-610"
+        ]
+      },
+      {
+        "name": "Expert",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 3,
+        "sourceIds": [
+          "classes/expert-25",
+          "classes/expert-33",
+          "classes/expert2-124"
+        ]
+      },
+      {
+        "name": "Eye of Gruumsh",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/eye-of-gruumsh-312",
+          "classes/eye-of-gruumsh-611"
+        ]
+      },
+      {
+        "name": "Fatespinner",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/fatespinner-211",
+          "classes/fatespinner-844"
+        ]
+      },
+      {
+        "name": "Frenzied Berserker",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/frenzied-berserker-313",
+          "classes/frenzied-berserker-614"
+        ]
+      },
+      {
+        "name": "Geomancer",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/geomancer-241",
+          "classes/geomancer-615"
+        ]
+      },
+      {
+        "name": "Halfling Outrider",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/halfling-outrider-315",
+          "classes/halfling-outrider-772"
+        ]
+      },
+      {
+        "name": "Hathran",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/hathran-516",
+          "classes/hathran-669"
+        ]
+      },
+      {
+        "name": "Hierophant",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/hierophant-387",
+          "classes/hierophant-517"
+        ]
+      },
+      {
+        "name": "Holy Liberator",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/holy-liberator-242",
+          "classes/holy-liberator-361"
+        ]
+      },
+      {
+        "name": "Hospitaler",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/hospitaler-243",
+          "classes/hospitaler-362"
+        ]
+      },
+      {
+        "name": "Hunter of the Dead",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/hunter-of-the-dead-317",
+          "classes/hunter-of-the-dead-363"
+        ]
+      },
+      {
+        "name": "Incantatrix",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/incantatrix-568",
+          "classes/incantatrix-670"
+        ]
+      },
+      {
+        "name": "Knight of the Chalice",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/knight-of-the-chalice-321",
+          "classes/knight-of-the-chalice-364"
+        ]
+      },
+      {
+        "name": "Mage of the Arcane Order",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/mage-of-the-arcane-order-215",
+          "classes/mage-of-the-arcane-order-845"
+        ]
+      },
+      {
+        "name": "Master of Shrouds",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 3,
+        "sourceIds": [
+          "classes/master-of-shrouds-366",
+          "classes/master-of-shrouds-550",
+          "classes/master-of-shrouds-969"
+        ]
+      },
+      {
+        "name": "Meditant",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/meditant-1030",
+          "classes/meditant-1049"
+        ]
+      },
+      {
+        "name": "Mindbender",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/mindbender-217",
+          "classes/mindbender-846"
+        ]
+      },
+      {
+        "name": "Mountebank",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/mountebank-298",
+          "classes/mountebank-dragon-compendium-976"
+        ]
+      },
+      {
+        "name": "Nightcloak",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/nightcloak-489",
+          "classes/nightcloak-971"
+        ]
+      },
+      {
+        "name": "Order of the Bow Initiate",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/order-of-the-bow-initiate-328",
+          "classes/order-of-the-bow-initiate-778"
+        ]
+      },
+      {
+        "name": "Pale Master",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/pale-master-552",
+          "classes/pale-master-847"
+        ]
+      },
+      {
+        "name": "Purple Dragon Knight",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 3,
+        "sourceIds": [
+          "classes/purple-dragon-knight-329",
+          "classes/purple-dragon-knight-518",
+          "classes/purple-dragon-knight-676"
+        ]
+      },
+      {
+        "name": "Ravager",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/ravager-331",
+          "classes/ravager-779"
+        ]
+      },
+      {
+        "name": "Red Wizard",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/red-wizard-391",
+          "classes/red-wizard-519"
+        ]
+      },
+      {
+        "name": "Runecaster",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/runecaster-520",
+          "classes/runecaster-677"
+        ]
+      },
+      {
+        "name": "Sacred Exorcist",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/sacred-exorcist-247",
+          "classes/sacred-exorcist-367"
+        ]
+      },
+      {
+        "name": "Sacred Fist",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/sacred-fist-248",
+          "classes/sacred-fist-368"
+        ]
+      },
+      {
+        "name": "Samurai",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/samurai-22",
+          "classes/samurai-84"
+        ]
+      },
+      {
+        "name": "Sangehirn",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/sangehirn-1036",
+          "classes/sangehirn-1052"
+        ]
+      },
+      {
+        "name": "Shadow Adept",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/shadow-adept-521",
+          "classes/shadow-adept-679"
+        ]
+      },
+      {
+        "name": "Shugenja",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/shugenja-8",
+          "classes/shugenja-86"
+        ]
+      },
+      {
+        "name": "Spellsword",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/spellsword-334",
+          "classes/spellsword-848"
+        ]
+      },
+      {
+        "name": "Spymaster",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/spymaster-196",
+          "classes/spymaster-760"
+        ]
+      },
+      {
+        "name": "Stormlord",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/stormlord-251",
+          "classes/stormlord-492"
+        ]
+      },
+      {
+        "name": "Tattooed Monk",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/tattooed-monk-336",
+          "classes/tattooed-monk-647"
+        ]
+      },
+      {
+        "name": "Tempest",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/tempest-198",
+          "classes/tempest-621"
+        ]
+      },
+      {
+        "name": "Temple Raider of Olidammara",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/temple-raider-of-olidammara-252",
+          "classes/temple-raider-of-olidammara-761"
+        ]
+      },
+      {
+        "name": "Thief-acrobat",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/thief-acrobat-199",
+          "classes/thief-acrobat-762"
+        ]
+      },
+      {
+        "name": "True Necromancer",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/true-necromancer-555",
+          "classes/true-necromancer-849"
+        ]
+      },
+      {
+        "name": "Ur-priest",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/ur-priest-177",
+          "classes/ur-priest-253"
+        ]
+      },
+      {
+        "name": "Vigilante",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/vigilante-200",
+          "classes/vigilante-763"
+        ]
+      },
+      {
+        "name": "Virtuoso",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/virtuoso-201",
+          "classes/virtuoso-764"
+        ]
+      },
+      {
+        "name": "Void Disciple",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/void-disciple-254",
+          "classes/void-disciple-648"
+        ]
+      },
+      {
+        "name": "Warmage",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/warmage-5",
+          "classes/warmage-79"
+        ]
+      },
+      {
+        "name": "Warpriest",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/warpriest-255",
+          "classes/warpriest-370"
+        ]
+      },
+      {
+        "name": "Warrior",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 3,
+        "sourceIds": [
+          "classes/warrior-28",
+          "classes/warrior-34",
+          "classes/warrior2-135"
+        ]
+      },
+      {
+        "name": "Wayfarer Guide",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/wayfarer-guide-221",
+          "classes/wayfarer-guide-850"
+        ]
+      },
+      {
+        "name": "Wearer of Purple",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/wearer-of-purple-424",
+          "classes/wearer-of-purple-497"
+        ]
+      },
+      {
+        "name": "Wu Jen",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 2,
+        "sourceIds": [
+          "classes/wu-jen-6",
+          "classes/wu-jen-88"
+        ]
+      }
+    ],
+    "catalogIdenticalCandidateGroups": [
+      {
+        "name": "Barbarian",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/barbarian-104",
+          "classes/barbarian-37",
+          "classes/barbarian-61",
+          "classes/barbarian-89"
+        ]
+      },
+      {
+        "name": "Cleric",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/cleric-105",
+          "classes/cleric-39",
+          "classes/cleric-63",
+          "classes/cleric-91"
+        ]
+      },
+      {
+        "name": "Commoner",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/commoner-24",
+          "classes/commoner-32"
+        ]
+      },
+      {
+        "name": "Druid",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/druid-106",
+          "classes/druid-40",
+          "classes/druid-64",
+          "classes/druid-92"
+        ]
+      },
+      {
+        "name": "Favored Soul",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/favored-soul-7",
+          "classes/favored-soul-76"
+        ]
+      },
+      {
+        "name": "Fighter",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/fighter-41",
+          "classes/fighter-65",
+          "classes/fighter-93"
+        ]
+      },
+      {
+        "name": "Monk",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/monk-42",
+          "classes/monk-66",
+          "classes/monk-94"
+        ]
+      },
+      {
+        "name": "Paladin",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/paladin-107",
+          "classes/paladin-43",
+          "classes/paladin-67",
+          "classes/paladin-95"
+        ]
+      },
+      {
+        "name": "Paladin Variant",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/paladin-variant-20",
+          "classes/paladin-variant-955"
+        ]
+      },
+      {
+        "name": "Ranger",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/ranger-108",
+          "classes/ranger-44",
+          "classes/ranger-68",
+          "classes/ranger-96"
+        ]
+      },
+      {
+        "name": "Ranger Variant",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/ranger-variant-21",
+          "classes/ranger-variant-956"
+        ]
+      },
+      {
+        "name": "Rogue",
+        "recordCount": 3,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/rogue-45",
+          "classes/rogue-69",
+          "classes/rogue-97"
+        ]
+      },
+      {
+        "name": "Sorcerer",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/sorcerer-109",
+          "classes/sorcerer-46",
+          "classes/sorcerer-70",
+          "classes/sorcerer-98"
+        ]
+      },
+      {
+        "name": "Thayan Knight",
+        "recordCount": 2,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/thayan-knight-337",
+          "classes/thayan-knight-538"
+        ]
+      },
+      {
+        "name": "Wizard",
+        "recordCount": 4,
+        "distinctMechanicsFingerprints": 1,
+        "sourceIds": [
+          "classes/wizard-110",
+          "classes/wizard-47",
+          "classes/wizard-71",
+          "classes/wizard-99"
+        ]
+      }
+    ]
+  },
+  "riskFamilyCounts": {
+    "spellcasting": 376,
+    "ordinary": 586,
+    "companions": 53,
+    "binding": 5,
+    "psionics": 40,
+    "maneuvers": 10,
+    "invocations": 5,
+    "incarnum": 14
+  },
+  "lowRiskFixedProgression": {
+    "count": 44,
+    "records": [
+      {
+        "sourceId": "classes/abjurer-variant-960",
+        "name": "Abjurer Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 59,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "9110c476"
+      },
+      {
+        "sourceId": "classes/aristocrat-31",
+        "name": "Aristocrat",
+        "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
+        "sourcePage": 108,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "0e0a457e"
+      },
+      {
+        "sourceId": "classes/barbarian-variant-950",
+        "name": "Barbarian Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "39c4e68d"
+      },
+      {
+        "sourceId": "classes/bard-variant-951",
+        "name": "Bard Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5579fb6a"
+      },
+      {
+        "sourceId": "classes/cleric-variant-972",
+        "name": "Cleric Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "3fa75fa3"
+      },
+      {
+        "sourceId": "classes/cloistered-cleric-120",
+        "name": "Cloistered Cleric",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 50,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "c5d0dba7"
+      },
+      {
+        "sourceId": "classes/commoner-24",
+        "name": "Commoner",
+        "sourceBook": "Base Class Dragonlance Campaign Setting",
+        "sourcePage": 46,
+        "trackerStatus": "blocked",
+        "sameNameRecordCount": 2,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5b4379b7"
+      },
+      {
+        "sourceId": "classes/commoner-32",
+        "name": "Commoner",
+        "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
+        "sourcePage": 109,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 2,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5b4379b7"
+      },
+      {
+        "sourceId": "classes/conjurer-variant-961",
+        "name": "Conjurer Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 60,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "9265962c"
+      },
+      {
+        "sourceId": "classes/divine-bard-121",
+        "name": "Divine Bard",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 50,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "8bb72770"
+      },
+      {
+        "sourceId": "classes/diviner-variant-962",
+        "name": "Diviner Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 60,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5ebfd76c"
+      },
+      {
+        "sourceId": "classes/domain-wizard-122",
+        "name": "Domain Wizard",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 57,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "4d9ff59c"
+      },
+      {
+        "sourceId": "classes/druid-variant-952",
+        "name": "Druid Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "b443ad3f"
+      },
+      {
+        "sourceId": "classes/druidic-avenger-123",
+        "name": "Druidic Avenger",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 51,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "6a3042bd"
+      },
+      {
+        "sourceId": "classes/enchanter-variant-963",
+        "name": "Enchanter Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 61,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "ca85b700"
+      },
+      {
+        "sourceId": "classes/evoker-variant-964",
+        "name": "Evoker Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 62,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "7c830728"
+      },
+      {
+        "sourceId": "classes/expert-33",
+        "name": "Expert",
+        "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
+        "sourcePage": 109,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 3,
+        "sameNameDistinctMechanics": 3,
+        "mechanicsFingerprint": "39b69fb5"
+      },
+      {
+        "sourceId": "classes/fighter-variant-953",
+        "name": "Fighter Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5c2cd7a2"
+      },
+      {
+        "sourceId": "classes/illusionist-variant-965",
+        "name": "Illusionist Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 63,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "d27d380a"
+      },
+      {
+        "sourceId": "classes/lightbringer-bard-1025",
+        "name": "Lightbringer Bard",
+        "sourceBook": "Base Class Expedition to Castle Ravenloft",
+        "sourcePage": 206,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "f25fbe42"
+      },
+      {
+        "sourceId": "classes/lightbringer-cleric-1026",
+        "name": "Lightbringer Cleric",
+        "sourceBook": "Base Class Expedition to Castle Ravenloft",
+        "sourcePage": 206,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "90227678"
+      },
+      {
+        "sourceId": "classes/lightbringer-paladin-1027",
+        "name": "Lightbringer Paladin",
+        "sourceBook": "Base Class Expedition to Castle Ravenloft",
+        "sourcePage": 208,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "f8608328"
+      },
+      {
+        "sourceId": "classes/lightbringer-rogue-1028",
+        "name": "Lightbringer Rogue",
+        "sourceBook": "Base Class Expedition to Castle Ravenloft",
+        "sourcePage": 208,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "4b640118"
+      },
+      {
+        "sourceId": "classes/metamagic-specialist-1031",
+        "name": "Metamagic Specialist",
+        "sourceBook": "Base Class Player's Handbook II",
+        "sourcePage": 61,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "232791ed"
+      },
+      {
+        "sourceId": "classes/monk-variant-954",
+        "name": "Monk Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "2c8254ae"
+      },
+      {
+        "sourceId": "classes/monk-variant-fighting-styles-949",
+        "name": "Monk Variant: Fighting Styles",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 52,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "d45676b8"
+      },
+      {
+        "sourceId": "classes/necromancer-variant-966",
+        "name": "Necromancer Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 63,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "0276e086"
+      },
+      {
+        "sourceId": "classes/paladin-variant-20",
+        "name": "Paladin Variant",
+        "sourceBook": "Base Class Complete Warrior",
+        "sourcePage": 13,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 2,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "8be98ac0"
+      },
+      {
+        "sourceId": "classes/paladin-variant-955",
+        "name": "Paladin Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 2,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "8be98ac0"
+      },
+      {
+        "sourceId": "classes/planar-ranger-128",
+        "name": "Planar Ranger",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 55,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "1b30b24a"
+      },
+      {
+        "sourceId": "classes/ranger-variant-21",
+        "name": "Ranger Variant",
+        "sourceBook": "Base Class Complete Warrior",
+        "sourcePage": 13,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 2,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "891bdeb4"
+      },
+      {
+        "sourceId": "classes/ranger-variant-956",
+        "name": "Ranger Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 2,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "891bdeb4"
+      },
+      {
+        "sourceId": "classes/rogue-variant-958",
+        "name": "Rogue Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5ec55e7d"
+      },
+      {
+        "sourceId": "classes/savage-bard-129",
+        "name": "Savage Bard",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 50,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "1139f9f0"
+      },
+      {
+        "sourceId": "classes/shadowcaster-113",
+        "name": "Shadowcaster",
+        "sourceBook": "Base Class Tome of Magic",
+        "sourcePage": 111,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "582030f5"
+      },
+      {
+        "sourceId": "classes/sorcererwizard-variant-957",
+        "name": "Sorcerer/Wizard Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 58,
+        "trackerStatus": "reviewed_partial",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "78f08c52"
+      },
+      {
+        "sourceId": "classes/thug-132",
+        "name": "Thug",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 51,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "d75b1d39"
+      },
+      {
+        "sourceId": "classes/totem-barbarian-133",
+        "name": "Totem Barbarian",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 48,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "aa9adc91"
+      },
+      {
+        "sourceId": "classes/transmuter-variant-967",
+        "name": "Transmuter Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 64,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "64fdd26e"
+      },
+      {
+        "sourceId": "classes/urban-ranger-134",
+        "name": "Urban Ranger",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 55,
+        "trackerStatus": "pending_audit",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "e7640baa"
+      },
+      {
+        "sourceId": "classes/warrior-28",
+        "name": "Warrior",
+        "sourceBook": "Base Class Dragonlance Campaign Setting",
+        "sourcePage": 53,
+        "trackerStatus": "blocked",
+        "sameNameRecordCount": 3,
+        "sameNameDistinctMechanics": 3,
+        "mechanicsFingerprint": "a8c0a4f5"
+      },
+      {
+        "sourceId": "classes/warrior-34",
+        "name": "Warrior",
+        "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
+        "sourcePage": 109,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 3,
+        "sameNameDistinctMechanics": 3,
+        "mechanicsFingerprint": "1e08389f"
+      },
+      {
+        "sourceId": "classes/wilderness-rogue-136",
+        "name": "Wilderness Rogue",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 56,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "5c468465"
+      },
+      {
+        "sourceId": "classes/wizard-variant-959",
+        "name": "Wizard Variant",
+        "sourceBook": "Base Class Unearthed Arcana",
+        "sourcePage": 59,
+        "trackerStatus": "complete",
+        "sameNameRecordCount": 1,
+        "sameNameDistinctMechanics": 1,
+        "mechanicsFingerprint": "2a505afc"
+      }
+    ]
+  }
+}
