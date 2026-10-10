@@ -68,7 +68,8 @@
           "operation": "set",
           "valueByLevel": {"1": 10, "3": 20, "5": 30, "7": 40, "9": 50},
           "unit": "ft.",
-          "condition": "lost while wearing armor or carrying a medium or heavy load"
+          "condition": "lost while wearing armor or carrying a medium or heavy load",
+          "defaultActive": true
         }
       ],
       "Slow Breath": [
