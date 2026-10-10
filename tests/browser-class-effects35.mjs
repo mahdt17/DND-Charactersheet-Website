@@ -49,7 +49,13 @@ const openEffect=async (panel,name)=>{
   await detail.locator('p').first().waitFor();
   return detail;
 };
-const willSaveButton=()=>page.locator('section.l-panel').filter({has:page.getByRole('heading',{name:'3.5 attacks & saves',exact:true})}).locator('.l-toolbar').filter({hasText:'Will base + misc.'}).getByRole('button');
+const operationalPanel=()=>page.locator('section.l-panel').filter({has:page.getByRole('heading',{name:'3.5 attacks & saves',exact:true})});
+const openConditionControls=async()=>{
+  const detail=operationalPanel().locator('details').filter({hasText:'Conditional class effects'}).first();
+  if(await detail.getAttribute('open')===null)await detail.locator('summary').click();
+  return detail;
+};
+const willSaveButton=()=>operationalPanel().locator('.l-toolbar').filter({hasText:'Will base + misc.'}).getByRole('button');
 const speedTile=()=>page.locator('.vital-tile').filter({hasText:'Walking speed'}).first();
 const initiativeTile=()=>page.locator('button.vital-tile').filter({hasText:'Initiative'}).first();
 try{
@@ -69,6 +75,7 @@ try{
   await panel.waitFor();
   let detail=await openEffect(panel,'Sacred Defense');
   assert.match(await detail.innerText(),/\+2 save sacred bonus against divine spells and outsider spell-like or supernatural abilities/i);
+  await openConditionControls();
   const sacredToggle=page.getByLabel('Apply Sacred Defense condition',{exact:true});
   assert.equal(await sacredToggle.isChecked(),false,'conditional effect control starts off');
   await sacredToggle.check();
@@ -96,6 +103,7 @@ try{
   const movementPanel=page.getByRole('region',{name:'Structured class effects'});
   detail=await openEffect(movementPanel,'Fast Movement');
   assert.match(await detail.innerText(),/Land movement \+20 ft\. while unarmored and not carrying a medium or heavy load/i);
+  await openConditionControls();
   const movementToggle=page.getByLabel('Apply Fast Movement condition',{exact:true});
   assert.equal(await movementToggle.isChecked(),false);
   await movementToggle.check();
