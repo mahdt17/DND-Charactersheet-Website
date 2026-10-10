@@ -4,15 +4,17 @@ import proficiencySupplements35 from '../src/data/class-proficiencies35.json' wi
 import featureSummaries35 from '../src/data/class-feature-summaries-35.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {progressionTables} from '../src/lib/advancement.js';
-import {certifyClassEvidence35} from './class_completion_certification35.mjs';
+import {certifyClassEvidence35,validateEvidenceArtifacts35} from './class_completion_certification35.mjs';
 import {resolveClassReviewCoverage35,buildClassReviewClusters35} from './class_review_coverage35.mjs';
 
 const args=process.argv.slice(2);
 const trackerPath=args.find(a=>!a.startsWith('--'))||'docs/class-completion-tracker.json';
 const evidencePath=(args.find(a=>a.startsWith('--evidence='))||'--evidence=docs/class-completion-evidence35.json').split('=')[1];
+const evidenceRoot=(args.find(a=>a.startsWith('--evidence-root='))||'').split('=')[1]||process.cwd();
 const outputArg=args.find(a=>a.startsWith('--output='));
 const tracker=JSON.parse(await fs.readFile(trackerPath,'utf8'));
 const evidenceManifest=JSON.parse(await fs.readFile(evidencePath,'utf8'));
+const evidenceArtifactErrors=await validateEvidenceArtifacts35(evidenceManifest,{root:evidenceRoot});
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
 const classes=await service.load('3.5/classes');
 const byId=new Map(classes.map(r=>[r.sourceId,r]));
@@ -21,7 +23,7 @@ const raw=record=>[record?.description,record?.sourceDescription,record?.effect,
 const family=record=>{const t=norm(raw(record)),out=[];for(const [name,re] of [['binding',/vestiges?|soul binding|binder level/],['incarnum',/soulmeld|essentia|chakra bind/],['psionics',/power points|powers? known|manifester level|psionic/],['invocations',/invocations? known|eldritch blast/],['maneuvers',/maneuvers? known|maneuvers? readied|stances? known|initiator level/]])if(re.test(t))out.push(name);return out;};
 const queue=[];
 for(const entry of tracker.entries||[]){
- const certification=certifyClassEvidence35({trackerEntry:entry,evidenceEntry:evidenceManifest.entries?.[entry.sourceId]});
+ const certification=certifyClassEvidence35({trackerEntry:entry,evidenceEntry:evidenceManifest.entries?.[entry.sourceId],artifactValidationErrors:evidenceArtifactErrors[entry.sourceId]||[]});
  if(certification.certified)continue;
  const record=byId.get(entry.sourceId),reasons=[],families=family(record);
  const coverage=resolveClassReviewCoverage35({sourceId:entry.sourceId,record,featureSummaries:featureSummaries35,trainingSupplements:proficiencySupplements35.entries||{}});
