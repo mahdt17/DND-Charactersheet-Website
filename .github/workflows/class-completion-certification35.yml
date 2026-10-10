@@ -21,6 +21,7 @@ on:
       - "scripts/select_class_research_batch.mjs"
       - "tests/class-completion-certification35.mjs"
       - "tests/class-certification-candidates35.mjs"
+      - "tests/class-certification-first-record35.mjs"
       - "tests/class-review-coverage35.mjs"
       - "tests/source-choice-ui-context35.mjs"
       - "src/LevelUp.jsx"
@@ -47,6 +48,7 @@ jobs:
       - run: npm ci
       - run: node tests/class-completion-certification35.mjs
       - run: node tests/class-certification-candidates35.mjs
+      - run: node tests/class-certification-first-record35.mjs
       - run: node tests/class-review-coverage35.mjs
       - run: node tests/casting-prerequisites35.mjs
       - run: node tests/source-choice-ui-context35.mjs
