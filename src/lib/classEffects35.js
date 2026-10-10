@@ -162,6 +162,19 @@ function materializeFeatureEffect35(character,feature,effect,index){
   };
 }
 
+function reconcileInitiative35(character){
+  const priorDerived=Number(character?.classEffectInitiativeBonus35)||0;
+  const hasPrior=character?.classEffectInitiativeBonus35!=null;
+  const current=Number(character?.initiativeBonus)||0;
+  if(!hasPrior&&!classEffectModifier35(character,'initiative'))return character;
+  const storedManual=Number(character?.classEffectInitiativeManual35);
+  const priorManual=character?.classEffectInitiativeManual35!=null&&Number.isFinite(storedManual)?storedManual:current-priorDerived;
+  const expected=priorManual+priorDerived;
+  const manual=current===expected?priorManual:current-priorDerived;
+  const derived=classEffectModifier35(character,'initiative');
+  return {...character,initiativeBonus:manual+derived,classEffectInitiativeManual35:manual,classEffectInitiativeBonus35:derived};
+}
+
 export function reconcileClassEffects35(character){
   const manual=(Array.isArray(character?.classEffects35)?character.classEffects35:[])
     .filter(effect=>!(effect?.sourceType==='class'&&effect?.automatic));
@@ -180,5 +193,5 @@ export function reconcileClassEffects35(character){
   const derivedEffects=[...unique.values()];
   const conditionalIds=new Set(derivedEffects.filter(classEffectRequiresActivation35).map(effect=>effect.id));
   const classEffectToggles35=Object.fromEntries(Object.entries(character?.classEffectToggles35||{}).filter(([id,value])=>conditionalIds.has(id)&&value===true));
-  return {...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35};
+  return reconcileInitiative35({...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35});
 }
