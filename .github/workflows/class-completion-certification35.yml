@@ -11,8 +11,10 @@ on:
       - "scripts/class_review_coverage35.mjs"
       - "scripts/audit_prerequisite_coverage35.mjs"
       - "scripts/audit_casting_prerequisites35.mjs"
+      - "scripts/apply_class_effects35_patch.mjs"
       - "src/lib/castingPrerequisites35.js"
       - "src/lib/classIntegration.js"
+      - "src/lib/classEffects35.js"
       - "src/data/class-feature-summaries-35.json"
       - "tests/casting-prerequisites35.mjs"
       - "src/lib/prerequisites35.js"
@@ -29,7 +31,7 @@ on:
       - "package.json"
       - ".github/workflows/class-completion-certification35.yml"
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: class-completion-certification35-${{ github.ref }}
   cancel-in-progress: true
@@ -41,10 +43,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+      - name: Apply one-shot structured class effects integration patch
+        run: node scripts/apply_class_effects35_patch.mjs
+      - name: Commit generated class effects integration patch
+        run: |
+          if git diff --quiet -- src/lib/classIntegration.js; then
+            echo "No integration patch required."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/lib/classIntegration.js
+            git commit -m "feat: integrate structured class effects"
+            git push origin HEAD:codex/class-integration-engine
+          fi
       - run: npm ci
       - run: node tests/class-completion-certification35.mjs
       - run: node tests/class-certification-candidates35.mjs
