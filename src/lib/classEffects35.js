@@ -74,7 +74,9 @@ export function classEffectRequiresActivation35(effect){
 
 export function classEffectActive35(character,effect){
   if(!classEffectRequiresActivation35(effect))return true;
-  return character?.classEffectToggles35?.[effect.id]===true;
+  const toggles=character?.classEffectToggles35||{};
+  if(Object.hasOwn(toggles,effect.id))return toggles[effect.id]===true;
+  return effect?.defaultActive===true;
 }
 
 function effectTargetMatches35(effectTarget,requestedTarget){
@@ -204,7 +206,7 @@ export function reconcileClassEffects35(character){
   for(const effect of derived)unique.set(effect.id,effect);
   const derivedEffects=[...unique.values()];
   const conditionalIds=new Set(derivedEffects.filter(classEffectRequiresActivation35).map(effect=>effect.id));
-  const classEffectToggles35=Object.fromEntries(Object.entries(character?.classEffectToggles35||{}).filter(([id,value])=>conditionalIds.has(id)&&value===true));
+  const classEffectToggles35=Object.fromEntries(Object.entries(character?.classEffectToggles35||{}).filter(([id,value])=>conditionalIds.has(id)&&typeof value==='boolean'));
   const withEffects={...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35};
   return reconcileArmorClass35(reconcileInitiative35(withEffects));
 }
