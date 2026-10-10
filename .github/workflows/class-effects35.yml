@@ -11,6 +11,7 @@ on:
       - "src/ModernLedger.jsx"
       - "tests/class-effects35.mjs"
       - "tests/class-effects35-initiative.mjs"
+      - "tests/class-effects35-ac.mjs"
       - "tests/browser-class-effects35.mjs"
       - ".github/workflows/class-effects35.yml"
 permissions:
@@ -33,6 +34,7 @@ jobs:
       - run: npm ci
       - run: node tests/class-effects35.mjs
       - run: node tests/class-effects35-initiative.mjs
+      - run: node tests/class-effects35-ac.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - run: node tests/browser-class-effects35.mjs
