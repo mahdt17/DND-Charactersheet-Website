@@ -8,7 +8,7 @@ const slug=value=>norm(value).replace(/\s+/g,'-')||'effect';
 const signed=value=>Number(value)>=0?`+${Number(value)}`:String(Number(value));
 const title=value=>String(value||'').replace(/\b\w/g,character=>character.toUpperCase());
 const exactSourceId=value=>String(value||'').replace(/^dndtools:/,'');
-const targetKey=value=>norm(value).replace(/saving throw/g,'save').replace(/saving throws/g,'save');
+const targetKey=value=>norm(value).replace(/saving throws?/g,'save');
 
 export function reviewedClassEffectSpecs35(sourceClassId,featureName){
   const entry=reviewedClassEffects35.entries?.[exactSourceId(sourceClassId)];
@@ -65,8 +65,15 @@ export function describeClassEffect35(effect){
   return detail?`${label}: ${detail}`:label;
 }
 
+export function classEffectRequiresActivation35(effect){
+  if(!effect||typeof effect!=='object')return false;
+  if(effect.requiresActivation!=null)return effect.requiresActivation===true;
+  const type=String(effect.type||'').toLowerCase();
+  return Boolean(effect.condition)&&['modifier','movement','damagereduction'].includes(type);
+}
+
 export function classEffectActive35(character,effect){
-  if(!effect?.condition)return true;
+  if(!classEffectRequiresActivation35(effect))return true;
   return character?.classEffectToggles35?.[effect.id]===true;
 }
 
@@ -171,7 +178,7 @@ export function reconcileClassEffects35(character){
   const unique=new Map();
   for(const effect of derived)unique.set(effect.id,effect);
   const derivedEffects=[...unique.values()];
-  const conditionalIds=new Set(derivedEffects.filter(effect=>effect.condition).map(effect=>effect.id));
+  const conditionalIds=new Set(derivedEffects.filter(classEffectRequiresActivation35).map(effect=>effect.id));
   const classEffectToggles35=Object.fromEntries(Object.entries(character?.classEffectToggles35||{}).filter(([id,value])=>conditionalIds.has(id)&&value===true));
   return {...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35};
 }
