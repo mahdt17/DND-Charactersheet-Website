@@ -14,5 +14,66 @@
     "cleanup",
     "regressions"
   ],
-  "entries": {}
+  "entries": {
+    "classes/cleric-91": {
+      "sourceId": "classes/cleric-91",
+      "certify": true,
+      "verifiedCommit": "e038637a345c29632e1d2a06023477079a4bd132",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/38090679623",
+      "evidence": {
+        "sourceIdentity": [
+          "docs/class-source-verification-batch-2026-09-29-casters-support.json"
+        ],
+        "prerequisites": [
+          "docs/class-source-verification-batch-2026-09-29-casters-support.json"
+        ],
+        "training": [
+          "src/data/class-proficiencies35.json",
+          "tests/class-integration.mjs"
+        ],
+        "mechanics": [
+          "src/data/class-feature-summaries-35.json",
+          "tests/class-integration.mjs",
+          "tests/browser-feature-choices.mjs"
+        ],
+        "choices": [
+          "tests/class-integration.mjs",
+          "tests/browser-feature-choices.mjs"
+        ],
+        "progression": [
+          "tests/class-integration.mjs",
+          "tests/casting-advancement-traditions35.mjs",
+          "tests/spell-acquisition35.mjs"
+        ],
+        "runtime": [
+          "tests/class-integration.mjs",
+          "tests/browser-feature-choices.mjs"
+        ],
+        "ui": [
+          "tests/browser-feature-choices.mjs"
+        ],
+        "persistence": [
+          "tests/browser-feature-choices.mjs"
+        ],
+        "cleanup": [
+          "tests/class-integration.mjs"
+        ],
+        "regressions": [
+          "tests/class-integration.mjs",
+          "tests/browser-feature-choices.mjs",
+          "tests/casting-advancement-traditions35.mjs",
+          "tests/spell-acquisition35.mjs"
+        ]
+      },
+      "evidencePaths": [
+        "docs/class-source-verification-batch-2026-09-29-casters-support.json",
+        "src/data/class-proficiencies35.json",
+        "src/data/class-feature-summaries-35.json",
+        "tests/class-integration.mjs",
+        "tests/browser-feature-choices.mjs",
+        "tests/casting-advancement-traditions35.mjs",
+        "tests/spell-acquisition35.mjs"
+      ]
+    }
+  }
 }
