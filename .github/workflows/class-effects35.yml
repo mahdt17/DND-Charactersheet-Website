@@ -12,6 +12,7 @@ on:
       - "tests/class-effects35.mjs"
       - "tests/class-effects35-initiative.mjs"
       - "tests/class-effects35-ac.mjs"
+      - "tests/class-effects35-activation.mjs"
       - "tests/browser-class-effects35.mjs"
       - "tests/browser-class-effects35-ac.mjs"
       - "tests/browser-class-effects35-checks.mjs"
@@ -37,6 +38,7 @@ jobs:
       - run: node tests/class-effects35.mjs
       - run: node tests/class-effects35-initiative.mjs
       - run: node tests/class-effects35-ac.mjs
+      - run: node tests/class-effects35-activation.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - run: node tests/browser-class-effects35.mjs
