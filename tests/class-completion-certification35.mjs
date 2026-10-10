@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import * as certificationModule from '../scripts/class_completion_certification35.mjs';
-const {REQUIRED_CLASS_EVIDENCE35,certifyClassEvidence35,buildClassCompletionLedger35,reviewedArtifactIds35}=certificationModule;
+const {REQUIRED_CLASS_EVIDENCE35,certifyClassEvidence35,buildClassCompletionLedger35,reviewedArtifactIds35,validateEvidenceArtifacts35}=certificationModule;
 
 const fullEvidence=Object.fromEntries(REQUIRED_CLASS_EVIDENCE35.map(axis=>[axis,[`tests/${axis}.mjs`]]));
 const trackerEntry={sourceId:'classes/example-1',name:'Example',status:'complete',gaps:[],verifiedCommit:'abc',ciRunUrl:'https://example.invalid/ci'};
@@ -74,6 +74,20 @@ const pendingLedger=buildClassCompletionLedger35({entries:[trackerEntry]});
 assert(validateCompletionQueue35({entries:[trackerEntry]},pendingLedger,{total:1,queue:[{recordId:trackerEntry.sourceId,certificationStatus:'certification-pending',reasons:[]}]}).length,'uncertified legacy complete must retain warning');
 
 const root=await fs.mkdtemp(path.join(os.tmpdir(),'class-cert35-'));
+assert.equal(typeof validateEvidenceArtifacts35,'function','certification must validate referenced proof artifacts before generated ledgers can certify');
+await fs.mkdir(path.join(root,'tests'),{recursive:true});
+for(const axis of REQUIRED_CLASS_EVIDENCE35){
+  await fs.writeFile(path.join(root,'tests',`${axis}.mjs`),`// exact certification evidence for ${trackerEntry.sourceId}\n`);
+}
+assert.deepEqual(await validateEvidenceArtifacts35({entries:{[trackerEntry.sourceId]:validProof}},{root}),{},'existing exact-record evidence artifacts must validate');
+const missingArtifactProof={...validProof,evidence:{...fullEvidence,ui:'tests/missing-ui.mjs'},evidencePaths:validProof.evidencePaths.map(ref=>ref==='tests/ui.mjs'?'tests/missing-ui.mjs':ref)};
+const missingArtifactErrors=await validateEvidenceArtifacts35({entries:{[trackerEntry.sourceId]:missingArtifactProof}},{root});
+assert(missingArtifactErrors[trackerEntry.sourceId]?.includes('missing-evidence-artifact:tests/missing-ui.mjs'),'missing proof files must fail closed');
+await fs.writeFile(path.join(root,'tests','wrong-record.mjs'),'// exact certification evidence for classes/other-2\n');
+const wrongRecordProof={...validProof,evidence:{...fullEvidence,ui:'tests/wrong-record.mjs'},evidencePaths:validProof.evidencePaths.map(ref=>ref==='tests/ui.mjs'?'tests/wrong-record.mjs':ref)};
+const wrongRecordErrors=await validateEvidenceArtifacts35({entries:{[trackerEntry.sourceId]:wrongRecordProof}},{root});
+assert(wrongRecordErrors[trackerEntry.sourceId]?.includes('evidence-artifact-missing-exact-source-id:tests/wrong-record.mjs'),'proof files for another source record must not certify this record');
+
 const trackerFile=path.join(root,'tracker.json'),evidenceFile=path.join(root,'evidence.json'),queueFile=path.join(root,'queue.json');
 await fs.writeFile(trackerFile,JSON.stringify(queueTracker));
 await fs.writeFile(evidenceFile,JSON.stringify({entries:{[trackerEntry.sourceId]:validProof}}));
