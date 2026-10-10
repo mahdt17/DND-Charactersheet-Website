@@ -8,6 +8,7 @@ const slug=value=>norm(value).replace(/\s+/g,'-')||'effect';
 const signed=value=>Number(value)>=0?`+${Number(value)}`:String(Number(value));
 const title=value=>String(value||'').replace(/\b\w/g,character=>character.toUpperCase());
 const exactSourceId=value=>String(value||'').replace(/^dndtools:/,'');
+const targetKey=value=>norm(value).replace(/saving throw/g,'save').replace(/saving throws/g,'save');
 
 export function reviewedClassEffectSpecs35(sourceClassId,featureName){
   const entry=reviewedClassEffects35.entries?.[exactSourceId(sourceClassId)];
@@ -64,6 +65,61 @@ export function describeClassEffect35(effect){
   return detail?`${label}: ${detail}`:label;
 }
 
+export function classEffectActive35(character,effect){
+  if(!effect?.condition)return true;
+  return character?.classEffectToggles35?.[effect.id]===true;
+}
+
+function effectTargetMatches35(effectTarget,requestedTarget){
+  const effect=targetKey(effectTarget),requested=targetKey(requestedTarget);
+  if(!effect||!requested)return false;
+  if(effect===requested)return true;
+  if(effect==='save')return /(?:^| )(?:fortitude |reflex |will )?save(?: |$)/.test(requested);
+  if(effect==='attack')return requested==='attack'||requested.endsWith(' attack');
+  if(effect==='damage')return requested==='damage'||requested.endsWith(' damage');
+  if(effect==='check')return requested==='check'||requested.endsWith(' check');
+  return false;
+}
+
+function stackModifierEffects35(effects){
+  let total=0;
+  const typed=new Map();
+  for(const effect of effects){
+    const value=Number(effect.value);
+    if(!Number.isFinite(value))continue;
+    const bonusType=norm(effect.bonusType);
+    if(!bonusType||['dodge','circumstance'].includes(bonusType)){
+      total+=value;
+      continue;
+    }
+    const current=typed.get(bonusType);
+    if(current==null)typed.set(bonusType,value);
+    else if(value>=0&&current>=0)typed.set(bonusType,Math.max(current,value));
+    else if(value<=0&&current<=0)typed.set(bonusType,Math.min(current,value));
+    else typed.set(bonusType,current+value);
+  }
+  return total+[...typed.values()].reduce((sum,value)=>sum+value,0);
+}
+
+export function classEffectModifier35(character,target){
+  const effects=(Array.isArray(character?.classEffects35)?character.classEffects35:[]).filter(effect=>
+    String(effect?.type||'').toLowerCase()==='modifier'
+    &&effect?.operation!=='set'
+    &&effectTargetMatches35(effect?.target,target)
+    &&classEffectActive35(character,effect)
+  );
+  return stackModifierEffects35(effects);
+}
+
+export function classEffectMovementBonus35(character,movement='land'){
+  return (Array.isArray(character?.classEffects35)?character.classEffects35:[]).filter(effect=>
+    String(effect?.type||'').toLowerCase()==='movement'
+    &&String(effect?.operation||'').toLowerCase()==='add'
+    &&norm(effect?.movement||effect?.target)===norm(movement)
+    &&classEffectActive35(character,effect)
+  ).reduce((sum,effect)=>sum+(Number(effect.value)||0),0);
+}
+
 function effectClassLevel(character,sourceClassId,fallback=0){
   const row=characterClasses(character).find(item=>item.catalogId===sourceClassId);
   return Math.max(0,Number(row?.level)||Number(fallback)||0);
@@ -114,5 +170,8 @@ export function reconcileClassEffects35(character){
   }
   const unique=new Map();
   for(const effect of derived)unique.set(effect.id,effect);
-  return {...character,classEffects35:[...manual,...unique.values()]};
+  const derivedEffects=[...unique.values()];
+  const conditionalIds=new Set(derivedEffects.filter(effect=>effect.condition).map(effect=>effect.id));
+  const classEffectToggles35=Object.fromEntries(Object.entries(character?.classEffectToggles35||{}).filter(([id,value])=>conditionalIds.has(id)&&value===true));
+  return {...character,classEffects35:[...manual,...derivedEffects],classEffectToggles35};
 }
