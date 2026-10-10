@@ -30,12 +30,15 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.BR
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);const row=rows.find(item=>item.name===name);if(!row)return null;return JSON.parse((await window.storage.get('char-detail:'+row.id)).value);},name);
 const waitForSaved=async(name,predicate,message)=>{for(let attempt=0;attempt<60;attempt++){const item=await saved(name);if(item&&predicate(item))return item;await page.waitForTimeout(50);}assert.fail(message);};
-const controls=()=>page.locator('section.l-panel').filter({has:page.getByRole('heading',{name:'3.5 attacks & saves',exact:true})}).locator('details').filter({hasText:'Conditional class effects'}).first();
+const operationalPanel=()=>page.locator('section.l-panel').filter({has:page.getByRole('heading',{name:'3.5 attacks & saves',exact:true})});
+const controls=()=>operationalPanel().locator('details').filter({hasText:'Conditional class effects'}).first();
+const climbSpeed=()=>operationalPanel().locator('[data-class-movement35="climb"]');
 try{
   await page.goto('http://127.0.0.1:5192/');
   await page.getByRole('button',{name:'Explore the demo'}).click();
   await page.locator('input[type="file"][accept*="json"]').setInputFiles(importPath);
   await page.locator('.sheet-identity').filter({hasText:character.name}).waitFor();
+  assert.equal(await climbSpeed().innerText(),'Climb speed 50 ft.','default-active reviewed climb speed must appear as a live operational movement value');
   await controls().locator('summary').click();
   const row=controls().locator('label').filter({hasText:/Climb movement/i});
   const toggle=row.locator('input[type="checkbox"]');
@@ -43,13 +46,15 @@ try{
   await toggle.uncheck();
   await waitForSaved(character.name,item=>item.classEffectToggles35?.[climb.id]===false,'explicit false default-active override did not persist');
   assert.equal(await toggle.isChecked(),false,'player can suppress the default-active effect while its restriction applies');
+  assert.equal(await climbSpeed().count(),0,'suppressed climb speed must disappear from live operational movement values');
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.locator('.character-card').filter({hasText:character.name}).getByRole('button',{name:'Open character'}).click();
+  assert.equal(await climbSpeed().count(),0,'saved climb-speed suppression remains absent after reopen');
   await controls().locator('summary').click();
   const reopened=controls().locator('label').filter({hasText:/Climb movement/i}).locator('input[type="checkbox"]');
   assert.equal(await reopened.isChecked(),false,'saved suppression remains off after reopen');
   assert.deepEqual(errors,[],'default-active class-effect UI must not raise browser errors');
-  console.log('PASS structured class effects: default-active Cloud Anchorite climb control reflects and persists suppression state');
+  console.log('PASS structured class effects: default-active Cloud Anchorite climb control and live climb speed persist suppression state');
 }finally{
   await browser.close();await server.close();
 }
