@@ -92,7 +92,7 @@ const trackerFile=path.join(root,'tracker.json'),evidenceFile=path.join(root,'ev
 await fs.writeFile(trackerFile,JSON.stringify(queueTracker));
 await fs.writeFile(evidenceFile,JSON.stringify({entries:{[trackerEntry.sourceId]:validProof}}));
 const originalArgs=process.argv;
-process.argv=[process.execPath,'scripts/build_class_review_queue.mjs',trackerFile,`--evidence=${evidenceFile}`,`--output=${queueFile}`];
+process.argv=[process.execPath,'scripts/build_class_review_queue.mjs',trackerFile,`--evidence=${evidenceFile}`,`--evidence-root=${root}`,`--output=${queueFile}`];
 try{await import('../scripts/build_class_review_queue.mjs?certification-fixture');}finally{process.argv=originalArgs;}
 const generated=JSON.parse(await fs.readFile(queueFile,'utf8'));
 assert.equal(generated.total,1,'a structurally certified fixture leaves the actual generated queue');
