@@ -1,13 +1,14 @@
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
-const server=await createServer({server:{host:'127.0.0.1',port:0}});
+// Exercise the repository's deployed subpath on every platform, not just CI.
+const server=await createServer({base:'/casting-prerequisite-regression/',server:{host:'127.0.0.1',port:0}});
 await server.listen();
 let browser;
 try{
   browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined});
   const page=await browser.newPage(),errors=[];
-  page.on('pageerror',e=>errors.push(e.message));
+  page.on('pageerror',e=>{errors.push(e.message);console.error('Browser error:',e.message);});
   await page.goto(`${server.resolvedUrls.local[0]}tests/fixtures/casting-prerequisite-harness.html`);
   await page.getByRole('heading',{name:'Casting entry regression'}).waitFor();
   await page.getByText('Unmet:',{exact:true}).waitFor();

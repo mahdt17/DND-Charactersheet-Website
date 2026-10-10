@@ -6,7 +6,7 @@ import {annotateClassGrantKinds,removeClassProgression} from '../../src/lib/clas
 import {featureChoicePlan,applyFeatureChoices} from '../../src/lib/featureChoices.js';
 import ClassFeatureChoices from '../../src/ClassFeatureChoices.jsx';
 import Requirements from '../../src/Requirements.jsx';
-const classes=await createCatalogService().load('3.5/classes');
+const classes=await createCatalogService({baseUrl:import.meta.env.BASE_URL}).load('3.5/classes');
 const wizard=annotateClassGrantKinds(classes.find(c=>c.sourceId==='classes/wizard-99'),classes);
 const grant={catalogId:'test:casting-feat-source',name:'Casting Feat Source',edition:'3.5',levelGrants:[{level:1,name:'Bonus Feat',choiceKind:'feat',choiceCount:1,choiceFeatType:'General'}]};
 const row=(definition,level)=>({catalogId:definition.catalogId,name:definition.name,edition:'3.5',definition,level});
