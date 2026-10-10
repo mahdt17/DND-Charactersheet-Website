@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createCatalogService} from '../src/lib/catalog.js';
 import {annotateClassGrantKinds,reconcileClassGrants,removeClassProgression,describeClassEffect35} from '../src/lib/classIntegration.js';
-import {classEffectModifier35,classEffectMovementBonus35} from '../src/lib/classEffects35.js';
+import {classEffectActive35,classEffectRequiresActivation35,classEffectModifier35,classEffectMovementBonus35} from '../src/lib/classEffects35.js';
 
 const effectClass={
   catalogId:'dndtools:classes/effect-fixture-999',
@@ -51,12 +51,17 @@ assert.match(describeClassEffect35(derivedOne.find(effect=>effect.effectId==='fe
 assert.match(describeClassEffect35(derivedOne.find(effect=>effect.effectId==='cold-resistance')),/cold.*5/i);
 assert.match(describeClassEffect35(derivedOne.find(effect=>effect.effectId==='fast-movement')),/land.*\+10.*ft/i);
 assert.match(describeClassEffect35(derivedOne.find(effect=>effect.effectId==='fatigue-immunity')),/immune.*fatigue/i);
+const fearEffect=derivedOne.find(effect=>effect.effectId==='fear-save');
+const movementEffect=derivedOne.find(effect=>effect.effectId==='fast-movement');
+const immunityEffect=derivedOne.find(effect=>effect.effectId==='fatigue-immunity');
+assert.equal(classEffectRequiresActivation35(fearEffect),true,'a conditional modifier requires explicit activation');
+assert.equal(classEffectRequiresActivation35(movementEffect),true,'conditional movement requires explicit activation');
+assert.equal(classEffectRequiresActivation35(immunityEffect),false,'immunity subject text is not an activation gate');
+assert.equal(classEffectActive35(one,immunityEffect),true,'always-on immunity is active without a toggle');
 
 assert.equal(classEffectModifier35(one,'initiative'),3,'unconditional numeric class modifiers apply automatically');
 assert.equal(classEffectModifier35(one,'Fortitude save'),0,'conditional save modifiers fail closed until the user marks their condition active');
 assert.equal(classEffectMovementBonus35(one,'land'),0,'conditional movement bonuses fail closed until their condition is active');
-const fearEffect=derivedOne.find(effect=>effect.effectId==='fear-save');
-const movementEffect=derivedOne.find(effect=>effect.effectId==='fast-movement');
 const activeOne={...one,classEffectToggles35:{[fearEffect.id]:true,[movementEffect.id]:true}};
 assert.equal(classEffectModifier35(activeOne,'Fortitude save'),2,'general save effects can apply to a specific save when explicitly active');
 assert.equal(classEffectModifier35(activeOne,'Reflex save'),2,'general save effects consistently cover all save types');
