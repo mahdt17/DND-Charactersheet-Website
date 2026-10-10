@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
 const server=await createServer({server:{host:'127.0.0.1',port:5177}});await server.listen();
-const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
 const published=JSON.parse(await fs.readFile('public/catalogs/dndtools/classes.json','utf8'));
 const sourceClass=name=>{const r=published.find(x=>x.name===name&&!x.prestige);return {...r,id:`dndtools:${r.id}`,catalogId:`dndtools:${r.id}`,edition:'3.5'};};

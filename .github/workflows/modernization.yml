@@ -142,6 +142,9 @@ jobs:
       - name: Run guided feature choice browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-feature-choices.mjs
+      - name: Run shared source prerequisite browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-source-prerequisites35.mjs
       - name: Run level-up feat browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-feat-selection.mjs

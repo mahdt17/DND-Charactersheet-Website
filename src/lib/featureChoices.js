@@ -22,7 +22,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   const knownLanguages=[...manualLanguages];
   const rememberLanguage=name=>{if(name&&!knownLanguages.some(value=>norm(value)===norm(name)))knownLanguages.push(String(name));};
   for(const grant of languageGrants)rememberLanguage(grant?.name);
-  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])],languageGrants},groups=[];
+  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(current.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])],languageGrants},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
     const template=sourceFeatTemplateOptions35(feature,context,{character:current,row}).find(option=>norm(option.name)===norm(value))?.feat
       ||(patch.featureChoices[id]?.featTemplateSelections||[]).find(feat=>norm(feat.name)===norm(value));
@@ -127,7 +127,8 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         const choiceKind=feature.choiceKind||'source';
         if(choiceKind==='language')options=options.filter(value=>!knownLanguages.some(name=>norm(name)===norm(value)));
         if(choiceKind==='feat'&&feature.choiceFeatType){
-          const requiredType=norm(feature.choiceFeatType),owned=new Set((patch.feats||[]).map(feat=>contentKey(feat)||norm(feat?.name)));
+          const requiredType=norm(feature.choiceFeatType),owned=new Set((patch.feats||[]).flatMap(feat=>[contentKey(feat),norm(feat?.name)]));
+          const eligibilityCharacter={...current,feats:patch.feats};
           const featContext=Array.isArray(context.feats)?context.feats:[];
           if(featContext.length){
             const typedAll=new Set(featContext
@@ -137,7 +138,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
             const eligibleTyped=featContext
               .filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.featType)===requiredType)
               .filter(feat=>!owned.has(contentKey(feat))&&!owned.has(norm(feat?.name)))
-              .filter(feat=>qualified(requirements(feat,current,feat.prerequisiteConfirmations||{})))
+              .filter(feat=>qualified(requirements(feat,eligibilityCharacter,feat.prerequisiteConfirmations||{},{equipment:context.equipment})))
               .map(feat=>String(feat.name||'').trim()).filter(Boolean);
             options=[...new Set([...eligibleTyped,...explicitExceptions].filter(Boolean))]
               .filter(name=>!owned.has(norm(name)))
@@ -152,7 +153,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           options=options.filter(name=>{
             const template=templateOptions.find(option=>norm(option.name)===norm(name));
             const matching=template?[template.feat]:featContext.filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(name));
-            return matching.length>0&&matching.every(feat=>feature.ignorePrerequisites||qualified(requirements(feat,eligibilityCharacter,feat.prerequisiteConfirmations||{})));
+            return matching.length>0&&matching.every(feat=>feature.ignorePrerequisites||qualified(requirements(feat,eligibilityCharacter,feat.prerequisiteConfirmations||{},{equipment:context.equipment})));
           });
         }
         if(Array.isArray(feature.choiceExcludeOptions)){

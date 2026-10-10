@@ -2,6 +2,7 @@ import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
 import {applyFeatAbilityIncrease} from './featMagic.js';
+import {evaluatePrerequisite35,ownsPrerequisiteFeat35,prerequisiteDescription35} from './prerequisites35.js';
 import legacyCore from '../data/srd35.json' with {type:'json'};
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
@@ -95,7 +96,10 @@ export function recalculateLegacyBaseProgression35(character){
   }
   return {...character,bab:total.bab,save35:{fort:total.fort,ref:total.ref,will:total.will}};
 }
-function evaluateOne(p,c) {
+function evaluateOne(p,c,scope={}) {
+  if(!p||typeof p!=='object'||Array.isArray(p))return null;
+  const structured=evaluatePrerequisite35(p,c,{...scope,evaluate:node=>evaluateOne(node,c,scope)});
+  if(structured!==undefined)return structured;
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
   const score=k=>applyFeatAbilityIncrease(c,k,Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0));
   if(kind==='level'&&Number.isInteger(p.minimum)&&p.minimum>0)return totalLevel(c)>=p.minimum;
@@ -112,9 +116,9 @@ function evaluateOne(p,c) {
     const parts=text.split(/\s*;\s*|,\s*(?![^()]*\))/),matches=parts.map(t=>t.match(/^([\w ()'-]+?)\s+(\d+)\s+ranks?\.?$/i));
     if(matches.every(Boolean))return matches.every(m=>Number(Object.entries(c.skillRanks||{}).find(([k])=>norm(k)===norm(m[1]))?.[1]||0)>=+m[2]);
   }
-  if(['feat','feats'].includes(kind)&&!/\b(or|any|one|two|three|choose)\b/i.test(text)) {
+  if(['feat','feats'].includes(kind)&&!/\b(or|any|one|two|three|choose)\b/i.test(text.replace(/Two-Weapon/gi,'DualWeapon'))) {
     const names=text.replace(/\.$/,'').split(/\s*;\s*|,\s*(?![^()]*\))/);
-    if(names.every(n=>/^[\w ()'-]+$/.test(n)))return names.every(n=>(c.feats||[]).some(f=>norm(f.name)===norm(n)));
+    if(names.every(n=>/^[\w ()'-]+$/.test(n)))return names.every(name=>ownsPrerequisiteFeat35(c,{name}));
   }
   if(kind==='race'&&/^[\w -]+\.?$/.test(text)&&!/\b(or|any|not|except)\b/i.test(text))return norm(c.race)===norm(text.replace(/\.$/,''));
   if(kind==='alignment') {
@@ -135,7 +139,7 @@ function evaluateOne(p,c) {
   // stay visible and unresolved; a partial match must never imply qualification.
   return null;
 }
-export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
+export function requirements(record,c,confirmations={}, {multiclass=false,subject=record?.featSubject,equipment=[]}={}) {
   const prerequisites=record?.prerequisites;
   let source=Array.isArray(prerequisites)?[...prerequisites]:prerequisites&&typeof prerequisites==='object'
     ?prerequisites.kind||prerequisites.type||prerequisites.ability_score?[prerequisites]:Object.entries(prerequisites).map(([kind,value])=>kind==='minimum_level'
@@ -143,7 +147,7 @@ export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
       :{kind,text:kind==='feature_named'?`Requires the ${value} feature`:JSON.stringify({[kind]:value})})
     :prerequisites?[{kind:'text',text:String(prerequisites)}]:[];
   if(record?.prerequisite_options)source.push({kind:'ability_choice',text:record.prerequisite_options.desc||'Review the prerequisite choices in the source.',options:record.prerequisite_options});
-  source=source.filter(p=>multiclass||p.kind!=='multiclass');
+  source=source.filter(p=>multiclass||p?.kind!=='multiclass');
   if(record?.minBab)source=[{kind:'base_attack_bonus',text:record.minBab,label:'Base attack bonus'},...source];
   if(multiclass&&record?.multi_classing) {
     const m=record.multi_classing;
@@ -154,10 +158,11 @@ export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
   if(multiclass&&normalizeEdition(record?.edition)!=='3.5'&&!source.length)source.push({kind:'text',text:'Multiclass entry and exit requirements are not structured. Verify the source requirements.'});
   if(prestige(record)&&!source.length)source.push({kind:'text',text:'Entry requirements are not structured. Verify every requirement in the source.'});
   return source.map(raw=>{
-    const p=typeof raw==='string'?{kind:'text',text:raw}:raw;
-    const text=p.text||p.description||p.name||(p.ability_score?`${p.ability_score.name} ${p.minimum_score}`:'Requirement needs source review');
-    const id=`${contentKey(record)}:${p.kind||'structured'}:${text}`;
-    let result=evaluateOne({...p,text},c);
+    const p=typeof raw==='string'?{kind:'text',text:raw}:raw&&typeof raw==='object'?raw:{kind:'text',text:'Requirement needs source review'};
+    const text=p.text||p.description||p.name||(p.ability_score?`${p.ability_score.name} ${p.minimum_score}`:prerequisiteDescription35(p));
+    const structuredIdentity=['all','any','count','feat_count','skill_count'].includes(p.kind||p.type)||p.featId||p.subject!=null||p.proficiencyKind;
+    const id=`${contentKey(record)}:${p.kind||'structured'}:${structuredIdentity?JSON.stringify(p):text}${subject!=null?`:subject:${JSON.stringify(subject)}`:''}`;
+    let result=evaluateOne(p,c,{subject,equipment});
     if(p.kind==='multiclass') {
       const names=[...text.matchAll(/Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma/gi)].map(x=>scores[x[0].toLowerCase()]);
       // Only the closed published ability-threshold sentence is automated.

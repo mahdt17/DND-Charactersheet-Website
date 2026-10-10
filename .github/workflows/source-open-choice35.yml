@@ -6,11 +6,15 @@ on:
       - "src/lib/sourceFeatTemplates35.js"
       - "src/lib/sourceChoiceProviders35.js"
       - "src/lib/featureChoices.js"
+      - "src/lib/advancement.js"
+      - "src/lib/prerequisites35.js"
       - "src/lib/classIntegration.js"
       - "src/GuidedSetup.jsx"
       - "src/LevelUp.jsx"
       - "tests/source-open-choice-providers35.mjs"
       - "tests/source-choice-ui-context35.mjs"
+      - "tests/structured-prerequisites35.mjs"
+      - "tests/source-feat-choice-prerequisites35.mjs"
       - ".github/workflows/source-open-choice35.yml"
 permissions:
   contents: read
@@ -31,6 +35,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node tests/source-feat-choice-lifecycle35.mjs
+      - run: node tests/structured-prerequisites35.mjs
+      - run: node tests/source-feat-choice-prerequisites35.mjs
       - run: node tests/source-open-choice-providers35.mjs
       - run: node tests/source-choice-ui-context35.mjs
       - run: node tests/class-integration.mjs

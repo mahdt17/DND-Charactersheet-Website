@@ -6,10 +6,14 @@ on:
       - "docs/class-completion-evidence35.json"
       - "docs/class-completion-tracker.json"
       - "scripts/class_completion_certification35.mjs"
+      - "scripts/class_review_coverage35.mjs"
+      - "scripts/audit_prerequisite_coverage35.mjs"
+      - "src/lib/prerequisites35.js"
       - "scripts/build_class_completion_ledger.mjs"
       - "scripts/build_class_review_queue.mjs"
       - "scripts/select_class_research_batch.mjs"
       - "tests/class-completion-certification35.mjs"
+      - "tests/class-review-coverage35.mjs"
       - "tests/source-choice-ui-context35.mjs"
       - "src/LevelUp.jsx"
       - "src/GuidedSetup.jsx"
@@ -34,8 +38,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node tests/class-completion-certification35.mjs
+      - run: node tests/class-review-coverage35.mjs
       - run: node tests/source-choice-ui-context35.mjs
       - run: mkdir -p test-results
+      - run: node scripts/audit_prerequisite_coverage35.mjs test-results/prerequisite-coverage35.json
       - run: node scripts/build_class_completion_ledger.mjs --output=test-results/class-completion-ledger35.json
       - run: node scripts/build_class_review_queue.mjs docs/class-completion-tracker.json --output=test-results/class-review-queue35.json
       - run: node scripts/select_class_research_batch.mjs docs/class-completion-tracker.json --limit=5 > test-results/class-research-batch35.json
