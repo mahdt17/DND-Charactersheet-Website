@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createCatalogService} from '../src/lib/catalog.js';
 import {annotateClassGrantKinds,reconcileClassGrants} from '../src/lib/classIntegration.js';
-import {classEffectActive35} from '../src/lib/classEffects35.js';
+import {classEffectActive35,classEffectMovementValue35} from '../src/lib/classEffects35.js';
 
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
 const [classes,feats]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
@@ -29,15 +29,22 @@ assert(fast,'Cloud Anchorite Fast Movement effect must materialize');
 assert.equal(climb.defaultActive,true,'the reviewed climb speed exists by default and is lost only under its listed armor/load restriction');
 assert.equal(classEffectActive35(character,climb),true,'default-active conditional effects are active when no explicit override exists');
 assert.equal(classEffectActive35(character,fast),false,'ordinary positive conditional effects remain fail-closed by default');
+assert.equal(classEffectMovementValue35(character,'climb'),50,'active set movement exposes the source-derived climb speed');
+assert.equal(classEffectMovementValue35(character,'land',30),30,'inactive additive Fast Movement leaves the supplied land speed unchanged');
+
+const fastActive=reconcileClassGrants({...character,classEffectToggles35:{...character.classEffectToggles35,[fast.id]:true}});
+assert.equal(classEffectMovementValue35(fastActive,'land',30),50,'active additive movement combines with the supplied land speed');
 
 const suppressed=reconcileClassGrants({...character,classEffectToggles35:{...character.classEffectToggles35,[climb.id]:false}});
 const suppressedClimb=suppressed.classEffects35.find(effect=>effect.effectId==='climb-speed');
 assert.equal(suppressed.classEffectToggles35[climb.id],false,'an explicit false override must survive reconciliation for a default-active effect');
 assert.equal(classEffectActive35(suppressed,suppressedClimb),false,'explicit false suppresses a default-active effect');
+assert.equal(classEffectMovementValue35(suppressed,'climb'),null,'suppressed set movement no longer exposes a climb speed');
 
 const restored=reconcileClassGrants({...suppressed,classEffectToggles35:{...suppressed.classEffectToggles35,[climb.id]:true}});
 const restoredClimb=restored.classEffects35.find(effect=>effect.effectId==='climb-speed');
 assert.equal(restored.classEffectToggles35[climb.id],true,'an explicit true override remains supported');
 assert.equal(classEffectActive35(restored,restoredClimb),true,'explicit true re-enables the default-active effect');
+assert.equal(classEffectMovementValue35(restored,'climb'),50,'re-enabled set movement restores the source-derived climb speed');
 
-console.log('default-active 3.5 class effect activation regression passed');
+console.log('default-active 3.5 class effect activation and movement regression passed');
