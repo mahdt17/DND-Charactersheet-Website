@@ -10,7 +10,7 @@ const reference=value=>typeof value==='string'&&value===value.trim()&&/^[A-Za-z0
 const references=value=>typeof value==='string'?[value]:Array.isArray(value)?value:[];
 const hasEvidence=value=>references(value).length>0&&references(value).every(reference);
 
-export function certifyClassEvidence35({trackerEntry=null,evidenceEntry=null}={}){
+export function certifyClassEvidence35({trackerEntry=null,evidenceEntry=null,artifactValidationErrors=[]}={}){
   const evidence=evidenceEntry?.evidence||{};
   const blockers=[...new Set([
     ...list(evidenceEntry?.blockers),
@@ -23,7 +23,7 @@ export function certifyClassEvidence35({trackerEntry=null,evidenceEntry=null}={}
   ])];
   const missingEvidence=REQUIRED_CLASS_EVIDENCE35.filter(axis=>!hasEvidence(evidence[axis]));
   const evidencePaths=[...new Set(references(evidenceEntry?.evidencePaths).filter(reference))];
-  const evidenceValidationErrors=[];
+  const evidenceValidationErrors=[...new Set(list(artifactValidationErrors).filter(value=>typeof value==='string'&&value))];
   if(evidenceEntry!=null){
     if(!trackerEntry?.sourceId||evidenceEntry.sourceId!==trackerEntry.sourceId)evidenceValidationErrors.push('exact-source-id-required');
     if(typeof evidenceEntry.verifiedCommit!=='string'||!/^[a-f0-9]{40}$/i.test(evidenceEntry.verifiedCommit))evidenceValidationErrors.push('verified-commit-required');
@@ -33,14 +33,15 @@ export function certifyClassEvidence35({trackerEntry=null,evidenceEntry=null}={}
       if(hasEvidence(evidence[axis])&&references(evidence[axis]).some(ref=>!evidencePaths.includes(ref)))evidenceValidationErrors.push('undeclared-axis-reference:'+axis);
     }
   }
-  const certified=Boolean(evidenceEntry?.certify===true)&&!blockers.length&&!missingEvidence.length&&!evidenceValidationErrors.length;
+  const uniqueEvidenceValidationErrors=[...new Set(evidenceValidationErrors)];
+  const certified=Boolean(evidenceEntry?.certify===true)&&!blockers.length&&!missingEvidence.length&&!uniqueEvidenceValidationErrors.length;
   return {
     status:blockers.length?'blocked':certified?'certified-complete':'certification-pending',
     certified,
     missingEvidence,
     blockers,
     evidencePaths,
-    evidenceValidationErrors,
+    evidenceValidationErrors:uniqueEvidenceValidationErrors,
     verifiedCommit:evidenceEntry?.verifiedCommit||trackerEntry?.verifiedCommit||null,
     ciRunUrl:evidenceEntry?.ciRunUrl||trackerEntry?.ciRunUrl||null
   };
@@ -60,6 +61,42 @@ const collectIds=(value,out)=>{
     collectIds(item,out);
   }
 };
+
+export async function validateEvidenceArtifacts35(evidenceManifest={}, {root='.'}={}){
+  const errorsById={};
+  const rootPath=path.resolve(root);
+  for(const [sourceId,evidenceEntry] of Object.entries(evidenceManifest.entries||{})){
+    const errors=[];
+    for(const ref of [...new Set(references(evidenceEntry?.evidencePaths).filter(reference))]){
+      const resolved=path.resolve(rootPath,ref);
+      const relative=path.relative(rootPath,resolved);
+      if(relative.startsWith('..'+path.sep)||path.isAbsolute(relative)){
+        errors.push('evidence-artifact-outside-root:'+ref);
+        continue;
+      }
+      let stats;
+      try{stats=await fs.lstat(resolved);}catch(error){
+        if(error?.code==='ENOENT'){errors.push('missing-evidence-artifact:'+ref);continue;}
+        errors.push('unreadable-evidence-artifact:'+ref);
+        continue;
+      }
+      if(!stats.isFile()){
+        errors.push('evidence-artifact-not-file:'+ref);
+        continue;
+      }
+      let content;
+      try{content=await fs.readFile(resolved,'utf8');}catch{
+        errors.push('unreadable-evidence-artifact:'+ref);
+        continue;
+      }
+      const ids=new Set();
+      collectIds(content,ids);
+      if(!ids.has(sourceId))errors.push('evidence-artifact-missing-exact-source-id:'+ref);
+    }
+    if(errors.length)errorsById[sourceId]=[...new Set(errors)];
+  }
+  return errorsById;
+}
 
 export function validateCompletionQueue35(tracker,ledger,queue){
   const errors=[];
@@ -100,10 +137,10 @@ export async function reviewedArtifactIds35({root='.',directories=['docs','src/d
   return ids;
 }
 
-export function buildClassCompletionLedger35(tracker,evidenceManifest={}){
+export function buildClassCompletionLedger35(tracker,evidenceManifest={},artifactErrorsById={}){
   const evidenceById=evidenceManifest.entries||{};
   const entries=(tracker.entries||[]).map(entry=>{
-    const certification=certifyClassEvidence35({trackerEntry:entry,evidenceEntry:evidenceById[entry.sourceId]});
+    const certification=certifyClassEvidence35({trackerEntry:entry,evidenceEntry:evidenceById[entry.sourceId],artifactValidationErrors:artifactErrorsById[entry.sourceId]||[]});
     return {
       sourceId:entry.sourceId,
       name:entry.name,
