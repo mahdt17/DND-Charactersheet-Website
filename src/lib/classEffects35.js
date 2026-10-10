@@ -1,3 +1,4 @@
+import reviewedClassEffects35 from '../data/class-effects-35.json' with {type:'json'};
 import {characterClasses} from './advancement.js';
 
 export const CLASS_EFFECTS35_VERSION=1;
@@ -6,6 +7,15 @@ const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace
 const slug=value=>norm(value).replace(/\s+/g,'-')||'effect';
 const signed=value=>Number(value)>=0?`+${Number(value)}`:String(Number(value));
 const title=value=>String(value||'').replace(/\b\w/g,character=>character.toUpperCase());
+const exactSourceId=value=>String(value||'').replace(/^dndtools:/,'');
+
+export function reviewedClassEffectSpecs35(sourceClassId,featureName){
+  const entry=reviewedClassEffects35.entries?.[exactSourceId(sourceClassId)];
+  if(!entry||!featureName)return [];
+  if(Array.isArray(entry[featureName]))return entry[featureName];
+  const matches=Object.entries(entry).filter(([name])=>norm(name)===norm(featureName));
+  return matches.length===1&&Array.isArray(matches[0][1])?matches[0][1]:[];
+}
 
 export function resolvedClassEffectValue35(effect,classLevel){
   if(!effect||typeof effect!=='object')return undefined;
@@ -29,7 +39,8 @@ export function describeClassEffect35(effect){
   const unit=String(effect.unit||'').trim();
   const value=effect.value;
   if(type==='modifier'){
-    const parts=[Number.isFinite(Number(value))?signed(value):String(value??'').trim(),target,subtype?`(${subtype})`:'',effect.bonusType?`${effect.bonusType} bonus`:'',condition].filter(Boolean);
+    const amount=value==null||value===''?'':effect.operation==='set'?`set to ${value}`:Number.isFinite(Number(value))?signed(value):String(value).trim();
+    const parts=[amount,target,subtype?`(${subtype})`:'',effect.bonusType?`${effect.bonusType} bonus`:'',condition].filter(Boolean);
     return parts.join(' ');
   }
   if(type==='resistance'){
@@ -44,6 +55,9 @@ export function describeClassEffect35(effect){
     const movement=title(effect.movement||target||'movement');
     const amount=value!=null&&value!==''?(effect.operation==='add'?signed(value):String(value)):'';
     return `${movement} movement${amount?` ${amount}`:''}${unit?` ${unit}`:''}${condition?` ${condition}`:''}`.trim();
+  }
+  if(type==='damagereduction'){
+    return `Damage reduction ${value??''}/${effect.bypass||'-'}${condition?` ${condition}`:''}`.trim();
   }
   const label=String(effect.name||effect.effectId||effect.id||type||'Class effect').trim();
   const detail=[value!=null&&value!==''?String(value):'',unit,condition].filter(Boolean).join(' ');
@@ -90,7 +104,9 @@ export function reconcileClassEffects35(character){
     .filter(effect=>!(effect?.sourceType==='class'&&effect?.automatic));
   const derived=[];
   for(const feature of character?.grantedFeatures||[]){
-    const effects=Array.isArray(feature?.effects)?feature.effects:[];
+    const inline=Array.isArray(feature?.effects)?feature.effects:[];
+    const reviewed=reviewedClassEffectSpecs35(feature?.sourceClassId,feature?.name);
+    const effects=[...inline,...reviewed];
     effects.forEach((effect,index)=>{
       const materialized=materializeFeatureEffect35(character,feature,effect,index);
       if(materialized)derived.push(materialized);
