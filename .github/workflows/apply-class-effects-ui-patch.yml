@@ -1,0 +1,31 @@
+name: Apply class effects UI integration patch
+on:
+  push:
+    branches: [codex/class-integration-engine]
+    paths:
+      - "scripts/apply_class_effects_ui_patch.mjs"
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/class-integration-engine
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/apply_class_effects_ui_patch.mjs
+      - name: Commit generated UI integration patch
+        run: |
+          if git diff --quiet -- src/ModernLedger.jsx; then
+            echo "No ModernLedger change required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/ModernLedger.jsx
+          git commit -m "ui: show structured class effects"
+          git push origin HEAD:codex/class-integration-engine
