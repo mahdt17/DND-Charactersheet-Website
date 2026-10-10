@@ -129,6 +129,26 @@ export function classEffectMovementBonus35(character,movement='land'){
   ).reduce((sum,effect)=>sum+(Number(effect.value)||0),0);
 }
 
+export function classEffectMovementValue35(character,movement='land',baseValue=null){
+  const effects=(Array.isArray(character?.classEffects35)?character.classEffects35:[]).filter(effect=>
+    String(effect?.type||'').toLowerCase()==='movement'
+    &&norm(effect?.movement||effect?.target)===norm(movement)
+    &&classEffectActive35(character,effect)
+  );
+  const setValues=effects
+    .filter(effect=>String(effect?.operation||'').toLowerCase()==='set')
+    .map(effect=>Number(effect.value))
+    .filter(Number.isFinite);
+  const additive=effects
+    .filter(effect=>String(effect?.operation||'').toLowerCase()==='add')
+    .reduce((sum,effect)=>sum+(Number(effect.value)||0),0);
+  const numericBase=Number(baseValue);
+  let value=baseValue!=null&&Number.isFinite(numericBase)?numericBase:null;
+  if(setValues.length)value=Math.max(...setValues);
+  if(value==null)return additive!==0?additive:null;
+  return value+additive;
+}
+
 function effectClassLevel(character,sourceClassId,fallback=0){
   const row=characterClasses(character).find(item=>item.catalogId===sourceClassId);
   return Math.max(0,Number(row?.level)||Number(fallback)||0);
