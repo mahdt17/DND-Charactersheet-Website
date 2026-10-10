@@ -29,13 +29,13 @@ const fixture=(definition,name,effectId)=>{
 const cipherDefinition=exact('classes/cipher-adept-688');
 const cipherFixture=fixture(cipherDefinition,'Reviewed AC UI 3.5','combat-instinct-ac');
 assert.equal(cipherFixture.effect.value,3,'Cipher Adept must resolve +3 Combat Instinct AC at its highest class level');
-assert.equal(cipherFixture.character.classEffectACBonus35,3,'unconditional AC effect must be reconciled before browser import');
+assert.equal(cipherFixture.character.classEffectArmorClassBonus35,3,'unconditional AC effect must be reconciled before browser import');
 assert.equal(cipherFixture.character.ac,19,'base AC 16 plus +3 Combat Instinct must import as 19');
 
 const dreadDefinition=exact('classes/dread-fang-of-lolth-428');
 const dreadFixture=fixture(dreadDefinition,'Reviewed Conditional AC UI 3.5','team-defense-ac');
 assert.equal(dreadFixture.effect.value,2,'Dread Fang must resolve +2 Team Defense at its highest class level');
-assert.equal(dreadFixture.character.classEffectACBonus35,undefined,'inactive conditional Team Defense must not be tracked as active derived AC');
+assert.equal(dreadFixture.character.classEffectArmorClassBonus35,undefined,'inactive conditional Team Defense must not be tracked as active derived AC');
 assert.equal(dreadFixture.character.ac,16,'inactive conditional Team Defense must leave base AC unchanged');
 
 await fs.mkdir('test-results',{recursive:true});
@@ -71,8 +71,8 @@ try{
   await page.locator('input[type="file"][accept*="json"]').setInputFiles(cipherImportPath);
   await page.locator('.sheet-identity').filter({hasText:cipherFixture.character.name}).waitFor();
   assert.match(await acTile().innerText(),/19[\s\S]*Armor class/i,'unconditional +3 Combat Instinct must raise the live AC tile from 16 to 19');
-  let character=await waitForSaved(cipherFixture.character.name,item=>item.ac===19&&item.classEffectACBonus35===3,'Cipher Adept derived AC did not persist');
-  assert.equal(character.classEffectACManual35,16,'persisted Cipher Adept AC keeps the original manual AC separately');
+  let character=await waitForSaved(cipherFixture.character.name,item=>item.ac===19&&item.classEffectArmorClassBonus35===3,'Cipher Adept derived AC did not persist');
+  assert.equal(character.classEffectArmorClassManual35,16,'persisted Cipher Adept AC keeps the original manual AC separately');
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.locator('.character-card').filter({hasText:cipherFixture.character.name}).getByRole('button',{name:'Open character'}).click();
   assert.match(await acTile().innerText(),/19[\s\S]*Armor class/i,'unconditional structured AC survives save and reopen');
@@ -87,14 +87,14 @@ try{
   assert.equal(await toggle.isChecked(),false,'Team Defense begins inactive');
   await toggle.check();
   assert.match(await acTile().innerText(),/18[\s\S]*Armor class/i,'player-activated +2 Team Defense raises the live AC tile from 16 to 18');
-  character=await waitForSaved(dreadFixture.character.name,item=>item.classEffectToggles35?.[dreadFixture.effect.id]===true&&item.ac===18&&item.classEffectACBonus35===2,'Team Defense activation and derived AC did not persist');
-  assert.equal(character.classEffectACManual35,16,'persisted Team Defense AC keeps the original manual AC separately');
+  character=await waitForSaved(dreadFixture.character.name,item=>item.classEffectToggles35?.[dreadFixture.effect.id]===true&&item.ac===18&&item.classEffectArmorClassBonus35===2,'Team Defense activation and derived AC did not persist');
+  assert.equal(character.classEffectArmorClassManual35,16,'persisted Team Defense AC keeps the original manual AC separately');
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.locator('.character-card').filter({hasText:dreadFixture.character.name}).getByRole('button',{name:'Open character'}).click();
   assert.match(await acTile().innerText(),/18[\s\S]*Armor class/i,'conditional structured AC survives save and reopen');
   character=await saved(dreadFixture.character.name);
   assert.equal(character.classEffectToggles35?.[dreadFixture.effect.id],true,'Team Defense activation remains persisted after reopen');
-  assert.equal(character.classEffectACBonus35,2,'Team Defense derived AC remains stable after reopen');
+  assert.equal(character.classEffectArmorClassBonus35,2,'Team Defense derived AC remains stable after reopen');
   console.log('PASS structured class effects: player activation controls exact reviewed Dread Fang Team Defense AC');
 
   assert.deepEqual(errors,[],'structured class-effects AC UI must not raise browser errors');
