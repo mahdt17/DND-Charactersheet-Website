@@ -47,8 +47,9 @@ const featureMatchKey=value=>norm(String(value||'')
   .replace(/\s+\d+\/[—-]\s*$/i,'')
   .replace(/\babilities\b$/i,'ability')
   .replace(/\bfeats\b$/i,'feat'));
-function reviewedFeatureRows(record){
+function reviewedFeatureRows(record,{exact=false}={}){
   const keys=[record?.sourceId,record?.id,record?.catalogId].filter(Boolean).map(value=>String(value).replace(/^dndtools:/,''));
+  if(exact&&new Set(keys.filter(key=>key.startsWith('classes/'))).size>1)return [];
   const direct=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray);
   const inheritedId=String(record?.inheritedFromClassId||'').replace(/^dndtools:/,'');
   const inherited=inheritedId&&Array.isArray(legacyFeatureSummaries[inheritedId])?legacyFeatureSummaries[inheritedId]:null;
@@ -62,8 +63,17 @@ function reviewedFeatureRows(record){
   const supplement=resolvedProficiencySupplement(sourceId);
   const profileId=supplement?.name===record?.name?supplement?.profileSourceId:null;
   const profiled=profileId?legacyFeatureSummaries[profileId]:null;
-  const rows=Array.isArray(profiled)?profiled:inherited||legacyFeatureSummaries[record?.name]||[];
+  const rows=Array.isArray(profiled)?profiled:inherited||(exact?[]:legacyFeatureSummaries[record?.name])||[];
   return Array.isArray(rows)?rows:[];
+}
+
+// Qualification needs exact reviewed source metadata, not display-name defaults.
+export function reviewedSpellcasting35(record,level){
+  const rows=reviewedFeatureRows(record,{exact:true}).filter(feature=>
+    ['arcane','divine'].includes(feature.castingTradition)&&featureLevel(feature)<=level
+    &&!featureSuppressed(record,feature.name,featureLevel(feature)));
+  const unique=key=>{const values=[...new Set(rows.map(row=>row[key]).filter(Boolean))];return values.length===1?values[0]:null;};
+  return {traditions:[...new Set(rows.map(row=>row.castingTradition))],ability:record?.spellcastingAbility||unique('spellAccessAbility'),bonusAbility:unique('bonusSpellAbility')};
 }
 function reviewedFeatureRow(record,name){
   const key=featureMatchKey(name),rows=reviewedFeatureRows(record);

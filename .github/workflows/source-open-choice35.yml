@@ -8,6 +8,9 @@ on:
       - "src/lib/featureChoices.js"
       - "src/lib/advancement.js"
       - "src/lib/prerequisites35.js"
+      - "src/lib/castingPrerequisites35.js"
+      - "src/data/class-feature-summaries-35.json"
+      - "tests/casting-prerequisites35.mjs"
       - "src/lib/classIntegration.js"
       - "src/GuidedSetup.jsx"
       - "src/LevelUp.jsx"
@@ -36,6 +39,7 @@ jobs:
       - run: npm ci
       - run: node tests/source-feat-choice-lifecycle35.mjs
       - run: node tests/structured-prerequisites35.mjs
+      - run: node tests/casting-prerequisites35.mjs
       - run: node tests/source-feat-choice-prerequisites35.mjs
       - run: node tests/source-open-choice-providers35.mjs
       - run: node tests/source-choice-ui-context35.mjs

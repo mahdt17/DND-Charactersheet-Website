@@ -3,6 +3,7 @@ import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
 import {applyFeatAbilityIncrease} from './featMagic.js';
 import {evaluatePrerequisite35,ownsPrerequisiteFeat35,prerequisiteDescription35} from './prerequisites35.js';
+import {evaluateCastingPrerequisite35,lowerCastingPrerequisite35,castingTextSafe35} from './castingPrerequisites35.js';
 import legacyCore from '../data/srd35.json' with {type:'json'};
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
@@ -98,6 +99,9 @@ export function recalculateLegacyBaseProgression35(character){
 }
 function evaluateOne(p,c,scope={}) {
   if(!p||typeof p!=='object'||Array.isArray(p))return null;
+  if((p.kind||p.type)==='spellcasting'&&p.minimum!=null)return evaluateCastingPrerequisite35(p,c);
+  const casting=lowerCastingPrerequisite35(p);
+  if(casting)return scope.castingTextAllowed===false?null:evaluateOne(casting,c,scope);
   const structured=evaluatePrerequisite35(p,c,{...scope,evaluate:node=>evaluateOne(node,c,scope)});
   if(structured!==undefined)return structured;
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
@@ -160,9 +164,9 @@ export function requirements(record,c,confirmations={}, {multiclass=false,subjec
   return source.map(raw=>{
     const p=typeof raw==='string'?{kind:'text',text:raw}:raw&&typeof raw==='object'?raw:{kind:'text',text:'Requirement needs source review'};
     const text=p.text||p.description||p.name||(p.ability_score?`${p.ability_score.name} ${p.minimum_score}`:prerequisiteDescription35(p));
-    const structuredIdentity=['all','any','count','feat_count','skill_count'].includes(p.kind||p.type)||p.featId||p.subject!=null||p.proficiencyKind;
+    const structuredIdentity=['all','any','count','feat_count','skill_count'].includes(p.kind||p.type)||(p.kind||p.type)==='spellcasting'&&p.minimum!=null||p.featId||p.subject!=null||p.proficiencyKind;
     const id=`${contentKey(record)}:${p.kind||'structured'}:${structuredIdentity?JSON.stringify(p):text}${subject!=null?`:subject:${JSON.stringify(subject)}`:''}`;
-    let result=evaluateOne(p,c,{subject,equipment});
+    let result=evaluateOne(p,c,{subject,equipment,castingTextAllowed:castingTextSafe35(record)});
     if(p.kind==='multiclass') {
       const names=[...text.matchAll(/Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma/gi)].map(x=>scores[x[0].toLowerCase()]);
       // Only the closed published ability-threshold sentence is automated.

@@ -42,6 +42,7 @@ export function prerequisiteDescription35(p){
   if(!p||typeof p!=='object')return 'Requirement needs source review';
   if(p.text||p.description||p.name)return p.text||p.description||p.name;
   const kind=p.kind||p.type;
+  if(kind==='spellcasting'&&p.minimum!=null)return `Cast ${p.minimum}-level or higher ${p.tradition?p.tradition+' ':''}spells`;
   if(['all','any','count'].includes(kind)&&Array.isArray(p.requirements))return `${kind==='all'?'All':kind==='any'?'At least one':`At least ${p.minimum}`} of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='feat_count')return `At least ${p.minimum} distinct ${p.featType||(p.featTypes||[]).join(' or ')} feats`;
   if(kind==='skill_count')return `At least ${p.minimum} distinct skills with ${p.ranks} ranks`;

@@ -5,8 +5,12 @@ import path from 'node:path';
 
 const directory=await fs.mkdtemp(path.join(os.tmpdir(),'class-review-coverage35-'));
 const queuePath=path.join(directory,'queue.json');
+// Audit coverage must never supply certification evidence. Pin an empty
+// manifest for this baseline rather than forbid future real certifications.
+const emptyEvidencePath=path.join(directory,'empty-evidence.json');
+await fs.writeFile(emptyEvidencePath,JSON.stringify({entries:{}}));
 const originalArgs=process.argv;
-process.argv=[process.execPath,'scripts/build_class_review_queue.mjs',`--output=${queuePath}`];
+process.argv=[process.execPath,'scripts/build_class_review_queue.mjs',`--evidence=${emptyEvidencePath}`,`--output=${queuePath}`];
 try{await import('../scripts/build_class_review_queue.mjs');}finally{process.argv=originalArgs;}
 const queue=JSON.parse(await fs.readFile(queuePath,'utf8'));
 const byId=new Map(queue.queue.map(entry=>[entry.recordId,entry]));
@@ -58,7 +62,7 @@ assert.equal(resistance.blockers.length,1);
 assert.equal(resistance.blockers[0].key,'unmapped','ordinary resistance prose must not be classified as a martial stance');
 
 const ledgerPath=path.join(directory,'ledger.json');
-process.argv=[process.execPath,'scripts/build_class_completion_ledger.mjs',`--output=${ledgerPath}`];
+process.argv=[process.execPath,'scripts/build_class_completion_ledger.mjs',`--evidence=${emptyEvidencePath}`,`--output=${ledgerPath}`];
 try{await import('../scripts/build_class_completion_ledger.mjs');}finally{process.argv=originalArgs;}
 const ledger=JSON.parse(await fs.readFile(ledgerPath,'utf8'));
 assert.deepEqual([ledger.total,ledger.certifiedComplete,ledger.blocked,ledger.pending],[1054,0,927,127]);

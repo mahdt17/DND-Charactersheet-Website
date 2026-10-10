@@ -39,6 +39,7 @@ for(const entry of tracker.entries||[]){
  if(entry.status==='validation-failed')reasons.push('validation-failed');
  reasons.push(...certification.blockers);
  reasons.push(...certification.missingEvidence.map(axis=>`missing-certification-evidence:${axis}`));
+ reasons.push(...certification.evidenceValidationErrors.map(error=>`invalid-certification-evidence:${error}`));
  if(entry.status==='complete'&&!certification.certified)reasons.push('tracker-complete-is-not-certification');
  queue.push({
    recordId:entry.sourceId,
@@ -50,6 +51,7 @@ for(const entry of tracker.entries||[]){
    coverage,
    evidencePaths:certification.evidencePaths,
    missingEvidence:certification.missingEvidence,
+   evidenceValidationErrors:certification.evidenceValidationErrors,
    blockers:certification.blockers,
    reasons:[...new Set(reasons)],
    nextAction:entry.nextAction||null

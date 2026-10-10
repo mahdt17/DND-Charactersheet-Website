@@ -6,8 +6,14 @@ on:
       - "docs/class-completion-evidence35.json"
       - "docs/class-completion-tracker.json"
       - "scripts/class_completion_certification35.mjs"
+      - "scripts/validate_class_completion_queue35.mjs"
       - "scripts/class_review_coverage35.mjs"
       - "scripts/audit_prerequisite_coverage35.mjs"
+      - "scripts/audit_casting_prerequisites35.mjs"
+      - "src/lib/castingPrerequisites35.js"
+      - "src/lib/classIntegration.js"
+      - "src/data/class-feature-summaries-35.json"
+      - "tests/casting-prerequisites35.mjs"
       - "src/lib/prerequisites35.js"
       - "scripts/build_class_completion_ledger.mjs"
       - "scripts/build_class_review_queue.mjs"
@@ -39,15 +45,16 @@ jobs:
       - run: npm ci
       - run: node tests/class-completion-certification35.mjs
       - run: node tests/class-review-coverage35.mjs
+      - run: node tests/casting-prerequisites35.mjs
       - run: node tests/source-choice-ui-context35.mjs
       - run: mkdir -p test-results
       - run: node scripts/audit_prerequisite_coverage35.mjs test-results/prerequisite-coverage35.json
+      - run: node scripts/audit_casting_prerequisites35.mjs test-results/casting-prerequisite-coverage35.json
       - run: node scripts/build_class_completion_ledger.mjs --output=test-results/class-completion-ledger35.json
       - run: node scripts/build_class_review_queue.mjs docs/class-completion-tracker.json --output=test-results/class-review-queue35.json
       - run: node scripts/select_class_research_batch.mjs docs/class-completion-tracker.json --limit=5 > test-results/class-research-batch35.json
       - name: Verify fail-closed queue behavior
-        run: |
-          node -e "const fs=require('fs');const tracker=JSON.parse(fs.readFileSync('docs/class-completion-tracker.json'));const ledger=JSON.parse(fs.readFileSync('test-results/class-completion-ledger35.json'));const queue=JSON.parse(fs.readFileSync('test-results/class-review-queue35.json'));if(ledger.total!==tracker.entries.length)process.exit(1);if(queue.total!==tracker.entries.length)process.exit(1);const oldComplete=tracker.entries.find(x=>x.status==='complete');if(oldComplete&&!queue.queue.some(x=>x.recordId===oldComplete.sourceId&&x.reasons.includes('tracker-complete-is-not-certification')))process.exit(1);"
+        run: node scripts/validate_class_completion_queue35.mjs docs/class-completion-tracker.json test-results/class-completion-ledger35.json test-results/class-review-queue35.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
