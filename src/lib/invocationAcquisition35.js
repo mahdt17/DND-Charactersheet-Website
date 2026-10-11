@@ -1,5 +1,6 @@
 import catalogData from '../data/invocations35.json' with {type:'json'};
 import profileData from '../data/invocation-acquisition35.json' with {type:'json'};
+import {reconcileManifesting35} from './manifesting35.js';
 
 const grades=['least','lesser','greater','dark'];
 const cleanId=value=>String(value||'').replace(/^dndtools:/,'');
@@ -153,7 +154,7 @@ export function reconcileInvocationAcquisition35(character){
   }
  }
  const preserved=existing.filter(spell=>!spell?.invocationGrant);
- return {...character,invocationAcquisition35:state,invocationAcquisition35Incomplete:incomplete,spells:[...preserved,...runtime]};
+ return reconcileManifesting35({...character,invocationAcquisition35:state,invocationAcquisition35Incomplete:incomplete,spells:[...preserved,...runtime]});
 }
 
 // Creation, advancement and recovery of missing choices use the same atomic adapter.
