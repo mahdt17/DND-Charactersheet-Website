@@ -44,6 +44,20 @@ const fist=cls('classes/fist-stacking-test','Fist','—',{
 character={ruleset:'3.5',classLevels:[row(monk,4),row(fist,5)]};
 assert.equal(effectiveFeatureLevel35(character,'Flurry of Blows'),10,'per-level contribution amounts should support non-1 advancement schedules');
 
+const unarmedBase=cls('classes/unarmed-stacking-test','Martial Artist','Unarmed Strike');
+const unarmedProgressor=cls('classes/unarmed-progressor-test','Unarmed Progressor','—',{
+  featureProgressionAdvancement:[{feature:'unarmed strike',targetClassId:unarmedBase.catalogId,levels:'all'}]
+});
+character={ruleset:'3.5',classLevels:[row(unarmedBase,5),row(unarmedProgressor,4)]};
+assert.equal(effectiveFeatureLevel35(character,'Unarmed Strike'),9,'generic stacking should cover unarmed-strike progression independently of flurry');
+
+const dragonmarkBase=cls('classes/dragonmark-stacking-test','Marked Heir','Least Dragonmark');
+const dragonmarkProgressor=cls('classes/dragonmark-progressor-test','Dragonmark Progressor','—',{
+  featureProgressionAdvancement:[{feature:'dragonmark',targetClassId:dragonmarkBase.catalogId,levels:[1,2,3]}]
+});
+character={ruleset:'3.5',classLevels:[row(dragonmarkBase,2),row(dragonmarkProgressor,3)]};
+assert.equal(effectiveFeatureLevel35(character,'Dragonmark'),5,'generic stacking should canonicalize dragonmark tiers into one progression identity');
+
 const missingTarget={ruleset:'3.5',classLevels:[row(sacred,3)]};
 assert.equal(effectiveFeatureLevel35(missingTarget,'turn undead'),null,'an advancement must not manufacture a missing target feature/class');
 reconciled=reconcileFeatureProgressions35(missingTarget);
@@ -57,4 +71,4 @@ character={ruleset:'3.5',classLevels:[row(cleric,4),row(otherCleric,4),row(ambig
 assert.equal(effectiveFeatureLevel35(character,'turn undead'),null,'feature-only targeting must fail closed when more than one native class can own the feature');
 
 assert.deepEqual(reconcileFeatureProgressions35({ruleset:'3.5',classLevels:[row(cleric,5)]}).featureProgressions35,[],'native classes without advancement metadata should not create managed stacking state');
-console.log('PASS generic feature progression stacking supports exact targets, selected levels, contribution rates, reconciled state, class integration, and ambiguity fail-closed behavior.');
+console.log('PASS generic feature progression stacking supports exact targets, selected levels, contribution rates, reconciled state, class integration, broad identities, and ambiguity fail-closed behavior.');
