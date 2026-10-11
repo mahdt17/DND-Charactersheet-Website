@@ -12,16 +12,17 @@ assert.equal(report.total,1054,'primitive coverage audit must span the complete 
 assert.equal(report.mutatesSource,false,'coverage audit must remain read-only');
 assert.ok(report.prerequisites&&Number.isInteger(report.prerequisites.unsupportedClassCount),'unsupported prerequisite reach is required');
 assert.ok(report.featureStacking&&Number.isInteger(report.featureStacking.candidateClassCount),'feature-stacking reach is required');
+assert.equal(report.featureStacking.candidateClassCount,149,'tracker stacking candidate inventory must remain explicit');
 assert.ok(Array.isArray(report.prerequisites.clusters)&&report.prerequisites.clusters.length>0,'unsupported prerequisites must be decomposed into repeated shapes');
 assert.ok(Array.isArray(report.featureStacking.clusters)&&report.featureStacking.clusters.length>0,'feature-stacking candidates must be decomposed into reusable feature families');
 assert.ok(report.prerequisites.clusters.every(row=>row.kind&&Number.isInteger(row.count)&&row.count>0));
 assert.ok(report.featureStacking.clusters.every(row=>row.kind&&Number.isInteger(row.count)&&row.count>0));
-assert.ok(Number.isInteger(report.featureStacking.genericFeatureProgressionCandidateCount),'generic feature-progression representability must be reported');
-assert.ok(Number.isInteger(report.featureStacking.specializedOrUnresolvedCandidateCount),'remaining stacking candidates must be reported');
+assert.equal(report.featureStacking.genericFeatureProgressionCandidateCount,114,'generic feature-progression ledger should cover the measured canonical-feature cohort');
+assert.equal(report.featureStacking.specializedOrUnresolvedCandidateCount,35,'specialized or vague stacking tail must remain explicit');
 assert.equal(report.featureStacking.genericFeatureProgressionCandidateCount+report.featureStacking.specializedOrUnresolvedCandidateCount,report.featureStacking.candidateClassCount,'generic and unresolved stacking partitions must cover the candidate union exactly');
 assert.ok(report.featureStacking.genericFeatureProgressionCandidateCount>report.featureStacking.candidateClassCount/2,'the shared progression ledger should represent a majority of stacking candidates');
 assert.ok(Array.isArray(report.featureStacking.genericFeatureProgressionExamples)&&report.featureStacking.genericFeatureProgressionExamples.length>0,'representable exact source examples are required');
 assert.ok(Array.isArray(report.featureStacking.specializedOrUnresolvedExamples),'unresolved exact source examples are required');
 assert.ok(['prerequisites','feature-stacking'].includes(report.recommendedNext),'audit must recommend the higher-reach missing primitive family');
 
-console.log(`PASS subsystem primitive audit compares prerequisite and feature-stacking reach across ${report.total} classes.`);
+console.log(`PASS subsystem primitive audit compares prerequisite and feature-stacking reach across ${report.total} classes; ${report.featureStacking.genericFeatureProgressionCandidateCount}/${report.featureStacking.candidateClassCount} stacking candidates fit the generic feature-progression contract.`);
