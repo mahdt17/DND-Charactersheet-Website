@@ -10,6 +10,7 @@ on:
       - "scripts/validate_class_completion_queue35.mjs"
       - "scripts/class_review_coverage35.mjs"
       - "scripts/audit_prerequisite_coverage35.mjs"
+      - "scripts/audit_class_subsystem_primitives35.mjs"
       - "scripts/audit_casting_prerequisites35.mjs"
       - "scripts/audit_stale_class_planning35.mjs"
       - "scripts/audit_persistent_class_choices35.mjs"
@@ -25,6 +26,7 @@ on:
       - "tests/class-persistent-choice-cohorts35.mjs"
       - "tests/class-choice-option-mechanics-audit35.mjs"
       - "tests/class-subsystem-leverage35.mjs"
+      - "tests/class-subsystem-primitive-coverage35.mjs"
       - "src/lib/prerequisites35.js"
       - "scripts/build_class_completion_ledger.mjs"
       - "scripts/build_class_review_queue.mjs"
@@ -65,10 +67,12 @@ jobs:
       - run: node tests/class-persistent-choice-cohorts35.mjs
       - run: node tests/class-choice-option-mechanics-audit35.mjs
       - run: node tests/class-subsystem-leverage35.mjs
+      - run: node tests/class-subsystem-primitive-coverage35.mjs
       - run: node tests/casting-prerequisites35.mjs
       - run: node tests/source-choice-ui-context35.mjs
       - run: mkdir -p test-results
       - run: node scripts/audit_prerequisite_coverage35.mjs test-results/prerequisite-coverage35.json
+      - run: node scripts/audit_class_subsystem_primitives35.mjs --json > test-results/class-subsystem-primitives35.json
       - run: node scripts/audit_casting_prerequisites35.mjs test-results/casting-prerequisite-coverage35.json
       - run: node scripts/audit_stale_class_planning35.mjs --json > test-results/class-planning-staleness35.json
       - run: node scripts/audit_persistent_class_choices35.mjs --json > test-results/class-persistent-choices35.json
