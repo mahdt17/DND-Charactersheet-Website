@@ -69,7 +69,7 @@ assert.equal(status({kind:'feat',name:'Weapon Focus',subject:'Rapier'},{...chara
 assert.equal(status({kind:'feat',name:'Weapon Focus',subject:'Rapier'},{...character,feats:[{name:'Weapon Focus (Rapier)',featSubject:'Longsword'}]}),'unmet','conflicting explicit subjects must not be inferred away');
 const classes=JSON.parse(await fs.readFile('public/catalogs/dndtools/classes.json','utf8')).map(record=>normalizeCatalogRecord(record,'dndtools','classes'));
 const impact=prerequisiteCoverage35(classes);
-assert.equal(impact.uniqueAffectedCount,33,'closed catalog grammar has 33 exact source records, without claiming full class completion');
+assert.equal(impact.uniqueAffectedCount,34,'closed catalog grammar has 34 exact source records, without claiming full class completion');
 assert.deepEqual(impact.clusters.map(({kind,count})=>({kind,count})),[
   {kind:'named-feat-alternatives',count:2},{kind:'ranked-skill-alternatives',count:1},{kind:'ranked-skill-count',count:5},{kind:'two-weapon-name',count:3},{kind:'typed-feat-count',count:23}
 ]);
