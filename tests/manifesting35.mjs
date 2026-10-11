@@ -34,7 +34,7 @@ const character=classLevels=>({
   hp:{current:12,max:12},actions:[],feats:[],resources:[],spells:[],featureChoices:{}
 });
 const profileFor=(state,classId)=>(state.manifesting35||[]).find(profile=>profile.sourceClassId===classId);
-const ppFor=(state,classId)=>(state.resources||[]).find(resource=>resource.manifesting35&&resource.sourceClassId===classId);
+const ppFor=(state,classId)=>(state.resources||[]).find(resource=>resource.manifesting35&&resource.sourceClassIds.includes(classId));
 
 let state=reconcileClassGrants(character([row(psion,3)]));
 let profile=profileFor(state,psion.catalogId),pool=ppFor(state,psion.catalogId);
@@ -49,13 +49,13 @@ assert.equal(pool.used,0);
 assert.equal(pool.unit,'PP');
 
 // Spending is mutable state. Reconciliation must not refill the pool.
-state={...state,resources:state.resources.map(resource=>resource.id===pool.id?{...resource,used:6}:resource)};
+state={...state,powerPointsUsed:6};
 state=reconcileClassGrants(state);
 pool=ppFor(state,psion.catalogId);
 assert.equal(pool.used,6,'reconcile must preserve spent power points');
 assert.equal(profileFor(state,psion.catalogId).powerPointsMax,11);
 
-// Losing effective levels recomputes deterministic progression and clamps usage.
+// Losing effective levels recomputes progression without refunding expenditure.
 state={...state,classLevels:[row(psion,2)],level:2,castingAdvancements:[]};
 state=reconcileClassGrants(state);
 profile=profileFor(state,psion.catalogId);pool=ppFor(state,psion.catalogId);
@@ -66,7 +66,7 @@ assert.equal(pool.max,6);
 assert.equal(pool.used,6);
 state={...state,classLevels:[row(psion,1)],level:1};
 state=reconcileClassGrants(state);
-assert.equal(ppFor(state,psion.catalogId).used,2,'spent PP must clamp when the maximum falls below prior usage');
+assert.equal(ppFor(state,psion.catalogId).used,6,'spent PP survives a reduced maximum');
 
 // Existing prestige manifesting advancement must feed the same derived state.
 state={...character([row(psion,2)]),castingAdvancements:[{
@@ -81,11 +81,12 @@ assert.equal(profile.powerPointsMax,11);
 assert.equal(profile.powersKnown,7);
 assert.equal(profile.maxPowerLevel,2);
 
-// Multiclass manifesters retain distinct source pools and source removal is reversible.
+// Multiclass manifesters retain distinct profiles but share their source contributions.
 state=reconcileClassGrants(character([row(psion,2),row(ardent,2)]));
 assert.equal((state.manifesting35||[]).length,2);
-assert.equal(ppFor(state,psion.catalogId).max,6);
-assert.equal(ppFor(state,ardent.catalogId).max,5);
+assert.equal(ppFor(state,psion.catalogId).max,11);
+assert.equal(ppFor(state,ardent.catalogId).max,11);
+assert.equal(state.resources.filter(r=>r.manifesting35).length,1);
 const removed=removeClassProgression(state,ardent.catalogId);
 assert(profileFor(removed,psion.catalogId));
 assert(!profileFor(removed,ardent.catalogId));
@@ -111,7 +112,7 @@ assert.equal(publishedProfile.powerPointsMax,2);
 assert.equal(publishedProfile.powersKnown,3);
 assert.equal(publishedProfile.maxPowerLevel,1);
 assert(publishedPool,'exact published Psion must expose its PP resource');
-assert.equal(publishedPool.max,2);
+assert.equal(publishedPool.max,3,'base PP plus the existing Intelligence bonus');
 assert.equal(publishedPool.used,0);
 
 console.log(`3.5 manifesting state and power-point lifecycle regressions passed, including exact ${publishedPsion.sourceId}.`);

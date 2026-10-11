@@ -34,7 +34,7 @@ export default function ResourceTracker({char,patch,abilities}) {
         <div className="resource-row"><div><strong>{r.name}</strong><small>{sourceLabel}</small><small>{resourceRecoveryText(r)}</small></div><strong className="resource-count">{r.unlimited?'Unlimited':`${Math.max(0,r.max-r.used)} / ${r.max}`}</strong></div>
         <div className="l-toolbar resource-controls">
           {!r.unlimited&&<><label className="l-field"><span>Amount</span><input aria-label={`${r.name} amount`} type="number" min="1" max={Math.max(r.max,r.used,1)} value={amounts[r.id]||1} onChange={e=>setAmounts({...amounts,[r.id]:Math.max(1,Math.floor(Number(e.target.value)||1))})}/></label><button className="l-button" disabled={!r.used} onClick={()=>change(r,-1)}>Restore</button><button className="l-button" disabled={r.used+(amounts[r.id]||1)>r.max} onClick={()=>change(r,1)}>Use</button></>}
-          <button className="l-button" onClick={()=>edit(r)}>Edit</button><button className="l-button" onClick={()=>remove(r)}>Remove</button>
+          {!manifesting&&<><button className="l-button" onClick={()=>edit(r)}>Edit</button><button className="l-button" onClick={()=>remove(r)}>Remove</button></>}
           {definition&&r.manual&&<button className="l-button" onClick={()=>adopt(r,definition)}>Use class progression</button>}
           {!r.classResourceKey&&candidates(r).map(d=><button className="l-button" key={d.classResourceKey} onClick={()=>adopt(r,d)}>Use {d.className} progression</button>)}
         </div>

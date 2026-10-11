@@ -4,6 +4,15 @@ The catalog-wide checks cover **1,079 class records**: 13 for 2014 (including
 Artificer), 12 for 2024, and 1,054 for 3.5. This is not a claim that every class
 mechanic is fully automated.
 
+## Shared 3.5 power-point reserve (2026-10-11)
+
+- `powerPointsUsed` is the canonical expenditure for both manifestation and Resource Tracker controls. One automatic shared counter displays the reserve; it cannot be edited into an independent class pool.
+- Scalar class-table PP contributions pool across classes. Existing reviewed Psion (Intelligence), Psychic Warrior (Wisdom), and Wilder (Charisma) bonus PP rules and sourced additional PP bonuses apply once. Psionic prestige advancement affects its target's table progression and bonus PP.
+- Per-class `manifesting35` profiles retain base PP, powers known, maximum power level, source identity and advancement evidence. Unreviewed classes contribute their supported table PP only; this does not add unreviewed bonus abilities, power acquisition or manifestation access.
+- Existing canonical expenditure, including zero, overrides stale saved resource copies. Older saves without that field migrate the sum of legacy per-class expenditure once. Changes to other resources and short rests preserve that migration. Level/class removal preserves spending even above the reduced maximum; remaining PP stops at zero until restoration or a qualifying long rest.
+- Coverage: `manifesting35.mjs`, `shared-power-points35.mjs`, `legacy-special-casting.mjs`, `resources.mjs`, `browser-manifesting35.mjs`, `browser-casting-gaps.mjs` and `browser-resources.mjs`. The shared regression is in `npm test`; focused CI includes reserve, casting, resource and browser checks.
+- The existing subsystem audit regression exposed missing complete source-ID lists. The audit now emits every ID in each remaining metadata family while keeping its small example list. No tracker status or certification evidence was promoted: the regenerated ledger remains 1 certified, 927 blocked and 126 pending across 1,054 records.
+
 ## Implemented spell access
 
 - Normal characters select spells from their class list and edition. Reference

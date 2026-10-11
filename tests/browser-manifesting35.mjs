@@ -15,13 +15,13 @@ const character=reconcileClassGrants({
   classLevels:[{catalogId:psion.catalogId,name:psion.name,edition:'3.5',level:1,definition:psion}],
   race:'Human',hitDie:'d4',hp:{current:4,max:4,temp:0},
   abilities:{str:10,dex:10,con:10,int:16,wis:10,cha:10},abilityBonuses:{},
-  inventory:[],actions:[],spells:[],feats:[],resources:[],featureChoices:{},conditions:[]
+  inventory:[],actions:[],spells:[{id:'pp-test-power',name:'Reserve test power',edition:'3.5',level:1,school:'Psychokinesis',classes:['Psion'],classLevels:{Psion:1},castingClassId:psion.catalogId}],feats:[],resources:[],featureChoices:{},conditions:[]
 });
 const profile=character.manifesting35?.find(row=>row.sourceClassId===psion.catalogId);
-const pool=character.resources?.find(row=>row.manifesting35&&row.sourceClassId===psion.catalogId);
+const pool=character.resources?.find(row=>row.manifesting35);
 assert(profile,'exact Psion fixture must derive a manifesting profile before browser import');
 assert(pool,'exact Psion fixture must derive a power-point pool before browser import');
-assert.equal(profile.powerPointsMax,2);assert.equal(profile.powersKnown,3);assert.equal(profile.maxPowerLevel,1);assert.equal(pool.max,2);
+assert.equal(profile.powerPointsMax,2);assert.equal(profile.powersKnown,3);assert.equal(profile.maxPowerLevel,1);assert.equal(pool.max,3);
 await fs.mkdir('test-results',{recursive:true});
 const importPath='test-results/manifesting35-import.json';await fs.writeFile(importPath,JSON.stringify(character));
 
@@ -30,21 +30,38 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.BR
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
 const group=()=>page.getByRole('group',{name:'Power Points resource',exact:true});
 const saved=async()=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+rows.find(row=>row.name===name).id)).value);},character.name);
-const waitSaved=async used=>{for(let attempt=0;attempt<80;attempt++){const state=await saved(),resource=state.resources?.find(row=>row.manifesting35);if(resource?.used===used)return state;await page.waitForTimeout(50);}assert.fail(`Power Points did not persist used=${used}`);};
+const waitSaved=async used=>{for(let attempt=0;attempt<80;attempt++){const state=await saved();if(state.powerPointsUsed===used)return state;await page.waitForTimeout(50);}assert.fail(`Power Points did not persist used=${used}`);};
 try{
   await page.goto('http://127.0.0.1:5197/');await page.getByRole('button',{name:'Explore the demo'}).click();
   await page.locator('input[type="file"][accept*="json"]').setInputFiles(importPath);
   await page.locator('.sheet-identity').filter({hasText:character.name}).waitFor();
   await group().waitFor();
-  assert.equal(await group().locator('.resource-count').innerText(),'2 / 2','exact Psion begins with its table-derived PP maximum');
+  assert.equal(await group().locator('.resource-count').innerText(),'3 / 3','exact Psion includes its ability bonus PP');
+  assert.equal(await group().getByRole('button',{name:'Edit',exact:true}).count(),0,'shared reserve cannot become an independent custom counter');
   assert.match(await group().innerText(),/Psion · 3\.5 manifesting progression/i,'automatic PP must identify its manifesting source rather than appear custom');
   await page.getByLabel('Power Points amount',{exact:true}).fill('1');await group().getByRole('button',{name:'Use',exact:true}).click();
-  assert.equal(await group().locator('.resource-count').innerText(),'1 / 2','live resource controls spend one PP');
+  assert.equal(await group().locator('.resource-count').innerText(),'2 / 3','live resource controls spend one PP');
   let state=await waitSaved(1);assert.equal(state.manifesting35?.find(row=>row.sourceClassId===psion.catalogId)?.powersKnown,3);
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByText(/Power points 2 \/ 3/).waitFor();
+  await page.getByRole('button',{name:'Manifest',exact:true}).click();
+  await page.getByRole('dialog').getByRole('button',{name:'Manifest',exact:true}).click();
+  await page.getByText(/Power points 1 \/ 3/).waitFor();
+  await page.getByRole('tab',{name:'Actions',exact:true}).click();
+  assert.equal(await group().locator('.resource-count').innerText(),'1 / 3','manifestation spends the same tracker reserve');
+  await waitSaved(2);
   await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:character.name}).getByRole('button',{name:'Open character'}).click();
-  assert.equal(await group().locator('.resource-count').innerText(),'1 / 2','spent PP survives save and reopen');
-  await group().getByRole('button',{name:'Restore',exact:true}).click();assert.equal(await group().locator('.resource-count').innerText(),'2 / 2');state=await waitSaved(0);
-  assert.equal(state.resources.filter(row=>row.manifesting35&&row.sourceClassId===psion.catalogId).length,1,'reopen/reconcile must not duplicate PP pools');
+  assert.equal(await group().locator('.resource-count').innerText(),'1 / 3','spent PP survives save and reopen');
+  await group().getByRole('button',{name:'Restore',exact:true}).click();assert.equal(await group().locator('.resource-count').innerText(),'2 / 3');await waitSaved(1);
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByText(/Power points 2 \/ 3/).waitFor();
+  await page.getByRole('button',{name:'Rest',exact:true}).click();
+  await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
+  await page.getByText(/Power points 3 \/ 3/).waitFor();
+  state=await waitSaved(0);
+  await page.getByRole('tab',{name:'Actions',exact:true}).click();
+  assert.equal(await group().locator('.resource-count').innerText(),'3 / 3');
+  assert.equal(state.resources.filter(row=>row.manifesting35).length,1,'reopen/reconcile must not duplicate PP pools');
   assert.deepEqual(errors,[],'manifesting resource UI must not raise browser errors');
   console.log(`PASS exact ${psion.sourceId}: live PP display, source labeling, spend/restore, persistence and reopen`);
 }finally{await browser.close();await server.close();}

@@ -1,18 +1,17 @@
-import {characterClasses,classCharacter,progressionRow,contentKey} from './advancement.js';
+import {progressionRow,contentKey} from './advancement.js';
 import {invocationProfile35} from './invocationAcquisition35.js';
+import {powerPointProfile35,powerPointReserve35} from './manifesting35.js';
 const abilities={Psion:'int','Psychic Warrior':'wis',Wilder:'cha'};
 export const psionDisciplines={Clairsentience:'Seer',Metacreativity:'Shaper',Psychokinesis:'Kineticist',Psychometabolism:'Egoist',Psychoportation:'Nomad',Telepathy:'Telepath'};
 const norm=x=>String(x?.name||x||'').trim().toLowerCase();
 export function specialCastingProfile(c){
  if((c.classDefinition?.edition||c.ruleset)!=='3.5')return null;
  const id=c.activeCastingClassId||contentKey(c.classDefinition||{name:c.className,edition:'3.5'});
- const extra=(c.castingAdvancements||[]).filter(x=>x.targetClassId===id&&x.kind==='psionic').reduce((n,x)=>n+(Number(x.amount)||0),0),level=c.level+extra;
- const row=progressionRow(c.classDefinition,level),value=pattern=>{const entry=Object.entries(row).find(([key])=>pattern.test(key));return entry?parseInt(entry[1]):NaN;};
+ const row=progressionRow(c.classDefinition,c.level),value=pattern=>{const entry=Object.entries(row).find(([key])=>pattern.test(key));return entry?parseInt(entry[1]):NaN;};
  if(abilities[c.className]){
-  const base=value(/power points|^pp$/i),known=value(/^powers? known$/i),maximum=value(/maximum power level/i);
-  if(!Number.isFinite(base)||!Number.isFinite(known)||!Number.isFinite(maximum))return null;
-  const ability=abilities[c.className],score=Number(c.abilities?.[ability]||10)+Number(c.abilityBonuses?.[ability]||0),bonus=Math.max(0,Math.floor((score-10)/2));
-  return {kind:'power',id,ability,level,known,maximum,points:base+Math.floor(bonus*level/2),discipline:c.legacyCastingChoices?.[id]?.discipline};
+  const profile=powerPointProfile35(c);
+  if(!profile||!Number.isFinite(profile.known)||!Number.isFinite(profile.maximum))return null;
+  return {kind:'power',...profile,discipline:c.legacyCastingChoices?.[id]?.discipline};
  }
  if(c.className==='Warlock'||c.className==='Dragonfire Adept'){
   const sourceId=c.activeCastingClassId||c.classDefinition?.catalogId||(c.classLevels||[]).find(r=>r.name===c.className)?.catalogId||id;
@@ -38,10 +37,7 @@ export function specialCastingAccess(c,s){
  return {allowed,level,reason:allowed?'Class power':'Choose a power from this class or selected discipline, within its level and ability limits.'};
 }
 export function powerPointReserve(c){
- const total=characterClasses(c).reduce((n,row)=>{const p=specialCastingProfile(classCharacter(c,row));return n+(p?.kind==='power'?p.points:0);},0);
- const bonus=Number(c.powerPointBonus?.amount)||0;
- const maximum=total+(c.powerPointBonus?.source?Math.max(0,bonus):0),used=Math.max(0,Number(c.powerPointsUsed)||0);
- return {maximum,used,remaining:Math.max(0,maximum-used)};
+ return powerPointReserve35(c);
 }
 export function spendPower(c,model,s,points){
  const p=specialCastingProfile(model),access=specialCastingAccess(model,s),reserve=powerPointReserve(c);

@@ -131,7 +131,7 @@ function clusterRows(map){
 function filteredClusterRows(map,allowedIds){
   return [...map].map(([kind,records])=>{
     const selected=[...records.entries()].filter(([id])=>allowedIds.has(id)).map(([,record])=>record);
-    return {kind,count:selected.length,examples:selected.slice(0,5)};
+    return {kind,count:selected.length,sourceIds:selected.map(record=>record.sourceId).sort(),examples:selected.slice(0,5)};
   }).filter(row=>row.count>0).sort((a,b)=>b.count-a.count||a.kind.localeCompare(b.kind));
 }
 function trackerExample(entry,text){

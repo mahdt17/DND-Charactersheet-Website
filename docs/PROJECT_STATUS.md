@@ -23,6 +23,8 @@ Authoritative PR: #8
 
 PR #8 now also contains the work formerly developed in PR #9. Keep this branch **open, draft, unmerged, and undeployed** until the class automation is considered complete enough for production.
 
+Latest subsystem correction (2026-10-11): table-derived manifesting profiles now share the existing `powerPointsUsed` reserve with the spellbook and Resource Tracker. Multiclass base PP, reviewed ability bonuses, prestige advancement, spending, save migration and rests use the same total. See `CLASS_INTEGRATION_VERIFICATION.md` for boundaries and coverage. The blocker audit's missing source-ID lists were also restored; certification remains fail-closed.
+
 Combined development includes:
 
 - class grant reconciliation for features, actions, resources, training, progression tracks, and source removal

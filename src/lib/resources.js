@@ -1,4 +1,5 @@
 import {characterClasses} from './advancement.js';
+import {reconcileManifesting35,sharedPowerPointsId35} from './manifesting35.js';
 
 const count=v=>Math.max(0,Math.floor(Number(v)||0));
 const nameKey=s=>String(s||'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
@@ -48,7 +49,7 @@ export function resourceMatches(resource,definition) {
   return [definition.name,...definition.aliases||[]].some(n=>nameKey(resource.name)===nameKey(n));
 }
 export function characterResources(c,abilities) {
-  const definitions=classResourceDefinitions(c,abilities),saved=Array.isArray(c.resources)?c.resources:[];
+  const definitions=classResourceDefinitions(c,abilities),saved=reconcileManifesting35(c).resources;
   const resources=saved.map(r=>{
     const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey);
     return {...r,...(definition&&!r.manual?definition:{}),id:r.id,used:count(r.used)};
@@ -68,20 +69,23 @@ export function resourceRecoveryText(r) {
 }
 export function adjustResource(c,id,amount,abilities) {
   if(!Number.isInteger(amount))throw Error('Use a whole number of resource points.');
-  const resources=characterResources(c,abilities),r=resources.find(r=>r.id===id);
+  const normalized=reconcileManifesting35(c),migration=normalized.powerPointsUsed!==c.powerPointsUsed?{powerPointsUsed:normalized.powerPointsUsed}:{};
+  const resources=characterResources(normalized,abilities),r=resources.find(r=>r.id===id);
   if(!r)throw Error('Resource not found.');
-  if(r.unlimited)return {resources};
+  if(r.unlimited)return {...migration,resources};
   if(amount>0&&count(r.used)+amount>count(r.max))throw Error('Not enough resource uses remaining.');
-  return {resources:resources.map(x=>x.id===id?{...x,used:Math.max(0,count(x.used)+amount)}:x)};
+  const used=Math.max(0,count(r.used)+amount);
+  return {...migration,...(id===sharedPowerPointsId35?{powerPointsUsed:used}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
 }
 export function restResources(c,rest,{meditated=false,restoreSorcery=false}={},abilities) {
   if(!['short','long'].includes(rest))throw Error('Choose a short or long rest.');
+  const normalized=reconcileManifesting35(c),migration=normalized.powerPointsUsed!==c.powerPointsUsed?{powerPointsUsed:normalized.powerPointsUsed}:{};
   let restored=false;
-  const resources=characterResources(c,abilities).map(r=>{
+  const resources=characterResources(normalized,abilities).map(r=>{
     if(r.meditation&&!meditated)return r;
     let recovery=rest==='long'?(r.reset==='long'||r.reset==='short'?'all':0):(r.shortRecovery??(r.reset==='short'?'all':0));
     if(rest==='short'&&r.restoration&&restoreSorcery&&!c.sorcerousRestorationUsed&&r.used>0){recovery=r.restoration;restored=true;}
     return {...r,used:recovery==='all'?0:Math.max(0,count(r.used)-count(recovery))};
   });
-  return {resources,...(rest==='long'?{sorcerousRestorationUsed:false}:restored?{sorcerousRestorationUsed:true}:{})};
+  return {...migration,resources,...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }
