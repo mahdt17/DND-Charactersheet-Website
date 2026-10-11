@@ -115,6 +115,7 @@ const STACK_FAMILIES=[
   ['other-feature-level',/\b(?:class feature|feature level|effective .* level)\b/i]
 ];
 const STACK_SIGNAL=/\b(?:stack(?:s|ing|ed)?|effective\s+(?:class\s+)?level|counts?\s+as\s+(?:\w+\s+){0,3}levels?|advance(?:s|d|ment)?|progress(?:es|ion)?|levels?\s+stack)\b/i;
+const GENERIC_FEATURE_PROGRESSION_SIGNAL=/\b(?:animal companion|familiar|special mount|smite(?: evil| good)?|lay on hands|turn undead|rebuke undead|turn or rebuke undead|flurry of blows|unarmed strike|sneak attack|skirmish|sudden strike|bardic music|bardic knowledge|favou?red enemy|wild empathy|rage|frenzy|wild shape|dragonmark)\b/i;
 
 function addCluster(map,kind,record,text){
   if(!map.has(kind))map.set(kind,new Map());
@@ -125,6 +126,9 @@ function addCluster(map,kind,record,text){
 }
 function clusterRows(map){
   return [...map].map(([kind,records])=>({kind,count:records.size,examples:[...records.values()].slice(0,5)})).sort((a,b)=>b.count-a.count||a.kind.localeCompare(b.kind));
+}
+function trackerExample(entry,text){
+  return {sourceId:entry.sourceId,name:entry.name||null,sourceBook:entry.sourceBook||null,example:text.slice(0,500)};
 }
 
 const catalogRaw=JSON.parse(await fs.readFile('public/catalogs/dndtools/classes.json','utf8'));
@@ -146,18 +150,25 @@ for(const record of catalog){
   }
 }
 
-const stackingClusters=new Map(),stackingIds=new Set();
+const stackingClusters=new Map(),stackingIds=new Set(),genericStackingIds=new Set(),stackingEvidence=new Map();
 for(const entry of entries){
   if(entry.status==='complete')continue;
   const text=[...(entry.gaps||[]),...(entry.dependencies||[]),entry.nextAction,...(entry.nextActions||[])].filter(Boolean).join(' ');
   if(!STACK_SIGNAL.test(text))continue;
+  let matched=false;
   for(const [kind,re] of STACK_FAMILIES){
     if(!re.test(text))continue;
+    matched=true;
     stackingIds.add(entry.sourceId);
     addCluster(stackingClusters,kind,entry,text.slice(0,500));
   }
+  if(!matched)continue;
+  stackingEvidence.set(entry.sourceId,trackerExample(entry,text));
+  if(GENERIC_FEATURE_PROGRESSION_SIGNAL.test(text))genericStackingIds.add(entry.sourceId);
 }
 
+const specializedStackingIds=new Set([...stackingIds].filter(id=>!genericStackingIds.has(id)));
+const examplesFor=ids=>[...ids].slice(0,5).map(id=>stackingEvidence.get(id)).filter(Boolean);
 const prerequisiteRows=clusterRows(prerequisiteClusters);
 const stackingRows=clusterRows(stackingClusters);
 const report={
@@ -171,6 +182,10 @@ const report={
   },
   featureStacking:{
     candidateClassCount:stackingIds.size,
+    genericFeatureProgressionCandidateCount:genericStackingIds.size,
+    specializedOrUnresolvedCandidateCount:specializedStackingIds.size,
+    genericFeatureProgressionExamples:examplesFor(genericStackingIds),
+    specializedOrUnresolvedExamples:examplesFor(specializedStackingIds),
     clusters:stackingRows
   },
   recommendedNext:unsupportedPrerequisiteIds.size>=stackingIds.size?'prerequisites':'feature-stacking'
