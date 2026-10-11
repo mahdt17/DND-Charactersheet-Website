@@ -78,6 +78,18 @@ function compoundPrerequisiteKind(p,text){
   return 'compound:other';
 }
 
+function magicAccessKind(p,text){
+  const value=norm(text);
+  if(/\binfusions?\b/i.test(value)&&/\b(?:cast|spells?|arcane|divine)\b/i.test(value))return 'magic:spell-or-infusion';
+  if(/\b(?:manifest|manifester|psionic powers?|power points?)\b/i.test(value)&&/\b(?:cast|spells?|arcane|divine)\b/i.test(value))return 'magic:spell-or-psionic';
+  if(/\b(?:invocations?|eldritch blast)\b/i.test(value)&&/\b(?:cast|spells?|arcane|divine)\b/i.test(value))return 'magic:spell-or-invocation';
+  if(/\b(?:fly speed|spell-like ability|supernatural ability|breath weapon|wild shape|turn undead|rebuke undead)\b/i.test(value)&&/\b(?:cast|spells?)\b/i.test(value))return 'magic:casting-or-noncasting-ability';
+  if(/\b(?:arcane|divine)\b/i.test(value)&&/\bor\b/i.test(value)&&/(?:\barcane\b.*\bor\b.*\bdivine\b|\bdivine\b.*\bor\b.*\barcane\b)/i.test(value))return 'magic:arcane-or-divine';
+  if(/\b(?:summoning|divination|abjuration|conjuration|enchantment|evocation|illusion|necromancy|transmutation|fire|cold|acid|electricity|sonic|mind-affecting|teleportation)\b/i.test(value)||/\b(?:cast|know)\s+[a-z][a-z' -]{1,40}(?:,|\s+or\s+)/i.test(value))return 'magic:specific-spell-school-or-descriptor';
+  if(/\b(?:spell|power)s? of \d|\b\d(?:st|nd|rd|th)[- ]level\b/i.test(value))return 'magic:level-access-other';
+  return 'magic:other';
+}
+
 function unsupportedPrerequisiteKind(p){
   const text=norm(p?.text||p?.description||p?.name);
   const compound=compoundPrerequisiteKind(p,text);
@@ -122,13 +134,15 @@ const entries=tracker.entries||[];
 if(catalog.length!==TOTAL)throw new Error(`Expected ${TOTAL} class catalog records; found ${catalog.length}`);
 if(entries.length!==TOTAL)throw new Error(`Expected ${TOTAL} tracker records; found ${entries.length}`);
 
-const prerequisiteClusters=new Map(),unsupportedPrerequisiteIds=new Set();
+const prerequisiteClusters=new Map(),magicAccessClusters=new Map(),unsupportedPrerequisiteIds=new Set();
 for(const record of catalog){
   for(const clause of record.prerequisites||[]){
     if(supportedPrerequisiteShape(clause))continue;
     const id=record.sourceId||record.id||record.catalogId;
     unsupportedPrerequisiteIds.add(id);
-    addCluster(prerequisiteClusters,unsupportedPrerequisiteKind(clause),record,norm(clause.text||clause.description||clause.name));
+    const text=norm(clause.text||clause.description||clause.name),kind=unsupportedPrerequisiteKind(clause);
+    addCluster(prerequisiteClusters,kind,record,text);
+    if(kind==='compound:magic-access')addCluster(magicAccessClusters,magicAccessKind(clause,text),record,text);
   }
 }
 
@@ -152,7 +166,8 @@ const report={
   semantics:'Read-only planning audit. Counts identify exact source records whose current data exposes unsupported prerequisite shapes or tracker language indicating reusable feature-level stacking. Counts are not completion/certification claims and clusters may overlap.',
   prerequisites:{
     unsupportedClassCount:unsupportedPrerequisiteIds.size,
-    clusters:prerequisiteRows
+    clusters:prerequisiteRows,
+    magicAccessBreakdown:clusterRows(magicAccessClusters)
   },
   featureStacking:{
     candidateClassCount:stackingIds.size,
