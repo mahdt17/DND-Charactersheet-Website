@@ -8,7 +8,7 @@ const summaries=JSON.parse(fs.readFileSync(sourcePath,'utf8'));
 
 const metadataKeys=['description','sourceUrl','name'];
 const runtimeHandledKeys=['classSkills','actionType','resource','effects','acceptableAlignments'];
-const consumerSpecificKeys=['minEffectiveLevel','levelAdjustment'];
+const consumerSpecificKeys=['minEffectiveLevel','levelAdjustment','spellElement','casterLevelBonus','saveBonus','saveBonusType'];
 const dependentChoiceKeys=[...new Set(Object.values(summaries||{}).flatMap(features=>Array.isArray(features)?features:[])
   .map(feature=>String(feature?.choiceOptionsFromFeatureMechanic?.field||'').trim()).filter(Boolean))].sort();
 const excluded=new Set([...metadataKeys,...runtimeHandledKeys,...consumerSpecificKeys,...dependentChoiceKeys]);
@@ -40,7 +40,7 @@ const report={
   semantics:{
     purpose:'Read-only inventory of structured fields stored under reviewed 3.5 choiceOptionMechanics.',
     runtimeHandledKeys:'Fields directly materialized or enforced by the generic class integration/choice runtime for selected options.',
-    consumerSpecificKeys:'Fields consumed by a specialized choice subsystem rather than the generic option materializer.',
+    consumerSpecificKeys:'Fields consumed by a specialized subsystem rather than the generic option materializer (for example companion level adjustment and Wu Jen spell modifiers).',
     dependentChoiceKeys:'Option-mechanic fields already consumed by a later choice through choiceOptionsFromFeatureMechanic.',
     unhandledKeyCounts:'Structured fields not directly materialized/enforced by the generic runtime, a named specialized consumer, or a dependent-choice consumer. These are candidates for reusable primitives, not proof that every occurrence needs automation.'
   },
