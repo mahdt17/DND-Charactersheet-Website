@@ -9,6 +9,23 @@ export const skillNames=['Acrobatics','Animal Handling','Arcana','Athletics','De
 const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
 const norm=s=>String(s||'').trim().toLowerCase().replace(/[’']/g,'');
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const alignmentCode=value=>{
+  const raw=norm(value).replace(/[.]/g,'').replace(/\s+/g,' ');
+  const codes={
+    lg:'LG','lawful good':'LG',ng:'NG','neutral good':'NG',cg:'CG','chaotic good':'CG',
+    ln:'LN','lawful neutral':'LN',n:'N',tn:'N','true neutral':'N',neutral:'N',cn:'CN','chaotic neutral':'CN',
+    le:'LE','lawful evil':'LE',ne:'NE','neutral evil':'NE',ce:'CE','chaotic evil':'CE'
+  };
+  return codes[raw]||null;
+};
+const optionMechanicFor=(feature,value)=>Object.entries(feature?.choiceOptionMechanics||{}).find(([name])=>norm(name)===norm(value))?.[1]||null;
+const optionEligibleForCharacter=(feature,value,character)=>{
+  const allowed=optionMechanicFor(feature,value)?.acceptableAlignments;
+  if(!Array.isArray(allowed)||!allowed.length)return true;
+  const current=alignmentCode(character?.alignment);
+  if(!current)return true;
+  return allowed.some(value=>alignmentCode(value)===current);
+};
 const featureLanguages=['Common','Common Sign Language','Dwarvish','Elvish','Giant','Gnomish','Goblin','Halfling','Orc','Abyssal','Celestial','Draconic','Deep Speech','Druidic','Infernal','Primordial','Sylvan',"Thieves' Cant",'Undercommon'];
 const scholarSkills=['Arcana','History','Investigation','Medicine','Nature','Religion'];
 
@@ -117,6 +134,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           const alreadyOwned=linkedFeat&&patch.feats.some(feat=>norm(feat?.name)===norm(linkedFeat));
           options=linkedFeat&&!alreadyOwned?[linkedFeat]:[];
         }
+        options=options.filter(value=>optionEligibleForCharacter(feature,value,current));
         if(feature.uniqueChoices){
           const already=new Set(Object.values(patch.featureChoices||{})
             .filter(choice=>choice?.sourceClassId===row.catalogId&&choice?.feature===feature.name)
