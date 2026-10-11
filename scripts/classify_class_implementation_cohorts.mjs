@@ -6,6 +6,7 @@ const trackerPath=args.find(arg=>!arg.startsWith('--'))||'docs/class-completion-
 const write=args.includes('--write');
 const check=args.includes('--check');
 const includeRecords=args.includes('--records');
+const leverage=args.includes('--leverage');
 
 function classify(entry){
   const explicit=[];
@@ -89,6 +90,25 @@ const report={
   needsReview:needsReviewEntries.length,
   cohorts:Object.fromEntries(Object.entries(counts).sort((a,b)=>b[1]-a[1]))
 };
+if(leverage){
+  const rows=new Map();
+  for(const entry of entries){
+    const tags=Array.isArray(entry.implementationCohorts)&&entry.implementationCohorts.length
+      ?entry.implementationCohorts
+      :entry.status==='needs-review'?classify(entry):[];
+    for(const cohort of new Set(tags)){
+      if(!rows.has(cohort))rows.set(cohort,{cohort,primaryCount:0,taggedCount:0,statusCounts:{},examples:[]});
+      const row=rows.get(cohort);
+      row.taggedCount++;
+      row.statusCounts[entry.status||'unknown']=(row.statusCounts[entry.status||'unknown']||0)+1;
+      if(entry.status==='needs-review'&&entry.implementationCohort===cohort)row.primaryCount++;
+      if(row.examples.length<5)row.examples.push({sourceId:entry.sourceId,name:entry.name,sourceBook:entry.sourceBook||null,status:entry.status||'unknown',primary:entry.implementationCohort===cohort});
+    }
+  }
+  report.mutatesTracker=write;
+  report.trackerStatusCounts=entries.reduce((acc,entry)=>{const key=entry.status||'unknown';acc[key]=(acc[key]||0)+1;return acc;},{});
+  report.leverage=[...rows.values()].sort((a,b)=>b.taggedCount-a.taggedCount||b.primaryCount-a.primaryCount||a.cohort.localeCompare(b.cohort));
+}
 if(includeRecords){
   report.records=needsReviewEntries.map(entry=>({
     sourceId:entry.sourceId,
