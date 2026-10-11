@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs/promises';
+import reviewedFeatureProgressions35 from '../src/data/class-feature-progression-35.json' with {type:'json'};
 import {normalizeCatalogRecord} from '../src/lib/catalog.js';
 import {lowerPrerequisiteText35} from '../src/lib/prerequisites35.js';
 import {lowerCastingPrerequisite35} from '../src/lib/castingPrerequisites35.js';
@@ -168,6 +169,12 @@ for(const entry of entries){
 }
 
 const specializedStackingIds=new Set([...stackingIds].filter(id=>!genericStackingIds.has(id)));
+const reviewedFeatureProgressionSourceIds=Object.entries(reviewedFeatureProgressions35.entries||{})
+  .filter(([id,entry])=>genericStackingIds.has(id)&&entry?.verified===true&&Array.isArray(entry.advancements)&&entry.advancements.length>0)
+  .map(([id])=>id)
+  .sort();
+const reviewedFeatureProgressionIds=new Set(reviewedFeatureProgressionSourceIds);
+const remainingGenericMetadataIds=new Set([...genericStackingIds].filter(id=>!reviewedFeatureProgressionIds.has(id)));
 const examplesFor=ids=>[...ids].slice(0,5).map(id=>stackingEvidence.get(id)).filter(Boolean);
 const prerequisiteRows=clusterRows(prerequisiteClusters);
 const stackingRows=clusterRows(stackingClusters);
@@ -186,6 +193,10 @@ const report={
     specializedOrUnresolvedCandidateCount:specializedStackingIds.size,
     genericFeatureProgressionExamples:examplesFor(genericStackingIds),
     specializedOrUnresolvedExamples:examplesFor(specializedStackingIds),
+    reviewedFeatureProgressionClassCount:reviewedFeatureProgressionSourceIds.length,
+    reviewedFeatureProgressionSourceIds,
+    remainingGenericMetadataCandidateCount:remainingGenericMetadataIds.size,
+    remainingGenericMetadataExamples:examplesFor(remainingGenericMetadataIds),
     clusters:stackingRows
   },
   recommendedNext:unsupportedPrerequisiteIds.size>=stackingIds.size?'prerequisites':'feature-stacking'
