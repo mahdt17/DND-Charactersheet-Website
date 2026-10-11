@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/bayushi-deceiver-627": [
+      {
+        "name": "Sneak Attack",
+        "aliases": ["Sneak Attack +1d6","Sneak Attack +2d6","Sneak Attack +3d6","Sneak Attack +4d6","Sneak Attack +5d6"],
+        "description": "Sneak attack improves by +1d6 at 1st level and again at 3rd, 5th, 7th, and 9th level, reaching +5d6 at 9th level."
+      },
+      {
+        "name": "Poison Use",
+        "description": "At 1st level you are trained in poison use and do not risk accidentally poisoning yourself when applying poison to a blade."
+      },
+      {
+        "name": "Strike First, Strike Last",
+        "description": "At 2nd level add your Intelligence modifier to initiative checks in addition to your Dexterity modifier."
+      },
+      {
+        "name": "Scorpion Feint",
+        "description": "At 4th level gain a +2 competence bonus on Bluff checks made to feint a humanoid in combat. After a successful feint, gain a +2 circumstance bonus on the next attack roll against that opponent."
+      },
+      {
+        "name": "Improved Disarm",
+        "description": "At 6th level gain Improved Disarm as a bonus feat even without the normal Expertise prerequisite.",
+        "featName": "Improved Disarm",
+        "ignorePrerequisites": true
+      },
+      {
+        "name": "Opportunist",
+        "description": "At 8th level gain the opportunist ability, allowing an attack of opportunity against an opponent just struck for damage in melee by another character, subject to the source timing limits."
+      },
+      {
+        "name": "Improved Critical",
+        "description": "At 10th level gain Improved Critical as a bonus feat for one chosen weapon type for which the source feat is legal.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceCount": 1,
+        "choiceLevels": [10],
+        "choiceValidatePrerequisites": true,
+        "choiceFeatTemplates": [
+          {"featId":"dndtools:feats/improved-critical-1463","subjectProvider":{"kind":"weapons"}}
+        ]
+      }
+    ],
+    "classes/guild-thief-514": [
+      {
+        "name": "Sneak Attack",
+        "aliases": ["Sneak Attack +1d6","Sneak Attack +2d6","Sneak Attack +3d6"],
+        "description": "Sneak attack is +1d6 at 1st level, +2d6 at 3rd level, and +3d6 at 5th level."
+      },
+      {
+        "name": "Doublespeak",
+        "description": "At 1st level gain a +2 competence bonus on Bluff, Diplomacy, and Innuendo checks."
+      },
+      {
+        "name": "Bonus Feat",
+        "description": "At 2nd level and again at 4th level choose one source-listed guild thief bonus feat, meeting its prerequisites unless the selected source feat says otherwise.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceCount": 1,
+        "choiceLevels": [2,4],
+        "uniqueChoices": true,
+        "choiceValidatePrerequisites": true,
+        "choiceOptions": ["Alertness","Blind-Fight","Cosmopolitan","Education","Leadership","Lightning Reflexes","Track","Still Spell","Street Smart","Weapon Finesse"],
+        "choiceFeatTemplates": [
+          {"featId":"dndtools:feats/exotic-weapon-proficiency-985","subjects":["Hand crossbow"]},
+          {"featId":"dndtools:feats/skill-focus-2638","subjectProvider":{"kind":"class-skills"}},
+          {"featId":"dndtools:feats/weapon-focus-3105","subjectProvider":{"kind":"weapons"}}
+        ]
+      },
+      {
+        "name": "Uncanny Dodge",
+        "aliases": ["Uncanny Dodge (Dex bonus to AC)","Uncanny Dodge (can't be flanked)","Uncanny Dodge (Cannot be flanked)"],
+        "description": "At 2nd level retain your Dexterity bonus to AC when caught flat-footed or struck by an invisible attacker. At 5th level you can no longer be flanked except as allowed by the source's higher-level rogue exception."
+      },
+      {
+        "name": "Reputation",
+        "aliases": ["Reputation +1","Reputation +2","Reputation +3"],
+        "description": "Your guild reputation bonus is +1 at 3rd level, +2 at 4th level, and +3 at 5th level, applied in the source-defined social situations."
+      }
+    ],
+    "classes/enlightened-spirit-267": [
+      {
+        "name": "Aura of Courage",
+        "description": "At 1st level become immune to fear and grant nearby allies the source-defined morale bonus on saves against fear while you are conscious."
+      },
+      {
+        "name": "Aura of Menace",
+        "description": "At 1st level project an aura of menace that can impose the source-defined penalties on hostile creatures that fail their saving throw."
+      },
+      {
+        "name": "Spirit Blast",
+        "description": "At 1st level gain spirit blast, an eldritch essence that changes your eldritch blast to deal the source-defined sacred damage against qualifying evil outsiders and undead."
+      },
+      {
+        "name": "Eldritch Blast",
+        "aliases": ["Eldritch Blast +1d6","Eldritch Blast +2d6","Eldritch Blast +3d6","Eldritch Blast +4d6","Eldritch Blast +5d6"],
+        "description": "Your eldritch blast damage increases by +1d6 at 2nd level and by another +1d6 at 4th, 6th, 8th, and 10th level, for +5d6 total from this class."
+      },
+      {
+        "name": "Spirit Armor",
+        "aliases": ["Spirit Armor +1","Spirit Armor +2","Spirit Armor +3"],
+        "description": "Gain the source-defined sacred armor bonus of +1 at 2nd level, +2 at 6th level, and +3 at 10th level."
+      },
+      {
+        "name": "Celestial Flight",
+        "description": "At 3rd level gain the source-defined celestial flight invocation and its flight capability."
+      },
+      {
+        "name": "Tongues",
+        "description": "At 4th level gain the source-defined tongues ability, allowing communication as described by the class feature."
+      },
+      {
+        "name": "Shape Invocation",
+        "description": "At 5th level learn one blast shape invocation of the source-allowed grade. The exact invocation selection remains tied to the reviewed invocation catalog rather than being replaced by a free-text choice."
+      },
+      {
+        "name": "Energy Resistance 5",
+        "aliases": ["Energy Resistance"],
+        "description": "At 5th level choose two different energy types from acid, cold, electricity, and fire; gain resistance 5 to each chosen type.",
+        "choiceKind": "source",
+        "choiceRequired": true,
+        "choiceCount": 2,
+        "uniqueChoices": true,
+        "choiceOptions": ["Acid","Cold","Electricity","Fire"]
+      },
+      {
+        "name": "Holy Blast",
+        "description": "At 7th level gain holy blast, an eldritch essence with the source-defined extra effect against qualifying evil creatures."
+      },
+      {
+        "name": "Transform Magic",
+        "description": "At 9th level gain transform magic, the source-defined supernatural ability for countering or dispelling magic and receiving its associated benefit."
+      },
+      {
+        "name": "Death Ward",
+        "description": "At 10th level gain the source-defined continuous death ward protection while the class feature remains available."
+      }
+    ],
+    "classes/hellfire-warlock-463": [
+      {
+        "name": "Hellfire Blast",
+        "aliases": ["Hellfire Blast +2d6","Hellfire Blast +4d6","Hellfire Blast +6d6"],
+        "description": "Hellfire blast adds +2d6 damage per Hellfire Warlock class level to an eldritch blast, reaching +6d6 at 3rd level. Each use deals 1 point of Constitution damage to you; a creature without a Constitution score or immune to ability damage cannot use it."
+      },
+      {
+        "name": "Hellfire Infusion",
+        "description": "At 2nd level, as a swift action, infuse the next charged magic item you activate with one source-listed modification. Uses per day equal your Charisma modifier, minimum one; the dynamic maximum remains source state rather than a fabricated fixed counter.",
+        "actionType": "Swift action"
+      },
+      {
+        "name": "Fire Resistance 10",
+        "aliases": ["Fire Resistance"],
+        "description": "At 2nd level gain fire resistance 10."
+      },
+      {
+        "name": "Hellfire Shield",
+        "description": "At 3rd level gain hellfire shield. Activating it is an immediate action and deals 1 point of Constitution damage to you; its retaliatory damage and saving throw follow the source feature.",
+        "actionType": "Immediate action"
+      }
+    ],
+    "classes/fist-of-dal-quor-814": [
+      {
+        "name": "Stunning Strike",
+        "description": "At 1st level gain Stunning Strike a number of times per day equal to your Fist of Dal Quor class level. It follows the source's weapon-based stunning rules; power points can increase the save DC, and characters with Stunning Fist use the source's shared-use interaction."
+      },
+      {
+        "name": "Sudden Strike",
+        "aliases": ["Sudden Strike +1d6","Sudden Strike +2d6","Sudden Strike +3d6"],
+        "description": "Sudden strike is +1d6 at 1st level, +2d6 at 3rd level, and +3d6 at 5th level."
+      },
+      {
+        "name": "Resilient Mind",
+        "description": "At 2nd level gain a +2 bonus on saving throws against mind-affecting spells and abilities as defined by the source."
+      },
+      {
+        "name": "Resilient Soul",
+        "description": "At 4th level gain a +2 bonus on saving throws against psionic powers and psi-like abilities."
+      }
+    ],
+    "classes/inquisitor-of-the-drowning-goddess-901": [
+      {
+        "name": "Fear Aura",
+        "description": "Once per day, as a standard action, project a 20-foot fear aura for 1 round per Inquisitor of the Drowning Goddess class level. Affected creatures make the source-defined Will save against DC 10 + class level + Charisma modifier.",
+        "actionType": "Standard action",
+        "resource": {"max":1,"period":"day"}
+      },
+      {
+        "name": "Mien of Justice",
+        "aliases": ["Mien of Justice +4","Mien of Justice +8"],
+        "description": "Gain a +4 source-defined bonus on Intimidate and Sense Motive checks at 1st level; the bonus increases to +8 at 5th level."
+      },
+      {
+        "name": "Grappling Adhesive",
+        "aliases": ["Grappling Adhesive +2","Grappling Adhesive +4"],
+        "description": "At 2nd level the source adhesive preparation grants a +2 bonus on grapple checks; at 4th level that bonus improves to +4. Preparation and application remain explicit source state."
+      },
+      {
+        "name": "Devoted Mind",
+        "description": "At 3rd level gain a +4 bonus on saving throws against charm, compulsion, and glamer effects."
+      },
+      {
+        "name": "Mark of the Outcast",
+        "description": "At 4th level gain Mark of the Outcast. Its target selection, application, and downstream consequences remain source-adjudicated until the persistent mark-state subsystem is modeled."
+      },
+      {
+        "name": "Body-Coating Adhesive",
+        "aliases": ["Body Coating Adhesive"],
+        "description": "At 5th level gain the source-defined body-coating adhesive option. Preparing and applying the coating remain explicit persistent state rather than an automatic combat modifier."
+      }
+    ]
+  }
+}
