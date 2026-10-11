@@ -1,7 +1,8 @@
 // Shared 3.5 class-feature identity and prerequisite support. This module is
 // intentionally dependency-free so qualification and future feature-stacking
 // code can share the same identities without creating advancement/integration
-// import cycles.
+// import cycles. Closed race/alignment identity alternatives live here for the
+// same reason: they need no catalog/runtime imports and preserve fail-closed use.
 const norm=value=>String(value||'').trim().replace(/[’]/g,"'").toLowerCase().replace(/[^a-z0-9+'/-]+/g,' ').trim();
 const clean=value=>String(value||'').trim().replace(/[’]/g,"'").replace(/\s+/g,' ');
 
@@ -27,6 +28,25 @@ const FEATURE_FAMILIES=[
   ['familiar',/^(?:summon )?familiar\b/i],
   ['special mount',/^special mount\b/i]
 ];
+
+const ALIGNMENTS=new Set([
+  'lawful good','neutral good','chaotic good',
+  'lawful neutral','true neutral','chaotic neutral',
+  'lawful evil','neutral evil','chaotic evil'
+]);
+
+function closedAlternativeNames(value,{race=false}={}){
+  const text=clean(value).replace(/^must be\s+/i,'').replace(/\.$/,'').trim();
+  if(!/\bor\b/i.test(text))return null;
+  const names=text.split(/\s*,\s*or\s+|\s+or\s+|\s*,\s*/i).map(clean).filter(Boolean);
+  if(names.length<2)return null;
+  if(race){
+    const valid=name=>/^[A-Za-z][A-Za-z'’ -]{0,40}$/.test(name)
+      &&! /\b(?:any|but|other|except|must|character|creature|race|region|descen(?:t|ded|dant))\b/i.test(name);
+    return names.every(valid)?names:null;
+  }
+  return names.every(name=>ALIGNMENTS.has(norm(name)))?names:null;
+}
 
 function featureColumns(table){
   if(!Array.isArray(table)||!table.length)return null;
@@ -106,8 +126,17 @@ export function classFeatureInventory35(character){
 
 export function lowerClassFeaturePrerequisite35(prerequisite){
   const kind=prerequisite?.kind||prerequisite?.type||'text';
+  const raw=clean(prerequisite?.text||prerequisite?.description||prerequisite?.name);
+  if(['race','races'].includes(kind)){
+    const options=closedAlternativeNames(raw,{race:true});
+    if(options)return {kind:'race_any',options};
+  }
+  if(kind==='alignment'){
+    const options=closedAlternativeNames(raw);
+    if(options)return {kind:'alignment_any',options};
+  }
   if(!['special','class_feature','feature','features','text'].includes(kind))return null;
-  const text=clean(prerequisite?.text||prerequisite?.description||prerequisite?.name).replace(/\.$/,'');
+  const text=raw.replace(/\.$/,'');
   if(!text)return null;
 
   const quantified=text.match(/^(Sneak attack|Skirmish|Sudden strike)\s*\+(\d+)d6$/i);
@@ -141,6 +170,14 @@ export function lowerClassFeaturePrerequisite35(prerequisite){
 export function evaluateClassFeaturePrerequisite35(prerequisite,character){
   const node=prerequisite?.kind==='class_feature'&&prerequisite.feature?prerequisite:lowerClassFeaturePrerequisite35(prerequisite);
   if(!node)return undefined;
+  if(node.kind==='race_any'){
+    if(!character?.race)return null;
+    return node.options.some(value=>norm(value)===norm(character.race));
+  }
+  if(node.kind==='alignment_any'){
+    if(!character?.alignment)return null;
+    return node.options.some(value=>norm(value)===norm(character.alignment));
+  }
   if(!FEATURE_FAMILIES.some(([key])=>key===node.feature)||node.minimumDice!=null&&(!Number.isInteger(node.minimumDice)||node.minimumDice<1))return null;
   const inventory=classFeatureInventory35(character),evidence=inventory.features.get(node.feature);
   if(evidence&&node.minimumDice==null)return true;
