@@ -65,7 +65,7 @@ const spirit=definitions['classes/enlightened-spirit-267'];
 for(const text of ['Any good','Knowledge (the planes) 8','Eldritch blast 3d6'])assert(spirit.prerequisites.some(item=>String(item.text||'').toLowerCase().includes(text.toLowerCase())),`Enlightened Spirit missing prerequisite ${text}`);
 const resistance=grant(spirit,'Energy Resistance 5');
 assert.equal(resistance?.choiceKind,'source');
-assert.deepEqual((resistance?.choiceOptions||[]).sort(),['Acid','Cold','Electricity','Fire'].sort());
+assert.deepEqual([...(resistance?.choiceOptions||[])].sort(),['Acid','Cold','Electricity','Fire'].sort());
 assert.equal(spirit.conditionalMechanics?.spiritArmor?.bonusAt10,3);
 
 const hellfire=definitions['classes/hellfire-warlock-463'];
