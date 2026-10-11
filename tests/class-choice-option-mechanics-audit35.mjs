@@ -19,6 +19,8 @@ assert.ok(report.runtimeHandledKeys.includes('resource'));
 assert.ok(report.runtimeHandledKeys.includes('effects'));
 assert.ok(report.consumerSpecificKeys.includes('minEffectiveLevel'));
 assert.ok(report.consumerSpecificKeys.includes('levelAdjustment'));
+assert.ok(report.dependentChoiceKeys.includes('allowedElements'),'fields consumed by choiceOptionsFromFeatureMechanic must not be reported as generic runtime gaps');
+assert.equal(report.unhandledKeyCounts.allowedElements,undefined);
 assert.ok(Object.keys(report.unhandledKeyCounts).length>0,'audit should surface structured option fields that are not yet generically materialized');
 assert.equal(report.mutatesData,false);
 assert.equal(report.certifiesClasses,false);
