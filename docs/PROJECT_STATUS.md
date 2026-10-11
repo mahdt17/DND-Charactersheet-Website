@@ -27,6 +27,8 @@ Latest subsystem correction (2026-10-11): table-derived manifesting profiles now
 
 Combined development includes:
 
+- shared 3.5 patron identity across Traits, Cleric casting choices and closed entry prerequisites (2026-10-11): 54 exact class records gain patron-clause evaluation; the unsupported-prerequisite record count falls from 744 to 733. Three unverified deity spellings and narrative requirements remain manual. This is clause coverage, not class certification.
+
 - class grant reconciliation for features, actions, resources, training, progression tracks, and source removal
 - edition-aware spell eligibility and ownership across creation, advancement, multiclassing, subclasses, and feats
 - legacy 3.5 preparation/casting support, prestige casting advancement, psionics, invocations, domains, and specialist restrictions where structured rules exist

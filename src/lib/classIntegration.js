@@ -11,6 +11,7 @@ import {reconcileSpellAcquisition35} from './spellAcquisition35.js';
 import {reconcileDailySpellLike35} from './dailySpellLike35.js';
 import {reconcileInvocationAcquisition35} from './invocationAcquisition35.js';
 import {reconcileDomainGrants35} from './legacyCastingChoices.js';
+import {migratePatronDeity35} from './patronDeity35.js';
 import {reconcileClassEffects35,describeClassEffect35} from './classEffects35.js';
 export {describeClassEffect35};
 
@@ -907,6 +908,7 @@ function mergeDerived(existing,derived,{resource=false,feat=false}={}){
 }
 
 export function reconcileClassGrants(character){
+  character=migratePatronDeity35(character);
   const rows=characterClasses(character),derived=rows.map(row=>derivedForRow(row,character));
   const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),training=derived.flatMap(x=>x.training||[]),classSkills35=derived.flatMap(x=>x.classSkills||[]),classSkillRules35=derived.flatMap(x=>x.classSkillRules||[]);
   let tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);
@@ -959,6 +961,7 @@ export function legacyClassSkillStatus(character,name){
 }
 
 export function removeClassProgression(character,classId){
+  character=migratePatronDeity35(character);
   const removed=characterClasses(character).find(row=>row.catalogId===classId);
   const rows=characterClasses(character).filter(row=>row.catalogId!==classId);
   if(!rows.length)throw new Error('A character must retain at least one class.');

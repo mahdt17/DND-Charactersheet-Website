@@ -1,5 +1,6 @@
 import {hasWeaponTraining,startingProficiencies} from './training.js';
 import {evaluateClassFeaturePrerequisite35} from './classFeaturePrerequisites35.js';
+import {evaluatePatronPrerequisite35} from './patronDeity35.js';
 
 // Closed prerequisite predicates. Undefined means the legacy evaluator owns the
 // clause; null means recognized but unresolved. No narrative substring matching.
@@ -125,6 +126,8 @@ export function lowerPrerequisiteText35(p){
 
 export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
   if(!p||typeof p!=='object'||Array.isArray(p))return null;
+  const patron=evaluatePatronPrerequisite35(p,c);
+  if(patron!==undefined)return patron;
   const kind=p.kind||p.type;
   if(['all','any','count'].includes(kind)){
     const nodes=p.requirements;

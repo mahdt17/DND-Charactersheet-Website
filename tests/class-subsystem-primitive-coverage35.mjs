@@ -11,6 +11,8 @@ const report=JSON.parse(output);
 assert.equal(report.total,1054,'primitive coverage audit must span the complete 3.5 class catalog');
 assert.equal(report.mutatesSource,false,'coverage audit must remain read-only');
 assert.ok(report.prerequisites&&Number.isInteger(report.prerequisites.unsupportedClassCount),'unsupported prerequisite reach is required');
+assert.equal(report.prerequisites.patronDeity.recognizedClassCount,54,'closed patron requirements cover the exact measured cohort');
+assert.equal(new Set(report.prerequisites.patronDeity.sourceIds).size,54,'patron coverage exposes every exact source ID');
 assert.ok(report.featureStacking&&Number.isInteger(report.featureStacking.candidateClassCount),'feature-stacking reach is required');
 assert.equal(report.featureStacking.candidateClassCount,149,'tracker stacking candidate inventory must remain explicit');
 assert.ok(Array.isArray(report.prerequisites.clusters)&&report.prerequisites.clusters.length>0,'unsupported prerequisites must be decomposed into repeated shapes');

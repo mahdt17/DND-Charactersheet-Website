@@ -1,0 +1,38 @@
+name: 3.5 patron prerequisites
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/patronDeity35.js"
+      - "src/lib/prerequisites35.js"
+      - "src/lib/legacyCastingChoices.js"
+      - "src/lib/classIntegration.js"
+      - "src/PatronDeity35.jsx"
+      - "src/LegacyCastingChoices.jsx"
+      - "src/ModernLedger.jsx"
+      - "public/catalogs/dndtools/classes.json"
+      - "tests/patron-prerequisites35.mjs"
+      - "tests/browser-patron35.mjs"
+      - ".github/workflows/patron-prerequisites35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: patron35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  patron:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/patron-prerequisites35.mjs
+      - run: node tests/legacy-casting-choices.mjs
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser-patron35.mjs

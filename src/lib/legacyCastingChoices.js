@@ -7,11 +7,11 @@ const norm=s=>String(s||'').toLowerCase().replaceAll('’',"'").replace(/[^a-z0-
 const slug=s=>norm(s).replace(/\s+/g,'-');
 const knowledgeSkills=['Knowledge (arcana)','Knowledge (architecture and engineering)','Knowledge (dungeoneering)','Knowledge (geography)','Knowledge (history)','Knowledge (local)','Knowledge (nature)','Knowledge (nobility and royalty)','Knowledge (religion)','Knowledge (planes)'];
 export const legacyChoiceKey=c=>c.activeCastingClassId||c.classLevels?.[0]?.catalogId||contentKey(c.classDefinition||{name:c.className,edition:c.ruleset});
-export const legacyChoices=c=>c.legacyCastingChoices?.[legacyChoiceKey(c)]||{};
+export const legacyChoices=c=>({...c.legacyCastingChoices?.[legacyChoiceKey(c)],...(isDomainCaster(c)&&typeof c.patronDeity35==='string'?{deity:c.patronDeity35}:{})});
 export const isDomainCaster=c=>['Cleric','Cloistered Cleric'].includes(c.className);
 export const isWizardCaster=c=>c.className==='Wizard'||String(c.classDefinition?.inheritedFromClassId||'').replace(/^dndtools:/,'')==='classes/wizard-99';
 export const specialistSchool=c=>String(c.classDefinition?.specialistSchool||legacyChoices(c).school||'');
-const deityByName=name=>deities.find(d=>norm(d.name)===norm(name));
+export const deityByName=name=>deities.find(d=>norm(d.name)===norm(name));
 function alignmentAxes(value){
  const raw=String(value||'').trim(),short=raw.toUpperCase();
  const shortMap={LG:[1,1],LN:[1,0],LE:[1,-1],NG:[0,1],N:[0,0],TN:[0,0],NE:[0,-1],CG:[-1,1],CN:[-1,0],CE:[-1,-1]};

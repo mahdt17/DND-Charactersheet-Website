@@ -13,6 +13,14 @@ mechanic is fully automated.
 - Coverage: `manifesting35.mjs`, `shared-power-points35.mjs`, `legacy-special-casting.mjs`, `resources.mjs`, `browser-manifesting35.mjs`, `browser-casting-gaps.mjs` and `browser-resources.mjs`. The shared regression is in `npm test`; focused CI includes reserve, casting, resource and browser checks.
 - The existing subsystem audit regression exposed missing complete source-ID lists. The audit now emits every ID in each remaining metadata family while keeping its small example list. No tracker status or certification evidence was promoted: the regenerated ledger remains 1 certified, 927 blocked and 126 pending across 1,054 records.
 
+## Shared 3.5 patron identity (2026-10-11)
+
+- `patronDeity35` is the shared character identity used by Traits, Cleric casting choices and named-patron prerequisites. An absent value stays unknown; an explicit empty value records no patron. Agreeing active legacy Cleric choices migrate, conflicting choices require resolution, and removing a class preserves the character's patron.
+- Changing patron clears dependent Cleric domains and favored-weapon selections. Saving the same normalized name preserves them. Unknown domain rules remain visible and require source review; the editor never infers deity domains. Both editing surfaces and save/reopen use the same value, including case-insensitive core-deity selection.
+- Closed exact-name and final-OR clauses cover 54 source records. Narrative conditions, pantheons, exclusions, compound worship requirements and malformed structured names remain manual. Catalog spellings `Illmater`, `Istishi` and `Ghaunadar` remain unresolved pending source review, including the entire OR clause containing `Istishi`; no guessed aliases or source edits were applied.
+- The read-only primitive audit lists every covered source ID. Unsupported prerequisite shapes now occur in 733 records, down from 744. Most of the 54 records still have other unresolved clauses; none was promoted to complete. The regenerated certification ledger remains 1 certified, 927 blocked and 126 pending.
+- Coverage: `patron-prerequisites35.mjs` evaluates every recognized source clause and all its alternatives, plus legacy migration, conflicts, class removal, mixed-edition characters and manual boundaries. `browser-patron35.mjs` covers both editing surfaces, legacy saves, unknown deity display, casing, persistence and clearing. Existing casting setup/gap checks, the full regression suite, catalog lifecycle and production build cover integration. Focused patron CI repeats unit and browser checks.
+
 ## Implemented spell access
 
 - Normal characters select spells from their class list and edition. Reference
