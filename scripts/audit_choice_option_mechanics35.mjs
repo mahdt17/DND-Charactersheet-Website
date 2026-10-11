@@ -9,7 +9,9 @@ const summaries=JSON.parse(fs.readFileSync(sourcePath,'utf8'));
 const metadataKeys=['description','sourceUrl','name'];
 const runtimeHandledKeys=['classSkills','actionType','resource','effects'];
 const consumerSpecificKeys=['minEffectiveLevel','levelAdjustment'];
-const excluded=new Set([...metadataKeys,...runtimeHandledKeys,...consumerSpecificKeys]);
+const dependentChoiceKeys=[...new Set(Object.values(summaries||{}).flatMap(features=>Array.isArray(features)?features:[])
+  .map(feature=>String(feature?.choiceOptionsFromFeatureMechanic?.field||'').trim()).filter(Boolean))].sort();
+const excluded=new Set([...metadataKeys,...runtimeHandledKeys,...consumerSpecificKeys,...dependentChoiceKeys]);
 const keyCounts={},unhandledKeyCounts={},examples={};
 let featuresWithChoiceOptionMechanics=0,choiceOptionsWithMechanics=0;
 
@@ -39,7 +41,8 @@ const report={
     purpose:'Read-only inventory of structured fields stored under reviewed 3.5 choiceOptionMechanics.',
     runtimeHandledKeys:'Fields directly materialized by the generic class integration runtime for selected options.',
     consumerSpecificKeys:'Fields consumed by a specialized choice subsystem rather than the generic option materializer.',
-    unhandledKeyCounts:'Structured fields not directly materialized by the generic runtime or a named specialized consumer. These are candidates for reusable primitives, not proof that every occurrence needs automation.'
+    dependentChoiceKeys:'Option-mechanic fields already consumed by a later choice through choiceOptionsFromFeatureMechanic.',
+    unhandledKeyCounts:'Structured fields not directly materialized by the generic runtime, a named specialized consumer, or a dependent-choice consumer. These are candidates for reusable primitives, not proof that every occurrence needs automation.'
   },
   featuresWithChoiceOptionMechanics,
   choiceOptionsWithMechanics,
@@ -47,6 +50,7 @@ const report={
   metadataKeys,
   runtimeHandledKeys,
   consumerSpecificKeys,
+  dependentChoiceKeys,
   unhandledKeyCounts:sortCounts(unhandledKeyCounts),
   examples,
   mutatesData:false,
