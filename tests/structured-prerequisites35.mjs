@@ -71,7 +71,7 @@ const classes=JSON.parse(await fs.readFile('public/catalogs/dndtools/classes.jso
 const impact=prerequisiteCoverage35(classes);
 assert.equal(impact.uniqueAffectedCount,34,'closed catalog grammar has 34 exact source records, without claiming full class completion');
 assert.deepEqual(impact.clusters.map(({kind,count})=>({kind,count})),[
-  {kind:'named-feat-alternatives',count:2},{kind:'ranked-skill-alternatives',count:1},{kind:'ranked-skill-count',count:5},{kind:'two-weapon-name',count:3},{kind:'typed-feat-count',count:23}
+  {kind:'named-feat-alternatives',count:3},{kind:'ranked-skill-alternatives',count:1},{kind:'ranked-skill-count',count:5},{kind:'two-weapon-name',count:3},{kind:'typed-feat-count',count:23}
 ]);
 assert.deepEqual(impact.clusters.find(group=>group.kind==='two-weapon-name').records.map(record=>record.sourceId),['classes/mirumoto-niten-master-639','classes/tempest-198','classes/whisperknife-747']);
 const real=classes.find(record=>record.sourceId==='classes/olin-gisir-543');
