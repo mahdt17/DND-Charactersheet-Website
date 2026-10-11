@@ -34,6 +34,17 @@ function normalizedDeclarations(row,feature){
   return source.filter(entry=>entry&&typeof entry==='object'&&canonical(entry.feature)===feature);
 }
 
+function declaredFeatures(character){
+  const features=new Set();
+  for(const row of classRows(character)){
+    for(const entry of row?.definition?.featureProgressionAdvancement||[]){
+      const feature=canonical(entry?.feature);
+      if(feature)features.add(feature);
+    }
+  }
+  return [...features].sort();
+}
+
 function levelCount(row,entry){
   const attained=Math.max(0,Math.floor(Number(row?.level)||0));
   if(attained<1)return 0;
@@ -113,4 +124,14 @@ export function effectiveFeatureLevel35(character,featureName){
   const contributions=ledger(character,featureName);
   if(!contributions)return null;
   return contributions.reduce((total,item)=>total+item.amount,0);
+}
+
+export function reconcileFeatureProgressions35(character){
+  const featureProgressions35=declaredFeatures(character).map(feature=>{
+    const contributions=ledger(character,feature);
+    return contributions
+      ?{feature,effectiveLevel:contributions.reduce((total,item)=>total+item.amount,0),resolved:true,contributions}
+      :{feature,effectiveLevel:null,resolved:false,contributions:[]};
+  });
+  return {...character,featureProgressions35};
 }
