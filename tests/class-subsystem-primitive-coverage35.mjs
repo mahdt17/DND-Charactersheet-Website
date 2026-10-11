@@ -23,13 +23,15 @@ assert.equal(report.featureStacking.genericFeatureProgressionCandidateCount+repo
 assert.ok(report.featureStacking.genericFeatureProgressionCandidateCount>report.featureStacking.candidateClassCount/2,'the shared progression ledger should represent a majority of stacking candidates');
 assert.ok(Array.isArray(report.featureStacking.genericFeatureProgressionExamples)&&report.featureStacking.genericFeatureProgressionExamples.length>0,'representable exact source examples are required');
 assert.ok(Array.isArray(report.featureStacking.specializedOrUnresolvedExamples),'unresolved exact source examples are required');
-assert.ok(Number.isInteger(report.featureStacking.reviewedFeatureProgressionClassCount),'total reviewed exact-source progression activation count is required');
-assert.ok(report.featureStacking.reviewedFeatureProgressionClassCount>0,'at least one exact-source progression record should be activated');
-assert.ok(Array.isArray(report.featureStacking.reviewedFeatureProgressionSourceIds)&&report.featureStacking.reviewedFeatureProgressionSourceIds.length===report.featureStacking.reviewedFeatureProgressionClassCount,'activated exact source IDs are required');
-assert.ok(Number.isInteger(report.featureStacking.reviewedGenericCandidateClassCount),'intersection of reviewed activations and unresolved generic candidates is required');
-assert.ok(Number.isInteger(report.featureStacking.remainingGenericMetadataCandidateCount),'remaining generic metadata queue count is required');
+assert.equal(report.featureStacking.reviewedFeatureProgressionClassCount,2,'reviewed exact-source progression activation inventory must stay explicit');
+assert.deepEqual(report.featureStacking.reviewedFeatureProgressionSourceIds,['classes/disciple-of-the-eye-712','classes/sun-soul-monk-305']);
+assert.equal(report.featureStacking.reviewedGenericCandidateClassCount,0,'reviewed activations currently sit outside the unresolved generic queue');
+assert.equal(report.featureStacking.remainingGenericMetadataCandidateCount,114,'all unresolved generic stacking candidates still require reviewed metadata');
 assert.equal(report.featureStacking.reviewedGenericCandidateClassCount+report.featureStacking.remainingGenericMetadataCandidateCount,report.featureStacking.genericFeatureProgressionCandidateCount,'reviewed-candidate intersection and remaining queue must partition the unresolved generic cohort exactly');
-assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataExamples),'remaining generic metadata queue examples are required');
+assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataExamples)&&report.featureStacking.remainingGenericMetadataExamples.length>0,'remaining generic metadata queue examples are required');
+assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataClusters)&&report.featureStacking.remainingGenericMetadataClusters.length>0,'remaining generic metadata queue must be grouped by reusable feature family');
+assert.ok(report.featureStacking.remainingGenericMetadataClusters.every(row=>row.kind&&Number.isInteger(row.count)&&row.count>0),'remaining queue family rows must carry counts');
+for(let i=1;i<report.featureStacking.remainingGenericMetadataClusters.length;i++)assert.ok(report.featureStacking.remainingGenericMetadataClusters[i-1].count>=report.featureStacking.remainingGenericMetadataClusters[i].count,'remaining queue families must be sorted by descending reach');
 assert.ok(['prerequisites','feature-stacking'].includes(report.recommendedNext),'audit must recommend the higher-reach missing primitive family');
 
 console.log(`PASS subsystem primitive audit compares prerequisite and feature-stacking reach across ${report.total} classes; ${report.featureStacking.genericFeatureProgressionCandidateCount}/${report.featureStacking.candidateClassCount} stacking candidates fit the generic feature-progression contract.`);
