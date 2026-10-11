@@ -31,6 +31,7 @@ assert.equal(report.featureStacking.reviewedGenericCandidateClassCount+report.fe
 assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataExamples)&&report.featureStacking.remainingGenericMetadataExamples.length>0,'remaining generic metadata queue examples are required');
 assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataClusters)&&report.featureStacking.remainingGenericMetadataClusters.length>0,'remaining generic metadata queue must be grouped by reusable feature family');
 assert.ok(report.featureStacking.remainingGenericMetadataClusters.every(row=>row.kind&&Number.isInteger(row.count)&&row.count>0),'remaining queue family rows must carry counts');
+assert.ok(report.featureStacking.remainingGenericMetadataClusters.every(row=>Array.isArray(row.sourceIds)&&row.sourceIds.length===row.count&&new Set(row.sourceIds).size===row.count),'each metadata family must expose every exact source ID exactly once');
 for(let i=1;i<report.featureStacking.remainingGenericMetadataClusters.length;i++)assert.ok(report.featureStacking.remainingGenericMetadataClusters[i-1].count>=report.featureStacking.remainingGenericMetadataClusters[i].count,'remaining queue families must be sorted by descending reach');
 assert.ok(['prerequisites','feature-stacking'].includes(report.recommendedNext),'audit must recommend the higher-reach missing primitive family');
 
