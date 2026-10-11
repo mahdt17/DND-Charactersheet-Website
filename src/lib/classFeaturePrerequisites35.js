@@ -22,11 +22,13 @@ const FEATURE_FAMILIES=[
   ['favored enemy',/^favou?red enemy\b/i],
   ['wild empathy',/^wild empathy\b/i],
   ['flurry of blows',/^flurry of blows\b/i],
+  ['unarmed strike',/^unarmed strike\b/i],
   ['smite',/^smite(?: evil| good)?\b/i],
   ['lay on hands',/^lay on hands\b/i],
   ['animal companion',/^animal companion\b/i],
   ['familiar',/^(?:summon )?familiar\b/i],
-  ['special mount',/^special mount\b/i]
+  ['special mount',/^special mount\b/i],
+  ['dragonmark',/^(?:(?:least|lesser|greater|siberys)\s+)?dragonmark\b/i]
 ];
 
 const ALIGNMENTS=new Set([
