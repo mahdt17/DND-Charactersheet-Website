@@ -34,6 +34,7 @@ const ALIGNMENTS=new Set([
   'lawful neutral','true neutral','chaotic neutral',
   'lawful evil','neutral evil','chaotic evil'
 ]);
+const LOWERED_KINDS=new Set(['class_feature','race_any','alignment_any','save_all','weapon_training_count','weapon_training_all']);
 
 function closedAlternativeNames(value,{race=false}={}){
   const text=clean(value).replace(/^must be\s+/i,'').replace(/\.$/,'').trim();
@@ -220,7 +221,8 @@ export function lowerClassFeaturePrerequisite35(prerequisite){
 }
 
 export function evaluateClassFeaturePrerequisite35(prerequisite,character){
-  const node=prerequisite?.kind==='class_feature'&&prerequisite.feature?prerequisite:lowerClassFeaturePrerequisite35(prerequisite);
+  const direct=LOWERED_KINDS.has(prerequisite?.kind)?prerequisite:null;
+  const node=direct||lowerClassFeaturePrerequisite35(prerequisite);
   if(!node)return undefined;
   if(node.kind==='race_any'){
     if(!character?.race)return null;
