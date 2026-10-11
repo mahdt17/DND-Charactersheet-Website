@@ -1,10 +1,10 @@
-// Shared 3.5 class-feature identity and prerequisite support. This module is
-// intentionally dependency-free so qualification and future feature-stacking
-// code can share the same identities without creating advancement/integration
-// import cycles. Closed race/alignment identity alternatives live here for the
-// same reason: they need no catalog/runtime imports and preserve fail-closed use.
+// Shared closed 3.5 prerequisite identity support. This module is intentionally
+// dependency-free so qualification and future feature-stacking code can share
+// identities without creating advancement/integration import cycles.
 const norm=value=>String(value||'').trim().replace(/[’]/g,"'").toLowerCase().replace(/[^a-z0-9+'/-]+/g,' ').trim();
 const clean=value=>String(value||'').trim().replace(/[’]/g,"'").replace(/\s+/g,' ');
+const words={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
+const quantity=value=>words[norm(value)]||Number(value);
 
 const FEATURE_FAMILIES=[
   ['sneak attack',/^sneak attack\b/i],
@@ -46,6 +46,54 @@ function closedAlternativeNames(value,{race=false}={}){
     return names.every(valid)?names:null;
   }
   return names.every(name=>ALIGNMENTS.has(norm(name)))?names:null;
+}
+
+function closedWeaponTraining(value){
+  const text=clean(value).replace(/\.$/,'');
+  const amount='(one|two|three|four|five|six|seven|eight|nine|ten|[1-9]\\d*)';
+  const category='(martial|simple|exotic)';
+  const prefix='(?:Must be proficient with|Proficiency with) at least ';
+  const all=new RegExp('^'+prefix+amount+' '+category+' weapons? and '+amount+' '+category+' weapons?$','i').exec(text);
+  if(all)return {kind:'weapon_training_all',requirements:[
+    {kind:'weapon_training_count',minimum:quantity(all[1]),categories:[all[2].toLowerCase()]},
+    {kind:'weapon_training_count',minimum:quantity(all[3]),categories:[all[4].toLowerCase()]}
+  ]};
+  const any=new RegExp('^'+prefix+amount+' '+category+'(?: or '+category+')? weapons?$','i').exec(text);
+  if(any)return {kind:'weapon_training_count',minimum:quantity(any[1]),categories:[any[2],any[3]].filter(Boolean).map(value=>value.toLowerCase())};
+  return null;
+}
+
+function closedMultiSave(kind,value){
+  if(!/^(?:base_save_bonus|base_save_bonuses|saving_throws|base_saves?)$/i.test(kind))return null;
+  const parts=clean(value).replace(/\.$/,'').split(/\s*[,;]\s*/).filter(Boolean);
+  if(parts.length<2)return null;
+  const map={fort:'fort',fortitude:'fort',ref:'ref',reflex:'ref',will:'will'},requirements=[];
+  for(const part of parts){
+    const match=part.match(/^(Fort(?:itude)?|Ref(?:lex)?|Will)(?: Save)?\s*\+(\d+)$/i);
+    if(!match)return null;
+    requirements.push({save:map[match[1].toLowerCase()],minimum:Number(match[2])});
+  }
+  return {kind:'save_all',requirements};
+}
+
+function trainingEntries(character){
+  const grants=(character?.trainingGrants||[]).filter(grant=>!grant?.sourceOnly).flatMap(grant=>grant?.proficiencies||[]).filter(entry=>!entry?.sourceOnly);
+  const definitions=[character?.classDefinition,...(character?.classLevels||[]).map(row=>row?.definition)].filter(Boolean);
+  return [...grants,...definitions.flatMap(definition=>definition?.proficiencies||[])];
+}
+
+function hasBroadWeaponCategory(character,category){
+  const patterns={
+    martial:/^martial(?:-(?:melee|ranged))?-weapons?$/,
+    simple:/^simple(?:-(?:melee|ranged))?-weapons?$/,
+    exotic:/^exotic(?:-(?:melee|ranged))?-weapons?$/
+  };
+  const pattern=patterns[category];
+  if(!pattern)return false;
+  return trainingEntries(character).some(entry=>{
+    const raw=typeof entry==='string'?entry:entry?.index||entry?.name||'';
+    return pattern.test(norm(raw).replace(/\s+/g,'-'));
+  });
 }
 
 function featureColumns(table){
@@ -127,6 +175,10 @@ export function classFeatureInventory35(character){
 export function lowerClassFeaturePrerequisite35(prerequisite){
   const kind=prerequisite?.kind||prerequisite?.type||'text';
   const raw=clean(prerequisite?.text||prerequisite?.description||prerequisite?.name);
+  const saves=closedMultiSave(kind,raw);
+  if(saves)return saves;
+  const training=closedWeaponTraining(raw);
+  if(training)return training;
   if(['race','races'].includes(kind)){
     const options=closedAlternativeNames(raw,{race:true});
     if(options)return {kind:'race_any',options};
@@ -177,6 +229,18 @@ export function evaluateClassFeaturePrerequisite35(prerequisite,character){
   if(node.kind==='alignment_any'){
     if(!character?.alignment)return null;
     return node.options.some(value=>norm(value)===norm(character.alignment));
+  }
+  if(node.kind==='save_all'){
+    if(!character?.save35||node.requirements.some(item=>!Number.isFinite(Number(character.save35?.[item.save]))))return null;
+    return node.requirements.every(item=>Number(character.save35[item.save])>=item.minimum);
+  }
+  if(node.kind==='weapon_training_count'){
+    if(!Number.isInteger(node.minimum)||node.minimum<1||!Array.isArray(node.categories)||!node.categories.length)return null;
+    return node.categories.some(category=>hasBroadWeaponCategory(character,category))?true:null;
+  }
+  if(node.kind==='weapon_training_all'){
+    const values=node.requirements.map(item=>evaluateClassFeaturePrerequisite35(item,character));
+    return values.every(value=>value===true)?true:null;
   }
   if(!FEATURE_FAMILIES.some(([key])=>key===node.feature)||node.minimumDice!=null&&(!Number.isInteger(node.minimumDice)||node.minimumDice<1))return null;
   const inventory=classFeatureInventory35(character),evidence=inventory.features.get(node.feature);
