@@ -18,11 +18,13 @@ on:
       - "scripts/classify_class_implementation_cohorts.mjs"
       - "src/lib/castingPrerequisites35.js"
       - "src/lib/classFeaturePrerequisites35.js"
+      - "src/lib/featureProgression35.js"
       - "src/lib/classIntegration.js"
       - "src/lib/classEffects35.js"
       - "src/data/class-feature-summaries-35.json"
       - "tests/casting-prerequisites35.mjs"
       - "tests/class-feature-prerequisites35.mjs"
+      - "tests/feature-progression-stacking35.mjs"
       - "tests/race-alignment-prerequisite-alternatives35.mjs"
       - "tests/training-save-prerequisites35.mjs"
       - "tests/class-effects35.mjs"
@@ -77,6 +79,7 @@ jobs:
       - run: node tests/prerequisite-normalization-wave35.mjs
       - run: node tests/language-prerequisites35.mjs
       - run: node tests/class-feature-prerequisites35.mjs
+      - run: node tests/feature-progression-stacking35.mjs
       - run: node tests/race-alignment-prerequisite-alternatives35.mjs
       - run: node tests/training-save-prerequisites35.mjs
       - run: node tests/casting-prerequisites35.mjs
