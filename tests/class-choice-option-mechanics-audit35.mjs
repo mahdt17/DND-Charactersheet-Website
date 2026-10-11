@@ -17,6 +17,8 @@ assert.ok(report.runtimeHandledKeys.includes('classSkills'));
 assert.ok(report.runtimeHandledKeys.includes('actionType'));
 assert.ok(report.runtimeHandledKeys.includes('resource'));
 assert.ok(report.runtimeHandledKeys.includes('effects'));
+assert.ok(report.runtimeHandledKeys.includes('acceptableAlignments'),'reviewed option alignment constraints should be enforced by the source-choice runtime');
+assert.equal(report.unhandledKeyCounts.acceptableAlignments,undefined);
 assert.ok(report.consumerSpecificKeys.includes('minEffectiveLevel'));
 assert.ok(report.consumerSpecificKeys.includes('levelAdjustment'));
 assert.ok(report.dependentChoiceKeys.includes('allowedElements'),'fields consumed by choiceOptionsFromFeatureMechanic must not be reported as generic runtime gaps');
