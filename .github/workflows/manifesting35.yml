@@ -1,0 +1,36 @@
+name: 3.5 manifesting subsystem
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/manifesting35.js"
+      - "src/lib/classIntegration.js"
+      - "src/lib/invocationAcquisition35.js"
+      - "src/lib/resources.js"
+      - "src/ResourceTracker.jsx"
+      - "public/catalogs/dndtools/classes.json"
+      - "tests/manifesting35.mjs"
+      - "tests/browser-manifesting35.mjs"
+      - ".github/workflows/manifesting35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: manifesting35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  manifesting:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/manifesting35.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - run: node tests/browser-manifesting35.mjs
