@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {effectiveFeatureLevel35,featureProgressionContributions35} from '../src/lib/featureProgression35.js';
+import {effectiveFeatureLevel35,featureProgressionContributions35,reconcileFeatureProgressions35} from '../src/lib/featureProgression35.js';
 
 const cls=(id,name,feature,extra={})=>({
   sourceId:id,catalogId:`dndtools:${id}`,id,edition:'3.5',name,
@@ -17,6 +17,8 @@ assert.equal(effectiveFeatureLevel35(character,'Turn Undead'),8,'all prestige le
 assert.deepEqual(featureProgressionContributions35(character,'Turn Undead').map(item=>[item.sourceClassId,item.amount,item.kind]),[
   [cleric.catalogId,5,'base'],[sacred.catalogId,3,'advancement']
 ]);
+let reconciled=reconcileFeatureProgressions35(character);
+assert.deepEqual(reconciled.featureProgressions35.map(item=>[item.feature,item.effectiveLevel,item.resolved]),[['turn undead',8,true]],'reconciliation should publish one shared effective feature level');
 
 const druid=cls('classes/druid-stacking-test','Druid','Wild Shape');
 const shaper=cls('classes/shaper-stacking-test','Shaper','—',{
@@ -41,6 +43,8 @@ assert.equal(effectiveFeatureLevel35(character,'Flurry of Blows'),10,'per-level 
 
 const missingTarget={ruleset:'3.5',classLevels:[row(sacred,3)]};
 assert.equal(effectiveFeatureLevel35(missingTarget,'turn undead'),null,'an advancement must not manufacture a missing target feature/class');
+reconciled=reconcileFeatureProgressions35(missingTarget);
+assert.deepEqual(reconciled.featureProgressions35.map(item=>[item.feature,item.effectiveLevel,item.resolved]),[['turn undead',null,false]],'unresolved declarations should stay visible and fail closed');
 
 const otherCleric=cls('classes/other-cleric-stacking-test','Other Cleric','Turn Undead');
 const ambiguous=cls('classes/ambiguous-stacking-test','Ambiguous Progressor','—',{
@@ -49,4 +53,5 @@ const ambiguous=cls('classes/ambiguous-stacking-test','Ambiguous Progressor','�
 character={ruleset:'3.5',classLevels:[row(cleric,4),row(otherCleric,4),row(ambiguous,2)]};
 assert.equal(effectiveFeatureLevel35(character,'turn undead'),null,'feature-only targeting must fail closed when more than one native class can own the feature');
 
-console.log('PASS generic feature progression stacking supports exact targets, selected levels, contribution rates, and ambiguity fail-closed behavior.');
+assert.deepEqual(reconcileFeatureProgressions35({ruleset:'3.5',classLevels:[row(cleric,5)]}).featureProgressions35,[],'native classes without advancement metadata should not create managed stacking state');
+console.log('PASS generic feature progression stacking supports exact targets, selected levels, contribution rates, reconciled state, and ambiguity fail-closed behavior.');
