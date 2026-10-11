@@ -44,8 +44,10 @@ export function prerequisiteDescription35(p){
   const kind=p.kind||p.type;
   if(kind==='spellcasting'&&p.minimum!=null)return `Cast ${p.minimum}-level or higher ${p.tradition?p.tradition+' ':''}spells`;
   if(['all','any','count'].includes(kind)&&Array.isArray(p.requirements))return `${kind==='all'?'All':kind==='any'?'At least one':`At least ${p.minimum}`} of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
+  if(kind==='skill_list'&&Array.isArray(p.requirements))return `All of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='feat_count')return `At least ${p.minimum} distinct ${p.featType||(p.featTypes||[]).join(' or ')} feats`;
   if(kind==='skill_count')return `At least ${p.minimum} distinct skills with ${p.ranks} ranks`;
+  if(kind==='save')return `${({fort:'Fortitude',ref:'Reflex',will:'Will'}[p.save]||'Save')} +${p.minimum}`;
   if(kind==='proficiency')return `${p.proficiencyKind||'Proficiency'}: ${p.index||'selected subject'}`;
   if(kind==='feat'&&p.featId)return `Feat ${p.featId}`;
   return 'Requirement needs source review';
@@ -53,6 +55,13 @@ export function prerequisiteDescription35(p){
 
 export function lowerPrerequisiteText35(p){
   const text=String(p.text||p.description||'').trim(),kind=p.kind||p.type||'text';
+  if(kind==='text'){
+    const prefixed=text.match(/^(Feats?|Skills?|Race|Alignment)\s*:\s*(.+)$/i);
+    if(prefixed){
+      const target={feat:'feats',feats:'feats',skill:'skills',skills:'skills',race:'race',alignment:'alignment'}[prefixed[1].toLowerCase()];
+      if(target)return {kind:target,text:prefixed[2].trim()};
+    }
+  }
   if(['feat','feats'].includes(kind)){
     const typed=text.match(/^(?:any\s+)?(?:(one|two|three|[1-9]\d*)\s+)?(metamagic|item creation|metabreath|psionic|luck|shifter|exalted) feats?\.?$/i);
     if(typed)return {kind:'feat_count',minimum:typed[1]?quantity(typed[1]):1,featType:typed[2]};
@@ -64,6 +73,9 @@ export function lowerPrerequisiteText35(p){
     const reverse=text.match(/^(\d+) ranks in any (one|two|three|four|[1-9]\d*) skills\.?$/i);
     if(forward)return {kind:'skill_count',minimum:forward[1]?quantity(forward[1]):1,ranks:Number(forward[2])};
     if(reverse)return {kind:'skill_count',minimum:quantity(reverse[2]),ranks:Number(reverse[1])};
+    const explicit=text.replace(/\.$/,'').split(/\s*,\s*(?![^()]*\))/).map(value=>value.trim());
+    if(explicit.length>1&&explicit.every(clause=>/^[\w ()'-]+?\s+\d+\s+ranks?$/i.test(clause)&&! /\b(or|any|other)\b/i.test(clause)))
+      return {kind:'skill_list',requirements:explicit.map(clause=>({kind:'skill',text:clause}))};
     const clauses=text.replace(/\.$/,'').split(/\s*;\s*/);
     if(clauses.length>1&&clauses.some(clause=>/\bor\b/i.test(clause))){
       const nodes=clauses.map(clause=>{
@@ -73,6 +85,15 @@ export function lowerPrerequisiteText35(p){
       });
       if(nodes.every(Boolean))return {kind:'all',requirements:nodes};
     }
+  }
+  const specificSave={base_fortitude_save:'fort',base_reflex_save:'ref',base_will_save:'will'}[kind];
+  if(specificSave){
+    const match=text.match(/^\+?\s*(\d+)\.?$/);
+    if(match)return {kind:'save',save:specificSave,minimum:Number(match[1])};
+  }
+  if(/base.*save|saving_throws/.test(kind)){
+    const match=text.match(/^(?:Base )?(Fortitude|Fort|Reflex|Ref|Will)(?: Save)?\s*\+(\d+)\.?$/i);
+    if(match)return {kind:'save',save:{fortitude:'fort',fort:'fort',reflex:'ref',ref:'ref',will:'will'}[match[1].toLowerCase()],minimum:Number(match[2])};
   }
   if(/^Proficiency with selected weapon\.?$/i.test(text))return {kind:'proficiency',proficiencyKind:'weapons',name:'$subject'};
   return null;
@@ -90,6 +111,12 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
     if(kind==='any')return yes?true:unknown?null:false;
     return yes>=p.minimum?true:yes+unknown<p.minimum?false:null;
   }
+  if(kind==='skill_list'){
+    const nodes=p.requirements;
+    if(!Array.isArray(nodes)||!nodes.length||nodes.some(node=>!node||typeof node!=='object'||Array.isArray(node)))return null;
+    const values=nodes.map(evaluate);
+    return values.includes(false)?false:values.some(value=>value==null)?null:true;
+  }
   if(kind==='feat_count'){
     const types=Array.isArray(p.featTypes)?p.featTypes:p.featType?[p.featType]:[];
     if(!positive(p.minimum)||!types.length||types.some(type=>typeof type!=='string'||!type.trim()))return null;
@@ -106,6 +133,10 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
     if(!positive(p.minimum)||!positive(p.ranks))return null;
     const skills=new Set(Object.entries(c.skillRanks||{}).filter(([name,ranks])=>norm(name)&&Number.isFinite(Number(ranks))&&Number(ranks)>=p.ranks).map(([name])=>norm(name)));
     return skills.size>=p.minimum;
+  }
+  if(kind==='save'){
+    if(!['fort','ref','will'].includes(p.save)||!Number.isInteger(p.minimum)||p.minimum<0)return null;
+    return Number(c.save35?.[p.save]??0)>=p.minimum;
   }
   if(kind==='feat'&&(p.featId||p.name&&!p.text||p.subject!=null)){
     const target=scoped(p.subject,subject);
