@@ -25,7 +25,7 @@ export function castingTextSafe35(record){
 export function lowerCastingPrerequisite35(p){
   if(!['spells','spellcasting','special','spell'].includes(p.kind||p.type))return null;
   const text=String(p.text||p.description||'').trim().replace(/\.$/,'');
-  const start=text.match(/^(?:Ability|Able) to cast (.+)$/i);
+  const start=text.match(/^(?:Ability to|Able to|Must be able to) cast (.+)$/i);
   if(!start)return null;
   const clause=start[1];
   const direct=clause.match(/^([0-9])(?:st|nd|rd|th)?[- ]level (?:(arcane|divine)(?: (and|or) (arcane|divine))? )?spells(?: \(cantrips\))?$/i);
