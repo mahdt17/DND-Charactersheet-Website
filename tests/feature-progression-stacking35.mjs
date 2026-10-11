@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {effectiveFeatureLevel35,featureProgressionContributions35,reconcileFeatureProgressions35} from '../src/lib/featureProgression35.js';
+import {reconcileClassGrants} from '../src/lib/classIntegration.js';
 
 const cls=(id,name,feature,extra={})=>({
   sourceId:id,catalogId:`dndtools:${id}`,id,edition:'3.5',name,
@@ -19,6 +20,8 @@ assert.deepEqual(featureProgressionContributions35(character,'Turn Undead').map(
 ]);
 let reconciled=reconcileFeatureProgressions35(character);
 assert.deepEqual(reconciled.featureProgressions35.map(item=>[item.feature,item.effectiveLevel,item.resolved]),[['turn undead',8,true]],'reconciliation should publish one shared effective feature level');
+let integrated=reconcileClassGrants(character);
+assert.deepEqual(integrated.featureProgressions35?.map(item=>[item.feature,item.effectiveLevel,item.resolved]),[['turn undead',8,true]],'class reconciliation should publish shared feature progression state automatically');
 
 const druid=cls('classes/druid-stacking-test','Druid','Wild Shape');
 const shaper=cls('classes/shaper-stacking-test','Shaper','—',{
@@ -54,4 +57,4 @@ character={ruleset:'3.5',classLevels:[row(cleric,4),row(otherCleric,4),row(ambig
 assert.equal(effectiveFeatureLevel35(character,'turn undead'),null,'feature-only targeting must fail closed when more than one native class can own the feature');
 
 assert.deepEqual(reconcileFeatureProgressions35({ruleset:'3.5',classLevels:[row(cleric,5)]}).featureProgressions35,[],'native classes without advancement metadata should not create managed stacking state');
-console.log('PASS generic feature progression stacking supports exact targets, selected levels, contribution rates, reconciled state, and ambiguity fail-closed behavior.');
+console.log('PASS generic feature progression stacking supports exact targets, selected levels, contribution rates, reconciled state, class integration, and ambiguity fail-closed behavior.');
