@@ -1,5 +1,6 @@
 import reviewedClassEffects35 from '../data/class-effects-35.json' with {type:'json'};
 import {characterClasses} from './advancement.js';
+import {reconcileFeatureProgressions35} from './featureProgression35.js';
 
 export const CLASS_EFFECTS35_VERSION=1;
 
@@ -210,6 +211,7 @@ function reconcileArmorClass35(character){
 }
 
 export function reconcileClassEffects35(character){
+  character=reconcileFeatureProgressions35(character);
   const manual=(Array.isArray(character?.classEffects35)?character.classEffects35:[])
     .filter(effect=>!(effect?.sourceType==='class'&&effect?.automatic));
   const derived=[];
