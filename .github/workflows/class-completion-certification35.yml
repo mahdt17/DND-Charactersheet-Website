@@ -23,6 +23,7 @@ on:
       - "src/data/class-feature-summaries-35.json"
       - "tests/casting-prerequisites35.mjs"
       - "tests/class-feature-prerequisites35.mjs"
+      - "tests/race-alignment-prerequisite-alternatives35.mjs"
       - "tests/class-effects35.mjs"
       - "tests/class-planning-staleness35.mjs"
       - "tests/class-persistent-choice-cohorts35.mjs"
@@ -75,6 +76,7 @@ jobs:
       - run: node tests/prerequisite-normalization-wave35.mjs
       - run: node tests/language-prerequisites35.mjs
       - run: node tests/class-feature-prerequisites35.mjs
+      - run: node tests/race-alignment-prerequisite-alternatives35.mjs
       - run: node tests/casting-prerequisites35.mjs
       - run: node tests/source-choice-ui-context35.mjs
       - run: mkdir -p test-results
