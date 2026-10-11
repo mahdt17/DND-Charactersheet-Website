@@ -169,12 +169,13 @@ for(const entry of entries){
 }
 
 const specializedStackingIds=new Set([...stackingIds].filter(id=>!genericStackingIds.has(id)));
-const reviewedFeatureProgressionSourceIds=Object.entries(reviewedFeatureProgressions35.entries||{})
-  .filter(([id,entry])=>genericStackingIds.has(id)&&entry?.verified===true&&Array.isArray(entry.advancements)&&entry.advancements.length>0)
+const allReviewedFeatureProgressionSourceIds=Object.entries(reviewedFeatureProgressions35.entries||{})
+  .filter(([,entry])=>entry?.verified===true&&Array.isArray(entry.advancements)&&entry.advancements.length>0)
   .map(([id])=>id)
   .sort();
-const reviewedFeatureProgressionIds=new Set(reviewedFeatureProgressionSourceIds);
-const remainingGenericMetadataIds=new Set([...genericStackingIds].filter(id=>!reviewedFeatureProgressionIds.has(id)));
+const reviewedGenericCandidateSourceIds=allReviewedFeatureProgressionSourceIds.filter(id=>genericStackingIds.has(id));
+const reviewedGenericCandidateIds=new Set(reviewedGenericCandidateSourceIds);
+const remainingGenericMetadataIds=new Set([...genericStackingIds].filter(id=>!reviewedGenericCandidateIds.has(id)));
 const examplesFor=ids=>[...ids].slice(0,5).map(id=>stackingEvidence.get(id)).filter(Boolean);
 const prerequisiteRows=clusterRows(prerequisiteClusters);
 const stackingRows=clusterRows(stackingClusters);
@@ -193,8 +194,10 @@ const report={
     specializedOrUnresolvedCandidateCount:specializedStackingIds.size,
     genericFeatureProgressionExamples:examplesFor(genericStackingIds),
     specializedOrUnresolvedExamples:examplesFor(specializedStackingIds),
-    reviewedFeatureProgressionClassCount:reviewedFeatureProgressionSourceIds.length,
-    reviewedFeatureProgressionSourceIds,
+    reviewedFeatureProgressionClassCount:allReviewedFeatureProgressionSourceIds.length,
+    reviewedFeatureProgressionSourceIds:allReviewedFeatureProgressionSourceIds,
+    reviewedGenericCandidateClassCount:reviewedGenericCandidateSourceIds.length,
+    reviewedGenericCandidateSourceIds,
     remainingGenericMetadataCandidateCount:remainingGenericMetadataIds.size,
     remainingGenericMetadataExamples:examplesFor(remainingGenericMetadataIds),
     clusters:stackingRows
