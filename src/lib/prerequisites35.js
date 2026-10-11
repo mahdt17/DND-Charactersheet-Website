@@ -165,8 +165,8 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
     if(!positive(p.minimum))return null;
     return knownLanguages35(c).size>=p.minimum;
   }
-  if(kind==='language'){
-    if(!p.name||!languageName(p.name))return null;
+  if(kind==='language'&&p.name!=null){
+    if(!languageName(p.name))return null;
     return knownLanguages35(c).has(norm(p.name));
   }
   if(kind==='save'){
