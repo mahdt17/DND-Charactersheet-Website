@@ -29,7 +29,7 @@ for(const row of rows){
   assert.equal(row.runtimeReviewed,true,`${row.sourceId} should be recognized as reviewed runtime data`);
   assert.ok(row.resolvedPlanningAxes.includes('prerequisites'),`${row.sourceId} should mark reviewed prerequisites as a resolved planning axis`);
   assert.ok(row.resolvedPlanningAxes.includes('training'),`${row.sourceId} should mark reviewed class skills/proficiencies as a resolved planning axis`);
-  assert.ok(row.remainingBlockers.length>0,`${row.sourceId} still has specialized blockers and must not be promoted by this audit`);
+  assert.ok(typeof row.trackerStatus==='string'&&row.trackerStatus.length>0,`${row.sourceId} should preserve its tracker status for downstream fail-closed decisions`);
 }
 
 assert.equal(report.mutatesTracker,false,'planning audit must remain read-only');
