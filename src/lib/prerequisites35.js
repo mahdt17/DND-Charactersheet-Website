@@ -101,7 +101,10 @@ export function lowerPrerequisiteText35(p){
       if(nodes.every(Boolean))return {kind:'all',requirements:nodes};
     }
   }
-  if(['language','languages'].includes(kind)){
+  // Some source records type a closed "Must speak ..." requirement as text or
+  // special rather than languages. The wording itself is unambiguous, so route
+  // only that exact source shape through the same language predicates.
+  if(['language','languages'].includes(kind)||/^Must speak\b/i.test(text)){
     const count=text.match(/^Must speak at least (one|two|three|four|[1-9]\d*) languages?\.?$/i);
     if(count)return {kind:'language_count',minimum:quantity(count[1])};
     const spoken=text.match(/^Must speak (.+)$/i)?.[1]?.replace(/\.$/,'').trim();
