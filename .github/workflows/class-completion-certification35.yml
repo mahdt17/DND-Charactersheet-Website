@@ -27,6 +27,7 @@ on:
       - "tests/class-choice-option-mechanics-audit35.mjs"
       - "tests/class-subsystem-leverage35.mjs"
       - "tests/class-subsystem-primitive-coverage35.mjs"
+      - "tests/prerequisite-normalization-wave35.mjs"
       - "src/lib/prerequisites35.js"
       - "scripts/build_class_completion_ledger.mjs"
       - "scripts/build_class_review_queue.mjs"
@@ -68,6 +69,7 @@ jobs:
       - run: node tests/class-choice-option-mechanics-audit35.mjs
       - run: node tests/class-subsystem-leverage35.mjs
       - run: node tests/class-subsystem-primitive-coverage35.mjs
+      - run: node tests/prerequisite-normalization-wave35.mjs
       - run: node tests/casting-prerequisites35.mjs
       - run: node tests/source-choice-ui-context35.mjs
       - run: mkdir -p test-results
