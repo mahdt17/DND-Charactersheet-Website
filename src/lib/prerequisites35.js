@@ -1,4 +1,5 @@
 import {hasWeaponTraining,startingProficiencies} from './training.js';
+import {evaluateClassFeaturePrerequisite35} from './classFeaturePrerequisites35.js';
 
 // Closed prerequisite predicates. Undefined means the legacy evaluator owns the
 // clause; null means recognized but unresolved. No narrative substring matching.
@@ -33,8 +34,6 @@ function namedFeatAlternatives(text){
   }
   names.push(text.slice(start).trim());
   if(depth||names.length<2||separators.at(-1)!=='or')return null;
-  // A comma list ending ', or' and a chain of ORs are closed alternatives.
-  // 'A, B or C' leaves AND/OR precedence ambiguous and stays manual.
   if(separators.includes(',')&&(!/,\s*or\s+/i.test(text)||separators.slice(0,-1).some(value=>value!==',')))return null;
   const valid=name=>/^[A-Z][A-Za-z0-9'’ -]*(?:\([A-Za-z0-9'’ -]+\))?$/.test(name)
     &&! /\b(or|and|any|one|two|three|four|other|either|both|must|plus|with|requires?|class|feature|feats?)\b/i.test(name.replace(/Two-Weapon/gi,'DualWeapon'));
@@ -62,6 +61,7 @@ export function prerequisiteDescription35(p){
   if(kind==='skill_count')return `At least ${p.minimum} distinct skills with ${p.ranks} ranks`;
   if(kind==='language_count')return `Speak at least ${p.minimum} languages`;
   if(kind==='language')return `Speak ${p.name}`;
+  if(kind==='class_feature')return `Class feature: ${p.feature}`;
   if(kind==='save')return `${({fort:'Fortitude',ref:'Reflex',will:'Will'}[p.save]||'Save')} +${p.minimum}`;
   if(kind==='proficiency')return `${p.proficiencyKind||'Proficiency'}: ${p.index||'selected subject'}`;
   if(kind==='feat'&&p.featId)return `Feat ${p.featId}`;
@@ -101,9 +101,6 @@ export function lowerPrerequisiteText35(p){
       if(nodes.every(Boolean))return {kind:'all',requirements:nodes};
     }
   }
-  // Some source records type a closed "Must speak ..." requirement as text or
-  // special rather than languages. The wording itself is unambiguous, so route
-  // only that exact source shape through the same language predicates.
   if(['language','languages'].includes(kind)||/^Must speak\b/i.test(text)){
     const count=text.match(/^Must speak at least (one|two|three|four|[1-9]\d*) languages?\.?$/i);
     if(count)return {kind:'language_count',minimum:quantity(count[1])};
@@ -150,7 +147,6 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
     const wanted=new Set(types.map(typeName)),owned=new Set();
     for(const feat of c.feats||[]){
       if(!feat?.name||!wanted.has(typeName(feat.featType)))continue;
-      // Reprints and duplicated grants do not supply additional distinct feats.
       const displaySubject=String(feat.name).match(/^(.*?)\s+\((.*)\)$/);
       owned.add(norm(feat.featTemplateName||displaySubject?.[1]||feat.name)+'|'+norm(feat.featSubject??displaySubject?.[2]));
     }
@@ -198,11 +194,11 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
     const weapon={index:weaponIndex,weapon_category:category?category[0].toUpperCase()+category.slice(1):undefined,weapon_range:candidates.length===1?candidates[0].weapon_range:undefined};
     if(hasWeaponTraining({...c,trainingGrants},weapon,starting))return true;
     const grouped=[...entries,...starting].some(entry=>/(?:^|-)weapons$/.test(typeof entry==='string'?entry:entry.index||''));
-    // Category or range membership needs reviewed equipment metadata. Retain
-    // manual confirmation rather than rejecting a potentially proficient PC.
     if(grouped&&(!category||[...entries,...starting].some(entry=>(entry.index||entry)==='martial-melee-weapons')&&!weapon.weapon_range))return null;
     return false;
   }
+  const feature=evaluateClassFeaturePrerequisite35(p,c);
+  if(feature!==undefined)return feature;
   const lowered=lowerPrerequisiteText35(p);
   return lowered?evaluate(lowered):undefined;
 }
