@@ -128,6 +128,12 @@ function addCluster(map,kind,record,text){
 function clusterRows(map){
   return [...map].map(([kind,records])=>({kind,count:records.size,examples:[...records.values()].slice(0,5)})).sort((a,b)=>b.count-a.count||a.kind.localeCompare(b.kind));
 }
+function filteredClusterRows(map,allowedIds){
+  return [...map].map(([kind,records])=>{
+    const selected=[...records.entries()].filter(([id])=>allowedIds.has(id)).map(([,record])=>record);
+    return {kind,count:selected.length,examples:selected.slice(0,5)};
+  }).filter(row=>row.count>0).sort((a,b)=>b.count-a.count||a.kind.localeCompare(b.kind));
+}
 function trackerExample(entry,text){
   return {sourceId:entry.sourceId,name:entry.name||null,sourceBook:entry.sourceBook||null,example:text.slice(0,500)};
 }
@@ -200,6 +206,7 @@ const report={
     reviewedGenericCandidateSourceIds,
     remainingGenericMetadataCandidateCount:remainingGenericMetadataIds.size,
     remainingGenericMetadataExamples:examplesFor(remainingGenericMetadataIds),
+    remainingGenericMetadataClusters:filteredClusterRows(stackingClusters,remainingGenericMetadataIds),
     clusters:stackingRows
   },
   recommendedNext:unsupportedPrerequisiteIds.size>=stackingIds.size?'prerequisites':'feature-stacking'
