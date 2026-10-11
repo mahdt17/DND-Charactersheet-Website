@@ -59,17 +59,32 @@ const FEATURE_REQUIREMENTS=[
   ['evasion/uncanny-dodge',/\b(?:evasion|uncanny dodge)\b/i],
   ['maneuver/stance',/\b(?:maneuver|stance)\b/i],
   ['invocation/eldritch-blast',/\b(?:invocation|eldritch blast)\b/i],
-  ['psionic-feature',/\b(?:mind blade|psionic focus)\b/i],
+  ['psionic-feature',/\b(?:mind blade|psionic focus|wild surge)\b/i],
   ['dragonmark',/\bdragonmark\b/i],
   ['trackless-step',/\btrackless step\b/i]
 ];
 
+function compoundPrerequisiteKind(p,text){
+  if(!/\b(?:or|either|one of|any of)\b/i.test(text))return null;
+  const kind=p?.kind||p?.type||'text';
+  if(/\b(?:class feature|rage|frenzy|wild shape|evasion|uncanny dodge|sneak attack|skirmish|sudden strike|turn|rebuke|bardic|favou?red enemy|wild empathy|mind blade|psionic focus|wild surge)\b/i.test(text)&&/\bfeat\b/i.test(text))return 'compound:feature-or-feat';
+  if(/\b(?:cast|spell|manifest|power|invocation|infusion|caster|manifester)\b/i.test(text))return 'compound:magic-access';
+  if(/\bproficien(?:t|cy|cies)\b/i.test(text))return 'compound:proficiency';
+  if(['race','races'].includes(kind))return 'compound:race';
+  if(kind==='alignment')return 'compound:alignment';
+  if(['feat','feats'].includes(kind))return 'compound:feat';
+  if(['skill','skills'].includes(kind))return 'compound:skill';
+  if(/\b(?:deity|patron|church|organization|guild|region|regional|nation|homeland)\b/i.test(text))return 'compound:affiliation';
+  return 'compound:other';
+}
+
 function unsupportedPrerequisiteKind(p){
   const text=norm(p?.text||p?.description||p?.name);
+  const compound=compoundPrerequisiteKind(p,text);
+  if(compound)return compound;
   for(const [kind,re] of FEATURE_REQUIREMENTS)if(re.test(text))return `class-feature:${kind}`;
   if(/\blanguages?\b/i.test(text)||['language','languages'].includes(p?.kind||p?.type))return 'language';
   if(/\b(?:deity|patron|church|organization|guild|region|regional|nation|homeland)\b/i.test(text))return 'affiliation/region/deity';
-  if(/\b(?:or|either|one of|any of)\b/i.test(text))return 'compound/alternative';
   if(/\b(?:special ability|class feature|ability to|must have|must possess)\b/i.test(text))return 'other-feature/special-ability';
   return `other:${p?.kind||p?.type||'text'}`;
 }
