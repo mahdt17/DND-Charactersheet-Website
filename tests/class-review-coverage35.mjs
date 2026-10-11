@@ -14,7 +14,10 @@ process.argv=[process.execPath,'scripts/build_class_review_queue.mjs',`--evidenc
 try{await import('../scripts/build_class_review_queue.mjs');}finally{process.argv=originalArgs;}
 const queue=JSON.parse(await fs.readFile(queuePath,'utf8'));
 const byId=new Map(queue.queue.map(entry=>[entry.recordId,entry]));
-for(const id of ['classes/arcane-devotee-657','classes/aerial-avenger-980','classes/arboreal-guardian-522','classes/frenzied-berserker-614']){
+for(const id of [
+  'classes/arcane-devotee-657','classes/aerial-avenger-980','classes/arboreal-guardian-522','classes/frenzied-berserker-614',
+  'classes/bayushi-deceiver-627','classes/guild-thief-514','classes/enlightened-spirit-267','classes/hellfire-warlock-463','classes/fist-of-dal-quor-814','classes/inquisitor-of-the-drowning-goddess-901'
+]){
   const entry=byId.get(id);
   assert(!entry.reasons.includes('missing-reviewed-feature-summaries'),`${id} has reviewed runtime grants`);
   assert(!entry.reasons.includes('missing-verified-training-profile'),`${id} has a reviewed runtime training profile`);
@@ -25,7 +28,7 @@ for(const id of ['classes/arcane-devotee-657','classes/aerial-avenger-980','clas
 }
 assert.equal(queue.total,1054);
 assert.equal(queue.queue.filter(entry=>entry.reasons.includes('missing-reviewed-feature-summaries')).length,910);
-assert.equal(queue.queue.filter(entry=>entry.reasons.includes('missing-verified-training-profile')).length,843);
+assert.equal(queue.queue.filter(entry=>entry.reasons.includes('missing-verified-training-profile')).length,837);
 assert.equal(byId.get('classes/arcane-archer-378').certificationStatus,'certification-pending');
 assert(!byId.get('classes/arcane-archer-378').reasons.includes('missing-verified-training-profile'));
 assert(byId.get('classes/binder-112').reasons.includes('binding-subsystem-requires-structured-model'));
