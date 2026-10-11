@@ -1,8 +1,11 @@
+import reviewedProgressions35 from '../data/class-feature-progression-35.json' with {type:'json'};
 import {classFeatureInventory35,featureIdentity35} from './classFeaturePrerequisites35.js';
 
 const normalizeId=value=>String(value||'').replace(/^dndtools:/,'');
+const normalizeName=value=>String(value||'').trim().replace(/[’]/g,"'").toLowerCase().replace(/\s+/g,' ');
 const positiveInteger=value=>Number.isInteger(value)&&value>0;
 const canonical=value=>featureIdentity35(value)||null;
+const reviewedEntries=reviewedProgressions35.entries||{};
 
 function classRows(character){
   if(Array.isArray(character?.classLevels)&&character.classLevels.length)return character.classLevels;
@@ -21,6 +24,11 @@ function rowId(row){
   return row?.catalogId||row?.definition?.catalogId||row?.definition?.id||row?.definition?.sourceId||null;
 }
 
+function rowSourceId(row){
+  const candidates=[row?.definition?.sourceId,row?.catalogId,row?.definition?.catalogId,row?.definition?.id,row?.definition?.index];
+  return candidates.map(normalizeId).find(value=>value.startsWith('classes/'))||null;
+}
+
 function attainedFeature(row,feature){
   const level=Math.max(0,Math.floor(Number(row?.level)||0));
   if(!row?.definition||level<1)return false;
@@ -28,16 +36,29 @@ function attainedFeature(row,feature){
   return inventory.features.has(feature);
 }
 
+function reviewedDeclarations(row){
+  const sourceId=rowSourceId(row),reviewed=sourceId?reviewedEntries[sourceId]:null;
+  if(!reviewed?.verified||!Array.isArray(reviewed.advancements))return [];
+  const level=Math.max(0,Math.floor(Number(row?.level)||0));
+  return reviewed.advancements
+    .filter(entry=>entry&&typeof entry==='object'&&positiveInteger(entry.sourceLevel??1)&&level>=(entry.sourceLevel??1))
+    .map(entry=>({...entry,reviewed:true,reviewedSourceId:sourceId,reviewedSourceUrl:entry.sourceUrl||reviewed.sourceUrl||null}));
+}
+
+function rowDeclarations(row){
+  const inline=Array.isArray(row?.definition?.featureProgressionAdvancement)
+    ?row.definition.featureProgressionAdvancement.filter(entry=>entry&&typeof entry==='object'):[];
+  return [...inline,...reviewedDeclarations(row)];
+}
+
 function normalizedDeclarations(row,feature){
-  const source=Array.isArray(row?.definition?.featureProgressionAdvancement)
-    ?row.definition.featureProgressionAdvancement:[];
-  return source.filter(entry=>entry&&typeof entry==='object'&&canonical(entry.feature)===feature);
+  return rowDeclarations(row).filter(entry=>canonical(entry.feature)===feature);
 }
 
 function declaredFeatures(character){
   const features=new Set();
   for(const row of classRows(character)){
-    for(const entry of row?.definition?.featureProgressionAdvancement||[]){
+    for(const entry of rowDeclarations(row)){
       const feature=canonical(entry?.feature);
       if(feature)features.add(feature);
     }
@@ -64,16 +85,43 @@ function declarationAmount(row,entry){
   return Number.isFinite(amount)&&amount>=0?amount:null;
 }
 
+function virtualTarget(feature,declarations,{targetClassId=null,targetClassName=null}={}){
+  if(!declarations.length||!declarations.every(({entry})=>entry.standaloneWhenMissing===true))return null;
+  return {row:null,feature,targetClassId,targetClassName,standalone:true};
+}
+
 function resolveTarget(rows,feature,declarations){
-  const explicit=[...new Set(declarations.map(({entry})=>entry.targetClassId).filter(Boolean).map(normalizeId))];
-  if(explicit.length>1)return null;
-  if(explicit.length===1){
-    const target=rows.filter(row=>normalizeId(rowId(row))===explicit[0]);
-    if(target.length!==1||!attainedFeature(target[0],feature))return null;
-    return target[0];
+  const explicitIds=[...new Set(declarations.map(({entry})=>entry.targetClassId).filter(Boolean).map(normalizeId))];
+  const explicitNames=[...new Set(declarations.map(({entry})=>entry.targetClassName).filter(Boolean).map(normalizeName))];
+  if(explicitIds.length>1||explicitNames.length>1)return null;
+
+  if(explicitIds.length===1){
+    const target=rows.filter(row=>normalizeId(rowId(row))===explicitIds[0]);
+    if(target.length===1&&attainedFeature(target[0],feature)){
+      if(explicitNames.length&&normalizeName(target[0].name||target[0].definition?.name)!==explicitNames[0])return null;
+      return {row:target[0],feature,targetClassId:rowId(target[0]),targetClassName:target[0].name||target[0].definition?.name||null,standalone:false};
+    }
+    if(target.length)return null;
+    return virtualTarget(feature,declarations,{targetClassId:explicitIds[0],targetClassName:explicitNames[0]||null});
   }
+
+  if(explicitNames.length===1){
+    const target=rows.filter(row=>normalizeName(row.name||row.definition?.name)===explicitNames[0]&&attainedFeature(row,feature));
+    if(target.length===1)return {row:target[0],feature,targetClassId:rowId(target[0]),targetClassName:target[0].name||target[0].definition?.name||null,standalone:false};
+    if(target.length>1)return null;
+    return virtualTarget(feature,declarations,{targetClassName:explicitNames[0]});
+  }
+
   const native=rows.filter(row=>attainedFeature(row,feature));
-  return native.length===1?native[0]:null;
+  return native.length===1
+    ?{row:native[0],feature,targetClassId:rowId(native[0]),targetClassName:native[0].name||native[0].definition?.name||null,standalone:false}
+    :null;
+}
+
+function declarationTargetsResolution(entry,resolution){
+  if(entry.targetClassId&&normalizeId(entry.targetClassId)!==normalizeId(resolution.targetClassId))return false;
+  if(entry.targetClassName&&normalizeName(entry.targetClassName)!==normalizeName(resolution.targetClassName))return false;
+  return true;
 }
 
 function ledger(character,featureName){
@@ -85,20 +133,26 @@ function ledger(character,featureName){
   for(const row of rows){
     for(const entry of normalizedDeclarations(row,feature))declarations.push({row,entry});
   }
-  const target=resolveTarget(rows,feature,declarations);
-  if(!target)return null;
-  const targetId=normalizeId(rowId(target));
-  const baseAmount=Math.max(0,Math.floor(Number(target.level)||0));
-  if(baseAmount<1)return null;
-  const contributions=[{
-    feature,
-    kind:'base',
-    sourceClassId:rowId(target),
-    targetClassId:rowId(target),
-    amount:baseAmount
-  }];
+  if(!declarations.length)return null;
+  const resolution=resolveTarget(rows,feature,declarations);
+  if(!resolution)return null;
+
+  const contributions=[];
+  if(resolution.row){
+    const baseAmount=Math.max(0,Math.floor(Number(resolution.row.level)||0));
+    if(baseAmount<1)return null;
+    contributions.push({
+      feature,
+      kind:'base',
+      sourceClassId:rowId(resolution.row),
+      targetClassId:rowId(resolution.row),
+      targetClassName:resolution.targetClassName,
+      amount:baseAmount
+    });
+  }
+
   for(const {row,entry} of declarations){
-    if(entry.targetClassId&&normalizeId(entry.targetClassId)!==targetId)continue;
+    if(!declarationTargetsResolution(entry,resolution))continue;
     const amount=declarationAmount(row,entry);
     if(amount==null)return null;
     if(amount===0)continue;
@@ -106,14 +160,20 @@ function ledger(character,featureName){
       feature,
       kind:'advancement',
       sourceClassId:rowId(row),
-      targetClassId:rowId(target),
+      targetClassId:resolution.targetClassId||null,
+      targetClassName:resolution.targetClassName||null,
       amount,
       levels:entry.levels??'all',
       amountPerLevel:entry.amountPerLevel??1,
-      bonus:entry.bonus??0
+      bonus:entry.bonus??0,
+      standaloneWhenMissing:entry.standaloneWhenMissing===true,
+      reviewed:entry.reviewed===true,
+      reviewedSourceId:entry.reviewedSourceId||null,
+      reviewedSourceUrl:entry.reviewedSourceUrl||null,
+      sourceFeature:entry.sourceFeature||null
     });
   }
-  return contributions;
+  return contributions.length?contributions:null;
 }
 
 export function featureProgressionContributions35(character,featureName){
