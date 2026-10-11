@@ -7,6 +7,19 @@ const positive=value=>Number.isInteger(value)&&value>0;
 const quantity=value=>({one:1,two:2,three:3,four:4}[norm(value)]||Number(value));
 const typeName=value=>norm(value).replace(/\s+feats?$/,'');
 const scoped=(value,subject)=>value==='$subject'?subject:value;
+const languageName=value=>/^[A-Z][A-Za-z'’\-]*(?:\s+[A-Z][A-Za-z'’\-]*){0,2}$/.test(String(value||'').trim());
+
+function knownLanguages35(character){
+  const raw=Array.isArray(character?.languages)?character.languages:String(character?.languages||'').split(/[,;\n]/);
+  return new Set(raw.map(value=>norm(value?.name??value)).filter(Boolean));
+}
+
+function namedLanguageAlternatives(text){
+  const cleaned=String(text||'').replace(/\.$/,'').trim();
+  if(!/\bor\b/i.test(cleaned))return null;
+  const names=cleaned.split(/\s*,\s*or\s+|\s+or\s+|\s*,\s*/i).map(value=>value.trim()).filter(Boolean);
+  return names.length>1&&names.every(languageName)?names:null;
+}
 
 function namedFeatAlternatives(text){
   const names=[],separators=[];
@@ -47,6 +60,8 @@ export function prerequisiteDescription35(p){
   if(kind==='skill_list'&&Array.isArray(p.requirements))return `All of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='feat_count')return `At least ${p.minimum} distinct ${p.featType||(p.featTypes||[]).join(' or ')} feats`;
   if(kind==='skill_count')return `At least ${p.minimum} distinct skills with ${p.ranks} ranks`;
+  if(kind==='language_count')return `Speak at least ${p.minimum} languages`;
+  if(kind==='language')return `Speak ${p.name}`;
   if(kind==='save')return `${({fort:'Fortitude',ref:'Reflex',will:'Will'}[p.save]||'Save')} +${p.minimum}`;
   if(kind==='proficiency')return `${p.proficiencyKind||'Proficiency'}: ${p.index||'selected subject'}`;
   if(kind==='feat'&&p.featId)return `Feat ${p.featId}`;
@@ -85,6 +100,15 @@ export function lowerPrerequisiteText35(p){
       });
       if(nodes.every(Boolean))return {kind:'all',requirements:nodes};
     }
+  }
+  if(['language','languages'].includes(kind)){
+    const count=text.match(/^Must speak at least (one|two|three|four|[1-9]\d*) languages?\.?$/i);
+    if(count)return {kind:'language_count',minimum:quantity(count[1])};
+    const spoken=text.match(/^Must speak (.+)$/i)?.[1]?.replace(/\.$/,'').trim();
+    const value=spoken||text.replace(/\.$/,'').trim();
+    const alternatives=namedLanguageAlternatives(value);
+    if(alternatives)return {kind:'any',requirements:alternatives.map(name=>({kind:'language',name}))};
+    if(languageName(value))return {kind:'language',name:value};
   }
   const specificSave={base_fortitude_save:'fort',base_reflex_save:'ref',base_will_save:'will'}[kind];
   if(specificSave){
@@ -133,6 +157,14 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
     if(!positive(p.minimum)||!positive(p.ranks))return null;
     const skills=new Set(Object.entries(c.skillRanks||{}).filter(([name,ranks])=>norm(name)&&Number.isFinite(Number(ranks))&&Number(ranks)>=p.ranks).map(([name])=>norm(name)));
     return skills.size>=p.minimum;
+  }
+  if(kind==='language_count'){
+    if(!positive(p.minimum))return null;
+    return knownLanguages35(c).size>=p.minimum;
+  }
+  if(kind==='language'){
+    if(!p.name||!languageName(p.name))return null;
+    return knownLanguages35(c).has(norm(p.name));
   }
   if(kind==='save'){
     if(!['fort','ref','will'].includes(p.save)||!Number.isInteger(p.minimum)||p.minimum<0)return null;
