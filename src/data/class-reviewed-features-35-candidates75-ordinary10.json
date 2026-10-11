@@ -21,6 +21,7 @@
       },
       {
         "name": "Improved Disarm",
+        "aliases": ["Improved Disarm feat","Improved Disarm Feat"],
         "description": "At 6th level gain Improved Disarm as a bonus feat even without the normal Expertise prerequisite.",
         "featName": "Improved Disarm",
         "ignorePrerequisites": true
@@ -31,6 +32,7 @@
       },
       {
         "name": "Improved Critical",
+        "aliases": ["Improved Critical feat","Improved Critical Feat"],
         "description": "At 10th level gain Improved Critical as a bonus feat for one chosen weapon type for which the source feat is legal.",
         "choiceKind": "feat",
         "choiceRequired": true,
