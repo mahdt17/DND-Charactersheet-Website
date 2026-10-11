@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import {normalizeCatalogRecord} from '../src/lib/catalog.js';
 import {lowerPrerequisiteText35} from '../src/lib/prerequisites35.js';
 import {lowerCastingPrerequisite35} from '../src/lib/castingPrerequisites35.js';
+import {lowerClassFeaturePrerequisite35} from '../src/lib/classFeaturePrerequisites35.js';
 
 const TOTAL=1054;
 const norm=value=>String(value||'').trim().replace(/[’]/g,"'").replace(/\s+/g,' ');
@@ -18,7 +19,7 @@ function supportedPrerequisiteShape(p){
     return p.requirements.every(supportedPrerequisiteShape);
   }
   if(kind==='spellcasting'&&Number.isInteger(p.minimum)&&p.minimum>=0&&p.minimum<=9)return !p.tradition||['arcane','divine'].includes(lower(p.tradition));
-  if(lowerCastingPrerequisite35(p)||lowerPrerequisiteText35(p))return true;
+  if(lowerCastingPrerequisite35(p)||lowerClassFeaturePrerequisite35(p)||lowerPrerequisiteText35(p))return true;
   if(kind==='level'&&Number.isInteger(p.minimum)&&p.minimum>0)return true;
   if(kind==='ability_choice'){
     const options=p.options?.from?.options,choose=p.options?.choose;
