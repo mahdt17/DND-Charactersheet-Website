@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
 import {reconcileClassGrants,removeClassProgression} from '../src/lib/classIntegration.js';
+import {normalizeCatalogRecord} from '../src/lib/catalog.js';
 
 const definition=(id,name,rows,edition='3.5')=>({
   id:'dndtools:'+id,
@@ -96,4 +98,20 @@ const modernState=reconcileClassGrants({...character([row(modern,1)]),ruleset:'2
 assert.equal((modernState.manifesting35||[]).length,0);
 assert.equal((modernState.resources||[]).filter(resource=>resource.manifesting35).length,0);
 
-console.log('3.5 manifesting state and power-point lifecycle regressions passed.');
+// Exercise the same path against the exact published D&DTools Psion record.
+const publishedClasses=JSON.parse(await fs.readFile(new URL('../public/catalogs/dndtools/classes.json',import.meta.url),'utf8'));
+const publishedPsionRaw=publishedClasses.find(record=>record?.name==='Psion'&&!record?.prestige);
+assert(publishedPsionRaw,'published D&DTools catalog must contain the base Psion class');
+const publishedPsion=normalizeCatalogRecord(publishedPsionRaw,'dndtools','classes');
+const publishedState=reconcileClassGrants(character([row(publishedPsion,1)]));
+const publishedProfile=profileFor(publishedState,publishedPsion.catalogId);
+const publishedPool=ppFor(publishedState,publishedPsion.catalogId);
+assert(publishedProfile,'exact published Psion must derive a manifesting profile');
+assert.equal(publishedProfile.powerPointsMax,2);
+assert.equal(publishedProfile.powersKnown,3);
+assert.equal(publishedProfile.maxPowerLevel,1);
+assert(publishedPool,'exact published Psion must expose its PP resource');
+assert.equal(publishedPool.max,2);
+assert.equal(publishedPool.used,0);
+
+console.log(`3.5 manifesting state and power-point lifecycle regressions passed, including exact ${publishedPsion.sourceId}.`);
