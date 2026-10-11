@@ -24,7 +24,7 @@ for(const id of ['classes/arcane-devotee-657','classes/aerial-avenger-980','clas
   assert.equal(entry.coverage.features.complete,false,'some reviewed features cannot prove complete feature coverage');
 }
 assert.equal(queue.total,1054);
-assert.equal(queue.queue.filter(entry=>entry.reasons.includes('missing-reviewed-feature-summaries')).length,916);
+assert.equal(queue.queue.filter(entry=>entry.reasons.includes('missing-reviewed-feature-summaries')).length,910);
 assert.equal(queue.queue.filter(entry=>entry.reasons.includes('missing-verified-training-profile')).length,843);
 assert.equal(byId.get('classes/arcane-archer-378').certificationStatus,'certification-pending');
 assert(!byId.get('classes/arcane-archer-378').reasons.includes('missing-verified-training-profile'));
