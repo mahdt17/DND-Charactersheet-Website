@@ -12,6 +12,7 @@ import {reconcileDailySpellLike35} from './dailySpellLike35.js';
 import {reconcileInvocationAcquisition35} from './invocationAcquisition35.js';
 import {reconcileDomainGrants35} from './legacyCastingChoices.js';
 import {migratePatronDeity35} from './patronDeity35.js';
+import {applyFeatAbilityIncrease} from './featMagic.js';
 import {reconcileClassEffects35,describeClassEffect35} from './classEffects35.js';
 export {describeClassEffect35};
 
@@ -646,7 +647,8 @@ function structuredUsage(feature,classLevel,character=null){
   }
   if(!Number.isFinite(max)&&Number.isFinite(Number(spec.perLevel)))max=Number(spec.perLevel)*Math.max(0,Number(classLevel)||0)+Number(spec.base||0);
   if(spec.ability&&character?.abilities){
-    const score=Number(character.abilities[spec.ability]);
+    const base=Number(character.abilities[spec.ability]),bonus=Number(character.abilityBonuses?.[spec.ability]??0);
+    const score=Number.isFinite(base)&&Number.isFinite(bonus)?applyFeatAbilityIncrease(character,spec.ability,base+bonus):NaN;
     let modifier=Number.isFinite(score)?Math.floor((score-10)/2):null;
     if(modifier!=null&&Number.isFinite(Number(spec.abilityMinimum)))modifier=Math.max(Number(spec.abilityMinimum),modifier);
     if(modifier!=null&&Number.isFinite(Number(spec.levelTimesAbility)))max=Number(spec.levelTimesAbility)*Math.max(0,Number(classLevel)||0)*modifier;
@@ -836,7 +838,7 @@ function derivedForRow(row,character=null){
     if(!concreteFeat&&(type||usage)){
       actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(feature.name),name:feature.name,type:type||'Special action',description,notes:history.at(-1)?.text||'',...meta});
     }
-    if(edition==='3.5'&&usage&&usage.max>0){
+    if(edition==='3.5'&&usage&&(usage.max>0||feature.resource&&usage.max===0)){
       const reset=usage.reset|| (usage.period==='short rest'?'short':usage.period==='rest'?'long':usage.period==='day'||usage.period==='long rest'?'long':'none');
       const recoveryText=usage.recoveryText|| (usage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
       resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,period:usage.period,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:usage.unit||undefined,...meta});
@@ -903,7 +905,8 @@ function mergeDerived(existing,derived,{resource=false,feat=false}={}){
       const candidates=[...old.values()].filter(other=>!derivedIds.has(other.id)&&sameFeature(other,entry));
       if(candidates.length===1)previous=candidates[0];
     }
-    return {...entry,used:Math.max(0,Math.min(Number(entry.max)||0,Number(previous?.used)||0))};
+    const spent=Number(previous?.used);
+    return {...entry,used:Number.isFinite(spent)?Math.max(0,Math.floor(spent)):0};
   })];
 }
 

@@ -3239,7 +3239,16 @@
       "name": "Lay on Hands (Su)",
       "level": 2,
       "description": "With Charisma 12 or higher, gain a daily healing pool equal to paladin level × Charisma bonus. You can divide the pool among multiple uses. Using lay on hands is a standard action; against undead, you can instead spend points as damage with a successful melee touch attack.",
-      "sourceSha256": "11e31fac61a86e5d4d8faa9ec5579ed33a1b630e4b744111b5c5a296da9955e8"
+      "sourceSha256": "11e31fac61a86e5d4d8faa9ec5579ed33a1b630e4b744111b5c5a296da9955e8",
+      "actionType": "Standard action",
+      "resource": {
+        "levelTimesAbility": 1,
+        "ability": "cha",
+        "abilityMinimum": 0,
+        "minimum": 0,
+        "period": "day",
+        "unit": "healing points"
+      }
     },
     {
       "name": "Aura of Courage (Su)",

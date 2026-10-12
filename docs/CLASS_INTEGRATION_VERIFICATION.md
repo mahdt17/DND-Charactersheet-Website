@@ -4,6 +4,13 @@ The catalog-wide checks cover **1,079 class records**: 13 for 2014 (including
 Artificer), 12 for 2024, and 1,054 for 3.5. This is not a claim that every class
 mechanic is fully automated.
 
+## Healing resource foundation (2026-10-12)
+
+- The exact Player's Handbook Paladin source (`classes/paladin-95`) gains a Lay on Hands daily counter from level two, with capacity equal to class level times positive Charisma modifier, per the [SRD Paladin rule](https://www.d20srd.org/srd/classes/paladin.htm). The existing [Divine Champion](https://new.dndtools.org/classes/divine-champion-661) pool remains separate because it heals only the champion or a worshiper of the same patron. Resource cards now identify their source class; target restrictions remain in the feature description and are not automatically enforced.
+- Structured class resource formulas use the same recorded ability bonuses and feat ability adjustments as other ability-based rules. Reconciliation preserves spent amounts when capacity decreases, including explicit zero-capacity pools. Increasing capacity again cannot refund earlier spending. Manual resource settings retain their existing behavior.
+- Unit coverage checks unlock levels, positive/zero/negative modifiers, ability bonuses, separate class pools, capacity loss and restoration, JSON save/reopen, overspending, short/long recovery, class removal, existing Dragon Shaman healing and reduced Smite Evil capacity. Browser coverage checks class labels, independent spending, reopen and daily recovery. The focused healing workflow also runs existing 2014/2024 resource unit/browser regressions.
+- This is resource bookkeeping: healing targets, HP application, undead touch attacks and prestige smite progression are not newly automated. The [source-review packet](HEALING_SMITE_SOURCE_REVIEW35.md) records why the next smite work needs separate damage, uses and target rules. Catalog lifecycle checks cover all 1,054 3.5 records; certification stays 1 certified / 927 blocked / 126 pending.
+
 ## Reviewed turning progression (2026-10-12)
 
 - Source-checked declarations activate the existing feature-level ledger for [Deadgrim](https://new.dndtools.org/classes/deadgrim-583) Improved Turning, [Complete Divine Warpriest](https://new.dndtools.org/classes/warpriest-255) Turn or Rebuke Undead, and [Libris Mortis Master of Shrouds](https://new.dndtools.org/classes/master-of-shrouds-550) Rebuke Undead. Every attained prestige level contributes once to the existing native feature. Older same-name source records remain separate and unactivated.

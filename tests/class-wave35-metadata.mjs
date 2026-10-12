@@ -20,7 +20,7 @@ assert.equal(character(devotee,5).resources.find(r=>r.name==='Divine Shroud')?.m
 
 const champion=exact('classes/divine-champion-661');
 assert.equal(character(champion,5).resources.find(r=>r.name==='Lay on Hands')?.max,15);
-assert(!character(champion,5,8).resources.some(r=>r.name==='Lay on Hands'));
+assert.equal(character(champion,5,8).resources.find(r=>r.name==='Lay on Hands')?.max,0,'retain a zero-capacity pool so saved expenditure survives ability changes');
 assert.deepEqual(champion.proficiencies.map(p=>p.index).sort(),['martial-weapons','simple-weapons']);
 assert.equal(character(exact('classes/cipher-adept-688'),1).feats.filter(f=>f.name==='Improved Unarmed Strike').length,1);
 
@@ -63,7 +63,7 @@ const special=character(exact('classes/crimson-scourge-262'),1).grantedFeatures.
 assert.match(special?.description,/Special Dispensation feat/,'show conditional feat benefit, not the later Swift Tracker benefit');
 assert.doesNotMatch(special.description,/half.hour/);
 const zeroDefinition={catalogId:'test:zero-pool',name:'Zero Pool',edition:'3.5',levelGrants:[{level:1,name:'Test Pool',description:'Once per day when the ability modifier is positive.',resource:{levelTimesAbility:1,ability:'cha',abilityMinimum:0,period:'day'}}]};
-assert(!character(zeroDefinition,1,8).resources.some(r=>r.name==='Test Pool'),'an explicit zero pool must not fall back to prose usage');
+assert.equal(character(zeroDefinition,1,8).resources.find(r=>r.name==='Test Pool')?.max,0,'an explicit zero pool must not fall back to prose usage');
 
 const unknown=normalizeCatalogRecord({...rows.find(r=>r.id==='classes/arcane-devotee-657'),id:'classes/unreviewed-same-name'},'dndtools','classes');
 assert.equal(unknown.reviewBatch,undefined,'same-name records cannot inherit exact-source review');

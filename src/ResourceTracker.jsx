@@ -28,8 +28,8 @@ export default function ResourceTracker({char,patch,abilities}) {
     <p className="l-muted">Supported core class counters follow class levels. Apply feature effects, spell conversions, and initiative recovery yourself. Custom counters keep your settings.</p>
     {error&&<p className="l-error" role="alert">{error}</p>}
     {resources.map(r=>{
-      const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey),manifesting=!!r.manifesting35&&!r.manual,auto=(!!definition||manifesting)&&!r.manual;
-      const sourceLabel=manifesting?`${r.sourceClassName||r.source||'Psionic class'} · 3.5 manifesting progression`:auto?`${r.className} · ${r.edition} class progression`:'Custom counter';
+      const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey),manifesting=!!r.manifesting35&&!r.manual,auto=(!!definition||manifesting||r.sourceType==='class'&&r.automatic)&&!r.manual;
+      const sourceLabel=manifesting?`${r.sourceClassName||r.source||'Psionic class'} · 3.5 manifesting progression`:auto?`${r.sourceClassName||r.className||r.source} · ${r.edition} class progression`:'Custom counter';
       return <div className="resource-entry" key={r.id} role="group" aria-label={`${r.name} resource`}>
         <div className="resource-row"><div><strong>{r.name}</strong><small>{sourceLabel}</small><small>{resourceRecoveryText(r)}</small></div><strong className="resource-count">{r.unlimited?'Unlimited':`${Math.max(0,r.max-r.used)} / ${r.max}`}</strong></div>
         <div className="l-toolbar resource-controls">
