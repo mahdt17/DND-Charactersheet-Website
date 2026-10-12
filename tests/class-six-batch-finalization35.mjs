@@ -106,7 +106,12 @@ assert.equal(featureTotal,38,'the reviewed six-class batch must contain exactly 
   assert(!normal.resources.some(resource=>resource.name==='Ghost Touch Aura'));
 
   const zero=reconcileClassGrants(base(definition,5,{str:10,dex:10,con:10,int:10,wis:10,cha:1}));
-  assert(!zero.resources.some(resource=>resource.name==='Ghost Bane Fires'),'Ghost Bane Fires must not invent a minimum use when the source formula yields zero');
+  assert.equal(zero.resources.find(resource=>resource.name==='Ghost Bane Fires')?.max,0,'Ghost Bane Fires must not invent a minimum use when the source formula yields zero');
+  const spent={...normal,resources:normal.resources.map(resource=>resource.id===bane.id?{...resource,used:2}:resource)};
+  const exhausted=reconcileClassGrants({...spent,abilities:zero.abilities});
+  assert.equal(exhausted.resources.find(resource=>resource.id===bane.id)?.used,2,'zero capacity preserves earlier expenditure');
+  const restored=reconcileClassGrants({...exhausted,abilities:normal.abilities});
+  assert.equal(restored.resources.find(resource=>resource.id===bane.id)?.used,2,'restoring Charisma does not refund uses');
   assert.equal(zero.actions.find(action=>action.name==='Ghost Bane Fires')?.type,'Free action');
 }
 

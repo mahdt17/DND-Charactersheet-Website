@@ -14,6 +14,7 @@ on:
       - "tests/healing-resources35.mjs"
       - "tests/browser-healing-resources35.mjs"
       - "tests/class-wave35-metadata.mjs"
+      - "tests/class-six-batch-finalization35.mjs"
       - "tests/resources.mjs"
       - "tests/browser-resources.mjs"
       - "package.json"
@@ -39,6 +40,7 @@ jobs:
       - run: npm ci
       - run: node tests/healing-resources35.mjs
       - run: node tests/class-wave35-metadata.mjs
+      - run: node tests/class-six-batch-finalization35.mjs
       - run: node tests/resources.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
