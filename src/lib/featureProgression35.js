@@ -29,6 +29,28 @@ function rowSourceId(row){
   return candidates.map(normalizeId).find(value=>value.startsWith('classes/'))||null;
 }
 
+function consistentReviewedRow(row){
+  const definition=row?.definition,sourceId=rowSourceId(row);
+  if(!definition||row.edition!=='3.5'||definition.edition!=='3.5'||row.name!==definition.name||!positiveInteger(row.level))return false;
+  const ids=[row.catalogId,definition.sourceId,definition.catalogId,definition.id,definition.index].filter(Boolean).map(normalizeId);
+  return !!sourceId&&ids.length>0&&ids.every(id=>id===sourceId);
+}
+
+function reviewedTurningBase(row,feature){
+  if(!consistentReviewedRow(row))return null;
+  const sourceId=rowSourceId(row);
+  if(sourceId==='classes/cleric-91'&&row.name==='Cleric')return row.level;
+  if(sourceId==='classes/paladin-95'&&row.name==='Paladin'&&feature==='turn undead'&&row.level>=4)return row.level-3;
+  return null;
+}
+
+function unknownTurningOwner(row,feature){
+  if(reviewedTurningBase(row,feature)!=null)return false;
+  // The reviewed standard Paladin never rebukes and cannot turn before level 4.
+  if(consistentReviewedRow(row)&&rowSourceId(row)==='classes/paladin-95'&&row.name==='Paladin'&&(feature==='rebuke undead'||row.level<4))return false;
+  return !classFeatureInventory35({classLevels:[row]}).complete;
+}
+
 function attainedFeature(row,feature){
   const level=Math.max(0,Math.floor(Number(row?.level)||0));
   if(!row?.definition||level<1)return false;
@@ -38,7 +60,7 @@ function attainedFeature(row,feature){
 
 function reviewedDeclarations(row){
   const sourceId=rowSourceId(row),reviewed=sourceId?reviewedEntries[sourceId]:null;
-  if(!reviewed?.verified||!Array.isArray(reviewed.advancements))return [];
+  if(!reviewed?.verified||!Array.isArray(reviewed.advancements)||!consistentReviewedRow(row))return [];
   const level=Math.max(0,Math.floor(Number(row?.level)||0));
   return reviewed.advancements
     .filter(entry=>entry&&typeof entry==='object'&&positiveInteger(entry.sourceLevel??1)&&level>=(entry.sourceLevel??1))
@@ -91,13 +113,18 @@ function virtualTarget(feature,declarations,{targetClassId=null,targetClassName=
 }
 
 function resolveTarget(rows,feature,declarations){
+  // A reviewed turning progressor may list Turn/Rebuke in its own table, but
+  // that advances an existing feature; it is not another native owner.
+  const turning=['turn undead','rebuke undead'].includes(feature)&&declarations.some(({entry})=>entry.reviewed);
+  if(turning&&rows.some(row=>!declarations.some(d=>d.row===row)&&unknownTurningOwner(row,feature)))return null;
+  const nativeFeature=row=>(attainedFeature(row,feature)||(turning&&reviewedTurningBase(row,feature)!=null))&&(!turning||!declarations.some(d=>d.row===row));
   const explicitIds=[...new Set(declarations.map(({entry})=>entry.targetClassId).filter(Boolean).map(normalizeId))];
   const explicitNames=[...new Set(declarations.map(({entry})=>entry.targetClassName).filter(Boolean).map(normalizeName))];
   if(explicitIds.length>1||explicitNames.length>1)return null;
 
   if(explicitIds.length===1){
     const target=rows.filter(row=>normalizeId(rowId(row))===explicitIds[0]);
-    if(target.length===1&&attainedFeature(target[0],feature)){
+    if(target.length===1&&nativeFeature(target[0])){
       if(explicitNames.length&&normalizeName(target[0].name||target[0].definition?.name)!==explicitNames[0])return null;
       return {row:target[0],feature,targetClassId:rowId(target[0]),targetClassName:target[0].name||target[0].definition?.name||null,standalone:false};
     }
@@ -106,13 +133,13 @@ function resolveTarget(rows,feature,declarations){
   }
 
   if(explicitNames.length===1){
-    const target=rows.filter(row=>normalizeName(row.name||row.definition?.name)===explicitNames[0]&&attainedFeature(row,feature));
+    const target=rows.filter(row=>normalizeName(row.name||row.definition?.name)===explicitNames[0]&&nativeFeature(row));
     if(target.length===1)return {row:target[0],feature,targetClassId:rowId(target[0]),targetClassName:target[0].name||target[0].definition?.name||null,standalone:false};
     if(target.length>1)return null;
     return virtualTarget(feature,declarations,{targetClassName:explicitNames[0]});
   }
 
-  const native=rows.filter(row=>attainedFeature(row,feature));
+  const native=rows.filter(nativeFeature);
   return native.length===1
     ?{row:native[0],feature,targetClassId:rowId(native[0]),targetClassName:native[0].name||native[0].definition?.name||null,standalone:false}
     :null;
@@ -129,8 +156,12 @@ function ledger(character,featureName){
   if(!feature)return null;
   const rows=classRows(character);
   if(!rows.length)return null;
+  if(new Set(rows.map(row=>normalizeId(rowId(row)))).size!==rows.length)return null;
   const declarations=[];
   for(const row of rows){
+    const ids=[row.catalogId,row.definition?.sourceId,row.definition?.catalogId,row.definition?.id,row.definition?.index].filter(Boolean).map(normalizeId);
+    const hasReviewedRule=ids.some(id=>reviewedEntries[id]?.verified&&reviewedEntries[id].advancements?.some(entry=>canonical(entry.feature)===feature));
+    if(hasReviewedRule&&!consistentReviewedRow(row))return null;
     for(const entry of normalizedDeclarations(row,feature))declarations.push({row,entry});
   }
   if(!declarations.length)return null;
@@ -139,8 +170,9 @@ function ledger(character,featureName){
 
   const contributions=[];
   if(resolution.row){
-    const baseAmount=Math.max(0,Math.floor(Number(resolution.row.level)||0));
-    if(baseAmount<1)return null;
+    const turning=['turn undead','rebuke undead'].includes(feature)&&declarations.some(({entry})=>entry.reviewed);
+    const baseAmount=turning?reviewedTurningBase(resolution.row,feature):Math.max(0,Math.floor(Number(resolution.row.level)||0));
+    if(baseAmount==null||baseAmount<1)return null;
     contributions.push({
       feature,
       kind:'base',

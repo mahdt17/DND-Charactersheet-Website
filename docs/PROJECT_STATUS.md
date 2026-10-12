@@ -27,6 +27,8 @@ Latest subsystem correction (2026-10-11): table-derived manifesting profiles now
 
 Combined development includes:
 
+- reviewed turning progression (2026-10-12): Deadgrim (583), Complete Divine Warpriest (255), and Libris Mortis Master of Shrouds (550) contribute to the existing feature-level ledger. Reviewed native Cleric and Paladin sources use their correct effective levels, including Paladin's minus-three offset. This is level bookkeeping only; turning/rebuking choices, daily uses and combat effects are not newly automated. Unreviewed or ambiguous native targets stay unresolved. Three generic metadata candidates now have reviewed declarations, leaving 111; no class certification changes.
+
 - shared manifesting entry checks (2026-10-12): five manifester-level and 21 generic power-level source clauses now use reviewed per-class Psion/Psychic Warrior/Wilder profiles, validated prestige advancement, actual saved usable powers and the shared PP capacity. Table ceilings alone do not prove power access. Unreviewed sources, inherited or incomplete psionic profiles, unapplied Practiced Manifester bonuses, and named/compound power requirements remain manual. The full 1,054-record audit now finds unsupported prerequisite shapes in 719 records, down from 733; certification remains 1 certified / 927 blocked / 126 pending.
 
 - shared PP entry prerequisites (2026-10-11): seven reserve-threshold records and Mindknight's base-only requirement use the canonical reserve. Multiclass/prestige contributions and capacity independent of expenditure are covered; uncertain data stays manual. The eight records retain other unsupported clauses, so the unsupported prerequisite record count remains 733.

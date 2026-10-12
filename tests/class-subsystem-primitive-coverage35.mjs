@@ -31,10 +31,10 @@ assert.equal(report.featureStacking.genericFeatureProgressionCandidateCount+repo
 assert.ok(report.featureStacking.genericFeatureProgressionCandidateCount>report.featureStacking.candidateClassCount/2,'the shared progression ledger should represent a majority of stacking candidates');
 assert.ok(Array.isArray(report.featureStacking.genericFeatureProgressionExamples)&&report.featureStacking.genericFeatureProgressionExamples.length>0,'representable exact source examples are required');
 assert.ok(Array.isArray(report.featureStacking.specializedOrUnresolvedExamples),'unresolved exact source examples are required');
-assert.equal(report.featureStacking.reviewedFeatureProgressionClassCount,2,'reviewed exact-source progression activation inventory must stay explicit');
-assert.deepEqual(report.featureStacking.reviewedFeatureProgressionSourceIds,['classes/disciple-of-the-eye-712','classes/sun-soul-monk-305']);
-assert.equal(report.featureStacking.reviewedGenericCandidateClassCount,0,'reviewed activations currently sit outside the unresolved generic queue');
-assert.equal(report.featureStacking.remainingGenericMetadataCandidateCount,114,'all unresolved generic stacking candidates still require reviewed metadata');
+assert.equal(report.featureStacking.reviewedFeatureProgressionClassCount,5,'reviewed exact-source progression activation inventory must stay explicit');
+assert.deepEqual(report.featureStacking.reviewedFeatureProgressionSourceIds,['classes/deadgrim-583','classes/disciple-of-the-eye-712','classes/master-of-shrouds-550','classes/sun-soul-monk-305','classes/warpriest-255']);
+assert.equal(report.featureStacking.reviewedGenericCandidateClassCount,3,'three exact turning progression sources now intersect the generic candidate queue');
+assert.equal(report.featureStacking.remainingGenericMetadataCandidateCount,111,'remaining candidates still require reviewed advancement metadata');
 assert.equal(report.featureStacking.reviewedGenericCandidateClassCount+report.featureStacking.remainingGenericMetadataCandidateCount,report.featureStacking.genericFeatureProgressionCandidateCount,'reviewed-candidate intersection and remaining queue must partition the unresolved generic cohort exactly');
 assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataExamples)&&report.featureStacking.remainingGenericMetadataExamples.length>0,'remaining generic metadata queue examples are required');
 assert.ok(Array.isArray(report.featureStacking.remainingGenericMetadataClusters)&&report.featureStacking.remainingGenericMetadataClusters.length>0,'remaining generic metadata queue must be grouped by reusable feature family');

@@ -4,6 +4,15 @@ The catalog-wide checks cover **1,079 class records**: 13 for 2014 (including
 Artificer), 12 for 2024, and 1,054 for 3.5. This is not a claim that every class
 mechanic is fully automated.
 
+## Reviewed turning progression (2026-10-12)
+
+- Source-checked declarations activate the existing feature-level ledger for [Deadgrim](https://new.dndtools.org/classes/deadgrim-583) Improved Turning, [Complete Divine Warpriest](https://new.dndtools.org/classes/warpriest-255) Turn or Rebuke Undead, and [Libris Mortis Master of Shrouds](https://new.dndtools.org/classes/master-of-shrouds-550) Rebuke Undead. Every attained prestige level contributes once to the existing native feature. Older same-name source records remain separate and unactivated.
+- Positive native-level proof is limited to Player's Handbook Cleric (`classes/cleric-91`) and Paladin (`classes/paladin-95`). Cleric uses its class level; Paladin turns from fourth level at class level minus three, per the [SRD Paladin rule](https://www.d20srd.org/srd/classes/paladin.htm). The Paladin catalog currently contains only its mount table, so this exact reviewed native rule supplies the unlock proof instead of mistaking mount progression for class progression.
+- Advancing sources are excluded from native ownership. Duplicate rows and inconsistent reviewed identities cannot inflate the ledger. Explicit target IDs/names share the same native proof as implicit resolution. Several reviewed prestige sources can add to one native owner; multiple native owners remain unresolved under the existing single-target contract. Missing and unreviewed native rules remain unresolved rather than borrowing a same-name source's level.
+- This is effective-level bookkeeping, not a complete turning subsystem: it does not select turning versus rebuking, add daily-use pools, apply turning-check/HD combat rules, or implement every class feature. Existing class-feature inventory still supplies capability identities independently. No source is newly certified by these declarations.
+- `feature-progression-turning35.mjs` uses actual catalog sources to check first/final levels, Cleric and Paladin bases, multiple advancements, explicit targets, absence of standalone grants, save/reopen, reconciliation, removal, source variants, malformed identity and duplicate rows. Existing generic stacking and reviewed monk tests preserve the prior API. The new suite is in `npm test` and certification CI.
+- The full catalog audit remains 1,054 records with 719 records exposing unsupported prerequisite shapes. Reviewed progression metadata grows from two to five source records; three intersect the 114 generic stacking candidates, leaving 111 without reviewed advancement metadata. These are planning counts, not class-completion counts. Certification remains 1 certified / 927 blocked / 126 pending.
+
 ## Manifesting entry prerequisites (2026-10-12)
 
 - Five exact source clauses require a standalone manifester level; 21 require generic power-level access. The closed parser and all-class audit expose the exact source IDs separately. Named powers, counts of powers, discipline restrictions and compound prose remain manual.

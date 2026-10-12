@@ -34,6 +34,48 @@
           "levels": "all"
         }
       ]
+    },
+    "classes/deadgrim-583": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/deadgrim-583",
+      "advancements": [
+        {
+          "feature": "turn undead",
+          "sourceFeature": "Improved Turning",
+          "sourceLevel": 1,
+          "levels": "all"
+        }
+      ]
+    },
+    "classes/warpriest-255": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/warpriest-255",
+      "advancements": [
+        {
+          "feature": "turn undead",
+          "sourceFeature": "Turn or Rebuke Undead",
+          "sourceLevel": 1,
+          "levels": "all"
+        },
+        {
+          "feature": "rebuke undead",
+          "sourceFeature": "Turn or Rebuke Undead",
+          "sourceLevel": 1,
+          "levels": "all"
+        }
+      ]
+    },
+    "classes/master-of-shrouds-550": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-shrouds-550",
+      "advancements": [
+        {
+          "feature": "rebuke undead",
+          "sourceFeature": "Rebuke Undead",
+          "sourceLevel": 1,
+          "levels": "all"
+        }
+      ]
     }
   }
 }

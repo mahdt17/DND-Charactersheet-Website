@@ -27,6 +27,7 @@ on:
       - "tests/class-feature-prerequisites35.mjs"
       - "tests/feature-progression-stacking35.mjs"
       - "tests/feature-progression-reviewed-source35.mjs"
+      - "tests/feature-progression-turning35.mjs"
       - "tests/race-alignment-prerequisite-alternatives35.mjs"
       - "tests/training-save-prerequisites35.mjs"
       - "tests/class-effects35.mjs"
@@ -92,6 +93,7 @@ jobs:
       - run: node tests/class-feature-prerequisites35.mjs
       - run: node tests/feature-progression-stacking35.mjs
       - run: node tests/feature-progression-reviewed-source35.mjs
+      - run: node tests/feature-progression-turning35.mjs
       - run: node tests/race-alignment-prerequisite-alternatives35.mjs
       - run: node tests/training-save-prerequisites35.mjs
       - run: node tests/casting-prerequisites35.mjs
