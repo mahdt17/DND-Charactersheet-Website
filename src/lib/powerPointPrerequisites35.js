@@ -11,11 +11,7 @@ export function lowerPowerPointPrerequisite35(clause){
   return positive(minimum)?{kind:base?'base_power_points':'power_point_reserve',minimum}:null;
 }
 
-export function evaluatePowerPointPrerequisite35(clause,character){
-  const kind=clause?.kind||clause?.type;
-  const rule=['power_point_reserve','base_power_points'].includes(kind)?{...clause,kind}:lowerPowerPointPrerequisite35(clause);
-  if(!rule)return undefined;
-  if(!positive(rule.minimum))return null;
+export function psionicPrerequisiteRows35(character){
   const allRows=characterClasses(character),rows=allRows.filter(row=>row.edition==='3.5');
   if(character.ruleset!=='3.5'&&!(character.ruleset==='custom'&&(character.mechanics==='3.5'||rows.length)))return null;
   // The reserve consults definition.edition and row.name; validate both inputs,
@@ -23,8 +19,18 @@ export function evaluatePowerPointPrerequisite35(clause,character){
   if(allRows.some(row=>row.definition?.edition==='3.5'&&row.edition!=='3.5'))return null;
   if(!rows.length||!rows.every(row=>consistentCastingRow35(row)&&row.definition.edition==='3.5'&&row.name===row.definition.name)||new Set(rows.map(row=>row.catalogId)).size!==rows.length)return null;
   // Saved derived entries must still correspond to real prestige milestones.
+  if(character.castingAdvancements!=null&&!Array.isArray(character.castingAdvancements))return null;
   const advances=(character.castingAdvancements||[]).filter(entry=>entry?.kind==='psionic');
   if(validCastingAdvancements35(character,rows).filter(entry=>entry.kind==='psionic').length!==advances.length)return null;
+  return rows;
+}
+
+export function evaluatePowerPointPrerequisite35(clause,character){
+  const kind=clause?.kind||clause?.type;
+  const rule=['power_point_reserve','base_power_points'].includes(kind)?{...clause,kind}:lowerPowerPointPrerequisite35(clause);
+  if(!rule)return undefined;
+  if(!positive(rule.minimum))return null;
+  const rows=psionicPrerequisiteRows35(character);if(!rows)return null;
   const reserve=powerPointReserve35(character);
   if(!Number.isFinite(reserve.base))return null;
   if(reserve.base>=rule.minimum)return true;

@@ -40,7 +40,9 @@ on:
       - "src/lib/prerequisites35.js"
       - "src/lib/patronDeity35.js"
       - "src/lib/powerPointPrerequisites35.js"
+      - "src/lib/manifestingPrerequisites35.js"
       - "tests/power-point-prerequisites35.mjs"
+      - "tests/manifesting-prerequisites35.mjs"
       - "tests/patron-prerequisites35.mjs"
       - "scripts/build_class_completion_ledger.mjs"
       - "scripts/build_class_review_queue.mjs"
@@ -84,6 +86,7 @@ jobs:
       - run: node tests/class-subsystem-primitive-coverage35.mjs
       - run: node tests/patron-prerequisites35.mjs
       - run: node tests/power-point-prerequisites35.mjs
+      - run: node tests/manifesting-prerequisites35.mjs
       - run: node tests/prerequisite-normalization-wave35.mjs
       - run: node tests/language-prerequisites35.mjs
       - run: node tests/class-feature-prerequisites35.mjs

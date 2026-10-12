@@ -27,6 +27,8 @@ Latest subsystem correction (2026-10-11): table-derived manifesting profiles now
 
 Combined development includes:
 
+- shared manifesting entry checks (2026-10-12): five manifester-level and 21 generic power-level source clauses now use reviewed per-class Psion/Psychic Warrior/Wilder profiles, validated prestige advancement, actual saved usable powers and the shared PP capacity. Table ceilings alone do not prove power access. Unreviewed sources, inherited or incomplete psionic profiles, unapplied Practiced Manifester bonuses, and named/compound power requirements remain manual. The full 1,054-record audit now finds unsupported prerequisite shapes in 719 records, down from 733; certification remains 1 certified / 927 blocked / 126 pending.
+
 - shared PP entry prerequisites (2026-10-11): seven reserve-threshold records and Mindknight's base-only requirement use the canonical reserve. Multiclass/prestige contributions and capacity independent of expenditure are covered; uncertain data stays manual. The eight records retain other unsupported clauses, so the unsupported prerequisite record count remains 733.
 
 - shared 3.5 patron identity across Traits, Cleric casting choices and closed entry prerequisites (2026-10-11): 54 exact class records gain patron-clause evaluation; the unsupported-prerequisite record count falls from 744 to 733. Three unverified deity spellings and narrative requirements remain manual. This is clause coverage, not class certification.

@@ -2,6 +2,7 @@ import {hasWeaponTraining,startingProficiencies} from './training.js';
 import {evaluateClassFeaturePrerequisite35} from './classFeaturePrerequisites35.js';
 import {evaluatePatronPrerequisite35} from './patronDeity35.js';
 import {evaluatePowerPointPrerequisite35} from './powerPointPrerequisites35.js';
+import {evaluateManifestingPrerequisite35} from './manifestingPrerequisites35.js';
 
 // Closed prerequisite predicates. Undefined means the legacy evaluator owns the
 // clause; null means recognized but unresolved. No narrative substring matching.
@@ -59,6 +60,8 @@ export function prerequisiteDescription35(p){
   if(kind==='spellcasting'&&p.minimum!=null)return `Cast ${p.minimum}-level or higher ${p.tradition?p.tradition+' ':''}spells`;
   if(kind==='power_point_reserve')return `Power point reserve of at least ${p.minimum}`;
   if(kind==='base_power_points')return `Base power points per day of at least ${p.minimum} (excluding bonuses)`;
+  if(kind==='manifester_level')return `Manifester level ${p.minimum} or higher`;
+  if(kind==='manifesting'&&p.minimum!=null)return `Manifest a power of level ${p.minimum} or higher`;
   if(['all','any','count'].includes(kind)&&Array.isArray(p.requirements))return `${kind==='all'?'All':kind==='any'?'At least one':`At least ${p.minimum}`} of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='skill_list'&&Array.isArray(p.requirements))return `All of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='feat_count')return `At least ${p.minimum} distinct ${p.featType||(p.featTypes||[]).join(' or ')} feats`;
@@ -133,6 +136,8 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
   if(patron!==undefined)return patron;
   const powerPoints=evaluatePowerPointPrerequisite35(p,c);
   if(powerPoints!==undefined)return powerPoints;
+  const manifesting=evaluateManifestingPrerequisite35(p,c);
+  if(manifesting!==undefined)return manifesting;
   const kind=p.kind||p.type;
   if(['all','any','count'].includes(kind)){
     const nodes=p.requirements;

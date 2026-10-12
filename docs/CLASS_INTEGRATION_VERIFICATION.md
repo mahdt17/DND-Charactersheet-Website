@@ -4,6 +4,16 @@ The catalog-wide checks cover **1,079 class records**: 13 for 2014 (including
 Artificer), 12 for 2024, and 1,054 for 3.5. This is not a claim that every class
 mechanic is fully automated.
 
+## Manifesting entry prerequisites (2026-10-12)
+
+- Five exact source clauses require a standalone manifester level; 21 require generic power-level access. The closed parser and all-class audit expose the exact source IDs separately. Named powers, counts of powers, discipline restrictions and compound prose remain manual.
+- Positive proof uses only the reviewed Expanded Psionics Handbook Psion (`classes/psion-137`), Psychic Warrior (`classes/psychic-warrior-138`) and Wilder (`classes/wilder-140`). Their class levels plus validated psionic prestige advancement determine each profile independently. Multiclass manifester levels never pool. Unknown class rules, inherited profiles without reviewed rules, inconsistent identities and malformed advancement remain manual.
+- A power-level table ceiling is not evidence of knowing a power. Positive access requires a saved class-owned power accepted by the live special-casting rules, sufficient ability score, legal per-class PP spending limit and canonical pooled PP capacity. Spending does not remove entry capability. A missing/incomplete repertoire remains manual when the profile could qualify; a reviewed class below the required ceiling cannot qualify. The current reference-only psionics catalog is not enriched by this change.
+- Recorded Practiced Manifester makes an otherwise unproven ML threshold manual pending reviewed feat-target/bonus support. It does not grant table advancement or higher-level powers. Temporary and power-specific modifiers are not treated as permanent advancement.
+- Rules consulted: [SRD psionic power overview](https://www.d20srd.org/srd/psionic/psionicPowersOverview.htm), [Psion](https://www.d20srd.org/srd/psionic/classes/psion), [Psychic Warrior](https://www.d20srd.org/srd/psionic/classes/psychicWarrior.htm), and [Wilder](https://www.d20srd.org/srd/psionic/classes/wilder.htm). Class ML, powers known, key-ability requirements and the PP spending limit are distinct checks.
+- Unit coverage evaluates all 26 exact source clauses, every ML boundary, Wilder's delayed unlock, class ownership, ability and reserve limits, malformed proof, prestige removal and save/reopen. Browser coverage checks actual prestige entry rows for unmet, manual and met power access, spending the entire reserve, reopening saves and preserving other entry gates. Independent review identified the unapplied feat modifier and inherited/incomplete-profile rejection cases; both have regression coverage.
+- The read-only audit still spans all 1,054 classes. Unsupported prerequisite shapes now occur in 719 records (previously 733), and 114 generic feature-stacking metadata candidates remain. This is clause coverage, not certification: the ledger remains 1 certified, 927 blocked and 126 pending. Focused manifesting CI and certification CI include the new checks; `npm test` includes the unit suite.
+
 ## Shared 3.5 power-point reserve (2026-10-11)
 
 - `powerPointsUsed` is the canonical expenditure for both manifestation and Resource Tracker controls. One automatic shared counter displays the reserve; it cannot be edited into an independent class pool.

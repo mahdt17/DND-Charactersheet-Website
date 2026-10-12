@@ -37,7 +37,7 @@ assert.equal(status({...p1,abilityBonuses:{int:'bad'}},reserve(8)),'manual');
 assert.equal(status({...p1,powerPointBonus:{amount:Infinity,source:'Broken grant'}},reserve(100)),'manual');
 assert.equal(status(make([row('classes/war-mind-916',1)]),reserve(9)),'manual','unreviewed bonus ability cannot prove insufficient capacity');
 for(const minimum of [-1,0,1.5,'1',Infinity])assert.equal(status(p2,reserve(minimum)),'manual');
-for(const text of ['Must have a power point reserve of at least 1 power point and know mindlink.','Power point reserve of at least 1 or a divine spell.','Manifester level 5th.','Able to manifest 2nd-level powers.'])assert.equal(status(p2,{kind:'psionics',text}),'manual','unimplemented clauses stay unresolved');
+for(const text of ['Must have a power point reserve of at least 1 power point and know mindlink.','Power point reserve of at least 1 or a divine spell.','Manifester level 5th and able to manifest mindlink.'])assert.equal(status(p2,{kind:'psionics',text}),'manual','compound clauses stay unresolved');
 assert.equal(status({...p2,ruleset:'2014'},reserve(1)),'manual');
 assert.equal(status({...p2,ruleset:'custom',mechanics:'2014'},reserve(1)),'met','mixed-edition characters reuse their 3.5 reserve');
 assert.equal(status(make([{...psion(2),catalogId:'bad'}]),reserve(1)),'manual','mismatched class identity cannot prove PP');

@@ -15,6 +15,10 @@ assert.equal(report.prerequisites.patronDeity.recognizedClassCount,54,'closed pa
 assert.equal(new Set(report.prerequisites.patronDeity.sourceIds).size,54,'patron coverage exposes every exact source ID');
 assert.equal(report.prerequisites.powerPoints.recognizedClassCount,8,'reserve and base PP predicates cover eight exact records');
 assert.deepEqual(report.prerequisites.powerPoints.sourceIds,['classes/ebon-saint-276','classes/illithid-slayer-911','classes/mindknight-1032','classes/psibond-agent-299','classes/pyrokineticist-914','classes/sanctified-mind-561','classes/war-mind-916','classes/zerth-cenobite-282']);
+assert.equal(report.prerequisites.manifesterLevel.recognizedClassCount,5);
+assert.deepEqual(report.prerequisites.manifesterLevel.sourceIds,['classes/crystal-master-1046','classes/meditant-1049','classes/metamind-912','classes/psychic-assassin-1051','classes/sangehirn-1052']);
+assert.equal(report.prerequisites.powerAccess.recognizedClassCount,21);
+assert.deepEqual(report.prerequisites.powerAccess.sourceIds,['classes/ballisteer-993','classes/cerebral-assassin-994','classes/cerebremancer-908','classes/crystal-master-996','classes/crystalsinger-997','classes/defender-of-sardior-1041','classes/devotee-of-sardior-1040','classes/diamond-dragon-371','classes/elocater-909','classes/grim-psion-1023','classes/iron-mind-733','classes/kineticist-1024','classes/percipient-1042','classes/planar-vanguard-1043','classes/psion-uncarnate-913','classes/psionic-dragon-comrade-1047','classes/psychic-theurge-990','classes/psychic-weapon-master-1034','classes/sangehirn-1036','classes/shadow-mind-1037','classes/soul-manifester-1055']);
 assert.ok(report.featureStacking&&Number.isInteger(report.featureStacking.candidateClassCount),'feature-stacking reach is required');
 assert.equal(report.featureStacking.candidateClassCount,149,'tracker stacking candidate inventory must remain explicit');
 assert.ok(Array.isArray(report.prerequisites.clusters)&&report.prerequisites.clusters.length>0,'unsupported prerequisites must be decomposed into repeated shapes');
