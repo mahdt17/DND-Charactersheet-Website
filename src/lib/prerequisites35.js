@@ -1,6 +1,7 @@
 import {hasWeaponTraining,startingProficiencies} from './training.js';
 import {evaluateClassFeaturePrerequisite35} from './classFeaturePrerequisites35.js';
 import {evaluatePatronPrerequisite35} from './patronDeity35.js';
+import {evaluatePowerPointPrerequisite35} from './powerPointPrerequisites35.js';
 
 // Closed prerequisite predicates. Undefined means the legacy evaluator owns the
 // clause; null means recognized but unresolved. No narrative substring matching.
@@ -56,6 +57,8 @@ export function prerequisiteDescription35(p){
   if(p.text||p.description||p.name)return p.text||p.description||p.name;
   const kind=p.kind||p.type;
   if(kind==='spellcasting'&&p.minimum!=null)return `Cast ${p.minimum}-level or higher ${p.tradition?p.tradition+' ':''}spells`;
+  if(kind==='power_point_reserve')return `Power point reserve of at least ${p.minimum}`;
+  if(kind==='base_power_points')return `Base power points per day of at least ${p.minimum} (excluding bonuses)`;
   if(['all','any','count'].includes(kind)&&Array.isArray(p.requirements))return `${kind==='all'?'All':kind==='any'?'At least one':`At least ${p.minimum}`} of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='skill_list'&&Array.isArray(p.requirements))return `All of: ${p.requirements.map(prerequisiteDescription35).join('; ')}`;
   if(kind==='feat_count')return `At least ${p.minimum} distinct ${p.featType||(p.featTypes||[]).join(' or ')} feats`;
@@ -128,6 +131,8 @@ export function evaluatePrerequisite35(p,c,{subject,equipment=[],evaluate}={}){
   if(!p||typeof p!=='object'||Array.isArray(p))return null;
   const patron=evaluatePatronPrerequisite35(p,c);
   if(patron!==undefined)return patron;
+  const powerPoints=evaluatePowerPointPrerequisite35(p,c);
+  if(powerPoints!==undefined)return powerPoints;
   const kind=p.kind||p.type;
   if(['all','any','count'].includes(kind)){
     const nodes=p.requirements;

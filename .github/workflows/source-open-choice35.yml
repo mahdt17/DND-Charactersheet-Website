@@ -9,6 +9,7 @@ on:
       - "src/lib/advancement.js"
       - "src/lib/prerequisites35.js"
       - "src/lib/patronDeity35.js"
+      - "src/lib/powerPointPrerequisites35.js"
       - "src/lib/castingPrerequisites35.js"
       - "src/data/class-feature-summaries-35.json"
       - "tests/casting-prerequisites35.mjs"

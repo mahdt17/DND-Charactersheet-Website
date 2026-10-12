@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - "src/lib/manifesting35.js"
+      - "src/lib/powerPointPrerequisites35.js"
+      - "src/lib/prerequisites35.js"
+      - "src/lib/castingPrerequisites35.js"
       - "src/lib/classIntegration.js"
       - "src/lib/invocationAcquisition35.js"
       - "src/lib/resources.js"
@@ -16,6 +19,8 @@ on:
       - "public/catalogs/dndtools/classes.json"
       - "tests/manifesting35.mjs"
       - "tests/shared-power-points35.mjs"
+      - "tests/power-point-prerequisites35.mjs"
+      - "tests/browser-power-point-prerequisites35.mjs"
       - "tests/legacy-special-casting.mjs"
       - "tests/browser-manifesting35.mjs"
       - ".github/workflows/manifesting35.yml"
@@ -39,8 +44,10 @@ jobs:
       - run: npm ci
       - run: node tests/manifesting35.mjs
       - run: node tests/shared-power-points35.mjs
+      - run: node tests/power-point-prerequisites35.mjs
       - run: node tests/legacy-special-casting.mjs
       - run: node tests/resources.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - run: node tests/browser-manifesting35.mjs
+      - run: node tests/browser-power-point-prerequisites35.mjs

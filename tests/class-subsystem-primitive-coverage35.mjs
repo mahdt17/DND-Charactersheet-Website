@@ -13,6 +13,8 @@ assert.equal(report.mutatesSource,false,'coverage audit must remain read-only');
 assert.ok(report.prerequisites&&Number.isInteger(report.prerequisites.unsupportedClassCount),'unsupported prerequisite reach is required');
 assert.equal(report.prerequisites.patronDeity.recognizedClassCount,54,'closed patron requirements cover the exact measured cohort');
 assert.equal(new Set(report.prerequisites.patronDeity.sourceIds).size,54,'patron coverage exposes every exact source ID');
+assert.equal(report.prerequisites.powerPoints.recognizedClassCount,8,'reserve and base PP predicates cover eight exact records');
+assert.deepEqual(report.prerequisites.powerPoints.sourceIds,['classes/ebon-saint-276','classes/illithid-slayer-911','classes/mindknight-1032','classes/psibond-agent-299','classes/pyrokineticist-914','classes/sanctified-mind-561','classes/war-mind-916','classes/zerth-cenobite-282']);
 assert.ok(report.featureStacking&&Number.isInteger(report.featureStacking.candidateClassCount),'feature-stacking reach is required');
 assert.equal(report.featureStacking.candidateClassCount,149,'tracker stacking candidate inventory must remain explicit');
 assert.ok(Array.isArray(report.prerequisites.clusters)&&report.prerequisites.clusters.length>0,'unsupported prerequisites must be decomposed into repeated shapes');

@@ -27,6 +27,8 @@ Latest subsystem correction (2026-10-11): table-derived manifesting profiles now
 
 Combined development includes:
 
+- shared PP entry prerequisites (2026-10-11): seven reserve-threshold records and Mindknight's base-only requirement use the canonical reserve. Multiclass/prestige contributions and capacity independent of expenditure are covered; uncertain data stays manual. The eight records retain other unsupported clauses, so the unsupported prerequisite record count remains 733.
+
 - shared 3.5 patron identity across Traits, Cleric casting choices and closed entry prerequisites (2026-10-11): 54 exact class records gain patron-clause evaluation; the unsupported-prerequisite record count falls from 744 to 733. Three unverified deity spellings and narrative requirements remain manual. This is clause coverage, not class certification.
 
 - class grant reconciliation for features, actions, resources, training, progression tracks, and source removal

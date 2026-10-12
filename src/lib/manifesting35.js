@@ -45,12 +45,13 @@ export function powerPointProfile35(model){
 }
 
 export function powerPointReserve35(character){
-  const total=characterClasses(character).reduce((n,row)=>n+(powerPointProfile35(classCharacter(character,row))?.points||0),0);
+  const profiles=characterClasses(character).map(row=>powerPointProfile35(classCharacter(character,row))).filter(Boolean);
+  const total=profiles.reduce((n,profile)=>n+(profile.points||0),0),base=profiles.reduce((n,profile)=>n+profile.base,0);
   const bonus=character.powerPointBonus?.source?Math.max(0,Number(character.powerPointBonus.amount)||0):0;
   // An explicit canonical value, including zero, wins over serialized mirrors.
   const legacy=(character.resources||[]).filter(r=>r.manifesting35&&r.id!==sharedPowerPointsId35).reduce((n,r)=>n+Math.max(0,Number(r.used)||0),0);
   const used=Math.max(0,Number(character.powerPointsUsed??legacy)||0),maximum=total+bonus;
-  return {maximum,used,remaining:Math.max(0,maximum-used)};
+  return {base,maximum,used,remaining:Math.max(0,maximum-used)};
 }
 
 export function manifestingProfiles35(character){

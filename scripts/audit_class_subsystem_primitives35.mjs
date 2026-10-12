@@ -6,6 +6,7 @@ import {lowerPrerequisiteText35} from '../src/lib/prerequisites35.js';
 import {lowerCastingPrerequisite35} from '../src/lib/castingPrerequisites35.js';
 import {lowerClassFeaturePrerequisite35} from '../src/lib/classFeaturePrerequisites35.js';
 import {lowerPatronPrerequisite35} from '../src/lib/patronDeity35.js';
+import {lowerPowerPointPrerequisite35} from '../src/lib/powerPointPrerequisites35.js';
 
 const TOTAL=1054;
 const norm=value=>String(value||'').trim().replace(/[’]/g,"'").replace(/\s+/g,' ');
@@ -21,7 +22,8 @@ function supportedPrerequisiteShape(p){
     return p.requirements.every(supportedPrerequisiteShape);
   }
   if(kind==='spellcasting'&&Number.isInteger(p.minimum)&&p.minimum>=0&&p.minimum<=9)return !p.tradition||['arcane','divine'].includes(lower(p.tradition));
-  if(lowerCastingPrerequisite35(p)||lowerClassFeaturePrerequisite35(p)||lowerPrerequisiteText35(p)||lowerPatronPrerequisite35(p))return true;
+  if(lowerCastingPrerequisite35(p)||lowerClassFeaturePrerequisite35(p)||lowerPrerequisiteText35(p)||lowerPatronPrerequisite35(p)||lowerPowerPointPrerequisite35(p))return true;
+  if(['power_point_reserve','base_power_points'].includes(kind)&&Number.isSafeInteger(p.minimum)&&p.minimum>0)return true;
   if(kind==='level'&&Number.isInteger(p.minimum)&&p.minimum>0)return true;
   if(kind==='ability_choice'){
     const options=p.options?.from?.options,choose=p.options?.choose;
@@ -142,6 +144,7 @@ function trackerExample(entry,text){
 const catalogRaw=JSON.parse(await fs.readFile('public/catalogs/dndtools/classes.json','utf8'));
 const catalog=catalogRaw.map(record=>normalizeCatalogRecord(record,'dndtools','classes'));
 const patronSourceIds=catalog.filter(record=>record.prerequisites?.some(lowerPatronPrerequisite35)).map(record=>record.sourceId).sort();
+const powerPointSourceIds=catalog.filter(record=>record.prerequisites?.some(lowerPowerPointPrerequisite35)).map(record=>record.sourceId).sort();
 const tracker=JSON.parse(await fs.readFile('docs/class-completion-tracker.json','utf8'));
 const entries=tracker.entries||[];
 if(catalog.length!==TOTAL)throw new Error(`Expected ${TOTAL} class catalog records; found ${catalog.length}`);
@@ -194,6 +197,7 @@ const report={
   prerequisites:{
     unsupportedClassCount:unsupportedPrerequisiteIds.size,
     patronDeity:{recognizedClassCount:patronSourceIds.length,sourceIds:patronSourceIds},
+    powerPoints:{recognizedClassCount:powerPointSourceIds.length,sourceIds:powerPointSourceIds},
     clusters:prerequisiteRows,
     magicAccessBreakdown:clusterRows(magicAccessClusters)
   },

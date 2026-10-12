@@ -10,7 +10,7 @@ const score=(c,key)=>{
   const value=applyFeatAbilityIncrease(c,key,c.abilities[key]+bonus);
   return Number.isFinite(value)?value:null;
 };
-const consistentRow=row=>{
+export const consistentCastingRow35=row=>{
   if(!row?.definition||!Number.isInteger(row.level)||row.level<1||contentKey(row.definition)!==row.catalogId)return false;
   const ids=[row.definition.sourceId,row.definition.id,row.definition.catalogId].filter(Boolean).map(id=>String(id).replace(/^dndtools:/,''));
   return new Set(ids.filter(id=>id.startsWith('classes/'))).size<=1;
@@ -41,12 +41,12 @@ export function lowerCastingPrerequisite35(p){
   return null;
 }
 
-function validAdvancements(c,rows){
+export function validCastingAdvancements35(c,rows){
   const groups=new Map(),all=Array.isArray(c.castingAdvancements)?c.castingAdvancements:[];
   for(const entry of all){
     if(!entry||entry.automatic!==true||entry.sourceType!=='class'||entry.amount!==1||!Number.isInteger(entry.sourceClassLevel)||entry.sourceClassLevel<1)continue;
     const source=rows.find(row=>row.catalogId===entry.sourceClassId);
-    if(!consistentRow(source)||entry.sourceClassLevel>source.level)continue;
+    if(!consistentCastingRow35(source)||entry.sourceClassLevel>source.level)continue;
     const key=JSON.stringify([source.catalogId,entry.sourceClassLevel]);
     if(!groups.has(key))groups.set(key,{source,level:entry.sourceClassLevel,entries:[]});
     groups.get(key).entries.push(entry);
@@ -70,10 +70,10 @@ function validAdvancements(c,rows){
 export function evaluateCastingPrerequisite35(p,c){
   if(!Number.isInteger(p.minimum)||p.minimum<0||p.minimum>9||p.tradition&&!['arcane','divine'].includes(p.tradition))return null;
   if((c.ruleset==='custom'?c.mechanics:c.ruleset)!=='3.5')return null;
-  const rows=characterClasses(c).filter(row=>row.edition==='3.5'),advancements=validAdvancements(c,rows);
+  const rows=characterClasses(c).filter(row=>row.edition==='3.5'),advancements=validCastingAdvancements35(c,rows);
   let unknown=false;
   for(const row of rows){
-    if(!consistentRow(row)){unknown=true;continue;}
+    if(!consistentCastingRow35(row)){unknown=true;continue;}
     const extra=advancements.filter(e=>e.targetClassId===row.catalogId&&e.kind!=='psionic').length;
     const profile=spellSlotProgression(row.definition,row.level+extra);
     const reviewed=reviewedSpellcasting35(row.definition,row.level);
