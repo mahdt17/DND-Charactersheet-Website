@@ -1,0 +1,63 @@
+# Class content verification
+
+## Scope and meaning
+
+The catalog contains 1,054 D&D 3.5 class records. Existing import validation,
+historical `sourceReview: verified` labels, and passing catalog lifecycle tests
+do **not** establish that all rules text, prerequisites, skills, progression
+tables, spell lists or feature exceptions are correct. Automation certification
+is a separate measure.
+
+The field correction register in
+`src/data/class-source-corrections35.json` records exactly which fields were
+checked, their sources, and work still outstanding. Its current four records
+are **partial content reviews**, not four fully verified or completed classes.
+Earlier review evidence remains relevant but is not silently promoted into
+field-by-field accuracy evidence. Imported `referenceOnly`/enrichment flags are
+preserved; they must not be read as this stronger content guarantee.
+
+## Unearthed Arcana corrections — 2026-10-13
+
+| Exact source record | Confirmed extraction problem | Correction |
+| --- | --- | --- |
+| `classes/bardic-sage-118` | Only “Knowledge” listed as a skill; alignment text omitted allowed alignments | Full Bard skills, including the ten distinct Knowledge skills; 6 + Int points; neutral good, neutral, or neutral evil |
+| `classes/divine-bard-121` | No fixed class skill list or skill-point value | Full Bard skills and 6 + Int points |
+| `classes/battle-sorcerer-119` | Retained Bluff; undifferentiated Knowledge; missing skill points | Intimidate replaces Bluff; Knowledge (arcana); other Sorcerer skills; 2 + Int points |
+| `classes/domain-wizard-122` | No fixed class skill list | Full Wizard skills, including all ten Knowledge skills; 2 + Int points |
+
+Sources: [UA variant rules](https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm),
+[Bard](https://www.d20srd.org/srd/classes/bard.htm), and
+[Sorcerer/Wizard](https://www.d20srd.org/srd/classes/sorcererWizard.htm).
+Variant rules define the exceptions; unchanged fields inherit from the base
+class. Concise source-based summaries replace generated catalog descriptions.
+The summaries are not exhaustive feature text or spell lists.
+
+Corrections apply during catalog normalization only when edition source,
+category, source ID, name and source book match. Raw imports are preserved.
+The reviewed values reach derived skills and normalized stats. Characters
+already storing an older embedded definition are not silently migrated by this
+change; reselecting/refreshing their catalog definition is a separate concern.
+
+## Still required
+
+- Check complete progression tables and inherited feature text for these four
+  variants against the sources, including replacement and loss rules.
+- Verify and represent Bardic Sage/Divine Bard added spell lists, Battle
+  Sorcerer spells known, and every arcane-domain list.
+- Complete the distinct automation for split casting abilities, alignment
+  spell restrictions, bonus divinations, armor casting and domain choices.
+- Continue source comparison across the rest of the catalog. The four partial
+  reviews do not establish accuracy of the other 1,050 records.
+
+## Validation
+
+`tests/class-source-corrections35.mjs` first failed on Bardic Sage's truncated
+skill list and now checks all four corrected lists, point values, summaries,
+alignment, partial evidence, source isolation and sheet grants at levels
+1/10/20. JSON save/reload is stable for corrected definitions.
+The test is part of `npm test`.
+
+The full unit suite, all 1,054 class lifecycles (2,063 cases), and production
+build passed locally. The build retains its existing bundle-size warning.
+These results do not certify unreviewed rules. PR #8 remains draft; no merge
+or deployment is part of this content correction.

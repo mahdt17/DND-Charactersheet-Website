@@ -3,6 +3,7 @@ import descriptionOverrides35 from '../data/source-description-overrides-35.json
 import classSixBatchReview35 from '../data/class-six-batch-review-35.json' with {type:'json'};
 import classReviewedOverrides35 from '../data/class-reviewed-overrides-35.json' with {type:'json'};
 import classReviewedMartialOverrides35 from '../data/class-reviewed-overrides-35-martial.json' with {type:'json'};
+import classSourceCorrections35 from '../data/class-source-corrections35.json' with {type:'json'};
 import {reviewedWave35Override} from './reviewedClassWave35.js';
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
@@ -27,6 +28,12 @@ export function normalizeCatalogRecord(row, source, category) {
     progressionRepairProvenance:{sourceUrls:repair.sourceUrls,reviewedAt:repair.reviewedAt,reviewScope:repair.reviewScope}
   }:{};
   const clean={...row,...progressionRepair,...(reviewedClassOverride||{}),...(descriptionOverride?.effectSummary?{effectSummary:descriptionOverride.effectSummary,descriptionOverrideVerified:true,descriptionOverrideProvenance:descriptionOverride.provenance||[]}:{}),...(descriptionOverride?.description?{description:descriptionOverride.description}:{}),...(descriptionOverride?.effect?{effect:descriptionOverride.effect}:{}),...(descriptionOverride?.benefit?{benefit:descriptionOverride.benefit}:{}),...(descriptionOverride?.normalRule?{normalRule:descriptionOverride.normalRule}:{}),...(descriptionOverride?.specialRule?{specialRule:descriptionOverride.specialRule}:{})};
+  const correction=source==='dndtools'&&category==='classes'?classSourceCorrections35.entries[row.id]:null;
+  if(correction&&correction.name===row.name&&correction.sourceBook===row.sourceBook){
+    Object.assign(clean,structuredClone(correction.fields),{sourceContentReview:structuredClone(correction.review)});
+    // Reviewed summaries must supersede cached or generated descriptions too.
+    if(correction.fields.description)Object.assign(clean,{sourceDescription:correction.fields.description,descriptionOrigin:'source'});
+  }
   for(const k of ['effect','effectSummary','description']) if(isBoilerplate(clean[k])) delete clean[k];
   const description=[clean.description||clean.effectSummary||clean.effect||clean.benefit,clean.normalRule&&`Normal: ${clean.normalRule}`,clean.specialRule&&`Special: ${clean.specialRule}`].filter(Boolean).join('\n\n');
   const verified=Boolean(reviewedClassOverride?.verified)||(row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length);

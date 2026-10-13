@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "scope": "Field-level source corrections; not complete content or automation certification.",
+  "entries": {
+    "classes/bardic-sage-118": {
+      "name": "Bardic Sage",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Appraise",
+          "Balance",
+          "Bluff",
+          "Climb",
+          "Concentration",
+          "Craft",
+          "Decipher Script",
+          "Diplomacy",
+          "Disguise",
+          "Escape Artist",
+          "Gather Information",
+          "Hide",
+          "Jump",
+          "Knowledge (arcana)",
+          "Knowledge (architecture and engineering)",
+          "Knowledge (dungeoneering)",
+          "Knowledge (geography)",
+          "Knowledge (history)",
+          "Knowledge (local)",
+          "Knowledge (nature)",
+          "Knowledge (nobility and royalty)",
+          "Knowledge (religion)",
+          "Knowledge (the planes)",
+          "Listen",
+          "Move Silently",
+          "Perform",
+          "Profession",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Speak Language",
+          "Spellcraft",
+          "Swim",
+          "Tumble",
+          "Use Magic Device"
+        ],
+        "skillPoints": "6 + Int",
+        "description": "Bard variant with good Will and poor Fortitude and Reflex saves. Alignment must be neutral good, neutral, or neutral evil; becoming lawful or chaotic prevents further advancement but retains existing abilities. Intelligence determines minimum spell access; Charisma still determines bonus spells and save DCs. Gains one extra divination known at each available spell level and +2 on bardic knowledge checks. Inspire courage, greatness, and heroics linger for 3 rounds. Additional class spells require the source list.",
+        "prerequisites": [
+          {
+            "kind": "alignment",
+            "label": "Alignment",
+            "text": "Neutral good, neutral, or neutral evil"
+          }
+        ]
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "description",
+          "prerequisites"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/bard.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/bard.htm"
+          ],
+          "description": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ],
+          "prerequisites": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "Spell-list additions and extra divination selections",
+          "Complete progression and feature-by-feature source audit",
+          "Split-ability casting and inspiration-duration automation"
+        ]
+      }
+    },
+    "classes/divine-bard-121": {
+      "name": "Divine Bard",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Appraise",
+          "Balance",
+          "Bluff",
+          "Climb",
+          "Concentration",
+          "Craft",
+          "Decipher Script",
+          "Diplomacy",
+          "Disguise",
+          "Escape Artist",
+          "Gather Information",
+          "Hide",
+          "Jump",
+          "Knowledge (arcana)",
+          "Knowledge (architecture and engineering)",
+          "Knowledge (dungeoneering)",
+          "Knowledge (geography)",
+          "Knowledge (history)",
+          "Knowledge (local)",
+          "Knowledge (nature)",
+          "Knowledge (nobility and royalty)",
+          "Knowledge (religion)",
+          "Knowledge (the planes)",
+          "Listen",
+          "Move Silently",
+          "Perform",
+          "Profession",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Speak Language",
+          "Spellcraft",
+          "Swim",
+          "Tumble",
+          "Use Magic Device"
+        ],
+        "skillPoints": "6 + Int",
+        "description": "Bard variant casting divine spells. Wisdom determines minimum spell access; Charisma still determines bonus spells and save DCs. No deity is required. Alignment-tagged spells must match the caster’s alignment, so a true neutral divine bard cannot cast any of them. Uses the normal Bard skills and skill points. Additional class spells require the source list."
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "description"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/bard.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/bard.htm"
+          ],
+          "description": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "Added spell list and complete inherited Bard features",
+          "Alignment eligibility and full progression audit",
+          "Divine casting, split abilities and alignment spell restrictions"
+        ]
+      }
+    },
+    "classes/battle-sorcerer-119": {
+      "name": "Battle Sorcerer",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Concentration",
+          "Craft",
+          "Intimidate",
+          "Knowledge (arcana)",
+          "Profession",
+          "Spellcraft"
+        ],
+        "skillPoints": "2 + Int",
+        "description": "Sorcerer variant with d8 Hit Dice and Cleric base attack progression. Intimidate replaces Bluff as a class skill. Gains light armor proficiency and one chosen light or one-handed martial weapon. Light armor causes no arcane failure for spells from this class. Each available spell level has one fewer daily slot (minimum zero) and one fewer spell known (minimum one) than a normal Sorcerer."
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "description"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/sorcererWizard.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/sorcererWizard.htm"
+          ],
+          "description": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "Complete daily-slot and spells-known table audit",
+          "Weapon choice, proficiencies and inherited features",
+          "Class-specific armor casting and reduced spell acquisition"
+        ]
+      }
+    },
+    "classes/domain-wizard-122": {
+      "name": "Domain Wizard",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Concentration",
+          "Craft",
+          "Decipher Script",
+          "Knowledge (arcana)",
+          "Knowledge (architecture and engineering)",
+          "Knowledge (dungeoneering)",
+          "Knowledge (geography)",
+          "Knowledge (history)",
+          "Knowledge (local)",
+          "Knowledge (nature)",
+          "Knowledge (nobility and royalty)",
+          "Knowledge (religion)",
+          "Knowledge (the planes)",
+          "Profession",
+          "Spellcraft"
+        ],
+        "skillPoints": "2 + Int",
+        "description": "Wizard variant choosing a permanent arcane domain at 1st level. Cannot also specialize and has no prohibited schools. Domain spells become known when accessible, beyond the usual two new spells per level; non-Wizard domain spells join this character’s class list. Listed domain spells receive +1 caster level regardless of slot used. Each spell level gains a restricted domain slot, also usable for lower-level domain spells modified by metamagic."
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "description"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/sorcererWizard.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/sorcererWizard.htm"
+          ],
+          "description": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "All arcane-domain spell lists and complete inherited Wizard features",
+          "Full progression and spellbook source audit",
+          "Persistent arcane domain, restricted slots and per-spell caster level"
+        ]
+      }
+    }
+  }
+}

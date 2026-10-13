@@ -4,6 +4,15 @@ The catalog-wide checks cover **1,079 class records**: 13 for 2014 (including
 Artificer), 12 for 2024, and 1,054 for 3.5. This is not a claim that every class
 mechanic is fully automated.
 
+## Source-content corrections (2026-10-13)
+
+Four exact Unearthed Arcana variants now have corrected class skills and skill
+points; Bardic Sage also has its permitted alignments restored. Each correction
+records reviewed fields, source links and remaining gaps without certifying the
+whole class. See [content verification](CLASS_CONTENT_VERIFICATION35.md) for
+the evidence and limits. Catalog-wide test coverage is not a claim that all
+1,054 records contain fully correct rules.
+
 ## Shared smite resources (2026-10-13)
 
 - Exact PHB Paladin (`classes/paladin-95`) remains the owner of its existing Smite Evil resource. [Argent Fist](https://new.dndtools.org/classes/argent-fist-468) adds one daily use at level four and another at nine to that counter. Its Ascetic Knight damage uses Paladin + exact PHB Monk (`classes/monk-94`) + Argent Fist levels separately; those levels never advance Paladin daily-use milestones. Positive effective Charisma determines the attack bonus.
