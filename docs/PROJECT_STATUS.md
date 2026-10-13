@@ -21,9 +21,9 @@ Authoritative branch: `codex/class-integration-engine`
 
 Authoritative PR: #8
 
-Content verification update (2026-10-13): four Unearthed Arcana records have
+Content verification update (2026-10-13): nine Unearthed Arcana records have
 source-checked field corrections for incomplete or incorrect skills, skill
-points and Bardic Sage alignment. These are partial reviews; neither existing
+points and Bardic Sage/alternate-Paladin alignment. These are partial reviews; neither existing
 source labels nor catalog-wide test success proves all 1,054 classes accurate.
 See [CLASS_CONTENT_VERIFICATION35.md](CLASS_CONTENT_VERIFICATION35.md).
 

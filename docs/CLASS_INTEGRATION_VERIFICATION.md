@@ -6,8 +6,9 @@ mechanic is fully automated.
 
 ## Source-content corrections (2026-10-13)
 
-Four exact Unearthed Arcana variants now have corrected class skills and skill
-points; Bardic Sage also has its permitted alignments restored. Each correction
+Nine exact Unearthed Arcana variants now have corrected class skills and skill
+points; Bardic Sage and the three alternate Paladins also have their permitted
+alignments restored. Each correction
 records reviewed fields, source links and remaining gaps without certifying the
 whole class. See [content verification](CLASS_CONTENT_VERIFICATION35.md) for
 the evidence and limits. Catalog-wide test coverage is not a claim that all

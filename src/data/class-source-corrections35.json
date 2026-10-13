@@ -80,7 +80,8 @@
         "remaining": [
           "Spell-list additions and extra divination selections",
           "Complete progression and feature-by-feature source audit",
-          "Split-ability casting and inspiration-duration automation"
+          "Split-ability casting and inspiration-duration automation",
+          "Automated evaluation of the three permitted alignments; existing text gate remains manual"
         ]
       }
     },
@@ -247,6 +248,261 @@
           "All arcane-domain spell lists and complete inherited Wizard features",
           "Full progression and spellbook source audit",
           "Persistent arcane domain, restricted slots and per-spell caster level"
+        ]
+      }
+    },
+    "classes/paladin-of-freedom-125": {
+      "name": "Paladin of Freedom",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Concentration",
+          "Craft",
+          "Bluff",
+          "Handle Animal",
+          "Heal",
+          "Knowledge (nobility and royalty)",
+          "Knowledge (religion)",
+          "Profession",
+          "Ride",
+          "Sense Motive"
+        ],
+        "skillPoints": "2 + Int",
+        "prerequisites": [
+          {
+            "kind": "alignment",
+            "label": "Alignment",
+            "text": "Chaotic good"
+          }
+        ]
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "prerequisites"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/paladin.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/paladin.htm"
+          ],
+          "prerequisites": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "Full progression, feature descriptions and replacement/loss rules",
+          "Variant spell lists and eligibility exceptions",
+          "Feature, resource and choice automation beyond these corrected fields"
+        ]
+      }
+    },
+    "classes/paladin-of-slaughter-126": {
+      "name": "Paladin of Slaughter",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Concentration",
+          "Craft",
+          "Intimidate",
+          "Handle Animal",
+          "Heal",
+          "Knowledge (nobility and royalty)",
+          "Knowledge (religion)",
+          "Profession",
+          "Ride",
+          "Sense Motive"
+        ],
+        "skillPoints": "2 + Int",
+        "prerequisites": [
+          {
+            "kind": "alignment",
+            "label": "Alignment",
+            "text": "Chaotic evil"
+          }
+        ]
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "prerequisites"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/paladin.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/paladin.htm"
+          ],
+          "prerequisites": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "Full progression, feature descriptions and replacement/loss rules",
+          "Variant spell lists and eligibility exceptions",
+          "Feature, resource and choice automation beyond these corrected fields"
+        ]
+      }
+    },
+    "classes/paladin-of-tyranny-127": {
+      "name": "Paladin of Tyranny",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Concentration",
+          "Craft",
+          "Diplomacy",
+          "Handle Animal",
+          "Heal",
+          "Knowledge (nobility and royalty)",
+          "Knowledge (religion)",
+          "Profession",
+          "Ride",
+          "Sense Motive"
+        ],
+        "skillPoints": "2 + Int",
+        "prerequisites": [
+          {
+            "kind": "alignment",
+            "label": "Alignment",
+            "text": "Lawful evil"
+          }
+        ]
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints",
+          "prerequisites"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/paladin.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/paladin.htm"
+          ],
+          "prerequisites": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm"
+          ]
+        },
+        "remaining": [
+          "Full progression, feature descriptions and replacement/loss rules",
+          "Variant spell lists and eligibility exceptions",
+          "Feature, resource and choice automation beyond these corrected fields"
+        ]
+      }
+    },
+    "classes/druidic-avenger-123": {
+      "name": "Druidic Avenger",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Concentration",
+          "Craft",
+          "Intimidate",
+          "Handle Animal",
+          "Heal",
+          "Knowledge (nature)",
+          "Listen",
+          "Profession",
+          "Ride",
+          "Spellcraft",
+          "Spot",
+          "Survival",
+          "Swim"
+        ],
+        "skillPoints": "4 + Int"
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/druid.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/druid.htm"
+          ]
+        },
+        "remaining": [
+          "Full progression, feature descriptions and replacement/loss rules",
+          "Variant spell lists and eligibility exceptions",
+          "Feature, resource and choice automation beyond these corrected fields"
+        ]
+      }
+    },
+    "classes/urban-ranger-134": {
+      "name": "Urban Ranger",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "fields": {
+        "classSkills": [
+          "Climb",
+          "Concentration",
+          "Craft",
+          "Gather Information",
+          "Handle Animal",
+          "Heal",
+          "Hide",
+          "Jump",
+          "Knowledge (geography)",
+          "Knowledge (local)",
+          "Listen",
+          "Move Silently",
+          "Profession",
+          "Ride",
+          "Search",
+          "Sense Motive",
+          "Spot",
+          "Swim",
+          "Use Rope"
+        ],
+        "skillPoints": "6 + Int"
+      },
+      "review": {
+        "status": "partial",
+        "reviewedAt": "2026-10-13",
+        "fields": [
+          "classSkills",
+          "skillPoints"
+        ],
+        "fieldSources": {
+          "classSkills": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/ranger.htm"
+          ],
+          "skillPoints": [
+            "https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm",
+            "https://www.d20srd.org/srd/classes/ranger.htm"
+          ]
+        },
+        "remaining": [
+          "Full progression, feature descriptions and replacement/loss rules",
+          "Variant spell lists and eligibility exceptions",
+          "Feature, resource and choice automation beyond these corrected fields"
         ]
       }
     }
