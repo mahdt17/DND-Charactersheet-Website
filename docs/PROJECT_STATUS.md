@@ -27,6 +27,8 @@ Latest subsystem correction (2026-10-11): table-derived manifesting profiles now
 
 Combined development includes:
 
+- shared smite resource correction (2026-10-13): exact PHB Paladin and Argent Fist now share the Paladin counter. Argent Fist extra uses at levels four/nine are separate from Paladin/Monk/Argent damage progression; attack/damage guidance includes the melee/evil restriction. Legacy spending migrates once, custom counters survive class changes, and losing the native source leaves an unavailable contribution with spending retained. This is a reviewed first cohort, not all smite classes or automated combat resolution.
+
 - healing resource foundation (2026-10-12): core Paladin Lay on Hands now has its level-two, Charisma-based daily counter. Divine Champion keeps its separate restricted pool; automatic class counters show their source class. Shared ability formulas include recorded bonuses, and lowering capacity—even to zero—preserves expenditure. Focused healing CI covers spending, persistence and recovery. Smite damage/use/restriction progression remains a separate next step; this does not certify additional classes.
 
 - reviewed turning progression (2026-10-12): Deadgrim (583), Complete Divine Warpriest (255), and Libris Mortis Master of Shrouds (550) contribute to the existing feature-level ledger. Reviewed native Cleric and Paladin sources use their correct effective levels, including Paladin's minus-three offset. This is level bookkeeping only; turning/rebuking choices, daily uses and combat effects are not newly automated. Unreviewed or ambiguous native targets stay unresolved. Three generic metadata candidates now have reviewed declarations, leaving 111; no class certification changes.

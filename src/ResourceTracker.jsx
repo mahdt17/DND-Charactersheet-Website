@@ -32,6 +32,10 @@ export default function ResourceTracker({char,patch,abilities}) {
       const sourceLabel=manifesting?`${r.sourceClassName||r.source||'Psionic class'} · 3.5 manifesting progression`:auto?`${r.sourceClassName||r.className||r.source} · ${r.edition} class progression`:'Custom counter';
       return <div className="resource-entry" key={r.id} role="group" aria-label={`${r.name} resource`}>
         <div className="resource-row"><div><strong>{r.name}</strong><small>{sourceLabel}</small><small>{resourceRecoveryText(r)}</small></div><strong className="resource-count">{r.unlimited?'Unlimited':`${Math.max(0,r.max-r.used)} / ${r.max}`}</strong></div>
+        {r.smite35?.resolved===false&&!r.manual?<p className="l-muted">Additional smite uses need a reviewed native source. Spending is retained; review the source or customize this counter before using it.</p>:r.smite35&&!r.manual&&<p className="l-muted">
+          {r.smite35.sourceClassNames.join(' + ')}: {r.smite35.attackBonus==null?'attack bonus needs Charisma':`+${r.smite35.attackBonus} attack`}, {r.smite35.damageBonus==null?'damage needs source review':`+${r.smite35.damageBonus} damage`}.
+          {' '}Apply to one melee attack against an evil creature. A non-evil target still spends a use.
+        </p>}
         <div className="l-toolbar resource-controls">
           {!r.unlimited&&<><label className="l-field"><span>Amount</span><input aria-label={`${r.name} amount`} type="number" min="1" max={Math.max(r.max,r.used,1)} value={amounts[r.id]||1} onChange={e=>setAmounts({...amounts,[r.id]:Math.max(1,Math.floor(Number(e.target.value)||1))})}/></label><button className="l-button" disabled={!r.used} onClick={()=>change(r,-1)}>Restore</button><button className="l-button" disabled={r.used+(amounts[r.id]||1)>r.max} onClick={()=>change(r,1)}>Use</button></>}
           {!manifesting&&<><button className="l-button" onClick={()=>edit(r)}>Edit</button><button className="l-button" onClick={()=>remove(r)}>Remove</button></>}

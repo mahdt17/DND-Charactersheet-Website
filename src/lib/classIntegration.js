@@ -13,6 +13,7 @@ import {reconcileInvocationAcquisition35} from './invocationAcquisition35.js';
 import {reconcileDomainGrants35} from './legacyCastingChoices.js';
 import {migratePatronDeity35} from './patronDeity35.js';
 import {applyFeatAbilityIncrease} from './featMagic.js';
+import {reconcileSmiteResources35} from './smiteResources35.js';
 import {reconcileClassEffects35,describeClassEffect35} from './classEffects35.js';
 export {describeClassEffect35};
 
@@ -938,7 +939,7 @@ export function reconcileClassGrants(character){
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
     actions:mergeDerived(character.actions,actions),
     feats:mergeDerived(character.feats,feats,{feat:true}),
-    resources:mergeDerived(character.resources,resources,{resource:true}),
+    resources:reconcileSmiteResources35(character,mergeDerived(character.resources,resources,{resource:true})),
     trainingGrants:mergeDerived(character.trainingGrants,training),
     classSkills35:mergeDerived(character.classSkills35,classSkills35),
     classSkillRules35:mergeDerived(character.classSkillRules35,classSkillRules35),

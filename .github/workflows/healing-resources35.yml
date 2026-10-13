@@ -1,4 +1,4 @@
-name: 3.5 healing resources
+name: 3.5 healing and smite resources
 on:
   pull_request:
     branches: [main]
@@ -6,6 +6,7 @@ on:
       - "src/lib/classIntegration.js"
       - "src/lib/resources.js"
       - "src/lib/featMagic.js"
+      - "src/lib/smiteResources35.js"
       - "src/data/class-feature-summaries-35.json"
       - "src/data/class-reviewed-features-35-wave2.json"
       - "src/ResourceTracker.jsx"
@@ -13,6 +14,8 @@ on:
       - "public/catalogs/dndtools/classes.json"
       - "tests/healing-resources35.mjs"
       - "tests/browser-healing-resources35.mjs"
+      - "tests/smite-resources35.mjs"
+      - "tests/browser-smite-resources35.mjs"
       - "tests/class-wave35-metadata.mjs"
       - "tests/class-six-batch-finalization35.mjs"
       - "tests/resources.mjs"
@@ -39,10 +42,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node tests/healing-resources35.mjs
+      - run: node tests/smite-resources35.mjs
       - run: node tests/class-wave35-metadata.mjs
       - run: node tests/class-six-batch-finalization35.mjs
       - run: node tests/resources.mjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - run: node tests/browser-healing-resources35.mjs
+      - run: node tests/browser-smite-resources35.mjs
       - run: node tests/browser-resources.mjs

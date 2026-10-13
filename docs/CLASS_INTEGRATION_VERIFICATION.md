@@ -4,6 +4,14 @@ The catalog-wide checks cover **1,079 class records**: 13 for 2014 (including
 Artificer), 12 for 2024, and 1,054 for 3.5. This is not a claim that every class
 mechanic is fully automated.
 
+## Shared smite resources (2026-10-13)
+
+- Exact PHB Paladin (`classes/paladin-95`) remains the owner of its existing Smite Evil resource. [Argent Fist](https://new.dndtools.org/classes/argent-fist-468) adds one daily use at level four and another at nine to that counter. Its Ascetic Knight damage uses Paladin + exact PHB Monk (`classes/monk-94`) + Argent Fist levels separately; those levels never advance Paladin daily-use milestones. Positive effective Charisma determines the attack bonus.
+- Resource Tracker shows attack/damage guidance, the one-melee-attack evil-target restriction, and expenditure against a non-evil target. It does not apply bonuses to every attack or infer a target's alignment. The [Paladin rule](https://www.d20srd.org/srd/classes/paladin.htm) remains the base behavior.
+- Old automatic Paladin and Argent counters migrate their spent amounts once into the native counter. Lowering levels or removing Argent preserves spending. Removing Paladin leaves a zero-capacity unassigned Argent contribution holding spent uses; restoring the reviewed owner reconnects it without a refund. Daily rest resets held expenditure. Explicit custom counters preserve settings and spending even when their former class/feature is removed.
+- Source variants, inconsistent identities, duplicate class rows and ambiguous native counters cannot activate the reviewed stacking. An unreviewed Monk source leaves damage unresolved. Unassigned Argent contributions remain unavailable until the source is reviewed or the user explicitly customizes the counter. Independent smites such as Divine Champion's restricted Smite Infidel are not pooled.
+- Unit and browser coverage exercise milestone boundaries, distinct damage/uses, legacy migration, save/reopen, overspending, source removal/restoration, recovery, source identity, custom counters and unavailable contributions. The focused healing workflow now includes smite checks. Catalog-wide lifecycle coverage remains all 1,054 records, with unchanged certification; this does not complete Argent Fist's other features, ex-paladin state, substitution rules or other prestige smites.
+
 ## Healing resource foundation (2026-10-12)
 
 - The exact Player's Handbook Paladin source (`classes/paladin-95`) gains a Lay on Hands daily counter from level two, with capacity equal to class level times positive Charisma modifier, per the [SRD Paladin rule](https://www.d20srd.org/srd/classes/paladin.htm). The existing [Divine Champion](https://new.dndtools.org/classes/divine-champion-661) pool remains separate because it heals only the champion or a worshiper of the same patron. Resource cards now identify their source class; target restrictions remain in the feature description and are not automatically enforced.

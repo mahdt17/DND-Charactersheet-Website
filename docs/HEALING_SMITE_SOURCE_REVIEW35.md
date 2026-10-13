@@ -17,4 +17,6 @@ The next shared feature work must distinguish damage progression, additional use
 | [Sacred Warder of Bahamut (409)](https://new.dndtools.org/classes/sacred-warder-of-bahamut-409) | Independent evil-dragon-only smite. |
 | [Beloved of Valarian (160)](https://new.dndtools.org/classes/beloved-of-valarian-160) | Holy Smite is a spell-like ability, not a smite attack. |
 
-Next implementation boundary: represent a smite's source, target eligibility, attack bonus, damage contribution and daily-use ownership separately. Connect only source-reviewed declarations. Treat substitution, ex-class state and alternative-use selection as explicit dependencies rather than inferring them from a matching feature name.
+First implemented cohort (2026-10-13): exact PHB Paladin + Argent Fist reuse the native Paladin daily-use counter, with separate attack/damage guidance and preserved expenditure. Exact PHB Monk contributes to Ascetic Knight damage only. This does not activate generic feature-level progression declarations.
+
+Next implementation boundary: extend source-reviewed smite rules while keeping target eligibility, attack bonus, damage contribution and daily-use ownership separate. Treat substitution, ex-class state and alternative-use selection as explicit dependencies rather than inferring them from a matching feature name.
