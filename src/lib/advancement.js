@@ -39,15 +39,21 @@ function normalizeNamedClassLevel(record,table) {
   if(!rows.length||!rows.every((row,index)=>Array.isArray(row)&&/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(row[levelIndex]??'').trim())&&parseInt(row[levelIndex])===index+1))return table;
   return table.map((row,index)=>index===headerIndex?row.map((value,column)=>column===levelIndex?'Level':value):row);
 }
+function coreClassProgressionTables(name){
+  // Core references also contain companion/familiar tables. Only character
+  // advancement has a base-attack column; auxiliary benefits belong to pets.
+  return (legacyCore.classes.find(c=>c.name===name)?.tables||[]).filter(table=>
+    table.slice(0,5).some(row=>row.some(value=>/^(?:Base Attack Bonus|BAB)$/i.test(String(value).trim()))));
+}
 export function progressionTables(record) {
   // These source-linked reprints accidentally captured the familiar table.
   // Use the SRD Sorcerer progression, never familiar natural armor as class BAB.
   const sourceId=record?.sourceId||String(record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
-  if(record?.name==='Sorcerer'&&record.progression?.[0]?.some(value=>/^master class level$/i.test(String(value)))&&['classes/sorcerer-98','classes/sorcerer-109','classes/sorcerer-46','classes/sorcerer-70'].includes(sourceId))return legacyCore.classes.find(c=>c.name==='Sorcerer').tables;
+  if(record?.name==='Sorcerer'&&record.progression?.[0]?.some(value=>/^master class level$/i.test(String(value)))&&['classes/sorcerer-98','classes/sorcerer-109','classes/sorcerer-46','classes/sorcerer-70'].includes(sourceId))return coreClassProgressionTables('Sorcerer');
   // These source-linked reprints captured animal companion / special mount
   // tables. Limit repair to the original damaged shape, preserving custom edits.
   const companionReprints={Druid:['classes/druid-106','classes/druid-40','classes/druid-64','classes/druid-92'],Paladin:['classes/paladin-107','classes/paladin-43','classes/paladin-67','classes/paladin-95']};
-  if(companionReprints[record?.name]?.includes(sourceId)&&record.progression?.[0]?.some(value=>/^Bonus HD$/i.test(String(value)))&&record.progression[0].some(value=>/armor adj/i.test(String(value))))return legacyCore.classes.find(c=>c.name===record.name).tables;
+  if(companionReprints[record?.name]?.includes(sourceId)&&record.progression?.[0]?.some(value=>/^Bonus HD$/i.test(String(value)))&&record.progression[0].some(value=>/armor adj/i.test(String(value))))return coreClassProgressionTables(record.name);
   const p=record?.progression;
   if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [normalizeNamedClassLevel(record,p)];
   if(record?.tables?.length)return record.tables.map(table=>normalizeNamedClassLevel(record,table));

@@ -21,9 +21,12 @@ Authoritative branch: `codex/class-integration-engine`
 
 Authoritative PR: #8
 
-Content verification update (2026-10-13): nine Unearthed Arcana records have
-source-checked field corrections for incomplete or incorrect skills, skill
-points and Bardic Sage/alternate-Paladin alignment. These are partial reviews; neither existing
+Content verification update (2026-10-13): all 50 Unearthed Arcana records, ten
+exact PHB parents and all 32 DMG v.3.5 records now have field-level source
+evidence, with corrected skills, source inheritance and missing prerequisites.
+Fourteen tables are repaired, including companion-table contamination, variant
+BAB/saves and two epic milestone tables. These 92 records remain partial reviews;
+neither existing
 source labels nor catalog-wide test success proves all 1,054 classes accurate.
 See [CLASS_CONTENT_VERIFICATION35.md](CLASS_CONTENT_VERIFICATION35.md).
 

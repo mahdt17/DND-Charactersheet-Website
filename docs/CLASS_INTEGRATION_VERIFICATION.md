@@ -6,9 +6,11 @@ mechanic is fully automated.
 
 ## Source-content corrections (2026-10-13)
 
-Nine exact Unearthed Arcana variants now have corrected class skills and skill
-points; Bardic Sage and the three alternate Paladins also have their permitted
-alignments restored. Each correction
+All 50 exact Unearthed Arcana records, ten PHB parents and 32 DMG v.3.5 records
+have field-level source evidence. Corrections cover skill profiles, inherited
+source identity, missing prerequisites and fourteen tables, including variant
+BAB/saves, epic milestones and exclusion of companion benefits from character
+grants. Each correction
 records reviewed fields, source links and remaining gaps without certifying the
 whole class. See [content verification](CLASS_CONTENT_VERIFICATION35.md) for
 the evidence and limits. Catalog-wide test coverage is not a claim that all

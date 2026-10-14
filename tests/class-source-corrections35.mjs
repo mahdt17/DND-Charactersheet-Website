@@ -4,7 +4,7 @@ import {normalizeCatalogRecord} from '../src/lib/catalog.js';
 import {reconcileClassGrants,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
 
 const raw=JSON.parse(fs.readFileSync('public/catalogs/dndtools/classes.json','utf8'));
-const knowledge=['arcana','architecture and engineering','dungeoneering','geography','history','local','nature','nobility and royalty','religion','the planes'].map(x=>`Knowledge (${x})`);
+const knowledge=['arcana','architecture and engineering','dungeoneering','geography','history','local','nature','nobility and royalty','religion','the planes','psionics'].map(x=>`Knowledge (${x})`);
 const bard=['Appraise','Balance','Bluff','Climb','Concentration','Craft','Decipher Script','Diplomacy','Disguise','Escape Artist','Gather Information','Hide','Jump',...knowledge,'Listen','Move Silently','Perform','Profession','Sense Motive','Sleight of Hand','Speak Language','Spellcraft','Swim','Tumble','Use Magic Device'];
 const paladin=['Concentration','Craft','Diplomacy','Handle Animal','Heal','Knowledge (nobility and royalty)','Knowledge (religion)','Profession','Ride','Sense Motive'];
 const cases=[

@@ -1296,7 +1296,7 @@ const npcFixedSkillSets35=[
     'Appraise','Bluff','Diplomacy','Disguise','Forgery','Gather Information','Handle Animal','Intimidate',
     'Knowledge (arcana)','Knowledge (architecture and engineering)','Knowledge (dungeoneering)','Knowledge (geography)',
     'Knowledge (history)','Knowledge (local)','Knowledge (nature)','Knowledge (nobility and royalty)',
-    'Knowledge (religion)','Knowledge (the planes)','Listen','Perform','Ride','Sense Motive','Speak Language','Spot','Swim','Survival'
+    'Knowledge (religion)','Knowledge (the planes)','Knowledge (psionics)','Listen','Perform','Ride','Sense Motive','Speak Language','Spot','Swim','Survival'
   ]],
   ['classes/commoner-32',['Climb','Craft','Handle Animal','Jump','Listen','Profession','Ride','Spot','Swim','Use Rope']],
   ['classes/warrior-34',['Climb','Handle Animal','Intimidate','Jump','Ride','Swim']]
