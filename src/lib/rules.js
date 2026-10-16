@@ -5,6 +5,7 @@ import features from '../data/features.json';
 import subclasses from '../data/subclasses.json';
 import equipment from '../data/equipment.json';
 import {hasWeaponTraining,startingProficiencies} from './training.js';
+import {entomancerArmor,entomancerProfile} from './entomancer.js';
 
 export { classes, features, subclasses };
 export const castingAbility = { Bard:'cha', Cleric:'wis', Druid:'wis', Paladin:'cha', Ranger:'wis', Sorcerer:'cha', Warlock:'cha', Wizard:'int' };
@@ -64,7 +65,7 @@ export function armorFor(char, abilities) {
   const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
   const shield=worn.some(e=>e.index==='shield');
   const armor=worn.filter(e=>e.armor_class&&e.index!=='shield');
-  if(armor.length){const e=armor[0];return e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0);}
+  if(armor.length){const e=armor[0];return entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0),e.armor_category,abilities);}
   const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
@@ -77,7 +78,7 @@ export function armorFor(char, abilities) {
     return 10+dex+(shield?2:0);
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
-  return base+(shield?2:0);
+  return entomancerArmor(char,base+(shield?2:0),'',abilities);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
@@ -88,6 +89,7 @@ export function weaponAttacks(char, abilities) {
     const finesse=data.properties?.some(p=>p.index==='finesse');
     const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str;
     const trained=hasWeaponTraining(char,data,proficiencies);
-    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,attack:ability+(trained?2+Math.floor((char.level-1)/4):0),damage:`${data.damage.damage_dice}${signed(ability)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&data.weapon_range==='Melee'?2:0;
+    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike,damage:`${data.damage.damage_dice}${signed(ability+strike)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

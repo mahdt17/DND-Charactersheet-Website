@@ -1,16 +1,18 @@
 import {characterClasses} from './advancement.js';
+import {isEntomancerRecord,entomancerResource,populationId} from './entomancer.js';
+import {entomancerRest} from './entomancerActions.js';
 import {reconcileManifesting35,sharedPowerPointsId35} from './manifesting35.js';
 
 const count=v=>Math.max(0,Math.floor(Number(v)||0));
 const nameKey=s=>String(s||'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
-const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
+const unsupported=r=>!isEntomancerRecord(r)&&(r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige);
 
 // Reviewed core class counters only. Feature effects, conversions, and initiative
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return [];
-  const result=[];
+  const population=entomancerResource(c),result=population?[population]:[];
   for(const row of rows) {
     const n=row.level,cls=row.name;
     const add=(key,name,max,short=0,extra={})=>{
@@ -50,12 +52,15 @@ export function resourceMatches(resource,definition) {
 }
 export function characterResources(c,abilities) {
   const definitions=classResourceDefinitions(c,abilities),saved=reconcileManifesting35(c).resources;
-  const resources=saved.map(r=>{
+  // Rebuild the source-owned reserve from its saved expenditure so imported IDs
+  // and manual flags cannot separate tracker spending from swarm actions.
+  const resources=saved.filter(r=>r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
     const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey);
     return {...r,...(definition&&!r.manual?definition:{}),id:r.id,used:count(r.used)};
   });
   for(const d of definitions) {
-    if(c.hiddenClassResources?.includes(d.classResourceKey))continue;
+    if(d.id===populationId){resources.push(d);continue;}
+    if(d.id!==populationId&&c.hiddenClassResources?.includes(d.classResourceKey))continue;
     // Preserve older hand-entered pools and their rules until explicitly adopted.
     if(resources.some(r=>r.classResourceKey===d.classResourceKey||(!r.classResourceKey&&resourceMatches(r,d))))continue;
     resources.push(d);
@@ -77,7 +82,7 @@ export function adjustResource(c,id,amount,abilities) {
   const used=Math.max(0,count(r.used)+amount);
   return {...migration,...(id===sharedPowerPointsId35?{powerPointsUsed:used}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
 }
-export function restResources(c,rest,{meditated=false,restoreSorcery=false}={},abilities) {
+export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=false}={},abilities) {
   if(!['short','long'].includes(rest))throw Error('Choose a short or long rest.');
   const normalized=reconcileManifesting35(c),migration=normalized.powerPointsUsed!==c.powerPointsUsed?{powerPointsUsed:normalized.powerPointsUsed}:{};
   let restored=false;
@@ -87,5 +92,6 @@ export function restResources(c,rest,{meditated=false,restoreSorcery=false}={},a
     if(rest==='short'&&r.restoration&&restoreSorcery&&!c.sorcerousRestorationUsed&&r.used>0){recovery=r.restoration;restored=true;}
     return {...r,used:recovery==='all'?0:Math.max(0,count(r.used)-count(recovery))};
   });
-  return {...migration,resources,...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
+  const entomancer=entomancerRest({...c,resources},rest,{fed});
+  return {...migration,resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }

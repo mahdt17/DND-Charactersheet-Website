@@ -1,4 +1,5 @@
 import {characterClasses,classCharacter,baseProgression,progressionRow} from './advancement';
+import {entomancerProfile,entomancerFeatureRows} from './entomancer.js';
 import {multiclassPools,slotArray} from './multiclassCasting';
 import {spellSlotProgression} from './classIntegration.js';
 import {spellAccessForClass} from './spellAccess.js';
@@ -20,7 +21,7 @@ export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homeb
 export function resolveSpell(s,char){return allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s;}
 export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'?modern.classes:is35(c)?legacy.classes:classes).find(x=>x.name===c.className);}
 const abilityKey=value=>({str:'str',strength:'str',dex:'dex',dexterity:'dex',con:'con',constitution:'con',int:'int',intelligence:'int',wis:'wis',wisdom:'wis',cha:'cha',charisma:'cha'}[String(value||'').trim().toLowerCase()]||'');
-export function levelRecord(c,level=c.level){if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
+export function levelRecord(c,level=c.level){if(entomancerProfile({...c,level}).level)return {features:entomancerFeatureRows({...c,level}).filter(f=>f.level===level)};if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
 function legacySlotProfile(c){
  const classId=c.classDefinition?.catalogId||c.classDefinition?.id;
  const saved=(c.classSpellSlots||[]).find(profile=>profile.sourceClassId===classId)||(c.classSpellSlots||[]).find(profile=>profile.sourceClassName===c.className);
@@ -30,6 +31,7 @@ function legacySlotProfile(c){
  return spellSlotProgression(classRecord(c),c.level+extra)||saved;
 }
 function singleClassSlots(c){
+ const entomancer=entomancerProfile(c);if(entomancer.level)return entomancer.slots;
  const subclass=subclassCasting(c);if(subclass)return subclass.slots;
  if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){
   const profile=legacySlotProfile(c),slots=slotArray(profile?.slots);
@@ -50,7 +52,7 @@ export function spellSlotPools(c){
 }
 export const characterSlots=c=>spellSlotPools(c).standard;
 export const castingKey=c=>c.castingAbility||subclassCasting(c)?.ability||abilityKey(classRecord(c)?.spellcastingAbility)||(is35(c)?{Paladin:'wis',Ranger:'wis',Archivist:'int','Cloistered Cleric':'wis','Favored Soul':'wis','Spirit Shaman':'cha',Artificer:'int',Psion:'int','Psychic Warrior':'wis',Wilder:'cha'}[c.className]:c.className==='Artificer'?'int':null)||castingAbility[c.className]||'';
-export function spellCounts(c,score=10){if(is35(c)||c.ruleset==='custom')return {cantrips:99,known:99,prepared:99,mode:'custom'};
+export function spellCounts(c,score=10){const entomancer=entomancerProfile(c);if(entomancer.level)return {cantrips:entomancer.cantrips,known:null,prepared:entomancer.prepared,mode:'prepared'};if(is35(c)||c.ruleset==='custom')return {cantrips:99,known:99,prepared:99,mode:'custom'};
  const subclass=subclassCasting(c);if(subclass)return subclass;
  if(c.className==='Artificer'&&mechanics(c)==='2014'){const row=progressionRow(classRecord(c),c.level);return {cantrips:Number(row['Cantrips Known'])||0,known:null,prepared:Math.max(1,Math.floor(c.level/2)+modifier(score)),mode:'prepared'};}
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return {cantrips:p.cantrips_known||0,known:c.className==='Wizard'?6+2*(c.level-1):p.prepared_spells||0,prepared:p.prepared_spells||0,mode:c.className==='Wizard'?'spellbook':'prepared'};}
@@ -115,6 +117,7 @@ function legacyClassFeatures(record,level){
  return [...grouped.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
 }
 export function classFeatures(c){if(characterClasses(c).length>1)return characterClasses(c).flatMap(row=>{const model=classCharacter(c,row);return (classFeatures(model)||grantedClassFeatures(model)).map(f=>({...f,index:row.catalogId+':'+f.index,className:row.name,featureName:f.featureName||f.name,name:row.name+' · '+f.name}));});if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){const record=classRecord(c);const features=legacyClassFeatures(record,c.level);if(features.length)return features;return [{index:'class-reference',name:c.className+' progression',featureName:c.className+' progression',level:c.level,desc:[classRecord(c)?.description||'No structured class features are available for this source entry yet.'],sourceUrl:record?.sourceUrl||record?.url||''}];}
+ if(entomancerProfile(c).level)return entomancerFeatureRows(c);
  if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,featureName:f.name,level:Number(f.level?.name?.match(/\d+$/)?.[0]||0),desc:[f.description]}));
  return null;}
 export function legacyProgression(c){const d=classRecord(c),classId=c.classDefinition?.catalogId||c.classDefinition?.id||c.activeCastingClassId,r=baseProgression(d,c.level,c,classId);return Object.fromEntries(Object.entries(r).map(([k,v])=>[k,Number.isFinite(v)?v:0]));}

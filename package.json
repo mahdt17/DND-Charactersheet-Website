@@ -12,7 +12,9 @@
     "test:editions": "node tests/editions.mjs",
     "test:browser": "node tests/browser.mjs",
     "class:certify": "node scripts/build_class_completion_ledger.mjs",
-    "review:completion:queue": "node scripts/build_class_review_queue.mjs"
+    "review:completion:queue": "node scripts/build_class_review_queue.mjs",
+    "test:entomancer": "node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs",
+    "test:browser:entomancer": "node tests/browser-entomancer.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",

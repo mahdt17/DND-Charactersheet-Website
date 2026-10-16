@@ -21,6 +21,12 @@ Authoritative branch: `codex/class-integration-engine`
 
 Authoritative PR: #8
 
+Entomancer update (2026-10-16): the source-specific 2014 homebrew class and all
+four species now have creation/advancement, spellcasting, shared Population,
+combat effects, companions and saved play controls. See [Entomancer implementation](ENTOMANCER.md)
+for source rulings, verification and table-input boundaries. This addition does
+not change the completion status of the 1,054 D&D 3.5 source records.
+
 Content verification update (2026-10-13): all 50 Unearthed Arcana records, ten
 exact PHB parents and all 32 DMG v.3.5 records now have field-level source
 evidence, with corrected skills, source inheritance and missing prerequisites.

@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {existsSync} from 'node:fs';
+import {make} from './entomancer.mjs';
+import {applyEntomancerAction as A} from '../src/lib/entomancerActions.js';
+assert(existsSync('src/lib/entomancerCompanions.js'),'Companion combat must be implemented');
+const {entomancerCompanion,damageEntomancerCompanion}=await import('../src/lib/entomancerCompanions.js');
+let c=A(make(6),'summon',{target:'Swarm'}),id=c.entomancer.summons[0].id;
+assert.equal(entomancerCompanion(c.entomancer.summons[0]).damage,'4d4');
+c=damageEntomancerCompanion(c,id,22,{type:'slashing'});assert.equal(c.entomancer.summons[0].hp,11);
+assert.equal(entomancerCompanion(c.entomancer.summons[0]).damage,'2d4');
+c=A(make(6),'corpse-jacker',{target:'Zombie',type:'humanoid',size:'Medium'});id=c.entomancer.summons[0].id;
+const immune=damageEntomancerCompanion(c,id,100,{type:'poison'});assert.equal(immune.entomancer.summons[0].hp,22);
+c=damageEntomancerCompanion(c,id,23,{type:'slashing'});assert.equal(c.entomancer.summons[0].fortitudeDC,28);
+assert.equal(entomancerCompanion(c.entomancer.summons[0]).saves.con,3);
+console.log('PASS insect swarm injury scaling, resistances, zombie immunity and Undead Fortitude trigger');

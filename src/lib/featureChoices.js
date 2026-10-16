@@ -1,3 +1,4 @@
+import {isEntomancerRecord} from './entomancer.js';
 import {sourceFeatTemplateOptions35} from './sourceFeatTemplates35.js';
 import {sourceChoiceProviderOptions35} from './sourceChoiceProviders35.js';
 import {characterClasses,requirements,qualified,contentKey} from './advancement.js';
@@ -6,7 +7,7 @@ import {reconcileClassGrants,spellSlotProgression} from './classIntegration.js';
 import {companionChoiceOptions35,companionEffectiveLevel35} from './companions35.js';
 
 export const skillNames=['Acrobatics','Animal Handling','Arcana','Athletics','Deception','History','Insight','Intimidation','Investigation','Medicine','Nature','Perception','Performance','Persuasion','Religion','Sleight of Hand','Stealth','Survival'];
-const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
+const unsupported=r=>!isEntomancerRecord(r)&&(r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().toLowerCase().replace(/[’']/g,'');
 const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const alignmentCode=value=>{
