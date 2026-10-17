@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-08-candidates75-ordinary8",
+  "entries": {
+    "classes/ebonmar-infiltrator-261": {
+      "name": "Ebonmar Infiltrator",
+      "sourceBook": "Prestige Class CityScape",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/ebonmar-infiltrator-261",
+      "spellcastingAbility": "int",
+      "proficiencies": [],
+      "proficiencyText": "Ebonmar infiltrators gain no proficiency with weapons or armor. An infiltrator already proficient with light armor can cast infiltrator spells in light armor without arcane spell failure; medium or heavy armor and shields impose the normal arcane spell failure chance.",
+      "prerequisites": [
+        {"kind":"skills","label":"Skills","text":"Decipher Script 4 ranks"},
+        {"kind":"skills","label":"Skills","text":"Hide 8 ranks"},
+        {"kind":"skills","label":"Skills","text":"Move Silently 8 ranks"},
+        {"kind":"skills","label":"Skills","text":"Search 4 ranks"},
+        {"kind":"skills","label":"Skills","text":"Sense Motive 4 ranks"},
+        {"kind":"feats","label":"Feats","text":"Any two of the following: Alertness, Deceitful, Investigator, Negotiator, Stealthy"},
+        {"kind":"special","label":"Special","text":"Must be a member of House Ebonmar"}
+      ],
+      "classSkills": [
+        "Balance","Bluff","Climb","Craft","Decipher Script","Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information","Hide","Jump","Knowledge (nobility and royalty)","Listen","Move Silently","Open Lock","Search","Sense Motive","Sleight of Hand","Spot","Tumble","Use Rope"
+      ],
+      "conditionalMechanics": {
+        "piercingInsight": {
+          "bonusAt1": 1,
+          "bonusAt4": 2,
+          "bonusAt7": 3,
+          "bonusAt10": 4,
+          "skills": ["Search","Sense Motive","Spot"]
+        },
+        "combatAnticipation": {
+          "bonusAt3": 1,
+          "bonusAt6": 2,
+          "requiresLightOrNoArmor": true,
+          "eligibleCreatureTypes": ["humanoid","monstrous humanoid","giant"],
+          "appliesTo": ["Armor Class","Reflex saves","initiative checks"]
+        },
+        "sneakAttack": {
+          "extraDamageAt2": "1d6",
+          "extraDamageAt5": "2d6",
+          "extraDamageAt8": "3d6",
+          "stacksWithOtherSneakAttack": true
+        },
+        "hyperAwareness": {
+          "darkvisionFeet": 30,
+          "blindsenseFeet": 5
+        },
+        "shadowInTheNight": {
+          "usesPerDay": 1,
+          "durationFormula": "1 + Intelligence modifier rounds",
+          "effect": "ethereal jaunt"
+        }
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://srd.dndtools.org/srd/classes/prestigeCity/ebonmarInfiltrator.html",
+        "requirementsUrl": "https://srd.dndtools.org/srd/classes/prestigeCity/ebonmarInfiltrator.html",
+        "classSkillsUrl": "https://srd.dndtools.org/srd/classes/prestigeCity/ebonmarInfiltrator.html",
+        "reviewDate": "2026-10-08",
+        "note": "Exact Cityscape Ebonmar Infiltrator source reviewed. The reviewed overlay restores the full entry gate, class skills, no-new-training statement, Intelligence-based intrinsic arcane casting, and source-defined conditional mechanics while preserving the existing spell table and fixed class spell list."
+      }
+    }
+  }
+}

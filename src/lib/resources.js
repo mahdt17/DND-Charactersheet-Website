@@ -1,15 +1,20 @@
+import {campaignResources,campaignProfile,campaignRest} from './archivistCampaign.js';
+import {campaignPPId,campaignDarkId} from '../data/archivistCampaign.js';
 import {characterClasses} from './advancement.js';
+import {isEntomancerRecord,entomancerResource,populationId} from './entomancer.js';
+import {entomancerRest} from './entomancerActions.js';
+import {reconcileManifesting35,sharedPowerPointsId35} from './manifesting35.js';
 
 const count=v=>Math.max(0,Math.floor(Number(v)||0));
 const nameKey=s=>String(s||'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
-const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
+const unsupported=r=>!isEntomancerRecord(r)&&(r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige);
 
 // Reviewed core class counters only. Feature effects, conversions, and initiative
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
-  if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return [];
-  const result=[];
+  if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return campaignResources(c);
+  const population=entomancerResource(c),result=population?[population]:[];
   for(const row of rows) {
     const n=row.level,cls=row.name;
     const add=(key,name,max,short=0,extra={})=>{
@@ -48,13 +53,16 @@ export function resourceMatches(resource,definition) {
   return [definition.name,...definition.aliases||[]].some(n=>nameKey(resource.name)===nameKey(n));
 }
 export function characterResources(c,abilities) {
-  const definitions=classResourceDefinitions(c,abilities),saved=Array.isArray(c.resources)?c.resources:[];
-  const resources=saved.map(r=>{
+  const definitions=classResourceDefinitions(c,abilities),saved=reconcileManifesting35(c).resources;
+  // Rebuild the source-owned reserve from its saved expenditure so imported IDs
+  // and manual flags cannot separate tracker spending from swarm actions.
+  const resources=saved.filter(r=>!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
     const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey);
     return {...r,...(definition&&!r.manual?definition:{}),id:r.id,used:count(r.used)};
   });
   for(const d of definitions) {
-    if(c.hiddenClassResources?.includes(d.classResourceKey))continue;
+    if(d.id===populationId||d.campaignManaged){resources.push(d);continue;}
+    if(d.id!==populationId&&c.hiddenClassResources?.includes(d.classResourceKey))continue;
     // Preserve older hand-entered pools and their rules until explicitly adopted.
     if(resources.some(r=>r.classResourceKey===d.classResourceKey||(!r.classResourceKey&&resourceMatches(r,d))))continue;
     resources.push(d);
@@ -62,25 +70,31 @@ export function characterResources(c,abilities) {
   return resources;
 }
 export function resourceRecoveryText(r) {
+  if(r.recoveryText)return r.recoveryText;
   const short=r.shortRecovery??(r.reset==='short'?'all':0);
   return `${short==='all'?'All on short or long rest':short?`${short} on short rest; all on long rest`:r.reset==='none'?'Manual recovery':'All on long rest'}${r.meditation?' · requires 30 minutes of meditation':''}${r.restoration?' · optional Sorcerous Restoration on short rest':''}`;
 }
 export function adjustResource(c,id,amount,abilities) {
   if(!Number.isInteger(amount))throw Error('Use a whole number of resource points.');
-  const resources=characterResources(c,abilities),r=resources.find(r=>r.id===id);
+  const normalized=reconcileManifesting35(c),migration=normalized.powerPointsUsed!==c.powerPointsUsed?{powerPointsUsed:normalized.powerPointsUsed}:{};
+  const resources=characterResources(normalized,abilities),r=resources.find(r=>r.id===id);
   if(!r)throw Error('Resource not found.');
-  if(r.unlimited)return {resources};
+  if(r.unlimited)return {...migration,resources};
   if(amount>0&&count(r.used)+amount>count(r.max))throw Error('Not enough resource uses remaining.');
-  return {resources:resources.map(x=>x.id===id?{...x,used:Math.max(0,count(x.used)+amount)}:x)};
+  const used=Math.max(0,count(r.used)+amount);
+  return {...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
 }
-export function restResources(c,rest,{meditated=false,restoreSorcery=false}={},abilities) {
+export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=false}={},abilities) {
   if(!['short','long'].includes(rest))throw Error('Choose a short or long rest.');
+  const normalized=reconcileManifesting35(c),migration=normalized.powerPointsUsed!==c.powerPointsUsed?{powerPointsUsed:normalized.powerPointsUsed}:{};
   let restored=false;
-  const resources=characterResources(c,abilities).map(r=>{
+  const resources=characterResources(normalized,abilities).map(r=>{
     if(r.meditation&&!meditated)return r;
     let recovery=rest==='long'?(r.reset==='long'||r.reset==='short'?'all':0):(r.shortRecovery??(r.reset==='short'?'all':0));
     if(rest==='short'&&r.restoration&&restoreSorcery&&!c.sorcerousRestorationUsed&&r.used>0){recovery=r.restoration;restored=true;}
     return {...r,used:recovery==='all'?0:Math.max(0,count(r.used)-count(recovery))};
   });
-  return {resources,...(rest==='long'?{sorcerousRestorationUsed:false}:restored?{sorcerousRestorationUsed:true}:{})};
+  const campaign=campaignRest({...c,resources},rest);
+  const entomancer=entomancerRest(campaign,rest,{fed});
+  return {...migration,...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }

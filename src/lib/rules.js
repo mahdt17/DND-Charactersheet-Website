@@ -1,3 +1,5 @@
+import {campaignModifiers} from './campaignModifiers.js';
+import {campaignProfile} from './archivistCampaign.js';
 import levels from '../data/levels.json';
 import spells from '../data/spells.json';
 import classes from '../data/classes.json';
@@ -5,6 +7,7 @@ import features from '../data/features.json';
 import subclasses from '../data/subclasses.json';
 import equipment from '../data/equipment.json';
 import {hasWeaponTraining,startingProficiencies} from './training.js';
+import {entomancerArmor,entomancerProfile} from './entomancer.js';
 
 export { classes, features, subclasses };
 export const castingAbility = { Bard:'cha', Cleric:'wis', Druid:'wis', Paladin:'cha', Ranger:'wis', Sorcerer:'cha', Warlock:'cha', Wizard:'int' };
@@ -51,14 +54,34 @@ export function changeHP(hp, amount, healing=false) {
   const absorbed=Math.min(hp.temp||0,amount);
   return {...hp,temp:(hp.temp||0)-absorbed,current:Math.max(0,hp.current-(amount-absorbed))};
 }
+const legacySourceId=row=>String(row?.definition?.sourceId||row?.definition?.id||row?.catalogId||'').replace(/^dndtools:/,'');
+function legacyClassLevel(char,sourceId,fallbackName=''){
+  const rows=Array.isArray(char?.classLevels)?char.classLevels:[];
+  const exact=rows.filter(row=>legacySourceId(row)===sourceId).reduce((n,row)=>n+Math.max(0,Number(row.level)||0),0);
+  if(exact)return exact;
+  if(!rows.length&&char?.className===fallbackName)return Math.max(0,Number(char.level)||0);
+  return 0;
+}
 export function armorFor(char, abilities) {
   const dex=modifier(abilities.dex),con=modifier(abilities.con),wis=modifier(abilities.wis);
   const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
   const shield=worn.some(e=>e.index==='shield');
   const armor=worn.filter(e=>e.armor_class&&e.index!=='shield');
-  if(armor.length){const e=armor[0];return e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0);}
+  if(armor.length){const e=armor[0];return entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities);}
+  const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
+  if(legacy35){
+    const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
+    const monkVariantLevel=legacyClassLevel(char,'classes/monk-variant-954','Monk Variant');
+    const druidVariantLevel=legacyClassLevel(char,'classes/druid-variant-952','Druid Variant');
+    if(!shield&&(monkLevel||monkVariantLevel||druidVariantLevel)){
+      const classAcBonus=Math.min(4,Math.max(Math.floor(monkLevel/5),Math.floor(druidVariantLevel/5)));
+      return 10+dex+wis+classAcBonus;
+    }
+    return 10+dex+(shield?2:0);
+  }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
-  return base+(shield?2:0);
+  const campaign=campaignProfile(char),inertial=campaign.psion&&char.archivistCampaign?.powerEffects?.['inertial-armor']?.minutes>0?Number(campaign.rulings.inertialArmorBase??13)+dex:0;
+  return entomancerArmor(char,Math.max(base,inertial)+(shield?2:0)+campaignModifiers(char).ac,'',abilities);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
@@ -69,6 +92,7 @@ export function weaponAttacks(char, abilities) {
     const finesse=data.properties?.some(p=>p.index==='finesse');
     const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str;
     const trained=hasWeaponTraining(char,data,proficiencies);
-    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,attack:ability+(trained?2+Math.floor((char.level-1)/4):0),damage:`${data.damage.damage_dice}${signed(ability)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&data.weapon_range==='Melee'?2:0;
+    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike,damage:`${data.damage.damage_dice}${signed(ability+strike)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

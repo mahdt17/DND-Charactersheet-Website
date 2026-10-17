@@ -1,0 +1,241 @@
+[
+  {
+    "name": "Boccob",
+    "alignment": "N",
+    "domains": [
+      "Knowledge",
+      "Magic",
+      "Trickery"
+    ],
+    "favoredWeapon": "Quarterstaff",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/boccob"
+  },
+  {
+    "name": "Corellon Larethian",
+    "alignment": "CG",
+    "domains": [
+      "Chaos",
+      "Good",
+      "Protection",
+      "War"
+    ],
+    "favoredWeapon": "Longsword",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/corellon-larethian"
+  },
+  {
+    "name": "Ehlonna",
+    "alignment": "NG",
+    "domains": [
+      "Animal",
+      "Good",
+      "Plant",
+      "Sun"
+    ],
+    "favoredWeapon": "Longbow",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/ehlonna"
+  },
+  {
+    "name": "Erythnul",
+    "alignment": "CE",
+    "domains": [
+      "Chaos",
+      "Evil",
+      "Trickery",
+      "War"
+    ],
+    "favoredWeapon": "Morningstar",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/erythnul"
+  },
+  {
+    "name": "Fharlanghn",
+    "alignment": "N",
+    "domains": [
+      "Luck",
+      "Protection",
+      "Travel"
+    ],
+    "favoredWeapon": "Quarterstaff",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/fharlanghn"
+  },
+  {
+    "name": "Garl Glittergold",
+    "alignment": "NG",
+    "domains": [
+      "Good",
+      "Protection",
+      "Trickery"
+    ],
+    "favoredWeapon": "Battleaxe",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/garl-glittergold"
+  },
+  {
+    "name": "Gruumsh",
+    "alignment": "CE",
+    "domains": [
+      "Chaos",
+      "Evil",
+      "Strength",
+      "War"
+    ],
+    "favoredWeapon": "Spear",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/gruumsh"
+  },
+  {
+    "name": "Heironeous",
+    "alignment": "LG",
+    "domains": [
+      "Good",
+      "Law",
+      "War"
+    ],
+    "favoredWeapon": "Longsword",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/heironeous"
+  },
+  {
+    "name": "Hextor",
+    "alignment": "LE",
+    "domains": [
+      "Destruction",
+      "Evil",
+      "Law",
+      "War"
+    ],
+    "favoredWeapon": "Flail",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/hextor"
+  },
+  {
+    "name": "Kord",
+    "alignment": "CG",
+    "domains": [
+      "Chaos",
+      "Good",
+      "Luck",
+      "Strength"
+    ],
+    "favoredWeapon": "Greatsword",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/kord"
+  },
+  {
+    "name": "Moradin",
+    "alignment": "LG",
+    "domains": [
+      "Earth",
+      "Good",
+      "Law",
+      "Protection"
+    ],
+    "favoredWeapon": "Warhammer",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/moradin"
+  },
+  {
+    "name": "Nerull",
+    "alignment": "NE",
+    "domains": [
+      "Death",
+      "Evil",
+      "Trickery"
+    ],
+    "favoredWeapon": "Scythe",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/nerull"
+  },
+  {
+    "name": "Obad-Hai",
+    "alignment": "N",
+    "domains": [
+      "Air",
+      "Animal",
+      "Earth",
+      "Fire",
+      "Plant",
+      "Water"
+    ],
+    "favoredWeapon": "Quarterstaff",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/obad-hai"
+  },
+  {
+    "name": "Olidammara",
+    "alignment": "CN",
+    "domains": [
+      "Chaos",
+      "Trickery"
+    ],
+    "favoredWeapon": "Rapier",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/olidammara"
+  },
+  {
+    "name": "Pelor",
+    "alignment": "NG",
+    "domains": [
+      "Good",
+      "Healing",
+      "Strength",
+      "Sun"
+    ],
+    "favoredWeapon": "Mace",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/pelor"
+  },
+  {
+    "name": "St. Cuthbert",
+    "alignment": "LN",
+    "domains": [
+      "Destruction",
+      "Law",
+      "Protection",
+      "Strength"
+    ],
+    "favoredWeapon": "Mace",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/st-cuthbert"
+  },
+  {
+    "name": "Vecna",
+    "alignment": "NE",
+    "domains": [
+      "Evil",
+      "Knowledge",
+      "Magic"
+    ],
+    "favoredWeapon": "Dagger",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/vecna"
+  },
+  {
+    "name": "Wee Jas",
+    "alignment": "LN",
+    "domains": [
+      "Death",
+      "Law",
+      "Magic"
+    ],
+    "favoredWeapon": "Dagger",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/wee-jas"
+  },
+  {
+    "name": "Yondalla",
+    "alignment": "LG",
+    "domains": [
+      "Good",
+      "Law",
+      "Protection"
+    ],
+    "favoredWeapon": "Short sword",
+    "sourceUrl": "https://srd.dndtools.org/srd/basic/gods.html",
+    "identityUrl": "https://new.dndtools.org/deities/yondalla"
+  }
+]

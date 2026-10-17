@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "sourceUrl": "https://srd.dndtools.org/srd/magic/spells/classSpellLists/wujenSpells.html",
+  "spellElements": [
+    {
+      "level": 0,
+      "element": "Fire",
+      "name": "Dancing Lights"
+    },
+    {
+      "level": 0,
+      "element": "Fire",
+      "name": "Flare"
+    },
+    {
+      "level": 0,
+      "element": "Water",
+      "name": "Ray of Frost"
+    },
+    {
+      "level": 1,
+      "element": "All",
+      "name": "Elemental Burst"
+    },
+    {
+      "level": 1,
+      "element": "All",
+      "name": "Endure Elements"
+    },
+    {
+      "level": 1,
+      "element": "Earth",
+      "name": "Hail of Stone"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Fiery Eyes"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Melt"
+    },
+    {
+      "level": 1,
+      "element": "Fire",
+      "name": "Smoke Ladder"
+    },
+    {
+      "level": 1,
+      "element": "Metal",
+      "name": "Iron Scarf"
+    },
+    {
+      "level": 1,
+      "element": "Metal",
+      "name": "Magic Weapon"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Animate Water"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Cobra’s Breath"
+    },
+    {
+      "level": 1,
+      "element": "Water",
+      "name": "Obscuring Mist"
+    },
+    {
+      "level": 1,
+      "element": "Wood",
+      "name": "Animate Wood"
+    },
+    {
+      "level": 1,
+      "element": "Wood",
+      "name": "Backbiter"
+    },
+    {
+      "level": 2,
+      "element": "All",
+      "name": "Resist Energy"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Bear’s Endurance"
+    },
+    {
+      "level": 2,
+      "element": "Earth",
+      "name": "Bull’s Strength"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Animate Fire"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Cat’s Grace"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Fire Shuriken"
+    },
+    {
+      "level": 2,
+      "element": "Fire",
+      "name": "Pyrotechnics"
+    },
+    {
+      "level": 2,
+      "element": "Metal",
+      "name": "Entangling Scarf"
+    },
+    {
+      "level": 2,
+      "element": "Metal",
+      "name": "Protection from Arrows"
+    },
+    {
+      "level": 2,
+      "element": "Metal",
+      "name": "Rain of Needles"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Fog Cloud"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Ice Blast"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Ice Knife"
+    },
+    {
+      "level": 2,
+      "element": "Water",
+      "name": "Swim"
+    },
+    {
+      "level": 2,
+      "element": "Wood",
+      "name": "Warp Wood"
+    },
+    {
+      "level": 2,
+      "element": "Wood",
+      "name": "Wood Shape"
+    },
+    {
+      "level": 3,
+      "element": "All",
+      "name": "Protection from Energy"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Earthbolt"
+    },
+    {
+      "level": 3,
+      "element": "Earth",
+      "name": "Terra Cotta Warrior"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Fire Wings"
+    },
+    {
+      "level": 3,
+      "element": "Fire",
+      "name": "Fireball"
+    },
+    {
+      "level": 3,
+      "element": "Metal",
+      "name": "Keen Edge"
+    },
+    {
+      "level": 3,
+      "element": "Metal",
+      "name": "Magic Weapon, Greater"
+    },
+    {
+      "level": 3,
+      "element": "Metal",
+      "name": "Magnetism"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Gaseous Form"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Steam Breath"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Stinking Cloud"
+    },
+    {
+      "level": 3,
+      "element": "Water",
+      "name": "Water Breathing"
+    },
+    {
+      "level": 3,
+      "element": "Wood",
+      "name": "Plant Growth"
+    },
+    {
+      "level": 3,
+      "element": "Wood",
+      "name": "Thornskin"
+    },
+    {
+      "level": 3,
+      "element": "All",
+      "name": "Revitalize Legacy, Least"
+    },
+    {
+      "level": 4,
+      "element": "All",
+      "name": "Elemental Ward"
+    },
+    {
+      "level": 4,
+      "element": "All",
+      "name": "Scrying"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Dimension Door"
+    },
+    {
+      "level": 4,
+      "element": "Earth",
+      "name": "Stoneskin"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Fire Shield"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Fire Trap"
+    },
+    {
+      "level": 4,
+      "element": "Fire",
+      "name": "Wall of Fire"
+    },
+    {
+      "level": 4,
+      "element": "Metal",
+      "name": "Dancing Blade"
+    },
+    {
+      "level": 4,
+      "element": "Metal",
+      "name": "Poison Needles"
+    },
+    {
+      "level": 4,
+      "element": "Metal",
+      "name": "Rusting Grasp"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Ice Storm"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Solid Fog"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Wall of Ice"
+    },
+    {
+      "level": 4,
+      "element": "Water",
+      "name": "Water to Poison"
+    },
+    {
+      "level": 4,
+      "element": "Wood",
+      "name": "Antiplant Shell"
+    },
+    {
+      "level": 4,
+      "element": "Wood",
+      "name": "Command Plants"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Stone Shape"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Terra Cotta Lion"
+    },
+    {
+      "level": 5,
+      "element": "Earth",
+      "name": "Wall of Stone"
+    },
+    {
+      "level": 5,
+      "element": "Fire",
+      "name": "Fire Breath"
+    },
+    {
+      "level": 5,
+      "element": "Metal",
+      "name": "Metal Skin"
+    },
+    {
+      "level": 5,
+      "element": "Water",
+      "name": "Cone of Cold"
+    },
+    {
+      "level": 5,
+      "element": "Wood",
+      "name": "Wood Rot"
+    },
+    {
+      "level": 5,
+      "element": "All",
+      "name": "Revitalize Legacy, Lesser"
+    },
+    {
+      "level": 5,
+      "element": "All",
+      "name": "Suppress Legacy"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Flesh to Stone"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Move Earth"
+    },
+    {
+      "level": 6,
+      "element": "Earth",
+      "name": "Stone to Flesh"
+    },
+    {
+      "level": 6,
+      "element": "Fire",
+      "name": "Fire Seeds"
+    },
+    {
+      "level": 6,
+      "element": "Metal",
+      "name": "Spirit Needle"
+    },
+    {
+      "level": 6,
+      "element": "Metal",
+      "name": "Wall of Iron"
+    },
+    {
+      "level": 6,
+      "element": "Water",
+      "name": "Control Water"
+    },
+    {
+      "level": 6,
+      "element": "Wood",
+      "name": "Ironwood"
+    },
+    {
+      "level": 6,
+      "element": "Wood",
+      "name": "Repel Wood"
+    },
+    {
+      "level": 7,
+      "element": "All",
+      "name": "Scrying, Greater"
+    },
+    {
+      "level": 7,
+      "element": "Earth",
+      "name": "Statue"
+    },
+    {
+      "level": 7,
+      "element": "Fire",
+      "name": "Delayed Blast Fireball"
+    },
+    {
+      "level": 7,
+      "element": "Metal",
+      "name": "Decapitating Scarf"
+    },
+    {
+      "level": 7,
+      "element": "Wood",
+      "name": "Transmute Metal to Wood"
+    },
+    {
+      "level": 8,
+      "element": "Earth",
+      "name": "Earthquake"
+    },
+    {
+      "level": 8,
+      "element": "Fire",
+      "name": "Incendiary Cloud"
+    },
+    {
+      "level": 8,
+      "element": "Metal",
+      "name": "Repel Metal or Stone"
+    },
+    {
+      "level": 8,
+      "element": "Water",
+      "name": "Cloud Chariot"
+    },
+    {
+      "level": 8,
+      "element": "Water",
+      "name": "Horrid Wilting"
+    },
+    {
+      "level": 8,
+      "element": "Wood",
+      "name": "Control Plants"
+    },
+    {
+      "level": 8,
+      "element": "All",
+      "name": "Sever Legacy"
+    },
+    {
+      "level": 9,
+      "element": "Fire",
+      "name": "Internal Fire"
+    }
+  ]
+}

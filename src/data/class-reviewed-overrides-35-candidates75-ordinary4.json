@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-07-candidates75-ordinary4",
+  "entries": {
+    "classes/gatecrasher-602": {
+      "name": "Gatecrasher",
+      "sourceBook": "Prestige Class Manual of the Planes",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/gatecrasher-602",
+      "proficiencies": [
+        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
+        {"index": "light-armor", "name": "Light armor", "kind": "armor"}
+      ],
+      "proficiencyText": "Gatecrashers are proficient with all simple weapons and with light armor, but not with shields.",
+      "prerequisites": [
+        {"kind": "alignment", "label": "Alignment", "text": "Any nonlawful"},
+        {"kind": "skills", "label": "Skills", "text": "Knowledge (the planes) 4 ranks"},
+        {"kind": "skills", "label": "Skills", "text": "Use Magic Device 8 ranks"},
+        {"kind": "special", "label": "Special", "text": "Must have visited two planes of existence other than his native plane."}
+      ],
+      "classSkills": [
+        "Appraise", "Balance", "Jump", "Bluff", "Climb", "Craft", "Decipher Script", "Diplomacy", "Disable Device", "Disguise", "Escape Artist", "Forgery", "Gather Information", "Hide", "Intimidate", "Listen", "Move Silently", "Open Lock", "Perform", "Profession", "Search", "Sense Motive", "Speak Language", "Spot", "Tumble", "Use Magic Device", "Use Rope", "Knowledge", "Alchemy", "Innuendo", "Intuit Direction", "Pick Pocket", "Read Lips"
+      ],
+      "conditionalMechanics": {
+        "comprehension": {
+          "insightBonus": 2,
+          "skills": ["Decipher Script", "Use Magic Device"],
+          "alsoAppliesTo": ["Search checks for magic traps", "Disable Device checks for magic traps"]
+        },
+        "openPortal": {
+          "ability": "int",
+          "replacesAbility": "dex",
+          "skill": "Open Lock",
+          "typicalKeyedPortalDc": 30,
+          "sealedPortalDcFormula": "20 + caster level",
+          "deityPortalDc": 50,
+          "duration": "1d4+1 rounds"
+        },
+        "silverTongue": {
+          "insightBonus": 2,
+          "skills": ["Bluff", "Diplomacy", "Gather Information", "Intimidate", "Sense Motive"]
+        },
+        "planarSurvival": {
+          "naturalPlanarEffectsImmune": true,
+          "scope": "Effects that would be negated by avoid planar effects; only natural effects of the plane currently being visited."
+        },
+        "damageReduction": {
+          "amount": 5,
+          "bypass": "+1 enhancement or better",
+          "stacks": false
+        },
+        "summonSpellDampening": {
+          "radiusFeet": 100,
+          "durationRounds": 10,
+          "suppresses": ["summoning spells", "calling spells", "summoning spell-like abilities", "calling spell-like abilities"]
+        },
+        "planarDampening": {
+          "radiusFeet": 30,
+          "durationRounds": 10,
+          "suppressesNewPlanarAccessEffects": true
+        }
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/gatecrasher-602",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=602",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=602",
+        "reviewDate": "2026-10-07",
+        "note": "Exact Manual of the Planes D&D 3.0 Gatecrasher reviewed for nonlawful/skill/planar-visit entry gate, simple/light training, four planar-language selections, portal actions, dampening fields and daily spell-like abilities."
+      }
+    }
+  }
+}

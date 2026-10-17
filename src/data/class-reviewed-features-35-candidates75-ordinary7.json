@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/watch-detective-623": [
+      {
+        "name": "City Watch Training",
+        "description": "At 1st level gain a +2 insight bonus on Listen, Search, Sense Motive, and Spot checks."
+      },
+      {
+        "name": "Expertise",
+        "description": "At 2nd level gain the Expertise feat regardless of Intelligence score.",
+        "featName": "Expertise",
+        "ignorePrerequisites": true
+      },
+      {
+        "name": "Obsessive Specialty",
+        "description": "At 2nd level choose one Knowledge skill. Gain a bonus equal to Watch Detective class level on checks with that Knowledge skill.",
+        "choiceRequired": true,
+        "choiceKind": "source",
+        "choiceCount": 1,
+        "choiceLevels": [2],
+        "choiceOptions": ["Knowledge (arcana)", "Knowledge (architecture and engineering)", "Knowledge (geography)", "Knowledge (history)", "Knowledge (local)", "Knowledge (nature)", "Knowledge (nobility and royalty)", "Knowledge (religion)", "Knowledge (the planes)"]
+      },
+      {
+        "name": "Profile",
+        "description": "At 2nd level, with a successful Gather Information check against DC 15 while speaking with a witness, form a roughly accurate image of an accused perpetrator. The resulting verbal or visual depiction grants +2 insight on further Gather Information checks with witnesses to that crime or people acquainted with the perpetrator."
+      },
+      {
+        "name": "Cooperative Interrogation",
+        "description": "At 3rd level, when assisting another watch detective questioning the same subject, grant a +4 circumstance bonus on that ally's Bluff, Diplomacy, Intimidate, or Sense Motive check."
+      },
+      {
+        "name": "Superior Disarming",
+        "description": "At 3rd level gain a +4 bonus on attack rolls made to disarm an opponent."
+      },
+      {
+        "name": "Deductive Augury",
+        "aliases": ["Deductive augury 1/day", "Deductive augury 2/day", "Deductive augury 3/day"],
+        "description": "Beginning at 4th level, as a standard action make an assertion about a mystery, puzzle, or trap. The chance to receive a correct true-or-untrue answer is 70% + 1% per Watch Detective class level. Use this once per day at 4th level, twice per day at 7th, and three times per day at 10th.",
+        "actionType": "Standard action",
+        "resource": {"maxByLevel": {"4": 1, "7": 2, "10": 3}, "period": "day"}
+      },
+      {
+        "name": "Skill Synergy",
+        "description": "At 4th level choose one source-listed skill pair. If you have at least 5 ranks in both selected skills, gain a +2 synergy bonus on checks involving both.",
+        "choiceRequired": true,
+        "choiceKind": "source",
+        "choiceCount": 1,
+        "choiceLevels": [4],
+        "choiceOptions": ["Bluff-Gather Information", "Bluff-Diplomacy", "Climb-Move Silently", "Diplomacy-Gather Information", "Disguise-Gather Information", "Gather Information-Sense Motive", "Hide-Move Silently", "Listen-Read Lips", "Listen-Spot", "Sense Motive-Spot", "Spot-Disable Device", "Spot-Open Lock", "Spot-Search"]
+      },
+      {
+        "name": "No Subdual Penalty",
+        "description": "At 5th level you can deal subdual damage with a weapon that normally deals regular damage without taking the usual -4 attack penalty."
+      },
+      {
+        "name": "Sense Secret Doors",
+        "description": "At 5th level, merely passing within 5 feet of a secret or concealed door entitles you to a Search check as if actively looking. An elven Watch Detective gains +2 insight on such Search checks."
+      },
+      {
+        "name": "Locate Object",
+        "description": "At 6th level produce an effect identical to locate object as a sorcerer of your Watch Detective class level.",
+        "actionType": "Standard action"
+      },
+      {
+        "name": "Improved Subdual",
+        "description": "At 7th level add Intelligence bonus, if positive, to subdual damage dealt with any weapon."
+      },
+      {
+        "name": "Forensics",
+        "description": "At 8th level, a successful Search check against DC 20 while examining a corpse reveals the cause of death, approximate size and strength of an attacker, and other key evidence. You may take 20 given enough time."
+      },
+      {
+        "name": "Discern Lies",
+        "description": "At 9th level use discern lies as a spell-like ability once per day at a caster level equal to Watch Detective class level.",
+        "actionType": "Standard action",
+        "resource": {"max": 1, "period": "day"}
+      },
+      {
+        "name": "Locate Creature",
+        "description": "At 9th level use locate creature as a spell-like ability once per day at a caster level equal to Watch Detective class level.",
+        "actionType": "Standard action",
+        "resource": {"max": 1, "period": "day"}
+      },
+      {
+        "name": "Instant Knowledge",
+        "description": "At 10th level, once per day make an Intelligence check against DC 20 with a +10 insight bonus to answer one question within a particular Knowledge skill, even if untrained in that skill.",
+        "resource": {"max": 1, "period": "day"}
+      }
+    ]
+  }
+}

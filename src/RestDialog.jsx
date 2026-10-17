@@ -1,3 +1,4 @@
+import {entomancerLevel} from './lib/entomancer';
 import {characterResources,restResources} from './lib/resources';
 import React, {useState} from 'react';
 import Modal from './Dialog';
@@ -5,12 +6,16 @@ import {mechanics,is35} from './lib/editions';
 import {modifier,changeHP} from './lib/rules';
 import {conditionEffects,conditionNames,exhaustionLevel} from './lib/play';
 import {restSpellSlots} from './lib/multiclassCasting';
+import {restFeatMagic} from './lib/featMagic';
+import {restSpellAcquisition35} from './lib/spellAcquisition35';
+import {restDailySpellLike35} from './lib/dailySpellLike35';
 import {hitDicePools,needsHitDiceReview,recoveryLimit,defaultRecovery,setSpentHitDice,spendHitDice,recoverHitDice} from './lib/hitDice';
 
 function Count({label,value=0,max,onChange,disabled=false}) {
   return <label className="l-field"><span>{label}</span><input type="number" min="0" max={max} step="1" disabled={disabled} value={value} onChange={e=>onChange(Math.max(0,Math.min(max,Math.floor(Number(e.target.value)||0))))}/></label>;
 }
 export default function RestDialog({char,patch,roll,constitution,abilities,onClose}) {
+  const [fed,setFed]=useState(false);
   const [meditated,setMeditated]=useState(false),[restoreSorcery,setRestoreSorcery]=useState(false);
   const resources=characterResources(char,abilities);
   const [rest,setRest]=useState(is35(char)?'long':'short');
@@ -35,16 +40,17 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   }
   function takeRest() {
     try {
+      if(entomancerLevel(char)&&char.entomancer?.dead)throw Error('A dead character must be revived before resting.');
       const conditions=conditionNames(char);
-      if(legacy)patch({hp:changeHP(char.hp,char.level,true),slotsUsed:{},conditions:conditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted')});
+      if(legacy)patch(current=>{const daily=restDailySpellLike35(current,'long'),acquisition=restSpellAcquisition35(daily,'long'),currentConditions=conditionNames(current);return {hp:changeHP(current.hp,current.level,true),...restSpellSlots(current,'long'),...restFeatMagic(current,'long'),...restResources(current,'long',{},abilities),conditions:currentConditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted'),dailySpellLike35:daily.dailySpellLike35,spellAcquisition35:acquisition.spellAcquisition35,spellAcquisition35Incomplete:acquisition.spellAcquisition35Incomplete,spells:acquisition.spells};});
       else if(rest==='long')patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
-        ...restSpellSlots(char,'long'),...recoverHitDice(char,recovery),
+        ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
         concentration:null,deathSaves:{success:0,failure:0},
-        ...restResources(char,'long',{meditated},abilities)
+        ...restResources(char,'long',{meditated,fed},abilities)
       });
-      else patch({...spend(),...restSpellSlots(char,'short'),...restResources(char,'short',{meditated,restoreSorcery},abilities)});
+      else {const spent=spend();patch({...spent,...restSpellSlots(char,'short'),...restResources({...char,...spent},'short',{meditated,restoreSorcery,fed},abilities)});}
       onClose();
     }catch(e){setError(e.message);}
   }
@@ -57,8 +63,9 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       {!legacy&&<button className={`l-button ${rest==='short'?'primary':''}`} onClick={()=>{setRest('short');setError('');}}>Short rest</button>}
       <button className={`l-button ${rest==='long'?'primary':''}`} onClick={()=>{setRest('long');setRecovery(defaultRecovery(char));setError('');}}>Long rest</button>
     </div>
-    <p>{legacy?'After a full night of qualifying rest, recover your level in hit points and reset prepared slots. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
+    <p>{legacy?'After a full night of qualifying rest, recover your level in hit points. Prepared spell slots remain spent until daily study or prayer; account for casts in the last 8 hours. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared. Any 3.5 prepared spells still require daily study or prayer.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
     {!legacy&&<>
+      {entomancerLevel(char)>0&&<label className="l-check"><input type="checkbox" checked={fed} onChange={e=>setFed(e.target.checked)}/>Swarm was fed during this rest</label>}
       {resources.some(r=>r.meditation&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={meditated} onChange={e=>setMeditated(e.target.checked)}/>Meditated for at least 30 minutes (recover Ki Points)</label>}
       {rest==='short'&&resources.some(r=>r.restoration&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={restoreSorcery} disabled={!!char.sorcerousRestorationUsed} onChange={e=>setRestoreSorcery(e.target.checked)}/>Use Sorcerous Restoration{char.sorcerousRestorationUsed?' (already used until a long rest)':''}</label>}
       {needsReview&&<p className="l-notice">This older save recorded only a total of {char.hitDiceUsed} spent hit dice. They are provisionally assigned in class order. Review the spent dice below before resting.</p>}

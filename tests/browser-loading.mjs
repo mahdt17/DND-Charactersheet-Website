@@ -7,7 +7,7 @@ const html=await fs.readFile('dist/index.html','utf8'),entry=html.match(/src="([
 const entryPath=path.join('dist/assets',path.basename(entry)),bytes=(await fs.stat(entryPath)).size;
 assert(bytes<500_000,`Sign-in bundle unexpectedly includes ledger data: ${bytes} bytes`);
 const base=entry.slice(0,entry.indexOf('/assets/')+1),server=await preview({preview:{host:'127.0.0.1',port:5180}});
-const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 try {
  const page=await browser.newPage(),requests=[],errors=[];page.on('request',r=>requests.push(r.url()));page.on('pageerror',e=>errors.push(e.message));
  await page.goto(`http://127.0.0.1:5180${base}`);await page.getByRole('button',{name:'Explore the demo'}).waitFor();

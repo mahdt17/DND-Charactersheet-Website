@@ -1,0 +1,48 @@
+name: Structured 3.5 class effects
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/classEffects35.js"
+      - "src/data/class-effects-35.json"
+      - "src/lib/classIntegration.js"
+      - "src/LegacyTraining.jsx"
+      - "src/ClassEffects35.jsx"
+      - "src/ModernLedger.jsx"
+      - "tests/class-effects35.mjs"
+      - "tests/class-effects35-initiative.mjs"
+      - "tests/class-effects35-ac.mjs"
+      - "tests/class-effects35-activation.mjs"
+      - "tests/browser-class-effects35.mjs"
+      - "tests/browser-class-effects35-ac.mjs"
+      - "tests/browser-class-effects35-checks.mjs"
+      - "tests/browser-class-effects35-activation.mjs"
+      - ".github/workflows/class-effects35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: class-effects35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  effects:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/class-effects35.mjs
+      - run: node tests/class-effects35-initiative.mjs
+      - run: node tests/class-effects35-ac.mjs
+      - run: node tests/class-effects35-activation.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - run: node tests/browser-class-effects35.mjs
+      - run: node tests/browser-class-effects35-ac.mjs
+      - run: node tests/browser-class-effects35-checks.mjs
+      - run: node tests/browser-class-effects35-activation.mjs

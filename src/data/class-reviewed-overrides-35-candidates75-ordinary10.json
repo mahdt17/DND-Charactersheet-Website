@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-10-candidates75-ordinary10",
+  "entries": {
+    "classes/bayushi-deceiver-627": {
+      "name": "Bayushi Deceiver",
+      "sourceBook": "Prestige Class Oriental Adventures",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/bayushi-deceiver-627",
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"}
+      ],
+      "proficiencyText": "Bayushi deceivers are proficient with all simple and martial weapons and with light and medium armor.",
+      "prerequisites": [
+        {"kind":"alignment","label":"Alignment","text":"Any nonlawful"},
+        {"kind":"race","label":"Race","text":"Human (Scorpion)"},
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+3"},
+        {"kind":"skills","label":"Skills","text":"Bluff 8 ranks"},
+        {"kind":"skills","label":"Skills","text":"Diplomacy 8 ranks"},
+        {"kind":"feats","label":"Feat","text":"Improved Initiative"},
+        {"kind":"special","label":"Special","text":"Sneak Attack +2d6"}
+      ],
+      "classSkills": ["Balance","Bluff","Climb","Craft","Diplomacy","Forgery","Gather Information","Hide","Innuendo","Intimidate","Jump","Knowledge (nobility and royalty)","Listen","Move Silently","Perform","Profession","Read Lips","Search","Sense Motive","Spot","Swim","Tumble"],
+      "conditionalMechanics": {
+        "sneakAttack": {"diceAt1":"1d6","diceAt3":"2d6","diceAt5":"3d6","diceAt7":"4d6","diceAt9":"5d6"},
+        "poisonUse": {"riskOfPoisoningSelf":false},
+        "strikeFirstStrikeLast": {"initiativeAbility":"int","addsToDexterity":true},
+        "scorpionFeint": {"bluffBonus":2,"attackBonus":2,"target":"humanoids","attackBonusAppliesAfterSuccessfulFeint":true},
+        "opportunist": {"level":8}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/bayushi-deceiver-627",
+        "requirementsUrl": "https://new.dndtools.org/classes/bayushi-deceiver-627",
+        "classSkillsUrl": "https://new.dndtools.org/classes/bayushi-deceiver-627",
+        "reviewDate": "2026-10-10",
+        "note": "Exact Oriental Adventures D&D 3.0 Bayushi Deceiver reviewed independently. Entry gates, class skills, training, sneak-attack progression, initiative replacement, feint bonuses, fixed Improved Disarm grant and weapon-scoped Improved Critical choice are preserved without claiming live combat-effect automation."
+      }
+    },
+    "classes/guild-thief-514": {
+      "name": "Guild Thief",
+      "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/guild-thief-514",
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"}
+      ],
+      "proficiencyText": "Guild thieves are proficient with all simple weapons and light armor.",
+      "prerequisites": [
+        {"kind":"skills","label":"Skills","text":"Gather Information 3 ranks"},
+        {"kind":"skills","label":"Skills","text":"Hide 8 ranks"},
+        {"kind":"skills","label":"Skills","text":"Intimidate 3 ranks"},
+        {"kind":"skills","label":"Skills","text":"Move Silently 3 ranks"},
+        {"kind":"special","label":"Special","text":"Membership in a thieves' guild"}
+      ],
+      "classSkills": ["Appraise","Bluff","Climb","Craft","Diplomacy","Disable Device","Forgery","Innuendo","Intimidate","Jump","Knowledge (local)","Listen","Move Silently","Open Lock","Pick Pocket","Profession","Sense Motive","Spot","Use Rope"],
+      "conditionalMechanics": {
+        "sneakAttack": {"diceAt1":"1d6","diceAt3":"2d6","diceAt5":"3d6"},
+        "doublespeak": {"bonus":2,"skills":["Bluff","Diplomacy","Innuendo"]},
+        "uncannyDodge": {"dexToArmorClassLevel":2,"cannotBeFlankedLevel":5},
+        "reputation": {"bonusAt3":1,"bonusAt4":2,"bonusAt5":3}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/guild-thief-514",
+        "requirementsUrl": "https://new.dndtools.org/classes/guild-thief-514",
+        "classSkillsUrl": "https://new.dndtools.org/classes/guild-thief-514",
+        "reviewDate": "2026-10-10",
+        "note": "Exact Forgotten Realms Campaign Setting D&D 3.0 Guild Thief reviewed. The repeated bonus-feat milestones are represented by the shared class feature-choice engine, including parameterized Skill Focus and Weapon Focus subjects where the generic providers can resolve them."
+      }
+    },
+    "classes/enlightened-spirit-267": {
+      "name": "Enlightened Spirit",
+      "sourceBook": "Prestige Class Complete Mage",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/enlightened-spirit-267",
+      "proficiencies": [],
+      "proficiencyText": "Enlightened spirits gain no additional weapon or armor proficiencies.",
+      "prerequisites": [
+        {"kind":"alignment","label":"Alignment","text":"Any good"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (the planes) 8 ranks"},
+        {"kind":"special","label":"Special","text":"Eldritch blast 3d6"}
+      ],
+      "classSkills": ["Bluff","Concentration","Craft","Diplomacy","Disguise","Intimidate","Jump","Knowledge (arcana)","Knowledge (religion)","Knowledge (the planes)","Profession","Sense Motive","Spellcraft","Use Magic Device"],
+      "conditionalMechanics": {
+        "spiritArmor": {"bonusAt2":1,"bonusAt6":2,"bonusAt10":3},
+        "eldritchBlast": {"extraDiceAt2":"1d6","extraDiceAt4":"2d6","extraDiceAt6":"3d6","extraDiceAt8":"4d6","extraDiceAt10":"5d6"},
+        "energyResistance": {"value":5,"choiceCount":2,"options":["Acid","Cold","Electricity","Fire"]},
+        "alignmentLoss": {"required":"good","restoration":"atonement"}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/enlightened-spirit-267",
+        "requirementsUrl": "https://new.dndtools.org/classes/enlightened-spirit-267",
+        "classSkillsUrl": "https://new.dndtools.org/classes/enlightened-spirit-267",
+        "reviewDate": "2026-10-10",
+        "note": "Exact Complete Mage Enlightened Spirit reviewed. Source choices are persisted with the generic choice engine; invocation catalogs and ex-class/alignment state remain later subsystem work rather than being inferred here."
+      }
+    },
+    "classes/hellfire-warlock-463": {
+      "name": "Hellfire Warlock",
+      "sourceBook": "Prestige Class Fiendish Codex II: Tyrants of the Nine Hells",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/hellfire-warlock-463",
+      "proficiencies": [],
+      "proficiencyText": "Hellfire warlocks gain no additional weapon or armor proficiencies.",
+      "prerequisites": [
+        {"kind":"skills","label":"Skills","text":"Intimidate 6 ranks"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (the planes) 12 ranks"},
+        {"kind":"skills","label":"Skills","text":"Spellcraft 6 ranks"},
+        {"kind":"language","label":"Language","text":"Infernal"},
+        {"kind":"special","label":"Invocations","text":"Must know brimstone blast or hellrime blast"}
+      ],
+      "classSkills": ["Concentration","Disguise","Intimidate","Knowledge (arcana)","Knowledge (religion)","Knowledge (the planes)","Spellcraft","Use Magic Device"],
+      "conditionalMechanics": {
+        "hellfireBlast": {"extraDicePerClassLevel":2,"constitutionDamagePerUse":1,"requiresConstitutionScore":true,"blockedByAbilityDamageImmunity":true},
+        "hellfireInfusion": {"usesFormula":"Charisma modifier (minimum 1)","actionType":"Swift action"},
+        "fireResistance": {"value":10,"level":2},
+        "hellfireShield": {"actionType":"Immediate action","constitutionDamagePerUse":1}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/hellfire-warlock-463",
+        "requirementsUrl": "https://new.dndtools.org/classes/hellfire-warlock-463",
+        "classSkillsUrl": "https://new.dndtools.org/classes/hellfire-warlock-463",
+        "reviewDate": "2026-10-10",
+        "note": "Exact Fiendish Codex II Hellfire Warlock reviewed. The source's Constitution-damage costs and Charisma-based infusion-use formula are preserved as structured state without fabricating a fixed generic resource maximum."
+      }
+    },
+    "classes/fist-of-dal-quor-814": {
+      "name": "Fist of Dal Quor",
+      "sourceBook": "Prestige Class Secrets of Sarlona",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/fist-of-dal-quor-814",
+      "proficiencies": [],
+      "proficiencyText": "Fists of Dal Quor gain no additional weapon or armor proficiencies.",
+      "prerequisites": [
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+4"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (the planes) 4 ranks"},
+        {"kind":"race","label":"Race","text":"Chosen, Inspired, or kalashtar"},
+        {"kind":"feats","label":"Feat","text":"Any one psionic feat"},
+        {"kind":"special","label":"Weapon Proficiency","text":"Proficiency with any martial or exotic weapon; a mind blade counts"}
+      ],
+      "classSkills": ["Climb","Heal","Jump","Knowledge (psionics)","Knowledge (the planes)","Ride","Survival"],
+      "conditionalMechanics": {
+        "stunningStrike": {"usesFormula":"Fist of Dal Quor class level per day","psionicPointDcBoost":true,"sharedWithStunningFistWhenPresent":true},
+        "suddenStrike": {"diceAt1":"1d6","diceAt3":"2d6","diceAt5":"3d6"},
+        "resilientMind": {"saveBonus":2,"appliesTo":"mind-affecting effects"},
+        "resilientSoul": {"saveBonus":2,"appliesTo":"psionic powers and psi-like abilities"}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/fist-of-dal-quor-814",
+        "requirementsUrl": "https://new.dndtools.org/classes/fist-of-dal-quor-814",
+        "classSkillsUrl": "https://new.dndtools.org/classes/fist-of-dal-quor-814",
+        "reviewDate": "2026-10-10",
+        "note": "Exact Secrets of Sarlona Fist of Dal Quor reviewed. Shared Stunning Fist/Psi-point expenditure is retained as explicit mechanic metadata and remains for the later psionic/resource subsystem rather than being approximated."
+      }
+    },
+    "classes/inquisitor-of-the-drowning-goddess-901": {
+      "name": "Inquisitor of the Drowning Goddess",
+      "sourceBook": "Prestige Class Underdark",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/inquisitor-of-the-drowning-goddess-901",
+      "proficiencies": [
+        {"index":"steel-fins","name":"Steel fins","kind":"weapons","sourceOnly":true}
+      ],
+      "proficiencyText": "Inquisitors of the Drowning Goddess gain proficiency with steel fins and no other weapon or armor proficiency from the class.",
+      "prerequisites": [
+        {"kind":"race","label":"Race","text":"Kuo-toa"},
+        {"kind":"alignment","label":"Alignment","text":"Lawful evil or lawful neutral"},
+        {"kind":"skills","label":"Skills","text":"Concentration 8 ranks"},
+        {"kind":"skills","label":"Skills","text":"Knowledge (religion) 4 ranks"},
+        {"kind":"feats","label":"Feat","text":"Improved Unarmed Strike"},
+        {"kind":"patron_deity","label":"Patron Deity","text":"Blibdoolpoolp"}
+      ],
+      "classSkills": ["Bluff","Concentration","Craft","Diplomacy","Gather Information","Intimidate","Knowledge (arcana)","Knowledge (religion)","Sense Motive","Spellcraft","Spot"],
+      "conditionalMechanics": {
+        "fearAura": {"usesPerDay":1,"radiusFeet":20,"durationFormula":"1 round per Inquisitor of the Drowning Goddess class level","save":"Will","dcFormula":"10 + Inquisitor of the Drowning Goddess class level + Charisma modifier"},
+        "mienOfJustice": {"bonusAt1":4,"bonusAt5":8,"skills":["Intimidate","Sense Motive"]},
+        "grapplingAdhesive": {"bonusAt2":2,"bonusAt4":4,"requiresPreparedAdhesive":true},
+        "devotedMind": {"saveBonus":4,"appliesTo":["charm","compulsion","glamer"]},
+        "bodyCoatingAdhesive": {"requiresPreparedAdhesive":true}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/inquisitor-of-the-drowning-goddess-901",
+        "requirementsUrl": "https://new.dndtools.org/classes/inquisitor-of-the-drowning-goddess-901",
+        "classSkillsUrl": "https://new.dndtools.org/classes/inquisitor-of-the-drowning-goddess-901",
+        "reviewDate": "2026-10-10",
+        "note": "Exact Underdark Inquisitor of the Drowning Goddess reviewed. Fear Aura maps to the generic fixed resource/action engine; adhesive preparation/application and Mark of the Outcast remain explicit later-state work."
+      }
+    }
+  }
+}

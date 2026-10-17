@@ -2138,6 +2138,20 @@
           "role": "primary parsed class statistics, requirements, progression and features; class-skill rule omitted"
         }
       ]
+    },
+    "classes/tempest-621": {
+      "name": "Tempest",
+      "legacySourceUrl": "https://dndtools.net/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/tempest/",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/classes/tempest-621",
+          "role": "primary Masters of the Wild identity, progression and class features"
+        },
+        {
+          "url": "https://dndtools.net/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/tempest/",
+          "role": "source-specific historical requirements and class record"
+        }
+      ]
     }
   }
 }

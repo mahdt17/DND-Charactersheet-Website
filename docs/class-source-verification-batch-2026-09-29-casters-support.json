@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "checkpointCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+  "discoveryProvider": "Exa",
+  "extractionProvider": "Tavily",
+  "firecrawlFallbacks": 0,
+  "objectiveGate": {
+    "level20": true,
+    "classSkills": true,
+    "tableIntegrity": true,
+    "keyFeatures": true,
+    "contamination": false
+  },
+  "records": [
+    {
+      "sourceId": "classes/adept-917",
+      "name": "Adept",
+      "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/adept-917",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Full familiar creature state, statistics, progression, replacement/death handling, and sheet integration remain a companion subsystem.",
+      "nextAction": "Implement/reuse the structured familiar subsystem, then add creation/level-up/save-reopen regressions for Adept."
+    },
+    {
+      "sourceId": "classes/beguiler-100",
+      "name": "Beguiler",
+      "sourceBook": "Base Class Player's Handbook II",
+      "sourceUrl": "https://new.dndtools.org/classes/beguiler-100",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Advanced Learning choices are recorded generically but are not yet materialized as permanent additions to actual Beguiler spell access/known-spell state.",
+      "nextAction": "Materialize Advanced Learning into source-owned spell access with level/school eligibility and persistence regressions."
+    },
+    {
+      "sourceId": "classes/cleric-91",
+      "name": "Cleric",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-91",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated.",
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+    },
+    {
+      "sourceId": "classes/dragon-shaman-101",
+      "name": "Dragon Shaman",
+      "sourceBook": "Base Class Player's Handbook II",
+      "sourceUrl": "https://new.dndtools.org/classes/dragon-shaman-101",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Totem Dragon and aura selections persist, but the selected totem/aura options do not yet materialize all option-specific mechanics such as class skills, breath energy/shape, adaptation, immunity, Skill Focus eligibility, and individual aura effects.",
+      "nextAction": "Add structured option-mechanic payloads for totems and auras, then verify creation, level-up, persistence, and source removal."
+    },
+    {
+      "sourceId": "classes/dread-necromancer-75",
+      "name": "Dread Necromancer",
+      "sourceBook": "Base Class Heroes of Horror",
+      "sourceUrl": "https://new.dndtools.org/classes/dread-necromancer-75",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Advanced Learning is persisted as a generic source choice rather than a permanent spell-list addition, and full evil-familiar state remains a companion subsystem.",
+      "nextAction": "Integrate Advanced Learning with spell access and complete familiar-state automation before promotion."
+    },
+    {
+      "sourceId": "classes/duskblade-102",
+      "name": "Duskblade",
+      "sourceBook": "Base Class Player's Handbook II",
+      "sourceUrl": "https://new.dndtools.org/classes/duskblade-102",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "The source-specific Spells Known acquisition and odd-level spell-replacement rules are described but not represented as persisted structured spell choices.",
+      "nextAction": "Implement Duskblade known-spell gain/replacement choices with eligibility and persistence regressions."
+    },
+    {
+      "sourceId": "classes/marshal-78",
+      "name": "Marshal",
+      "sourceBook": "Base Class Miniatures Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/marshal-78",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Minor/Major Aura selections persist, but selected aura names are not materialized into option-specific sheet effects/descriptions.",
+      "nextAction": "Add structured Marshal aura option mechanics and creation/level-up/persistence/source-removal regressions."
+    },
+    {
+      "sourceId": "classes/paladin-95",
+      "name": "Paladin",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-95",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized.",
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+    },
+    {
+      "sourceId": "classes/ranger-96",
+      "name": "Ranger",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-96",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state.",
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+    },
+    {
+      "sourceId": "classes/warmage-5",
+      "name": "Warmage",
+      "sourceBook": "Base Class Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/warmage-5",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "blockingGap": "Advanced Learning choices are recorded generically but are not yet materialized as permanent additions to actual Warmage spell access.",
+      "nextAction": "Materialize Warmage Advanced Learning with evocation/level eligibility and persistence regressions."
+    }
+  ]
+}

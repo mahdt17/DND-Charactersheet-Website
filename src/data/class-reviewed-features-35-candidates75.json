@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/arcane-trickster-379": [
+      {
+        "name": "Ranged Legerdemain",
+        "description": "Perform Disable Device, Open Lock, or Sleight of Hand at a range of 30 feet on an object weighing 5 pounds or less. The check DC increases by 5 and you cannot take 10. Daily uses are 1 at 1st level, 2 at 5th, and 3 at 9th.",
+        "resource": {"maxByLevel":{"1":1,"5":2,"9":3},"period":"day"}
+      },
+      {
+        "name": "Sneak Attack",
+        "description": "Gain +1d6 sneak attack damage at 2nd level and another +1d6 every two class levels thereafter, reaching +5d6 at 10th. This stacks with sneak attack from other sources."
+      },
+      {
+        "name": "Impromptu Sneak Attack",
+        "description": "Beginning at 3rd level, declare one melee or ranged attack within 30 feet to deny the target its Dexterity bonus to AC against that attack. Use once per day at 3rd level and twice per day at 7th level.",
+        "resource": {"maxByLevel":{"3":1,"7":2},"period":"day"}
+      }
+    ],
+    "classes/eldritch-knight-386": [
+      {
+        "name": "Bonus Feat",
+        "description": "At 1st level choose one feat from the fighter bonus feat list. You must meet all prerequisites for the selected feat.",
+        "choiceKind": "feat",
+        "choiceRequired": true,
+        "choiceLevels": [1],
+        "choiceFeatType": "Fighter",
+        "choiceCount": 1,
+        "choiceValidatePrerequisites": true
+      }
+    ],
+    "classes/mystic-theurge-390": [],
+    "classes/fist-of-hextor-769": [
+      {
+        "name": "Brutal Strike",
+        "description": "At the start of each action choose to apply the current Brutal Strike bonus to one attack roll or one damage roll, but not both. The bonus is +1 at 1st level and improves to +2 at 4th, +3 at 7th, and +4 at 10th."
+      },
+      {
+        "name": "Strength Boost",
+        "description": "Call on Hextor for a +4 Strength bonus lasting 4 rounds plus your Fist of Hextor level. Use once per day at 2nd level, twice per day at 5th, and three times per day at 8th.",
+        "resource": {"maxByLevel":{"2":1,"5":2,"8":3},"period":"day"}
+      },
+      {
+        "name": "Frightful Presence",
+        "description": "As a free action while making a dramatic act, project fear to creatures that can perceive you within 5 feet per class level. Affected creatures are frightened for 5d6 rounds; a successful Will save (DC 10 + class level + Charisma modifier) leaves them shaken instead. Use once per day at 3rd level, twice at 6th, and three times at 9th.",
+        "actionType": "Free action",
+        "resource": {"maxByLevel":{"3":1,"6":2,"9":3},"period":"day"}
+      }
+    ],
+    "classes/force-missile-mage-986": [
+      {
+        "name": "Bonus Missile",
+        "description": "Every magic missile spell creates one additional missile at 1st level, even beyond the normal five-missile maximum. At 5th level it creates two additional missiles instead, allowing up to seven missiles."
+      },
+      {
+        "name": "Still Missile",
+        "description": "Your magic missile spells have no somatic component, as though affected by Still Spell without increasing spell level."
+      },
+      {
+        "name": "Energy Missile",
+        "description": "When casting magic missile, choose acid, cold, electricity, or fire and add that descriptor to the spell. All missiles from that casting use the chosen descriptor while remaining force effects."
+      },
+      {
+        "name": "Swift Shield",
+        "description": "Once per day cast shield as an immediate action in addition to your normal spells per day, using your highest caster level.",
+        "actionType": "Immediate action",
+        "resource": {"max":1,"period":"day"}
+      },
+      {
+        "name": "Overpowering Missile",
+        "aliases": ["Overpowering Missle"],
+        "description": "Gain +2 on caster-level checks to overcome spell resistance with magic missile. Your magic missiles can also attempt caster-level checks to penetrate shield spells or brooches of shielding."
+      },
+      {
+        "name": "Reflective Shield",
+        "description": "For purposes of magic missile, you are continuously treated as protected by spell turning and reflect offensive magic missiles back at their caster, subject to the normal interactions with shield, brooches of shielding, and spell turning."
+      }
+    ],
+    "classes/master-of-the-yuirwood-886": [
+      {
+        "name": "Work Menhir Circle",
+        "aliases": ["Work Menhir Circle (Yuirwood)","Work Menhir Circle (Faerûn)","Work Menhir Circle (Faern)","Work Menhir Circle (Return)","Work Menhir Circle (Other Worlds)"],
+        "description": "Activate a suitable menhir circle once per day per class level. At 1st level travel among Yuirwood circles or Sildëyuir; 4th level expands outbound travel to wooded standing-stone circles in Faerûn, 7th level permits return to the Yuirwood, and 10th level extends this travel to other worlds.",
+        "resource": {"perLevel":1,"period":"day"}
+      },
+      {
+        "name": "Uncanny Dodge",
+        "description": "Beginning at 2nd level retain your Dexterity bonus to AC when flat-footed. If another class already grants uncanny dodge, the abilities combine according to the source rule and can produce improved uncanny dodge."
+      },
+      {
+        "name": "Pass without Trace",
+        "description": "At 3rd level use pass without trace once per day, affecting up to one creature per Master of the Yuirwood level.",
+        "resource": {"max":1,"period":"day"}
+      },
+      {
+        "name": "Improved Uncanny Dodge",
+        "description": "At 5th level you cannot be flanked except by a rogue at least four levels higher, subject to the source's stacking rule for classes that grant uncanny dodge."
+      },
+      {
+        "name": "Speak with Animals",
+        "description": "At 6th level use speak with animals at will."
+      },
+      {
+        "name": "Forest's Grace",
+        "aliases": ["Forest’s Grace"],
+        "description": "At 9th level add your Charisma modifier, if positive, as a bonus on all saving throws."
+      }
+    ]
+  }
+}

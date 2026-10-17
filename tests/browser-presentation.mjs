@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
 const server=await createServer({server:{host:'127.0.0.1',port:5182}});await server.listen();
-const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 const capture=async name=>page.screenshot({path:`test-results/presentation-${name}.png`,fullPage:true});
 const scenic=()=>page.locator('.appearance-control').locator('summary').click();
@@ -17,9 +17,17 @@ try {
  await page.locator('.ledger-nav nav').getByRole('button',{name:/Characters/}).click();await page.getByRole('button',{name:'Open character'}).click();await capture('sheet-dark');
  await page.getByRole('button',{name:'Dice roller',exact:true}).click();const tray=page.getByRole('complementary',{name:'Dice roller'});
  assert.equal(await tray.getByRole('radio').count(),5);
+ let releaseRenderer;const rendererGate=new Promise(resolve=>{releaseRenderer=resolve;});
+ await page.route('**/src/lib/diceRenderer*',async route=>{await rendererGate;await route.continue();});
+ await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-stage[data-phase="loading"]').waitFor();
+ assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).opacity),'0','Uninitialized WebGL canvas must stay hidden');
+ releaseRenderer();await page.locator('.dice-canvas[data-ready="true"]').waitFor();
+ assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
+ await page.unroute('**/src/lib/diceRenderer*');await clear();
+
  for(const [name,id] of [['Emberforge','emberforge'],['Moonstone','moonstone'],['Verdant','verdant'],['Voidglass','voidglass'],['Royal Ivory','royal-ivory']]){
   await tray.getByRole('radio',{name,exact:true}).check();await tray.getByLabel('Dice expression').fill('3d20+4');await tray.getByRole('button',{name:'Roll',exact:true}).click();
-  const canvas=page.locator('.dice-canvas');await page.locator('.dice-canvas[data-phase="settled"]').waitFor();assert.equal(await page.locator('.dice-stage').getAttribute('data-style'),id);assert.equal(await canvas.getAttribute('data-engine'),'webgl-physics');assert.equal(await canvas.getAttribute('data-top-values'),await canvas.getAttribute('data-values'));
+  const canvas=page.locator('.dice-canvas');await page.locator('.dice-canvas[data-phase="settled"]').waitFor();assert.equal(await page.locator('.dice-stage').getAttribute('data-style'),id);assert.equal(await canvas.getAttribute('data-engine'),'webgl-physics');assert.equal(await canvas.getAttribute('data-ready'),'true');assert.equal(await canvas.getAttribute('data-top-values'),await canvas.getAttribute('data-values'));
   const values=(await canvas.getAttribute('data-values')).split(',').map(Number),history=await tray.locator('.roll-result').first().innerText();assert.match(history,new RegExp('\\['+values.join(', ')+'\\]'));assert.equal(Number(await tray.locator('.roll-result>strong').first().innerText()),values.reduce((a,b)=>a+b,4));await capture('dice-'+id);await clear();
  }
  for(const sides of [4,6,8,10,12]){await tray.getByRole('button',{name:`d${sides}`,exact:true}).click();await page.locator('.dice-canvas[data-phase="settled"]').waitFor();assert.equal(await page.locator('.dice-canvas').getAttribute('data-top-values'),await page.locator('.dice-canvas').getAttribute('data-values'));await clear();}

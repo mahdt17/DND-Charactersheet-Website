@@ -1,0 +1,20 @@
+import {campaignProfile,useCampaignPower} from './archivistCampaign.js';
+import {extendedPsionProfile,manifestExtendedPower} from './campaignPsionics.js';
+import {whole} from './campaignCreatures.js';
+const set=(c,value)=>({...c,archivistCampaign:{...c.archivistCampaign,psicrystal:{...c.archivistCampaign?.psicrystal,...value}}});
+export function psicrystalProfile(c){
+ const p=campaignProfile(c),s=c.archivistCampaign?.psicrystal||{},r=p.rulings,level=p.psion,maxHP=Math.max(1,Number(r.crystalHP??Math.floor(c.hp.max/2))),currentHP=Math.max(0,maxHP-Number(s.damage||0)),distance=Number(s.distance??(c.archivistCampaign?.psicrystalNearby===false?5281:5)),alive=level>0&&currentHP>0,nearby=alive&&c.archivistCampaign?.psicrystalNearby!==false&&distance<=5280,adjustment=Math.floor(Math.max(0,level-1)/2);
+ return {...s,level,maxHP,currentHP,distance,alive,nearby,ac:Number(r.crystalAC??13)+adjustment,int:6+adjustment,speed:nearby&&s.legsMinutes>0?30:0,climb:nearby&&s.legsMinutes>0?20:0,flight:nearby&&level>=9&&s.flightMinutes>0?50:0,powerResistance:nearby&&level>=11?level+5:0,sharedPowers:nearby&&distance<=5?s.sharedPowers||{}:{},pendingTouch:s.pendingTouch||null};
+}
+function requireCrystal(c,level=1){const p=psicrystalProfile(c);if(p.level<level)throw Error(`Psion level ${level} required.`);if(!p.alive)throw Error('A living Psicrystal is required.');if(!p.nearby)throw Error('Psicrystal must be within one mile.');return p;}
+export function movePsicrystal(c,distance){whole(distance,'Distance in feet');const next=set(c,{distance,...(distance>5?{sharedPowers:{}}:{}),...(distance>5280?{sightMinutes:0}:{})});return {...next,archivistCampaign:{...next.archivistCampaign,psicrystalNearby:distance<=5280}};}
+export function activatePsicrystal(c,kind){const p=requireCrystal(c,({legs:1,flight:9,sight:13})[kind]||99);if(kind==='sight'&&p.sightUsed)throw Error('Sight link already used today.');return set(c,kind==='sight'?{sightUsed:true,sightMinutes:Math.max(1,Number(c.archivistCampaign?.rulings?.crystalSightMinutes??1))}:{[kind==='legs'?'legsMinutes':'flightMinutes']:1440});}
+export function changePsicrystalHP(c,amount,{heal=false,evasion=false,saveSucceeded=false}={}){whole(amount,'HP adjustment');const p=psicrystalProfile(c);if(heal&&!p.alive)throw Error('Restore the destroyed crystal through a table ruling first.');const actual=evasion?(saveSucceeded?0:Math.floor(amount/2)):amount;return set(c,{damage:Math.max(0,Math.min(p.maxHP,(p.damage||0)+(heal?-actual:actual)))});}
+export function manifestWithPsicrystal(c,id,{mode='normal',...options}={}){
+ const power=extendedPsionProfile(c).powers.find(p=>p.id===id);if(!power)throw Error('Known power required.');
+ if(mode!=='normal'){const p=requireCrystal(c,mode==='channel'?15:mode==='touch'?3:1);if(!['channel','touch','share'].includes(mode))throw Error('Choose a manifestation mode.');if(mode==='touch'&&(p.distance!==0||power.range!=='Touch'))throw Error('Touch delivery requires contact and a Touch power.');if(mode==='share'&&(p.distance>5||!['Self','Personal'].includes(power.range)))throw Error('Sharing requires a personal power within 5 feet.');}
+ let next=['mindlink','inertial-armor','attraction'].includes(id)?useCampaignPower(c,id):manifestExtendedPower(c,id,options);
+ next=set(next,{pendingTouch:mode==='touch'?{id,power,manifestId:next.archivistCampaign.lastManifest?.id}:null,...(mode==='share'?{sharedPowers:{...psicrystalProfile(c).sharedPowers,[id]:{minutes:next.archivistCampaign.powerEffects?.[id]?.minutes||0}}}:{})});
+ return {...next,archivistCampaign:{...next.archivistCampaign,lastManifest:next.archivistCampaign.lastManifest?.power?.id===id?{...next.archivistCampaign.lastManifest,origin:mode==='channel'?'Psicrystal':'Caster',touchPending:mode==='touch'}:next.archivistCampaign.lastManifest}};
+}
+export function deliverPsicrystalTouch(c){const p=requireCrystal(c,3);if(!p.pendingTouch)throw Error('No pending touch power.');return {...set(c,{pendingTouch:null}),archivistCampaign:{...set(c,{pendingTouch:null}).archivistCampaign,lastManifest:{...c.archivistCampaign.lastManifest,touchPending:false}}};}

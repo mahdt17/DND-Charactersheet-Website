@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-07-candidates75-ordinary5",
+  "entries": {
+    "classes/arboreal-guardian-522": {
+      "name": "Arboreal Guardian",
+      "sourceBook": "Prestige Class Ghostwalk",
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/arboreal-guardian-522",
+      "proficiencies": [
+        {"index": "shortbows", "name": "Shortbows", "kind": "weapons"}
+      ],
+      "proficiencyText": "Arboreal Guardians gain proficiency with shortbows but not composite shortbows, and gain no armor or shield proficiency.",
+      "prerequisites": [
+        {"kind": "race", "label": "Race", "text": "Elf or half-elf. A creature of another race who does a great service for the Arboreal Guardians or the spirit trees may be allowed to join."},
+        {"kind": "skills", "label": "Skills", "text": "Knowledge (nature) 8 ranks"},
+        {"kind": "skills", "label": "Skills", "text": "Spot 5 ranks"},
+        {"kind": "skills", "label": "Skills", "text": "Survival 8 ranks"},
+        {"kind": "feats", "label": "Feats", "text": "Great Fortitude"},
+        {"kind": "feats", "label": "Feats", "text": "Green Bond"},
+        {"kind": "feats", "label": "Feats", "text": "Point Blank Shot"},
+        {"kind": "spells", "label": "Spells", "text": "Able to cast entangle"},
+        {"kind": "patron_deity", "label": "Patron Deity", "text": "Any but Nessek or Orcus"}
+      ],
+      "classSkills": ["Climb", "Concentration", "Craft", "Diplomacy", "Heal", "Handle Animal", "Hide", "Jump", "Knowledge (nature)", "Listen", "Move Silently", "Spot", "Survival", "Swim"],
+      "conditionalMechanics": {
+        "bondCall": {"skill": "Survival", "dc": 15, "purpose": "determine the direction to the bonded spirit tree", "frequency": "once per round"},
+        "forestwalk": {"requiresLocation": "Spirit Wood", "speedBonusFeet": 10, "stacks": true},
+        "naturalArmor": {"bonusType": "enhancement to existing natural armor", "progression": {"2": 1, "4": 2, "6": 3, "8": 4, "10": 5}},
+        "unhinderedCharge": {"passesThroughNormalLivingPlants": true, "includesTrees": true},
+        "woodSpeech": {"rangeMiles": 1, "targets": ["bonded spirit tree", "other Arboreal Guardians of that tree"]},
+        "blindsight": {"rangeFeet": 30, "duration": "class level rounds"},
+        "natureDefender": {"requiresWithinFeetOfBondedTree": 500, "radiusFeet": 500, "moraleBonus": 1, "appliesTo": ["attack rolls", "weapon damage", "checks", "saving throws"]}
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/arboreal-guardian-522",
+        "requirementsUrl": "https://www.realmshelps.net/charbuild/classes/prestige/Arboreal_Guardian",
+        "classSkillsUrl": "http://tsrarchive.com/3e/Ghostwalk%20v35%20Conversion.pdf",
+        "reviewDate": "2026-10-07",
+        "note": "Exact Ghostwalk Arboreal Guardian reviewed with the official 3.5 conversion: Intuit Direction prerequisite removed, Wilderness Lore converted to Survival, class skills replaced, and Natural Armor corrected to an enhancement bonus to existing natural armor."
+      }
+    }
+  }
+}
