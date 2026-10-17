@@ -1,3 +1,4 @@
+import {campaignClasses} from './data/archivistCampaign';
 import ClassFeatureChoices from './ClassFeatureChoices';
 import {entomancerClass} from './data/entomancer';
 import {entomancerLevel} from './lib/entomancer';
@@ -43,7 +44,7 @@ const acquisitionClassId35=record=>{
 const basicScores={str:15,dex:14,con:13,int:12,wis:10,cha:8};
 const cost={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
 export function classOptions(edition,homebrew=[]){
- homebrew=[entomancerClass,...homebrew.filter(c=>c.catalogId!==entomancerClass.catalogId)];
+ homebrew=[entomancerClass,...campaignClasses,...homebrew.filter(c=>c.catalogId!==entomancerClass.catalogId&&!campaignClasses.some(d=>d.catalogId===c.catalogId))];
  const canonical=homebrew.filter(x=>x.category==='class'), published=canonical.filter(x=>x.edition==='2014'&&x.enrichment);
  const legacyFallback=legacy.classes.filter(item=>!canonical.some(entry=>entry.edition==='3.5'&&entry.name===item.name));
  const base=[...classes.filter(c=>!published.some(p=>p.name===c.name)).map(c=>({...c,edition:'2014',description:CLASS_DATA[c.name]?.blurb||''})),...modern.classes.map(c=>({...c,edition:'2024',description:CLASS_DATA[c.name]?.blurb||''})),...legacyFallback];

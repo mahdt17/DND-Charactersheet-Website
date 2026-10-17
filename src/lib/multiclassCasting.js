@@ -1,3 +1,4 @@
+import {campaignKind,campaignProfile} from './archivistCampaign.js';
 import {characterClasses} from './advancement.js';
 import {isEntomancerRecord} from './entomancer.js';
 import {subclassCasting} from './subclassCasting.js';
@@ -13,6 +14,7 @@ export const slotArray=slots=>Array.from({length:10},(_,i)=>Math.max(0,Math.min(
 // spellcasting is deliberately left for an explicit personal slot override.
 export function multiclassPools(c,singleSlots) {
   const rows=characterClasses(c),edition=c.ruleset||'2014';
+  if(edition==='2014'&&rows.every(r=>r.edition==='2014'&&campaignKind(r.definition)))return {standard:campaignProfile(c).slots,pact:empty(),mode:'automatic',casterLevel:campaignProfile(c).archivist};
   const manual=reason=>({standard:empty(),pact:empty(),mode:'manual',reason});
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition))return manual('Set slots from your table’s rules for this edition or cross-edition combination.');
   if(rows.some(r=>r.definition?.prestige||!isEntomancerRecord(r.definition)&&(r.definition?.source==='Homebrew'||(!fullCasters.has(r.name)&&!halfCasters.has(r.name)&&!nonCasters.has(r.name)&&r.name!=='Warlock'&&!(edition==='2014'&&r.name==='Artificer')))))

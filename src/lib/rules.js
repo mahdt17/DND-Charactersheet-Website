@@ -1,3 +1,4 @@
+import {campaignProfile} from './archivistCampaign.js';
 import levels from '../data/levels.json';
 import spells from '../data/spells.json';
 import classes from '../data/classes.json';
@@ -78,7 +79,8 @@ export function armorFor(char, abilities) {
     return 10+dex+(shield?2:0);
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
-  return entomancerArmor(char,base+(shield?2:0),'',abilities);
+  const campaign=campaignProfile(char),inertial=campaign.psion&&char.archivistCampaign?.powerEffects?.['inertial-armor']?.minutes>0?Number(campaign.rulings.inertialArmorBase??13)+dex:0;
+  return entomancerArmor(char,Math.max(base,inertial)+(shield?2:0),'',abilities);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);

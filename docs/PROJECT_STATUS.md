@@ -21,6 +21,13 @@ Authoritative branch: `codex/class-integration-engine`
 
 Authoritative PR: #8
 
+Archivist campaign update (2026-10-16): added separate 2014 campaign conversions
+of Archivist, Psion (Telepath) and Thrallherd, with the PDF's level-5 preset and
+fixed advancement through level 20, prayerbook casting, shared PP, Dark Knowledge,
+feat milestones and follower records. Missing conversion rules use labeled,
+adjustable defaults; unresolved spell effects and NPC conversions remain table
+decisions. See [Archivist campaign implementation](ARCHIVIST_CAMPAIGN.md).
+
 Entomancer update (2026-10-16): the source-specific 2014 homebrew class and all
 four species now have creation/advancement, spellcasting, shared Population,
 combat effects, companions and saved play controls. See [Entomancer implementation](ENTOMANCER.md)

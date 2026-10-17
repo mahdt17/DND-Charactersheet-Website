@@ -84,6 +84,7 @@ jobs:
       - run: node tests/legacy-preparation.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
+      - run: npm run test:archivist
       - run: npm run test:entomancer
       - run: node tests/resources.mjs
       - run: node tests/feature-choices.mjs
@@ -137,6 +138,9 @@ jobs:
       - name: Run domain, power, invocation and ritual browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-casting-gaps.mjs
+      - name: Run Archivist campaign browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser:archivist
       - name: Run Entomancer browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:entomancer
