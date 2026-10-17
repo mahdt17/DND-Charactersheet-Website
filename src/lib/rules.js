@@ -1,3 +1,4 @@
+import {campaignModifiers} from './campaignModifiers.js';
 import {campaignProfile} from './archivistCampaign.js';
 import levels from '../data/levels.json';
 import spells from '../data/spells.json';
@@ -66,7 +67,7 @@ export function armorFor(char, abilities) {
   const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
   const shield=worn.some(e=>e.index==='shield');
   const armor=worn.filter(e=>e.armor_class&&e.index!=='shield');
-  if(armor.length){const e=armor[0];return entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0),e.armor_category,abilities);}
+  if(armor.length){const e=armor[0];return entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities);}
   const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
@@ -80,7 +81,7 @@ export function armorFor(char, abilities) {
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
   const campaign=campaignProfile(char),inertial=campaign.psion&&char.archivistCampaign?.powerEffects?.['inertial-armor']?.minutes>0?Number(campaign.rulings.inertialArmorBase??13)+dex:0;
-  return entomancerArmor(char,Math.max(base,inertial)+(shield?2:0),'',abilities);
+  return entomancerArmor(char,Math.max(base,inertial)+(shield?2:0)+campaignModifiers(char).ac,'',abilities);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);

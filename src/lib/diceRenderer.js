@@ -48,6 +48,7 @@ function makeDie(mesh,labels,style,radius) {
 
 // The heavyweight WebGL and physics modules load only when a roll is animated.
 export function createDiceRenderer(canvas,dice,style,{onPhase,onFinish,onUnavailable}={}) {
+  canvas.dataset.ready='false';
   let renderer;
   try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});}catch{onUnavailable?.();return()=>{};}
   renderer.setClearColor(0x000000,0);renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));
@@ -69,6 +70,7 @@ export function createDiceRenderer(canvas,dice,style,{onPhase,onFinish,onUnavail
   const playDuration=Math.max(2.1,Math.min(3.8,simulation.duration)),hold=1.6;
   function resize(){
     const rect=canvas.getBoundingClientRect();if(rect.width<2||rect.height<2)return;
+    canvas.dataset.ready='false';
     renderer.setSize(rect.width,rect.height,false);
     const aspect=rect.width/rect.height,vertical=Math.max(simulation.halfHeight+2,(simulation.halfWidth+1.5)/aspect);
     camera.left=-vertical*aspect;camera.right=vertical*aspect;camera.top=vertical;camera.bottom=-vertical;camera.updateProjectionMatrix();
@@ -82,13 +84,15 @@ export function createDiceRenderer(canvas,dice,style,{onPhase,onFinish,onUnavail
     const elapsed=(now-start)/1000,progress=Math.min(1,elapsed/playDuration),index=progress*(simulation.frames.length-1),lo=Math.floor(index),hi=Math.min(lo+1,simulation.frames.length-1),fraction=index-lo;
     objects.forEach((object,i)=>{const from=simulation.frames[lo][i],to=simulation.frames[hi][i];pa.fromArray(from);pb.fromArray(to);object.position.copy(pa).lerp(pb,fraction);a.fromArray(from,3);b.fromArray(to,3);object.quaternion.copy(a).slerp(b,fraction);});
     renderer.render(scene,camera);
+    canvas.dataset.ready='true';
+    if(!canvas.dataset.phase){canvas.dataset.phase='rolling';onPhase?.('rolling');}
     if(progress===1&&!settled){settled=true;canvas.dataset.phase='settled';onPhase?.('settled');}
     if(elapsed<playDuration+hold)frame=requestAnimationFrame(draw);else onFinish?.();
   }
-  const lost=e=>{e.preventDefault();onUnavailable?.();};canvas.addEventListener('webglcontextlost',lost);
-  canvas.dataset.phase='rolling';onPhase?.('rolling');frame=requestAnimationFrame(draw);
+  const lost=e=>{e.preventDefault();canvas.dataset.ready='false';onUnavailable?.();};canvas.addEventListener('webglcontextlost',lost);
+  delete canvas.dataset.phase;frame=requestAnimationFrame(draw);
   return()=>{
-    disposed=true;cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('webglcontextlost',lost);
+    canvas.dataset.ready='false';disposed=true;cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('webglcontextlost',lost);
     scene.traverse(object=>{object.geometry?.dispose();const materials=Array.isArray(object.material)?object.material:[object.material];materials.filter(Boolean).forEach(m=>{m.map?.dispose();m.dispose();});});
     key.shadow.dispose();renderer.dispose();renderer.forceContextLoss();
   };

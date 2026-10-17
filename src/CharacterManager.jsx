@@ -1,3 +1,4 @@
+import {campaignModifiers} from './lib/campaignModifiers';
 import LevelUpFeatChoice from './LevelUpFeatChoice';
 import {validFeatSelection} from './lib/featSelection';
 import ClassProgression from './ClassProgression';
@@ -319,6 +320,8 @@ function effectiveAbilities(char) {
   ABILITIES.forEach((a) => {
     out[a.key] = applyFeatAbilityIncrease(char,a.key,(char.abilities[a.key] || 0) + (char.abilityBonuses ? (char.abilityBonuses[a.key] || 0) : raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0)));
   });
+  const campaign=campaignModifiers(char);
+  for(const [key,value] of Object.entries(campaign.abilities))out[key]+=value;
   return out;
 }
 

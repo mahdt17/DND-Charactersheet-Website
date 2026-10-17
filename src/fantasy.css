@@ -164,3 +164,7 @@
   .ledger-app .sheet-identity h1,.ledger-app .sheet-identity p,.ledger-app .sheet-identity .l-eyebrow { color:black!important; text-shadow:none!important; }
   .sheet-heading { min-height:0; padding:14px 0; border:0; }
 }
+
+/* Never expose an uninitialized or cleared WebGL surface to the compositor. */
+.dice-canvas { background: transparent; opacity: 0; }
+.dice-canvas[data-ready="true"] { opacity: 1; }

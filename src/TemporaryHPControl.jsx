@@ -3,9 +3,9 @@ import {temporaryHP} from './lib/hitPoints';
 
 export default function TemporaryHPControl({hp,onChange}) {
   const [amount,setAmount]=useState(1);
-  const change=mode=>onChange(temporaryHP(hp,amount,mode));
+  const change=mode=>onChange({...temporaryHP(hp,amount,mode),tempSource:mode==='grant'&&amount>(hp.temp||0)||mode==='clear'?null:hp.tempSource});
   return <section className="temp-hp-controls" aria-label="Temporary hit points">
-    <div className="temp-hp-current"><label className="l-field"><span>Temporary</span><input aria-label="Current temporary HP" type="number" min="0" max="99999" step="1" value={hp.temp||0} onChange={e=>onChange(temporaryHP(hp,e.target.value,'set'))}/></label></div>
+    <div className="temp-hp-current"><label className="l-field"><span>Temporary</span><input aria-label="Current temporary HP" type="number" min="0" max="99999" step="1" value={hp.temp||0} onChange={e=>onChange({...temporaryHP(hp,e.target.value,'set'),tempSource:null})}/></label></div>
     <details className="temp-hp-more"><summary aria-label="Temporary HP options">Options</summary><div className="temp-hp-options">
       <label className="l-field"><span>Temporary HP adjustment</span><input type="number" min="0" max="99999" step="1" value={amount} onChange={e=>setAmount(Math.max(0,Math.min(99999,Math.floor(Number(e.target.value)||0))))}/></label>
       <div className="l-toolbar"><button className="l-button" onClick={()=>change('grant')}>Grant temp HP</button><button className="l-button" disabled={!hp.temp} onClick={()=>change('reduce')}>Reduce temp HP</button><button className="l-button" disabled={!hp.temp} onClick={()=>change('clear')}>Clear temp HP</button></div>

@@ -15,8 +15,8 @@
     "review:completion:queue": "node scripts/build_class_review_queue.mjs",
     "test:entomancer": "node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs",
     "test:browser:entomancer": "node tests/browser-entomancer.mjs",
-    "test:archivist": "node tests/archivist-campaign.mjs && node tests/archivist-campaign-integration.mjs",
-    "test:browser:archivist": "node tests/browser-archivist-campaign.mjs"
+    "test:archivist": "node tests/archivist-campaign.mjs && node tests/archivist-campaign-integration.mjs && node tests/campaign-expansion.mjs && node tests/campaign-psicrystal.mjs",
+    "test:browser:archivist": "node tests/browser-archivist-campaign.mjs && node tests/browser-campaign-expansion.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",

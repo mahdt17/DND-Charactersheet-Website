@@ -1,6 +1,6 @@
 # Project Status
 
-Last consolidated: 2026-09-28
+Last consolidated: 2026-10-17
 
 This file is the short authoritative status for the Adventurer's Ledger repository. Detailed historical audit evidence remains in the other documents under `docs/`.
 
@@ -13,7 +13,7 @@ Current production foundation includes:
 - physics-based 3D dice, compact play layout, optional scenery, and current temporary-HP presentation from PR #7
 - GitHub Pages deployment from `main`
 
-The live site does **not** yet include the unfinished broad class-integration work described below.
+PR #8 is the authorized release vehicle for the campaign classes, Entomancer, reviewed class automation and prior quality-of-life changes. Publication is complete only after that PR is merged and its GitHub Pages deployment succeeds. Remaining legacy automation boundaries are listed below.
 
 ## Active development: class automation
 
@@ -21,12 +21,9 @@ Authoritative branch: `codex/class-integration-engine`
 
 Authoritative PR: #8
 
-Archivist campaign update (2026-10-16): added separate 2014 campaign conversions
-of Archivist, Psion (Telepath) and Thrallherd, with the PDF's level-5 preset and
-fixed advancement through level 20, prayerbook casting, shared PP, Dark Knowledge,
-feat milestones and follower records. Missing conversion rules use labeled,
-adjustable defaults; unresolved spell effects and NPC conversions remain table
-decisions. See [Archivist campaign implementation](ARCHIVIST_CAMPAIGN.md).
+Archivist campaign update (2026-10-17): the PDF's Archivist, Telepath and Thrallherd now include full class-level progression, campaign spell resolution, paid copying/scroll/graft workflows, independent follower combat sheets, cooperative casting and Psicrystal controls. Missing source rules use visible, saved 5e defaults. Player-entered saves, damage, target eligibility and narrative decisions remain explicit. See [Archivist campaign implementation](ARCHIVIST_CAMPAIGN.md).
+
+Dice release fix: keep the transparent WebGL canvas hidden until its first rendered frame, and hide it before resize, context loss and teardown. A delayed-renderer regression and the existing all-style/rapid-roll/mobile/fallback suite verify the lifecycle.
 
 Entomancer update (2026-10-16): the source-specific 2014 homebrew class and all
 four species now have creation/advancement, spellcasting, shared Population,
@@ -43,7 +40,7 @@ neither existing
 source labels nor catalog-wide test success proves all 1,054 classes accurate.
 See [CLASS_CONTENT_VERIFICATION35.md](CLASS_CONTENT_VERIFICATION35.md).
 
-PR #8 now also contains the work formerly developed in PR #9. Keep this branch **open, draft, unmerged, and undeployed** until the class automation is considered complete enough for production.
+PR #8 now also contains the work formerly developed in PR #9. The user explicitly authorized merging and deploying the completed campaign work and earlier quality-of-life changes on October 17, superseding the earlier draft-only restriction. Release remains gated on passing checks.
 
 Latest subsystem correction (2026-10-11): table-derived manifesting profiles now share the existing `powerPointsUsed` reserve with the spellbook and Resource Tracker. Multiclass base PP, reviewed ability bonuses, prestige advancement, spending, save migration and rests use the same total. See `CLASS_INTEGRATION_VERIFICATION.md` for boundaries and coverage. The blocker audit's missing source-ID lists were also restored; certification remains fail-closed.
 
