@@ -105,3 +105,13 @@ console.log('PASS every class level, all 12 spell effects, copying, Chain saves,
 
 x=cysted();const thrallSpell=outsideCampaignSpells.find(s=>s.index==='monstrous-thrall');x=C.acquireCampaignSpell(x,thrallSpell,{channel:'outside',source:'Test',confirmed:true});x=C.prepareCampaignSpell(x,thrallSpell.catalogId,true);x=C.castCampaignSpell(x,thrallSpell.catalogId,{slot:9});x=S.resolveCampaignSpell(x,x.archivistCampaign.creatures[0].id,{save:C.campaignProfile(x).dc});assert(!x.archivistCampaign.creatures[0].control,'Cysts penalize necromancy saves, not Monstrous Thrall enchantment');
 console.log('PASS cyst save penalty is limited to necromancy');
+import {temporaryHP} from '../src/lib/hitPoints.js';
+const normalHP={current:15,max:20,temp:8},empoweredHP={...normalHP,tempSource:'campaign-empowerment'};
+assert.deepEqual(temporaryHP(normalHP,9,'set'),{current:15,max:20,temp:9});
+assert.equal(temporaryHP(empoweredHP,3,'reduce').tempSource,'campaign-empowerment');
+assert.equal(temporaryHP(empoweredHP,5,'grant').tempSource,'campaign-empowerment');
+assert(!('tempSource' in temporaryHP(empoweredHP,9,'set')));
+assert(!('tempSource' in temporaryHP(empoweredHP,10,'grant')));
+assert(!('tempSource' in temporaryHP(empoweredHP,0,'clear')));
+assert.equal(empoweredHP.tempSource,'campaign-empowerment');
+console.log('PASS temporary HP source replacement preserves ordinary save shape');
