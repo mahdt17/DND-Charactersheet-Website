@@ -1,4 +1,4 @@
-import {campaignProfile,campaignCystSpells,acquireCampaignSpell,castCampaignSpell,advanceCampaignTime} from './archivistCampaign.js';
+import {campaignProfile,hasConversionFeat,campaignCystSpells,acquireCampaignSpell,castCampaignSpell,advanceCampaignTime} from './archivistCampaign.js';
 import {graftRecipes} from '../data/campaignExpansion.js';
 import {spendCampaignGold} from './campaignEconomy.js';
 import {whole,updateCreature,creatureProfile} from './campaignCreatures.js';
@@ -11,7 +11,7 @@ export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',sour
  const p=campaignProfile(c),r=p.rulings;if(!p.archivist||!materialsConfirmed)throw Error('Archivist and confirmed materials/workspace required.');
  let cost,hours,record,recipe,next=c;
  if(kind==='graft'){
-  if(p.archivist<12)throw Error('Graft Flesh requires Archivist 12.');recipe=campaignRecipe(c,recipeId);if(!recipe)throw Error('Unknown graft recipe.');if(recipe.heart&&!r.heartEnabled)throw Error('Enable the optional Silthilar Heart conversion first.');eligibleGraft(c,targetId,recipe);cost=recipe.cost;hours=recipe.hours;
+  if(!hasConversionFeat(c,'Graft Flesh: Silthilar'))throw Error('Choose Graft Flesh: Silthilar before creating grafts.');recipe=campaignRecipe(c,recipeId);if(!recipe)throw Error('Unknown graft recipe.');if(recipe.heart&&!r.heartEnabled)throw Error('Enable the optional Silthilar Heart conversion first.');eligibleGraft(c,targetId,recipe);cost=recipe.cost;hours=recipe.hours;
  }else if(kind==='copy'){
   acquireCampaignSpell(c,spell,{channel:'outside',source,confirmed:true});record=spell;cost=Number(r.copyGoldPerLevel??50)*spell.level;hours=Number(r.copyHoursPerLevel??2)*spell.level;
  }else if(kind==='scroll'){

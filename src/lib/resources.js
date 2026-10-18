@@ -1,4 +1,4 @@
-import {campaignResources,campaignProfile,campaignRest} from './archivistCampaign.js';
+import {campaignResources,campaignProfile,campaignRest,campaignKind} from './archivistCampaign.js';
 import {campaignPPId,campaignDarkId} from '../data/archivistCampaign.js';
 import {characterClasses} from './advancement.js';
 import {isEntomancerRecord,entomancerResource,populationId} from './entomancer.js';
@@ -7,14 +7,14 @@ import {reconcileManifesting35,sharedPowerPointsId35} from './manifesting35.js';
 
 const count=v=>Math.max(0,Math.floor(Number(v)||0));
 const nameKey=s=>String(s||'').toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]/g,'');
-const unsupported=r=>!isEntomancerRecord(r)&&(r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige);
+const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige);
 
 // Reviewed core class counters only. Feature effects, conversions, and initiative
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return campaignResources(c);
-  const population=entomancerResource(c),result=population?[population]:[];
+  const population=entomancerResource(c),result=[...campaignResources(c),...(population?[population]:[])];
   for(const row of rows) {
     const n=row.level,cls=row.name;
     const add=(key,name,max,short=0,extra={})=>{

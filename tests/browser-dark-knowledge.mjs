@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {chromium} from 'playwright';
+import {createServer} from 'vite';
+import {createArchivistCampaign} from '../src/lib/archivistCampaign.js';
+const server=await createServer({server:{host:'127.0.0.1',port:5193,strictPort:true,hmr:false}});await server.listen();
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox','--disable-gpu']});
+const page=await browser.newPage({viewport:{width:390,height:844}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+try{
+ await fs.mkdir('test-results',{recursive:true});
+ const c=createArchivistCampaign('Knowledge regression');
+ await page.goto('http://127.0.0.1:5193');await page.getByRole('button',{name:'Explore the demo'}).click();
+ await page.locator('input[type=file]').setInputFiles({name:'knowledge.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});
+ await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();
+ assert.equal(await page.getByLabel('Studied creature or group').evaluate(el=>el===document.activeElement),true,'missing target should focus the field, not appear to do nothing');
+ await page.getByLabel('Studied creature or group').fill('Undead scouts');
+ await page.getByLabel('Knowledge check result').fill('25');
+ await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();
+ const reserve=page.getByRole('group',{name:'Dark Knowledge resource'}).locator('.resource-count');
+ await page.getByRole('status').filter({hasText:'tactics against Undead scouts'}).waitFor();
+ assert.equal(await reserve.innerText(),'3 / 4');
+ await page.getByRole('button',{name:'Roll knowledge check',exact:true}).click();
+ assert.equal(await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).isVisible(),true);
+ assert.notEqual(await page.getByLabel('Knowledge check result').inputValue(),'');
+ await page.getByLabel('Knowledge check result').fill('0');await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();
+ assert.equal(await reserve.innerText(),'2 / 4');assert.match(await page.getByRole('status').filter({hasText:'tactics against Undead scouts'}).innerText(),/failed/);
+ await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Complete short rest'}).click();assert.equal(await reserve.innerText(),'2 / 4');
+ await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByRole('button',{name:'Complete long rest'}).click();assert.equal(await reserve.innerText(),'4 / 4');
+ assert.deepEqual(errors,[]);console.log('PASS Dark Knowledge validation, roll, success/failure spending and rests on mobile');
+}catch(e){await page.screenshot({path:'test-results/dark-knowledge-failure.png',fullPage:true});throw e;}finally{await browser.close();await server.close();}

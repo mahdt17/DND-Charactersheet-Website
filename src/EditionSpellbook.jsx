@@ -1,3 +1,5 @@
+import {CampaignSpellbook} from './ArchivistCampaign';
+import {campaignKind} from './lib/archivistCampaign';
 import {entomancerProfile} from './lib/entomancer';
 import {prepareEntomancerSpells} from './lib/entomancerPreparation';
 import React,{useState} from 'react';
@@ -114,6 +116,9 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
     if(cast.dailySpellLikeGrant){setCastNotice(cast.name+' used as an Arcane Dilettante spell-like ability; 1 Inspiration spent.');setCast(null);return;}
     setCastNotice(cast.isManeuver?`${cast.name} used.`:`${cast.name} cast${quick?' using Quick Ritual':ritual?' as a ritual':needsSlot?` using a level ${slot}${slotPool==='pact'?' Pact Magic':''} slot`:''}.${cast.concentration?' Concentration started.':''}`);setCast(null);
   }
+  const classSelector=multiple&&<label className="l-field"><span>Spellcasting class</span><select value={active.catalogId} onChange={e=>{setClassId(e.target.value);setCast(null);setSwarmSelection(null);setStudyError('');}}>{rows.map(r=><option key={r.catalogId} value={r.catalogId}>{r.name} {r.level} · {editionName(r.edition)}</option>)}</select></label>;
+  if(campaignKind(active.definition)==='archivist')return <>{classSelector}<CampaignSpellbook char={char} patch={patch} roll={roll} show={show} homebrew={homebrew}/></>;
+  if(campaignKind(active.definition))return <>{classSelector}<p>Manifest powers and manage the shared power point reserve in Actions. Known powers are chosen at creation and level-up.</p></>;
   return <><div className="l-section-head"><h2>{maneuverMode?'Maneuvers & stances':'Spellbook'} · {editionName(char.ruleset)}</h2><button className="l-button" onClick={()=>{setSwarmSelection(null);setStudyError('');setStudyHour(false);setManage(!manage);}}>{manage?'Done':maneuverMode?'Manage maneuvers':'Manage spells'}</button></div>
     {char.ruleset==='custom'&&<label className="l-check"><input type="checkbox" checked={!!char.unrestrictedSpellAccess} onChange={e=>patch({unrestrictedSpellAccess:e.target.checked})}/> Allow spells from any class or edition (table-approved Custom rules)</label>}
     {subclassProfile?.schools.length>0&&<p className="l-notice">Choose {subclassProfile.schools.join(' or ')} spells, plus up to {subclassProfile.unrestrictedChoices} known spell{subclassProfile.unrestrictedChoices===1?'':'s'} from other Wizard schools. Granted cantrips are listed separately from your chosen cantrips.</p>}<SubclassSpellChoices char={char} model={classModel} classId={active.catalogId} patch={patch}/>{pools.restricted?.some(Boolean)&&<p className="l-notice">Your class also grants domain slots: {pools.restricted.flatMap((n,level)=>n?[`level ${level}: ${n}`]:[]).join(' · ')}. Choose your domains in Manage spells. Prepare domain spells in their separate domain slots.</p>}

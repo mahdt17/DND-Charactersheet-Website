@@ -1,5 +1,5 @@
 import {necroticRules,thrallFeatures,psionPoints,psionKnown} from './campaignExpansion.js';
-export const campaignSource='Archivist campaign codex (user supplied, October 2026)';
+export const campaignSource='Adjustable 5e class conversions';
 export const campaignIds={archivist:'homebrew:darkdonte:archivist',psion:'homebrew:darkdonte:telepath',thrallherd:'homebrew:darkdonte:thrallherd'};
 export const campaignPPId='darkdonte:shared:power-points';
 export const campaignDarkId='darkdonte:archivist:dark-knowledge';
@@ -12,17 +12,17 @@ export const archivistFeatures=[
  [4,'Still Mind','Default conversion: +2 on saves against enchantment effects; apply only when the triggering effect qualifies.'],
  [5,'Dark Knowledge: Puissance','The same check thresholds grant allies +1/+2/+3 to saves against studied creatures.'],
  [7,'Lore Mastery'],[8,'Dark Knowledge: Foe','The same check thresholds grant allies +1d6/+2d6/+3d6 weapon damage against studied creatures.'],
- [10,'Bonus feat: Chain Spell'],[11,'Dark Knowledge: Dread Secret','Default conversion: one target, 1 round. Check 15: disadvantage on attacks and sight-based Perception; 25: incapacitated; 35: stunned. These replace 3.5 dazzled/dazed/stunned for this campaign.'],
+ [10,'Bonus feat'],[11,'Dark Knowledge: Dread Secret','Default conversion: one target, 1 round. Check 15: disadvantage on attacks and sight-based Perception; 25: incapacitated; 35: stunned. These replace 3.5 dazzled/dazed/stunned in this conversion.'],
  [13,'Lore Mastery'],[14,'Dark Knowledge: Foreknowledge','The same check thresholds grant allies within 30 feet +1/+2/+3 AC against the studied creature.'],[17,'Lore Mastery'],[20,'Bonus feat']
 ];
 export const campaignClasses=Object.entries(campaignIds).map(([kind,catalogId])=>({
  catalogId,index:'darkdonte-'+kind,name:{archivist:'Archivist',psion:'Psion (Telepath)',thrallherd:'Thrallherd'}[kind],category:'class',edition:'2014',homebrew:true,prestige:kind==='thrallherd',source:campaignSource,campaignKind:kind,hit_die:6,spellcastingAbility:kind==='thrallherd'?'':'int',spellLists:kind==='archivist'?['Cleric']:[],
- description:kind==='archivist'?'Campaign 5e conversion: prayerbook scholar with Dark Knowledge. Editable conversion defaults.':kind==='psion'?'Campaign 5e conversion: Telepath levels 1–20 with a shared PP reserve and Sage Psicrystal. The PDF preset uses Psion 1.':'Campaign 5e conversion: prestige progression 1–10, with manifesting advancement and follower roster. The PDF preset takes one level.',
+ description:kind==='archivist'?'5e conversion: prayerbook scholar with Dark Knowledge. Editable conversion defaults.':kind==='psion'?'5e conversion: Telepath levels 1–20, chosen powers and bonus feats, and an Intelligence-based power point reserve.':'5e conversion: prestige progression 1–10, with manifesting advancement and follower roster. Requires level 5, Arcana and Religion proficiency, and Mindlink.',
  saving_throws:kind==='archivist'?[ref('con','Constitution'),ref('wis','Wisdom')]:[ref('int','Intelligence'),ref('wis','Wisdom')],
  proficiencies:kind==='archivist'?[ref('light-armor','Light armor'),ref('simple-weapons','Simple weapons')]:[ref('simple-weapons','Simple weapons')],
  proficiency_choices:[{choose:2,desc:'Choose two skills (conversion default)',from:{options:['Arcana','History','Medicine','Nature','Religion'].map(name=>({item:ref('skill-'+name.toLowerCase(),'Skill: '+name)}))}}],
- starting_equipment:[],starting_equipment_options:[],supportedLevels:kind==='thrallherd'?10:20,
- progression:[['Level','Features'],...Array.from({length:kind==='thrallherd'?10:20},(_,i)=>[String(i+1),kind==='archivist'?archivistFeatures.filter(f=>f[0]===i+1).map(f=>f[1]).concat([4,8,12,16,19].includes(i+1)?['Campaign feat slot']:[]).join(', '):kind==='psion'?`${psionPoints[i+1]} base PP; ${psionKnown[i+1]} powers; ${[1,5,10,15,20].includes(i+1)?'Bonus feat':''}`:thrallFeatures.filter(([level])=>level===i+1).map(([,name])=>name).concat(i>0&&i<9?['+1 manifesting level']:[]).join(', ')])]
+ multiclassRequirement:'Intelligence 13',multi_classing:{proficiencies:kind==='archivist'?[ref('light-armor','Light armor')]:[]},starting_equipment:[],starting_equipment_options:[],supportedLevels:kind==='thrallherd'?10:20,
+ progression:[['Level','Features'],...Array.from({length:kind==='thrallherd'?10:20},(_,i)=>[String(i+1),kind==='archivist'?archivistFeatures.filter(f=>f[0]===i+1).map(f=>f[1]).concat([4,8,12,16,19].includes(i+1)?['Ability Score Improvement']:[]).join(', '):kind==='psion'?`${psionPoints[i+1]} base PP; ${psionKnown[i+1]} powers; ${[1,5,10,15,20].includes(i+1)?'Bonus feat':''}`:thrallFeatures.filter(([level])=>level===i+1).map(([,name])=>name).concat(i>0&&i<9?['+1 manifesting level']:[]).join(', ')])]
 }));
 export const featTimeline=[
  {name:'Mother Cyst',characterLevel:1,kind:'human',level:1,description:'Automatic access to the necrotic spell chain at unlocked Archivist spell tiers. Discovery and copying are not required.'},
@@ -46,3 +46,5 @@ const followers=[
  [21,15,60,6,3,2,1,1],[22,15,75,7,4,2,2,1],[23,16,90,9,5,3,2,1],[24,17,110,11,6,3,2,1]
 ];
 export const followerTable=Object.fromEntries(followers.map(([score,thrall,...believers])=>[score,{thrall,believers}]));
+
+export const conversionFeats=featTimeline.map(({name,description})=>({name,description,catalogId:'homebrew:conversion-feat:'+name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),category:'feat',edition:'2014',source:campaignSource}));

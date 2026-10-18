@@ -1,3 +1,4 @@
+import {campaignKind,campaignProfile,selectedBasePowers} from './archivistCampaign.js';
 import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
@@ -189,6 +190,10 @@ export function eligibleClass(c,record,flow,confirmations={}) {
   if(c.ruleset!=='custom'&&edition!==normalizeEdition(c.ruleset))checks.push({id:'edition',text:'Choose a class from this character’s edition.',status:'unmet'});
   if(flow==='normal'&&prestige(record))checks.push({id:'prestige-flow',text:'Use Enter qualifying prestige class.',status:'unmet'});
   if(flow==='prestige'&&!prestige(record))checks.push({id:'normal-flow',text:'This is a normal class.',status:'unmet'});
+  if(!existing&&campaignKind(record)==='thrallherd'){
+    const p=campaignProfile(c);
+    for(const [id,met,text] of [['level',p.total>=5,'Character level 5'],['skills',!!c.skillProf?.Arcana&&!!c.skillProf?.Religion,'Arcana and Religion proficiency'],['mindlink',p.psion>0&&selectedBasePowers(c).some(x=>x.id==='mindlink'),'Psionic capability and Mindlink']])checks.push({id:'thrallherd-'+id,text,status:met?'met':'unmet'});
+  }
   if(!existing) {
     checks.push(...requirements(record,c,confirmations,{multiclass:edition!=='3.5'}));
     if(edition!=='3.5')for(const r of rows.filter(r=>r.edition!=='3.5'))checks.push(...requirements(r.definition||{},c,confirmations,{multiclass:true}));
