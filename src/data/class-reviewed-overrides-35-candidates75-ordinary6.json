@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-07-candidates75-ordinary6",
+  "entries": {
+    "classes/foe-hunter-612": {
+      "name": "Foe Hunter",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/foe-hunter-612",
+      "minBab": "7",
+      "proficiencies": [],
+      "proficiencyText": "Foe hunters gain no weapon or armor proficiencies.",
+      "prerequisites": [
+        {"kind": "base_attack_bonus", "label": "Base Attack Bonus", "text": "+7"},
+        {"kind": "feats", "label": "Feats", "text": "Track"},
+        {"kind": "feats", "label": "Feats", "text": "Weapon Focus (any)"},
+        {"kind": "language", "label": "Language", "text": "The language (if any) of the intended hated enemy."},
+        {"kind": "special", "label": "Special", "text": "The character must have a favored enemy."}
+      ],
+      "classSkills": ["Climb", "Intimidate", "Jump", "Listen", "Ride", "Spot", "Swim", "Wilderness Lore"],
+      "conditionalMechanics": {
+        "hatedEnemy": {
+          "choiceSource": "existing favored enemy",
+          "irreversible": true
+        },
+        "rancor": {
+          "frequency": "once per round",
+          "progression": {"1": "1d6", "3": "2d6", "5": "3d6", "7": "4d6", "9": "5d6"},
+          "extraDamageDiceAt10": "5d6",
+          "criticalMultiplied": false,
+          "worksAgainstCriticalImmunity": true,
+          "subdualWith": ["sap", "unarmed strike"]
+        },
+        "hatedEnemyDamageReduction": {
+          "appliesOnlyAgainstHatedEnemy": true,
+          "progression": {"2": 3, "4": 5, "6": 7, "8": 9, "10": 11},
+          "stacksWithOtherDamageReduction": false
+        },
+        "hatedEnemySpellResistance": {
+          "level": 4,
+          "formula": "15 + Foe Hunter class level",
+          "appliesOnlyToEffectsFromHatedEnemy": true,
+          "stacksWithOtherApplicableSpellResistance": true
+        },
+        "deathAttack": {
+          "level": 10,
+          "requiresHatedEnemy": true,
+          "requiresTargetDeniedDexterity": true,
+          "requiresDamagingMeleeAttack": true,
+          "requiresSneakAttack": false
+        }
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://new.dndtools.org/classes/foe-hunter-612",
+        "requirementsUrl": "https://www.mordaedil.com/dnd/?cls=612",
+        "classSkillsUrl": "https://www.mordaedil.com/dnd/?cls=612",
+        "reviewDate": "2026-10-07",
+        "note": "Exact Masters of the Wild D&D 3.0 Foe Hunter reviewed independently: BAB +7, Track, Weapon Focus (any), hated-enemy language, prior favored enemy, no entry proficiencies, irreversible hated-enemy selection, Rancor, enemy-only DR/SR, and Death Attack."
+      }
+    }
+  }
+}

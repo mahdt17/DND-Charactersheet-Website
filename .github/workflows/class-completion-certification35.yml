@@ -1,0 +1,119 @@
+name: Class completion certification
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/class-completion-evidence35.json"
+      - "docs/class-completion-tracker.json"
+      - "scripts/class_completion_certification35.mjs"
+      - "scripts/class_certification_candidates35.mjs"
+      - "scripts/validate_class_completion_queue35.mjs"
+      - "scripts/class_review_coverage35.mjs"
+      - "scripts/audit_prerequisite_coverage35.mjs"
+      - "scripts/audit_class_subsystem_primitives35.mjs"
+      - "scripts/audit_casting_prerequisites35.mjs"
+      - "scripts/audit_stale_class_planning35.mjs"
+      - "scripts/audit_persistent_class_choices35.mjs"
+      - "scripts/audit_choice_option_mechanics35.mjs"
+      - "scripts/classify_class_implementation_cohorts.mjs"
+      - "src/lib/castingPrerequisites35.js"
+      - "src/lib/classFeaturePrerequisites35.js"
+      - "src/lib/featureProgression35.js"
+      - "src/lib/classIntegration.js"
+      - "src/lib/classEffects35.js"
+      - "src/data/class-feature-summaries-35.json"
+      - "src/data/class-feature-progression-35.json"
+      - "tests/casting-prerequisites35.mjs"
+      - "tests/class-feature-prerequisites35.mjs"
+      - "tests/feature-progression-stacking35.mjs"
+      - "tests/feature-progression-reviewed-source35.mjs"
+      - "tests/feature-progression-turning35.mjs"
+      - "tests/race-alignment-prerequisite-alternatives35.mjs"
+      - "tests/training-save-prerequisites35.mjs"
+      - "tests/class-effects35.mjs"
+      - "tests/class-planning-staleness35.mjs"
+      - "tests/class-persistent-choice-cohorts35.mjs"
+      - "tests/class-choice-option-mechanics-audit35.mjs"
+      - "tests/class-subsystem-leverage35.mjs"
+      - "tests/class-subsystem-primitive-coverage35.mjs"
+      - "tests/prerequisite-normalization-wave35.mjs"
+      - "tests/language-prerequisites35.mjs"
+      - "src/lib/prerequisites35.js"
+      - "src/lib/patronDeity35.js"
+      - "src/lib/powerPointPrerequisites35.js"
+      - "src/lib/manifestingPrerequisites35.js"
+      - "tests/power-point-prerequisites35.mjs"
+      - "tests/manifesting-prerequisites35.mjs"
+      - "tests/patron-prerequisites35.mjs"
+      - "scripts/build_class_completion_ledger.mjs"
+      - "scripts/build_class_review_queue.mjs"
+      - "scripts/select_class_research_batch.mjs"
+      - "tests/class-completion-certification35.mjs"
+      - "tests/class-certification-candidates35.mjs"
+      - "tests/class-certification-first-record35.mjs"
+      - "tests/class-review-coverage35.mjs"
+      - "tests/source-choice-ui-context35.mjs"
+      - "src/LevelUp.jsx"
+      - "src/GuidedSetup.jsx"
+      - "package.json"
+      - ".github/workflows/class-completion-certification35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: class-completion-certification35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/class-completion-certification35.mjs
+      - run: node tests/class-certification-candidates35.mjs
+      - run: node tests/class-certification-first-record35.mjs
+      - run: node tests/class-effects35.mjs
+      - run: node tests/class-review-coverage35.mjs
+      - run: node tests/class-planning-staleness35.mjs
+      - run: node tests/class-persistent-choice-cohorts35.mjs
+      - run: node tests/class-choice-option-mechanics-audit35.mjs
+      - run: node tests/class-subsystem-leverage35.mjs
+      - run: node tests/class-subsystem-primitive-coverage35.mjs
+      - run: node tests/patron-prerequisites35.mjs
+      - run: node tests/power-point-prerequisites35.mjs
+      - run: node tests/manifesting-prerequisites35.mjs
+      - run: node tests/prerequisite-normalization-wave35.mjs
+      - run: node tests/language-prerequisites35.mjs
+      - run: node tests/class-feature-prerequisites35.mjs
+      - run: node tests/feature-progression-stacking35.mjs
+      - run: node tests/feature-progression-reviewed-source35.mjs
+      - run: node tests/feature-progression-turning35.mjs
+      - run: node tests/race-alignment-prerequisite-alternatives35.mjs
+      - run: node tests/training-save-prerequisites35.mjs
+      - run: node tests/casting-prerequisites35.mjs
+      - run: node tests/source-choice-ui-context35.mjs
+      - run: mkdir -p test-results
+      - run: node scripts/audit_prerequisite_coverage35.mjs test-results/prerequisite-coverage35.json
+      - run: node scripts/audit_class_subsystem_primitives35.mjs --json > test-results/class-subsystem-primitives35.json
+      - run: node scripts/audit_casting_prerequisites35.mjs test-results/casting-prerequisite-coverage35.json
+      - run: node scripts/audit_stale_class_planning35.mjs --json > test-results/class-planning-staleness35.json
+      - run: node scripts/audit_persistent_class_choices35.mjs --json > test-results/class-persistent-choices35.json
+      - run: node scripts/audit_choice_option_mechanics35.mjs --json > test-results/class-choice-option-mechanics35.json
+      - run: node scripts/classify_class_implementation_cohorts.mjs docs/class-completion-tracker.json --check --leverage > test-results/class-subsystem-leverage35.json
+      - run: node scripts/build_class_completion_ledger.mjs --output=test-results/class-completion-ledger35.json
+      - run: node scripts/class_certification_candidates35.mjs test-results/class-completion-ledger35.json --output=test-results/class-certification-candidates35.json
+      - run: node scripts/build_class_review_queue.mjs docs/class-completion-tracker.json --output=test-results/class-review-queue35.json
+      - run: node scripts/select_class_research_batch.mjs docs/class-completion-tracker.json --limit=5 > test-results/class-research-batch35.json
+      - name: Verify fail-closed queue behavior
+        run: node scripts/validate_class_completion_queue35.mjs docs/class-completion-tracker.json test-results/class-completion-ledger35.json test-results/class-review-queue35.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: class-completion-certification35
+          path: test-results/

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-08-candidates75-ordinary9",
+  "entries": {
+    "classes/frenzied-berserker-614": {
+      "name": "Frenzied Berserker",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/frenzied-berserker-614",
+      "proficiencies": [],
+      "proficiencyText": "Frenzied berserkers gain no weapon or armor proficiencies.",
+      "prerequisites": [
+        {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+6"},
+        {"kind":"alignment","label":"Alignment","text":"Any nonlawful"},
+        {"kind":"feats","label":"Feats","text":"Cleave"},
+        {"kind":"feats","label":"Feats","text":"Destructive Rage"},
+        {"kind":"feats","label":"Feats","text":"Intimidating Rage"},
+        {"kind":"feats","label":"Feats","text":"Power Attack"}
+      ],
+      "classSkills": ["Climb","Intimidate","Jump","Ride","Swim"],
+      "conditionalMechanics": {
+        "frenzy": {
+          "strengthBonusAt1": 6,
+          "strengthBonusAt8": 10,
+          "armorClassPenalty": -4,
+          "subdualDamagePerRound": 2,
+          "extraAttackAtHighestBonus": 1,
+          "extraAttackDoesNotStackWithHaste": true,
+          "durationFormula": "3 + Constitution modifier rounds",
+          "earlyEndWillSaveDc": 20,
+          "actionType": "Free action",
+          "oncePerEncounter": false,
+          "stacksWithRage": true,
+          "automaticTriggerOnDamage": true,
+          "damageTriggerWillSaveDcFormula": "10 + damage suffered since last action",
+          "cannotCastSpells": true,
+          "cannotDrinkPotions": true,
+          "cannotActivateMagicItems": true,
+          "cannotReadScrolls": true,
+          "mustAttackPerceivedFoes": true,
+          "attacksNearestCreatureWhenNoFoesRemain": true,
+          "fatiguedAfterwardUntilLevel": 10
+        },
+        "supremeCleave": {
+          "stepFeet": 5,
+          "requiresCleaveOrGreatCleave": true,
+          "normalFiveFootStepLimitStillApplies": true
+        },
+        "deathlessFrenzy": {
+          "level": 4,
+          "continuesFightingAtZeroOrLowerHitPoints": true,
+          "woundsApplyWhenFrenzyEnds": true,
+          "doesNotPreventSpellDeathEffects": true
+        },
+        "improvedPowerAttack": {
+          "level": 5,
+          "damageBonusPerAttackPenalty": "+3 damage per -2 attack"
+        },
+        "inspireFrenzy": {
+          "level": 6,
+          "requiresSelfFrenzied": true,
+          "radiusFeet": 10,
+          "resistWillSaveDcFormula": "10 + Frenzied Berserker class level + Charisma modifier",
+          "durationFormula": "3 + Frenzied Berserker Constitution modifier rounds",
+          "usesAt6": 1,
+          "usesAt8": 2,
+          "usesAt10": 3,
+          "oncePerEncounter": true
+        },
+        "supremePowerAttack": {
+          "level": 10,
+          "damageBonusPerAttackPenalty": "+2 damage per -1 attack",
+          "doesNotStackWithImprovedPowerAttack": true
+        }
+      },
+      "reviewEvidence": {
+        "sourceUrl": "https://dndtools.org/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/frenzied-berserker/",
+        "requirementsUrl": "https://dndtools.org/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/frenzied-berserker/",
+        "classSkillsUrl": "https://dndtools.org/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/frenzied-berserker/",
+        "reviewDate": "2026-10-08",
+        "note": "Exact Masters of the Wild D&D 3.0 Frenzied Berserker reviewed independently from the Complete Warrior 3.5 record. Preserves Remain Conscious, subdual damage, 3.0 Power Attack ratios, post-frenzy fatigue wording, and source-specific frenzy restrictions."
+      }
+    }
+  }
+}

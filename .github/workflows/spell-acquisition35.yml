@@ -1,0 +1,63 @@
+name: Spell acquisition checks
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/spellAcquisition35.js"
+      - "src/lib/invocationAcquisition35.js"
+      - "src/data/invocations35.json"
+      - "src/data/invocation-acquisition35.json"
+      - "src/InvocationChoices35.jsx"
+      - "src/lib/dailySpellLike35.js"
+      - "src/DailySpellLike35.jsx"
+      - "src/data/spell-acquisition35.json"
+      - "src/SpellAcquisitionChoices35.jsx"
+      - "src/WizardSpellbookAcquisition35.jsx"
+      - "src/FeatSpellAcquisition35.jsx"
+      - "src/lib/featSpellAcquisition35.js"
+      - "src/GuidedSetup.jsx"
+      - "src/EditionLevelUp.jsx"
+      - "src/LevelUp.jsx"
+      - "src/EditionSpellbook.jsx"
+      - "src/FeatChoices.jsx"
+      - "src/LevelUpFeatChoice.jsx"
+      - "src/lib/classIntegration.js"
+      - "src/lib/advancement.js"
+      - "tests/spell-acquisition35.mjs"
+      - "tests/invocation-acquisition35.mjs"
+      - "tests/invocation-lifecycle35.mjs"
+      - "tests/daily-spell-like35.mjs"
+      - "tests/feat-spell-acquisition35.mjs"
+      - "tests/browser-spell-acquisition35.mjs"
+      - ".github/workflows/spell-acquisition35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: spell-acquisition-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  acquisition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/spell-acquisition35.mjs
+      - run: node tests/invocation-acquisition35.mjs
+      - run: node tests/invocation-lifecycle35.mjs
+      - run: node tests/daily-spell-like35.mjs
+      - run: node tests/feat-spell-acquisition35.mjs
+      - run: node tests/spell-access.mjs
+      - run: node tests/class-integration.mjs
+      - run: node tests/multiclass-casting.mjs
+      - run: node tests/legacy-casting-choices.mjs
+      - run: node tests/legacy-preparation.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - run: node tests/browser-spell-acquisition35.mjs

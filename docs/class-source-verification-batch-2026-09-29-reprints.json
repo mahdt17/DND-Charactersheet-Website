@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "validationCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+  "validationRun": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+  "sourceMethod": "Exact repository source URLs rechecked with Tavily; pointer-style reprints validated as source-equivalent through the existing parent-mechanics regression invariant.",
+  "firecrawlFallbacks": 0,
+  "totals": {
+    "selected": 28,
+    "complete": 12,
+    "needsReview": 16
+  },
+  "complete": [
+    {
+      "sourceId": "classes/barbarian-37",
+      "name": "Barbarian",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/barbarian-89",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/barbarian-61",
+      "name": "Barbarian",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/barbarian-89",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/barbarian-104",
+      "name": "Barbarian",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/barbarian-89",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/fighter-41",
+      "name": "Fighter",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/fighter-93",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/fighter-65",
+      "name": "Fighter",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/fighter-93",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/druid-40",
+      "name": "Druid",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/druid-92",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/druid-64",
+      "name": "Druid",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/druid-92",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/druid-106",
+      "name": "Druid",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/druid-92",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/monk-42",
+      "name": "Monk",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/monk-94",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/monk-66",
+      "name": "Monk",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/monk-94",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/rogue-45",
+      "name": "Rogue",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/rogue-97",
+      "status": "complete"
+    },
+    {
+      "sourceId": "classes/rogue-69",
+      "name": "Rogue",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/rogue-97",
+      "status": "complete"
+    }
+  ],
+  "needsReview": [
+    {
+      "sourceId": "classes/ranger-44",
+      "name": "Ranger",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/ranger-96",
+      "status": "needs-review",
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+    },
+    {
+      "sourceId": "classes/ranger-68",
+      "name": "Ranger",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/ranger-96",
+      "status": "needs-review",
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+    },
+    {
+      "sourceId": "classes/ranger-108",
+      "name": "Ranger",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/ranger-96",
+      "status": "needs-review",
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+    },
+    {
+      "sourceId": "classes/cleric-39",
+      "name": "Cleric",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/cleric-91",
+      "status": "needs-review",
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+    },
+    {
+      "sourceId": "classes/cleric-63",
+      "name": "Cleric",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/cleric-91",
+      "status": "needs-review",
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+    },
+    {
+      "sourceId": "classes/cleric-105",
+      "name": "Cleric",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/cleric-91",
+      "status": "needs-review",
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+    },
+    {
+      "sourceId": "classes/paladin-43",
+      "name": "Paladin",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/paladin-95",
+      "status": "needs-review",
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+    },
+    {
+      "sourceId": "classes/paladin-67",
+      "name": "Paladin",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/paladin-95",
+      "status": "needs-review",
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+    },
+    {
+      "sourceId": "classes/paladin-107",
+      "name": "Paladin",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/paladin-95",
+      "status": "needs-review",
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+    },
+    {
+      "sourceId": "classes/sorcerer-46",
+      "name": "Sorcerer",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/sorcerer-98",
+      "status": "needs-review",
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/sorcerer-70",
+      "name": "Sorcerer",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/sorcerer-98",
+      "status": "needs-review",
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/sorcerer-109",
+      "name": "Sorcerer",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/sorcerer-98",
+      "status": "needs-review",
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/wizard-47",
+      "name": "Wizard",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "parentId": "classes/wizard-99",
+      "status": "needs-review",
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/wizard-71",
+      "name": "Wizard",
+      "sourceBook": "Base Class Forgotten Realms Campaign Setting",
+      "parentId": "classes/wizard-99",
+      "status": "needs-review",
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/wizard-110",
+      "name": "Wizard",
+      "sourceBook": "Base Class Sandstorm",
+      "parentId": "classes/wizard-99",
+      "status": "needs-review",
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/favored-soul-76",
+      "name": "Favored Soul",
+      "sourceBook": "Base Class Miniatures Handbook",
+      "parentId": "classes/favored-soul-7",
+      "status": "needs-review",
+      "gaps": [
+        "Favored Soul uses the Cleric list, but source-specific spells-known acquisition/replacement and deity-linked favored-weapon choices are not fully represented as structured persisted state."
+      ],
+      "nextAction": "Implement spells-known gain/replacement and deity/favored-weapon linkage, then add creation and level-up regressions."
+    }
+  ]
+}

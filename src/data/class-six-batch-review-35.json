@@ -1,0 +1,264 @@
+{
+  "version": 1,
+  "reviewBatch": "2026-10-05-six-class",
+  "entries": {
+    "classes/battlesmith-725": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-six-class",
+      "name": "Battlesmith",
+      "sourceBook": "Races of Stone",
+      "sourcePage": 97,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/battlesmith-725",
+      "minBab": "5",
+      "prerequisites": [
+        "Race:Dwarf",
+        "Skills:Craft (armorsmithing) 10 ranks or Craft (weaponsmithing) 10 ranks",
+        "Feats:Armor Proficiency (heavy)",
+        "Feats:Endurance",
+        "Feats:Weapon Focus (warhammer)",
+        "Special:Must have created a dwarvencraft weapon and used it in battle"
+      ],
+      "classSkills": ["Appraise", "Concentration", "Craft", "Intimidate", "Knowledge (religion)"],
+      "proficiencies": [],
+      "proficiencyText": "Battlesmiths gain no proficiency with any weapon or armor.",
+      "proficiencyReview": {
+        "verified": true,
+        "noNewProficiencies": true,
+        "sourceUrl": "https://new.dndtools.org/classes/battlesmith-725",
+        "note": "The class explicitly grants no weapon or armor proficiencies."
+      },
+      "conditionalMechanics": {
+        "oneWithTheHammer": {
+          "kind": "conditional-damage-bonus",
+          "ability": "wis",
+          "requiresSelfCraftedWarhammer": true
+        },
+        "secretsOfTheForge": {
+          "kind": "effective-caster-level",
+          "classLevelMultiplier": 3,
+          "stacksWithOtherCasterLevels": true,
+          "scope": "magic arms and armor",
+          "otherPrerequisitesStillRequired": true
+        },
+        "fleshOfMyFlesh": {
+          "kind": "conditional-ac-bonus",
+          "requiresSelfCraftedHeavyArmor": true,
+          "bonusByLevel": {"2": 1, "4": 2},
+          "bonusType": "sacred"
+        },
+        "forgedInFire": {
+          "kind": "condition-delay",
+          "conditions": ["fatigued", "exhausted"],
+          "durationHoursPerClassLevel": 1
+        },
+        "temperedInBlood": {
+          "kind": "conditional-damage-reduction-check",
+          "usesPerDay": 1,
+          "save": "Fortitude",
+          "dcFormula": "10 + damage dealt",
+          "success": "half damage",
+          "requiresAwarenessAndReaction": true,
+          "unavailableWhenDeniedDexterityBonusToAC": true
+        }
+      },
+      "levelGrants": [
+        {"level": 1, "name": "One with the Hammer", "description": "When wielding a warhammer she crafted herself, the battlesmith adds her Wisdom bonus to weapon damage."},
+        {"level": 1, "name": "Secrets of the Forge", "featName": "Craft Magic Arms and Armor", "description": "The battlesmith gains Craft Magic Arms and Armor without needing its caster-level prerequisite. For crafting magic arms and armor, her effective caster level is three times her battlesmith level and stacks with other caster levels; all other item prerequisites still apply."},
+        {"level": 2, "name": "Flesh of My Flesh", "description": "While wearing heavy armor she crafted herself, the battlesmith gains a +1 sacred AC bonus, increasing to +2 at 4th level."},
+        {"level": 3, "name": "Forged in Fire", "description": "The battlesmith can ignore the effects of fatigue and exhaustion for a number of hours equal to her class level; if the condition remains afterward, its effects resume."},
+        {"level": 4, "name": "Flesh of My Flesh", "progressionText": "Flesh of my flesh +2", "description": "While wearing heavy armor she crafted herself, the battlesmith gains a +2 sacred AC bonus."},
+        {"level": 5, "name": "Tempered in Blood", "resource": {"max": 1, "period": "day"}, "description": "Once per day when aware of a damaging melee weapon or natural attack and able to react, the battlesmith may attempt a Fortitude save (DC 10 + damage dealt) to take half damage. The ability is unavailable when she is denied her Dexterity bonus to AC."}
+      ]
+    },
+    "classes/duelist-768": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-six-class",
+      "name": "Duelist",
+      "sourceBook": "Sword and Fist: A Guidebook to Monks and Fighters",
+      "sourcePage": 17,
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/duelist-768",
+      "minBab": "6",
+      "prerequisites": [
+        "Skills:Perform 3 ranks",
+        "Skills:Tumble 5 ranks",
+        "Feats:Dodge",
+        "Feats:Weapon Proficiency (rapier)",
+        "Feats:Ambidexterity",
+        "Feats:Mobility"
+      ],
+      "classSkills": ["Balance", "Bluff", "Escape Artist", "Innuendo", "Jump", "Listen", "Perform", "Sense Motive", "Spot", "Tumble"],
+      "proficiencies": [
+        {"index": "simple-weapons", "name": "Simple weapons", "kind": "weapons"},
+        {"index": "martial-weapons", "name": "Martial weapons", "kind": "weapons"},
+        {"index": "buckler", "name": "Buckler", "kind": "armor"}
+      ],
+      "proficiencyText": "The Sword and Fist duelist is proficient with simple and martial weapons and the buckler, but gains no armor proficiency.",
+      "proficiencyReview": {
+        "verified": true,
+        "sourceUrl": "https://dokumen.pub/sword-fist.html",
+        "note": "Verified against the Sword and Fist Duelist on pages 17-18; this is the 3.0 source record, not the later Dungeon Master's Guide 3.5 Duelist."
+      },
+      "levelGrants": [
+        {"level": 1, "name": "Canny Defense", "description": "While unarmored and wielding a melee weapon, the duelist adds her Intelligence bonus to her Dexterity bonus to AC; the bonus is lost whenever her Dexterity bonus is denied."},
+        {"level": 2, "name": "Precise Strike", "progressionText": "Precise strike +1d6", "description": "With a one-handed piercing weapon and no weapon attacking in the other hand, the duelist deals +1d6 precision damage to living creatures with discernible anatomies. The bonus rises by +1d6 every four duelist levels thereafter."},
+        {"level": 3, "name": "Enhanced Mobility", "description": "While unarmored, the duelist gains +4 AC against attacks of opportunity caused by moving out of or within a threatened area."},
+        {"level": 4, "name": "Grace", "description": "While unarmored, the duelist gains a +2 competence bonus on Reflex saves."},
+        {"level": 5, "name": "Acrobatic Attack", "description": "After jumping or swinging at least 5 feet into an attack, the duelist gains +2 on the attack and damage rolls, subject to the required movement check."},
+        {"level": 6, "name": "Precise Strike", "progressionText": "Precise strike +2d6", "description": "Precise Strike increases to +2d6."},
+        {"level": 7, "name": "Elaborate Parry", "description": "When fighting defensively or using all-out defense in melee, the duelist gains an additional dodge bonus to AC equal to her duelist class level."},
+        {"level": 8, "name": "Improved Reaction", "description": "The duelist gains a +2 bonus on initiative rolls that stacks with Improved Initiative."},
+        {"level": 9, "name": "Deflect Arrows", "description": "The duelist gains the benefit of Deflect Arrows while using a one-handed piercing weapon."},
+        {"level": 10, "name": "Precise Strike", "progressionText": "Precise strike +3d6", "description": "Precise Strike increases to +3d6."}
+      ]
+    },
+    "classes/goliath-liberator-732": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-six-class",
+      "name": "Goliath Liberator",
+      "sourceBook": "Races of Stone",
+      "sourcePage": 112,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/goliath-liberator-732",
+      "minBab": "7",
+      "prerequisites": [
+        "Race:Goliath",
+        "Skills:Hide 5 ranks",
+        "Skills:Move Silently 5 ranks",
+        "Feats:Track",
+        "Special:Must have participated in the successful rescue of captives held by giants, or have been imprisoned by giants and escaped"
+      ],
+      "classSkills": ["Climb", "Craft", "Heal", "Hide", "Jump", "Listen", "Move Silently", "Search", "Spot", "Survival", "Use Rope"],
+      "proficiencies": [
+        {"index": "martial-weapons", "name": "Martial weapons", "kind": "weapons"},
+        {"index": "light-armor", "name": "Light armor", "kind": "armor"},
+        {"index": "medium-armor", "name": "Medium armor", "kind": "armor"}
+      ],
+      "proficiencyText": "Goliath liberators gain proficiency with martial weapons and with light and medium armor.",
+      "proficiencyReview": {"verified": true, "sourceUrl": "https://new.dndtools.org/classes/goliath-liberator-732"},
+      "levelGrants": [
+        {"level": 1, "name": "Favored Enemy (Giant)", "progressionText": "Favored enemy (giants) +2", "description": "The liberator gains +2 on specified skills and weapon damage against giants; the bonus stacks with an existing favored enemy (giants) bonus and increases to +4 at 5th level."},
+        {"level": 2, "name": "Avoid Thrown Weapons", "description": "The liberator gains a +2 dodge bonus to AC against thrown weapons."},
+        {"level": 3, "name": "Equal Footing", "featName": "Improved Trip", "ignorePrerequisites": true, "description": "The liberator gains Improved Trip as a bonus feat without meeting its prerequisites and gains +4 on the Strength check to trip a creature at least one size category larger."},
+        {"level": 4, "name": "Avoid Reach", "description": "The liberator gains a +2 dodge bonus to AC against melee attacks made by creatures that are not adjacent to her."},
+        {"level": 5, "name": "Favored Enemy (Giant)", "progressionText": "Favored enemy (giants) +4", "description": "Favored Enemy (Giant) increases to +4."}
+      ]
+    },
+    "classes/ghost-slayer-525": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-six-class",
+      "name": "Ghost Slayer",
+      "sourceBook": "Ghostwalk",
+      "sourcePage": 26,
+      "sourceVersion": "D&D 3.0 (Ghostwalk; project 3.5 compatibility record)",
+      "sourceUrl": "https://new.dndtools.org/classes/ghost-slayer-525",
+      "minBab": "4",
+      "prerequisites": [
+        "Skills:Gather Information 4 ranks",
+        "Skills:Bluff 4 ranks",
+        "Skills:Knowledge (ghost lore) 5 ranks",
+        "Skills:Spot 5 ranks",
+        "Feats:Alertness",
+        "Feats:Incorporeal Target Fighting or Incorporeal Spell Targeting",
+        "Special:Must have been knocked unconscious by or failed a saving throw against an attack from a ghost; a character who is a ghost cannot take this class"
+      ],
+      "classSkills": ["Bluff", "Climb", "Craft", "Diplomacy", "Disguise", "Forgery", "Gather Information", "Hide", "Knowledge (ghost lore)", "Listen", "Profession", "Sense Motive", "Spot"],
+      "proficiencies": [],
+      "proficiencyText": "Ghost slayers gain no proficiency with any weapons, armor, or shields.",
+      "proficiencyReview": {"verified": true, "noNewProficiencies": true, "sourceUrl": "https://www.realmshelps.net/charbuild/classes/prestige/other/ghostslayer.shtml"},
+      "levelGrants": [
+        {"level": 1, "name": "Untainted Spirit", "description": "The ghost slayer is immune to all forms of possession."},
+        {"level": 2, "name": "Silver Aura", "description": "The ghost slayer's melee weapons and unarmed strikes are treated as silver for purposes of stunning a ghost with a successful critical hit or sneak attack."},
+        {"level": 3, "name": "Protected Vessel", "description": "The ghost slayer gains +3 on saves against ghost powers and reduces ability damage or drain caused by ghost powers by 1 per attack, to a minimum of 0."},
+        {"level": 4, "name": "Detect Ghost", "description": "The ghost slayer can use detect ghost at will as a spell-like ability."},
+        {"level": 4, "name": "Ghost Touch Aura", "actionType": "Move-equivalent action", "description": "As a move-equivalent action, the ghost slayer can give a chosen weapon the ghost touch property for 1 round; this ability is usable at will."},
+        {"level": 5, "name": "Ghost Bane Fires", "actionType": "Free action", "resource": {"perLevel": 1, "ability": "cha", "period": "day"}, "description": "As a free action, the ghost slayer can give a chosen weapon the ghost bane property for 1 round. Daily uses equal ghost slayer class level plus Charisma modifier."}
+      ]
+    },
+    "classes/gladiator-771": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-six-class",
+      "name": "Gladiator",
+      "sourceBook": "Sword and Fist: A Guidebook to Monks and Fighters",
+      "sourcePage": 21,
+      "sourceVersion": "D&D 3.0",
+      "sourceUrl": "https://new.dndtools.org/classes/gladiator-771",
+      "minBab": "5",
+      "prerequisites": [
+        "Skills:Perform 4 ranks or Intimidate 4 ranks",
+        "Feats:At least two feats from the fighter bonus feat list"
+      ],
+      "classSkills": ["Bluff", "Climb", "Craft", "Handle Animal", "Intimidate", "Jump", "Perform", "Ride", "Tumble"],
+      "proficiencies": [],
+      "proficiencyText": "The Sword and Fist Gladiator class features contain no Weapon and Armor Proficiency grant.",
+      "proficiencyReview": {
+        "verified": true,
+        "noNewProficiencies": true,
+        "sourceUrl": "https://dokumen.pub/sword-fist.html",
+        "note": "Sword and Fist page 21 proceeds from the Gladiator class skills directly to Class Features: Improved Feint; there is no Weapon and Armor Proficiency class feature to grant additional training."
+      },
+      "levelGrants": [
+        {"level": 1, "name": "Improved Feint", "actionType": "Move-equivalent action", "description": "The gladiator can use the feinting-in-combat Bluff technique as a move-equivalent action."},
+        {"level": 2, "name": "Study Opponent", "progressionText": "Study opponent +1", "description": "After using all-out defense, the gladiator gains a dodge bonus against an opponent that attacks him in melee; the bonus starts the following round and lasts for the fight."},
+        {"level": 3, "name": "Exhaust Opponent", "description": "After attacking the same opponent for three consecutive rounds, the gladiator can force a Fortitude save against subdual damage from exhaustion; the DC rises each continued round and resets if he does not attack for a round."},
+        {"level": 4, "name": "Roar of the Crowd", "actionType": "Move-equivalent action", "description": "With at least six noncombatant spectators, the gladiator may make a DC 15 Perform check as a move-equivalent action to gain +1 morale on attacks and damage for the fight."},
+        {"level": 5, "name": "Study Opponent", "progressionText": "Study opponent +2", "description": "Study Opponent's dodge bonus increases to +2."},
+        {"level": 6, "name": "Improved Coup de Grace", "description": "The gladiator can deliver a melee coup de grace as a standard action, or take a full-round showy version to gain a +2 morale attack bonus for the rest of the combat."},
+        {"level": 7, "name": "Poison Use", "description": "The gladiator is trained in poison use."},
+        {"level": 8, "name": "Study Opponent", "progressionText": "Study opponent +3", "description": "Study Opponent's dodge bonus increases to +3."},
+        {"level": 9, "name": "Make Them Bleed", "description": "A damaging slashing hit causes ongoing bleeding until treated or its duration expires; multiple wounds stack, while creatures without discernible anatomies are immune."},
+        {"level": 10, "name": "The Crowd Goes Wild", "description": "After Roar of the Crowd is active, consecutive damaging blows gain an escalating morale damage bonus that resets to +2 after a miss."}
+      ]
+    },
+    "classes/knight-protector-322": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-six-class",
+      "name": "Knight Protector",
+      "sourceBook": "Complete Warrior",
+      "sourcePage": 55,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://srd.dndtools.org/srd/classes/prestigeCwar/knightProtector.html",
+      "minBab": "5",
+      "prerequisites": [
+        "Alignment:Lawful neutral or lawful good",
+        "Skills:Diplomacy 6 ranks",
+        "Skills:Knowledge (nobility and royalty) 4 ranks",
+        "Skills:Ride 6 ranks",
+        "Feats:Armor Proficiency (heavy)",
+        "Feats:Cleave",
+        "Feats:Great Cleave",
+        "Feats:Mounted Combat",
+        "Feats:Power Attack"
+      ],
+      "classSkills": ["Diplomacy", "Intimidate", "Knowledge (nobility and royalty)", "Ride", "Spot"],
+      "proficiencies": [{"index": "tower-shield", "name": "Tower shield", "kind": "armor"}],
+      "proficiencyText": "Knight protectors gain proficiency with tower shields.",
+      "proficiencyReview": {"verified": true, "sourceUrl": "https://srd.dndtools.org/srd/classes/prestigeCwar/knightProtector.html"},
+      "classStateRules": {
+        "codeOfConduct": {
+          "adjudication": "gm",
+          "trigger": "Willingly and knowingly violates the code for no adequate reason",
+          "blocksAdvancement": true,
+          "suppressesFeatures": ["Shining Beacon", "Retributive Attack"],
+          "note": "The source removes all supernatural class features; these are the two supernatural features in this class record."
+        }
+      },
+      "levelGrants": [
+        {"level": 1, "name": "Defensive Stance", "progressionText": "Defensive stance +2", "description": "At the start of a turn while within 5 feet of an ally with fewer Hit Dice, the knight protector can transfer up to 2 AC to that ally, lowering his own AC by the same amount; the maximum increases every three levels."},
+        {"level": 1, "name": "Shining Beacon", "description": "Allies within 10 feet gain +4 morale on saves against fear while the knight protector is not helpless."},
+        {"level": 2, "name": "Best Effort", "progressionText": "Best effort +2", "resource": {"max": 1, "period": "day"}, "description": "Once per day, declared before a skill check, the knight protector gains a +2 bonus on that check; the bonus increases every three levels."},
+        {"level": 2, "name": "Iron Will", "featName": "Iron Will", "description": "The knight protector gains Iron Will as a bonus feat."},
+        {"level": 3, "name": "Supreme Cleave", "description": "The knight protector may take a 5-foot step between attacks while using Cleave or Great Cleave."},
+        {"level": 4, "name": "Defensive Stance", "progressionText": "Defensive stance +3", "description": "Defensive Stance's maximum AC transfer increases to 3."},
+        {"level": 5, "name": "Best Effort", "progressionText": "Best effort +3", "description": "Best Effort's skill-check bonus increases to +3."},
+        {"level": 6, "name": "No Mercy", "progressionText": "No mercy 1", "description": "The knight protector can make one extra attack of opportunity per round; this stacks with Combat Reflexes."},
+        {"level": 7, "name": "Defensive Stance", "progressionText": "Defensive stance +4", "description": "Defensive Stance's maximum AC transfer increases to 4."},
+        {"level": 8, "name": "Best Effort", "progressionText": "Best effort +4", "description": "Best Effort's skill-check bonus increases to +4."},
+        {"level": 9, "name": "No Mercy", "progressionText": "No mercy 2", "description": "No Mercy increases to two extra attacks of opportunity per round."},
+        {"level": 10, "name": "Defensive Stance", "progressionText": "Defensive stance +5", "description": "Defensive Stance's maximum AC transfer increases to 5."},
+        {"level": 10, "name": "Retributive Attack", "resource": {"ability": "cha", "minimum": 1, "period": "day", "recoveryText": "Never more than one retributive attack per round."}, "description": "When an ally is rendered helpless or unconscious, the knight protector can make a retributive attack against the creature that felled the ally, adding Charisma bonus to the attack and +10 damage on a hit. Daily uses equal Charisma bonus (minimum one), never more than once per round."}
+      ]
+    }
+  }
+}

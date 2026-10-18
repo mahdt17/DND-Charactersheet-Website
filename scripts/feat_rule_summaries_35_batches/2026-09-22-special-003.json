@@ -5,12 +5,16 @@
     "feats/craft-aboleth-glyph-446": {
       "name": "Craft Aboleth Glyph",
       "benefitSha256": "5f2463594d527c4f0a875dd04ed6ef8eba61aa02cbae272989987efd55e12ff2",
-      "effectSummary": "Create a permanent glyph of warding effect that automatically reforms 1 minute after it is discharged or dispelled. Crafting takes 1 day per 1,000 gp of base price; base price is caster level × spell level × 1,000 gp. You pay 1/25 of base price in XP and half the base price in raw materials. The glyph otherwise functions as glyph of warding and can be permanently destroyed only by effects or damage that can destroy a magic item. You can instead create unique master glyphs using their own listed effects and base costs.",
-      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "effectSummary": "Create a permanent magical glyph on an object or on up to 5 square feet of area per caster level. When creating it, set a password and/or trigger conditions based on physical characteristics, creature type, subtype or kind, alignment, or religion; the trigger cannot be based on class, Hit Dice, or level. Invisible creatures trigger it normally, while creatures passing ethereally do not. Choose either a blast glyph or a spell glyph. A blast glyph deals 1d8 damage per two caster levels (maximum 5d8) of acid, cold, electricity, fire, or sonic damage to the triggering creature and creatures within 5 feet; Reflex halves and spell resistance applies. A spell glyph stores a harmful spell of 3rd level or lower that you know, uses your caster level for level-dependent effects, and targets or centers the stored effect on the triggering creature as appropriate. The glyph is nearly invisible, can be identified and disabled as a magic trap, and can be dispelled. Unlike an ordinary glyph, an aboleth glyph automatically reforms 1 minute after being discharged or dispelled. Crafting takes 1 day per 1,000 gp of base price; base price is caster level × spell level × 1,000 gp, with XP cost equal to 1/25 of base price and raw materials equal to half. It can be permanently destroyed only by effects or damage capable of destroying a magic item. You can instead create one of the source-listed master glyphs, which uses its own listed effect and base cost.",
+      "notes": "Digest-locked to the exact Lords of Madness Benefit field. The prior summary delegated core behavior to glyph of warding; this revision resolves that dependency into a standalone user-facing mechanical summary while preserving the original feat digest.",
       "provenance": [
         {
           "url": "https://new.dndtools.org/feats/craft-aboleth-glyph-446",
-          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+          "role": "primary Lords of Madness feat record and Benefit-field digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/glyphOfWarding.htm",
+          "role": "D&D 3.5 SRD glyph of warding mechanics used to resolve the source cross-reference"
         }
       ]
     },

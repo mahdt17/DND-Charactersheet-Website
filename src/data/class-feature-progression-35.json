@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "classes/disciple-of-the-eye-712": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "advancements": [
+        {
+          "feature": "flurry of blows",
+          "sourceFeature": "Flurry of Blows",
+          "sourceLevel": 1,
+          "targetClassName": "Monk",
+          "levels": "all",
+          "standaloneWhenMissing": true
+        }
+      ]
+    },
+    "classes/sun-soul-monk-305": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "advancements": [
+        {
+          "feature": "flurry of blows",
+          "sourceFeature": "Monk Abilities",
+          "sourceLevel": 1,
+          "targetClassName": "Monk",
+          "levels": "all"
+        },
+        {
+          "feature": "unarmed strike",
+          "sourceFeature": "Monk Abilities",
+          "sourceLevel": 1,
+          "targetClassName": "Monk",
+          "levels": "all"
+        }
+      ]
+    },
+    "classes/deadgrim-583": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/deadgrim-583",
+      "advancements": [
+        {
+          "feature": "turn undead",
+          "sourceFeature": "Improved Turning",
+          "sourceLevel": 1,
+          "levels": "all"
+        }
+      ]
+    },
+    "classes/warpriest-255": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/warpriest-255",
+      "advancements": [
+        {
+          "feature": "turn undead",
+          "sourceFeature": "Turn or Rebuke Undead",
+          "sourceLevel": 1,
+          "levels": "all"
+        },
+        {
+          "feature": "rebuke undead",
+          "sourceFeature": "Turn or Rebuke Undead",
+          "sourceLevel": 1,
+          "levels": "all"
+        }
+      ]
+    },
+    "classes/master-of-shrouds-550": {
+      "verified": true,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-shrouds-550",
+      "advancements": [
+        {
+          "feature": "rebuke undead",
+          "sourceFeature": "Rebuke Undead",
+          "sourceLevel": 1,
+          "levels": "all"
+        }
+      ]
+    }
+  }
+}

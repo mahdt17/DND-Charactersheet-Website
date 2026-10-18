@@ -1,0 +1,42 @@
+name: Companion engine checks
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/companions35.js"
+      - "src/data/companions35.json"
+      - "src/data/class-feature-summaries-35.json"
+      - "src/data/class-proficiencies35.json"
+      - "src/lib/classIntegration.js"
+      - "src/lib/featureChoices.js"
+      - "tests/companions35.mjs"
+      - "tests/class-integration.mjs"
+      - "tests/feature-choices.mjs"
+      - "tests/browser-feature-choices.mjs"
+      - "src/Companions35.jsx"
+      - "src/ModernLedger.jsx"
+      - ".github/workflows/companion-engine.yml"
+permissions:
+  contents: read
+concurrency:
+  group: companion-engine-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  companion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/companions35.mjs
+      - run: node tests/class-integration.mjs
+      - run: node tests/feature-choices.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - run: node tests/browser-feature-choices.mjs

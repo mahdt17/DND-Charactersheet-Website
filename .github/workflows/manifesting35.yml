@@ -1,0 +1,58 @@
+name: 3.5 manifesting subsystem
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/lib/manifesting35.js"
+      - "src/lib/powerPointPrerequisites35.js"
+      - "src/lib/manifestingPrerequisites35.js"
+      - "src/lib/prerequisites35.js"
+      - "src/lib/castingPrerequisites35.js"
+      - "src/lib/classIntegration.js"
+      - "src/lib/invocationAcquisition35.js"
+      - "src/lib/resources.js"
+      - "src/lib/legacySpecialCasting.js"
+      - "src/lib/advancement.js"
+      - "src/lib/multiclassCasting.js"
+      - "src/EditionSpellbook.jsx"
+      - "src/RestDialog.jsx"
+      - "src/ResourceTracker.jsx"
+      - "public/catalogs/dndtools/classes.json"
+      - "tests/manifesting35.mjs"
+      - "tests/shared-power-points35.mjs"
+      - "tests/power-point-prerequisites35.mjs"
+      - "tests/manifesting-prerequisites35.mjs"
+      - "tests/browser-power-point-prerequisites35.mjs"
+      - "tests/browser-manifesting-prerequisites35.mjs"
+      - "tests/legacy-special-casting.mjs"
+      - "tests/browser-manifesting35.mjs"
+      - ".github/workflows/manifesting35.yml"
+permissions:
+  contents: read
+concurrency:
+  group: manifesting35-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  manifesting:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/manifesting35.mjs
+      - run: node tests/shared-power-points35.mjs
+      - run: node tests/power-point-prerequisites35.mjs
+      - run: node tests/manifesting-prerequisites35.mjs
+      - run: node tests/legacy-special-casting.mjs
+      - run: node tests/resources.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - run: node tests/browser-manifesting35.mjs
+      - run: node tests/browser-power-point-prerequisites35.mjs
+      - run: node tests/browser-manifesting-prerequisites35.mjs

@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "description": "Structured passive and conditional effects extracted only from already reviewed exact D&D 3.5 class feature summaries. Entries supplement reviewed prose; they do not replace source review.",
+  "entries": {
+    "classes/arcane-devotee-657": {
+      "Sacred Defense": [
+        {
+          "id": "sacred-defense-save",
+          "type": "modifier",
+          "target": "save",
+          "valueByLevel": {"1": 1, "4": 2},
+          "bonusType": "sacred",
+          "condition": "against divine spells and outsider spell-like or supernatural abilities"
+        }
+      ]
+    },
+    "classes/argent-savant-224": {
+      "Force Specialization": [
+        {
+          "id": "force-spell-attack",
+          "type": "modifier",
+          "target": "attack",
+          "value": 2,
+          "condition": "with force spells"
+        }
+      ],
+      "Force Armor": [
+        {
+          "id": "force-armor-ac",
+          "type": "modifier",
+          "target": "AC bonus granted by a force spell",
+          "value": 2
+        }
+      ],
+      "Enduring Force": [
+        {
+          "id": "force-counter-dispel-dc",
+          "type": "modifier",
+          "target": "DC to counter or dispel your force spells",
+          "value": 4
+        }
+      ]
+    },
+    "classes/cipher-adept-688": {
+      "Combat Instinct": [
+        {
+          "id": "combat-instinct-ac",
+          "type": "modifier",
+          "target": "AC",
+          "valueByLevel": {"3": 1, "6": 2, "9": 3},
+          "bonusType": "insight"
+        },
+        {
+          "id": "combat-instinct-initiative",
+          "type": "modifier",
+          "target": "initiative",
+          "valueByLevel": {"3": 1, "6": 2, "9": 3},
+          "bonusType": "insight"
+        }
+      ]
+    },
+    "classes/cloud-anchorite-499": {
+      "Climb Speed": [
+        {
+          "id": "climb-speed",
+          "type": "movement",
+          "movement": "climb",
+          "operation": "set",
+          "valueByLevel": {"1": 10, "3": 20, "5": 30, "7": 40, "9": 50},
+          "unit": "ft.",
+          "condition": "lost while wearing armor or carrying a medium or heavy load",
+          "defaultActive": true
+        }
+      ],
+      "Slow Breath": [
+        {
+          "id": "slow-breath-fortitude",
+          "type": "modifier",
+          "target": "Fortitude save",
+          "valueByLevel": {"1": 2, "6": 6},
+          "condition": "against specified inhaled poison and altitude hazards"
+        }
+      ],
+      "Resistance to Cold": [
+        {
+          "id": "cold-resistance",
+          "type": "resistance",
+          "damageType": "cold",
+          "valueByLevel": {"4": 5, "8": 10}
+        }
+      ],
+      "Fast Movement": [
+        {
+          "id": "fast-movement",
+          "type": "movement",
+          "movement": "land",
+          "operation": "add",
+          "valueByLevel": {"4": 10, "8": 20},
+          "unit": "ft.",
+          "condition": "while unarmored and not carrying a medium or heavy load"
+        }
+      ],
+      "Immortality of the Mountain": [
+        {
+          "id": "mountain-wisdom-check",
+          "type": "modifier",
+          "target": "Wisdom check",
+          "value": 2,
+          "bonusType": "sacred",
+          "condition": "in mountain terrain"
+        },
+        {
+          "id": "mountain-wisdom-save",
+          "type": "modifier",
+          "target": "Wisdom save",
+          "value": 2,
+          "bonusType": "sacred",
+          "condition": "in mountain terrain"
+        }
+      ]
+    },
+    "classes/crimson-scourge-262": {
+      "Immovable Heart": [
+        {
+          "id": "immovable-heart-save",
+          "type": "modifier",
+          "target": "save",
+          "value": 2,
+          "bonusType": "competence",
+          "condition": "against enchantment spells and fear effects"
+        }
+      ],
+      "Deadened Hide": [
+        {
+          "id": "nonlethal-damage-immunity",
+          "type": "immunity",
+          "condition": "nonlethal damage"
+        },
+        {
+          "id": "pain-immunity",
+          "type": "immunity",
+          "condition": "effects that inflict or manipulate pain"
+        }
+      ],
+      "Smell of Blood": [
+        {
+          "id": "smell-of-blood-initiative",
+          "type": "modifier",
+          "target": "initiative",
+          "value": 3,
+          "bonusType": "insight"
+        }
+      ]
+    },
+    "classes/divine-champion-661": {
+      "Sacred Defense": [
+        {
+          "id": "sacred-defense-save",
+          "type": "modifier",
+          "target": "save",
+          "valueByLevel": {"1": 1, "4": 2},
+          "bonusType": "sacred",
+          "condition": "against divine spells and outsider spell-like or supernatural abilities"
+        }
+      ],
+      "Divine Wrath": [
+        {
+          "id": "divine-wrath-dr",
+          "type": "damageReduction",
+          "value": 5,
+          "bypass": "-",
+          "condition": "while Divine Wrath is active"
+        },
+        {
+          "id": "divine-wrath-attack",
+          "type": "modifier",
+          "target": "attack",
+          "value": 3,
+          "condition": "while Divine Wrath is active"
+        },
+        {
+          "id": "divine-wrath-damage",
+          "type": "modifier",
+          "target": "damage",
+          "value": 3,
+          "condition": "while Divine Wrath is active"
+        },
+        {
+          "id": "divine-wrath-save",
+          "type": "modifier",
+          "target": "save",
+          "value": 3,
+          "condition": "while Divine Wrath is active"
+        }
+      ]
+    },
+    "classes/dread-fang-of-lolth-428": {
+      "Lolth's Will": [
+        {
+          "id": "lolths-will-save",
+          "type": "modifier",
+          "target": "racial Will-save bonus",
+          "operation": "set",
+          "value": 4,
+          "condition": "against spells and spell-like abilities"
+        }
+      ],
+      "Lolth's Whispers": [
+        {
+          "id": "lolths-whispers-damage",
+          "type": "modifier",
+          "target": "damage",
+          "value": 2,
+          "bonusType": "insight",
+          "condition": "while you retain Lolth's Whispers rather than granting it to an ally"
+        }
+      ],
+      "Team Defense": [
+        {
+          "id": "team-defense-ac",
+          "type": "modifier",
+          "target": "AC",
+          "valueByLevel": {"1": 1, "8": 2},
+          "bonusType": "dodge",
+          "condition": "while you retain Team Defense rather than granting it to an ally"
+        }
+      ],
+      "Spider Bite": [
+        {
+          "id": "spider-bite-poison-dc",
+          "type": "modifier",
+          "target": "save DC",
+          "value": 2,
+          "condition": "for the initial effect of poison delivered by your poisoned weapon"
+        }
+      ]
+    }
+  }
+}

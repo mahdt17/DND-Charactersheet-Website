@@ -15,7 +15,7 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
     const node=canvas.current,style=diceStyles.find(s=>s.id===scene.style)||diceStyles[0];
     let cancelled=false,dispose,timer;
     const finish=()=>{if(!cancelled)setScene(current=>current?.key===scene.key?null:current);};
-    const fallback=()=>{if(cancelled)return;dispose?.();dispose=null;node.dataset.engine='results-only';node.dataset.phase='settled';setPhase('unavailable');timer=setTimeout(finish,2200);};
+    const fallback=()=>{if(cancelled)return;node.dataset.ready='false';dispose?.();dispose=null;node.dataset.engine='results-only';node.dataset.phase='settled';setPhase('unavailable');timer=setTimeout(finish,2200);};
     import('./lib/diceRenderer').then(({createDiceRenderer})=>{
       if(cancelled)return;
       dispose=createDiceRenderer(node,scene.dice,style,{onPhase:value=>{if(!cancelled)setPhase(value);},onFinish:finish,onUnavailable:fallback});

@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {existsSync} from 'node:fs';
+import {make} from './entomancer.mjs';
+import {entomancerId} from '../src/data/entomancer.js';
+assert(existsSync('src/lib/entomancerPreparation.js'),'Entomancer preparation must be implemented');
+const {prepareEntomancerSpells}=await import('../src/lib/entomancerPreparation.js');
+const spell=(name,level=0)=>({name,index:name,catalogId:'2014:'+name,edition:'2014',classes:['Druid'],level});
+let c=prepareEntomancerSpells(make(5),entomancerId,[spell('a'),spell('b'),spell('c'),spell('d',1)],{});
+assert.equal(c.spells.length,4);
+assert.throws(()=>prepareEntomancerSpells(c,entomancerId,[spell('x'),spell('b'),spell('c'),spell('d',1)]),/hour/i);
+c=prepareEntomancerSpells(c,entomancerId,[spell('x'),spell('b'),spell('c'),spell('d',1)],{hour:true});
+assert.throws(()=>prepareEntomancerSpells(c,entomancerId,[spell('y'),spell('b'),spell('c'),spell('d',1)],{hour:true}),/already/i);
+assert.throws(()=>prepareEntomancerSpells(c,entomancerId,[spell('x'),spell('b'),spell('c'),spell('d',3)],{hour:true}),/level/i);
+assert.throws(()=>prepareEntomancerSpells(c,entomancerId,[{...spell('Wizard'),classes:['Wizard']}],{hour:true}),/Druid/i);
+const other={...spell('wizard spell',1),id:'other',castingClassId:'2014:wizard'};
+c={...c,spells:[...c.spells,other]};c=prepareEntomancerSpells(c,entomancerId,[spell('x'),spell('b'),spell('c'),spell('e',1)],{hour:true});
+assert(c.spells.includes(other));assert(c.entomancer.daily.preparedSwap);
+console.log('PASS Entomancer initial acquisition, hourly exchanges, daily limits and multiclass spell ownership');

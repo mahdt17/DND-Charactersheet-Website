@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/foe-hunter-612": [
+      {
+        "name": "Hated Enemy",
+        "description": "At 1st level choose one creature type already selected as a favored enemy to become the hated enemy. This choice is irreversible.",
+        "choiceRequired": true,
+        "choiceKind": "source",
+        "choiceCount": 1,
+        "choiceLevels": [1],
+        "choiceOptionsFromCharacter": {"choiceKind": "favored-enemy"}
+      },
+      {
+        "name": "Rancor",
+        "aliases": ["Rancor +1d6", "Rancor +2d6", "Rancor +3d6", "Rancor +4d6", "Rancor +5d6"],
+        "description": "Once per round, before the attack roll, designate one attack against the hated enemy as a rancor attack. A successful attack deals +1d6 extra damage at 1st level, increasing to +2d6 at 3rd, +3d6 at 5th, +4d6 at 7th, and +5d6 at 9th. The extra damage is not multiplied on a critical hit and applies even against a hated enemy immune to critical hits. With a sap or unarmed strike it can deal subdual damage.",
+        "actionType": "Special action"
+      },
+      {
+        "name": "Hated Enemy Damage Reduction",
+        "aliases": ["Hated enemy damage reduction 3/—", "Hated enemy damage reduction 5/—", "Hated enemy damage reduction 7/—", "Hated enemy damage reduction 9/—", "Hated enemy damage reduction 11/—", "Hated enemy damage reduction 3/-", "Hated enemy damage reduction 5/-", "Hated enemy damage reduction 7/-", "Hated enemy damage reduction 9/-", "Hated enemy damage reduction 11/-"],
+        "description": "Beginning at 2nd level, reduce damage from each successful attack made by the hated enemy by 3 points. This improves to 5 at 4th level, 7 at 6th, 9 at 8th, and 11 at 10th. This damage reduction does not stack with other damage reduction."
+      },
+      {
+        "name": "Hated Enemy Spell Resistance",
+        "description": "Beginning at 4th level, against spells and spell-like abilities that directly affect the Foe Hunter and originate from the hated enemy, gain spell resistance equal to 15 + Foe Hunter class level. This stacks with other applicable spell resistance."
+      },
+      {
+        "name": "Death Attack",
+        "description": "At 10th level make a death attack against a hated enemy denied its Dexterity bonus to AC. This functions like the assassin death attack except that it requires only a melee attack that successfully deals damage, not a sneak attack.",
+        "actionType": "Special action"
+      }
+    ]
+  }
+}

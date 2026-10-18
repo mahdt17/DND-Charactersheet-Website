@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/dervish-309": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-martial",
+      "name": "Dervish",
+      "sourceBook": "Complete Warrior",
+      "sourcePage": 25,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/dervish-309",
+      "minBab": "5",
+      "prerequisites": [
+        "Skills:Perform (dance) 3 ranks",
+        "Skills:Tumble 3 ranks",
+        "Feats:Combat Expertise",
+        "Feats:Dodge",
+        "Feats:Mobility",
+        "Feats:Weapon Focus (any slashing melee weapon)"
+      ],
+      "classSkills": [
+        "Balance",
+        "Craft",
+        "Escape Artist",
+        "Jump",
+        "Listen",
+        "Perform",
+        "Profession",
+        "Swim",
+        "Tumble"
+      ],
+      "proficiencies": [],
+      "proficiencyText": "Dervishes gain no proficiency with any weapon or armor.",
+      "proficiencyReview": {
+        "verified": true,
+        "grantsNewProficiencies": false,
+        "sourceUrl": "https://new.dndtools.org/classes/dervish-309",
+        "note": "Complete Warrior class text explicitly grants no new weapon or armor proficiency."
+      },
+      "conditionalMechanics": {
+        "dervishDance": {
+          "oncePerEncounter": true,
+          "durationFormula": "1 round per 2 ranks of Perform (dance)",
+          "requiresSlashingWeapon": true,
+          "requiresLightOrNoArmor": true,
+          "requiresNoShield": true,
+          "minimumMovementBetweenAttacksFeet": 5,
+          "cannotCombineWithRageOrFrenzy": true,
+          "fatiguedAfterwardUntilLevel9": true
+        }
+      },
+      "levelGrants": [
+        {
+          "level": 1,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +1",
+          "description": "While wearing no armor or light armor, using no shield, and carrying no more than a light load, gain a +1 dodge bonus to Armor Class. The bonus applies to touch attacks and while flat-footed, but is lost while immobilized or helpless. It improves to +2 at 5th level and +3 at 9th level."
+        },
+        {
+          "level": 1,
+          "name": "Dervish Dance",
+          "resource": {
+            "maxByLevel": {
+              "1": 1,
+              "3": 2,
+              "5": 3,
+              "7": 4,
+              "9": 5
+            },
+            "period": "day"
+          },
+          "description": "A limited number of times per day, perform a dervish dance while wielding only slashing weapons and wearing no armor or light armor without a shield. During the dance you can make a melee full attack while moving up to your speed, moving at least 5 feet between attacks. The dance lasts 1 round per 2 ranks of Perform (dance), can be used only once per encounter, grants +1 on attack and damage rolls with slashing weapons at 1st level and +1 more at each odd-numbered dervish level, and normally leaves you fatigued for the encounter when it ends."
+        },
+        {
+          "level": 1,
+          "name": "Movement Mastery",
+          "description": "When making Jump, Perform (dance), or Tumble checks, you may take 10 even when stress or distraction would normally prevent it."
+        },
+        {
+          "level": 1,
+          "name": "Slashing Blades",
+          "description": "Treat the scimitar as a light weapon for all purposes, including two-weapon fighting."
+        },
+        {
+          "level": 2,
+          "name": "Fast Movement",
+          "progressionText": "Fast Movement +5 ft.",
+          "description": "While in no armor or light armor and not carrying a medium or heavy load, gain a +5-foot enhancement bonus to land speed. The bonus improves to +10 feet at 5th level and +15 feet at 8th level."
+        },
+        {
+          "level": 3,
+          "name": "Spring Attack",
+          "featName": "Spring Attack",
+          "description": "Gain Spring Attack as a bonus feat even if you do not meet its prerequisites."
+        },
+        {
+          "level": 4,
+          "name": "Dance of Death",
+          "description": "While performing a dervish dance, gain the benefit of Cleave even if you do not meet its prerequisites; the extra attack does not require moving 5 feet first."
+        },
+        {
+          "level": 5,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +2",
+          "description": "The dervish dodge bonus to Armor Class improves to +2."
+        },
+        {
+          "level": 5,
+          "name": "Fast Movement",
+          "progressionText": "Fast Movement +10 ft.",
+          "description": "Fast Movement improves to a +10-foot enhancement bonus."
+        },
+        {
+          "level": 6,
+          "name": "Improved Reaction",
+          "description": "Gain a +2 bonus on initiative rolls."
+        },
+        {
+          "level": 7,
+          "name": "Elaborate Parry",
+          "description": "When fighting defensively or using total defense in melee combat, gain an additional +4 bonus to Armor Class."
+        },
+        {
+          "level": 8,
+          "name": "Fast Movement",
+          "progressionText": "Fast Movement +15 ft.",
+          "description": "Fast Movement improves to a +15-foot enhancement bonus."
+        },
+        {
+          "level": 9,
+          "name": "AC Bonus",
+          "progressionText": "AC Bonus +3",
+          "description": "The dervish dodge bonus to Armor Class improves to +3."
+        },
+        {
+          "level": 9,
+          "name": "Tireless Dance",
+          "description": "You no longer become fatigued at the end of a dervish dance."
+        },
+        {
+          "level": 10,
+          "name": "A Thousand Cuts",
+          "resource": {
+            "max": 1,
+            "period": "day"
+          },
+          "description": "Once per day, when making a melee full attack, double the number of melee attacks you make. When combined with dervish dance, you can make up to two attacks between moves. While using this ability with slashing weapons, you also gain the benefit of Great Cleave without needing its prerequisites."
+        }
+      ]
+    },
+    "classes/frenzied-berserker-313": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-martial",
+      "name": "Frenzied Berserker",
+      "sourceBook": "Complete Warrior",
+      "sourcePage": 34,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/frenzied-berserker-313",
+      "minBab": "6",
+      "prerequisites": [
+        "Alignment:Any nonlawful",
+        "Feats:Cleave",
+        "Feats:Destructive Rage",
+        "Feats:Intimidating Rage",
+        "Feats:Power Attack"
+      ],
+      "classSkills": [
+        "Climb",
+        "Intimidate",
+        "Jump",
+        "Ride",
+        "Swim"
+      ],
+      "proficiencies": [],
+      "proficiencyText": "Frenzied berserkers gain no proficiency with any weapon or armor.",
+      "proficiencyReview": {
+        "verified": true,
+        "grantsNewProficiencies": false,
+        "sourceUrl": "https://new.dndtools.org/classes/frenzied-berserker-313",
+        "note": "Complete Warrior class text explicitly grants no new weapon or armor proficiency."
+      },
+      "conditionalMechanics": {
+        "frenzy": {
+          "strengthBonus": 6,
+          "greaterStrengthBonusAtLevel8": 10,
+          "armorClassPenalty": -4,
+          "nonlethalDamagePerRound": 2,
+          "durationFormula": "3 + Constitution modifier rounds",
+          "earlyEndWillSaveDC": 20,
+          "extraAttackOnFullAttack": 1,
+          "oncePerEncounter": true,
+          "automaticTriggerOnDamage": true
+        }
+      },
+      "levelGrants": [
+        {
+          "level": 1,
+          "name": "Frenzy",
+          "actionType": "Free action",
+          "resource": {
+            "maxByLevel": {
+              "1": 1,
+              "3": 2,
+              "5": 3,
+              "7": 4,
+              "9": 5
+            },
+            "period": "day"
+          },
+          "description": "Enter a frenzy as a free action during your turn, no more than once per encounter. While frenzied you gain +6 Strength, take -4 AC, take 2 nonlethal damage each round, and gain one extra attack at your highest bonus when making a full attack. The frenzy lasts 3 + Constitution modifier rounds and can be ended early with a DC 20 Will save attempted once per round. At 8th level the Strength bonus becomes +10. Taking damage can force a frenzy at the start of your next action unless you succeed on the specified Will save."
+        },
+        {
+          "level": 1,
+          "name": "Diehard",
+          "featName": "Diehard",
+          "description": "Gain Diehard as a bonus feat even if you do not meet its prerequisites."
+        },
+        {
+          "level": 2,
+          "name": "Supreme Cleave",
+          "description": "When using Cleave or Great Cleave, you can take a 5-foot step between attacks, still subject to the normal one 5-foot-step-per-round limit."
+        },
+        {
+          "level": 4,
+          "name": "Deathless Frenzy",
+          "description": "While frenzy continues, you are not disabled at 0 hit points and are not treated as dying at negative hit points; even at -10 or lower you continue fighting until frenzy ends, after which your wounds apply normally. This does not prevent death from massive damage or effects such as slay living or disintegrate."
+        },
+        {
+          "level": 5,
+          "name": "Improved Power Attack",
+          "description": "When using Power Attack with a two-handed weapon, gain +3 damage for each -1 attack penalty instead of the normal +2."
+        },
+        {
+          "level": 6,
+          "name": "Inspire Frenzy",
+          "resource": {
+            "maxByLevel": {
+              "6": 1,
+              "8": 2,
+              "10": 3
+            },
+            "period": "day"
+          },
+          "description": "While you are frenzied, inspire all willing allies within 10 feet to gain the benefits and drawbacks of frenzy for 3 + your Constitution modifier rounds. Daily uses increase to 2/day at 8th level and 3/day at 10th level, and it remains limited to once per encounter."
+        },
+        {
+          "level": 8,
+          "name": "Greater Frenzy",
+          "description": "Your Strength bonus while frenzied improves from +6 to +10."
+        },
+        {
+          "level": 10,
+          "name": "Supreme Power Attack",
+          "description": "When using Power Attack with a two-handed weapon, gain +4 damage for each -1 attack penalty instead of the normal +2."
+        },
+        {
+          "level": 10,
+          "name": "Tireless Frenzy",
+          "description": "You no longer become fatigued after a frenzy, though you still take the nonlethal damage incurred during it."
+        }
+      ]
+    },
+    "classes/great-rift-deep-defender-792": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-martial",
+      "name": "Great Rift Deep Defender",
+      "sourceBook": "Shining South",
+      "sourcePage": 24,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/great-rift-deep-defender-792",
+      "minBab": "7",
+      "prerequisites": [
+        "Alignment:Any lawful",
+        "Feats:Dodge",
+        "Feats:Endurance",
+        "Feats:Toughness",
+        "Race:Gold dwarf",
+        "Region:The Great Rift"
+      ],
+      "classSkills": [
+        "Craft",
+        "Listen",
+        "Sense Motive",
+        "Spot"
+      ],
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"martial-weapons","name":"Martial weapons","kind":"weapons"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"medium-armor","name":"Medium armor","kind":"armor"},
+        {"index":"heavy-armor","name":"Heavy armor","kind":"armor"},
+        {"index":"shields","name":"Shields, including tower shields","kind":"armor"}
+      ],
+      "proficiencyText": "A Great Rift deep defender is proficient with all simple and martial weapons, light, medium, and heavy armor, and shields including tower shields.",
+      "proficiencyReview": {
+        "verified": true,
+        "sourceUrl": "https://new.dndtools.org/classes/great-rift-deep-defender-792",
+        "note": "Shining South class text explicitly grants all listed weapon, armor, and shield proficiencies, including tower shields."
+      },
+      "conditionalMechanics": {
+        "uncannyStability": {
+          "narrowOrLowSpaceBonus": 4,
+          "appliesTo": ["resist bull rush","resist trip"]
+        },
+        "subterraneanBulwark": {
+          "requiresNarrowOrLowSpace": true,
+          "damageReduction": "3/-",
+          "attackBonus": 1,
+          "damageBonus": 2,
+          "mustHoldPosition": true
+        }
+      },
+      "levelGrants": [
+        {"level":1,"name":"AC Bonus","progressionText":"AC Bonus +1","description":"Gain a +1 dodge bonus to Armor Class. This improves to +2 at 3rd level and +3 at 5th level."},
+        {"level":1,"name":"Hold the Line","featName":"Hold the Line","description":"Gain Hold the Line as a bonus feat."},
+        {"level":2,"name":"Uncanny Dodge","description":"Retain your Dexterity bonus to AC when caught flat-footed or attacked by an invisible attacker unless immobilized. If you gain uncanny dodge from another class, the interaction grants improved uncanny dodge."},
+        {"level":3,"name":"AC Bonus","progressionText":"AC Bonus +2","description":"The Great Rift deep defender dodge bonus to Armor Class improves to +2."},
+        {"level":3,"name":"Uncanny Stability","description":"In a narrow or low space, gain an additional +4 bonus on ability checks made to resist bull rushes or trips, stacking with the dwarf racial stability bonus."},
+        {"level":4,"name":"Improved Uncanny Dodge","description":"You can no longer be flanked except by a rogue at least four levels higher than your effective level for this ability. Levels from other classes granting uncanny dodge stack for this purpose."},
+        {"level":5,"name":"AC Bonus","progressionText":"AC Bonus +3","description":"The Great Rift deep defender dodge bonus to Armor Class improves to +3."},
+        {"level":5,"name":"Subterranean Bulwark","description":"While holding position in a narrow or low space, gain damage reduction 3/-, +1 on attack rolls, and +2 on damage rolls. You lose the benefits if you move from the defended spot. You also reduce cramped-quarters weapon penalties and retain your Dexterity bonus to AC."}
+      ]
+    },
+    "classes/dragonstalker-403": {
+      "verified": true,
+      "reviewBatch": "2026-10-05-actions-resources-martial",
+      "name": "Dragonstalker",
+      "sourceBook": "Draconomicon",
+      "sourcePage": 128,
+      "sourceVersion": "D&D 3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/dragonstalker-403",
+      "minBab": "5",
+      "prerequisites": [
+        "Skills:Gather Information 4 ranks",
+        "Skills:Hide 6 ranks",
+        "Skills:Knowledge (arcana) 4 ranks",
+        "Skills:Move Silently 6 ranks",
+        "Skills:Search 6 ranks",
+        "Feats:Blind-Fight",
+        "Feats:Track",
+        "Language:Draconic"
+      ],
+      "classSkills": [
+        "Bluff","Climb","Craft","Diplomacy","Disguise","Gather Information","Hide","Jump","Knowledge (arcana)","Knowledge (local)","Listen","Move Silently","Search","Spot","Survival"
+      ],
+      "proficiencies": [
+        {"index":"simple-weapons","name":"Simple weapons","kind":"weapons"},
+        {"index":"longbow","name":"Longbow","kind":"weapon"},
+        {"index":"longspear","name":"Longspear","kind":"weapon"},
+        {"index":"net","name":"Net","kind":"weapon"},
+        {"index":"shortbow","name":"Shortbow","kind":"weapon"},
+        {"index":"light-armor","name":"Light armor","kind":"armor"},
+        {"index":"shields","name":"Shields","kind":"armor"}
+      ],
+      "proficiencyText": "A dragonstalker gains proficiency with the longbow, longspear, net, shortbow, and all simple weapons, and is proficient with light armor and shields.",
+      "proficiencyReview": {
+        "verified": true,
+        "sourceUrl": "https://new.dndtools.org/classes/dragonstalker-403",
+        "note": "Draconomicon class text explicitly lists the weapon, light armor, and shield training grants."
+      },
+      "conditionalMechanics": {
+        "huntingBonus": {"bonusFormula":"dragonstalker class level","against":"dragons","skills":["Bluff","Listen","Search","Sense Motive","Spot"]},
+        "hideScent": {"disguisePenalty":-10,"durationFormula":"1 hour per dragonstalker class level"},
+        "foilBlindsense": {"durationMinutes":10,"usesPerDay":1,"affects":"blindsense only"}
+      },
+      "levelGrants": [
+        {"level":1,"name":"Hunting Bonus","description":"Gain a bonus equal to your dragonstalker class level on Bluff, Listen, Search, Sense Motive, and Spot checks made against dragons."},
+        {"level":2,"name":"Sneak Attack (Dragon)","progressionText":"Sneak Attack (Dragon) +2d6","description":"Against a living dragon with discernible anatomy, deal +2d6 sneak attack damage when it is denied its Dexterity bonus to AC. Ranged attacks qualify only within 30 feet. The bonus improves by +2d6 every other class level, reaching +10d6 at 10th level, and stacks with sneak attack from other sources when used against dragons."},
+        {"level":3,"name":"Ignore Natural Armor","resource":{"maxByLevel":{"3":1,"7":2},"period":"day"},"description":"Once per day, declare before an attack that you are ignoring the target's natural armor bonus, including enhancement to that natural armor, for that melee or ranged attack. At 7th level you can use this ability twice per day."},
+        {"level":4,"name":"Sneak Attack (Dragon)","progressionText":"Sneak Attack (Dragon) +4d6","description":"Sneak Attack (Dragon) improves to +4d6."},
+        {"level":5,"name":"Hide Scent","description":"Use Disguise to hide your own or another creature's scent, taking a -10 penalty on the Disguise check opposed by Wisdom checks from creatures using scent. The process takes twice as long as a typical disguise and lasts 1 hour per dragonstalker class level."},
+        {"level":6,"name":"Sneak Attack (Dragon)","progressionText":"Sneak Attack (Dragon) +6d6","description":"Sneak Attack (Dragon) improves to +6d6."},
+        {"level":7,"name":"Ignore Natural Armor","progressionText":"Ignore Natural Armor 2/day","description":"Ignore Natural Armor can now be used twice per day."},
+        {"level":8,"name":"Sneak Attack (Dragon)","progressionText":"Sneak Attack (Dragon) +8d6","description":"Sneak Attack (Dragon) improves to +8d6."},
+        {"level":9,"name":"Foil Blindsense","actionType":"Standard action","resource":{"max":1,"period":"day"},"description":"Once per day as a standard action, become completely imperceptible to blindsense for 10 minutes. This does not conceal you from normal senses or other forms of vision."},
+        {"level":10,"name":"Dragonstrike","description":"Against dragons, the effective enhancement bonus of any weapon you wield is +2 higher than normal and the weapon deals an extra 2d6 damage; these benefits stack with the bane (dragons) weapon property."},
+        {"level":10,"name":"Sneak Attack (Dragon)","progressionText":"Sneak Attack (Dragon) +10d6","description":"Sneak Attack (Dragon) improves to +10d6."}
+      ]
+    }
+  }
+}

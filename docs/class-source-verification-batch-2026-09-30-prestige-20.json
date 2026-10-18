@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29/30",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "validationBaselineCommit": "9325426767c8e9e39724883243815a9b9faef238",
+  "validationBaselineRun": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36663746323",
+  "discoveryProvider": "Exa",
+  "extractionProvider": "Tavily",
+  "selected": 20,
+  "firecrawlFallbacks": 0,
+  "supabaseWrites": 0,
+  "outcome": {
+    "complete": 0,
+    "needsReview": 20
+  },
+  "records": [
+    {
+      "sourceId": "classes/abjurant-champion-264",
+      "name": "Abjurant Champion",
+      "sourceBook": "Prestige Class Complete Mage",
+      "sourceUrl": "https://new.dndtools.org/classes/abjurant-champion-264",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Abjurant Champion feature-summary block exists yet; prestige eligibility (BAB +5, martial-weapon proficiency, 1st-level arcane casting including abjuration), per-level arcane spellcasting advancement target, and Abjurant Armor/Extended Abjuration/Swift Abjuration/Arcane Boost/Martial Arcanist mechanics are not structurally automated."
+      ],
+      "nextAction": "Add reviewed Abjurant Champion summaries, implement prestige prerequisite validation plus arcane advancement targeting, then regression-test all five class features and level-up eligibility."
+    },
+    {
+      "sourceId": "classes/abolisher-556",
+      "name": "Abolisher",
+      "sourceBook": "Prestige Class Lords of Madness",
+      "sourceUrl": "https://new.dndtools.org/classes/abolisher-556",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Abolisher feature-summary block exists yet; non-aberration + Wild Empathy entry rules, selective divine spellcasting advancement, Favored Enemy (aberrations) stacking, restricted Wild Shape progression, Animal Companion state, and later anti-aberration actions/resources are not fully structured."
+      ],
+      "nextAction": "Add reviewed Abolisher summaries, wire prestige prerequisites and selective divine advancement, then reuse Favored Enemy/Wild Shape/companion subsystems with level-by-level anti-aberration regressions."
+    },
+    {
+      "sourceId": "classes/acolyte-of-the-ego-861",
+      "name": "Acolyte of the Ego",
+      "sourceBook": "Prestige Class Tome of Magic",
+      "sourceUrl": "https://new.dndtools.org/classes/acolyte-of-the-ego-861",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Acolyte of the Ego feature-summary block exists yet; humanoid/language/Truespeak entry rules, personal-truename DCs, repeatable Morphic Cadence acquisition/scaling, multi-cadence activation, altered-truename penalties, and the recitation-feat choice are not structured."
+      ],
+      "nextAction": "Add reviewed Acolyte of the Ego summaries and a reusable truenaming/cadence choice-resource model, then add prerequisite, activation, scaling, feat-choice, and persistence regressions."
+    },
+    {
+      "sourceId": "classes/acolyte-of-the-skin-207",
+      "name": "Acolyte of the Skin",
+      "sourceBook": "Prestige Class Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/acolyte-of-the-skin-207",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Complete Arcane Acolyte of the Skin block exists yet; caster-level/outside-contact/Ritual of Bonding entry rules, alternating existing-class spellcasting advancement, poison uses, resistances, glare abilities, summon fiend, and fiendish symbiosis are not structured."
+      ],
+      "nextAction": "Add exact Complete Arcane summaries, implement its prestige prerequisites and alternating spellcasting target, then model level-scaled resistances/actions/resources and source-removal behavior."
+    },
+    {
+      "sourceId": "classes/acolyte-of-the-skin-836",
+      "name": "Acolyte of the Skin",
+      "sourceBook": "Prestige Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
+      "sourceUrl": "https://new.dndtools.org/classes/acolyte-of-the-skin-836",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Tome and Blood Acolyte of the Skin block exists yet; this older record has different entry and progression rules from the Complete Arcane version, including 3rd-level arcane entry and its own half-progression spellcasting/fiendish feature schedule."
+      ],
+      "nextAction": "Review this Tome and Blood record independently (no same-name inheritance), implement its exact prerequisites and spellcasting advancement schedule, then regression-test source-specific fiendish features."
+    },
+    {
+      "sourceId": "classes/aerial-avenger-980",
+      "name": "Aerial Avenger",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourceUrl": "https://new.dndtools.org/classes/aerial-avenger-980",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Aerial Avenger block exists yet; Reflex/flying entry rules plus fly-speed/maneuverability changes, Momentum, Power Dive, Death from Above, range increases, Swoop, and Terrifying Shriek are not structured as movement/action state."
+      ],
+      "nextAction": "Add reviewed Aerial Avenger summaries and implement flight-state deltas plus aerial actions/resources, then add level 1-10 and prerequisite regressions."
+    },
+    {
+      "sourceId": "classes/agent-retriever-447",
+      "name": "Agent Retriever",
+      "sourceBook": "Prestige Class Epic Level Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/agent-retriever-447",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Agent Retriever block exists yet; epic entry requirements (lawful alignment, Gather Information 24 ranks, Knowledge (planes) 15 ranks, Track), existing-class spellcasting advancement, tracking scaling, daily plane shift/force sphere/ethereal jaunt uses, and epic bonus-feat choices are not structured."
+      ],
+      "nextAction": "Add reviewed Agent Retriever summaries, implement epic prestige prerequisite checks and casting-target advancement, then model SLA resources and prerequisite-filtered epic bonus feats."
+    },
+    {
+      "sourceId": "classes/aglarondan-griffonrider-883",
+      "name": "Aglarondan Griffonrider",
+      "sourceBook": "Prestige Class Unapproachable East",
+      "sourceUrl": "https://new.dndtools.org/classes/aglarondan-griffonrider-883",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Aglarondan Griffonrider block exists yet; Aglarond regional eligibility, bonded-griffon creature state, mount replacement/training/ex-griffonrider lifecycle, and its aerial/mounted-combat progression are not structurally automated."
+      ],
+      "nextAction": "Add reviewed Griffonrider summaries, enforce regional eligibility, route the griffon through the companion/mount lifecycle model, and regression-test replacement plus level-scaled aerial features."
+    },
+    {
+      "sourceId": "classes/akodo-champion-625",
+      "name": "Akodo Champion",
+      "sourceBook": "Prestige Class Oriental Adventures",
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Akodo Champion block exists yet; exact entry rules (BAB +5, lawful good, Human [Lion], Knowledge (history) 4, Iron Will, Ki Shout, Weapon Focus [katana]) and Detect Evil, Ancestral Favor, Leadership, Smite Evil, Aura of Courage, Great Leader, and Inspire Greatness scaling are not structured."
+      ],
+      "nextAction": "Add reviewed Akodo Champion summaries, implement prestige prerequisite validation and level-scaled leadership/inspiration actions, then regression-test all levels and source-specific 3.0 mechanics."
+    },
+    {
+      "sourceId": "classes/alchemist-savant-582",
+      "name": "Alchemist Savant",
+      "sourceBook": "Prestige Class Magic of Eberron",
+      "sourceUrl": "https://new.dndtools.org/classes/alchemist-savant-582",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Alchemist Savant block exists yet; 3rd-level arcane-or-infusion plus Cannith entry rules, full existing-class casting advancement, Efficient Alchemy scaling, spellvials, alchemical mixtures, universal potion creation, and item-production state are not structured."
+      ],
+      "nextAction": "Add reviewed Alchemist Savant summaries, implement mixed spell/infusion prerequisites and casting target, then model its alchemical crafting choices/resources with persistence regressions."
+    },
+    {
+      "sourceId": "classes/alienist-223",
+      "name": "Alienist",
+      "sourceBook": "Prestige Class Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/alienist-223",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Complete Arcane Alienist block exists yet; summoning-spell/contact entry rules, full spellcasting advancement, familiar progression/pseudonatural familiar state, metamagic-secret choices, summon-alien behavior, extra summoning, and alien transcendence are not fully structured."
+      ],
+      "nextAction": "Add exact Complete Arcane Alienist summaries, wire prerequisites/casting advancement, extend familiar state for pseudonatural changes, and add metamagic/summoning/transcendence regressions."
+    },
+    {
+      "sourceId": "classes/alienist-837",
+      "name": "Alienist",
+      "sourceBook": "Prestige Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
+      "sourceUrl": "https://new.dndtools.org/classes/alienist-837",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Tome and Blood Alienist block exists yet; this older source has distinct entry text and class mechanics from Complete Arcane, including divination + 3rd-level summoning requirements and its own spellcasting/familiar progression."
+      ],
+      "nextAction": "Audit and implement the Tome and Blood Alienist independently, preserving exact prerequisite and feature differences rather than inheriting from the Complete Arcane record."
+    },
+    {
+      "sourceId": "classes/anarchic-initiate-275",
+      "name": "Anarchic Initiate",
+      "sourceBook": "Prestige Class Complete Psionic",
+      "sourceUrl": "https://new.dndtools.org/classes/anarchic-initiate-275",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Anarchic Initiate block exists yet; Wild Surge-or-Overchannel entry logic, full manifesting advancement, and class-specific chaotic surge/breach effects are not integrated with the psionic power-point/powers-known subsystem."
+      ],
+      "nextAction": "Add reviewed Anarchic Initiate summaries, implement alternative prestige prerequisites and manifesting target advancement, then integrate its chaotic surge/breach mechanics with psionic resources."
+    },
+    {
+      "sourceId": "classes/ancient-master-802",
+      "name": "Ancient Master",
+      "sourceBook": "Prestige Class Serpent Kingdoms",
+      "sourceUrl": "https://new.dndtools.org/classes/ancient-master-802",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Ancient Master block exists yet; its library/tutor/psionic access prerequisite and numerous level-scaled spell-like/psi-like abilities with changing daily uses are not structured."
+      ],
+      "nextAction": "Add reviewed Ancient Master summaries, implement the special access prerequisite, and model each level-scaled ability as source-owned actions/resources with save/reopen and removal regressions."
+    },
+    {
+      "sourceId": "classes/anima-mage-851",
+      "name": "Anima Mage",
+      "sourceBook": "Prestige Class Tome of Magic",
+      "sourceUrl": "https://new.dndtools.org/classes/anima-mage-851",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Anima Mage block exists yet; metamagic + arcane 2nd-level + 2nd-level vestige entry rules, dual soul-binding/spellcasting advancement, and vestige/metamagic interaction abilities depend on the unfinished binding subsystem."
+      ],
+      "nextAction": "Add reviewed Anima Mage summaries after the reusable binding/vestige model exists; then implement dual advancement, prestige prerequisites, and vestige-metamagic action/resource regressions."
+    },
+    {
+      "sourceId": "classes/animal-lord-181",
+      "name": "Animal Lord",
+      "sourceBook": "Prestige Class Complete Adventurer",
+      "sourceUrl": "https://new.dndtools.org/classes/animal-lord-181",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Complete Adventurer Animal Lord block exists yet; animal-type-specific skill/feat prerequisites, persistent lord/totem selection, Wild Aspect uses, totem progression, and animal spell-like abilities are not structurally modeled."
+      ],
+      "nextAction": "Add exact Complete Adventurer summaries and a persistent animal-lord/totem choice model with option-specific prerequisites/mechanics, then regression-test levels 1-10."
+    },
+    {
+      "sourceId": "classes/animal-lord-605",
+      "name": "Animal Lord",
+      "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
+      "sourceUrl": "https://new.dndtools.org/classes/animal-lord-605",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Masters of the Wild Animal Lord block exists yet; this older record differs materially from Complete Adventurer and includes its own animal-type totems, divine spell progression, lesser wild shape, summon-animal uses, and share-form mechanics."
+      ],
+      "nextAction": "Implement the Masters of the Wild record independently (no same-name inheritance), including exact animal-lord choice, spellcasting table, wild-shape/summon progression, and source-specific totems."
+    },
+    {
+      "sourceId": "classes/anointed-knight-159",
+      "name": "Anointed Knight",
+      "sourceBook": "Prestige Class Book of Exalted Deeds",
+      "sourceUrl": "https://new.dndtools.org/classes/anointed-knight-159",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Anointed Knight block exists yet; good-alignment/BAB/skill/Ancestral Relic prerequisites, irreversible Anoint Self choices, level+Charisma-gated ancestral-weapon upgrades, and prerequisite-filtered bonus-feat choices are not persisted as structured state."
+      ],
+      "nextAction": "Add reviewed Anointed Knight summaries, implement prestige prerequisites plus irreversible self/weapon anointing choices, and regression-test option gates, uniqueness, persistence, and bonus feats."
+    },
+    {
+      "sourceId": "classes/apostle-of-peace-141",
+      "name": "Apostle of Peace",
+      "sourceBook": "Prestige Class Book of Exalted Deeds",
+      "sourceUrl": "https://new.dndtools.org/classes/apostle-of-peace-141",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Apostle of Peace block exists yet; exalted-vow/skill/save/alignment entry rules, standalone prepared divine spellcasting, spontaneous cure conversion, Turn Undead stacking, armor/vow restrictions, Pacifying Touch, and Censure Fiends resources/effects are not fully structured."
+      ],
+      "nextAction": "Add reviewed Apostle of Peace summaries, enforce exalted prestige prerequisites and armor/vow restrictions, then implement its independent casting/turning/censure resource models and browser regressions."
+    },
+    {
+      "sourceId": "classes/arachne-479",
+      "name": "Arachne",
+      "sourceBook": "Prestige Class Faiths & Pantheons",
+      "sourceUrl": "https://new.dndtools.org/classes/arachne-479",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Arachne block exists yet; gender/race/domain/patron/divine-casting/Test of Lolth prerequisites, full divine spellcasting advancement, familiar/spider-mount state, spider-themed spell-like abilities, and outsider/Yochlol transformations are not structurally automated."
+      ],
+      "nextAction": "Add reviewed Arachne summaries, implement exact prestige prerequisites and casting advancement, reuse familiar/mount state, and regression-test spider abilities plus level-10 transformation."
+    }
+  ]
+}
