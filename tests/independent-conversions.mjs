@@ -39,5 +39,11 @@ try{
  let herd=build([row(p,5)]);herd.abilities.int=20;herd=P.learnCampaignPower(herd,{...D.campaignPowers[0],level:1});
  for(let level=1;level<=10;level++){herd=A.advanceClass(herd,t,{flow:'prestige',hpGain:4});assert.equal(C.campaignProfile(herd).manifesterLevel,5+Math.min(8,level-1));}
  const cure=E.catalogSpells('2014').find(s=>s.name==='Cure Wounds');let book=C.acquireCampaignSpell(mixed,cure);book=C.prepareCampaignSpell(book,cure.catalogId,true);book=C.castCampaignSpell(book,cure.catalogId,{slot:3});assert.equal(book.slotsUsed[3],1,'Archivist may upcast using pooled slots without learning tier-3 spells');
+ const warlock={catalogId:'2014:warlock',name:'Warlock',edition:'2014',hit_die:8};
+ let pact=build([row(a,3),row(warlock,3)]);pact=C.acquireCampaignSpell(pact,cure);pact=C.prepareCampaignSpell(pact,cure.catalogId,true);pact.slotsUsed={1:4,2:2};
+ const pactCast=C.castCampaignSpell(pact,cure.catalogId,{slot:2,pool:'pact'});assert.equal(pactCast.pactSlotsUsed?.[2],1,'prayerbook casts can spend Pact Magic');assert.deepEqual(pactCast.slotsUsed,pact.slotsUsed);
+ const legacyBonus={...saved,classLevels:saved.classLevels.map(r=>r.name==='Psion (Telepath)'?{...r,level:5}:r),archivistCampaign:{...saved.archivistCampaign,bonusFeats:{5:'Psionic Meditation'}}};
+ const repeated={...legacyBonus,classLevels:legacyBonus.classLevels.map(r=>r.name==='Psion (Telepath)'?{...r,level:10}:r),archivistCampaign:{...legacyBonus.archivistCampaign,bonusFeats:{5:'Expanded Knowledge',10:'Expanded Knowledge'}}};assert.equal(C.reconcileCampaign(repeated).feats.filter(f=>f.name==='Expanded Knowledge').length,2,'repeatable feats keep separate bonus slots');
+ const bonusMigrated=C.reconcileCampaign(legacyBonus);assert(bonusMigrated.feats.some(f=>f.conversionBonusSlot==='psion:5'&&f.name==='Psionic Meditation'),'preserve legacy selected bonus feats');
  console.log('PASS independent converted class choices, multiclass pooling, prestige entry and save migration');
 }finally{await server.close();}

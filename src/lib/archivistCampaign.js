@@ -84,8 +84,9 @@ export function useDarkKnowledge(c,kind,{check,target}={}){
 export function campaignSkillBonus(c,name){const p=campaignProfile(c);if(!p.active)return 0;const choices=c.archivistCampaign?.loreSkills||[],limit=[2,7,13,17].filter(n=>p.archivist>=n).length;return (name==='Perception'?campaignModifiers(c).perception:name==='Acrobatics'?campaignModifiers(c).acrobatics:0)+(name==='Arcana'?p.psicrystalBonus:0)+(['Perception','Investigation'].includes(name)&&p.psicrystalBonus&&c.archivistCampaign?.psicrystal?.distance===0?Number(p.rulings.crystalAlertnessBonus??2):0)+choices.slice(0,limit).filter(s=>s===name).length*2;}
 export function advanceCampaignTime(c,minutes){if(!Number.isInteger(minutes)||minutes<0)throw Error('Enter whole nonnegative minutes.');return tickCampaign(c,minutes);}
 export function campaignRest(c,rest){const p=campaignProfile(c);if(!p.active)return c;let next=advanceCampaignTime(c,rest==='long'?480:60);return rest==='long'?{...next,powerPointsUsed:0,archivistCampaign:{...next.archivistCampaign,darkUsed:0,thrallDiscounts:{},psicrystal:{...next.archivistCampaign.psicrystal,sightUsed:false}}}:next;}
-export function castCampaignSpell(c,id,{slot,ritual=false,reach=false,chain=false,confirmed=false}={}){
- const p=campaignProfile(c),slots=Array.isArray(c.slotOverride)?c.slotOverride:conversionSlotPool(c)?.standard||p.slots,spell=[...(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist),...campaignCystSpells(c)].find(s=>key(s)===id);
+export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=false,chain=false,confirmed=false}={}){
+ if(!['standard','pact'].includes(pool))throw Error('Choose a valid spell slot pool.');
+ const p=campaignProfile(c),pools=Array.isArray(c.slotOverride)?{standard:c.slotOverride,pact:Array(10).fill(0)}:conversionSlotPool(c)||{standard:p.slots,pact:Array(10).fill(0)},slots=pools[pool],usedKey=pool==='pact'?'pactSlotsUsed':'slotsUsed',used=c[usedKey]||{},spell=[...(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist),...campaignCystSpells(c)].find(s=>key(s)===id);
  if(!spell||spell.level>p.maxSpellLevel)throw Error('This spell is not available to the Archivist.');
  if(spell.campaignCyst&&c.archivistCampaign?.empowerment?.rounds>0&&spell.name!=='Necrotic Empowerment')throw Error('Necrotic Empowerment blocks other Mother Cyst spells.');
  if(spell.campaignCyst&&!confirmed)throw Error('Confirm the campaign spell effects with your DM before casting.');
@@ -96,10 +97,10 @@ export function castCampaignSpell(c,id,{slot,ritual=false,reach=false,chain=fals
  if(chain&&(!feats.includes('Chain Spell')||!confirmed||String(spell.range).toLowerCase()==='touch'&&!reach))throw Error('Confirm single-target Chain eligibility and range.');
  let minimum=spell.level+(reach?2:0)+(chain?3:0);
  if(minimum>9&&p.rulings.chainCapApproved===true)minimum=9;
- if(minimum&&(!Number.isInteger(slot)||slot<minimum||!slots[slot]||count(c.slotsUsed?.[slot])>=slots[slot]))throw Error('Choose an available slot that covers the adjusted spell level.');
+ if(minimum&&(!Number.isInteger(slot)||slot<minimum||!slots[slot]||count(used[slot])>=slots[slot]))throw Error('Choose an available slot that covers the adjusted spell level.');
  const ruleId=id.replace('darkdonte:',''),rule={...necroticRules[ruleId],...p.rulings.spellRules?.[ruleId]};
  const paid=rule.cost?spendCampaignGold(c,Number(rule.cost)):c;
- return {...paid,...(spell.concentration?{concentration:spell.name}:{}),slotsUsed:minimum?{...c.slotsUsed,[slot]:count(c.slotsUsed?.[slot])+1}:c.slotsUsed||{},archivistCampaign:{...c.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,effectLevel:minimum?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):0,slot:minimum?slot:0,dc:p.dc,reach,chain,secondaryTargets:chain?Math.min(20,p.archivist):0,secondaryDC:chain?p.dc-4:null}}};
+ return {...paid,...(spell.concentration?{concentration:spell.name}:{}),...(minimum?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...c.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,effectLevel:minimum?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):0,slot:minimum?slot:0,pool,dc:p.dc,reach,chain,secondaryTargets:chain?Math.min(20,p.archivist):0,secondaryDC:chain?p.dc-4:null}}};
 }
 export function addCampaignFollower(c,{name,kind='believers',level=1,quantity=1,notes=''}={}){
  const p=campaignProfile(c),list=c.archivistCampaign?.followers||[];
@@ -111,8 +112,16 @@ export function addCampaignFollower(c,{name,kind='believers',level=1,quantity=1,
 }
 export function reconcileCampaign(c){
  if(legacyPreset(c)){
-  const before=campaignProfile(c),granted=campaignFeats(c),state=c.archivistCampaign||{};
-  c={...c,feats:[...(c.feats||[]),...granted.filter(f=>!(c.feats||[]).some(x=>x.name===f.name)).map(f=>({...f,id:crypto.randomUUID(),edition:'2014',source:'Saved character choices',...(f.name==='Psicrystal Affinity'?{conversionBonusSlot:'psion:1'}:{}),...(f.name==='Chain Spell'?{conversionBonusSlot:'archivist:10'}:{})}))],archivistCampaign:{...state,independentChoices:true,rulings:{...state.rulings,...(before.manifesterLevel===1&&state.rulings?.ppMax==null?{levelOnePPMax:before.ppMax}:{})},knownPowers:[...(before.psion?campaignPowers.map(power=>({...power,level:1})):[]),...(state.knownPowers||[])]}};
+  const before=campaignProfile(c),state=c.archivistCampaign||{};
+  const granted=[...campaignFeats(c).map(f=>({...f,...(f.name==='Psicrystal Affinity'?{conversionBonusSlot:'psion:1'}:{}),...(f.name==='Chain Spell'?{conversionBonusSlot:'archivist:10'}:{})})),
+   ...Object.entries(state.bonusFeats||{}).filter(([level,name])=>[5,10,15,20].includes(Number(level))&&Number(level)<=before.psion&&typeof name==='string'&&name.trim()).map(([level,name])=>({name:name.trim(),conversionBonusSlot:'psion:'+level}))];
+  const feats=[...(c.feats||[])];
+  for(const grant of granted){
+   const index=feats.findIndex(f=>grant.conversionBonusSlot?f.conversionBonusSlot===grant.conversionBonusSlot||!f.conversionBonusSlot&&f.name===grant.name:f.name===grant.name);
+   if(index<0)feats.push({...grant,id:crypto.randomUUID(),edition:'2014',source:'Saved character choices'});
+   else if(grant.conversionBonusSlot&&!feats[index].conversionBonusSlot)feats[index]={...feats[index],conversionBonusSlot:grant.conversionBonusSlot};
+  }
+  c={...c,feats,archivistCampaign:{...state,independentChoices:true,rulings:{...state.rulings,...(before.manifesterLevel===1&&state.rulings?.ppMax==null?{levelOnePPMax:before.ppMax}:{})},knownPowers:[...(before.psion?campaignPowers.map(power=>({...power,level:1,range:power.id==='inertial-armor'?'Self':'30 feet'})):[]),...(state.knownPowers||[])]}};
  }
  const p=campaignProfile(c);if(!p.active)return c;
  const classLevels=rows(c).map(row=>{const kind=campaignKind(row.definition),die=p.rulings[kind+'HitDie'];return kind?{...row,definition:{...row.definition,...(die?{hit_die:Number(die)}:{}),...(kind==='archivist'&&Array.isArray(p.rulings.proficiencies)?{proficiencies:p.rulings.proficiencies}: {})}}:row;});

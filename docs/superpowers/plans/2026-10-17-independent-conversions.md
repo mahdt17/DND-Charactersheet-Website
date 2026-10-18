@@ -16,3 +16,5 @@
 No new campaign race, scores, equipment, feats or advancement order are imposed. Conversion defaults remain adjustable. Legacy preset helpers exist only to reproduce old saved characters in compatibility tests.
 
 Review found and fixed a migration issue that froze PP at the old level-one default. Browser regression also verifies outside acquisitions do not reduce free class-growth spells.
+
+Independent review also caught Pact Magic access and saved bonus-feat migration (including repeated feats); both now have rules and browser coverage.
