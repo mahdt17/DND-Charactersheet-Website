@@ -1,9 +1,9 @@
-import {campaignProfile,useCampaignPower} from './archivistCampaign.js';
+import {campaignProfile,useCampaignPower,hasConversionFeat} from './archivistCampaign.js';
 import {extendedPsionProfile,manifestExtendedPower} from './campaignPsionics.js';
 import {whole} from './campaignCreatures.js';
 const set=(c,value)=>({...c,archivistCampaign:{...c.archivistCampaign,psicrystal:{...c.archivistCampaign?.psicrystal,...value}}});
 export function psicrystalProfile(c){
- const p=campaignProfile(c),s=c.archivistCampaign?.psicrystal||{},r=p.rulings,level=p.psion,maxHP=Math.max(1,Number(r.crystalHP??Math.floor(c.hp.max/2))),currentHP=Math.max(0,maxHP-Number(s.damage||0)),distance=Number(s.distance??(c.archivistCampaign?.psicrystalNearby===false?5281:5)),alive=level>0&&currentHP>0,nearby=alive&&c.archivistCampaign?.psicrystalNearby!==false&&distance<=5280,adjustment=Math.floor(Math.max(0,level-1)/2);
+ const p=campaignProfile(c),s=c.archivistCampaign?.psicrystal||{},r=p.rulings,level=hasConversionFeat(c,'Psicrystal Affinity')?p.psion:0,maxHP=Math.max(1,Number(r.crystalHP??Math.floor(c.hp.max/2))),currentHP=Math.max(0,maxHP-Number(s.damage||0)),distance=Number(s.distance??(c.archivistCampaign?.psicrystalNearby===false?5281:5)),alive=level>0&&currentHP>0,nearby=alive&&c.archivistCampaign?.psicrystalNearby!==false&&distance<=5280,adjustment=Math.floor(Math.max(0,level-1)/2);
  return {...s,level,maxHP,currentHP,distance,alive,nearby,ac:Number(r.crystalAC??13)+adjustment,int:6+adjustment,speed:nearby&&s.legsMinutes>0?30:0,climb:nearby&&s.legsMinutes>0?20:0,flight:nearby&&level>=9&&s.flightMinutes>0?50:0,powerResistance:nearby&&level>=11?level+5:0,sharedPowers:nearby&&distance<=5?s.sharedPowers||{}:{},pendingTouch:s.pendingTouch||null};
 }
 function requireCrystal(c,level=1){const p=psicrystalProfile(c);if(p.level<level)throw Error(`Psion level ${level} required.`);if(!p.alive)throw Error('A living Psicrystal is required.');if(!p.nearby)throw Error('Psicrystal must be within one mile.');return p;}

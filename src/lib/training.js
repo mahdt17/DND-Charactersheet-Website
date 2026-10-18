@@ -1,3 +1,4 @@
+import {campaignKind} from './archivistCampaign.js';
 import {featMagicState} from './featMagic.js';
 import {isEntomancerRecord,entomancerTraining} from './entomancer.js';
 // Core multiclass grants: 2014 Basic Rules customization table and 2024 class
@@ -13,7 +14,7 @@ const revised={...legacy,Barbarian:['shields','martial-weapons'],Druid:['light-a
 const normalize=s=>String(s||'').toLowerCase().replace(/[’']/g,'').trim();
 const slug=s=>normalize(s).replace(/\s+/g,'-');
 const editionOf=c=>c.ruleset||'2014';
-const unsupported=r=>!isEntomancerRecord(r)&&(r?.prestige||r?.stats?.prestige||r?.homebrew||r?.source==='Homebrew');
+const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.prestige||r?.stats?.prestige||r?.homebrew||r?.source==='Homebrew');
 const entry=index=>({index,name:labels[index],kind:index==='thieves-tools'?'tools':index.includes('armor')||index==='shields'?'armor':'weapons'});
 const kindFor=p=>p.index?.startsWith('skill-')?'skills':p.index?.includes('armor')||p.index==='shields'?'armor':p.index?.includes('tool')||instruments.some(n=>normalize(n)===normalize(p.name))?'tools':'weapons';
 const sourceEntry=p=>({index:p.index,name:String(p.name||'').replace(/^Skill: /,'').replace(/^Tool: /,''),kind:kindFor(p)});

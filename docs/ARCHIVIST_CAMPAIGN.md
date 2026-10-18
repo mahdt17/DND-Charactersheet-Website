@@ -1,3 +1,23 @@
+# Independent 5e class conversions
+
+The Archivist PDF is a multiclass example, not a campaign preset. Use normal **Create character** to start as Archivist or Psion (Telepath) at level 1. **Level up** offers continuing a class, adding another class, or entering Thrallherd when level 5, Arcana/Religion proficiency, Mindlink and the converted Intelligence requirement are met.
+
+- The approved adjustable 2014/5e conversion defaults remain in use. These are not original 3.5 class records.
+- Choose powers, class bonus feats, Lore Mastery and ordinary ASI/feat choices. No race, ability scores, equipment, Mother Cyst or future PDF feats are imposed.
+- Archivist free growth additions and outside prayerbook acquisitions are counted separately. Spell access follows Archivist level; supported multiclass spell slots are pooled. Other spellbooks remain selectable.
+- Psion power points include the Intelligence bonus; Thrallherd levels 2–9 advance manifesting. Actual Psion levels control its bonus feats and selected Psicrystal Affinity abilities.
+- Feat-dependent features require the selected feat. Mother Cyst, Reach, Chain, cooperative casting and graft crafting remain available through their converted feat choices.
+- Existing saved builds keep their already granted feats, known powers, expenditure, companions and rulings. Migration does not grant later planned feats. The old implicit level-one PP default does not freeze later PP growth.
+- Dark Knowledge validates missing target/check beside the button, focuses the missing field, and reports the outcome. Both success and a failed check spend a use; invalid input does not. Short rests retain expenditure; long rests recover it.
+
+The internal `archivistCampaign` state and `homebrew:darkdonte:*` identifiers remain stable for saved-character compatibility. Legacy preset construction/advancement helpers are compatibility fixtures only; no product control invokes them.
+
+Checks: `npm run test:archivist`, `npm run test:browser:archivist`, plus the ordinary rules/edition/Entomancer/presentation suites. The browser progression creates an Archivist at 1, copies an outside spell, freely selects Psion and Thrallherd, takes a chosen feat at an ASI, switches spellbooks, checks persistence and independently creates a Psion at 1.
+
+## Historical implementation notes
+
+The following describes the superseded preset release and its original research, retained for provenance. The independent-class behavior above takes precedence.
+
 # Archivist campaign conversion
 
 Source: the user's `Archivist.pdf` campaign guide, reviewed October 16, 2026, especially pages 3–12, 16–19, 24 and 27–28. The user authorized adjustable 5e defaults where the guide omits conversion details. The private source document is not distributed with the application.
