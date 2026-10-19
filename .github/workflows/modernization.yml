@@ -165,6 +165,9 @@ jobs:
       - name: Run fantasy presentation and dice browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-presentation.mjs
+      - name: Run continuous dice browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-continuous-dice.mjs
       - name: Run production loading browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-loading.mjs
