@@ -54,7 +54,7 @@ try {
  await page.locator('.dice-canvas[data-ready="true"]').waitFor();
  const recordedRoll=await tray.locator('.roll-result').first().innerText();
  // Reading the results late must not miss the fade already captured in-page.
- await page.waitForTimeout(1300);
+ await page.locator('.dice-stage').waitFor({state:'hidden'});
  await expectDissipation();assert.equal(await tray.locator('.roll-result').first().innerText(),recordedRoll);await clear();
 
  // A new roll must cancel the pending fade without replacing the canvas.

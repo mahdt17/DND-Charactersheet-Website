@@ -13,8 +13,8 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
   useEffect(()=>()=>portal.remove(),[portal]);
   useEffect(()=>{
     const node=canvas.current,layer=stage.current;
-    let cancelled=false,renderer,loading,pending=[],results=[],total=0,unavailable=false,idleTimer,fade,exitFrame,generation=0;
-    function cancelExit(){clearTimeout(idleTimer);cancelAnimationFrame(exitFrame);fade?.cancel();fade=null;}
+    let cancelled=false,renderer,loading,pending=[],results=[],total=0,unavailable=false,settleTimer,fade,exitFrame,generation=0;
+    function cancelExit(){clearTimeout(settleTimer);cancelAnimationFrame(exitFrame);fade?.cancel();fade=null;}
     function stop(){
       generation++;cancelExit();layer.hidden=true;pending=[];results=[];total=0;renderer?.clear();
       setDisplay(emptyDisplay);setPhase('idle');
@@ -29,13 +29,19 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
         exitFrame=requestAnimationFrame(()=>{exitFrame=requestAnimationFrame(()=>{if(!cancelled&&current===generation)stop();});});
       }).catch(()=>{});
     }
-    function fallback(){unavailable=true;node.dataset.ready='false';node.dataset.engine='results-only';if(results.length&&!fade)setPhase('unavailable');}
+    function holdThenFinish(){clearTimeout(settleTimer);settleTimer=setTimeout(finish,600);}
+    function renderedPhase(value){
+      if(cancelled||fade||!results.length)return;
+      clearTimeout(settleTimer);setPhase(value);
+      // The renderer reports settled only after every active batch has finished.
+      if(value==='settled')holdThenFinish();
+    }
+    function fallback(){unavailable=true;node.dataset.ready='false';node.dataset.engine='results-only';if(results.length&&!fade){setPhase('unavailable');holdThenFinish();}}
     function flush(createDiceRenderer){
       if(cancelled||!pending.length)return;
-      if(!renderer)renderer=createDiceRenderer(node,{onPhase:value=>{if(!cancelled&&!fade&&results.length)setPhase(value);},onUnavailable:fallback});
+      if(!renderer)renderer=createDiceRenderer(node,{onPhase:renderedPhase,onUnavailable:fallback});
       pending.forEach(batch=>renderer.addDice(batch.dice,batch.style));pending=[];
-      if(unavailable)setPhase('unavailable');
-      clearTimeout(idleTimer);idleTimer=setTimeout(finish,600);
+      if(unavailable)fallback();
     }
     session.current={stop,add(fresh,styleId){
       generation++;cancelExit();layer.hidden=false;
@@ -46,7 +52,7 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
       // Bound the lazy-load queue as well as the live scene.
       let remaining=18;pending=pending.reverse().map(batch=>{const dice=remaining?batch.dice.slice(-remaining):[];remaining=Math.max(0,remaining-dice.length);return {...batch,dice};}).filter(batch=>batch.dice.length).reverse();
       if(renderer){flush();return;}
-      if(!loading)loading=import('./lib/diceRenderer').then(({createDiceRenderer})=>flush(createDiceRenderer)).catch(()=>{if(!cancelled){fallback();pending=[];idleTimer=setTimeout(finish,600);}}).finally(()=>{loading=null;});
+      if(!loading)loading=import('./lib/diceRenderer').then(({createDiceRenderer})=>flush(createDiceRenderer)).catch(()=>{if(!cancelled){fallback();pending=[];}}).finally(()=>{loading=null;});
     }};
     return()=>{cancelled=true;cancelExit();session.current=null;renderer?.dispose();};
   },[]);
