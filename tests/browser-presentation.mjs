@@ -8,6 +8,21 @@ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
 const capture=async name=>page.screenshot({path:`test-results/presentation-${name}.png`,fullPage:true});
 const scenic=()=>page.locator('.appearance-control').locator('summary').click();
 const clear=async()=>{if(await page.getByRole('button',{name:'Clear history',exact:true}).count())await page.getByRole('button',{name:'Clear history',exact:true}).click();};
+// Abrupt removal or disposal before a transparent frame must fail this check.
+const expectDissipation=async()=>{
+ const samples=await page.locator('.dice-stage').evaluate(stage=>new Promise((resolve,reject)=>{
+  const samples=[],canvas=stage.querySelector('canvas'),context=canvas.dataset.engine==='webgl-physics'?canvas.getContext('webgl2'):null;let frame;
+  const timeout=setTimeout(()=>{cancelAnimationFrame(frame);reject(new Error('Dice did not disappear'));},12000);
+  const sample=()=>{
+   if(!stage.isConnected){clearTimeout(timeout);resolve(samples);return;}
+   const style=getComputedStyle(canvas);
+   samples.push({opacity:Number(getComputedStyle(stage).opacity),diceVisible:!context||(!context.isContextLost()&&canvas.dataset.ready==='true'&&style.opacity==='1'&&style.visibility==='visible')});frame=requestAnimationFrame(sample);
+  };sample();
+ }));
+ assert(samples.filter(sample=>sample.opacity>0&&sample.opacity<1).length>=2,'Dice must fade through intermediate opacity before removal');
+ assert(samples.filter(sample=>sample.opacity>0).every(sample=>sample.diceVisible),'Rendered dice must remain intact throughout the fade');
+ assert.equal(samples.at(-1).opacity,0,'Dice must reach a fully transparent frame before teardown');
+};
 try {
  await fs.mkdir('test-results',{recursive:true});await page.goto('http://127.0.0.1:5182/');await page.getByRole('button',{name:'Explore the demo'}).waitFor();
  await capture('signin-dark');await scenic();await page.getByLabel('Scenic backgrounds',{exact:true}).uncheck();assert.equal(await page.locator('.auth-page').getAttribute('data-backgrounds'),'off');assert.equal(await page.locator('.auth-page').evaluate(e=>getComputedStyle(e).backgroundImage),'none');
@@ -23,7 +38,20 @@ try {
  assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).opacity),'0','Uninitialized WebGL canvas must stay hidden');
  releaseRenderer();await page.locator('.dice-canvas[data-ready="true"]').waitFor();
  assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
- await page.unroute('**/src/lib/diceRenderer*');await clear();
+ await page.unroute('**/src/lib/diceRenderer*');
+ await page.locator('.dice-canvas[data-phase="settled"]').waitFor();
+ const recordedRoll=await tray.locator('.roll-result').first().innerText();
+ await expectDissipation();assert.equal(await tray.locator('.roll-result').first().innerText(),recordedRoll);await clear();
+
+ // A replacement roll must survive the old roll's pending fade/cleanup.
+ await tray.getByRole('button',{name:'d6',exact:true}).click();
+ await page.waitForFunction(()=>{const stage=document.querySelector('.dice-stage');return stage&&Number(getComputedStyle(stage).opacity)<.8;});
+ const fadingRoll=await page.locator('.dice-stage').getAttribute('data-roll-ids');
+ await tray.getByRole('button',{name:'d20',exact:true}).click();
+ await page.waitForFunction(previous=>document.querySelector('.dice-stage')?.dataset.rollIds!==previous,fadingRoll);
+ await page.locator('.dice-canvas[data-phase="settled"]').waitFor();
+ assert.equal(await page.locator('.dice-stage').evaluate(e=>getComputedStyle(e).opacity),'1');
+ assert.match(await tray.locator('.roll-result').first().innerText(),/1d20/);await expectDissipation();await clear();
 
  for(const [name,id] of [['Emberforge','emberforge'],['Moonstone','moonstone'],['Verdant','verdant'],['Voidglass','voidglass'],['Royal Ivory','royal-ivory']]){
   await tray.getByRole('radio',{name,exact:true}).check();await tray.getByLabel('Dice expression').fill('3d20+4');await tray.getByRole('button',{name:'Roll',exact:true}).click();
@@ -45,5 +73,6 @@ try {
  await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Dice roller',exact:true}).click();assert(await page.getByRole('radio',{name:'Royal Ivory',exact:true}).isChecked());assert(await tray.getByLabel('Animated dice',{exact:true}).isChecked());
  await page.addInitScript(()=>{const getContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/i.test(kind)?null:getContext.call(this,kind,...args);};});
  await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Dice roller',exact:true}).click();await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-stage[data-phase="unavailable"]').waitFor();assert.equal(await tray.locator('.roll-result').count(),1);assert.match(await tray.locator('.roll-result').innerText(),/1d6/);
+ await expectDissipation();assert.equal(await tray.locator('.roll-result').count(),1);
  assert.deepEqual(errors,[]);console.log('PASS WebGL physics, all standard shapes, rapid rolls, no-WebGL fallback, all five dice styles, exact rendered results, advantage, percentile pairs, invalid rolls, plain/scenic backgrounds, saved preferences, reduced motion, all main pages and mobile layout');
 } catch(e){await capture('failure');throw e;}finally{await browser.close();await server.close();}
