@@ -3,25 +3,37 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
 const server=await createServer({server:{host:'127.0.0.1',port:5182}});await server.listen();
-const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 const capture=async name=>page.screenshot({path:`test-results/presentation-${name}.png`,fullPage:true});
 const scenic=()=>page.locator('.appearance-control').locator('summary').click();
 const clear=async()=>{if(await page.getByRole('button',{name:'Clear history',exact:true}).count())await page.getByRole('button',{name:'Clear history',exact:true}).click();await page.locator('.dice-stage').waitFor({state:'hidden'});};
-// Abrupt removal or disposal before a transparent frame must fail this check.
-const expectDissipation=async()=>{
- const samples=await page.locator('.dice-stage').evaluate(stage=>new Promise((resolve,reject)=>{
-  const samples=[],canvas=stage.querySelector('canvas'),context=canvas.dataset.engine==='webgl-physics'?canvas.getContext('webgl2'):null;let frame;
-  const timeout=setTimeout(()=>{cancelAnimationFrame(frame);reject(new Error('Dice did not disappear'));},12000);
+// Observe before rolling: slower CI can spend most of the idle/fade window
+// servicing Playwright commands after the first rendered frame.
+const captureDissipation=async(previousIds=null)=>page.evaluate(previousIds=>{
+ window.diceFadeSamples=new Promise((resolve,reject)=>{
+  const samples=[];let frame,started=false;
+  const timeout=setTimeout(()=>{cancelAnimationFrame(frame);reject(new Error('Dice did not disappear'));},30000);
   const sample=()=>{
-   if(!stage.isConnected||stage.hidden){clearTimeout(timeout);resolve(samples);return;}
-   const style=getComputedStyle(canvas);
-   samples.push({opacity:Number(getComputedStyle(stage).opacity),diceVisible:!context||(!context.isContextLost()&&canvas.dataset.ready==='true'&&style.opacity==='1'&&style.visibility==='visible')});frame=requestAnimationFrame(sample);
+   const stage=document.querySelector('.dice-stage');
+   if(!started&&stage&&!stage.hidden&&(previousIds===null||stage.dataset.rollIds!==previousIds))started=true;
+   if(started&&(!stage||stage.hidden)){clearTimeout(timeout);resolve(samples);return;}
+   if(started){
+    const canvas=stage.querySelector('canvas'),style=getComputedStyle(canvas);
+    if(canvas.dataset.ready==='true'||canvas.dataset.engine==='results-only'){
+     const context=canvas.dataset.engine==='webgl-physics'?canvas.getContext('webgl2'):null;
+     samples.push({opacity:Number(getComputedStyle(stage).opacity),diceVisible:!context||(!context.isContextLost()&&style.opacity==='1'&&style.visibility==='visible')});
+    }else if(samples.length){samples.push({opacity:Number(getComputedStyle(stage).opacity),diceVisible:false});}
+   }
+   frame=requestAnimationFrame(sample);
   };sample();
- }));
- assert(samples.filter(sample=>sample.opacity>0&&sample.opacity<1).length>=2,'Dice must fade through intermediate opacity before removal');
+ });
+},previousIds);
+const expectDissipation=async()=>{
+ const samples=await page.evaluate(()=>window.diceFadeSamples);
+ assert(samples.filter(sample=>sample.opacity>0&&sample.opacity<1).length>=2,'Dice must fade through intermediate opacity before hiding: '+JSON.stringify(samples));
  assert(samples.filter(sample=>sample.opacity>0).every(sample=>sample.diceVisible),'Rendered dice must remain intact throughout the fade');
- assert.equal(samples.at(-1).opacity,0,'Dice must reach a fully transparent frame before teardown');
+ assert.equal(samples.at(-1).opacity,0,'Dice must reach a fully transparent frame before cleanup');
 };
 try {
  await fs.mkdir('test-results',{recursive:true});await page.goto('http://127.0.0.1:5182/');await page.getByRole('button',{name:'Explore the demo'}).waitFor();
@@ -34,19 +46,21 @@ try {
  assert.equal(await tray.getByRole('radio').count(),5);
  let releaseRenderer;const rendererGate=new Promise(resolve=>{releaseRenderer=resolve;});
  await page.route('**/src/lib/diceRenderer*',async route=>{await rendererGate;await route.continue();});
- await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-stage[data-phase="loading"]').waitFor();
+ await captureDissipation();await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-stage[data-phase="loading"]').waitFor();
  assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).opacity),'0','Uninitialized WebGL canvas must stay hidden');
  releaseRenderer();await page.locator('.dice-canvas[data-ready="true"]').waitFor();
  assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
  await page.unroute('**/src/lib/diceRenderer*');
  await page.locator('.dice-canvas[data-ready="true"]').waitFor();
  const recordedRoll=await tray.locator('.roll-result').first().innerText();
+ // Reading the results late must not miss the fade already captured in-page.
+ await page.waitForTimeout(1300);
  await expectDissipation();assert.equal(await tray.locator('.roll-result').first().innerText(),recordedRoll);await clear();
 
  // A new roll must cancel the pending fade without replacing the canvas.
  await tray.getByRole('button',{name:'d6',exact:true}).click();
  await page.waitForFunction(()=>{const stage=document.querySelector('.dice-stage');return stage&&Number(getComputedStyle(stage).opacity)<.8;});
- const fadingRoll=await page.locator('.dice-stage').getAttribute('data-roll-ids');
+ const fadingRoll=await page.locator('.dice-stage').getAttribute('data-roll-ids');await captureDissipation(fadingRoll);
  await tray.getByRole('button',{name:'d20',exact:true}).click();
  await page.waitForFunction(previous=>document.querySelector('.dice-stage')?.dataset.rollIds!==previous,fadingRoll);
  await page.locator('.dice-canvas[data-ready="true"]').waitFor();
@@ -72,7 +86,7 @@ try {
  await page.getByRole('button',{name:'Dice roller',exact:true}).click();await tray.getByRole('button',{name:'d12',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();await capture('dice-mobile');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await tray.getByRole('button',{name:'Close dice roller'}).click();
  await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Dice roller',exact:true}).click();assert(await page.getByRole('radio',{name:'Royal Ivory',exact:true}).isChecked());assert(await tray.getByLabel('Animated dice',{exact:true}).isChecked());
  await page.addInitScript(()=>{const getContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){return /webgl/i.test(kind)?null:getContext.call(this,kind,...args);};});
- await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Dice roller',exact:true}).click();await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-stage[data-phase="unavailable"]').waitFor();assert.equal(await tray.locator('.roll-result').count(),1);assert.match(await tray.locator('.roll-result').innerText(),/1d6/);
+ await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Dice roller',exact:true}).click();await captureDissipation();await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-stage[data-phase="unavailable"]').waitFor();assert.equal(await tray.locator('.roll-result').count(),1);assert.match(await tray.locator('.roll-result').innerText(),/1d6/);
  await expectDissipation();assert.equal(await tray.locator('.roll-result').count(),1);
  assert.deepEqual(errors,[]);console.log('PASS WebGL physics, all standard shapes, rapid rolls, no-WebGL fallback, all five dice styles, exact rendered results, advantage, percentile pairs, invalid rolls, plain/scenic backgrounds, saved preferences, reduced motion, all main pages and mobile layout');
 } catch(e){await capture('failure');throw e;}finally{await browser.close();await server.close();}
