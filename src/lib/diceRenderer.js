@@ -46,11 +46,12 @@ function makeDie(mesh,labels,style,radius) {
   return die;
 }
 
-// The heavyweight WebGL and physics modules load only when a roll is animated.
-export function createDiceRenderer(canvas,dice,style,{onPhase,onFinish,onUnavailable}={}) {
+// One renderer survives every roll and idle period. Only unmounting releases it.
+export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
   canvas.dataset.ready='false';
   let renderer;
-  try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});}catch{onUnavailable?.();return()=>{};}
+  const empty={addDice(){},clear(){},dispose(){}};
+  try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});}catch{onUnavailable?.();return empty;}
   renderer.setClearColor(0x000000,0);renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
@@ -61,39 +62,64 @@ export function createDiceRenderer(canvas,dice,style,{onPhase,onFinish,onUnavail
   Object.assign(key.shadow.camera,{left:-24,right:24,top:18,bottom:-18,near:.1,far:60});key.shadow.mapSize.set(1024,1024);key.shadow.normalBias=.025;scene.add(key);
   const rim=new THREE.DirectionalLight(0xb5d9ff,2.2);rim.position.set(8,8,-12);scene.add(rim);
   const floor=new THREE.Mesh(new THREE.PlaneGeometry(150,150),new THREE.ShadowMaterial({opacity:.29}));floor.rotation.x=-Math.PI/2;floor.position.y=-.015;floor.receiveShadow=true;scene.add(floor);
-  const initial=canvas.getBoundingClientRect(),simulation=simulateDice(dice,{aspect:initial.width/Math.max(1,initial.height)});
-  canvas.dataset.engine='webgl-physics';canvas.dataset.collisions=String(simulation.collisions);
-  canvas.dataset.topValues=simulation.labels.map((labels,i)=>labels[simulation.tops[i]]).join(',');
-  const objects=simulation.meshes.map((mesh,i)=>{const object=makeDie(mesh,simulation.labels[i],style,simulation.radius);scene.add(object);return object;});
   const a=new THREE.Quaternion(),b=new THREE.Quaternion(),pa=new THREE.Vector3(),pb=new THREE.Vector3();
-  let frame=0,start=null,disposed=false,settled=false,hiddenAt=null;
-  const playDuration=Math.max(2.1,Math.min(3.8,simulation.duration)),hold=1.6;
+  let batches=[],frame=0,disposed=false,unavailable=false,hiddenAt=null,width=0,height=0,halfWidth=12;
+  const disposeObject=object=>object.traverse(child=>{child.geometry?.dispose();const materials=Array.isArray(child.material)?child.material:[child.material];materials.filter(Boolean).forEach(m=>{m.map?.dispose();m.dispose();});});
+  const entries=()=>batches.flatMap(batch=>batch.objects.flatMap((object,i)=>object?[{batch,object,i}]:[]));
+  function metadata(){
+    const active=entries();
+    canvas.dataset.diceIds=active.map(({batch,i})=>batch.dice[i].id).join(',');
+    canvas.dataset.values=active.map(({batch,i})=>batch.dice[i].value).join(',');
+    canvas.dataset.topValues=active.map(({batch,i})=>batch.simulation.labels[i][batch.simulation.tops[i]]).join(',');
+    canvas.dataset.collisions=String(batches.reduce((n,batch)=>n+batch.simulation.collisions,0));
+  }
   function resize(){
-    const rect=canvas.getBoundingClientRect();if(rect.width<2||rect.height<2)return;
-    canvas.dataset.ready='false';
-    renderer.setSize(rect.width,rect.height,false);
-    const aspect=rect.width/rect.height,vertical=Math.max(simulation.halfHeight+2,(simulation.halfWidth+1.5)/aspect);
+    const rect=canvas.getBoundingClientRect();if(rect.width<2||rect.height<2||rect.width===width&&rect.height===height)return;
+    width=rect.width;height=rect.height;
+    renderer.setSize(width,height,false);
+    if(!batches.length)halfWidth=7.5*Math.max(.6,Math.min(2.5,width/height));
+    const aspect=width/height,vertical=Math.max(9.5,(halfWidth+1.5)/aspect);
     camera.left=-vertical*aspect;camera.right=vertical*aspect;camera.top=vertical;camera.bottom=-vertical;camera.updateProjectionMatrix();
-  }
-  resize();const observer=new ResizeObserver(resize);observer.observe(canvas);
-  function draw(now){
-    if(disposed)return;
-    if(document.hidden||innerWidth<120||innerHeight<120){if(hiddenAt===null)hiddenAt=now;frame=requestAnimationFrame(draw);return;}
-    if(hiddenAt!==null){if(start!==null)start+=now-hiddenAt;hiddenAt=null;}
-    if(start===null)start=now;
-    const elapsed=(now-start)/1000,progress=Math.min(1,elapsed/playDuration),index=progress*(simulation.frames.length-1),lo=Math.floor(index),hi=Math.min(lo+1,simulation.frames.length-1),fraction=index-lo;
-    objects.forEach((object,i)=>{const from=simulation.frames[lo][i],to=simulation.frames[hi][i];pa.fromArray(from);pb.fromArray(to);object.position.copy(pa).lerp(pb,fraction);a.fromArray(from,3);b.fromArray(to,3);object.quaternion.copy(a).slerp(b,fraction);});
+    // Paint immediately after resizing; never expose the cleared drawing buffer.
     renderer.render(scene,camera);
-    canvas.dataset.ready='true';
-    if(!canvas.dataset.phase){canvas.dataset.phase='rolling';onPhase?.('rolling');}
-    if(progress===1&&!settled){settled=true;canvas.dataset.phase='settled';onPhase?.('settled');}
-    if(elapsed<playDuration+hold)frame=requestAnimationFrame(draw);else onFinish?.();
   }
-  const lost=e=>{e.preventDefault();canvas.dataset.ready='false';onUnavailable?.();};canvas.addEventListener('webglcontextlost',lost);
-  delete canvas.dataset.phase;frame=requestAnimationFrame(draw);
-  return()=>{
-    canvas.dataset.ready='false';disposed=true;cancelAnimationFrame(frame);observer.disconnect();canvas.removeEventListener('webglcontextlost',lost);
-    scene.traverse(object=>{object.geometry?.dispose();const materials=Array.isArray(object.material)?object.material:[object.material];materials.filter(Boolean).forEach(m=>{m.map?.dispose();m.dispose();});});
-    key.shadow.dispose();renderer.dispose();renderer.forceContextLoss();
-  };
+  function wake(){if(!frame&&!disposed&&!unavailable)frame=requestAnimationFrame(draw);}
+  function draw(now){
+    frame=0;if(disposed||unavailable)return;
+    if(document.hidden||innerWidth<120||innerHeight<120){if(hiddenAt===null)hiddenAt=now;wake();return;}
+    if(hiddenAt!==null){batches.forEach(batch=>{batch.start+=now-hiddenAt;});hiddenAt=null;}
+    let moving=false;
+    batches.forEach(batch=>{
+      const progress=Math.min(1,Math.max(0,(now-batch.start)/batch.duration)),index=progress*(batch.simulation.frames.length-1),lo=Math.floor(index),hi=Math.min(lo+1,batch.simulation.frames.length-1),fraction=index-lo;
+      moving ||= progress<1;
+      batch.objects.forEach((object,i)=>{if(!object)return;const from=batch.simulation.frames[lo][i],to=batch.simulation.frames[hi][i];pa.fromArray(from);pb.fromArray(to);object.position.copy(pa).lerp(pb,fraction);a.fromArray(from,3);b.fromArray(to,3);object.quaternion.copy(a).slerp(b,fraction);});
+    });
+    renderer.render(scene,camera);canvas.dataset.ready='true';
+    const phase=moving?'rolling':'settled';if(canvas.dataset.phase!==phase){canvas.dataset.phase=phase;onPhase?.(phase);}
+    if(moving)wake();
+  }
+  function addDice(dice,style){
+    if(disposed||unavailable||!dice.length)return;
+    resize();
+    const simulation=simulateDice(dice,{aspect:halfWidth/7.5});
+    const objects=simulation.meshes.map((mesh,i)=>{const object=makeDie(mesh,simulation.labels[i],style,simulation.radius);scene.add(object);return object;});
+    batches.push({dice,simulation,objects,start:performance.now(),duration:Math.max(2100,Math.min(3800,simulation.duration*1000))});
+    // Keep the latest 18 visual dice under sustained spam; all results stay in history.
+    const active=entries();active.slice(0,Math.max(0,active.length-18)).forEach(({batch,object,i})=>{scene.remove(object);disposeObject(object);batch.objects[i]=null;});
+    batches=batches.filter(batch=>batch.objects.some(Boolean));metadata();
+    canvas.dataset.engine='webgl-physics';canvas.dataset.phase='rolling';onPhase?.('rolling');wake();
+  }
+  function clear(){
+    cancelAnimationFrame(frame);frame=0;hiddenAt=null;
+    entries().forEach(({object})=>{scene.remove(object);disposeObject(object);});batches=[];metadata();
+    canvas.dataset.ready='false';canvas.dataset.phase='idle';
+    if(!unavailable)renderer.render(scene,camera);
+  }
+  const lost=e=>{e.preventDefault();unavailable=true;cancelAnimationFrame(frame);frame=0;canvas.dataset.ready='false';onUnavailable?.();};
+  canvas.addEventListener('webglcontextlost',lost);
+  resize();const observer=new ResizeObserver(resize);observer.observe(canvas);
+  return {addDice,clear,dispose(){
+    if(disposed)return;disposed=true;clear();observer.disconnect();canvas.removeEventListener('webglcontextlost',lost);
+    disposeObject(scene);key.shadow.dispose();renderer.dispose();renderer.forceContextLoss();
+  }};
 }
