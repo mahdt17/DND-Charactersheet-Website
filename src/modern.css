@@ -335,3 +335,7 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .feature-choice-group legend { font-weight:600; padding:0 6px; }
 
 @media(min-width:701px) { .ledger-app.nav-collapsed>.ledger-nav { display:none; } }
+
+.creation-choice>.creation-choice-title{display:block;margin-bottom:6px}
+.creation-choice-details{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.creation-choice>.creation-choice-title+small{display:block}

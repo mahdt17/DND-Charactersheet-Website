@@ -19,10 +19,10 @@ const bgCounts={Acolyte:2,'Guild Artisan':1,Hermit:1,Noble:1,Outlander:1,Sage:2}
 // Each choice retains its granting feature, so a race/background change cannot
 // carry an ineligible language into the finished character.
 export function languagePlan(c,intelligence=10) {
-  const edition=c.ruleset||'2014', automatic=[],groups=[];
+  const edition=c.ruleset==='custom'?(c.mechanics||'2014'):(c.ruleset||'2014'), automatic=[],groups=[];
   const grant=(names,source)=>names.forEach(name=>{if(!automatic.some(x=>x.name===name))automatic.push({name,source});});
   const choice=(id,source,count,options)=>{if(count>0)groups.push({id,source,count,options:[...new Set(options)]});};
-  if(edition==='custom'||c.raceDefinition?.referenceOnly||c.raceDefinition?.category==='race')return {automatic,groups,manual:true};
+  if(c.raceDefinition?.referenceOnly||c.raceDefinition?.category==='race'||c.raceDefinition?.edition&&c.raceDefinition.edition!==edition)return {automatic,groups,manual:true};
   if(edition==='2024'){
     grant(['Common'],'Starting language');choice('origin','Origin',2,standard24);
     if(c.className==='Rogue'){grant(["Thieves' Cant"],'Rogue');choice('rogue','Thieves’ Cant feature',1,[...standard24,...rare24]);}

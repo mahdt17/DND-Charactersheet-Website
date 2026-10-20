@@ -30,7 +30,7 @@ async function begin35(name,classId,className,{cha15=false,int15=false,wis15=fal
   await next();
   const languages=page.getByLabel(/Human \/ Intelligence language \d+/);
   const languageChoices=['Draconic','Dwarven','Elven','Giant','Gnome','Goblin','Orc'];
-  for(let i=0;i<await languages.count();i++)await languages.nth(i).selectOption(languageChoices[i]);
+  for(let i=0;i<await languages.count();i++)await languages.nth(i).fill(languageChoices[i]);
   await next();
 }
 

@@ -59,6 +59,11 @@ c=A(make(10,'Orthoptera'),'harmonize');assert(entomancerProfile(c).song);
 c=A(c,'sonnet',{target:'Enemy',distance:30,success:true});assert.equal(c.entomancer.targets[0].damage,5);
 c=A(c,'other-action');assert.equal(entomancerProfile(c).song,false);
 c=A(make(14,'Orthoptera'),'harmonize');c=A(c,'other-action');assert.equal(entomancerProfile(c).song,true);
+for(const level of [10,14]){
+ let singer=A(make(level,'Orthoptera'),'harmonize');
+ singer=A(singer,'infest',{target:'Guard',type:'humanoid',points:1});
+ assert.equal(entomancerProfile(singer).song,level>=14,'Melee attack actions interrupt Harmonize before Walking Orchestra');
+}
 c=A(make(18,'Orthoptera'),'harmonize');c=A(c,'serenade',{target:'Ally',distance:60,hp:1,canHear:true});assert.equal(c.entomancer.targets[0].healing,4);
 c=A(make(14,'Exo-Gotas'),'reflex-armor');assert(entomancerProfile(c).reflexArmor);c=A(c,'advance-time',{rounds:1});assert(!entomancerProfile(c).reflexArmor);
 c=A(make(18,'Exo-Gotas'),'invicta');c=entomancerDamage(c,9,{type:'fire',magical:true});assert.equal(c.hp.current,46);

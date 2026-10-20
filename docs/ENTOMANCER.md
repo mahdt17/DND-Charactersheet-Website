@@ -29,4 +29,12 @@ Focused rules/action/preparation/companion tests cover the class table, all four
 
 Commands: `npm run test:entomancer`, `npm run test:browser:entomancer`. Both are included in modernization CI. Existing resource, casting, edition, training and feature-choice regressions, `npm test` and the production build are also part of verification.
 
-This work belongs to draft PR #8. It does not deploy the live website or change Supabase.
+## Creation and full-class audit — 2026-10-20
+
+Entomancer also uses its automatic 2014 rules in Custom mode when the base mechanics are 2014. Creation requires the species, starting tool, three skills and two cantrips; level-up collects adaptations, ASIs and legal spell additions. Spell management enforces capacity, including imported saves. The same Population reserve powers actions and the tracker.
+
+The audit checked all four species and levels 1–20 against the retained source snapshot and the approved rulings above. Corrections include shared effective ability scores for feats/racial bonuses, Crawling Sensation interrupting Harmonize before level 14, and starting tool training applying only when Entomancer is the first class. Orthoptera's instrument remains available when multiclassing.
+
+Creation cards omit source labels while retaining edition and hit die/speed; background skills appear below their titles. Supported racial/class language grants also work in Custom mode with matching base mechanics. Additional choices use searchable dropdowns and reject duplicates or incomplete names. Unstructured or cross-edition race rules retain the explicit manual fallback.
+
+Additional regression: `node tests/browser-creation-choices.mjs` checks Custom creation through level 4, ASIs, spell limits, languages, saved state and mobile layout. No database changes are required.

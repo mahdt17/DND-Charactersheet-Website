@@ -1,4 +1,4 @@
-import {campaignModifiers} from './lib/campaignModifiers';
+import {effectiveAbilityScores as effectiveAbilities} from './lib/abilityScores';
 import LevelUpFeatChoice from './LevelUpFeatChoice';
 import {validFeatSelection} from './lib/featSelection';
 import ClassProgression from './ClassProgression';
@@ -12,7 +12,6 @@ import equipmentData from "./data/equipment.json";
 import { spellCatalog, countsFor, castingAbility, maxSpellLevel, classes as srdClasses, classLevel, subclasses, armorFor } from "./lib/rules";
 import {spellAccess,resolveSpell,spellCounts,castingKey} from './lib/editions';
 import {castingSubclassNames} from './lib/subclassCasting';
-import {applyFeatAbilityIncrease} from './lib/featMagic';
 
 const INK = "#2B2620";
 const PAPER = "#EDE6D3";
@@ -315,15 +314,7 @@ function uid() {
 function raceBonus(raceName, key) {
   return (RACE_DATA[raceName] && RACE_DATA[raceName].bonuses && RACE_DATA[raceName].bonuses[key]) || 0;
 }
-function effectiveAbilities(char) {
-  const out = {};
-  ABILITIES.forEach((a) => {
-    out[a.key] = applyFeatAbilityIncrease(char,a.key,(char.abilities[a.key] || 0) + (char.abilityBonuses ? (char.abilityBonuses[a.key] || 0) : raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0)));
-  });
-  const campaign=campaignModifiers(char);
-  for(const [key,value] of Object.entries(campaign.abilities))out[key]+=value;
-  return out;
-}
+
 
 const ABILITY_NAME_TO_KEY = {
   Strength: "str", Dexterity: "dex", Constitution: "con",

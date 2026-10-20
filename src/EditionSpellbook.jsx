@@ -40,7 +40,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   const accessModel=char.ruleset==='custom'?{...classModel,ruleset:'custom',mechanics:active.edition}:classModel;
   const accessFor=s=>s.auto||s.dailySpellLikeGrant?{allowed:true,level:s.level}:spellAccess(accessModel,resolveSpell(s,classModel));
   const classSpells=(multiple?spellsForClass(char,active.catalogId):(char.spells||[])).map(s=>{const resolved=resolveSpell(s,classModel);return {...resolved,...s,level:typeof s.level==='number'?s.level:resolved.level,catalogId:resolved.catalogId||s.catalogId};});
-  const reference=useReferenceIndex(manage?['spells']:[],char.ruleset||'2014'),manual=is35(classModel)||char.ruleset==='custom';
+  const reference=useReferenceIndex(manage?['spells']:[],char.ruleset||'2014'),manual=is35(classModel)||char.ruleset==='custom'&&!swarm.level;
   const perClassLegacySlots=is35(classModel)||new Set(rows.map(r=>r.edition)).size>1,isPrimary=active.catalogId===rows[0]?.catalogId;
   const activeSlotsUsed=perClassLegacySlots?(char.classSlotsUsed?.[active.catalogId]??(isPrimary?char.slotsUsed||{}:{})):(char.slotsUsed||{});
   const activeOverride=perClassLegacySlots?(char.classSlotOverrides?.[active.catalogId]??(isPrimary?char.slotOverride:undefined)):char.slotOverride;
