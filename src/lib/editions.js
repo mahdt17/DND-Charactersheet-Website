@@ -3,8 +3,10 @@ import {characterClasses,classCharacter,baseProgression,progressionRow} from './
 import {entomancerProfile,entomancerFeatureRows} from './entomancer.js';
 import {reviewedEntomancerSpell,refreshEntomancerSpell} from './entomancerSpellDetails.js';
 import {multiclassPools,slotArray} from './multiclassCasting';
-import {spellSlotProgression} from './classIntegration.js';
+import {spellSlotProgression,reviewedSpellcasting35,manualSpellProgression35} from './classIntegration.js';
 import {spellAccessForClass} from './spellAccess.js';
+import {usesClassSpellRules} from './spellcastingPolicy.js';
+export {manualSpellChoices} from './spellcastingPolicy.js';
 import {subclassCasting} from './subclassCasting.js';
 import {resolveFeatSpell} from './featMagic.js';
 import modern from '../data/srd2024.json';
@@ -25,6 +27,7 @@ export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'
 const abilityKey=value=>({str:'str',strength:'str',dex:'dex',dexterity:'dex',con:'con',constitution:'con',int:'int',intelligence:'int',wis:'wis',wisdom:'wis',cha:'cha',charisma:'cha'}[String(value||'').trim().toLowerCase()]||'');
 export function levelRecord(c,level=c.level){if(campaignKind(c.classDefinition)){const model={...c,classLevels:undefined,level};return {features:[...campaignFeatureRows(model).filter(f=>f.level===level),...([4,8,12,16,19].includes(level)?[{name:'Ability Score Improvement',level}]:[])]};}if(entomancerProfile({...c,level}).level)return {features:entomancerFeatureRows({...c,level}).filter(f=>f.level===level)};if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
 function legacySlotProfile(c){
+ if(manualSpellProgression35(classRecord(c)))return null;
  const classId=c.classDefinition?.catalogId||c.classDefinition?.id;
  const saved=(c.classSpellSlots||[]).find(profile=>profile.sourceClassId===classId)||(c.classSpellSlots||[]).find(profile=>profile.sourceClassName===c.className);
  // Re-evaluate the target level during creation and level-up; cached sheet
@@ -38,24 +41,27 @@ function singleClassSlots(c){
  const subclass=subclassCasting(c);if(subclass)return subclass.slots;
  if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){
   const profile=legacySlotProfile(c),slots=slotArray(profile?.slots);
-  const bonusAbility=abilityKey(classRecord(c)?.spellcastingAbility)||{Wizard:'int',Cleric:'wis',Druid:'wis',Paladin:'wis',Ranger:'wis',Sorcerer:'cha',Bard:'cha',Archivist:'wis','Cloistered Cleric':'wis','Favored Soul':'cha','Spirit Shaman':'wis'}[c.className];
+  const reviewed=reviewedSpellcasting35(classRecord(c),c.level);
+  const bonusAbility=reviewed?.bonusAbility||abilityKey(classRecord(c)?.spellcastingAbility)||{Wizard:'int',Cleric:'wis',Druid:'wis',Paladin:'wis',Ranger:'wis',Sorcerer:'cha',Bard:'cha',Archivist:'wis','Cloistered Cleric':'wis','Favored Soul':'cha','Spirit Shaman':'wis'}[c.className];
   const score=Number(c.abilities?.[bonusAbility])+Number(c.abilityBonuses?.[bonusAbility]||0),bonus=modifier(score);
   // Only source tables with explicit unlocked levels receive inferred bonuses;
   // old cached/manual totals may already include them.
   return slots.map((count,level)=>level>0&&profile?.unlockedSpellLevels?.includes(level)&&Number.isFinite(bonus)&&bonus>=level?count+1+Math.floor((bonus-level)/4):count);
  }
  if(c.className==='Artificer'&&mechanics(c)==='2014')return slotArray(spellSlotProgression(classRecord(c),c.level)?.slots);
+ if(!usesClassSpellRules(c))return slotArray(spellSlotProgression(classRecord(c),c.level)?.slots);
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return [0,...Array.from({length:9},(_,i)=>p[`spell_slots_level_${i+1}`]||0)];}
  return [0,...slotsFor(c.className,c.level)];}
 export function spellSlotPools(c){
- if(Array.isArray(c.slotOverride))return {standard:slotArray(c.slotOverride),pact:Array(10).fill(0),mode:'override',reason:'Personal slot totals are active.'};
- if(characterClasses(c).length>1)return multiclassPools(c,singleClassSlots);
  const legacyProfile=is35(c)?legacySlotProfile(c):null;
- return {standard:singleClassSlots(c),pact:Array(10).fill(0),restricted:slotArray(legacyProfile?.restrictedSlots),mode:is35(c)||c.ruleset==='custom'?(legacyProfile?'automatic':'manual'):'automatic',reason:is35(c)&&!legacyProfile?'No explicit spell-slot matrix is present in this class progression.':undefined};
+ const sourceProfile=!usesClassSpellRules(c)?legacyProfile||spellSlotProgression(classRecord(c),c.level):null;
+ const calculated=characterClasses(c).length>1?multiclassPools(c,singleClassSlots):{standard:singleClassSlots(c),pact:Array(10).fill(0),restricted:slotArray(legacyProfile?.restrictedSlots),mode:usesClassSpellRules(c)||sourceProfile?'automatic':'manual',reason:!usesClassSpellRules(c)&&!sourceProfile?manualSpellProgression35(classRecord(c))||'No verified spell-slot table is available for this class. Enter totals from its source.':undefined};
+ if(Array.isArray(c.slotOverride)&&calculated.mode==='manual')return {standard:slotArray(c.slotOverride),pact:Array(10).fill(0),mode:'override',reason:'Source-based manual slot totals are active.'};
+ return calculated;
 }
 export const characterSlots=c=>spellSlotPools(c).standard;
 export const castingKey=c=>c.castingAbility||subclassCasting(c)?.ability||abilityKey(classRecord(c)?.spellcastingAbility)||(is35(c)?{Paladin:'wis',Ranger:'wis',Archivist:'int','Cloistered Cleric':'wis','Favored Soul':'wis','Spirit Shaman':'cha',Artificer:'int',Psion:'int','Psychic Warrior':'wis',Wilder:'cha'}[c.className]:c.className==='Artificer'?'int':null)||castingAbility[c.className]||'';
-export function spellCounts(c,score=10){if(campaignKind(c.classDefinition)){const p=campaignProfile(c);return {cantrips:p.cantrips,known:p.growthAllowance,prepared:p.preparedLimit,mode:'spellbook'};}const entomancer=entomancerProfile(c);if(entomancer.level)return {cantrips:entomancer.cantrips,known:null,prepared:entomancer.prepared,mode:'prepared'};if(is35(c)||c.ruleset==='custom')return {cantrips:99,known:99,prepared:99,mode:'custom'};
+export function spellCounts(c,score=10){if(campaignKind(c.classDefinition)){const p=campaignProfile(c);return {cantrips:p.cantrips,known:p.growthAllowance,prepared:p.preparedLimit,mode:'spellbook'};}const entomancer=entomancerProfile(c);if(entomancer.level)return {cantrips:entomancer.cantrips,known:null,prepared:entomancer.prepared,mode:'prepared'};if(!usesClassSpellRules(c))return {cantrips:99,known:99,prepared:99,mode:'custom'};
  const subclass=subclassCasting(c);if(subclass)return subclass;
  if(c.className==='Artificer'&&mechanics(c)==='2014'){const row=progressionRow(classRecord(c),c.level);return {cantrips:Number(row['Cantrips Known'])||0,known:null,prepared:Math.max(1,Math.floor(c.level/2)+modifier(score)),mode:'prepared'};}
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return {cantrips:p.cantrips_known||0,known:c.className==='Wizard'?6+2*(c.level-1):p.prepared_spells||0,prepared:p.prepared_spells||0,mode:c.className==='Wizard'?'spellbook':'prepared'};}

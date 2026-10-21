@@ -3,6 +3,7 @@ import {characterClasses} from './advancement.js';
 import {isEntomancerRecord} from './entomancer.js';
 import {subclassCasting} from './subclassCasting.js';
 import {usesLegacyPreparation} from './legacyPreparation.js';
+import {spellRulesEdition,usesClassSpellRules} from './spellcastingPolicy.js';
 
 const fullCasters=new Set(['Bard','Cleric','Druid','Sorcerer','Wizard']);
 const halfCasters=new Set(['Paladin','Ranger']);
@@ -10,13 +11,14 @@ const nonCasters=new Set(['Barbarian','Fighter','Monk','Rogue']);
 const empty=()=>Array(10).fill(0);
 export const slotArray=slots=>Array.from({length:10},(_,i)=>Math.max(0,Math.min(30,Math.trunc(Number(slots?.[i])||0))));
 
-// The caller supplies edition-specific class tables. Custom/prestige/unsupported
+// The caller supplies edition-specific class tables. Prestige/unsupported
 // spellcasting is deliberately left for an explicit personal slot override.
 export function multiclassPools(c,singleSlots) {
-  const rows=characterClasses(c),edition=c.ruleset||'2014';
-  const converted=conversionSlotPool(c,singleSlots);if(converted)return converted;
+  const rows=characterClasses(c),edition=spellRulesEdition(c);
   const manual=reason=>({standard:empty(),pact:empty(),mode:'manual',reason});
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition))return manual('Set slots from your table’s rules for this edition or cross-edition combination.');
+  if(rows.some(r=>!usesClassSpellRules({ruleset:edition,className:r.name,classDefinition:r.definition})))return manual('This class combination needs source-based slot configuration.');
+  const converted=conversionSlotPool({...c,ruleset:edition},singleSlots);if(converted)return converted;
   if(rows.some(r=>r.definition?.prestige||!isEntomancerRecord(r.definition)&&(r.definition?.source==='Homebrew'||(!fullCasters.has(r.name)&&!halfCasters.has(r.name)&&!nonCasters.has(r.name)&&r.name!=='Warlock'&&!(edition==='2014'&&r.name==='Artificer')))))
     return manual('This class combination needs source-based slot configuration.');
   const model=r=>({className:r.name,classDefinition:r.definition,subclass:r.subclass,level:r.level,ruleset:edition});
@@ -35,7 +37,7 @@ export function restSpellSlots(c,rest) {
     return {slotsUsed:prepared.some(row=>row.catalogId===rows[0]?.catalogId)?c.slotsUsed||{}:{},pactSlotsUsed:{},classSlotsUsed:keep(c.classSlotsUsed),classRestrictedSlotsUsed:keep(c.classRestrictedSlotsUsed),powerPointsUsed:0};
   }
   const rows=characterClasses(c);
-  const singleWarlock=rows.length===1&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset||'2014');
+  const singleWarlock=rows.length===1&&rows[0].name==='Warlock'&&['2014','2024'].includes(spellRulesEdition(c));
   const classSlotsUsed={...c.classSlotsUsed};
   for(const row of rows)if(row.name==='Warlock'&&['2014','2024'].includes(row.edition))classSlotsUsed[row.catalogId]={};
   return {slotsUsed:singleWarlock?{}:c.slotsUsed,pactSlotsUsed:{},classSlotsUsed};

@@ -35,7 +35,7 @@ try {
  assert(await page.locator('.feature-detail summary').filter({hasText:'Prayerbook'}).count());
  await page.getByRole('tab',{name:'Actions',exact:true}).click();
  const darkKnowledgeAction=page.locator('.action-row').filter({hasText:'Dark Knowledge'}).first();
- assert(await darkKnowledgeAction.count());
+ assert(await darkKnowledgeAction.count());await darkKnowledgeAction.getByText('Details & rules',{exact:true}).click();
  assert.match(await darkKnowledgeAction.innerText(),/Knowledge check/i);
  assert.match(await page.getByText('Dark Knowledge',{exact:true}).count().then(String),/^[1-9]/);
  await page.getByRole('tab',{name:'Feats',exact:true}).click();
@@ -102,8 +102,8 @@ try {
   c=await waitSaved(name,{slotsUsed:{2:2}});assert.equal(c.slotsUsed[2],2);assert.deepEqual(c.pactSlotsUsed,{});
   await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByRole('button',{name:'Complete long rest'}).click();
   c=await waitSaved(name,{slotsUsed:{},pactSlotsUsed:{}});assert.deepEqual(c.slotsUsed,{});assert.deepEqual(c.pactSlotsUsed,{});
-  await page.getByText('Spell slots and homebrew adjustments',{exact:true}).click();await page.getByLabel('Level 1 slots',{exact:true}).fill('7');assert.equal((await waitSaved(name,{slotOverride:[0,7,2,0,0,0,0,0,0,0]})).slotOverride[1],7);await page.getByRole('button',{name:'Use calculated spell slots'}).click();assert.equal(await page.getByLabel('Level 1 slots',{exact:true}).inputValue(),'4');
-  console.log(`PASS ${edition} independent casting abilities, ordinary/Pact slots, correct rest recovery and override/revert`);
+  await page.getByText('Spell slot progression',{exact:true}).click();assert.equal(await page.getByLabel('Level 1 slots',{exact:true}).getAttribute('readonly'),'');assert.equal(await page.getByLabel('Level 1 slots',{exact:true}).inputValue(),'4');
+  console.log(`PASS ${edition} independent casting abilities, ordinary/Pact slots, correct rest recovery and source-calculated slot totals`);
   const branchName=`Fighter to Rogue ${edition}`;
   await importChar({...base,name:branchName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',5).definition,classLevels:[row('Fighter',5)],level:5,subclass:'Champion',abilityBonuses:{},skillProf:{Athletics:true}});
   await branch('normal','Rogue');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();

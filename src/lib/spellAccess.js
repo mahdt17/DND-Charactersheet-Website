@@ -6,6 +6,7 @@ import {domainSpell,prohibitedSpell} from './legacyCastingChoices.js';
 import {specialCastingAccess} from './legacySpecialCasting.js';
 import {isEntomancerRecord} from './entomancer.js';
 import {entomancerSpellLists} from '../data/entomancer.js';
+import {reviewedSpellcasting35} from './classIntegration.js';
 
 const norm=value=>String(value?.name||value||'').trim().toLowerCase();
 const validLevel=value=>Number.isInteger(value)&&value>=0&&value<=9;
@@ -13,12 +14,11 @@ const validLevel=value=>Number.isInteger(value)&&value>=0&&value<=9;
 // List membership is independent of slot capacity. Reference-only records and
 // personal slot overrides must never confer access to another class's list.
 export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfile=null}={}) {
-  const edition=c.classDefinition?.edition||c.ruleset||'2014';
+  const edition=c.classDefinition?.edition||(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
   const legacy=edition==='3.5';
   const deny=reason=>({allowed:false,reason,level:spell.level});
-  // Supported Entomancers keep their class progression even in older Custom saves.
-  if(c.ruleset==='custom'&&c.unrestrictedSpellAccess===true&&!isEntomancerRecord(c.classDefinition))
-    return {allowed:true,level:spell.level,reason:'Table-approved custom spell access'};
+  // A saved Custom-mode flag never bypasses a class's source rules. Specific
+  // feature grants below remain the explicit route for additional spell access.
   if(spell.edition&&spell.edition!==edition)return deny('This spell belongs to a different edition.');
   const special=legacy?specialCastingAccess(c,spell):null;
   if(special)return special;
@@ -53,7 +53,7 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
       if(power&&level>parseInt(power[1]))return deny('Your class has not unlocked this power level.');
       if(!power||!Number.isFinite(parseInt(power[1])))return deny('This class has no verified spell-level progression. Record a spell-specific source grant after checking its rules.');
     }
-    const ability=profile?.minimumAbility||c.castingAbility||({Cleric:'wis',Druid:'wis',Ranger:'wis',Paladin:'wis',Wizard:'int',Archivist:'int',Sorcerer:'cha',Bard:'cha'}[c.className]);
+    const ability=reviewedSpellcasting35(c.classDefinition,c.level)?.ability||profile?.minimumAbility||c.castingAbility||({Cleric:'wis',Druid:'wis',Ranger:'wis',Paladin:'wis',Wizard:'int',Archivist:'int',Sorcerer:'cha',Bard:'cha'}[c.className]);
     const score=Number(c.abilities?.[ability])+Number(c.abilityBonuses?.[ability]||0);
     if(Number.isFinite(score)&&score<10+level)return deny(`Casting this spell requires ${ability.toUpperCase()} ${10+level}.`);
   } else if(level===0?cantrips<=0:level>maxLevel)return deny('Your class level has not unlocked this spell level.');

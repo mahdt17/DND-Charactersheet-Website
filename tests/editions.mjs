@@ -73,7 +73,7 @@ try {
  const cross={...wizard,ruleset:'custom',mechanics:'2024',classDefinition:{name:'Wizard',edition:'3.5'}};
  assert.equal(e.characterSlots(cross).reduce((a,b)=>a+b),0);
  const names=e.permittedSpells({...cross,unrestrictedSpellAccess:true}).filter(s=>s.name==='Magic Missile');
- assert.equal(new Set(names.map(e.keyOf)).size,3);
+ assert.equal(names.length,0,'a saved unrestricted flag cannot replace a verified class progression');
  const reference={category:'spell',edition:'3.5',name:'Reference spell',catalogId:'source:123',level:null,classes:[],referenceOnly:true};
  assert(!e.permittedSpells(legacy,[reference]).some(s=>e.keyOf(s)==='source:123'));
  assert.deepEqual(p.availableSlots({...legacy,slotOverride:[2,0,0],slotsUsed:{0:1}},{level:0}),[{level:0,remaining:1}]);

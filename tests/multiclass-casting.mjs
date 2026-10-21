@@ -44,11 +44,12 @@ try {
  const checks=a.requirements(fighter,{...old,abilities:{str:8,dex:14}}, {},{multiclass:true});assert(a.qualified(checks));
  const blocked=a.requirements(fighter,{...old,abilities:{str:8,dex:8}}, {},{multiclass:true});assert(!a.qualified(blocked));assert(blocked.some(c=>c.status==='unmet'));
  assert(!a.qualified(a.requirements({name:'Unknown',multi_classing:{prerequisite_options:{choose:1,from:{options:[{weird:true}]}}}},old,{}, {multiclass:true})));
- assert.equal(e.spellSlotPools({...sample,ruleset:'custom',mechanics:'2014'}).mode,'manual');
+ assert.equal(e.spellSlotPools({...sample,ruleset:'custom',mechanics:'2014'}).mode,'automatic');
  const cross=make('2014',[['Wizard',3],['Cleric',3]]);cross.classLevels[1].edition='2024';assert.equal(e.spellSlotPools(cross).mode,'manual');
  const artificer=make('2014',[['Artificer',3],['Wizard',3]]);assert.equal(e.spellSlotPools(artificer).mode,'automatic');assert.equal(e.characterSlots(artificer)[3],2);
  const unknown=make('2014',[['Unknown caster',3],['Wizard',3]]);assert.equal(e.spellSlotPools(unknown).mode,'manual');
- const override={...sample,slotOverride:[0,2,1]};assert.equal(e.spellSlotPools(override).mode,'override');assert.deepEqual(e.characterSlots(override),[0,2,1,0,0,0,0,0,0,0]);
+ const override={...sample,slotOverride:[0,2,1]};assert.equal(e.spellSlotPools(override).mode,'automatic');assert.deepEqual(e.characterSlots(override),e.characterSlots(sample));
+ const manual={...unknown,slotOverride:[0,2,1]};assert.equal(e.spellSlotPools(manual).mode,'override');assert.deepEqual(e.characterSlots(manual),[0,2,1,0,0,0,0,0,0,0]);
  assert.deepEqual(e.characterSlots({...override,slotOverride:null}),e.characterSlots(sample));
  console.log('PASS 2014/2024 multiclass slots, class spell limits, Pact Magic spending/rests, save migration, abilities and prerequisites');
 } finally {await server.close();}
