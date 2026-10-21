@@ -1,5 +1,5 @@
 import {campaignModifiers} from './campaignModifiers.js';
-import {entomancerProfile} from './entomancer.js';
+import {entomancerProfile,entomancerActionBlockReason} from './entomancer.js';
 import { mechanics, is35, spellSlotPools } from './editions';
 import {companionMasterEffects35} from './companions35';
 import {classEffectMovementBonus35} from './classEffects35';
@@ -41,6 +41,7 @@ export function availableSlots(c,s){
   .filter(x=>x.remaining>0&&x.level>=Math.max(is35(c)?0:1,level));
 }
 export function spendSpellSlot(c,s,level,pool='standard') {
+ const blocked=entomancerActionBlockReason(c);if(blocked)throw Error(blocked);
  if(!availableSlots(c,s).some(x=>x.level===level&&(x.pool||'standard')===pool))throw Error('Choose an available slot for this spell.');
  const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';
  return {[key]:{...c[key],[level]:(c[key]?.[level]||0)+1}};

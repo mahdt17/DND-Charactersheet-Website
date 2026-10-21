@@ -10,6 +10,16 @@ export function entomancerLevel(c){
  const rows=c.classLevels?.length?c.classLevels:[{definition:c.classDefinition,level:c.level,edition:c.classDefinition?.edition||mechanics}];
  return Math.min(20,rows.filter(r=>(r.edition||'2014')==='2014'&&isEntomancerRecord(r.definition||r)).reduce((n,r)=>n+Math.max(0,Math.floor(Number(r.level)||0)),0));
 }
+export function entomancerActionBlockReason(c){
+ if(!entomancerLevel(c))return '';
+ if(c.entomancer?.dead)return 'A dead character must be revived before acting.';
+ const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).filter(n=>typeof n==='string').map(n=>n.trim().toLowerCase());
+ return Number(c.hp?.current??1)<=0||conditions.some(n=>['incapacitated','unconscious','paralyzed','stunned','petrified'].includes(n))?'You cannot act while unconscious or incapacitated.':'';
+}
+export function entomancerSongSaves(c){
+ const s=c.entomancer||{},checks=Array.isArray(s.songSaveDCs)?s.songSaveDCs:[s.songSaveDC];
+ return checks.filter(dc=>Number.isInteger(dc)&&dc>0);
+}
 export function entomancerProfile(c,abilities){
  const level=entomancerLevel(c),s=c.entomancer||{},settings=s.settings||{},effects=s.effects||{};
  const scores=abilities||effectiveAbilityScores(c);
@@ -18,7 +28,7 @@ export function entomancerProfile(c,abilities){
  const species=level&&Object.hasOwn(speciesFeatures,s.species)?s.species:'';
  const has=name=>level>=3&&(level>=20||s.moisture===name||s.temperature===name);
  const active=key=>!!(level&&effects[key]?.remaining>0);
- const form=level>=17&&active('swarmForm'),song=species==='Orthoptera'&&level>=6&&!!s.song;
+ const form=level>=17&&active('swarmForm'),song=species==='Orthoptera'&&level>=6&&!!s.song&&!entomancerActionBlockReason(c);
  const resistances=[];
  if(species==='Decomposers')resistances.push('necrotic');
  if(level>=11&&has('Hot'))resistances.push('fire');if(level>=11&&has('Cold'))resistances.push('cold');
