@@ -17,8 +17,8 @@ try {
   if(edition==='2024')await page.locator('.creation-choice').filter({hasText:'5.5e'}).click();await next();await page.getByLabel('Search class').fill('Rogue');await choose('Rogue');await next();await choose(edition==='2014'?'Human':'Dwarf');await next();await choose(edition==='2014'?'Noble':'Soldier');await next();
   if(edition==='2024'){await page.getByLabel('Ability increase 1').selectOption('dex');await page.getByLabel('Ability increase 2').selectOption('con');}await next();
   for(const skill of ['Stealth','Sleight of Hand','Deception','Investigation'])await page.getByRole('button',{name:skill,exact:true}).click();
-  if(edition==='2014'){await page.getByLabel('Human language 1',{exact:true}).selectOption('Dwarvish');await page.getByLabel('Noble language 1',{exact:true}).selectOption('Elvish');}
-  else {await page.getByLabel('Origin language 1',{exact:true}).selectOption('Dwarvish');await page.getByLabel('Origin language 2',{exact:true}).selectOption('Elvish');await page.getByLabel('Thieves’ Cant feature language 1',{exact:true}).selectOption('Goblin');}
+  if(edition==='2014'){await page.getByLabel('Human language 1',{exact:true}).fill('Dwarvish');await page.getByLabel('Noble language 1',{exact:true}).fill('Elvish');}
+  else {await page.getByLabel('Origin language 1',{exact:true}).fill('Dwarvish');await page.getByLabel('Origin language 2',{exact:true}).fill('Elvish');await page.getByLabel('Thieves’ Cant feature language 1',{exact:true}).fill('Goblin');}
   await next();await next();assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
   assert.equal(await page.getByLabel('Rogue 1 Expertise: Arcana',{exact:true}).count(),0);await page.getByLabel('Rogue 1 Expertise: Stealth',{exact:true}).check();assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
   await page.getByLabel(`Rogue 1 Expertise: ${edition==='2014'?'Thieves’ tools':'Sleight of Hand'}`,{exact:true}).check();assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
@@ -36,7 +36,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Commoner');await page.locator('[data-catalog-id="dndtools:classes/commoner-32"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Commoner creation waits for its required simple-weapon choice');
  const clubChoice=page.getByLabel('Commoner 1 Simple weapon proficiency: Club',{exact:true});
  assert.equal(await clubChoice.count(),1,'Commoner exposes a structured simple-weapon option');
@@ -61,7 +61,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Cleric');await page.locator('[data-catalog-id="dndtools:classes/cleric-91"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();
  await page.getByLabel('Cleric deity',{exact:true}).selectOption('Pelor');
  assert.equal(await page.getByLabel('Domain 1',{exact:true}).locator('option').filter({hasText:/^Fire$/}).count(),0,'Pelor excludes Fire from the domain picker');
  assert.equal(await page.getByLabel('Domain 1',{exact:true}).locator('option').filter({hasText:/^Healing$/}).count(),1,'Pelor exposes Healing');
@@ -102,7 +102,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Warrior');await page.locator('[data-catalog-id="dndtools:classes/warrior2-135"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'generic Warrior creation waits for source-defined choices');
  await page.getByLabel('Warrior 1 Base Save Bonuses: Will',{exact:true}).check();
  await page.getByLabel('Warrior 1 Bonus Feats choice',{exact:true}).fill('Power Attack');
@@ -125,7 +125,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Expert');await page.locator('[data-catalog-id="dndtools:classes/expert-33"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Expert creation waits for ten class-skill choices');
  const expertPicks=['Appraise','Balance','Bluff','Climb','Concentration','Craft','Decipher Script','Diplomacy','Disable Device','Disguise'];
  for(const skill of expertPicks)await page.getByLabel(`Expert 1 Class skills: ${skill}`,{exact:true}).check();
@@ -149,7 +149,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Druid');await page.locator('[data-catalog-id="dndtools:classes/druid-92"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Druid creation waits for its Animal Companion');
  const druidWolfChoice=page.getByLabel('Druid 1 Animal Companion: Wolf',{exact:true});
  assert.equal(await druidWolfChoice.count(),1,'Druid exposes Wolf as a legal starting companion');
@@ -208,7 +208,7 @@ try {
  assert.equal(await parentChoice.locator('option',{hasText:'Wizard'}).count(),1,'Sorcerer/Wizard Variant exposes both exact parent choices');
  await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Sorcerer/Wizard Variant creation waits for its replacement Animal Companion');
  const swWolfChoice=page.getByLabel('Sorcerer/Wizard Variant 1 Animal Companion: Wolf',{exact:true});
  assert.equal(await swWolfChoice.count(),1,'Half-level Sorcerer parent still exposes standard companions at level 1');
@@ -230,7 +230,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Cleric Variant');await page.locator('[data-catalog-id="dndtools:classes/cleric-variant-972"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();await next();
  const clericDomainChoice=page.getByLabel('Cleric Variant 1 Deity, Domains, and Domain Spells choice',{exact:true});
  assert.equal(await clericDomainChoice.count(),1,'Cleric Variant retains the Cleric deity/domain source choice');
  await clericDomainChoice.fill('Pelor; Good, Healing');
@@ -257,7 +257,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Abjurer Variant');await page.locator('[data-catalog-id="dndtools:classes/abjurer-variant-960"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
- await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).fill('Draconic');await next();
  assert.equal(await page.getByText('Specialist school: Abjuration',{exact:true}).count(),1,'Abjurer Variant displays its fixed specialist school');
  assert(await page.getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Abjurer Variant waits for two prohibited schools');
  await page.getByLabel('Prohibited Evocation',{exact:true}).check();

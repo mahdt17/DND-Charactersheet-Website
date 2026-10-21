@@ -125,7 +125,7 @@ export function applyEntomancerAction(character,id,input={},random=Math.random){
  }
  // A null timer denotes a condition that ends through its repeat save, not time.
  for(const t of s.targets)for(const [key,n] of Object.entries(t.timers||{}))if(n===Infinity)t.timers[key]=null;
- if(a&&p.song&&p.level<14&&a.activation==='Action'&&id!=='harmonize')s.song=false;
+ if(a&&p.song&&p.level<14&&['Action','Melee attack action','Melee weapon attack'].includes(a.activation)&&id!=='harmonize')s.song=false;
  c.entomancer=s;
  return log(c,a?`${a.name} resolved${a.cost?`; ${a.cost} Population spent`:''}.`:`${id.replaceAll('-',' ')} resolved.`);
 }

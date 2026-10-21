@@ -1,15 +1,18 @@
 import {entomancerId,populationTable,entomancerSlots,entomancerFeatures,speciesFeatures,entomancerSource} from '../data/entomancer.js';
+import {effectiveAbilityScores} from './abilityScores.js';
 export const populationId='2014:Entomancer:population';
 const mod=n=>Math.floor((Number(n??10)-10)/2);
 export const isEntomancerRecord=r=>r?.edition==='2014'&&(r.catalogId===entomancerId||r.id===entomancerId);
+export const entomancerStartsCharacter=c=>isEntomancerRecord(c.classLevels?.[0]?.definition||c.classLevels?.[0]||c.classDefinition);
 export function entomancerLevel(c){
- if((c.ruleset||'2014')!=='2014')return 0;
- const rows=c.classLevels?.length?c.classLevels:[{definition:c.classDefinition,level:c.level,edition:c.ruleset||'2014'}];
+ const mechanics=c.ruleset==='custom'?(c.mechanics||'2014'):(c.ruleset||'2014');
+ if(mechanics!=='2014')return 0;
+ const rows=c.classLevels?.length?c.classLevels:[{definition:c.classDefinition,level:c.level,edition:c.classDefinition?.edition||mechanics}];
  return Math.min(20,rows.filter(r=>(r.edition||'2014')==='2014'&&isEntomancerRecord(r.definition||r)).reduce((n,r)=>n+Math.max(0,Math.floor(Number(r.level)||0)),0));
 }
 export function entomancerProfile(c,abilities){
  const level=entomancerLevel(c),s=c.entomancer||{},settings=s.settings||{},effects=s.effects||{};
- const scores=abilities||Object.fromEntries(['str','dex','con','int','wis','cha'].map(k=>[k,Number(c.abilities?.[k]??10)+Number(c.abilityBonuses?.[k]||0)]));
+ const scores=abilities||effectiveAbilityScores(c);
  const wis=mod(scores.wis),con=mod(scores.con),dex=mod(scores.dex),str=mod(scores.str);
  const total=c.classLevels?.length?c.classLevels.reduce((n,r)=>n+Number(r.level||0),0):Number(c.level||1)+Number(c.otherClassLevels||0),pb=2+Math.floor((Math.max(1,total)-1)/4);
  const species=level&&Object.hasOwn(speciesFeatures,s.species)?s.species:'';
@@ -51,7 +54,7 @@ export function entomancerArmor(c,base,armor='',abilities){const p=entomancerPro
  return base+bonus+react;
 }
 export function entomancerTraining(c){const p=entomancerProfile(c),result=[];if(p.level>=11)result.push({index:'medium-armor',name:'Medium armor',kind:'armor'});if(p.species==='Exo-Gotas'&&p.level>=18)result.push({index:'heavy-armor',name:'Heavy armor',kind:'armor'});
- if(p.level&&c.entomancer?.tool)result.push({index:'entomancer-tool',name:c.entomancer.tool,kind:'tools'});
+ if(p.level&&entomancerStartsCharacter(c)&&c.entomancer?.tool)result.push({index:'entomancer-tool',name:c.entomancer.tool,kind:'tools'});
  if(p.species==='Orthoptera'&&c.entomancer?.instrument)result.push({index:'entomancer-instrument',name:c.entomancer.instrument,kind:'tools'});return result;
 }
 export function entomancerFeatureRows(c){const p=entomancerProfile(c);return !p.level?[]:[...entomancerFeatures,...(speciesFeatures[p.species]||[]).map(([level,name,description],i)=>({index:`entomancer-species-${i}`,level,name,description,desc:[description],sourceUrl:entomancerSource}))].filter(f=>f.level<=p.level);}

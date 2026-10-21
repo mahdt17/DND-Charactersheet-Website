@@ -13,8 +13,8 @@ const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.homebrew||r?.
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
-  if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return campaignResources(c);
   const population=entomancerResource(c),result=[...campaignResources(c),...(population?[population]:[])];
+  if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return result;
   for(const row of rows) {
     const n=row.level,cls=row.name;
     const add=(key,name,max,short=0,extra={})=>{

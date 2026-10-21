@@ -1,6 +1,6 @@
 import ConvertedClassChoices,{conversionChoicesComplete} from './ConvertedClassChoices';
 import {campaignKind,campaignProfile} from './lib/archivistCampaign';
-import {entomancerLevel} from './lib/entomancer';
+import {entomancerLevel,entomancerStartsCharacter} from './lib/entomancer';
 import {EntomancerChoices,entomancerChoicesComplete} from './Entomancer';
 import LevelUpFeatChoice from './LevelUpFeatChoice';
 import {validFeatSelection} from './lib/featSelection';
@@ -23,7 +23,7 @@ import {focusDialog} from './GuidedSetup';
 
 export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],characterLevel=char.level+1,sourceClassId='',acquisitionCharacter=null}) {
   const shell=useRef(null);useEffect(focusDialog(shell),[]);
-  const target=Math.min(20,char.level+1),manual=is35(char)||char.ruleset==='custom';
+  const target=Math.min(20,char.level+1),manual=is35(char)||char.ruleset==='custom'&&!entomancerLevel({...char,level:target});
   const record=levelRecord(char,target),asi=!manual&&(record.features||[]).some(f=>/ability score improvement/i.test(f.name));
   const [step,setStep]=useState(0),[mode,setMode]=useState('scores'),[first,setFirst]=useState(''),[second,setSecond]=useState(''),[feat,setFeat]=useState(null),[notes,setNotes]=useState(''),[subclass,setSubclass]=useState(char.subclass||'');
   const [abilities,setAbilities]=useState({...char.abilities}),[hpGain,setHpGain]=useState(Math.floor(Number(char.hitDie?.slice(1)||8)/2)+1);
@@ -66,7 +66,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   if(acquisitionClassId&&!featRows.some(row=>row.catalogId===acquisitionClassId))featRows.push({catalogId:acquisitionClassId,name:char.className,edition:char.ruleset,level:target,definition:char.classDefinition});
   const featCharacter={...fullBase,...conversion,level:characterLevel,abilities:nextAbilities,classLevels:featRows.length?featRows:fullBase.classLevels};
   const featValid=validFeatSelection(feat,featCharacter,{required:asi&&mode==='feat'});
-  const choicesValid=entomancerChoicesComplete(draft)&&conversionChoicesComplete(featCharacter)&&acquisitionPrereqsComplete&&(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
+  const choicesValid=entomancerChoicesComplete(draft,{startingClass:entomancerStartsCharacter(fullBase)})&&conversionChoicesComplete(featCharacter)&&acquisitionPrereqsComplete&&(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
   const spellsValid=invocationProfile?invocationChoicesComplete35(invocationTarget,invocationEvents,invocationPicks):managedAcquisition?spellAcquisitionPicksComplete35(acquisitionEvents,acquisitionPicks,acquisitionLegalIds):added.every(s=>candidates.some(x=>keyOf(x)===keyOf(s)))&&(manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain);
   function finish(){
     if(!choicesValid||!spellsValid)return;
@@ -114,7 +114,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
     onFinish(result);
   }
   return <div className="creation-overlay" role="dialog" aria-modal="true" aria-label="Edition level up" ref={shell}><div className="creation-shell"><aside className="creation-sidebar"><h2>Level {char.level} → {target}</h2>{['Level choices','Spells','Review'].map((name,i)=><p key={name}>{i===step?'→ ':''}{name}</p>)}</aside><section className="creation-content"><div className="creation-topbar">Level up · {char.name}<ClassProgression char={char} score={effectiveAbilities(char)[castingKey(char)]||10}/></div><div className="creation-scroll">
-    {step===0&&<><EntomancerChoices char={draft} patch={v=>setEntomancer(v.entomancer)}/><ConvertedClassChoices char={featCharacter} patch={v=>setConversion(current=>({...current,...v}))} homebrew={homebrew}/><h2>Level {target} choices</h2><p>{record.features?.map(f=>f.name).join(' · ')||'Review your class progression and record the new choices below.'}</p>{acquisitionRequiredGroups.length>0&&<><p className="l-notice">These class choices determine which spells are legal at this level.</p><ClassFeatureChoices plan={{...acquisitionFeaturePlan,groups:acquisitionRequiredGroups}} picks={acquisitionFeaturePicks} onChange={next=>{setAcquisitionFeaturePicks(next);setAcquisitionPicks({});}}/></>}{manual&&<p>Review 3.5 prerequisites, skill ranks, feat eligibility and cross-edition conversions with your DM. Adjust base scores and hit points here.</p>}
+    {step===0&&<><EntomancerChoices startingClass={entomancerStartsCharacter(fullBase)} char={draft} patch={v=>setEntomancer(v.entomancer)}/><ConvertedClassChoices char={featCharacter} patch={v=>setConversion(current=>({...current,...v}))} homebrew={homebrew}/><h2>Level {target} choices</h2><p>{record.features?.map(f=>f.name).join(' · ')||'Review your class progression and record the new choices below.'}</p>{acquisitionRequiredGroups.length>0&&<><p className="l-notice">These class choices determine which spells are legal at this level.</p><ClassFeatureChoices plan={{...acquisitionFeaturePlan,groups:acquisitionRequiredGroups}} picks={acquisitionFeaturePicks} onChange={next=>{setAcquisitionFeaturePicks(next);setAcquisitionPicks({});}}/></>}{manual&&<p>Review 3.5 prerequisites, skill ranks, feat eligibility and cross-edition conversions with your DM. Adjust base scores and hit points here.</p>}
       <label className="creation-field"><span>Hit die result before Constitution</span><input type="number" min="1" max="30" value={hpGain} onChange={e=>setHpGain(Math.max(1,Math.min(30,Number(e.target.value)||1)))}/></label>
       {needsSubclass&&<label className="creation-field"><span>Subclass name</span><input list="edition-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)}/><datalist id="edition-subclasses">{(mechanics(char)==='2014'?subclasses:modern.subclasses).filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}{castingSubclassNames[char.className]&&<option value={castingSubclassNames[char.className]}/>}</datalist></label>}
       {asi&&<><label className="creation-field"><span>Ability improvement</span><select aria-label="Ability improvement" value={mode} onChange={e=>setMode(e.target.value)}><option value="scores">Ability scores: +2 or +1/+1</option><option value="feat">Choose a feat</option></select></label>{mode==='scores'&&[first,second].map((value,i)=><label className="creation-field" key={i}><span>Ability increase {i+1}</span><select value={value} onChange={e=>(i?setSecond:setFirst)(e.target.value)}><option value="">Choose</option>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label}</option>)}</select></label>)}</>}

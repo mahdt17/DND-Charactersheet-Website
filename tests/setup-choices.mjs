@@ -5,6 +5,13 @@ try{
  const {languagePlan,chosenLanguages}=await server.ssrLoadModule('/src/lib/languages.js');
  const {spellCounts,levelRecord,classes,modern}=await server.ssrLoadModule('/src/lib/editions.js');
  const {classOptions}=await server.ssrLoadModule('/src/GuidedSetup.jsx');
+ const {entomancerChoicesComplete}=await server.ssrLoadModule('/src/Entomancer.jsx');
+ const {entomancerClass}=await server.ssrLoadModule('/src/data/entomancer.js');
+ const swarm={ruleset:'2014',classDefinition:entomancerClass,level:1,entomancer:{species:'Decomposers'}};
+ assert(!entomancerChoicesComplete(swarm),'Starting Entomancer must choose a tool');
+ assert(entomancerChoicesComplete(swarm,{startingClass:false}),'Secondary Entomancer does not need a starting tool');
+ assert(!entomancerChoicesComplete({...swarm,entomancer:{species:'Orthoptera'}},{startingClass:false}),'Species instrument still required when multiclassing');
+ assert(entomancerChoicesComplete({...swarm,entomancer:{species:'Orthoptera',instrument:'Lute'}},{startingClass:false}));
  const human={ruleset:'2014',race:'Human',className:'Sorcerer',subclass:'Draconic Bloodline',background:'Sage',level:1};
  let p=languagePlan(human);assert.deepEqual(p.automatic.map(x=>x.name),['Common','Draconic']);assert.equal(p.groups.reduce((n,g)=>n+g.count,0),3);assert(!p.groups[0].options.includes('Abyssal'));
  assert(languagePlan({...human,allowExoticLanguages:true}).groups[0].options.includes('Abyssal'));
@@ -14,6 +21,9 @@ try{
  p=languagePlan({ruleset:'2024',race:'Dwarf',className:'Rogue'});assert.equal(p.groups[0].count,2);assert(p.groups[0].options.includes('Common Sign Language'));assert(!p.groups[0].options.includes('Infernal'));assert(p.groups[1].options.includes('Infernal'));assert(p.automatic.some(x=>x.name==="Thieves' Cant"));
  p=languagePlan({ruleset:'3.5',race:'Dwarf',className:'Cleric'},16);assert.equal(p.groups[0].count,3);assert(p.groups[0].options.includes('Celestial'));assert(!p.groups[0].options.includes('Druidic'));assert.equal(languagePlan({ruleset:'3.5',race:'Human',className:'Druid'},8).groups.length,0);assert(languagePlan({ruleset:'3.5',race:'Human',className:'Druid'},8).automatic.some(x=>x.name==='Druidic'));
  assert(languagePlan({...human,raceDefinition:{referenceOnly:true}}).manual);
+ const customHuman={...human,ruleset:'custom',mechanics:'2014',raceDefinition:{name:'Human',edition:'2014'}};
+ assert.deepEqual(languagePlan(customHuman),languagePlan(human),'Custom mode retains supported racial, background and class languages');
+ assert.deepEqual(languagePlan({...customHuman,race:'Elf',raceDefinition:{name:'Elf',edition:'2014'},className:'Entomancer',background:'Soldier'}).automatic.map(x=>x.name),['Common','Elvish']);
  assert.equal(spellCounts(human).known,2);assert.equal(spellCounts({...human,level:2}).known,3);assert.equal(spellCounts({...human,ruleset:'2024'}).prepared,2);
  const canonicalFighter={id:'dndtools:classes/fighter-test',catalogId:'dndtools:classes/fighter-test',index:'classes/fighter-test',category:'class',name:'Fighter',edition:'3.5',hit_die:10,classSkills:['Climb','Craft'],description:'Canonical Fighter'};
  const fighterOptions=classOptions('3.5',[canonicalFighter]).filter(x=>x.name==='Fighter');

@@ -1,17 +1,18 @@
 import EntomancerCompanions from './EntomancerCompanions';
 import React,{useState} from 'react';
+import {effectiveAbilityScores} from './lib/abilityScores';
 import {entomancerSpecies,entomancerInstruments,entomancerSource} from './data/entomancer';
-import {entomancerProfile,entomancerSkillRank,entomancerFeatureRows} from './lib/entomancer';
+import {entomancerProfile,entomancerSkillRank,entomancerFeatureRows,entomancerStartsCharacter} from './lib/entomancer';
 import {availableEntomancerActions,applyEntomancerAction} from './lib/entomancerActions';
 const Field=({label,children})=><label className="l-field"><span>{label}</span>{children}</label>;
 const Choice=({label,value,options,onChange})=><Field label={label}><select aria-label={label} value={value||''} onChange={e=>onChange(e.target.value)}><option value="">Choose…</option>{options.map(x=><option key={x}>{x}</option>)}</select></Field>;
-export function entomancerChoicesComplete(c){const p=entomancerProfile(c),s=c.entomancer||{};return !p.level||entomancerSpecies.includes(s.species)&&['Herbalism Kit','Poisoner’s Kit'].includes(s.tool)&&(s.species!=='Orthoptera'||entomancerInstruments.includes(s.instrument))&&(p.level<3||['Dry','Humid'].includes(s.moisture)&&['Hot','Cold'].includes(s.temperature));}
-export function EntomancerChoices({char,patch}){
+export function entomancerChoicesComplete(c,{startingClass=entomancerStartsCharacter(c)}={}){const p=entomancerProfile(c),s=c.entomancer||{};return !p.level||entomancerSpecies.includes(s.species)&&(!startingClass||['Herbalism Kit','Poisoner’s Kit'].includes(s.tool))&&(s.species!=='Orthoptera'||entomancerInstruments.includes(s.instrument))&&(p.level<3||['Dry','Humid'].includes(s.moisture)&&['Hot','Cold'].includes(s.temperature));}
+export function EntomancerChoices({char,patch,startingClass=entomancerStartsCharacter(char)}){
  const p=entomancerProfile(char),s=char.entomancer||{};if(!p.level)return null;
  const change=(key,value)=>patch({entomancer:{...s,[key]:value}});
  return <section aria-label="Entomancer choices"><h3>Entomancer choices</h3><div className="form-grid">
   <Choice label="Swarm species" value={s.species} options={entomancerSpecies} onChange={v=>change('species',v)}/>
-  <Choice label="Entomancer tool proficiency" value={s.tool} options={['Herbalism Kit','Poisoner’s Kit']} onChange={v=>change('tool',v)}/>
+  {startingClass&&<Choice label="Entomancer tool proficiency" value={s.tool} options={['Herbalism Kit','Poisoner’s Kit']} onChange={v=>change('tool',v)}/>}
   {s.species==='Orthoptera'&&<Choice label="Natural Savant instrument" value={s.instrument} options={entomancerInstruments} onChange={v=>change('instrument',v)}/>}
   {p.level>=3&&<><Choice label="Moisture adaptation" value={s.moisture} options={['Dry','Humid']} onChange={v=>change('moisture',v)}/><Choice label="Temperature adaptation" value={s.temperature} options={['Hot','Cold']} onChange={v=>change('temperature',v)}/></>}
  </div></section>;
@@ -46,7 +47,7 @@ export default function Entomancer({char,patch,roll}){
    {p.level>=7&&<p>Many-Eyed detects hidden/invisible presence within 100 ft; spend Population to locate it.</p>}
    {p.species==='Decomposers'&&p.level>=14&&<p>No food required for you; your swarm still needs feeding. Life and undead detection do not detect you.</p>}
    {p.species==='Endo-Gotas'&&<button className="l-button" onClick={()=>roll(`1d20${p.str+entomancerSkillRank(char,'Athletics')*p.pb+(p.level>=6?p.con:0)>=0?'+':''}${p.str+entomancerSkillRank(char,'Athletics')*p.pb+(p.level>=6?p.con:0)}`,'Grapple check')}>Roll grapple</button>}
-   {p.species==='Orthoptera'&&<><Choice label="Instrument check ability" value={s.instrumentAbility||'cha'} options={['str','dex','con','int','wis','cha']} onChange={v=>set('instrumentAbility',v)}/><button className="l-button" onClick={()=>{const key=s.instrumentAbility||'cha',bonus=Math.floor((Number(char.abilities?.[key]??10)+Number(char.abilityBonuses?.[key]||0)-10)/2)+p.wis+p.pb;roll(`1d20${bonus>=0?'+':''}${bonus}`,`${s.instrument||'Instrument'} check`);}}>Roll instrument + Natural Savant</button></>}
+   {p.species==='Orthoptera'&&<><Choice label="Instrument check ability" value={s.instrumentAbility||'cha'} options={['str','dex','con','int','wis','cha']} onChange={v=>set('instrumentAbility',v)}/><button className="l-button" onClick={()=>{const key=s.instrumentAbility||'cha',bonus=Math.floor((effectiveAbilityScores(char)[key]-10)/2)+p.wis+p.pb;roll(`1d20${bonus>=0?'+':''}${bonus}`,`${s.instrument||'Instrument'} check`);}}>Roll instrument + Natural Savant</button></>}
   </details>
   <div className="form-grid"><Field label="Swarm ability"><select aria-label="Swarm ability" value={chosen.id} onChange={e=>setAction(e.target.value)}>{actions.map(a=><option key={a.id} value={a.id}>{a.name}</option>)}</select></Field><p>{chosen.activation} · {chosen.cost==null?'Variable':chosen.cost} Population<br/>{chosen.description}</p></div>
   {usesTarget&&<div className="form-grid"><Field label="Target or corpse name"><input aria-label="Target or corpse name" value={input.target} onChange={e=>put('target',e.target.value)}/></Field>{number('distance','Target distance (ft.)')}<Choice label="Target creature type" value={input.type} options={['humanoid','insect','beast','construct','undead','elemental','ooze','other']} onChange={v=>put('type',v)}/>{['corpse-jacker','decompose'].includes(chosen.id)&&<Choice label="Corpse size" value={input.size} options={['Tiny','Small','Medium','Large','Huge','Gargantuan']} onChange={v=>put('size',v)}/>}</div>}
