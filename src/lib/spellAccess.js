@@ -16,7 +16,8 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   const edition=c.classDefinition?.edition||c.ruleset||'2014';
   const legacy=edition==='3.5';
   const deny=reason=>({allowed:false,reason,level:spell.level});
-  if(c.ruleset==='custom'&&c.unrestrictedSpellAccess===true)
+  // Supported Entomancers keep their class progression even in older Custom saves.
+  if(c.ruleset==='custom'&&c.unrestrictedSpellAccess===true&&!isEntomancerRecord(c.classDefinition))
     return {allowed:true,level:spell.level,reason:'Table-approved custom spell access'};
   if(spell.edition&&spell.edition!==edition)return deny('This spell belongs to a different edition.');
   const special=legacy?specialCastingAccess(c,spell):null;

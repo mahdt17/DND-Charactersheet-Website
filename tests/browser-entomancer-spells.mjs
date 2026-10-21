@@ -171,3 +171,43 @@ test('older Custom Entomancers can choose, save and reopen optional spells in th
  await page.locator('.spell-item').filter({hasText:'Summon Beast'}).getByRole('button',{name:'Cast',exact:true}).click();
  await page.getByRole('dialog').getByText(/Use the Bestial Spirit/).waitFor();
 });
+
+test('saved unrestricted Custom flag cannot bypass Entomancer spell levels or class list',()=>{
+ const c={...base,ruleset:'custom',mechanics:'2014',unrestrictedSpellAccess:true,level:3};
+ const available=editions.permittedSpells(c,source.map(s=>normalize(s,'wikidot5e','spells')));
+ assert(available.length>0);
+ assert(available.every(s=>s.edition==='2014'&&s.level<=1),'level 3 has only 2014 cantrips and 1st-level choices');
+ assert(!available.some(s=>s.name==='Magic Missile'));
+ const level5=editions.permittedSpells({...c,level:5});
+ assert(level5.some(s=>s.name==='Moonbeam'),'2nd-level spells unlock at Entomancer 5');
+ assert(!level5.some(s=>s.level>2));
+ assert(!editions.spellAccess(c,spell('Moonbeam')).allowed,'a saved 2nd-level spell cannot be cast at class level 3');
+});
+
+test('level-up wizard restricts a saved unrestricted Entomancer advancing to level 3',async t=>{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));t.after(async()=>{await page.close();assert.deepEqual(errors,[]);});
+ const names=['Guidance','Druidcraft','Cure Wounds','Entangle','Fog Cloud'];
+ const c={...base,name:'Level three constraints',level:2,ruleset:'custom',mechanics:'2014',unrestrictedSpellAccess:true,spells:names.map(name=>({...editions.allSpells.find(s=>s.name===name&&s.edition==='2014'),id:'known-'+name,prepared:true,castingClassId:entomancerClass.catalogId}))};
+ await page.goto('http://127.0.0.1:5197/');await page.getByRole('button',{name:'Explore the demo'}).click();
+ await page.locator('input[type=file]').setInputFiles({name:'level-three.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});
+ await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();
+ await page.getByRole('button',{name:'Level up',exact:true}).click();
+ await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+ const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
+ await next();const picker=page.getByRole('region',{name:'New spells',exact:true});
+ await picker.getByLabel('Search spells',{exact:true}).fill('Moonbeam');
+ assert.equal(await picker.getByRole('button',{name:/^Select Moonbeam/}).count(),0,'2nd-level spell cannot be selected at class level 3');
+ const limits=page.getByRole('note',{name:'Entomancer spell limits'});
+ assert.match(await limits.innerText(),/3 level 1 spell slots/);
+ assert.match(await limits.innerText(),/4 prepared spells/);
+ await picker.getByLabel('Search spells',{exact:true}).fill('Goodberry');
+ await picker.getByRole('button',{name:/^Select Goodberry \(5e · SRD 5.1/}).click();
+ await next();await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+ await page.locator('.sheet-heading').filter({hasText:'Entomancer 3'}).waitFor();
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();
+ assert.equal(await page.getByRole('button',{name:/^Level 1 slot/}).count(),3,'three 1st-level cast slots');
+ assert.equal(await page.locator('.spell-item').count(),6,'two cantrips and four prepared 1st-level spells');
+ await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+ assert.equal(await page.getByLabel('Allow spells from any class or edition (table-approved Custom rules)').count(),0,'supported class does not expose the conflicting unrestricted option');
+});
