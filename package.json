@@ -11,6 +11,7 @@
     "test:content": "node tests/content.mjs",
     "test:editions": "node tests/editions.mjs",
     "test:browser": "node tests/browser.mjs",
+    "test:browser:usability": "node tests/browser-usability.mjs",
     "class:certify": "node scripts/build_class_completion_ledger.mjs",
     "review:completion:queue": "node scripts/build_class_review_queue.mjs",
     "test:entomancer": "node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs && node tests/entomancer-playability.mjs",
