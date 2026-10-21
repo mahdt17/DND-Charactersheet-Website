@@ -4,6 +4,8 @@ import {subclassSpellAccess} from './subclassSpells.js';
 import {subclassCasting,subclassSchoolAccess} from './subclassCasting.js';
 import {domainSpell,prohibitedSpell} from './legacyCastingChoices.js';
 import {specialCastingAccess} from './legacySpecialCasting.js';
+import {isEntomancerRecord} from './entomancer.js';
+import {entomancerSpellLists} from '../data/entomancer.js';
 
 const norm=value=>String(value?.name||value||'').trim().toLowerCase();
 const validLevel=value=>Number.isInteger(value)&&value>=0&&value<=9;
@@ -28,7 +30,7 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   if(grants.length){const level=grants[0].spellLevel??spell.level;return validLevel(level)?{allowed:true,level,reason:`Granted by ${grants[0].source}`} : deny('Set a valid level for this granted spell.');}
   const profile=legacy?classSpellLists35[c.className]:null;
   const subclass=subclassCasting(c);
-  const names=new Set([c.className,...(subclass?.active?[subclass.list]:[]),...(Array.isArray(c.classDefinition?.spellLists)?c.classDefinition.spellLists:[]),...(profile?.lists||[])].map(norm));
+  const names=new Set([c.className,...(subclass?.active?[subclass.list]:[]),...(Array.isArray(c.classDefinition?.spellLists)?c.classDefinition.spellLists:[]),...(isEntomancerRecord(c.classDefinition)?entomancerSpellLists:[]),...(profile?.lists||[])].map(norm));
   const memberships=(spell.classes||[]).map(norm);
   const classLevels=Object.entries(spell.classLevels||{}).filter(([name,level])=>names.has(norm(name))&&validLevel(level));
   const addedLevel=profile?.spells?.[norm(spell.name).replaceAll('’',"'")];

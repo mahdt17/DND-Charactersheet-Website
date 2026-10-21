@@ -1,0 +1,878 @@
+{
+  "sourceUrl": "https://dnd5e.wikidot.com/spells:druid",
+  "classSourceUrl": "https://www.dandwiki.com/wiki/Entomancer_(5e_Class)",
+  "checkedAt": "2026-10-21",
+  "scope": "Published 2014 Druid list including optional and explicitly named UA entries. Entomancer slots stop at level 5.",
+  "spells": [
+    {
+      "name": "Control Flames",
+      "slug": "control-flames",
+      "level": 0
+    },
+    {
+      "name": "Create Bonfire",
+      "slug": "create-bonfire",
+      "level": 0
+    },
+    {
+      "name": "Druidcraft",
+      "slug": "druidcraft",
+      "level": 0
+    },
+    {
+      "name": "Frostbite",
+      "slug": "frostbite",
+      "level": 0
+    },
+    {
+      "name": "Guidance",
+      "slug": "guidance",
+      "level": 0
+    },
+    {
+      "name": "Gust",
+      "slug": "gust",
+      "level": 0
+    },
+    {
+      "name": "Infestation",
+      "slug": "infestation",
+      "level": 0
+    },
+    {
+      "name": "Magic Stone",
+      "slug": "magic-stone",
+      "level": 0
+    },
+    {
+      "name": "Mending",
+      "slug": "mending",
+      "level": 0
+    },
+    {
+      "name": "Mold Earth",
+      "slug": "mold-earth",
+      "level": 0
+    },
+    {
+      "name": "Poison Spray",
+      "slug": "poison-spray",
+      "level": 0
+    },
+    {
+      "name": "Primal Savagery",
+      "slug": "primal-savagery",
+      "level": 0
+    },
+    {
+      "name": "Produce Flame",
+      "slug": "produce-flame",
+      "level": 0
+    },
+    {
+      "name": "Resistance",
+      "slug": "resistance",
+      "level": 0
+    },
+    {
+      "name": "Shape Water",
+      "slug": "shape-water",
+      "level": 0
+    },
+    {
+      "name": "Shillelagh",
+      "slug": "shillelagh",
+      "level": 0
+    },
+    {
+      "name": "Thorn Whip",
+      "slug": "thorn-whip",
+      "level": 0
+    },
+    {
+      "name": "Thunderclap",
+      "slug": "thunderclap",
+      "level": 0
+    },
+    {
+      "name": "Absorb Elements",
+      "slug": "absorb-elements",
+      "level": 1
+    },
+    {
+      "name": "Animal Friendship",
+      "slug": "animal-friendship",
+      "level": 1
+    },
+    {
+      "name": "Beast Bond",
+      "slug": "beast-bond",
+      "level": 1
+    },
+    {
+      "name": "Charm Person",
+      "slug": "charm-person",
+      "level": 1
+    },
+    {
+      "name": "Create or Destroy Water",
+      "slug": "create-or-destroy-water",
+      "level": 1
+    },
+    {
+      "name": "Cure Wounds",
+      "slug": "cure-wounds",
+      "level": 1
+    },
+    {
+      "name": "Detect Magic",
+      "slug": "detect-magic",
+      "level": 1
+    },
+    {
+      "name": "Detect Poison and Disease",
+      "slug": "detect-poison-and-disease",
+      "level": 1
+    },
+    {
+      "name": "Earth Tremor",
+      "slug": "earth-tremor",
+      "level": 1
+    },
+    {
+      "name": "Entangle",
+      "slug": "entangle",
+      "level": 1
+    },
+    {
+      "name": "Faerie Fire",
+      "slug": "faerie-fire",
+      "level": 1
+    },
+    {
+      "name": "Fog Cloud",
+      "slug": "fog-cloud",
+      "level": 1
+    },
+    {
+      "name": "Goodberry",
+      "slug": "goodberry",
+      "level": 1
+    },
+    {
+      "name": "Guiding Hand (UA)",
+      "slug": "guiding-hand-ua",
+      "level": 1
+    },
+    {
+      "name": "Healing Word",
+      "slug": "healing-word",
+      "level": 1
+    },
+    {
+      "name": "Ice Knife",
+      "slug": "ice-knife",
+      "level": 1
+    },
+    {
+      "name": "Jump",
+      "slug": "jump",
+      "level": 1
+    },
+    {
+      "name": "Longstrider",
+      "slug": "longstrider",
+      "level": 1
+    },
+    {
+      "name": "Protection from Evil and Good",
+      "slug": "protection-from-evil-and-good",
+      "level": 1
+    },
+    {
+      "name": "Purify Food and Drink",
+      "slug": "purify-food-and-drink",
+      "level": 1
+    },
+    {
+      "name": "Snare",
+      "slug": "snare",
+      "level": 1
+    },
+    {
+      "name": "Speak with Animals",
+      "slug": "speak-with-animals",
+      "level": 1
+    },
+    {
+      "name": "Thunderwave",
+      "slug": "thunderwave",
+      "level": 1
+    },
+    {
+      "name": "Wild Cunning (UA)",
+      "slug": "wild-cunning",
+      "level": 1
+    },
+    {
+      "name": "Air Bubble",
+      "slug": "air-bubble",
+      "level": 2
+    },
+    {
+      "name": "Animal Messenger",
+      "slug": "animal-messenger",
+      "level": 2
+    },
+    {
+      "name": "Augury",
+      "slug": "augury",
+      "level": 2
+    },
+    {
+      "name": "Barkskin",
+      "slug": "barkskin",
+      "level": 2
+    },
+    {
+      "name": "Beast Sense",
+      "slug": "beast-sense",
+      "level": 2
+    },
+    {
+      "name": "Continual Flame",
+      "slug": "continual-flame",
+      "level": 2
+    },
+    {
+      "name": "Darkvision",
+      "slug": "darkvision",
+      "level": 2
+    },
+    {
+      "name": "Dust Devil",
+      "slug": "dust-devil",
+      "level": 2
+    },
+    {
+      "name": "Earthbind",
+      "slug": "earthbind",
+      "level": 2
+    },
+    {
+      "name": "Enhance Ability",
+      "slug": "enhance-ability",
+      "level": 2
+    },
+    {
+      "name": "Enlarge/Reduce",
+      "slug": "enlarge-reduce",
+      "level": 2
+    },
+    {
+      "name": "Find Traps",
+      "slug": "find-traps",
+      "level": 2
+    },
+    {
+      "name": "Flame Blade",
+      "slug": "flame-blade",
+      "level": 2
+    },
+    {
+      "name": "Flaming Sphere",
+      "slug": "flaming-sphere",
+      "level": 2
+    },
+    {
+      "name": "Gust of Wind",
+      "slug": "gust-of-wind",
+      "level": 2
+    },
+    {
+      "name": "Healing Spirit",
+      "slug": "healing-spirit",
+      "level": 2
+    },
+    {
+      "name": "Heat Metal",
+      "slug": "heat-metal",
+      "level": 2
+    },
+    {
+      "name": "Hold Person",
+      "slug": "hold-person",
+      "level": 2
+    },
+    {
+      "name": "Lesser Restoration",
+      "slug": "lesser-restoration",
+      "level": 2
+    },
+    {
+      "name": "Locate Animals or Plants",
+      "slug": "locate-animals-or-plants",
+      "level": 2
+    },
+    {
+      "name": "Locate Object",
+      "slug": "locate-object",
+      "level": 2
+    },
+    {
+      "name": "Moonbeam",
+      "slug": "moonbeam",
+      "level": 2
+    },
+    {
+      "name": "Pass Without Trace",
+      "slug": "pass-without-trace",
+      "level": 2
+    },
+    {
+      "name": "Protection from Poison",
+      "slug": "protection-from-poison",
+      "level": 2
+    },
+    {
+      "name": "Skywrite",
+      "slug": "skywrite",
+      "level": 2
+    },
+    {
+      "name": "Spike Growth",
+      "slug": "spike-growth",
+      "level": 2
+    },
+    {
+      "name": "Summon Beast",
+      "slug": "summon-beast",
+      "level": 2
+    },
+    {
+      "name": "Warding Wind",
+      "slug": "warding-wind",
+      "level": 2
+    },
+    {
+      "name": "Wither and Bloom",
+      "slug": "wither-and-bloom",
+      "level": 2
+    },
+    {
+      "name": "Aura of Vitality",
+      "slug": "aura-of-vitality",
+      "level": 3
+    },
+    {
+      "name": "Call Lightning",
+      "slug": "call-lightning",
+      "level": 3
+    },
+    {
+      "name": "Conjure Animals",
+      "slug": "conjure-animals",
+      "level": 3
+    },
+    {
+      "name": "Daylight",
+      "slug": "daylight",
+      "level": 3
+    },
+    {
+      "name": "Dispel Magic",
+      "slug": "dispel-magic",
+      "level": 3
+    },
+    {
+      "name": "Elemental Weapon",
+      "slug": "elemental-weapon",
+      "level": 3
+    },
+    {
+      "name": "Erupting Earth",
+      "slug": "erupting-earth",
+      "level": 3
+    },
+    {
+      "name": "Feign Death",
+      "slug": "feign-death",
+      "level": 3
+    },
+    {
+      "name": "Flame Arrows",
+      "slug": "flame-arrows",
+      "level": 3
+    },
+    {
+      "name": "Meld into Stone",
+      "slug": "meld-into-stone",
+      "level": 3
+    },
+    {
+      "name": "Plant Growth",
+      "slug": "plant-growth",
+      "level": 3
+    },
+    {
+      "name": "Protection from Energy",
+      "slug": "protection-from-energy",
+      "level": 3
+    },
+    {
+      "name": "Revivify",
+      "slug": "revivify",
+      "level": 3
+    },
+    {
+      "name": "Sleet Storm",
+      "slug": "sleet-storm",
+      "level": 3
+    },
+    {
+      "name": "Speak with Plants",
+      "slug": "speak-with-plants",
+      "level": 3
+    },
+    {
+      "name": "Summon Fey",
+      "slug": "summon-fey",
+      "level": 3
+    },
+    {
+      "name": "Tidal Wave",
+      "slug": "tidal-wave",
+      "level": 3
+    },
+    {
+      "name": "Wall of Water",
+      "slug": "wall-of-water",
+      "level": 3
+    },
+    {
+      "name": "Water Breathing",
+      "slug": "water-breathing",
+      "level": 3
+    },
+    {
+      "name": "Water Walk",
+      "slug": "water-walk",
+      "level": 3
+    },
+    {
+      "name": "Wind Wall",
+      "slug": "wind-wall",
+      "level": 3
+    },
+    {
+      "name": "Blight",
+      "slug": "blight",
+      "level": 4
+    },
+    {
+      "name": "Charm Monster",
+      "slug": "charm-monster",
+      "level": 4
+    },
+    {
+      "name": "Confusion",
+      "slug": "confusion",
+      "level": 4
+    },
+    {
+      "name": "Conjure Minor Elementals",
+      "slug": "conjure-minor-elementals",
+      "level": 4
+    },
+    {
+      "name": "Conjure Woodland Beings",
+      "slug": "conjure-woodland-beings",
+      "level": 4
+    },
+    {
+      "name": "Control Water",
+      "slug": "control-water",
+      "level": 4
+    },
+    {
+      "name": "Divination",
+      "slug": "divination",
+      "level": 4
+    },
+    {
+      "name": "Dominate Beast",
+      "slug": "dominate-beast",
+      "level": 4
+    },
+    {
+      "name": "Elemental Bane",
+      "slug": "elemental-bane",
+      "level": 4
+    },
+    {
+      "name": "Fire Shield",
+      "slug": "fire-shield",
+      "level": 4
+    },
+    {
+      "name": "Freedom of Movement",
+      "slug": "freedom-of-movement",
+      "level": 4
+    },
+    {
+      "name": "Giant Insect",
+      "slug": "giant-insect",
+      "level": 4
+    },
+    {
+      "name": "Grasping Vine",
+      "slug": "grasping-vine",
+      "level": 4
+    },
+    {
+      "name": "Guardian of Nature",
+      "slug": "guardian-of-nature",
+      "level": 4
+    },
+    {
+      "name": "Hallucinatory Terrain",
+      "slug": "hallucinatory-terrain",
+      "level": 4
+    },
+    {
+      "name": "Ice Storm",
+      "slug": "ice-storm",
+      "level": 4
+    },
+    {
+      "name": "Locate Creature",
+      "slug": "locate-creature",
+      "level": 4
+    },
+    {
+      "name": "Polymorph",
+      "slug": "polymorph",
+      "level": 4
+    },
+    {
+      "name": "Stone Shape",
+      "slug": "stone-shape",
+      "level": 4
+    },
+    {
+      "name": "Stoneskin",
+      "slug": "stoneskin",
+      "level": 4
+    },
+    {
+      "name": "Summon Elemental",
+      "slug": "summon-elemental",
+      "level": 4
+    },
+    {
+      "name": "Wall of Fire",
+      "slug": "wall-of-fire",
+      "level": 4
+    },
+    {
+      "name": "Watery Sphere",
+      "slug": "watery-sphere",
+      "level": 4
+    },
+    {
+      "name": "Antilife Shell",
+      "slug": "antilife-shell",
+      "level": 5
+    },
+    {
+      "name": "Awaken",
+      "slug": "awaken",
+      "level": 5
+    },
+    {
+      "name": "Commune with Nature",
+      "slug": "commune-with-nature",
+      "level": 5
+    },
+    {
+      "name": "Cone of Cold",
+      "slug": "cone-of-cold",
+      "level": 5
+    },
+    {
+      "name": "Conjure Elemental",
+      "slug": "conjure-elemental",
+      "level": 5
+    },
+    {
+      "name": "Contagion",
+      "slug": "contagion",
+      "level": 5
+    },
+    {
+      "name": "Control Winds",
+      "slug": "control-winds",
+      "level": 5
+    },
+    {
+      "name": "Geas",
+      "slug": "geas",
+      "level": 5
+    },
+    {
+      "name": "Greater Restoration",
+      "slug": "greater-restoration",
+      "level": 5
+    },
+    {
+      "name": "Insect Plague",
+      "slug": "insect-plague",
+      "level": 5
+    },
+    {
+      "name": "Maelstrom",
+      "slug": "maelstrom",
+      "level": 5
+    },
+    {
+      "name": "Mass Cure Wounds",
+      "slug": "mass-cure-wounds",
+      "level": 5
+    },
+    {
+      "name": "Planar Binding",
+      "slug": "planar-binding",
+      "level": 5
+    },
+    {
+      "name": "Reincarnate",
+      "slug": "reincarnate",
+      "level": 5
+    },
+    {
+      "name": "Scrying",
+      "slug": "scrying",
+      "level": 5
+    },
+    {
+      "name": "Summon Draconic Spirit",
+      "slug": "summon-draconic-spirit",
+      "level": 5
+    },
+    {
+      "name": "Summon Draconic Spirit (UA)",
+      "slug": "summon-draconic-spirit-ua",
+      "level": 5
+    },
+    {
+      "name": "Transmute Rock",
+      "slug": "transmute-rock",
+      "level": 5
+    },
+    {
+      "name": "Tree Stride",
+      "slug": "tree-stride",
+      "level": 5
+    },
+    {
+      "name": "Wall of Stone",
+      "slug": "wall-of-stone",
+      "level": 5
+    },
+    {
+      "name": "Wrath Of Nature",
+      "slug": "wrath-of-nature",
+      "level": 5
+    },
+    {
+      "name": "Bones of the Earth",
+      "slug": "bones-of-the-earth",
+      "level": 6
+    },
+    {
+      "name": "Conjure Fey",
+      "slug": "conjure-fey",
+      "level": 6
+    },
+    {
+      "name": "Druid Grove",
+      "slug": "druid-grove",
+      "level": 6
+    },
+    {
+      "name": "Find the Path",
+      "slug": "find-the-path",
+      "level": 6
+    },
+    {
+      "name": "Flesh to Stone",
+      "slug": "flesh-to-stone",
+      "level": 6
+    },
+    {
+      "name": "Heal",
+      "slug": "heal",
+      "level": 6
+    },
+    {
+      "name": "Heroes' Feast",
+      "slug": "heroes-feast",
+      "level": 6
+    },
+    {
+      "name": "Investiture of Flame",
+      "slug": "investiture-of-flame",
+      "level": 6
+    },
+    {
+      "name": "Investiture of Ice",
+      "slug": "investiture-of-ice",
+      "level": 6
+    },
+    {
+      "name": "Investiture of Stone",
+      "slug": "investiture-of-stone",
+      "level": 6
+    },
+    {
+      "name": "Investiture of Wind",
+      "slug": "investiture-of-wind",
+      "level": 6
+    },
+    {
+      "name": "Move Earth",
+      "slug": "move-earth",
+      "level": 6
+    },
+    {
+      "name": "Primordial Ward",
+      "slug": "primordial-ward",
+      "level": 6
+    },
+    {
+      "name": "Sunbeam",
+      "slug": "sunbeam",
+      "level": 6
+    },
+    {
+      "name": "Transport via Plants",
+      "slug": "transport-via-plants",
+      "level": 6
+    },
+    {
+      "name": "Wall of Thorns",
+      "slug": "wall-of-thorns",
+      "level": 6
+    },
+    {
+      "name": "Wind Walk",
+      "slug": "wind-walk",
+      "level": 6
+    },
+    {
+      "name": "Draconic Transformation",
+      "slug": "draconic-transformation",
+      "level": 7
+    },
+    {
+      "name": "Draconic Transformation (UA)",
+      "slug": "draconic-transformation-ua",
+      "level": 7
+    },
+    {
+      "name": "Fire Storm",
+      "slug": "fire-storm",
+      "level": 7
+    },
+    {
+      "name": "Mirage Arcane",
+      "slug": "mirage-arcane",
+      "level": 7
+    },
+    {
+      "name": "Plane Shift",
+      "slug": "plane-shift",
+      "level": 7
+    },
+    {
+      "name": "Regenerate",
+      "slug": "regenerate",
+      "level": 7
+    },
+    {
+      "name": "Reverse Gravity",
+      "slug": "reverse-gravity",
+      "level": 7
+    },
+    {
+      "name": "Symbol",
+      "slug": "symbol",
+      "level": 7
+    },
+    {
+      "name": "Whirlwind",
+      "slug": "whirlwind",
+      "level": 7
+    },
+    {
+      "name": "Animal Shapes",
+      "slug": "animal-shapes",
+      "level": 8
+    },
+    {
+      "name": "Antipathy/Sympathy",
+      "slug": "antipathy-sympathy",
+      "level": 8
+    },
+    {
+      "name": "Control Weather",
+      "slug": "control-weather",
+      "level": 8
+    },
+    {
+      "name": "Earthquake",
+      "slug": "earthquake",
+      "level": 8
+    },
+    {
+      "name": "Feeblemind",
+      "slug": "feeblemind",
+      "level": 8
+    },
+    {
+      "name": "Incendiary Cloud",
+      "slug": "incendiary-cloud",
+      "level": 8
+    },
+    {
+      "name": "Sunburst",
+      "slug": "sunburst",
+      "level": 8
+    },
+    {
+      "name": "Tsunami",
+      "slug": "tsunami",
+      "level": 8
+    },
+    {
+      "name": "Foresight",
+      "slug": "foresight",
+      "level": 9
+    },
+    {
+      "name": "Shapechange",
+      "slug": "shapechange",
+      "level": 9
+    },
+    {
+      "name": "Storm of Vengeance",
+      "slug": "storm-of-vengeance",
+      "level": 9
+    },
+    {
+      "name": "True Resurrection",
+      "slug": "true-resurrection",
+      "level": 9
+    }
+  ]
+}

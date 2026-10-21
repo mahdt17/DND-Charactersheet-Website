@@ -1,5 +1,7 @@
 export const entomancerId='homebrew:dandwiki:entomancer-5e';
 export const entomancerSource='https://www.dandwiki.com/wiki/Entomancer_(5e_Class)';
+export const entomancerSpellLists=['Druid','Druid (Optional)'];
+export const isEntomancerSpellListEntry=spell=>spell.edition==='2014'&&(spell.classes||[]).some(value=>entomancerSpellLists.includes(value?.name||value));
 export const populationTable=[2,3,4,6,7,8,10,11,12,14,15,16,18,19,20,22,23,24,26,27];
 export const entomancerSlots=[[0,0,0,0,0],[2,0,0,0,0],[3,0,0,0,0],[3,0,0,0,0],[4,2,0,0,0],[4,2,0,0,0],[4,3,0,0,0],[4,3,0,0,0],[4,3,2,0,0],[4,3,2,0,0],[4,3,3,0,0],[4,3,3,0,0],[4,3,3,1,0],[4,3,3,1,0],[4,3,3,2,0],[4,3,3,2,0],[4,3,3,3,1],[4,3,3,3,1],[4,3,3,3,2],[4,3,3,3,2]];
 export const entomancerSpecies=['Decomposers','Endo-Gotas','Exo-Gotas','Orthoptera'];
@@ -64,7 +66,7 @@ export const entomancerClass={
  proficiency_choices:[{desc:'Choose three skills',choose:3,from:{options:['Animal Handling','Arcana','Deception','Intimidation','Investigation','Medicine','Nature','Persuasion','Survival'].map(name=>({item:ref('skill-'+name.toLowerCase().replaceAll(' ','-'),'Skill: '+name)}))}}],
  starting_equipment:[{equipment:ref('leather-armor','Leather armor'),quantity:1}],
  starting_equipment_options:[choice('Martial melee weapon or shortbow and arrows',[category('martial-melee-weapons','Martial melee weapon'),{option_type:'multiple',items:[item('shortbow','Shortbow'),item('arrow','Arrows',20)]}]),choice('Simple weapon, shield or explorer’s pack',[category('simple-weapons','Simple weapon'),item('shield','Shield'),item('explorers-pack','Explorer’s pack')])],
- spellcastingAbility:'con',spellLists:['Druid'],
+ spellcastingAbility:'con',spellLists:entomancerSpellLists,
  multi_classing:{prerequisites:[{ability_score:ref('con','Constitution'),minimum_score:13},{ability_score:ref('wis','Wisdom'),minimum_score:13}],proficiencies:[ref('light-armor','Light armor'),ref('simple-weapons','Simple weapons'),ref('martial-weapons','Martial weapons')]},
  progression:[['Level','Features','Population',...['1st','2nd','3rd','4th','5th']],...populationTable.map((max,i)=>[String(i+1),entomancerFeatures.filter(f=>f.level===i+1).map(f=>f.name).join(', '),String(max),...entomancerSlots[i].map(String)])]
 };

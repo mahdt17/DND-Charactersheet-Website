@@ -1,6 +1,6 @@
 {
   "reviewedAt": "2026-10-21",
-  "scope": "All 123 catalog Druid spells of levels 0–5 usable by the 2014 Entomancer; existing reviewed summaries with explicit roll formulas. Matching SRD identities share mechanics corrections while retaining their own content and provenance.",
+  "scope": "All 136 catalog Druid spells of levels 0–5, including optional spells, usable by the 2014 Entomancer; existing reviewed summaries with explicit roll formulas. Matching SRD identities share mechanics corrections while retaining their own content and provenance.",
   "entries": {
     "wikidot5e:spell:absorb-elements": {
       "catalogId": "wikidot5e:spell:absorb-elements",
@@ -173,6 +173,71 @@
         "type": "sphere",
         "size": 10
       }
+    },
+    "wikidot5e:spell:augury": {
+      "catalogId": "wikidot5e:spell:augury",
+      "index": "wikidot5e:spell:augury",
+      "name": "Augury",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:augury",
+      "sourceDigest": "sha256:3cff585e445f1197c0b2ef0c65a07fae4b2c75726e60f53cd3ac3ac278f6f20a",
+      "referenceOnly": false,
+      "level": 2,
+      "school": "divination (ritual)",
+      "casting_time": "1 minute",
+      "range": "Self",
+      "duration": "Instantaneous",
+      "components": [
+        "V, S",
+        "M (specially marked sticks, bones, or similar tokens worth at least 25 gp)"
+      ],
+      "concentration": false,
+      "ritual": true,
+      "classes": [
+        "Cleric",
+        "Druid (Optional)",
+        "Wizard (Optional)"
+      ],
+      "description": "Ask about the likely result of a specific course of action you plan to take within the next 30 minutes. The DM gives one omen: weal for good results, woe for bad, both for mixed results, or nothing for neither. The omen does not account for later circumstances that could change the outcome. If you cast augury more than once before your next long rest, each casting after the first has a cumulative 25% chance of producing a random reading; the DM rolls this secretly.",
+      "sourceDescription": "Ask about the likely result of a specific course of action you plan to take within the next 30 minutes. The DM gives one omen: weal for good results, woe for bad, both for mixed results, or nothing for neither. The omen does not account for later circumstances that could change the outcome. If you cast augury more than once before your next long rest, each casting after the first has a cumulative 25% chance of producing a random reading; the DM rolls this secretly.",
+      "descriptionOrigin": "source"
+    },
+    "wikidot5e:spell:aura-of-vitality": {
+      "catalogId": "wikidot5e:spell:aura-of-vitality",
+      "index": "wikidot5e:spell:aura-of-vitality",
+      "name": "Aura of Vitality",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:aura-of-vitality",
+      "sourceDigest": "sha256:e3dd6ce38855e5fdef1e0964f6702a0725e7d7f44f3e83c445459446ef41c92b",
+      "referenceOnly": false,
+      "level": 3,
+      "school": "evocation",
+      "casting_time": "1 action",
+      "range": "Self (30-foot radius)",
+      "duration": "Concentration, up to 1 minute",
+      "components": [
+        "V"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Cleric (Optional)",
+        "Druid (Optional)",
+        "Paladin"
+      ],
+      "description": "Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points.",
+      "sourceDescription": "Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points.",
+      "descriptionOrigin": "source",
+      "heal_at_slot_level": {
+        "3": "2d6"
+      },
+      "rollNotes": "Healing requires a bonus action on an eligible turn: one creature in the 30-foot aura regains 2d6 HP. Casting creates the aura; it does not immediately heal anyone."
     },
     "wikidot5e:spell:awaken": {
       "catalogId": "wikidot5e:spell:awaken",
@@ -532,6 +597,69 @@
       "sourceDescription": "Gain knowledge of natural territory within 3 miles outdoors or 300 feet in caves and similar natural underground settings. The spell does not function where construction has replaced nature, such as towns or dungeons. Instantly learn up to three facts you choose concerning terrain and water; prevalent plants, minerals, animals, or peoples; powerful celestials, fey, fiends, elementals, or undead; planar influences; or buildings.",
       "descriptionOrigin": "source"
     },
+    "wikidot5e:spell:cone-of-cold": {
+      "catalogId": "wikidot5e:spell:cone-of-cold",
+      "index": "wikidot5e:spell:cone-of-cold",
+      "name": "Cone of Cold",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:cone-of-cold",
+      "sourceDigest": "sha256:f06c6ee91389471a733d7dc48c02d044342a667b899cc6dccb837b60cc5c3cc4",
+      "referenceOnly": false,
+      "level": 5,
+      "school": "evocation",
+      "casting_time": "1 action",
+      "range": "Self (60-foot cone)",
+      "duration": "Instantaneous",
+      "components": [
+        "V, S",
+        "M (a small crystal or glass cone)"
+      ],
+      "concentration": false,
+      "ritual": false,
+      "classes": [
+        "Druid (Optional)",
+        "Sorcerer",
+        "Wizard"
+      ],
+      "description": "Each creature in a 60-foot cone makes a Constitution save, taking 8d8 cold damage on a failure or half on a success. A creature killed by this damage becomes a frozen statue until it thaws. Each slot level above 5th adds 1d8 damage.",
+      "sourceDescription": "Each creature in a 60-foot cone makes a Constitution save, taking 8d8 cold damage on a failure or half on a success. A creature killed by this damage becomes a frozen statue until it thaws. Each slot level above 5th adds 1d8 damage.",
+      "descriptionOrigin": "source",
+      "damage": [
+        {
+          "damage_type": {
+            "index": "cold",
+            "name": "Cold",
+            "url": "/api/2014/damage-types/cold"
+          },
+          "damage_at_slot_level": {
+            "5": "8d8",
+            "6": "9d8",
+            "7": "10d8",
+            "8": "11d8",
+            "9": "12d8"
+          }
+        }
+      ],
+      "dc": {
+        "dc_type": {
+          "index": "con",
+          "name": "Constitution",
+          "url": "/api/2014/ability-scores/con"
+        },
+        "dc_success": "half",
+        "desc": "A creature killed by this spell becomes a frozen statue until it thaws."
+      },
+      "higher_level": [
+        "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th."
+      ],
+      "area_of_effect": {
+        "type": "cone",
+        "size": 60
+      }
+    },
     "wikidot5e:spell:confusion": {
       "catalogId": "wikidot5e:spell:confusion",
       "index": "wikidot5e:spell:confusion",
@@ -754,6 +882,38 @@
         "desc": "After succeeding on three of these saving throws, the creature recovers from the disease, and the spell ends."
       },
       "attack_type": "melee"
+    },
+    "wikidot5e:spell:continual-flame": {
+      "catalogId": "wikidot5e:spell:continual-flame",
+      "index": "wikidot5e:spell:continual-flame",
+      "name": "Continual Flame",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:continual-flame",
+      "sourceDigest": "sha256:59ef2cf7589b34ade1821b765379956159e4842b0a09089d6981c1f266a802d7",
+      "referenceOnly": false,
+      "level": 2,
+      "school": "evocation",
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "Until dispelled",
+      "components": [
+        "V, S",
+        "M (ruby dust worth 50 gp, which the spell consumes)"
+      ],
+      "concentration": false,
+      "ritual": false,
+      "classes": [
+        "Artificer",
+        "Cleric",
+        "Druid (Optional)",
+        "Wizard"
+      ],
+      "description": "A flame, equivalent in brightness to a torch, springs forth from an object that you touch. The effect looks like a regular flame, but it creates no heat and doesn’t use oxygen. A continual flame can be covered or hidden but not smothered or quenched.",
+      "sourceDescription": "A flame, equivalent in brightness to a torch, springs forth from an object that you touch. The effect looks like a regular flame, but it creates no heat and doesn’t use oxygen. A continual flame can be covered or hidden but not smothered or quenched.",
+      "descriptionOrigin": "source"
     },
     "wikidot5e:spell:control-flames": {
       "catalogId": "wikidot5e:spell:control-flames",
@@ -1201,6 +1361,37 @@
         "When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used."
       ]
     },
+    "wikidot5e:spell:divination": {
+      "catalogId": "wikidot5e:spell:divination",
+      "index": "wikidot5e:spell:divination",
+      "name": "Divination",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:divination",
+      "sourceDigest": "sha256:2507741956325e57c94e67c200f03058c80c6fb7f912f7221ecbac40e9d9a01c",
+      "referenceOnly": false,
+      "level": 4,
+      "school": "divination (ritual)",
+      "casting_time": "1 action",
+      "range": "Self",
+      "duration": "Instantaneous",
+      "components": [
+        "V, S",
+        "M (incense and a sacrificial offering appropriate to your religion, together worth at least 25 gp, which the spell consumes)"
+      ],
+      "concentration": false,
+      "ritual": true,
+      "classes": [
+        "Cleric",
+        "Druid (Optional)",
+        "Wizard (Optional)"
+      ],
+      "description": "Ask a deity or divine servants one question about a specific goal, event, or activity that will occur within 7 days. The DM gives a truthful response, possibly as a short phrase, cryptic rhyme, or omen. The answer does not account for later circumstances that could change the outcome. If cast more than once before your next long rest, each casting after the first has a cumulative 25% chance of a random reading; the DM rolls secretly.",
+      "sourceDescription": "Ask a deity or divine servants one question about a specific goal, event, or activity that will occur within 7 days. The DM gives a truthful response, possibly as a short phrase, cryptic rhyme, or omen. The answer does not account for later circumstances that could change the outcome. If cast more than once before your next long rest, each casting after the first has a cumulative 25% chance of a random reading; the DM rolls secretly.",
+      "descriptionOrigin": "source"
+    },
     "wikidot5e:spell:dominate-beast": {
       "catalogId": "wikidot5e:spell:dominate-beast",
       "index": "wikidot5e:spell:dominate-beast",
@@ -1460,6 +1651,40 @@
         "dc_success": "other"
       }
     },
+    "wikidot5e:spell:elemental-weapon": {
+      "catalogId": "wikidot5e:spell:elemental-weapon",
+      "index": "wikidot5e:spell:elemental-weapon",
+      "name": "Elemental Weapon",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:elemental-weapon",
+      "sourceDigest": "sha256:6ad5e261064d6fe5624c7f54411b319b848aed56d45de0882fb06b24bf79a7a8",
+      "referenceOnly": false,
+      "level": 3,
+      "school": "transmutation",
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "Concentration, up to 1 hour",
+      "components": [
+        "V",
+        "S"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Artificer",
+        "Druid (Optional)",
+        "Paladin",
+        "Ranger (Optional)"
+      ],
+      "description": "Touch one nonmagical weapon and choose acid, cold, fire, lightning, or thunder. For the duration it becomes magical, gains +1 to attack rolls, and deals an extra 1d4 damage of the chosen type on a hit. With a 5th- or 6th-level slot the attack bonus becomes +2 and extra damage 2d4; with a 7th-level-or-higher slot they become +3 and 3d4.",
+      "sourceDescription": "Touch one nonmagical weapon and choose acid, cold, fire, lightning, or thunder. For the duration it becomes magical, gains +1 to attack rolls, and deals an extra 1d4 damage of the chosen type on a hit. With a 5th- or 6th-level slot the attack bonus becomes +2 and extra damage 2d4; with a 7th-level-or-higher slot they become +3 and 3d4.",
+      "descriptionOrigin": "source",
+      "rollResolution": "description",
+      "rollNotes": "Casting enchants a nonmagical weapon. Hits add 1d4 of the chosen type (+1 attack bonus), or 2d4 and +2 with a 5th- or 6th-level slot; 7th or higher gives 3d4 and +3. No immediate spell damage."
+    },
     "wikidot5e:spell:enhance-ability": {
       "catalogId": "wikidot5e:spell:enhance-ability",
       "index": "wikidot5e:spell:enhance-ability",
@@ -1499,6 +1724,49 @@
       ],
       "rollResolution": "description",
       "rollNotes": "Choose one enhancement. Only Bear’s Endurance grants 2d6 temporary HP; other choices do not. These are not healing or damage."
+    },
+    "wikidot5e:spell:enlarge-reduce": {
+      "catalogId": "wikidot5e:spell:enlarge-reduce",
+      "index": "wikidot5e:spell:enlarge-reduce",
+      "name": "Enlarge/Reduce",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:enlarge-reduce",
+      "sourceDigest": "sha256:224d39bde6dbbb707e71336506f9cf68736add076ed2281fe92cdd582425e184",
+      "referenceOnly": false,
+      "level": 2,
+      "school": "transmutation",
+      "casting_time": "1 action",
+      "range": "30 feet",
+      "duration": "Concentration, up to 1 minute",
+      "components": [
+        "V, S",
+        "M (a pinch of powdered iron)"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Artificer",
+        "Bard (Optional)",
+        "Druid (Optional)",
+        "Sorcerer",
+        "Wizard"
+      ],
+      "description": "Choose a visible creature or an unattended object in range; an unwilling creature can make a Constitution save to negate the spell. A creature's worn and carried gear changes size with it, but a dropped item immediately returns to normal. Enlarge doubles all dimensions, multiplies weight by eight, increases size by one category if space permits, grants advantage on Strength checks and Strength saves, and makes enlarged weapon hits deal 1d4 extra damage. Reduce halves all dimensions, reduces weight to one-eighth, lowers size by one category, imposes disadvantage on Strength checks and Strength saves, and makes reduced weapon hits deal 1d4 less damage, to a minimum of 1 damage.",
+      "sourceDescription": "Choose a visible creature or an unattended object in range; an unwilling creature can make a Constitution save to negate the spell. A creature's worn and carried gear changes size with it, but a dropped item immediately returns to normal. Enlarge doubles all dimensions, multiplies weight by eight, increases size by one category if space permits, grants advantage on Strength checks and Strength saves, and makes enlarged weapon hits deal 1d4 extra damage. Reduce halves all dimensions, reduces weight to one-eighth, lowers size by one category, imposes disadvantage on Strength checks and Strength saves, and makes reduced weapon hits deal 1d4 less damage, to a minimum of 1 damage.",
+      "descriptionOrigin": "source",
+      "dc": {
+        "dc_type": {
+          "index": "con",
+          "name": "Constitution",
+          "url": "/api/2014/ability-scores/con"
+        },
+        "dc_success": "none"
+      },
+      "rollResolution": "description",
+      "rollNotes": "Choose Enlarge or Reduce. Weapon hits deal 1d4 more or less respectively (minimum 1 damage for Reduce); no damage is dealt on casting. An unwilling creature can negate the transformation with a Constitution save."
     },
     "wikidot5e:spell:entangle": {
       "catalogId": "wikidot5e:spell:entangle",
@@ -1699,6 +1967,55 @@
       "description": "Sense whether any deliberately created trap within line of sight and 120 feet is present. A trap is something intentionally designed to cause a sudden or unexpected harmful or undesirable effect, including alarm, glyph of warding, or a mechanical pit, but not natural hazards such as a weak floor or sinkhole. You learn that a trap is present and the general nature of its danger, but not each trap's location.",
       "sourceDescription": "Sense whether any deliberately created trap within line of sight and 120 feet is present. A trap is something intentionally designed to cause a sudden or unexpected harmful or undesirable effect, including alarm, glyph of warding, or a mechanical pit, but not natural hazards such as a weak floor or sinkhole. You learn that a trap is present and the general nature of its danger, but not each trap's location.",
       "descriptionOrigin": "source"
+    },
+    "wikidot5e:spell:fire-shield": {
+      "catalogId": "wikidot5e:spell:fire-shield",
+      "index": "wikidot5e:spell:fire-shield",
+      "name": "Fire Shield",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:fire-shield",
+      "sourceDigest": "sha256:ea5eb5ce75ff60c10af5226a6ccc81b234c1d2aa55a58883da0e006e9c42dec4",
+      "referenceOnly": false,
+      "level": 4,
+      "school": "evocation",
+      "casting_time": "1 action",
+      "range": "Self",
+      "duration": "10 minutes",
+      "components": [
+        "V, S",
+        "M (a bit of phosphorus or a firefly)"
+      ],
+      "concentration": false,
+      "ritual": false,
+      "classes": [
+        "Druid (Optional)",
+        "Sorcerer (Optional)",
+        "Wizard"
+      ],
+      "description": "For 10 minutes, wispy flames surround you, shedding bright light for 10 feet and dim light for another 10 feet; you can dismiss them as an action. Choose a warm shield or chill shield. A warm shield gives resistance to cold damage and deals 2d8 fire damage to a creature within 5 feet whenever it hits you with a melee attack. A chill shield gives resistance to fire damage and deals 2d8 cold damage under the same condition.",
+      "sourceDescription": "For 10 minutes, wispy flames surround you, shedding bright light for 10 feet and dim light for another 10 feet; you can dismiss them as an action. Choose a warm shield or chill shield. A warm shield gives resistance to cold damage and deals 2d8 fire damage to a creature within 5 feet whenever it hits you with a melee attack. A chill shield gives resistance to fire damage and deals 2d8 cold damage under the same condition.",
+      "descriptionOrigin": "source",
+      "damage": [
+        {
+          "damage_type": {
+            "index": "fire",
+            "name": "Fire",
+            "url": "/api/2014/damage-types/fire"
+          },
+          "damage_at_slot_level": {
+            "4": "2d8"
+          }
+        }
+      ],
+      "area_of_effect": {
+        "type": "sphere",
+        "size": 5
+      },
+      "rollResolution": "description",
+      "rollNotes": "Choose warm or chill shield. Only when a creature within 5 feet hits you with a melee attack does it take 2d8 fire or cold respectively. No damage is dealt on casting."
     },
     "wikidot5e:spell:flame-arrows": {
       "catalogId": "wikidot5e:spell:flame-arrows",
@@ -3622,6 +3939,39 @@
       "sourceDescription": "For the duration, the willing creature you touch has resistance to one damage type of your choice: acid, cold, fire, lightning, or thunder.",
       "descriptionOrigin": "source"
     },
+    "wikidot5e:spell:protection-from-evil-and-good": {
+      "catalogId": "wikidot5e:spell:protection-from-evil-and-good",
+      "index": "wikidot5e:spell:protection-from-evil-and-good",
+      "name": "Protection from Evil and Good",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:protection-from-evil-and-good",
+      "sourceDigest": "sha256:4ea7b918e49d464b91586de23c1639143e62cefbafd4016853033bdadde5474e",
+      "referenceOnly": false,
+      "level": 1,
+      "school": "abjuration",
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "Concentration, up to 10 minutes",
+      "components": [
+        "V, S",
+        "M (holy water or powdered silver and iron, which the spell consumes)"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Cleric",
+        "Druid (Optional)",
+        "Paladin",
+        "Warlock",
+        "Wizard"
+      ],
+      "description": "For up to 10 minutes, one willing creature you touch is protected from aberrations, celestials, elementals, fey, fiends, and undead. Those creatures have disadvantage on attacks against it, and it cannot be charmed, frightened, or possessed by them. If already subject to one of those effects from such a creature, it has advantage on any new saving throw against that effect.",
+      "sourceDescription": "For up to 10 minutes, one willing creature you touch is protected from aberrations, celestials, elementals, fey, fiends, and undead. Those creatures have disadvantage on attacks against it, and it cannot be charmed, frightened, or possessed by them. If already subject to one of those effects from such a creature, it has advantage on any new saving throw against that effect.",
+      "descriptionOrigin": "source"
+    },
     "wikidot5e:spell:protection-from-poison": {
       "catalogId": "wikidot5e:spell:protection-from-poison",
       "index": "wikidot5e:spell:protection-from-poison",
@@ -3745,6 +4095,39 @@
       ],
       "description": "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one saving throw of its choice. It can roll the die before or after the saving throw. The spell then ends.",
       "sourceDescription": "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one saving throw of its choice. It can roll the die before or after the saving throw. The spell then ends.",
+      "descriptionOrigin": "source"
+    },
+    "wikidot5e:spell:revivify": {
+      "catalogId": "wikidot5e:spell:revivify",
+      "index": "wikidot5e:spell:revivify",
+      "name": "Revivify",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Player's Handbook",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:revivify",
+      "sourceDigest": "sha256:6044ac9857a3f65cb9458f37b2748c6832914a9280f512e1e980d24e356a13d4",
+      "referenceOnly": false,
+      "level": 3,
+      "school": "necromancy",
+      "casting_time": "1 action",
+      "range": "Touch",
+      "duration": "Instantaneous",
+      "components": [
+        "V, S",
+        "M (diamonds worth 300 gp, which the spell consumes)"
+      ],
+      "concentration": false,
+      "ritual": false,
+      "classes": [
+        "Artificer",
+        "Cleric",
+        "Druid (Optional)",
+        "Paladin",
+        "Ranger (Optional)"
+      ],
+      "description": "You touch a creature that has died within the last minute. That creature returns to life with 1 hit point. This spell can’t return to life a creature that has died of old age, nor can it restore any missing body parts.",
+      "sourceDescription": "You touch a creature that has died within the last minute. That creature returns to life with 1 hit point. This spell can’t return to life a creature that has died of old age, nor can it restore any missing body parts.",
       "descriptionOrigin": "source"
     },
     "wikidot5e:spell:scrying": {
@@ -4127,6 +4510,38 @@
       "sourceDescription": "This spell turns the flesh of a willing creature you touch as hard as stone. Until the spell ends, the target has resistance to nonmagical bludgeoning, piercing, and slashing damage.",
       "descriptionOrigin": "source"
     },
+    "wikidot5e:spell:summon-beast": {
+      "catalogId": "wikidot5e:spell:summon-beast",
+      "index": "wikidot5e:spell:summon-beast",
+      "name": "Summon Beast",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Tasha's Cauldron of Everything",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:summon-beast",
+      "sourceDigest": "sha256:7d0bd5d947454a0e185f4eb0107f2b5738ea8af5d53090f534111895f0f5c882",
+      "referenceOnly": false,
+      "level": 2,
+      "school": "conjuration",
+      "casting_time": "1 action",
+      "range": "90 feet",
+      "duration": "Concentration, up to 1 hour",
+      "components": [
+        "V, S",
+        "M (a feather, tuft of fur, and fish tail inside a gilded acorn worth at least 200 gp)"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Druid (Optional)",
+        "Ranger (Optional)"
+      ],
+      "description": "Summon a Small Bestial Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Air, Land, or Water. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 20 for Air or 30 for Land/Water, plus 5 per spell level above 2nd; speed 30 ft., with climb 30 Land, fly 60 Air, or swim 30 Water; Str 18, Dex 11, Con 16, Int 4, Wis 14, Cha 5; darkvision 60 ft.; understands your languages. Air has Flyby; Land and Water have Pack Tactics; Water can breathe only underwater. It makes a number of Maul attacks equal to half the spell level rounded down, using your spell attack modifier for 1d8 + 4 + spell level piercing damage. Higher-level slots scale spell-level statistics.",
+      "sourceDescription": "Summon a Small Bestial Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Air, Land, or Water. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 20 for Air or 30 for Land/Water, plus 5 per spell level above 2nd; speed 30 ft., with climb 30 Land, fly 60 Air, or swim 30 Water; Str 18, Dex 11, Con 16, Int 4, Wis 14, Cha 5; darkvision 60 ft.; understands your languages. Air has Flyby; Land and Water have Pack Tactics; Water can breathe only underwater. It makes a number of Maul attacks equal to half the spell level rounded down, using your spell attack modifier for 1d8 + 4 + spell level piercing damage. Higher-level slots scale spell-level statistics.",
+      "descriptionOrigin": "source",
+      "rollResolution": "description",
+      "rollNotes": "Use the Bestial Spirit’s own turns and stat block. Each Maul hit deals 1d8 + 4 + slot level piercing. It makes half the slot level rounded down attacks per Attack action; no damage is dealt on casting."
+    },
     "wikidot5e:spell:summon-draconic-spirit": {
       "catalogId": "wikidot5e:spell:summon-draconic-spirit",
       "index": "wikidot5e:spell:summon-draconic-spirit",
@@ -4201,6 +4616,80 @@
       "dc": {
         "dc_type": {
           "name": "Dexterity"
+        },
+        "dc_success": "other"
+      }
+    },
+    "wikidot5e:spell:summon-elemental": {
+      "catalogId": "wikidot5e:spell:summon-elemental",
+      "index": "wikidot5e:spell:summon-elemental",
+      "name": "Summon Elemental",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Tasha's Cauldron of Everything",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:summon-elemental",
+      "sourceDigest": "sha256:aa27ffd4d957d912841a1eec40f5a9dc99ec045848c883b1de2ada9ce0d66785",
+      "referenceOnly": false,
+      "level": 4,
+      "school": "conjuration",
+      "casting_time": "1 action",
+      "range": "90 feet",
+      "duration": "Concentration, up to 1 hour",
+      "components": [
+        "V, S",
+        "M (air, a pebble, ash, and water inside a gold-inlaid vial worth at least 400 gp)"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Druid (Optional)",
+        "Ranger (Optional)",
+        "Wizard (Optional)"
+      ],
+      "description": "Summon a Medium Elemental Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Air, Earth, Fire, or Water. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 50 + 10 per spell level above 4th; speed 40 ft., plus burrow 40 Earth, hovering fly 40 Air, or swim 40 Water; Str 18, Dex 15, Con 17, Int 4, Wis 10, Cha 16. Water resists acid, Air resists lightning and thunder, Earth resists piercing and slashing; all are immune to poison and Fire is also immune to fire. It is immune to exhaustion, frightened, paralyzed, petrified, poisoned, and unconscious, has darkvision 60 ft., and understands your languages. Air, Fire, and Water can squeeze through 1-inch spaces. It makes half the spell level rounded down Slam attacks for 1d10 + 4 + spell level bludgeoning, or fire for Fire. Higher-level slots scale spell-level statistics.",
+      "sourceDescription": "Summon a Medium Elemental Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Air, Earth, Fire, or Water. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 50 + 10 per spell level above 4th; speed 40 ft., plus burrow 40 Earth, hovering fly 40 Air, or swim 40 Water; Str 18, Dex 15, Con 17, Int 4, Wis 10, Cha 16. Water resists acid, Air resists lightning and thunder, Earth resists piercing and slashing; all are immune to poison and Fire is also immune to fire. It is immune to exhaustion, frightened, paralyzed, petrified, poisoned, and unconscious, has darkvision 60 ft., and understands your languages. Air, Fire, and Water can squeeze through 1-inch spaces. It makes half the spell level rounded down Slam attacks for 1d10 + 4 + spell level bludgeoning, or fire for Fire. Higher-level slots scale spell-level statistics.",
+      "descriptionOrigin": "source",
+      "rollResolution": "description",
+      "rollNotes": "Use the Elemental Spirit’s own turns and stat block. Each Slam hit deals 1d10 + 4 + slot level bludgeoning, or fire for the Fire form. It makes half the slot level rounded down attacks per Attack action; no damage is dealt on casting."
+    },
+    "wikidot5e:spell:summon-fey": {
+      "catalogId": "wikidot5e:spell:summon-fey",
+      "index": "wikidot5e:spell:summon-fey",
+      "name": "Summon Fey",
+      "category": "spell",
+      "edition": "2014",
+      "source": "D&D 5e Wikidot",
+      "sourceBook": "Tasha's Cauldron of Everything",
+      "sourceUrl": "https://dnd5e.wikidot.com/spell:summon-fey",
+      "sourceDigest": "sha256:dc5400c16a51452f5225fc6e81301128ecc3d36e9ca72e5ff4f7195e81b37674",
+      "referenceOnly": false,
+      "level": 3,
+      "school": "conjuration",
+      "casting_time": "1 action",
+      "range": "90 feet",
+      "duration": "Concentration, up to 1 hour",
+      "components": [
+        "V, S",
+        "M (a gilded flower worth at least 300 gp)"
+      ],
+      "concentration": true,
+      "ritual": false,
+      "classes": [
+        "Druid (Optional)",
+        "Ranger (Optional)",
+        "Warlock (Optional)",
+        "Wizard (Optional)"
+      ],
+      "description": "Summon a Small Fey Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Fuming, Mirthful, or Tricksy. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 12 + spell level; HP 30 + 10 per spell level above 3rd; speed 40 ft.; Str 13, Dex 16, Con 14, Int 14, Wis 11, Cha 16; immune to charmed; darkvision 60 ft.; speaks Sylvan and understands your languages. It makes half the spell level rounded down Shortsword attacks for 1d6 + 3 + spell level piercing plus 1d6 force. As a bonus action Fey Step teleports it 30 feet, then Fuming grants advantage on its next attack that turn, Mirthful can charm one creature within 10 feet on a failed Wisdom save for up to 1 minute or until damaged, and Tricksy creates a 5-foot cube of magical darkness within 5 feet until the end of its next turn. Higher-level slots scale spell-level statistics.",
+      "sourceDescription": "Summon a Small Fey Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Fuming, Mirthful, or Tricksy. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 12 + spell level; HP 30 + 10 per spell level above 3rd; speed 40 ft.; Str 13, Dex 16, Con 14, Int 14, Wis 11, Cha 16; immune to charmed; darkvision 60 ft.; speaks Sylvan and understands your languages. It makes half the spell level rounded down Shortsword attacks for 1d6 + 3 + spell level piercing plus 1d6 force. As a bonus action Fey Step teleports it 30 feet, then Fuming grants advantage on its next attack that turn, Mirthful can charm one creature within 10 feet on a failed Wisdom save for up to 1 minute or until damaged, and Tricksy creates a 5-foot cube of magical darkness within 5 feet until the end of its next turn. Higher-level slots scale spell-level statistics.",
+      "descriptionOrigin": "source",
+      "saveNotes": "This Wisdom save uses your spell save DC only for Mirthful Fey Step. Fuming and Tricksy do not require it.",
+      "rollResolution": "description",
+      "rollNotes": "Use the Fey Spirit’s own turns and stat block. Each Shortsword hit deals 1d6 + 3 + slot level piercing plus 1d6 force. It makes half the slot level rounded down attacks per Attack action; Fey Step depends on mood. No damage is dealt on casting.",
+      "dc": {
+        "dc_type": {
+          "name": "Wisdom"
         },
         "dc_success": "other"
       }
@@ -4947,6 +5436,7 @@
         "size": 10
       }
     },
+    "2014:augury": {},
     "2014:awaken": {},
     "2014:barkskin": {},
     "2014:blight": {
@@ -5027,6 +5517,40 @@
       ]
     },
     "2014:commune-with-nature": {},
+    "2014:cone-of-cold": {
+      "damage": [
+        {
+          "damage_type": {
+            "index": "cold",
+            "name": "Cold",
+            "url": "/api/2014/damage-types/cold"
+          },
+          "damage_at_slot_level": {
+            "5": "8d8",
+            "6": "9d8",
+            "7": "10d8",
+            "8": "11d8",
+            "9": "12d8"
+          }
+        }
+      ],
+      "dc": {
+        "dc_type": {
+          "index": "con",
+          "name": "Constitution",
+          "url": "/api/2014/ability-scores/con"
+        },
+        "dc_success": "half",
+        "desc": "A creature killed by this spell becomes a frozen statue until it thaws."
+      },
+      "higher_level": [
+        "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th."
+      ],
+      "area_of_effect": {
+        "type": "cone",
+        "size": 60
+      }
+    },
     "2014:confusion": {
       "dc": {
         "dc_type": {
@@ -5080,6 +5604,7 @@
       },
       "attack_type": "melee"
     },
+    "2014:continual-flame": {},
     "2014:control-water": {
       "damage": [
         {
@@ -5157,6 +5682,7 @@
         "When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used."
       ]
     },
+    "2014:divination": {},
     "2014:dominate-beast": {
       "dc": {
         "dc_type": {
@@ -5177,6 +5703,18 @@
       ],
       "rollResolution": "description",
       "rollNotes": "Choose one enhancement. Only Bear’s Endurance grants 2d6 temporary HP; other choices do not. These are not healing or damage."
+    },
+    "2014:enlarge-reduce": {
+      "dc": {
+        "dc_type": {
+          "index": "con",
+          "name": "Constitution",
+          "url": "/api/2014/ability-scores/con"
+        },
+        "dc_success": "none"
+      },
+      "rollResolution": "description",
+      "rollNotes": "Choose Enlarge or Reduce. Weapon hits deal 1d4 more or less respectively (minimum 1 damage for Reduce); no damage is dealt on casting. An unwilling creature can negate the transformation with a Constitution save."
     },
     "2014:entangle": {
       "dc": {
@@ -5207,6 +5745,26 @@
       }
     },
     "2014:find-traps": {},
+    "2014:fire-shield": {
+      "damage": [
+        {
+          "damage_type": {
+            "index": "fire",
+            "name": "Fire",
+            "url": "/api/2014/damage-types/fire"
+          },
+          "damage_at_slot_level": {
+            "4": "2d8"
+          }
+        }
+      ],
+      "area_of_effect": {
+        "type": "sphere",
+        "size": 5
+      },
+      "rollResolution": "description",
+      "rollNotes": "Choose warm or chill shield. Only when a creature within 5 feet hits you with a melee attack does it take 2d8 fire or cold respectively. No damage is dealt on casting."
+    },
     "2014:flame-blade": {
       "damage": [
         {
@@ -5593,10 +6151,12 @@
       "rollNotes": "Choose to hold the light or hurl it. Hurling uses a ranged spell attack for 1d8 fire (2d8 at character level 5, 3d8 at 11, 4d8 at 17) and ends the spell. Creating light alone makes no attack."
     },
     "2014:protection-from-energy": {},
+    "2014:protection-from-evil-and-good": {},
     "2014:protection-from-poison": {},
     "2014:purify-food-and-drink": {},
     "2014:reincarnate": {},
     "2014:resistance": {},
+    "2014:revivify": {},
     "2014:scrying": {
       "dc": {
         "dc_type": {

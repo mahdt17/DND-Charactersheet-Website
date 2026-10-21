@@ -4,9 +4,11 @@ import {readFileSync} from 'node:fs';
 import {createServer} from 'vite';
 import {chromium} from 'playwright';
 import {entomancerClass} from '../src/data/entomancer.js';
+import {prepareEntomancerSpells} from '../src/lib/entomancerPreparation.js';
 
 const source=JSON.parse(readFileSync('public/catalogs/wikidot5e/spells.json','utf8'));
 const druid=source.filter(s=>s.classes?.includes('Druid')&&s.level<=5);
+const publishedList=JSON.parse(readFileSync('tests/fixtures/entomancer-druid-spell-list.json','utf8')).spells;
 const base={name:'Spell review',ruleset:'2014',className:'Entomancer',classDefinition:entomancerClass,level:18,race:'Human',speed:30,hp:{current:80,max:80,temp:0},abilities:{str:10,dex:14,con:16,int:10,wis:18,cha:10},abilityBonuses:{},inventory:[],actions:[],entomancer:{species:'Decomposers',tool:'Herbalism Kit',moisture:'Dry',temperature:'Hot'}};
 let server,browser,editions,play,normalize;
 before(async()=>{
@@ -80,6 +82,47 @@ test('conditional and utility spells retain rules without inventing immediate sp
  assert.equal(play.spellPlan(picker.find(s=>s.catalogId==='2014:flame-blade'),base,5,3).rolls.length,0,'SRD picker also uses the corrected rules');
 });
 
+test('Entomancer has every published Druid spell through level 5, including optional spells',()=>{
+ const catalog=source.map(s=>normalize(s,'wikidot5e','spells'));
+ // Existing characters retain an older class definition in their save.
+ const character={...base,classDefinition:{...entomancerClass,spellLists:['Druid']}};
+ const available=editions.permittedSpells(character,catalog);
+ const expected=publishedList.filter(s=>s.level<=5);
+ assert.equal(expected.length,136);
+ for(const row of publishedList){
+  const candidate=catalog.find(s=>s.name.toLowerCase()===row.name.toLowerCase()&&s.level===row.level);
+  assert(candidate,'catalog contains '+row.name);
+  if(row.level>5){assert(!available.some(s=>s.catalogId===candidate.catalogId),row.name+' exceeds class progression');continue;}
+  const option=available.find(s=>s.catalogId===candidate.catalogId);
+  assert(option,row.name+' must be available');
+  assert.doesNotThrow(()=>prepareEntomancerSpells({...character,spells:[]},entomancerClass.catalogId,[option]),row.name+' must be preparable');
+  assert(editions.resolveSpell(option,base).description.length>70,row.name+' has rules');
+ }
+ const cone=available.find(s=>s.catalogId==='wikidot5e:spell:cone-of-cold');
+ assert.equal(play.spellPlan(cone,base,5,3).rolls[0]?.expression,'8d8');
+ const summon=available.find(s=>s.name==='Summon Beast');
+ assert.equal(play.spellPlan(summon,base,2,3).rolls.length,0,'summon has no immediate spell damage');
+ assert.match(summon.description,/1d8/,'summoned creature damage is present');
+ const fey=available.find(s=>s.name==='Summon Fey');
+ assert.equal(play.spellPlan(fey,base,3,3).save,'Wisdom');
+ assert.match(fey.saveNotes,/only for Mirthful/);
+ const low={...character,level:1};
+ assert.equal(editions.permittedSpells(low,catalog).filter(s=>s.level>0).length,0,'level one remains cantrips only');
+ const highestSpellLevel=[0,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5];
+ for(let level=1;level<=20;level++){
+  const choices=editions.permittedSpells({...character,level},catalog);
+  for(const row of publishedList){
+   const entry=catalog.find(s=>s.name.toLowerCase()===row.name.toLowerCase()&&s.level===row.level);
+   assert.equal(choices.some(s=>s.catalogId===entry.catalogId),row.level<=highestSpellLevel[level-1],`Entomancer level ${level}: ${row.name}`);
+  }
+ }
+ const level2={...character,level:2,spells:[]};
+ assert.throws(()=>prepareEntomancerSpells(level2,entomancerClass.catalogId,[cone]),/level/i);
+ const tooMany=available.filter(s=>s.level>0).slice(0,25);
+ assert.throws(()=>prepareEntomancerSpells({...character,spells:[]},entomancerClass.catalogId,tooMany),/no more than/i);
+ assert(!available.some(s=>s.name==='Magic Missile'),'unrelated Wizard spells remain excluded');
+});
+
 test('existing saved Infestation shows rules, save and damage while casting without spending slots',async t=>{
  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));t.after(async()=>{await page.close();assert.deepEqual(errors,[]);});
@@ -100,4 +143,31 @@ test('existing saved Infestation shows rules, save and damage while casting with
  await item.locator('.spell-name').click();await page.getByRole('dialog').getByText(/1d6 poison damage/).waitFor();
  await page.setViewportSize({width:360,height:800});
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),'spell rules fit a phone screen');
+});
+
+test('older Custom Entomancers can choose, save and reopen optional spells in the spellbook',async t=>{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));t.after(async()=>{await page.close();assert.deepEqual(errors,[]);});
+ const c={...base,name:'Optional spell choices',ruleset:'custom',mechanics:'2014',classDefinition:{...entomancerClass,spellLists:['Druid']},spells:[]};
+ await page.goto('http://127.0.0.1:5197/');await page.getByRole('button',{name:'Explore the demo'}).click();
+ await page.locator('input[type=file]').setInputFiles({name:'optional-spells.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});
+ await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();await page.getByRole('tab',{name:'Spells',exact:true}).click();
+ await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+ const picker=page.getByRole('region',{name:'Prepared class spells'});
+ for(const name of ['Summon Beast','Cone of Cold']){
+  await picker.getByLabel('Search spells',{exact:true}).fill(name);
+  await picker.getByRole('button',{name:new RegExp('^Select '+name+' \\(5e')}).click();
+ }
+ await page.getByRole('button',{name:'Save Entomancer spell choices',exact:true}).click();
+ await page.locator('.spell-item').filter({hasText:'Summon Beast'}).waitFor();
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.locator('.character-card').filter({hasText:c.name}).getByRole('button',{name:'Open character',exact:true}).click();
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();
+ await page.locator('.spell-item').filter({hasText:'Cone of Cold'}).getByRole('button',{name:'Cast',exact:true}).click();
+ const dialog=page.getByRole('dialog');
+ await dialog.getByText(/Cold damage.*8d8/).waitFor();
+ await dialog.getByText(/Constitution save.*DC 17/).waitFor();
+ await dialog.getByRole('button',{name:'Cancel casting',exact:true}).click();
+ await page.locator('.spell-item').filter({hasText:'Summon Beast'}).getByRole('button',{name:'Cast',exact:true}).click();
+ await page.getByRole('dialog').getByText(/Use the Bestial Spirit/).waitFor();
 });
