@@ -13,8 +13,8 @@
     "test:browser": "node tests/browser.mjs",
     "class:certify": "node scripts/build_class_completion_ledger.mjs",
     "review:completion:queue": "node scripts/build_class_review_queue.mjs",
-    "test:entomancer": "node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs",
-    "test:browser:entomancer": "node tests/browser-entomancer.mjs",
+    "test:entomancer": "node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs && node tests/entomancer-playability.mjs",
+    "test:browser:entomancer": "node tests/browser-entomancer.mjs && node tests/browser-entomancer-playability.mjs",
     "test:archivist": "node tests/independent-conversions.mjs && node tests/archivist-campaign.mjs && node tests/archivist-campaign-integration.mjs && node tests/campaign-expansion.mjs && node tests/campaign-psicrystal.mjs",
     "test:browser:archivist": "node tests/browser-dark-knowledge.mjs && node tests/browser-archivist-campaign.mjs && node tests/browser-campaign-expansion.mjs"
   },

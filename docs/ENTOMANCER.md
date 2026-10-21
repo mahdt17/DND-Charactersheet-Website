@@ -38,3 +38,11 @@ The audit checked all four species and levels 1–20 against the retained source
 Creation cards omit source labels while retaining edition and hit die/speed; background skills appear below their titles. Supported racial/class language grants also work in Custom mode with matching base mechanics. Additional choices use searchable dropdowns and reject duplicates or incomplete names. Unstructured or cross-edition race rules retain the explicit manual fallback.
 
 Additional regression: `node tests/browser-creation-choices.mjs` checks Custom creation through level 4, ASIs, spell limits, languages, saved state and mobile layout. No database changes are required.
+
+## Concentration and action eligibility repair — 2026-10-21
+
+Harmonize records one pending Constitution concentration check per damaging hit, in order. Each successful check resolves only that hit; a failed check ends the song and clears the remaining checks. Pending checks survive saving/reopening, including migration from older `songSaveDC` saves. Starting an already active song cannot erase pending checks. The song ends on unconsciousness, incapacitation or death and does not restart when the character recovers. Stopping the song, taking an interrupting action before level 14, and completing a long rest clear pending checks.
+
+Supported Entomancers cannot activate personal swarm abilities, attack/grapple, perform with their instrument, or cast class/feat spells while dead, unconscious, stunned, paralyzed, petrified or explicitly incapacitated. Both controls and execution checks enforce restrictions. Damage recording, elapsed time, target cleanup, companion bookkeeping and table-confirmed revival remain available. Dead Man Walking still works at its valid 0-HP trigger; recording additional damage cannot use it to revive a character who was already dead. Ordinary saving throws and manual resource/slot counters remain table bookkeeping.
+
+Regression coverage: `tests/entomancer-playability.mjs` and `tests/browser-entomancer-playability.mjs`, included in the existing Entomancer test commands. Coverage includes sequential hits, legacy saves, failure and recovery, incapacity, slot/feat-use protection, separate grapple/Hemo/infestation controls, and one-use Hive Mind advantage during song concentration.

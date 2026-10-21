@@ -1,6 +1,12 @@
-import {entomancerProfile,entomancerResource,populationId} from './entomancer.js';
+import {entomancerProfile,entomancerResource,populationId,entomancerActionBlockReason,entomancerSongSaves} from './entomancer.js';
 const integer=(v,min=0)=>{const n=Number(v);if(!Number.isInteger(n)||n<min)throw Error(`Enter a whole number of at least ${min}.`);return n;};
-const state=c=>({...c.entomancer,effects:Object.fromEntries(Object.entries(c.entomancer?.effects||{}).filter(([,effect])=>effect&&typeof effect==='object')),daily:{...c.entomancer?.daily},targets:(c.entomancer?.targets||[]).map(t=>({...t,conditions:[...t.conditions||[]],timers:{...t.timers}})),summons:(c.entomancer?.summons||[]).map(t=>({...t})),corpses:[...c.entomancer?.corpses||[]]});
+const state=c=>{const {songSaveDC,...saved}=c.entomancer||{};return {...saved,songSaveDCs:entomancerSongSaves(c),effects:Object.fromEntries(Object.entries(saved.effects||{}).filter(([,effect])=>effect&&typeof effect==='object')),daily:{...saved.daily},targets:(saved.targets||[]).map(t=>({...t,conditions:[...t.conditions||[]],timers:{...t.timers}})),summons:(saved.summons||[]).map(t=>({...t})),corpses:[...saved.corpses||[]]};};
+const stopSong=s=>{s.song=false;s.songSaveDCs=[];};
+export function reconcileEntomancerActivity(c){
+ const p=entomancerProfile(c);if(!p.level)return c;
+ const s=state(c);if(!p.song)stopSong(s);
+ return {...c,entomancer:s};
+}
 function reserve(c,used){const d=entomancerResource(c);if(!d)return c;const others=(c.resources||[]).filter(r=>r.id!==populationId&&r.classResourceKey!==populationId);return {...c,resources:[...others,{...d,used:Math.max(0,used)}]};}
 function spend(c,n){integer(n);const p=entomancerProfile(c);if(n>p.remaining)throw Error('Not enough Population remaining.');return reserve(c,p.used+n);}
 function refund(c,n){return reserve(c,Math.max(0,entomancerProfile(c).used-Math.max(0,n)));}
@@ -38,6 +44,8 @@ export function availableEntomancerActions(c){const p=entomancerProfile(c);retur
 function finishArmor(c){const a=c.entomancer.effects.bugArmor;if(!a)return c;const n=a.left>=a.initial?3:a.left>0?1:0;c=refund(c,n);if(!a.replaced)c.hp={...c.hp,temp:Math.max(0,(c.hp.temp||0)-a.left)};delete c.entomancer.effects.bugArmor;return log(c,`Bug Armor ended; ${n} Population returned.`);}
 export function observeEntomancerHP(before,after){
  if(!entomancerProfile(after).level)return after;
+ after=reconcileEntomancerActivity(after);
+ if(entomancerActionBlockReason(before))stopSong(after.entomancer);
  const a=before.entomancer?.effects?.bugArmor;if(!a||after.entomancer?.effects?.bugArmor!==a)return after;
  if(before.hp?.temp===after.hp?.temp)return after;
  const next=state(after),delta=Number(before.hp?.temp||0)-Number(after.hp?.temp||0);
@@ -51,24 +59,25 @@ export function entomancerDamage(c,amount,{type='',magical=false,vulnerable=fals
  if(resistant)n=Math.floor(n/2);if(vulnerable)n*=2;
  const absorbed=Math.min(c.hp.temp||0,n),hp={...c.hp,temp:(c.hp.temp||0)-absorbed,current:Math.max(0,c.hp.current-(n-absorbed))};
  let next=observeEntomancerHP(c,{...c,hp});next={...next,entomancer:state(next)};
- if(p.song&&n>0)next.entomancer.songSaveDC=Math.max(10,Math.floor(n/2));
+ if(p.song&&hp.current>0&&n>0)next.entomancer.songSaveDCs.push(Math.max(10,Math.floor(n/2)));
  if(!hp.current&&p.form)next.entomancer.dead=true;
- if(!hp.current&&deadMan&&p.species==='Decomposers'&&p.level>=14&&!next.entomancer.daily.deadMan&&p.remaining>=3&&(!p.form||p.settings.deadManInSwarm)){next.entomancer.dead=false;next=applyEntomancerAction(next,'dead-man');}
+ if(c.hp.current>0&&!c.entomancer?.dead&&!hp.current&&deadMan&&p.species==='Decomposers'&&p.level>=14&&!next.entomancer.daily.deadMan&&p.remaining>=3&&(!p.form||p.settings.deadManInSwarm)){next.entomancer.dead=false;next=applyEntomancerAction(next,'dead-man');}
  return log(next,`${n} ${type||'untyped'} damage taken${resistant?' (resistance)':''}${vulnerable?' (vulnerability)':''}.`);
 }
 export function entomancerRest(c,rest,{fed=false}={}){
  if(!entomancerProfile(c).level)return c;
  let next={...c,entomancer:state(c)};const p=entomancerProfile(next);
  next=applyEntomancerAction(next,'advance-time',{rounds:rest==='long'?4800:600});
- if(rest==='long'){next.entomancer.daily=!fed&&next.entomancer.daily.hungryMouths?{hungryMouths:true}:{};next.entomancer.song=false;next.entomancer.latch=null;next.entomancer.strengthStrike=false;next.entomancer.psychicSave=false;}
+ if(rest==='long'){next.entomancer.daily=!fed&&next.entomancer.daily.hungryMouths?{hungryMouths:true}:{};stopSong(next.entomancer);next.entomancer.latch=null;next.entomancer.strengthStrike=false;next.entomancer.psychicSave=false;}
  if(rest==='long'&&fed)next=reserve(next,0);
  if(rest==='short'&&(!p.settings.shortRestRequiresFood||fed))next=refund(next,p.settings.shortRecovery==null?Math.floor(p.max/2):integer(p.settings.shortRecovery));
  return next;
 }
 export function applyEntomancerAction(character,id,input={},random=Math.random){
- let c={...character,hp:{...character.hp},entomancer:state(character)},s=c.entomancer,p=entomancerProfile(c);
+ let c=reconcileEntomancerActivity({...character,hp:{...character.hp},entomancer:state(character)}),s=c.entomancer,p=entomancerProfile(c);
  fail(!p.level,'This character has no supported Entomancer class.');
- fail(s.dead&&!['advance-time','clear-target','dismiss-summon'].includes(id),'A dead character must be revived before using abilities.');
+ const blocked=entomancerActionBlockReason(c),cleanup=['advance-time','clear-target','dismiss-summon','summon-hp','end-song','end-grapple','toxin-save','apex-hit','consume-strike','consume-psychic-save'];
+ fail(blocked&&!cleanup.includes(id)&&!(id==='dead-man'&&!s.dead),blocked);
  const a=entomancerActions.find(a=>a.id===id);
  if(a){fail(p.level<a.level||a.species&&a.species!==p.species,'This action requires the listed species and class level.');if(a.cost)c=spend(c,a.cost);}
  const once=key=>{fail(s.daily[key],'This ability was already used before your next long rest.');s.daily[key]=true;};
@@ -111,10 +120,10 @@ export function applyEntomancerAction(character,id,input={},random=Math.random){
  case 'consume-strike':s.strengthStrike=false;break;
  case 'reflex-armor':effect('reflexArmor',integer(p.settings.reflexArmorRounds??1,1));break;
  case 'invicta':effect('invicta',20);break;
- case 'harmonize':s.song=true;s.songSaveDC=null;break;
- case 'end-song':s.song=false;s.songSaveDC=null;break;
- case 'song-save':fail(!p.song||!s.songSaveDC,'No song concentration check is pending.');if(!input.success)s.song=false;s.songSaveDC=null;break;
- case 'move':case 'other-action':if(p.song&&p.level<14)s.song=false;break;
+ case 'harmonize':fail(p.song,'Harmonize is already active.');s.song=true;s.songSaveDCs=[];break;
+ case 'end-song':stopSong(s);break;
+ case 'song-save':fail(!p.song||!s.songSaveDCs.length,'No song concentration check is pending.');s.songSaveDCs.shift();if(!input.success)stopSong(s);break;
+ case 'move':case 'other-action':if(p.song&&p.level<14)stopSong(s);break;
  case 'sonnet':{fail(!p.song,'Start Harmonize first.');const t=target(p.songRange),n=Math.max(0,p.wis+p.con+p.pb);t.damage+=input.success?Math.floor(n/2):n;break;}
  case 'serenade':{fail(!p.song,'Start Harmonize first.');fail(Number(input.hp)<1||!input.canHear,'The ally must have at least 1 HP and hear the song.');const t=target(p.songRange);t.healing=(t.healing||0)+physicalHP(p.wis);break;}
  case 'clear-target':s.targets=s.targets.filter(t=>t.id!==input.id);if(s.latch?.targetId===input.id)s.latch=null;break;
@@ -125,7 +134,7 @@ export function applyEntomancerAction(character,id,input={},random=Math.random){
  }
  // A null timer denotes a condition that ends through its repeat save, not time.
  for(const t of s.targets)for(const [key,n] of Object.entries(t.timers||{}))if(n===Infinity)t.timers[key]=null;
- if(a&&p.song&&p.level<14&&['Action','Melee attack action','Melee weapon attack'].includes(a.activation)&&id!=='harmonize')s.song=false;
+ if(a&&p.song&&p.level<14&&['Action','Melee attack action','Melee weapon attack'].includes(a.activation)&&id!=='harmonize')stopSong(s);
  c.entomancer=s;
  return log(c,a?`${a.name} resolved${a.cost?`; ${a.cost} Population spent`:''}.`:`${id.replaceAll('-',' ')} resolved.`);
 }
