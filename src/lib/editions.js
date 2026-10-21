@@ -1,6 +1,7 @@
 import {campaignKind,campaignProfile,campaignFeatureRows} from './archivistCampaign.js';
 import {characterClasses,classCharacter,baseProgression,progressionRow} from './advancement';
 import {entomancerProfile,entomancerFeatureRows} from './entomancer.js';
+import {reviewedEntomancerSpell,refreshEntomancerSpell} from './entomancerSpellDetails.js';
 import {multiclassPools,slotArray} from './multiclassCasting';
 import {spellSlotProgression} from './classIntegration.js';
 import {spellAccessForClass} from './spellAccess.js';
@@ -18,8 +19,8 @@ export const is35=c=>mechanics(c)==='3.5';
 export const keyOf=s=>s.catalogId||`${s.edition||'2014'}:${s.index||s.id||s.name}`;
 const normalizeSpell=(s,edition)=>({...s,edition,source:edition==='2024'?'SRD 5.2.1':s.source||'SRD 5.1',description:s.description||s.desc?.join('\n\n')||'',school:typeof s.school==='object'?s.school.name:s.school||'Homebrew',classes:(s.classes||[]).map(c=>typeof c==='string'?c:c.name),higher_level:typeof s.higher_level==='string'?[s.higher_level]:s.higher_level||[],catalogId:`${edition}:${s.index}`});
 export const allSpells=[...spellCatalog.map(s=>normalizeSpell(s,'2014')),...modern.spells.map(s=>normalizeSpell(s,'2024')),...legacy.spells.map(s=>({...s,catalogId:`3.5:${s.index}`}))];
-export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homebrew.filter(x=>x.category==='spell'&&!x.integrityIssues?.length).map(s=>({...s,catalogId:s.catalogId||s.id,index:s.index||s.id}))].filter(s=>edition==='custom'||edition==='all'||s.edition===edition);}
-export function resolveSpell(s,char){return allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s;}
+export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homebrew.filter(x=>x.category==='spell'&&!x.integrityIssues?.length).map(s=>({...s,catalogId:s.catalogId||s.id,index:s.index||s.id}))].map(refreshEntomancerSpell).filter(s=>edition==='custom'||edition==='all'||s.edition===edition);}
+export function resolveSpell(s,char){return refreshEntomancerSpell(reviewedEntomancerSpell(s)||allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s);}
 export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'?modern.classes:is35(c)?legacy.classes:classes).find(x=>x.name===c.className);}
 const abilityKey=value=>({str:'str',strength:'str',dex:'dex',dexterity:'dex',con:'con',constitution:'con',int:'int',intelligence:'int',wis:'wis',wisdom:'wis',cha:'cha',charisma:'cha'}[String(value||'').trim().toLowerCase()]||'');
 export function levelRecord(c,level=c.level){if(campaignKind(c.classDefinition)){const model={...c,classLevels:undefined,level};return {features:[...campaignFeatureRows(model).filter(f=>f.level===level),...([4,8,12,16,19].includes(level)?[{name:'Ability Score Improvement',level}]:[])]};}if(entomancerProfile({...c,level}).level)return {features:entomancerFeatureRows({...c,level}).filter(f=>f.level===level)};if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
