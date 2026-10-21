@@ -144,6 +144,9 @@ jobs:
       - name: Run Entomancer browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:entomancer
+      - name: Validate player usability
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser:usability
       - name: Run creation choices and Custom Entomancer browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-creation-choices.mjs

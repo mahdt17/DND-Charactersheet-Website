@@ -5,7 +5,7 @@ import {adjustResource,characterResources,classResourceDefinitions,resourceMatch
 
 const initial={name:'',max:1,reset:'long',shortRecovery:1,unlimited:false};
 export default function ResourceTracker({char,patch,abilities}) {
-  const [draft,setDraft]=useState(null),[error,setError]=useState(''),[amounts,setAmounts]=useState({});
+  const [draft,setDraft]=useState(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[amounts,setAmounts]=useState({});
   const resources=characterResources(char,abilities),definitions=classResourceDefinitions(char,abilities);
   const candidates=r=>definitions.filter(d=>resourceMatches(r,d)&&!resources.some(x=>x.id!==r.id&&x.classResourceKey===d.classResourceKey));
   function edit(r) {setError('');setDraft(r?{...r,reset:r.shortRecovery&&r.shortRecovery!=='all'?'partial':r.reset,shortRecovery:Number(r.shortRecovery)||1}:{...initial});}
@@ -17,7 +17,7 @@ export default function ResourceTracker({char,patch,abilities}) {
     patch({resources:draft.id?resources.map(x=>x.id===r.id?r:x):[...resources,r]});setDraft(null);
   }
   function change(r,direction) {
-    try{patch(adjustResource(char,r.id,direction*(amounts[r.id]||1),abilities));setError('');}catch(e){setError(e.message);}
+    try{const values=adjustResource(char,r.id,direction*(amounts[r.id]||1),abilities),changed=values.resources.find(x=>x.id===r.id),actual=Math.abs(changed.used-r.used);patch(values);setNotice(`${r.name}: ${direction>0?'used':'restored'} ${actual}.`);setError('');}catch(e){setError(e.message);setNotice('');}
   }
   function remove(r) {
     const hidden=[...char.hiddenClassResources||[],...definitions.filter(d=>d.classResourceKey===r.classResourceKey||(!r.classResourceKey&&resourceMatches(r,d))).map(d=>d.classResourceKey)];
@@ -25,14 +25,16 @@ export default function ResourceTracker({char,patch,abilities}) {
   }
   function adopt(r,d) {patch({resources:resources.map(x=>x.id===r.id?{...r,...d,id:r.id,used:r.used,manual:false}:x)});}
   return <section aria-label="Limited-use resources">
-    <div className="l-section-head section-spaced"><h2>Limited-use resources</h2><button className="l-button" onClick={()=>edit()}>Add resource</button></div>
-    <p className="l-muted">Supported core class counters follow class levels. Apply feature effects, spell conversions, and initiative recovery yourself. Custom counters keep your settings.</p>
+    <div className="l-section-head section-spaced"><h2>Resources</h2><button className="l-button" onClick={()=>edit()}>Add resource</button></div>
+    <p className="l-muted">Track uses spent at the table. Automatic spending is already included.</p>
+    <details className="resource-help"><summary>About resource counters</summary><p>Class counters follow your class level. Check each counter’s recovery rules before restoring uses. Apply other feature effects, spell conversions and initiative recovery at the table. Custom counters keep your settings.</p></details>
     {error&&<p className="l-error" role="alert">{error}</p>}
+    {notice&&<p className="action-feedback" role="status">{notice}</p>}
     {resources.map(r=>{
       const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey),manifesting=!!r.manifesting35&&!r.manual,auto=(!!definition||manifesting||r.sourceType==='class'&&r.automatic)&&!r.manual;
       const sourceLabel=manifesting?`${r.sourceClassName||r.source||'Psionic class'} · 3.5 manifesting progression`:auto?`${r.sourceClassName||r.className||r.source} · ${r.edition} class progression`:'Custom counter';
       return <div className="resource-entry" key={r.id} role="group" aria-label={`${r.name} resource`}>
-        <div className="resource-row"><div><strong>{r.name}</strong><small>{sourceLabel}</small><small>{resourceRecoveryText(r)}</small></div><strong className="resource-count">{r.unlimited?'Unlimited':`${Math.max(0,r.max-r.used)} / ${r.max}`}</strong></div>
+        <div className="resource-row"><div><strong>{r.name}</strong><details className="resource-help"><summary>Recovery &amp; source</summary><small>{resourceRecoveryText(r)}</small><small>{sourceLabel}</small></details></div><strong className="resource-count" aria-label={`${r.name} remaining`}>{r.unlimited?'Unlimited':`${Math.max(0,r.max-r.used)} / ${r.max}`}</strong></div>
         {r.smite35?.resolved===false&&!r.manual?<p className="l-muted">Additional smite uses need a reviewed native source. Spending is retained; review the source or customize this counter before using it.</p>:r.smite35&&!r.manual&&<p className="l-muted">
           {r.smite35.sourceClassNames.join(' + ')}: {r.smite35.attackBonus==null?'attack bonus needs Charisma':`+${r.smite35.attackBonus} attack`}, {r.smite35.damageBonus==null?'damage needs source review':`+${r.smite35.damageBonus} damage`}.
           {' '}Apply to one melee attack against an evil creature. A non-evil target still spends a use.

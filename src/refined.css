@@ -249,7 +249,47 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
   .roll-history { max-height:110px; }
 }
 @media(prefers-reduced-motion:reduce) { .character-card:hover { transform:none; } }
+/* Player-facing guidance, feedback and quick access. */
+.ledger-nav .nav-bottom .l-button:hover:not(:disabled) { background:#ffffff12; color:#fff3db; border-color:#ffffff3b; }
+.ledger-app :is(button,a,input,select,textarea,summary):focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.creation-footer-status { color:var(--muted); font-size:13px; line-height:1.5; }
+.hp-controls { align-items:flex-end; }
+.hp-adjustment { display:grid; gap:4px; flex:0 0 68px; min-width:0; }
+.hp-adjustment>span { font-size:11px; color:var(--muted); }
+.hp-adjustment>input { width:100%; text-align:center; }
+.hp-panel>.hp-feedback { grid-column:1/-1; grid-row:5; margin:8px 0 0; color:var(--health); font-size:12px; line-height:1.5; }
+.hp-panel>.hp-feedback[role="alert"] { color:var(--danger); }
+.sheet-shortcuts { display:none; }
+.sheet-right,.ability-grid,.swarm-reference { scroll-margin-top:76px; }
+.sheet-tabs { overflow-x:auto; }
+.sheet-tabs>button { font-size:12px; text-transform:none; letter-spacing:0; min-height:44px; white-space:nowrap; }
+.resource-help { margin:6px 0; color:var(--muted); font-size:12px; line-height:1.6; }
+.resource-help summary,.action-description summary { color:var(--accent); cursor:pointer; }
+.resource-help small { display:block; margin-top:5px; }
+.action-description { margin-top:7px; font-size:13px; line-height:1.65; }
+.action-description p { margin:9px 0; }
+.action-feedback { padding:10px 12px; margin:10px 0; border-left:3px solid var(--health); background:var(--surface-2); border-radius:4px; font-size:13px; line-height:1.5; }
+.entomancer-swarm { display:flex; flex-direction:column; gap:10px; }
+.entomancer-swarm>* { min-width:0; }
+.entomancer-swarm>h2,.entomancer-swarm>p { margin:0; }
+.entomancer-swarm>button { align-self:flex-start; }
+@media(max-width:700px) {
+  .sheet-shortcuts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:6px; margin:0 0 14px; }
+  .sheet-shortcuts .l-button { display:flex; align-items:center; justify-content:center; gap:5px; min-height:44px; padding:7px 4px; font-size:12px; }
+  .sheet-heading { padding:16px; }
+  .sheet-vitals .vital-tile { min-height:68px; padding:8px 5px; gap:3px; }
+  .sheet-vitals .vital-tile>strong { font-size:25px; }
+  .sheet-state { margin:12px 0; }
+  .sheet-state .l-chip,.sheet-state select { min-height:40px; }
+  .sheet-right { order:-1; }
+  .sheet-tabs>button { font-size:12px; min-width:76px; }
+  .skill-row>button:last-child { min-width:44px; min-height:38px; }
+}
+
+@media(max-width:370px) { .sheet-shortcuts .l-button svg { display:none; } }
+
 @media print {
+  .sheet-shortcuts { display:none!important; }
   .floating-dice,.nav-scrim { display:none!important; }
   .ledger-main { padding:0; }
   .ledger-app .sheet-heading,.ledger-app .ledger-workspace { background:white!important; }
