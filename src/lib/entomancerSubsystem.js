@@ -9,7 +9,7 @@ const saveActions=['entomancy','pestilence','bug-swarm','infest','pure-terror','
 const positiveInteger=n=>Number.isInteger(n)&&n>0;
 export function createSwarmUi(c){
  const actions=availableEntomancerActions(c);
- return {section:'abilities',actionId:actions.some(a=>a.id===c.entomancer?.lastAction?.id)?c.entomancer.lastAction.id:'pestilence',inputsByAction:{},activeInputs:{infestations:{},terror:{},hemo:{}},creatureInput:{amount:1,type:'',critical:false},recoveryInput:{amount:1},query:'',availableOnly:false,recoveryDisclosure:null};
+ return {section:'abilities',actionId:actions.some(a=>a.id===c.entomancer?.lastAction?.id)?c.entomancer.lastAction.id:'pestilence',inputsByAction:{},activeInputs:{infestations:{},terror:{},hemo:{},sonnet:{},serenade:{}},creatureInput:{amount:1,type:'',critical:false},recoveryInput:{amount:1},query:'',availableOnly:false,recoveryDisclosure:null};
 }
 export function swarmSubsystem(c,{actionId,inputs={}}={}){
  const p=entomancerProfile(c),s=c.entomancer||{},blockedReason=entomancerActionBlockReason(c),setupComplete=entomancerChoicesComplete(c);

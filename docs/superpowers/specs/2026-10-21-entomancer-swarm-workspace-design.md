@@ -1,6 +1,6 @@
 # Entomancer Swarm workspace
 
-Status: approved by the user on 2026-10-21; implementation plan awaiting review.
+Status: approved by the user on 2026-10-21; implemented and verified on 2026-10-22, awaiting merge.
 
 ## Purpose and agreed direction
 

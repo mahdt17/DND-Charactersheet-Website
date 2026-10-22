@@ -1,6 +1,6 @@
 # Entomancer Swarm Workspace Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking. Native execution with one whole-branch review is recommended for these tightly connected tasks.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking. Native execution with one whole-branch review is recommended for these tightly connected tasks.
 
 **Goal:** Give Entomancer a coordinated Swarm workspace for abilities, ongoing effects, creatures and recovery while preserving its existing saved state and shared reserve.
 
@@ -144,15 +144,23 @@ UI props:
 
 **Consumes/produces:** completed workspace; produces a verified branch/PR and accurate player/developer documentation.
 
-- [ ] Update existing Entomancer tests to explicitly enter the relevant sheet/workspace section through the helpers, retaining their rules/save/refund assertions. Scope manual controls to Recovery, turns/conditions to Active, summons to Creatures, and weapon checks to Actions. Search for other test assumptions about embedded Swarm rather than removing failing assertions.
-- [ ] Add the new Node suite to `test:entomancer` and browser suite to `test:browser:entomancer`, preserving existing commands. Document the four sections, conditional-return meaning, shared reserve and rest behavior.
-- [ ] Run `npm test`, `npm run test:entomancer`, `npm run test:browser:entomancer`, `npm run test:browser:usability`, `node tests/browser-resources.mjs`, `node tests/browser-creation-choices.mjs`, `npm run build`, and `git diff --check`. On this machine set `BROWSER_EXECUTABLE_PATH` to `C:/Program Files/Google/Chrome/Application/chrome.exe`; run browser suites with distinct ports or sequentially. Require exit 0 for affected checks and inspect desktop/mobile screenshots.
-- [ ] Confirm no new failures versus the recorded baseline. If broad integration/browser checks encounter the known Archivist description or Psion source-label assertion, report/reproduce that failure separately rather than marking the suite passed or changing unrelated class behavior.
-- [ ] Request independent whole-branch review using the approved spec and current diff; fix actionable issues and recheck affected behavior. Check the final diff for accidental saved-state changes and duplicate reserve writes.
-- [ ] Commit final regression/documentation adjustments, push `codex/entomancer-swarm-workspace`, and create a PR against `main` describing the final player behavior and actual verification. Do not merge or deploy without the user's separate request.
+- [x] Update existing Entomancer tests to explicitly enter the relevant sheet/workspace section through the helpers, retaining their rules/save/refund assertions. Scope manual controls to Recovery, turns/conditions to Active, summons to Creatures, and weapon checks to Actions. Search for other test assumptions about embedded Swarm rather than removing failing assertions.
+- [x] Add the new Node suite to `test:entomancer` and browser suite to `test:browser:entomancer`, preserving existing commands. Document the four sections, conditional-return meaning, shared reserve and rest behavior.
+- [x] Run `npm test`, `npm run test:entomancer`, `npm run test:browser:entomancer`, `npm run test:browser:usability`, `node tests/browser-resources.mjs`, `node tests/browser-creation-choices.mjs`, `npm run build`, and `git diff --check`. On this machine set `BROWSER_EXECUTABLE_PATH` to `C:/Program Files/Google/Chrome/Application/chrome.exe`; run browser suites with distinct ports or sequentially. Require exit 0 for affected checks and inspect desktop/mobile screenshots.
+- [x] Confirm no new failures versus the recorded baseline. If broad integration/browser checks encounter the known Archivist description or Psion source-label assertion, report/reproduce that failure separately rather than marking the suite passed or changing unrelated class behavior.
+- [x] Request independent whole-branch review using the approved spec and current diff; fix actionable issues and recheck affected behavior. Check the final diff for accidental saved-state changes and duplicate reserve writes.
+- [x] Commit final regression/documentation adjustments, push `codex/entomancer-swarm-workspace`, and create a PR against `main` describing the final player behavior and actual verification. Do not merge or deploy without the user's separate request.
 
 ## Self-review and execution handoff
 
 Coverage checked against every spec section: Task 1 owns calculations/purity; Task 2 owns discoverability/full rules/results; Task 3 owns all effects, creature operations and recovery; Task 4 owns navigation/draft lifetime/accessibility; Task 5 owns existing flows and release evidence. The five review-focus cases each have explicit assertions above. All downstream interfaces use the shared names in this plan; the existing sheet key supplies the required character boundary.
 
-Recommended execution: **Native**—implement sequentially in this session, then independent whole-branch review. These tasks share the projection and UI-state interfaces, so sequential integration avoids parallel changes to the same controllers. Await the user's plan review and execution-method choice before product implementation.
+Recommended execution: **Native**—implement sequentially in this session, then independent whole-branch review. These tasks share the projection and UI-state interfaces, so sequential integration avoids parallel changes to the same controllers. The user delegated execution choices; implemented inline with one independent final review.
+
+## Completion evidence — 2026-10-22
+
+Independent whole-branch review (base 4c75242 to f6b38a1) found one Important usability gap: song damage/healing triggers needed direct controls in Active. A browser regression failed before the fix and passed afterward, covering Sonic Sonnet damage, Soothing Serenade healing, independent target drafts and no additional Population cost. The completing reviewer found no additional actionable findings; the initial reviewer was interrupted by provider capacity. No review findings were deferred.
+
+Final checks passed: full npm test, focused Entomancer rules, all five Entomancer browser scripts, usability, shared resources, Custom creation and production build. Desktop/mobile screenshots were inspected. The pre-existing Archivist description and Psion source-label integration assertions are recorded baseline limitations, not newly passing checks. Existing build chunk-size warnings remain.
+
+The feature branch is prepared for a pull request against main. Merge and deployment remain separate user decisions.
