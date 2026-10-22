@@ -1,5 +1,17 @@
 # Entomancer implementation
 
+## Swarm workspace — 2026-10-22
+
+Supported Entomancers open on their own **Swarm** character-sheet tab. Its four sections are **Abilities**, **Active**, **Creatures** and **Recovery**. One Population meter and both rest shortcuts remain visible throughout. Ordinary Actions retains weapon attacks and an Open Swarm shortcut. Custom 2014 and multiclass Entomancers use the same workspace.
+
+Abilities have name search, an optional available-only filter, full rules and clear prerequisite messages. Required target saves must be explicitly marked failed or succeeded. Selecting an ability does not spend anything. Each ability keeps its own unfinished inputs while switching sections or visiting Actions/Spells; opening another character resets those temporary drafts. The latest saved result shows damage/healing/conditions and Population changes, with links to any created activity or creature.
+
+Active collects timed effects, target conditions, infestations, Hemo turn triggers, repeat saves, song concentration and prepared bonuses. While Harmonize is active, Sonic Sonnet and Soothing Serenade have their own turn controls, full rules and independent target drafts. Each infestation has its own range input; additional Terror targets use a separate form and no additional activation cost. Explicit game-time controls advance all tracked effects; there is no real-time countdown. Turn-trigger results are saved too.
+
+Creatures shows current HP, attacks, statistics and the Population a living insect swarm can currently return. Removing a creature provides no refund. Recovery contains manual adjustments, environment and table rulings, expected returns, and history. Possible refunds are separate from spendable Population: a fed rest may refill the pool while a summoned creature remains alive. All mutations still use the existing canonical reserve and class rules; no saved-character or database migration is required.
+
+`src/lib/entomancerSubsystem.js` derives availability, validation, activity and conditional-return summaries without mutating characters. `src/entomancer/` contains the focused views. `tests/entomancer-subsystem.mjs` and `tests/browser-entomancer-subsystem.mjs` cover the model, all levels/species, navigation/draft lifetime, shared transactions, independent targets, concentration, incapacity, class/species changes, keyboard controls and mobile layout. Both are included in the existing Entomancer test commands.
+
 ## Swarm resource dashboard
 
 ### Play flow redesign — 2026-10-21
