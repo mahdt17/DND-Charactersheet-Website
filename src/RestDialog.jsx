@@ -1,3 +1,5 @@
+import {EladrinChoices} from './Eladrin';
+import {isEladrin} from './lib/eladrin';
 import {entomancerLevel} from './lib/entomancer';
 import {characterResources,restResources} from './lib/resources';
 import React, {useState} from 'react';
@@ -16,6 +18,7 @@ function Count({label,value=0,max,onChange,disabled=false}) {
 }
 export default function RestDialog({char,patch,roll,constitution,abilities,onClose}) {
   const [fed,setFed]=useState(false);
+  const [eladrin,setEladrin]=useState({...char.eladrin,trance:[]});
   const [meditated,setMeditated]=useState(false),[restoreSorcery,setRestoreSorcery]=useState(false);
   const resources=characterResources(char,abilities);
   const [rest,setRest]=useState(is35(char)?'long':'short');
@@ -48,7 +51,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
         ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
         concentration:null,deathSaves:{success:0,failure:0},
-        ...restResources(char,'long',{meditated,fed},abilities)
+        ...restResources(char,'long',{meditated,fed,eladrin:{...eladrin,trance:(eladrin.trance||[]).filter(Boolean)}},abilities)
       });
       else {const spent=spend();patch({...spent,...restSpellSlots(char,'short'),...restResources({...char,...spent},'short',{meditated,restoreSorcery,fed},abilities)});}
       onClose();
@@ -65,6 +68,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
     </div>
     <p>{legacy?'After a full night of qualifying rest, recover your level in hit points. Prepared spell slots remain spent until daily study or prayer; account for casts in the last 8 hours. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared. Any 3.5 prepared spells still require daily study or prayer.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
     {!legacy&&<>
+      {rest==='long'&&isEladrin(char)&&<EladrinChoices rest char={{...char,eladrin}} patch={values=>setEladrin(values.eladrin)}/>}
       {entomancerLevel(char)>0&&<label className="l-check"><input type="checkbox" checked={fed} onChange={e=>setFed(e.target.checked)}/>Swarm was fed during this rest</label>}
       {resources.some(r=>r.meditation&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={meditated} onChange={e=>setMeditated(e.target.checked)}/>Meditated for at least 30 minutes (recover Ki Points)</label>}
       {rest==='short'&&resources.some(r=>r.restoration&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={restoreSorcery} disabled={!!char.sorcerousRestorationUsed} onChange={e=>setRestoreSorcery(e.target.checked)}/>Use Sorcerous Restoration{char.sorcerousRestorationUsed?' (already used until a long rest)':''}</label>}
