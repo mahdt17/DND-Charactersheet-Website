@@ -1,4 +1,4 @@
-import {entomancerId,populationTable,entomancerSlots,entomancerFeatures,speciesFeatures,entomancerSource} from '../data/entomancer.js';
+import {entomancerId,populationTable,entomancerSlots,entomancerFeatures,speciesFeatures,entomancerSource,entomancerSpecies,entomancerInstruments} from '../data/entomancer.js';
 import {effectiveAbilityScores} from './abilityScores.js';
 export const populationId='2014:Entomancer:population';
 const mod=n=>Math.floor((Number(n??10)-10)/2);
@@ -71,3 +71,5 @@ export function entomancerFeatureRows(c){const p=entomancerProfile(c);return !p.
 export function entomancerRollTraits(c,label){const p=entomancerProfile(c),s=c.entomancer||{},survival=/^Survival$/i.test(label),grapple=/grapple/i.test(label);
  return {advantage:!!(p.level&&(p.level>=7&&/^(Perception|Insight)$/.test(label)||survival&&(p.adapted||p.species==='Exo-Gotas'&&p.level>=10)||grapple&&p.species==='Endo-Gotas'&&p.level>=10||p.species==='Exo-Gotas'&&p.level>=10&&/Dexterity saving throw/.test(label)&&s.visibleEffect||p.species==='Exo-Gotas'&&s.targetConstruct&&/attack/i.test(label)||p.level>=18&&p.humid&&s.underwater&&/attack/i.test(label))),disadvantage:!!(survival&&p.opposite)};
 }
+
+export function entomancerChoicesComplete(c,{startingClass=entomancerStartsCharacter(c)}={}){const p=entomancerProfile(c),s=c.entomancer||{};return !p.level||entomancerSpecies.includes(s.species)&&(!startingClass||['Herbalism Kit','Poisoner’s Kit'].includes(s.tool))&&(s.species!=='Orthoptera'||entomancerInstruments.includes(s.instrument))&&(p.level<3||['Dry','Humid'].includes(s.moisture)&&['Hot','Cold'].includes(s.temperature));}
