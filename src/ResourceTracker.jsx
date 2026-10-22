@@ -4,9 +4,9 @@ import Modal from './Dialog';
 import {adjustResource,characterResources,classResourceDefinitions,resourceMatches,resourceRecoveryText} from './lib/resources';
 
 const initial={name:'',max:1,reset:'long',shortRecovery:1,unlimited:false};
-export default function ResourceTracker({char,patch,abilities,hidePopulation=false}) {
+export default function ResourceTracker({char,patch,abilities,hidePopulation=false,hideCampaign=false,campaignOnly=false,compact=false}) {
   const [draft,setDraft]=useState(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[amounts,setAmounts]=useState({});
-  const resources=characterResources(char,abilities),visibleResources=resources.filter(r=>!hidePopulation||r.id!==populationId),definitions=classResourceDefinitions(char,abilities).filter(r=>!hidePopulation||r.id!==populationId);
+  const resources=characterResources(char,abilities),visible=r=>(!hidePopulation||r.id!==populationId)&&(!hideCampaign||!r.campaignManaged)&&(!campaignOnly||r.campaignManaged),visibleResources=resources.filter(visible),definitions=classResourceDefinitions(char,abilities).filter(visible);
   const candidates=r=>definitions.filter(d=>resourceMatches(r,d)&&!resources.some(x=>x.id!==r.id&&x.classResourceKey===d.classResourceKey));
   function edit(r) {setError('');setDraft(r?{...r,reset:r.shortRecovery&&r.shortRecovery!=='all'?'partial':r.reset,shortRecovery:Number(r.shortRecovery)||1}:{...initial});}
   function save(e) {
@@ -25,7 +25,7 @@ export default function ResourceTracker({char,patch,abilities,hidePopulation=fal
   }
   function adopt(r,d) {patch({resources:resources.map(x=>x.id===r.id?{...r,...d,id:r.id,used:r.used,manual:false}:x)});}
   return <section aria-label="Limited-use resources">
-    <div className="l-section-head section-spaced"><h2>Resources</h2><button className="l-button" onClick={()=>edit()}>Add resource</button></div>
+    <div className="l-section-head section-spaced"><h2>{campaignOnly?'Class resources':'Resources'}</h2>{!campaignOnly&&<button className="l-button" onClick={()=>edit()}>Add resource</button>}</div>
     <p className="l-muted">Track uses spent at the table. Automatic spending is already included.</p>
     <details className="resource-help"><summary>About resource counters</summary><p>Class counters follow your class level. Check each counter’s recovery rules before restoring uses. Apply other feature effects, spell conversions and initiative recovery at the table. Custom counters keep your settings.</p></details>
     {error&&<p className="l-error" role="alert">{error}</p>}
@@ -35,16 +35,17 @@ export default function ResourceTracker({char,patch,abilities,hidePopulation=fal
       const sourceLabel=manifesting?`${r.sourceClassName||r.source||'Psionic class'} · 3.5 manifesting progression`:auto?`${r.sourceClassName||r.className||r.source} · ${r.edition} class progression`:'Custom counter';
       return <div className="resource-entry" key={r.id} role="group" aria-label={`${r.name} resource`}>
         <div className="resource-row"><div><strong>{r.name}</strong><details className="resource-help"><summary>Recovery &amp; source</summary><small>{resourceRecoveryText(r)}</small><small>{sourceLabel}</small></details></div><strong className="resource-count" aria-label={`${r.name} remaining`}>{r.unlimited?'Unlimited':`${Math.max(0,r.max-r.used)} / ${r.max}`}</strong></div>
+        {campaignOnly&&!r.unlimited&&<div className="class-resource-meter" role="progressbar" aria-label={`Available ${r.name}`} aria-valuemin={0} aria-valuemax={r.max} aria-valuenow={Math.max(0,r.max-r.used)}><span style={{width:`${Math.max(0,Math.min(100,100*(r.max-r.used)/Math.max(1,r.max)))}%`}}/></div>}
         {r.smite35?.resolved===false&&!r.manual?<p className="l-muted">Additional smite uses need a reviewed native source. Spending is retained; review the source or customize this counter before using it.</p>:r.smite35&&!r.manual&&<p className="l-muted">
           {r.smite35.sourceClassNames.join(' + ')}: {r.smite35.attackBonus==null?'attack bonus needs Charisma':`+${r.smite35.attackBonus} attack`}, {r.smite35.damageBonus==null?'damage needs source review':`+${r.smite35.damageBonus} damage`}.
           {' '}Apply to one melee attack against an evil creature. A non-evil target still spends a use.
         </p>}
-        <div className="l-toolbar resource-controls">
+        <ResourceControls compact={compact}><div className="l-toolbar resource-controls">
           {!r.unlimited&&<><label className="l-field"><span>Amount</span><input aria-label={`${r.name} amount`} type="number" min="1" max={Math.max(r.max,r.used,1)} value={amounts[r.id]||1} onChange={e=>setAmounts({...amounts,[r.id]:Math.max(1,Math.floor(Number(e.target.value)||1))})}/></label><button className="l-button" disabled={!r.used} onClick={()=>change(r,-1)}>Restore</button><button className="l-button" disabled={r.used+(amounts[r.id]||1)>r.max} onClick={()=>change(r,1)}>Use</button></>}
           {!manifesting&&r.id!==populationId&&!r.campaignManaged&&!r.raceManaged&&<><button className="l-button" onClick={()=>edit(r)}>Edit</button><button className="l-button" onClick={()=>remove(r)}>Remove</button></>}
           {definition&&r.manual&&<button className="l-button" onClick={()=>adopt(r,definition)}>Use class progression</button>}
           {!r.classResourceKey&&candidates(r).map(d=><button className="l-button" key={d.classResourceKey} onClick={()=>adopt(r,d)}>Use {d.className} progression</button>)}
-        </div>
+        </div></ResourceControls>
       </div>;
     })}
     {!!char.hiddenClassResources?.length&&<button className="l-button section-spaced" onClick={()=>patch({hiddenClassResources:[]})}>Restore removed class counters</button>}
@@ -59,3 +60,5 @@ export default function ResourceTracker({char,patch,abilities,hidePopulation=fal
     </form></Modal>}
   </section>;
 }
+
+function ResourceControls({compact,children}){return compact?<details className="class-resource-adjust"><summary>Adjust manually</summary>{children}</details>:children;}

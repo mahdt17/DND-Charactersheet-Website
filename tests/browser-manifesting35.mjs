@@ -38,6 +38,7 @@ try{
   await group().waitFor();
   assert.equal(await group().locator('.resource-count').innerText(),'3 / 3','exact Psion includes its ability bonus PP');
   assert.equal(await group().getByRole('button',{name:'Edit',exact:true}).count(),0,'shared reserve cannot become an independent custom counter');
+  await group().locator('summary').filter({hasText:'Recovery & source'}).click();
   assert.match(await group().innerText(),/Psion · 3\.5 manifesting progression/i,'automatic PP must identify its manifesting source rather than appear custom');
   await page.getByLabel('Power Points amount',{exact:true}).fill('1');await group().getByRole('button',{name:'Use',exact:true}).click();
   assert.equal(await group().locator('.resource-count').innerText(),'2 / 3','live resource controls spend one PP');

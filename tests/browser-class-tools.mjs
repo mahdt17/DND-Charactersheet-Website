@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import {mkdirSync} from 'node:fs';
+import {createServer} from 'vite';
+import {chromium} from 'playwright';
+import {createArchivistCampaign} from '../src/lib/archivistCampaign.js';
+import {campaignClasses} from '../src/data/archivistCampaign.js';
+const server=await createServer({server:{host:'127.0.0.1',port:5206}});await server.listen();
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+const tools=()=>page.getByRole('region',{name:'Converted class abilities',exact:true});
+const section=label=>tools().getByRole('button',{name:label,exact:true}).click();
+const count=name=>page.getByRole('group',{name:name+' resource',exact:true}).locator('.resource-count');
+const base=createArchivistCampaign('Class tools regression');
+const load=async c=>{await page.locator('input[type=file]').setInputFiles({name:'class-tools.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();};
+try{
+ mkdirSync('test-results',{recursive:true});await page.goto('http://127.0.0.1:5206');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character',exact:true}).click();assert.equal(await page.getByRole('tab',{name:'Class tools',exact:true}).count(),0);
+ await load(base);assert.equal(await page.getByRole('tab',{name:'Class tools',exact:true}).getAttribute('aria-selected'),'true','converted builds should open their class workspace');
+ for(const label of ['Abilities','Companions','Projects','Settings'])assert.equal(await tools().getByRole('button',{name:label,exact:true}).count(),1);
+ for(const name of ['Dark Knowledge','Power Points'])assert.equal(await page.getByRole('group',{name:name+' resource',exact:true}).count(),1,'one shared '+name+' counter');
+ assert.equal(await count('Dark Knowledge').innerText(),'4 / 4');assert.equal(await count('Power Points').innerText(),'3 / 3');
+ assert.match(await tools().innerText(),/allied attacks/);await tools().getByRole('button',{name:'Telepath powers',exact:true}).click();assert.equal(await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).count(),1,'one power activation control');
+ await tools().getByRole('button',{name:'Dark Knowledge',exact:true}).click();await tools().getByLabel('Studied creature or group').fill('Undead scouts');await tools().getByLabel('Knowledge check result').fill('25');
+ await section('Companions');assert.equal(await tools().getByLabel('Knowledge check result').isVisible(),false);assert.equal(await tools().getByText('Sage Psicrystal',{exact:true}).isVisible(),true);
+ await section('Projects');await tools().getByLabel('Project work hours').fill('12');await section('Settings');assert.equal(await tools().getByLabel('Lore Mastery 1').isVisible(),true);
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();await page.getByRole('region',{name:'Archivist prayerbook',exact:true}).waitFor();
+ await page.getByRole('tab',{name:'Actions',exact:true}).click();assert.equal(await tools().isVisible(),false);await page.getByRole('button',{name:'Open Class tools',exact:true}).click();await section('Abilities');
+ assert.equal(await tools().getByLabel('Studied creature or group').inputValue(),'Undead scouts');assert.equal(await tools().getByLabel('Knowledge check result').inputValue(),'25');await tools().getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();assert.equal(await count('Dark Knowledge').innerText(),'3 / 4');
+ await tools().getByRole('button',{name:'Telepath powers',exact:true}).click();await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).click();assert.equal(await count('Power Points').innerText(),'2 / 3');assert.match(await tools().innerText(),/Mindlink.*1 PP spent/s);assert.match(await tools().innerText(),/10 minutes remaining/);
+ await tools().getByRole('button',{name:'Short rest · Hit Dice',exact:true}).click();await page.getByRole('button',{name:'Complete short rest',exact:true}).click();assert.equal(await count('Power Points').innerText(),'2 / 3');
+ await tools().getByRole('button',{name:'Long rest · restore resources',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();assert.equal(await count('Power Points').innerText(),'3 / 3');assert.equal(await count('Dark Knowledge').innerText(),'4 / 4');
+ await section('Projects');assert.equal(await tools().getByLabel('Project work hours').inputValue(),'12');
+ await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await section('Abilities');await tools().screenshot({path:'test-results/class-tools-mobile.png'});
+ await page.setViewportSize({width:1440,height:1100});await tools().screenshot({path:'test-results/class-tools-desktop.png'});
+ await load({...base,name:'Independent Telepath tools',className:'Psion (Telepath)',classDefinition:campaignClasses[1],classLevels:[{catalogId:campaignClasses[1].catalogId,name:campaignClasses[1].name,edition:'2014',definition:campaignClasses[1],level:1}],level:1});assert.equal(await tools().getByRole('heading',{name:'Dark Knowledge',exact:true}).count(),0);assert.equal(await tools().getByLabel('Studied creature or group').count(),0);assert.equal(await count('Power Points').innerText(),'3 / 3');
+ await load({...base,name:'Knowledge ruling tools',archivistCampaign:{...base.archivistCampaign,rulings:{...base.archivistCampaign?.rulings,knowledgeDC:20}}});assert.match(await tools().locator('.class-ability-rules').innerText(),/DC 20;.*at 30,.*at 40/,'full rules reflect the saved check thresholds');
+ assert.deepEqual(errors,[]);console.log('PASS Class tools navigation, one reserve, ability rules/results, retained drafts, prayerbook, rests, pure Telepath and phone layout');
+}finally{await browser.close();await server.close();}
