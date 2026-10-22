@@ -14,6 +14,16 @@ The internal `archivistCampaign` state and `homebrew:darkdonte:*` identifiers re
 
 Checks: `npm run test:archivist`, `npm run test:browser:archivist`, plus the ordinary rules/edition/Entomancer/presentation suites. The browser progression creates an Archivist at 1, copies an outside spell, freely selects Psion and Thrallherd, takes a chosen feat at an ASI, switches spellbooks, checks persistence and independently creates a Psion at 1.
 
+## Class tools workspace — 2026-10-22
+
+Supported converted Archivist, Telepath and Thrallherd characters open on **Class tools**. The four sections are **Abilities**, **Companions**, **Projects** and **Settings**. Shared Dark Knowledge and Power Point counters stay at the top, with direct rest shortcuts and collapsed manual adjustments. Actions keeps weapon attacks, other resources and an Open Class tools shortcut; prayerbook preparation, casting and Mother Cyst effects remain in Spells.
+
+Abilities uses a picker for Dark Knowledge, Telepath powers and Still Mind. Selecting a known power shows its full description and one activation control. Active duration and last-power feedback use the existing saved records. Companions groups Psicrystal health/distance/roles with follower records and creature combat sheets. Projects contains paid copying, scroll and graft work. Settings contains Lore Mastery and saved conversion rulings; advanced manifestation and learning controls are collapsed beside the power picker.
+
+Local encounter and project drafts remain mounted but hidden while changing sections or sheet tabs, so navigation does not erase unfinished inputs. The existing keyed character sheet resets drafts when opening another character. This is a presentation change with no character/database migration, new resource pool or changes to class rules.
+
+Regression coverage includes the independent class progression and workshop browsers plus `tests/browser-class-tools.mjs`, included in `npm run test:browser:archivist`. It checks one resource counter, default and shortcut navigation, full ability rules, one power activation control, shared spending/rests, retained drafts, pure Telepath support and 390px layout.
+
 ## Historical implementation notes
 
 The following describes the superseded preset release and its original research, retained for provenance. The independent-class behavior above takes precedence.

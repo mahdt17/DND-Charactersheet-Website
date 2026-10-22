@@ -17,7 +17,7 @@
     "test:entomancer": "node scripts/build_entomancer_spell_details.mjs --check && node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs && node tests/entomancer-playability.mjs && node tests/entomancer-feedback.mjs && node tests/entomancer-subsystem.mjs",
     "test:browser:entomancer": "node tests/browser-entomancer.mjs && node tests/browser-entomancer-playability.mjs && node tests/browser-entomancer-resources.mjs && node tests/browser-entomancer-feedback.mjs && node tests/browser-entomancer-subsystem.mjs && node tests/browser-entomancer-spells.mjs",
     "test:archivist": "node tests/independent-conversions.mjs && node tests/archivist-campaign.mjs && node tests/archivist-campaign-integration.mjs && node tests/campaign-expansion.mjs && node tests/campaign-psicrystal.mjs",
-    "test:browser:archivist": "node tests/browser-dark-knowledge.mjs && node tests/browser-archivist-campaign.mjs && node tests/browser-campaign-expansion.mjs",
+    "test:browser:archivist": "node tests/browser-dark-knowledge.mjs && node tests/browser-archivist-campaign.mjs && node tests/browser-campaign-expansion.mjs && node tests/browser-class-tools.mjs",
     "test:eladrin": "node tests/eladrin.mjs",
     "test:browser:eladrin": "node tests/browser-eladrin.mjs",
     "test:browser:entomancer-resources": "node tests/browser-entomancer-resources.mjs",
