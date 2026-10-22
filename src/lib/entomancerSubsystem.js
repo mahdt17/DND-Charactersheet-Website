@@ -13,6 +13,7 @@ export function createSwarmUi(c){
 }
 export function swarmSubsystem(c,{actionId,inputs={}}={}){
  const p=entomancerProfile(c),s=c.entomancer||{},blockedReason=entomancerActionBlockReason(c),setupComplete=entomancerChoicesComplete(c);
+ if(!p.level)return {supported:false,profile:p,setupComplete,blockedReason,summary:{available:0,max:0,unavailable:0,activityCount:0,creatureCount:0},actions:[],selected:null,activities:[],creatures:[],recovery:{shortRecovery:0,shortRequiresFood:false,longRequiresFood:true,pendingReturns:[]}};
  const activities=[];
  for(const [key,e] of Object.entries(s.effects||{}))if(e?.remaining>0){
   const row={id:`effect:${key}`,kind:'effect',effectKey:key,name:names[key]||key,remainingRounds:e.remaining,nextTrigger:'Advance game time to expire'};

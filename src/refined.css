@@ -213,6 +213,8 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
   .dice-stage-results small { display:inline; font-size:10px; }
 }
 @media(max-width:700px) {
+ .sheet-shortcuts.has-swarm { grid-template-columns:repeat(5,minmax(0,1fr)); }
+ .sheet-shortcuts.has-swarm .l-button { font-size:11px; gap:3px; }
   .ledger-nav { position:fixed; top:58px; left:0; width:min(286px,84vw); height:calc(100dvh - 58px); z-index:80; padding:25px 16px; }
   .ledger-brand { padding:0 8px 30px; }
   .ledger-nav nav button { border-radius:4px; }
@@ -361,6 +363,8 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
 .swarm-workspace .swarm-result .l-button { margin:10px 0 0; display:block; }
 .swarm-workspace :focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 .swarm-workspace .sr-only { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.swarm-action-shortcut { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:15px; margin-top:16px; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; }
+.swarm-action-shortcut p { flex:1; margin:0; font-size:13px; line-height:1.6; }
 @media(max-width:700px) {
  .swarm-find { grid-template-columns:minmax(0,1fr); }
  .swarm-section-nav .l-button { font-size:11px; gap:3px; }

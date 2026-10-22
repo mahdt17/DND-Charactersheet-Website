@@ -34,3 +34,4 @@ c=A(c,'pure-terror',{target:'Host',success:false});const used=entomancerProfile(
 c=A(ready(20),'swarm-form');c=A(c,'apex-attack',{target:'Boss'},()=>0);c=A(c,'apex-hit',{hit:true});assert.equal(c.entomancer.lastAction.damage,50);
 c=A(ready(),'summon',{target:'Scout'});c=A(c,'return-swarm',{id:c.entomancer.summons[0].id});assert.equal(c.entomancer.lastAction.populationRestored,2);assert.equal(c.entomancer.lastAction.target,'Scout');assert.throws(()=>A(c,'return-swarm',{id:'removed'}));
 console.log('PASS turn-triggered damage/healing, Terror/Apex results, and one-shot return feedback');
+const obsolete={...ready(),ruleset:'2024',entomancer:{...ready().entomancer,effects:{swarmForm:{remaining:10}},song:true,summons:[{id:'old',kind:'swarm',hp:22,maxHP:22}]}};assert.deepEqual(S(obsolete).activities,[]);assert.deepEqual(S(obsolete).creatures,[]);
