@@ -50,7 +50,7 @@ for(const [label,overrides] of [
  const unarmed=page.locator('.action-row').filter({hasText:'Unarmed strike'}).getByRole('button').first();
  assert(await unarmed.isDisabled());
  assert.equal(await page.getByRole('complementary',{name:'Dice roller',exact:true}).count(),0);
- await page.getByLabel('Swarm ability').selectOption('pestilence');
+ await page.locator('[data-swarm-action="pestilence"]').click();
  assert(await page.getByRole('button',{name:'Use Glaring Pestilence',exact:true}).isDisabled());
  await page.getByRole('tab',{name:'Spells',exact:true}).click();
  const open=page.locator('.spell-item').filter({hasText:'Cure Wounds'}).getByRole('button',{name:'Cast',exact:true});
@@ -85,7 +85,7 @@ test('legacy pending checks persist on reopen and healing does not restart a sto
  assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),0);
  await page.getByLabel('Hit point adjustment').fill('1');await page.getByRole('button',{name:'Heal',exact:true}).click();
  assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),0);
- await page.getByLabel('Swarm ability').selectOption('harmonize');
+ await page.locator('[data-swarm-action="harmonize"]').click();
  assert(await page.getByRole('button',{name:'Use Harmonize',exact:true}).isEnabled());
 });
 
@@ -94,5 +94,5 @@ test('incapacitated Entomancer cannot start a grapple or resolve active Hemo and
  await page.getByText('Environment & derived benefits',{exact:true}).click();
  assert(await page.getByRole('button',{name:'Roll grapple',exact:true}).isDisabled());
  assert(await page.getByRole('button',{name:'Resolve Hemo — your turn start',exact:true}).isDisabled());
- assert(await page.getByRole('button',{name:'Infestation damage — Victim',exact:true}).isDisabled());
+ await page.getByText('Targets & conditions (1)',{exact:true}).click();assert(await page.getByRole('button',{name:'Infestation damage — Victim',exact:true}).isDisabled());
 });

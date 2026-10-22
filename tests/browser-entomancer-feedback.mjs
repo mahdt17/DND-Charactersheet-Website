@@ -1,0 +1,38 @@
+import assert from 'node:assert/strict';
+import {mkdirSync} from 'node:fs';
+import {createServer} from 'vite';
+import {chromium} from 'playwright';
+import {entomancerClass} from '../src/data/entomancer.js';
+const server=await createServer({server:{host:'127.0.0.1',port:5201}});await server.listen();
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+const base={name:'Swarm play flow',ruleset:'2014',className:'Entomancer',classDefinition:entomancerClass,level:18,race:'Human',speed:30,hitDie:'d8',abilities:{str:12,dex:14,con:16,int:10,wis:18,cha:10},hp:{current:70,max:100,temp:0},inventory:[],actions:[],spells:[],resources:[{id:'2014:Entomancer:population',used:4}],entomancer:{species:'Decomposers',tool:'Herbalism Kit',moisture:'Dry',temperature:'Hot'}};
+const swarm=()=>page.getByRole('region',{name:'Entomancer swarm',exact:true}),count=()=>swarm().locator('.resource-count');
+const choose=async id=>swarm().locator(`[data-swarm-action="${id}"]`).click();
+const reopen=async()=>{await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:base.name}).getByRole('button',{name:'Open character'}).click();};
+try{
+ await page.goto('http://127.0.0.1:5201');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character',exact:true}).click();
+ await page.locator('input[type=file]').setInputFiles({name:'swarm.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(base))});await page.locator('.sheet-identity').filter({hasText:base.name}).waitFor();
+ assert.equal(await swarm().locator('[data-swarm-action="bug-swarm"]').count(),1,'Bug Swarm must have a visible selectable card');
+ await choose('bug-swarm');
+ const rules=swarm().getByRole('region',{name:'Bug Swarm rules',exact:true});assert.match(await rules.innerText(),/Constitution.*8.*proficiency.*Wisdom/s);assert.match(await rules.innerText(),/2d12.*half.*rounded down/s);assert.match(await rules.innerText(),/resolves immediately/);
+ await swarm().getByLabel('Target or corpse name',{exact:true}).fill('Ogre');await swarm().getByLabel('Target distance (ft.)',{exact:true}).fill('30');
+ await swarm().getByLabel('Target succeeded on its save').check();await swarm().getByRole('button',{name:'Use Bug Swarm',exact:true}).click();
+ const result=swarm().getByRole('status',{name:'Last swarm action',exact:true});assert.match(await result.innerText(),/Bug Swarm used.*Ogre.*Constitution save succeeded.*2d12 \+ 4.*necrotic damage.*2 Population spent/s);assert.equal(await count().innerText(),'18 / 24');
+ mkdirSync('test-results',{recursive:true});await result.screenshot({path:'test-results/entomancer-bug-swarm-result.png'});
+ await reopen();assert.match(await result.innerText(),/Bug Swarm used.*Ogre/s,'last result survives reopen');
+ await swarm().getByRole('button',{name:'Long rest · refill Population',exact:true}).click();
+ const rest=page.getByRole('dialog',{name:'Take a rest'});assert(await rest.getByLabel('Swarm was fed during this rest').isChecked());assert.match(await rest.getByRole('status',{name:'Population recovery preview'}).innerText(),/18.*24.*24/s);
+ await rest.getByLabel('Swarm was fed during this rest').uncheck();assert.match(await rest.getByRole('status',{name:'Population recovery preview'}).innerText(),/18.*18.*24/s);await rest.getByRole('button',{name:'Complete long rest',exact:true}).click();assert.equal(await count().innerText(),'18 / 24');
+ await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();assert.equal(await count().innerText(),'24 / 24','header rest defaults to a fed qualifying rest too');
+ await choose('pestilence');await swarm().getByLabel('Target or corpse name',{exact:true}).fill('Guard');await swarm().getByLabel('Target succeeded on its save').uncheck();await swarm().getByRole('button',{name:'Use Glaring Pestilence',exact:true}).click();assert.match(await result.innerText(),/Dexterity save failed.*necrotic damage.*Blinded until the end of the next round/s);
+ await choose('swarm-form');await swarm().getByRole('button',{name:'Use Swarm Form',exact:true}).click();assert.match(await swarm().locator('[data-swarm-action="swarm-form"]').innerText(),/Active.*Used/s);await swarm().getByRole('button',{name:'End Swarm Form (bonus action)',exact:true}).click();assert.match(await swarm().locator('[data-swarm-action="swarm-form"]').innerText(),/Used/);
+ await swarm().getByRole('button',{name:'Short rest · recover Population',exact:true}).click();assert(await page.getByRole('button',{name:'Complete short rest',exact:true}).isVisible());await page.getByRole('button',{name:'Complete short rest',exact:true}).click();assert(await swarm().getByRole('button',{name:'Use Swarm Form',exact:true}).isDisabled());
+ await swarm().getByRole('button',{name:'Long rest · refill Population',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();assert.match(await swarm().locator('[data-swarm-action="swarm-form"]').innerText(),/Ready/);await reopen();assert.equal(await count().innerText(),'24 / 24');
+ await choose('bug-swarm');mkdirSync('test-results',{recursive:true});await swarm().screenshot({path:'test-results/entomancer-play-flow-desktop.png'});await page.setViewportSize({width:390,height:844});await swarm().screenshot({path:'test-results/entomancer-play-flow-mobile.png'});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);
+ await page.locator('input[type=file]').setInputFiles({name:'singer.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({...base,name:'Song feedback',entomancer:{...base.entomancer,species:'Orthoptera',instrument:'Lute'}}))});await page.locator('.sheet-identity').filter({hasText:'Song feedback'}).waitFor();
+ await choose('sonnet');assert(await swarm().getByRole('button',{name:'Use Sonic Sonnet',exact:true}).isDisabled());assert.match(await swarm().locator('[data-swarm-action="sonnet"]').innerText(),/Start Harmonize first/);
+ await choose('harmonize');await swarm().getByRole('button',{name:'Use Harmonize',exact:true}).click();await choose('sonnet');await swarm().getByLabel('Target or corpse name',{exact:true}).fill('Goblin');await swarm().getByRole('button',{name:'Use Sonic Sonnet',exact:true}).click();assert.match(await result.innerText(),/Wisdom save.*psychic damage/s);
+ await choose('serenade');await swarm().getByLabel('Target or corpse name',{exact:true}).fill('Ally');await swarm().getByLabel('Ally can hear the song').check();await swarm().getByRole('button',{name:'Use Soothing Serenade',exact:true}).click();assert.match(await result.innerText(),/4 HP healing/);assert.deepEqual(errors,[]);
+ console.log('PASS ability cards, full rules, saved Bug Swarm result, both rest entrances, fed/unfed previews, short/long daily resets and phone layout');
+}finally{await browser.close();await server.close();}
