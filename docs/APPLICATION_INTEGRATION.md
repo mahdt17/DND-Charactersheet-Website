@@ -159,7 +159,7 @@ Rules references:
 Pact spending/recovery, legacy migration, ability overrides and alternative ability
 prerequisites. The integration browser suite exercises both editions, including
 Fighter-to-Rogue advancement, independent casting abilities, both slot pools,
-rest recovery and personal slot overrides.
+rest recovery and source-calculated slot totals.
 
 `tests/integration-foundation.mjs` covers all 12,891 promoted records, caching,
 counts, identities, immutability, contamination, legacy migration, class branching,

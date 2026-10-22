@@ -40,7 +40,7 @@ try {
  assert(e.spellAccess(grants,named('Magic Missile')).allowed);assert(!e.spellAccess(grants,named('Fireball')).allowed);
  assert(!e.spellAccess({...grants,spellAccessGrants:[]},named('Magic Missile')).allowed);
  assert(!e.spellAccess({...cleric,ruleset:'custom'},named('Magic Missile')).allowed);
- assert(e.spellAccess({...cleric,ruleset:'custom',unrestrictedSpellAccess:true},named('Magic Missile','2024')).allowed);
+ assert(!e.spellAccess({...cleric,ruleset:'custom',unrestrictedSpellAccess:true},named('Magic Missile','2024')).allowed);
  const c35=make('Cleric','3.5',1),profile=integration.spellSlotProgression(c35.classDefinition,1);
  assert.equal(profile.slots[1],1);assert.equal(profile.restrictedSlots[1],1);assert.deepEqual(profile.unlockedSpellLevels,[0,1]);
  assert.equal(e.characterSlots(c35)[1],2,'Wisdom adds a bonus slot, separately from the domain slot');
@@ -93,5 +93,5 @@ try {
   assert(!e.spellAccess(c,sentinel).allowed,record.name);
   if(!spells35.some(s=>(s.classes||[]).includes(record.name)))noMembership++;
  }
- console.log(`PASS ${checked} core class/level combinations, all ${classes35.length} legacy classes reject unrelated spells, multiclass, grants, custom opt-in, Artificer and 3.5 slot parsing. ${noMembership} legacy classes have no directly named spell list (includes noncasters and prestige classes).`);
+ console.log(`PASS ${checked} core class/level combinations, all ${classes35.length} legacy classes reject unrelated spells, multiclass, grants, Custom source restrictions, Artificer and 3.5 slot parsing. ${noMembership} legacy classes have no directly named spell list (includes noncasters and prestige classes).`);
 } finally {await server.close();}

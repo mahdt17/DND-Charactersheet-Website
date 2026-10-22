@@ -1,3 +1,4 @@
+import ClassSpellLimits from './ClassSpellLimits';
 import {effectiveAbilityScores as effectiveAbilities} from './lib/abilityScores';
 import LevelUpFeatChoice from './LevelUpFeatChoice';
 import {validFeatSelection} from './lib/featSelection';
@@ -1050,7 +1051,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
           </>}
           {isSpell && <>
             <CreationStepHeader eyebrow="Spellcasting" title="Choose your new spells" description="Only spells available to your class are shown. Your current selections remain on the character sheet, and new choices are added automatically when you finish leveling up."/>
-            {cantripGain > 0 && <SpellPicker title="New cantrips" spells={cantripCandidates.filter(s=>!currentCantrips.includes(s.name))} selected={newCantrips} limit={cantripGain} onToggle={name=>toggleChoice(name,newCantrips,setNewCantrips,cantripGain)}/>}
+            <ClassSpellLimits char={accessModel} score={effectiveNextAbilities[castingKey(accessModel)]||10}/>{cantripGain > 0 && <SpellPicker title="New cantrips" spells={cantripCandidates.filter(s=>!currentCantrips.includes(s.name))} selected={newCantrips} limit={cantripGain} onToggle={name=>toggleChoice(name,newCantrips,setNewCantrips,cantripGain)}/>}
             {knownLimit > 0 && <SpellPicker title="New spells" spells={spellCandidates.filter(s=>s.level>0&&!currentChosen.includes(s.name))} selected={newSpells} limit={knownLimit} onToggle={name=>toggleChoice(name,newSpells,setNewSpells,knownLimit)}/>}
             {counts?.mode === "prepared" && <SpellPicker title="Prepared spells" spells={spellCandidates.filter(s=>s.level>0)} selected={normalPrepared} limit={preparedLimit} onToggle={name=>setPreparedSpells(normalPrepared.includes(name)?normalPrepared.filter(n=>n!==name):normalPrepared.length<preparedLimit?[...normalPrepared,name]:normalPrepared)}/>}
           </>}

@@ -86,8 +86,9 @@ the evidence and limits. Catalog-wide test coverage is not a claim that all
   zero represents an unlocked spell level; a dash does not. Base slots in `1+1`
   are parsed separately from restricted domain slots.
 - Source-reviewed 3.5 casters receive ability bonus slots only for already
-  unlocked spell levels. Each class retains independent spent slots and personal
-  slot overrides, including older saves that recorded primary slots separately.
+  unlocked spell levels. Each class retains independent spent slots, including
+  older saves that recorded primary slots separately. Manual totals are retained
+  only for progressions without verified automatic rules.
 - Artificer uses its source table, Intelligence preparation limit, and rounded-up
   half-level contribution to multiclass slots.
 - Source-reviewed Life domain, Devotion oath and Circle of the Land spells are
@@ -104,8 +105,8 @@ the evidence and limits. Catalog-wide test coverage is not a claim that all
   removed with a named source. This grants access, not extra preparation capacity
   or free casting. Missing class spell-level progression requires such an explicit
   source review rather than unrestricted selection.
-- Custom characters must opt in to unrestricted cross-class/edition spell access,
-  during creation or spell management.
+- Custom characters follow source class limits and editions. Saved unrestricted
+  flags do not bypass those limits; specific source grants remain available.
 - Previously saved ineligible spells remain visible for review/removal and cannot
   be cast. Removing a class also removes its explicit access grants and primary
   spells from legacy saves; independent racial spells survive.

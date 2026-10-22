@@ -72,13 +72,25 @@ function reviewedFeatureRows(record,{exact=false}={}){
   return Array.isArray(rows)?rows:[];
 }
 
+// Source-reviewed fixed abilities for daily matrices whose imported table lost
+// the surrounding rules. Each key is the matching page under
+// https://new.dndtools.org/; Artificer infusions are neither arcane nor divine.
+const fixedDailyCasting35={
+  'classes/artificer-36':{name:'Artificer',ability:'int',traditions:[]},
+  'classes/cultist-of-the-shattered-peak-540':{name:'Cultist of the Shattered Peak',ability:'int',traditions:['arcane']},
+  'classes/ocular-adept-490':{name:'Ocular Adept',ability:'wis',traditions:['divine']},
+  'classes/shaman-85':{name:'Shaman',ability:'wis',traditions:['divine']}
+};
+
 // Qualification needs exact reviewed source metadata, not display-name defaults.
 export function reviewedSpellcasting35(record,level){
   const rows=reviewedFeatureRows(record,{exact:true}).filter(feature=>
     ['arcane','divine'].includes(feature.castingTradition)&&featureLevel(feature)<=level
     &&!featureSuppressed(record,feature.name,featureLevel(feature)));
   const unique=key=>{const values=[...new Set(rows.map(row=>row[key]).filter(Boolean))];return values.length===1?values[0]:null;};
-  return {traditions:[...new Set(rows.map(row=>row.castingTradition))],ability:record?.spellcastingAbility||unique('spellAccessAbility'),bonusAbility:unique('bonusSpellAbility')};
+  const sourceId=String(record?.sourceId||record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
+  const source=fixedDailyCasting35[sourceId],fixed=source?.name===record?.name&&level>=1?source:null;
+  return {traditions:[...new Set([...rows.map(row=>row.castingTradition),...(fixed?.traditions||[])])],ability:record?.spellcastingAbility||unique('spellAccessAbility')||fixed?.ability||null,bonusAbility:unique('bonusSpellAbility')||fixed?.ability||null};
 }
 function reviewedFeatureRow(record,name){
   const key=featureMatchKey(name),rows=reviewedFeatureRows(record);
@@ -210,17 +222,34 @@ function tableFeatureCells(record,maximum){
   return grants;
 }
 
+// These exact source pages describe mechanics that a daily-slot matrix cannot
+// represent. Their imported tables discarded the semantic captions/prose.
+const manualSlotSources35={
+  'classes/gnome-artificer-564':{name:'Gnome Artificer',reason:'Device Powers Known, not daily spell slots.'},
+  'classes/shadowcaster-113':{name:'Shadowcaster',reason:'Daily uses apply separately to each known mystery.'},
+  'classes/chameleon-705':{name:'Chameleon',reason:'Daily casting and its bonus ability depend on the active aptitude focus.'},
+  'classes/maho-tsukai-637':{name:'Maho-tsukai',reason:'Spell access and bonus spells depend on Taint, not a standard ability.'}
+};
+
+export function manualSpellProgression35(record){
+  const sourceId=String(record?.sourceId||record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
+  const source=manualSlotSources35[sourceId];
+  return source&&source.name===record?.name?source.reason:null;
+}
+
 export function spellSlotProgression(record,maximum){
+  if(manualSpellProgression35(record))return null;
   const spellLevel=value=>{
     const text=String(value||'').trim().toLowerCase();
-    if(text==='0'||text==='0th')return 0;
+    if(/^[0-9]$/.test(text))return Number(text);
+    if(text==='0th')return 0;
     const match=text.match(/^([1-9])(?:st|nd|rd|th)$/);
     return match?Number(match[1]):null;
   };
   let best=null;
   for(const table of progressionTables(record)){
     if(!Array.isArray(table)||!table.length)continue;
-    if(table.slice(0,3).some(row=>row.some(value=>/^spells? known$/i.test(String(value).trim()))))continue;
+    if(table.slice(0,5).some(row=>row.some(value=>/^(?:(?:arcane|divine|device)\s+)?(?:spells?|powers?|mysteries|invocations?|maneuvers?|stances)\s+known$|^mystery level$/i.test(String(value).trim()))))continue;
     let headerIndex=-1,levelIndex=-1,header=[];
     for(let i=0;i<Math.min(5,table.length);i++){
       const row=table[i]||[];
@@ -231,11 +260,15 @@ export function spellSlotProgression(record,maximum){
     let mappings=header.map((value,index)=>({spellLevel:spellLevel(value),index})).filter(item=>item.spellLevel!=null);
     let dataStart=headerIndex+1;
     if(mappings.length<2){
-      const umbrella=header.findIndex(value=>/spellcasting|spells? per day/i.test(String(value)));
+      const umbrella=header.findIndex(value=>/spellcasting|(?:spells?|infusions?) per day/i.test(String(value)));
       for(let i=headerIndex+1;umbrella>=0&&i<Math.min(headerIndex+4,table.length);i++){
         const sub=(table[i]||[]).map(spellLevel);
-        const levels=sub.map((level,index)=>({spellLevel:level,index:umbrella+index})).filter(item=>item.spellLevel!=null);
-        if(levels.length>=2){mappings=levels;dataStart=i+1;break;}
+        // A subheader consists entirely of successive spell-level labels.
+        // Class data also contains ordinals and zeroes (maneuvers, BAB, etc.)
+        // and must never be interpreted as a daily-slot header.
+        if(sub.length<2||!sub.every((level,index)=>level!=null&&(index===0||level===sub[index-1]+1)))continue;
+        mappings=sub.map((level,index)=>({spellLevel:level,index:umbrella+index}));
+        dataStart=i+1;break;
       }
     }
     if(mappings.length<2)continue;
@@ -278,7 +311,7 @@ function castingAdvancementGrants(record,classLevel){
     if(!row)continue;
     for(const index of indexes){
       const value=String(row[index]??'').trim();
-      if(!/\+\s*1\s+level/i.test(value))continue;
+      if(!/\+\s*1\s+level\b|\+\s*1\s+(?:(?:arcane|divine)\s+)?spellcast(?:er|ing)\s+level\b/i.test(value))continue;
       const lower=value.toLowerCase(),kinds=[];
       if(/arcane/.test(lower))kinds.push('arcane');
       if(/divine/.test(lower))kinds.push('divine');
@@ -302,10 +335,7 @@ function supportsSpellcastingAdvancement(row,kind='spellcasting'){
   if(kind==='spellcasting')return true;
   // Use reviewed source features (including explicitly bound inheritance),
   // never a class name or mentions of another tradition in arbitrary prose.
-  return reviewedFeatureRows(record).some(feature=>
-    feature.castingTradition===kind&&featureLevel(feature)<=level
-    &&!featureSuppressed(record,feature.name,featureLevel(feature))
-  );
+  return reviewedSpellcasting35(record,level).traditions.includes(kind);
 }
 
 export function castingAdvancementPlan(character,record,nextClassLevel){

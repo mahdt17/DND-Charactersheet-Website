@@ -3,7 +3,7 @@
 export const castingSubclassNames={Fighter:'Eldritch Knight',Rogue:'Arcane Trickster'};
 const known=[0,0,0,3,4,4,4,5,6,6,7,8,8,9,10,10,11,11,11,12,13];
 export function subclassCasting(c){
- const edition=c.classDefinition?.edition||c.ruleset||'2014';
+ const edition=c.classDefinition?.edition||(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
  if(!['2014','2024'].includes(edition)||String(c.subclass||'').trim().toLowerCase()!==castingSubclassNames[c.className]?.toLowerCase())return null;
  const level=Math.max(0,Math.min(20,Math.trunc(Number(c.level)||0))),active=level>=3;
  const slots=[0,...(level>=19?[4,3,3,1]:level>=16?[4,3,3]:level>=13?[4,3,2]:level>=10?[4,3]:level>=7?[4,2]:level>=4?[3]:active?[2]:[])];

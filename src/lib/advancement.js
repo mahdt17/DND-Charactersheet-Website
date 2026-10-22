@@ -219,7 +219,7 @@ export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,s
   if((c.ruleset==='custom'?c.mechanics:c.ruleset)!=='3.5'&&(rows.length===1||c.hitDiceUsedByClass))Object.assign(next,setSpentHitDice(c,{}));
   // Single-class Warlock saves previously tracked Pact Magic in slotsUsed.
   // Move, rather than replenish, that expenditure when a second class is added.
-  if(rows.length===1&&classLevels.length===2&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset||'2014')&&!Array.isArray(c.slotOverride)) {
+  if(rows.length===1&&classLevels.length===2&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset==='custom'?(c.mechanics||'2014'):(c.ruleset||'2014'))) {
     next.pactSlotsUsed={...c.slotsUsed,...c.pactSlotsUsed};next.slotsUsed={};
   }
   if(row.edition==='3.5'&&(c.ruleset==='3.5'||c.mechanics==='3.5')) {

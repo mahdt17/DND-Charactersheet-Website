@@ -6,6 +6,7 @@ import classReviewedMartialOverrides35 from '../data/class-reviewed-overrides-35
 import classSourceCorrections35 from '../data/class-source-corrections35.json' with {type:'json'};
 import {reviewedWave35Override} from './reviewedClassWave35.js';
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
+import {refreshEntomancerSpell} from './entomancerSpellDetails.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
 export const isBoilerplate = value => /logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators/i.test(String(value || ''));
 function freeze(value) {
@@ -13,6 +14,7 @@ function freeze(value) {
   return value;
 }
 export function normalizeCatalogRecord(row, source, category) {
+  if(source==='wikidot5e'&&category==='spells')row=refreshEntomancerSpell(row);
   const catalogId=row.catalogId||(source==='dndtools'?`dndtools:${row.id}`:row.id);
   const integrityIssues=['effect','effectSummary','description'].filter(k=>isBoilerplate(row[k])).map(k=>`Invalid source text in ${k}`);
   const descriptionOverride=source==='dndtools'?descriptionOverrides35.entries?.[row.id]:null;
