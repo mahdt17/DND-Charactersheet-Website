@@ -28,3 +28,9 @@ c=ready(20);assert.match(S(c,{actionId:'apex-attack'}).selected.unavailableReaso
 c=ready(18,'Decomposers',{hp:{current:0,max:100,temp:0}});assert(S(c,{actionId:'dead-man'}).selected.available);assert(!S(c,{actionId:'pestilence'}).selected.available);
 c=ready(18,'Decomposers',{resources:[{id:populationId,used:24}]});assert(S(c,{actionId:'entomancy'}).selected.available);assert(!S(c,{actionId:'bug-swarm'}).selected.available);
 console.log('PASS shared Swarm model: species/levels, costs, explicit saves, validation, conditional refunds, purity, imports and eligibility');
+c=A(ready(),'infest',{target:'First',type:'humanoid',points:1,success:false});c=A(c,'infestation-damage',{id:c.entomancer.targets[0].id,distance:60},()=>0);assert.equal(c.entomancer.lastAction.id,'infestation-damage');assert.equal(c.entomancer.lastAction.damage,1);assert.equal(c.entomancer.lastAction.target,'First');
+c=A(ready(18,'Endo-Gotas'),'latch',{target:'Host',type:'humanoid',grappled:true});c=A(c,'hemo',{actualDamage:7});assert.equal(c.entomancer.lastAction.damage,7);assert.equal(c.entomancer.lastAction.healing,7);
+c=A(c,'pure-terror',{target:'Host',success:false});const used=entomancerProfile(c).used;c=A(c,'terror-save',{target:'Second',success:true});assert.equal(entomancerProfile(c).used,used);assert.equal(c.entomancer.lastAction.saveSucceeded,true);
+c=A(ready(20),'swarm-form');c=A(c,'apex-attack',{target:'Boss'},()=>0);c=A(c,'apex-hit',{hit:true});assert.equal(c.entomancer.lastAction.damage,50);
+c=A(ready(),'summon',{target:'Scout'});c=A(c,'return-swarm',{id:c.entomancer.summons[0].id});assert.equal(c.entomancer.lastAction.populationRestored,2);assert.equal(c.entomancer.lastAction.target,'Scout');assert.throws(()=>A(c,'return-swarm',{id:'removed'}));
+console.log('PASS turn-triggered damage/healing, Terror/Apex results, and one-shot return feedback');
