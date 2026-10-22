@@ -407,3 +407,10 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
   .sheet-vitals { grid-template-columns:2fr repeat(5,1fr); }
   .temp-hp-more { display:none; }
 }
+
+/* Creature health uses the saved companion HP, shared with damage controls. */
+.entomancer-swarm .swarm-creature-health { margin:12px 0; }
+.swarm-creature-health-label { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 12px; margin-bottom:6px; font-size:13px; }
+.swarm-creature-hp-meter { height:12px; overflow:hidden; border-radius:999px; background:var(--surface-2); border:1px solid var(--border); }
+.swarm-creature-hp-meter>span { display:block; height:100%; border-radius:inherit; background:var(--health); }
+.swarm-creature-hp-meter.is-low>span { background:var(--accent); }
