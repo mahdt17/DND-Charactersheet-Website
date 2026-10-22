@@ -1,3 +1,4 @@
+import {isEladrin} from './eladrin.js';
 import races from '../data/races.json';
 
 export const standard14=['Common','Dwarvish','Elvish','Giant','Gnomish','Goblin','Halfling','Orc'];
@@ -32,7 +33,7 @@ export function languagePlan(c,intelligence=10) {
     const extra=c.className==='Cleric'?['Abyssal','Celestial','Infernal']:c.className==='Druid'?['Sylvan']:c.className==='Wizard'?['Draconic']:[];
     choice('intelligence',`${c.race} / Intelligence`,Math.max(0,Math.floor((intelligence-10)/2)),[...race[1],...extra]);
   } else {
-    const race=races.find(r=>r.name===c.race);if(!race)return {automatic,groups,manual:true};
+    const race=races.find(r=>r.name===c.race)||(isEladrin(c)?{languages:[{name:'Common'}],language_options:{choose:1}}:null);if(!race)return {automatic,groups,manual:true};
     grant((race.languages||[]).map(x=>x.name),c.race);
     const options=c.allowExoticLanguages?[...standard14,...exotic14,'Druidic',"Thieves' Cant"]:standard14;
     choice('race',c.race,race.language_options?.choose||0,options);
