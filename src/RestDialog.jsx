@@ -1,4 +1,4 @@
-import {entomancerLevel} from './lib/entomancer';
+import {entomancerLevel,entomancerProfile} from './lib/entomancer';
 import {characterResources,restResources} from './lib/resources';
 import React, {useState} from 'react';
 import Modal from './Dialog';
@@ -14,17 +14,20 @@ import {hitDicePools,needsHitDiceReview,recoveryLimit,defaultRecovery,setSpentHi
 function Count({label,value=0,max,onChange,disabled=false}) {
   return <label className="l-field"><span>{label}</span><input type="number" min="0" max={max} step="1" disabled={disabled} value={value} onChange={e=>onChange(Math.max(0,Math.min(max,Math.floor(Number(e.target.value)||0))))}/></label>;
 }
-export default function RestDialog({char,patch,roll,constitution,abilities,onClose}) {
-  const [fed,setFed]=useState(false);
+export default function RestDialog({char,patch,roll,constitution,abilities,onClose,initialRest}) {
+  const [fed,setFed]=useState(()=>entomancerLevel(char)>0);
   const [meditated,setMeditated]=useState(false),[restoreSorcery,setRestoreSorcery]=useState(false);
   const resources=characterResources(char,abilities);
-  const [rest,setRest]=useState(is35(char)?'long':'short');
+  const [rest,setRest]=useState(is35(char)?'long':initialRest==='long'?'long':'short');
   const [spending,setSpending]=useState({}),[recovery,setRecovery]=useState(()=>defaultRecovery(char));
   const [recoverExhaustion,setRecoverExhaustion]=useState(false),[error,setError]=useState(''),[lastRoll,setLastRoll]=useState(null);
   const pools=hitDicePools(char),legacy=is35(char),revised=mechanics(char)==='2024',exhaustion=exhaustionLevel(char);
   const recoveryTotal=Object.values(recovery).reduce((n,v)=>n+v,0),limit=recoveryLimit(char);
   const excess=rest==='long'&&!revised&&recoveryTotal>limit;
   const needsReview=needsHitDiceReview(char);
+  const swarm=entomancerProfile(char);
+  let populationAfter=null;
+  if(swarm.level&&!char.entomancer?.dead){try{populationAfter=entomancerProfile({...char,...restResources(char,rest,{fed,meditated,restoreSorcery},abilities)}).remaining;}catch{}}
   function spend(inline=false) {
     const results=[];
     const {healing,...counts}=spendHitDice(char,spending,modifier(constitution),(expression,label,options)=>{
@@ -65,7 +68,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
     </div>
     <p>{legacy?'After a full night of qualifying rest, recover your level in hit points. Prepared spell slots remain spent until daily study or prayer; account for casts in the last 8 hours. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared. Any 3.5 prepared spells still require daily study or prayer.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
     {!legacy&&<>
-      {entomancerLevel(char)>0&&<label className="l-check"><input type="checkbox" checked={fed} onChange={e=>setFed(e.target.checked)}/>Swarm was fed during this rest</label>}
+      {swarm.level>0&&<section className="rest-population" aria-label="Swarm recovery"><h3>Population recovery</h3><label className="l-check"><input type="checkbox" checked={fed} onChange={e=>setFed(e.target.checked)}/>Swarm was fed during this rest</label><p>A fed long rest fully refills Population. Uncheck this only if the swarm had no food.</p>{populationAfter!=null&&<p role="status" aria-label="Population recovery preview"><strong>{swarm.remaining} → {populationAfter} / {swarm.max} Population</strong>{rest==='long'&&!fed?' · No full refill without food.':` · Recover ${Math.max(0,populationAfter-swarm.remaining)}.`}</p>}{rest==='long'&&<p className="l-muted">Daily abilities recharge. Hungry Mouths also requires feeding.</p>}</section>}
       {resources.some(r=>r.meditation&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={meditated} onChange={e=>setMeditated(e.target.checked)}/>Meditated for at least 30 minutes (recover Ki Points)</label>}
       {rest==='short'&&resources.some(r=>r.restoration&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={restoreSorcery} disabled={!!char.sorcerousRestorationUsed} onChange={e=>setRestoreSorcery(e.target.checked)}/>Use Sorcerous Restoration{char.sorcerousRestorationUsed?' (already used until a long rest)':''}</label>}
       {needsReview&&<p className="l-notice">This older save recorded only a total of {char.hitDiceUsed} spent hit dice. They are provisionally assigned in class order. Review the spent dice below before resting.</p>}

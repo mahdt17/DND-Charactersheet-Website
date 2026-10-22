@@ -2,6 +2,16 @@
 
 ## Swarm resource dashboard
 
+### Play flow redesign — 2026-10-21
+
+The panel starts with available/spent Population and separate short- and long-rest shortcuts. A rest opens directly to the selected type. Feeding is visibly checked by default for an Entomancer; the dialog previews the exact before/after Population using the same recovery calculation as completion. Unchecking feeding preserves the source's unfed-rest restriction. A fed long rest fully restores Population at every class level, and resets daily abilities. Other classes retain their existing rest defaults.
+
+Clickable ability cards replace the dropdown and show cost, readiness, daily use, active state and key prerequisites. Selecting a card shows complete play instructions: activation, range, saves, damage, durations, refunds and table rulings. Ongoing effects appear near Population; targets and detailed records stay collapsed below.
+
+Bug Swarm now saves and displays its latest target, roll, Constitution save outcome, damage after save rounding and Population spent. It is an immediate attack, distinct from Swarm Summon and Swarm Form. Pestilence, Entomancy, Crawling Sensation, Sonic Sonnet and Soothing Serenade also show their per-use outcomes without opening target records. Last action results survive reopening and clear after a long rest.
+
+New regressions: `tests/entomancer-feedback.mjs` and `tests/browser-entomancer-feedback.mjs`, included in the Entomancer test commands. They cover descriptions for all species' actions, saved per-use results, both rest entry points, fed/unfed previews, daily resets, levels 1–20 recovery, and mobile layout.
+
 Population has one primary control inside the Swarm panel, with an available/maximum count, accessible meter, visible short/long-rest recovery rules, and a direct rest shortcut. Manual spending/restoring stays in a collapsed section and uses the same source-owned reserve as abilities and refunds. Other counters remain under a separate collapsed section; editing or removing those counters preserves Population expenditure.
 
 The ability picker shows Population costs, including variable costs and level-dependent Corpse Jacker costs. Limited-use abilities display their saved availability and reset requirements. Active effects use readable names and show remaining rounds; controlled creatures, target conditions, setup/rulings and elapsed-time/history controls remain available. On narrow screens, ability selection and target fields stack vertically.
