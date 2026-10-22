@@ -1,6 +1,6 @@
 # Entomancer Swarm workspace
 
-Status: design ready for user review; implementation has not started.
+Status: approved by the user on 2026-10-21; implementation plan awaiting review.
 
 ## Purpose and agreed direction
 
