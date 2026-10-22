@@ -3,11 +3,11 @@ import EntomancerCompanions from './EntomancerCompanions';
 import React,{useState,useRef} from 'react';
 import {effectiveAbilityScores} from './lib/abilityScores';
 import {entomancerSpecies,entomancerInstruments,entomancerSource} from './data/entomancer';
-import {entomancerProfile,entomancerSkillRank,entomancerFeatureRows,entomancerStartsCharacter,entomancerActionBlockReason,entomancerSongSaves} from './lib/entomancer';
+import {entomancerChoicesComplete,entomancerProfile,entomancerSkillRank,entomancerFeatureRows,entomancerStartsCharacter,entomancerActionBlockReason,entomancerSongSaves} from './lib/entomancer';
 import {availableEntomancerActions,applyEntomancerAction} from './lib/entomancerActions';
 const Field=({label,children})=><label className="l-field"><span>{label}</span>{children}</label>;
 const Choice=({label,value,options,onChange})=><Field label={label}><select aria-label={label} value={value||''} onChange={e=>onChange(e.target.value)}><option value="">Choose…</option>{options.map(x=><option key={x}>{x}</option>)}</select></Field>;
-export function entomancerChoicesComplete(c,{startingClass=entomancerStartsCharacter(c)}={}){const p=entomancerProfile(c),s=c.entomancer||{};return !p.level||entomancerSpecies.includes(s.species)&&(!startingClass||['Herbalism Kit','Poisoner’s Kit'].includes(s.tool))&&(s.species!=='Orthoptera'||entomancerInstruments.includes(s.instrument))&&(p.level<3||['Dry','Humid'].includes(s.moisture)&&['Hot','Cold'].includes(s.temperature));}
+export {entomancerChoicesComplete} from './lib/entomancer';
 export function EntomancerChoices({char,patch,startingClass=entomancerStartsCharacter(char)}){
  const p=entomancerProfile(char),s=char.entomancer||{};if(!p.level)return null;
  const change=(key,value)=>patch({entomancer:{...s,[key]:value}});
