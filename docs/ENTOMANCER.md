@@ -1,5 +1,13 @@
 # Entomancer implementation
 
+## Swarm resource dashboard
+
+Population has one primary control inside the Swarm panel, with an available/maximum count, accessible meter, visible short/long-rest recovery rules, and a direct rest shortcut. Manual spending/restoring stays in a collapsed section and uses the same source-owned reserve as abilities and refunds. Other counters remain under a separate collapsed section; editing or removing those counters preserves Population expenditure.
+
+The ability picker shows Population costs, including variable costs and level-dependent Corpse Jacker costs. Limited-use abilities display their saved availability and reset requirements. Active effects use readable names and show remaining rounds; controlled creatures, target conditions, setup/rulings and elapsed-time/history controls remain available. On narrow screens, ability selection and target fields stack vertically.
+
+The cleanup preserves class calculations, source rulings, saved values and action execution. Browser regression `tests/browser-entomancer-resources.mjs` checks spending, armor refunds, manual adjustments, fed recovery, once-per-rest states, zero-cost actions, editing other counters, persistence and mobile layout. It runs with the full Entomancer browser suite or `npm run test:browser:entomancer-resources`.
+
 Source: [Dandwiki Entomancer](https://www.dandwiki.com/wiki/Entomancer_(5e_Class)), reviewed 2026-10-15. This is an explicitly identified **2014 homebrew** class, separate from official classes and the 1,054-record D&D 3.5 audit.
 
 ## Supported play
