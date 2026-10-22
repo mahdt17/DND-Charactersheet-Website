@@ -1,3 +1,4 @@
+import {openSwarm,selectSwarmAbility,setSwarmSave} from './helpers/entomancer-workspace.mjs';
 import assert from 'node:assert/strict';
 import {test,before,after} from 'node:test';
 import {chromium} from 'playwright';
@@ -77,21 +78,22 @@ test('hit point controls explain the amount and announce the resulting HP',async
 test('swarm play comes before reference settings and resolves actions with clear feedback',async t=>{
  const page=await openDemo(t);await importSwarm(page);
  const panel=page.getByRole('region',{name:'Entomancer swarm'}),ability=page.locator('[data-swarm-action="pestilence"]');
- const reference=panel.getByText('Swarm choices & table rulings',{exact:true});
- assert((await ability.boundingBox()).y<(await reference.boundingBox()).y);
+ assert.equal(await panel.getByText('Swarm choices & table rulings',{exact:true}).count(),0,'reference settings stay in Recovery');
+ assert(await ability.isVisible());
  assert.equal(await page.getByLabel('Target creature type',{exact:true}).count(),0,'pestilence does not ask for an unused type');
- await page.getByLabel('Target or corpse name').fill('Guard');await page.getByRole('button',{name:'Use Glaring Pestilence',exact:true}).click();
+ await page.getByLabel('Target or corpse name').fill('Guard');await setSwarmSave(page,false);await page.getByRole('button',{name:'Use Glaring Pestilence',exact:true}).click();
  assert.match(await panel.getByRole('status').innerText(),/Glaring Pestilence/);
  assert.equal(await page.getByRole('group',{name:'Population resource'}).locator('.resource-count').innerText(),'13 / 14');
  const resource=page.getByRole('group',{name:'Population resource'});
  assert.match(await resource.innerText(),/Long rest.*fed/s);
- await resource.getByText('Adjust Population manually',{exact:true}).click();
- await resource.getByLabel('Population amount').fill('5');await resource.getByRole('button',{name:'Restore Population',exact:true}).click();
- assert.match(await resource.getByRole('status').innerText(),/1 Population restored/);
+ await openSwarm(page,'recovery');const recovery=panel.getByRole('region',{name:'Swarm recovery',exact:true});await recovery.getByText('Adjust Population manually',{exact:true}).click();
+ await recovery.getByLabel('Population amount').fill('5');await recovery.getByRole('button',{name:'Restore Population',exact:true}).click();
+ assert.match(await recovery.getByRole('status').innerText(),/1 Population restored/);
 });
 
 test('completing swarm setup keeps focus on the edited choice',async t=>{
  const page=await openDemo(t);await importSwarm(page,{entomancer:{...swarm.entomancer,tool:''}});
+ await page.getByRole('button',{name:'Complete swarm setup',exact:true}).click();
  const tool=page.getByLabel('Entomancer tool proficiency');
  await tool.focus();await tool.selectOption('Herbalism Kit');
  assert.equal(await tool.evaluate(el=>el===document.activeElement),true);

@@ -1,7 +1,7 @@
 import React,{useRef,useState} from 'react';
 import {entomancerSource} from '../data/entomancer';
 import {swarmSubsystem} from '../lib/entomancerSubsystem';
-import {applyEntomancerAction} from '../lib/entomancerActions';
+import {applyEntomancerAction,availableEntomancerActions} from '../lib/entomancerActions';
 import EntomancerPopulation from '../EntomancerPopulation';
 import EntomancerCompanions from '../EntomancerCompanions';
 import SwarmAbilities from './SwarmAbilities';
@@ -11,7 +11,8 @@ import SwarmResult from './SwarmResult';
 const sections={abilities:'Abilities',active:'Active',creatures:'Creatures',recovery:'Recovery'};
 export default function SwarmWorkspace({char,patch,roll,onRest,ui,onUiChange}){
  const [error,setError]=useState(''),[notice,setNotice]=useState(''),heading=useRef(null);
- const model=swarmSubsystem(char,{actionId:ui.actionId,inputs:ui.inputsByAction[ui.actionId]});if(!model.supported)return null;
+ const legal=availableEntomancerActions(char),actionId=legal.find(a=>a.id===ui.actionId)?.id||legal.find(a=>a.id==='pestilence')?.id||legal[0]?.id;
+ const model=swarmSubsystem(char,{actionId,inputs:ui.inputsByAction[actionId]});if(!model.supported)return null;
  const onSection=(section,disclosure=null)=>{onUiChange(u=>({...u,section,recoveryDisclosure:disclosure||u.recoveryDisclosure}));requestAnimationFrame(()=>heading.current?.focus({preventScroll:true}));};
  const onRun=(id,inputs={})=>{try{const next=patch(current=>{const currentModel=swarmSubsystem(current,{actionId:id,inputs});if(currentModel.actions.some(a=>a.id===id)&&!currentModel.selected.canResolve)throw Error(currentModel.selected.unavailableReason||Object.values(currentModel.selected.errors)[0]);return applyEntomancerAction(current,id,inputs);});setError('');setNotice(next?.entomancer?.lastAction?.id===id?'':next?.entomancer?.log?.at(-1)||'Swarm updated.');}catch(e){setError(e.message);setNotice('');}};
  return <section className="l-panel entomancer-swarm swarm-workspace" aria-label="Entomancer swarm"><header className="swarm-heading"><div><span className="l-eyebrow">YOUR SWARM</span><h2>Swarm</h2><p>{model.profile.species||'Choose a species'} · Level {model.profile.level}</p></div><a href={entomancerSource} target="_blank" rel="noreferrer">Class rules ↗</a></header>
