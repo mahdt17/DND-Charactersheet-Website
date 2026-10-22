@@ -1,3 +1,4 @@
+import {openSwarm,selectSwarmAbility,setSwarmSave} from './helpers/entomancer-workspace.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
@@ -27,35 +28,35 @@ try{
  const cantrips=page.getByRole('region',{name:'Cantrips',exact:true});await selectSpell(cantrips,'Guidance');await selectSpell(cantrips,'Druidcraft');await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'Entomancer Creation'}).waitFor();
  assert.equal(await population().innerText(),'2 / 2');let created=await saved('Entomancer Creation');assert.equal(created.saveProf.con,true);assert.equal(created.saveProf.wis,true);assert.equal(created.spells.length,2);assert.equal(created.hitDie,'d8');assert(created.inventory.some(i=>i.equipmentIndex==='leather-armor'));
  await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices'}).click();await next();const additions=page.getByRole('region',{name:'New spells',exact:true});for(const name of ['Cure Wounds','Entangle','Fog Cloud'])await selectSpell(additions,name);await next();await page.getByRole('button',{name:'Apply level up'}).click();await page.locator('.sheet-heading').filter({hasText:'Entomancer 2'}).waitFor();assert.equal(await population().innerText(),'3 / 3');
- await importChar(base);await page.getByRole('tab',{name:'Actions',exact:true}).click();assert.equal(await population().innerText(),'24 / 24');
- await page.getByLabel('Swarm ability').selectOption('bug-armor');await page.getByRole('button',{name:'Use Bug Armor',exact:true}).click();assert.equal(await population().innerText(),'21 / 24');
+ await importChar(base);await openSwarm(page);assert.equal(await population().innerText(),'24 / 24');
+ await selectSwarmAbility(page,'bug-armor');await page.getByRole('button',{name:'Use Bug Armor',exact:true}).click();assert.equal(await population().innerText(),'21 / 24');
  await page.getByLabel('Hit point adjustment').fill('5');await page.getByLabel('Incoming damage type').selectOption('force');await page.getByRole('button',{name:'Damage',exact:true}).click();assert.match(await page.locator('.hp-value').innerText(),/15 Temporary/);
  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Complete short rest'}).click();assert.equal(await population().innerText(),'24 / 24');assert.match(await page.locator('.hp-value').innerText(),/0 Temporary/);
- await page.getByLabel('Swarm ability').selectOption('summon');await page.getByLabel('Target or corpse name').fill('Scouts');await page.getByRole('button',{name:'Use Swarm Summon'}).click();assert.equal(await population().innerText(),'22 / 24');
- await page.getByLabel('Scouts current HP').fill('5');await page.getByRole('button',{name:'Return Scouts'}).click();assert.equal(await population().innerText(),'23 / 24');
- await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByRole('button',{name:'Complete long rest'}).click();assert.equal(await population().innerText(),'23 / 24');
+ await selectSwarmAbility(page,'summon');await page.getByLabel('Target or corpse name').fill('Scouts');await page.getByRole('button',{name:'Use Swarm Summon'}).click();assert.equal(await population().innerText(),'22 / 24');
+ await openSwarm(page,'creatures');await page.getByLabel('Scouts current HP').fill('5');await page.getByRole('button',{name:'Return Scouts'}).click();assert.equal(await population().innerText(),'23 / 24');
+ await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByLabel('Swarm was fed during this rest').uncheck();await page.getByRole('button',{name:'Complete long rest'}).click();assert.equal(await population().innerText(),'23 / 24');
  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByLabel('Swarm was fed during this rest').check();await page.getByRole('button',{name:'Complete long rest'}).click();assert.equal(await population().innerText(),'24 / 24');
  await page.getByRole('tab',{name:'Spells',exact:true}).click();await page.getByRole('button',{name:'Manage spells'}).click();await selectSpell(page.getByRole('region',{name:'Class cantrips',exact:true}),'Guidance');await selectSpell(page.getByRole('region',{name:'Prepared class spells',exact:true}),'Cure Wounds');await page.getByRole('button',{name:'Save Entomancer spell choices'}).click();assert.equal(await page.locator('.spell-item').count(),2);
  await page.getByRole('button',{name:'Manage spells'}).click();const picks=page.getByRole('region',{name:'Class cantrips',exact:true});await picks.getByLabel('Search spells').fill('Guidance');await picks.getByRole('button',{name:/^Remove Guidance/}).click();await selectSpell(picks,'Druidcraft');await page.getByRole('button',{name:'Save Entomancer spell choices'}).click();await page.getByRole('alert').filter({hasText:'one hour'}).waitFor();await page.getByLabel('Completed one hour of spell study').check();await page.getByRole('button',{name:'Save Entomancer spell choices'}).click();
  await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:base.name}).getByRole('button',{name:'Open character'}).click();let persisted;for(let i=0;i<100;i++){persisted=await saved(base.name);if(persisted.entomancer?.daily?.cantripSwap)break;await new Promise(r=>setTimeout(r,50));}assert(persisted.entomancer.daily?.cantripSwap);assert(persisted.spells.some(s=>s.name==='Druidcraft'));assert(!persisted.spells.some(s=>s.name==='Guidance'));
- await page.getByRole('tab',{name:'Actions',exact:true}).click();await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/entomancer-mobile.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await openSwarm(page);await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/entomancer-mobile.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
  await page.setViewportSize({width:1440,height:1000});
  for(const level of [10,14]){
   await importChar({...base,name:'Orthoptera '+level,level,entomancer:{species:'Orthoptera',tool:'Herbalism Kit',instrument:'Lute',moisture:'Dry',temperature:'Hot'}});
-  await page.getByLabel('Swarm ability').selectOption('harmonize');await page.getByRole('button',{name:'Use Harmonize',exact:true}).click();
-  assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),1);
-  await page.locator('.action-row').filter({hasText:'Unarmed strike'}).getByRole('button').first().click();
-  await page.getByRole('button',{name:'Dice roller',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),level===10?0:1);
+  await selectSwarmAbility(page,'harmonize');await page.getByRole('button',{name:'Use Harmonize',exact:true}).click();
+  await openSwarm(page,'active');assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),1);
+  await page.getByRole('tab',{name:'Actions',exact:true}).click();await page.locator('.action-row').filter({hasText:'Unarmed strike'}).getByRole('button').first().click();
+  await page.getByRole('button',{name:'Dice roller',exact:true}).click();await openSwarm(page,'active');assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),level===10?0:1);
  }
  await importChar({...base,name:'Endo activation',level:14,entomancer:{species:'Endo-Gotas',tool:'Herbalism Kit',moisture:'Dry',temperature:'Hot'}});
- await page.getByLabel('Swarm ability').selectOption('latch');await page.getByLabel('Target or corpse name').fill('Victim');await page.getByLabel('Grapple succeeded').check();await page.getByLabel('Target failed initial Neuro Toxin save').check();await page.getByRole('button',{name:'Use Hemo Vamprisis'}).click();await page.getByRole('button',{name:/Neuro Toxin save succeeded.*Victim/}).waitFor();
+ await selectSwarmAbility(page,'latch');await page.getByLabel('Target or corpse name').fill('Victim');await page.getByLabel('Grapple succeeded').check();await page.getByLabel('Target failed initial Neuro Toxin save').check();await page.getByRole('button',{name:'Use Hemo Vamprisis'}).click();await openSwarm(page,'active');await page.getByText('Targets & conditions (1)',{exact:true}).click();await page.getByRole('button',{name:/Neuro Toxin save succeeded.*Victim/}).waitFor();
  await importChar({...base,name:'Exo armor',entomancer:{species:'Exo-Gotas',tool:'Herbalism Kit',moisture:'Dry',temperature:'Hot'}});
  assert.match(await page.locator('.vital-tile').filter({hasText:'Armor class'}).innerText(),/18/);
- await page.getByLabel('Swarm ability').selectOption('reflex-armor');await page.getByRole('button',{name:'Use Enhanced Exoskeleton reaction'}).click();assert.match(await page.locator('.vital-tile').filter({hasText:'Armor class'}).innerText(),/20/);
+ await selectSwarmAbility(page,'reflex-armor');await page.getByRole('button',{name:'Use Enhanced Exoskeleton reaction'}).click();assert.match(await page.locator('.vital-tile').filter({hasText:'Armor class'}).innerText(),/20/);
  await importChar({...base,name:'Swarm revival',hp:{current:0,max:100,temp:0},entomancer:{...base.entomancer,dead:true,effects:{swarmForm:{remaining:10}}}});
  await page.getByRole('button',{name:'Record revival by the table'}).click();
  assert.match(await page.locator('.hp-value').innerText(),/^1\s*\/ 100/);
  assert.equal(await page.getByRole('button',{name:'End Swarm Form (bonus action)'}).count(),0);
- await page.getByText('Time & recent activity',{exact:true}).click();await page.getByRole('button',{name:'Advance 1 round',exact:true}).click();
+ await openSwarm(page,'active');await page.getByText('Advance game time',{exact:true}).click();await page.getByRole('button',{name:'Advance 1 round',exact:true}).click();
  assert.deepEqual(errors,[]);console.log('PASS Entomancer creation, advancement, all four species, armor, canonical resources, damage, fed rests, exchanges, revival, reload and mobile');
 }catch(e){console.error('Browser errors:',errors);await page.screenshot({path:'test-results/entomancer-failure.png',fullPage:true});throw e;}finally{await browser.close();await server.close();}

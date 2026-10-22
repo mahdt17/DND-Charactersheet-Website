@@ -1,3 +1,4 @@
+import {eladrinTraining} from './eladrin.js';
 import {campaignKind} from './archivistCampaign.js';
 import {featMagicState} from './featMagic.js';
 import {isEntomancerRecord,entomancerTraining} from './entomancer.js';
@@ -67,7 +68,7 @@ export function applyMulticlassTraining(c,record,picks={}) {
     trainingGrants:[...(c.trainingGrants||[]),{classId:record.catalogId||`${record.edition}:${record.index||record.name}`,className:record.name,edition:record.edition,proficiencies}]};
 }
 export function recordedTraining(c) {
-  const entries=[...(c.trainingGrants||[]).flatMap(g=>g.proficiencies||[]),...entomancerTraining(c)];
+  const entries=[...(c.trainingGrants||[]).flatMap(g=>g.proficiencies||[]),...entomancerTraining(c),...eladrinTraining(c)];
   for(const f of c.feats||[]){const state=featMagicState(f,c);if(state.valid&&state.profile?.tools)entries.push({index:f.magicChoices.tool.toLowerCase().replace(/[^a-z]+/g,'-'),name:f.magicChoices.tool,kind:'tools',sourceFeatId:f.id});}
   // Fixed grants can be recovered for older core multiclass saves. Skill and
   // instrument choices are never inferred.

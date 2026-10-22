@@ -4,9 +4,9 @@ import Modal from './Dialog';
 import {adjustResource,characterResources,classResourceDefinitions,resourceMatches,resourceRecoveryText} from './lib/resources';
 
 const initial={name:'',max:1,reset:'long',shortRecovery:1,unlimited:false};
-export default function ResourceTracker({char,patch,abilities}) {
+export default function ResourceTracker({char,patch,abilities,hidePopulation=false}) {
   const [draft,setDraft]=useState(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[amounts,setAmounts]=useState({});
-  const resources=characterResources(char,abilities),definitions=classResourceDefinitions(char,abilities);
+  const resources=characterResources(char,abilities),visibleResources=resources.filter(r=>!hidePopulation||r.id!==populationId),definitions=classResourceDefinitions(char,abilities).filter(r=>!hidePopulation||r.id!==populationId);
   const candidates=r=>definitions.filter(d=>resourceMatches(r,d)&&!resources.some(x=>x.id!==r.id&&x.classResourceKey===d.classResourceKey));
   function edit(r) {setError('');setDraft(r?{...r,reset:r.shortRecovery&&r.shortRecovery!=='all'?'partial':r.reset,shortRecovery:Number(r.shortRecovery)||1}:{...initial});}
   function save(e) {
@@ -30,7 +30,7 @@ export default function ResourceTracker({char,patch,abilities}) {
     <details className="resource-help"><summary>About resource counters</summary><p>Class counters follow your class level. Check each counter’s recovery rules before restoring uses. Apply other feature effects, spell conversions and initiative recovery at the table. Custom counters keep your settings.</p></details>
     {error&&<p className="l-error" role="alert">{error}</p>}
     {notice&&<p className="action-feedback" role="status">{notice}</p>}
-    {resources.map(r=>{
+    {visibleResources.map(r=>{
       const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey),manifesting=!!r.manifesting35&&!r.manual,auto=(!!definition||manifesting||r.sourceType==='class'&&r.automatic)&&!r.manual;
       const sourceLabel=manifesting?`${r.sourceClassName||r.source||'Psionic class'} · 3.5 manifesting progression`:auto?`${r.sourceClassName||r.className||r.source} · ${r.edition} class progression`:'Custom counter';
       return <div className="resource-entry" key={r.id} role="group" aria-label={`${r.name} resource`}>
@@ -41,7 +41,7 @@ export default function ResourceTracker({char,patch,abilities}) {
         </p>}
         <div className="l-toolbar resource-controls">
           {!r.unlimited&&<><label className="l-field"><span>Amount</span><input aria-label={`${r.name} amount`} type="number" min="1" max={Math.max(r.max,r.used,1)} value={amounts[r.id]||1} onChange={e=>setAmounts({...amounts,[r.id]:Math.max(1,Math.floor(Number(e.target.value)||1))})}/></label><button className="l-button" disabled={!r.used} onClick={()=>change(r,-1)}>Restore</button><button className="l-button" disabled={r.used+(amounts[r.id]||1)>r.max} onClick={()=>change(r,1)}>Use</button></>}
-          {!manifesting&&r.id!==populationId&&!r.campaignManaged&&<><button className="l-button" onClick={()=>edit(r)}>Edit</button><button className="l-button" onClick={()=>remove(r)}>Remove</button></>}
+          {!manifesting&&r.id!==populationId&&!r.campaignManaged&&!r.raceManaged&&<><button className="l-button" onClick={()=>edit(r)}>Edit</button><button className="l-button" onClick={()=>remove(r)}>Remove</button></>}
           {definition&&r.manual&&<button className="l-button" onClick={()=>adopt(r,definition)}>Use class progression</button>}
           {!r.classResourceKey&&candidates(r).map(d=><button className="l-button" key={d.classResourceKey} onClick={()=>adopt(r,d)}>Use {d.className} progression</button>)}
         </div>

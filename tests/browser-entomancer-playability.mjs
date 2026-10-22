@@ -1,3 +1,4 @@
+import {openSwarm,selectSwarmAbility,setSwarmSave} from './helpers/entomancer-workspace.mjs';
 import assert from 'node:assert/strict';
 import {test,before,after} from 'node:test';
 import {chromium} from 'playwright';
@@ -47,10 +48,11 @@ for(const [label,overrides] of [
  ['stunned',{conditions:['Stunned']}]
 ])test(`${label} Entomancer cannot cast, spend slots or make personal attacks`,async t=>{
  const page=await fixture(t,overrides);
+ await page.getByRole('tab',{name:'Actions',exact:true}).click();
  const unarmed=page.locator('.action-row').filter({hasText:'Unarmed strike'}).getByRole('button').first();
  assert(await unarmed.isDisabled());
  assert.equal(await page.getByRole('complementary',{name:'Dice roller',exact:true}).count(),0);
- await page.getByLabel('Swarm ability').selectOption('pestilence');
+ await selectSwarmAbility(page,'pestilence');
  assert(await page.getByRole('button',{name:'Use Glaring Pestilence',exact:true}).isDisabled());
  await page.getByRole('tab',{name:'Spells',exact:true}).click();
  const open=page.locator('.spell-item').filter({hasText:'Cure Wounds'}).getByRole('button',{name:'Cast',exact:true});
@@ -60,6 +62,7 @@ for(const [label,overrides] of [
 
 test('Harmonize resolves both saved hits and consumes Hive Mind advantage once',async t=>{
  const page=await fixture(t,{entomancer:{...base.entomancer,song:true,songSaveDCs:[10,10],psychicSave:true}});
+ await openSwarm(page,'active');
  const resolve=page.getByRole('button',{name:'Resolve song concentration',exact:true});
  await page.getByText('2 concentration checks pending',{exact:true}).waitFor();
  await resolve.click();
@@ -74,25 +77,25 @@ test('Harmonize resolves both saved hits and consumes Hive Mind advantage once',
 
 test('legacy pending checks persist on reopen and healing does not restart a stopped song',async t=>{
  const page=await fixture(t,{level:10,entomancer:{...base.entomancer,song:true,songSaveDC:20}});
- await page.getByText('Song concentration: CON DC 20',{exact:true}).waitFor();
+ await openSwarm(page,'active');await page.getByText('Song concentration: CON DC 20',{exact:true}).waitFor();
  await page.getByLabel('Incoming damage type').selectOption('force');
  await page.getByLabel('Hit point adjustment').fill('1');await page.getByRole('button',{name:'Damage',exact:true}).click();
  await page.getByRole('button',{name:'All characters',exact:true}).click();
  await page.locator('.character-card').filter({hasText:t.name}).getByRole('button',{name:'Open character',exact:true}).click();
- await page.getByText('2 concentration checks pending',{exact:true}).waitFor();
- await page.getByText('Song concentration: CON DC 20',{exact:true}).waitFor();
+ await openSwarm(page,'active');await page.getByText('2 concentration checks pending',{exact:true}).waitFor();
+ await openSwarm(page,'active');await page.getByText('Song concentration: CON DC 20',{exact:true}).waitFor();
  await page.getByLabel('Hit point adjustment').fill('1000');await page.getByRole('button',{name:'Damage',exact:true}).click();
  assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),0);
  await page.getByLabel('Hit point adjustment').fill('1');await page.getByRole('button',{name:'Heal',exact:true}).click();
  assert.equal(await page.getByRole('button',{name:'Stop singing',exact:true}).count(),0);
- await page.getByLabel('Swarm ability').selectOption('harmonize');
+ await selectSwarmAbility(page,'harmonize');
  assert(await page.getByRole('button',{name:'Use Harmonize',exact:true}).isEnabled());
 });
 
 test('incapacitated Entomancer cannot start a grapple or resolve active Hemo and infestation damage',async t=>{
  const page=await fixture(t,{conditions:['Stunned'],entomancer:{...base.entomancer,species:'Endo-Gotas',latch:{targetId:'victim'},targets:[{id:'victim',name:'Victim',type:'humanoid',conditions:[],timers:{},damage:0,infestation:{points:1,remaining:10}}]}});
- await page.getByText('Environment & derived benefits',{exact:true}).click();
+ await openSwarm(page,'recovery');await page.getByText('Environment & derived benefits',{exact:true}).click();
  assert(await page.getByRole('button',{name:'Roll grapple',exact:true}).isDisabled());
- assert(await page.getByRole('button',{name:'Resolve Hemo — your turn start',exact:true}).isDisabled());
- assert(await page.getByRole('button',{name:'Infestation damage — Victim',exact:true}).isDisabled());
+ await openSwarm(page,'active');assert(await page.getByRole('button',{name:'Resolve Hemo — your turn start',exact:true}).isDisabled());
+ await page.getByText('Targets & conditions (1)',{exact:true}).click();assert(await page.getByRole('button',{name:'Infestation damage — Victim',exact:true}).isDisabled());
 });

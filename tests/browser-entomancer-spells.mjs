@@ -132,6 +132,7 @@ test('existing saved Infestation shows rules, save and damage while casting with
  await page.locator('input[type=file]').setInputFiles({name:'spell-review.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});
  await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();await page.getByRole('tab',{name:'Spells',exact:true}).click();
  const item=page.locator('.spell-item').filter({hasText:'Infestation'});
+ assert.equal(await item.getByRole('link',{name:'Source ↗',exact:true}).count(),0,'complete known spells keep their source inside details rather than cluttering the list');
  await item.getByRole('button',{name:'Cast',exact:true}).click();
  const dialog=page.getByRole('dialog');
  await dialog.getByText(/1d6 poison damage/).waitFor();
@@ -141,6 +142,7 @@ test('existing saved Infestation shows rules, save and damage while casting with
  await dialog.getByRole('button',{name:'Cast',exact:true}).click();
  await page.getByRole('status').filter({hasText:'Infestation cast'}).waitFor();
  await item.locator('.spell-name').click();await page.getByRole('dialog').getByText(/1d6 poison damage/).waitFor();
+ assert.equal(await page.getByRole('dialog').getByRole('link',{name:'Read spell source',exact:true}).count(),1,'source stays available inside spell details');
  await page.setViewportSize({width:360,height:800});
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),'spell rules fit a phone screen');
 });
