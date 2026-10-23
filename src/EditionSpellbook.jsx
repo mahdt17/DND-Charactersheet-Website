@@ -1,3 +1,4 @@
+import {campaignActionBlockReason} from './lib/campaignActivity';
 import {CampaignSpellbook} from './ArchivistCampaign';
 import {campaignKind} from './lib/archivistCampaign';
 import {entomancerProfile,entomancerActionBlockReason} from './lib/entomancer';
@@ -39,7 +40,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   const [classId,setClassId]=useState('');
   const active=rows.find(r=>r.catalogId===classId)||rows[0],classModel=multiple?classCharacter(char,active):char;
   const swarm=entomancerProfile(classModel),special=specialCastingProfile(classModel),reserve=powerPointReserve(char);
-  const blocked=entomancerActionBlockReason(char);
+  const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char);
   const accessModel=char.ruleset==='custom'?{...classModel,ruleset:'custom',mechanics:active.edition}:classModel;
   const accessFor=s=>s.auto||s.dailySpellLikeGrant?{allowed:true,level:s.level}:spellAccess(accessModel,resolveSpell(s,classModel));
   const classSpells=(multiple?spellsForClass(char,active.catalogId):(char.spells||[])).map(s=>{const resolved=resolveSpell(s,classModel);return refreshEntomancerSpell({...resolved,...s,level:typeof s.level==='number'?s.level:resolved.level,catalogId:resolved.catalogId||s.catalogId});});
@@ -98,7 +99,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   const needsSlot=cast&&!cast.dailySpellLikeGrant&&!special&&!cast.isManeuver&&(is35(classModel)||cast.level!==0)&&!cast.auto;
   const dailySpellLikeDc=cast?.dailySpellLikeGrant?10+Number(cast.dailySpellLikeEffectiveLevel??cast.level??0)+modifier(effectiveAbilities(char).int||10):null;
   function castSpell(ritual=false,quick=false){
-    const reason=entomancerActionBlockReason(char);if(reason){setCastError(reason);return;}
+    const reason=entomancerActionBlockReason(char)||campaignActionBlockReason(char);if(reason){setCastError(reason);return;}
     if(ritual&&!canClassRitual(classModel,cast)){setCastError('This class cannot cast this spell as a ritual.');return;}
     if(quick&&!quickRitualOption(char,cast)){setCastError('Quick Ritual is unavailable.');return;}
     const access=accessFor(cast);
@@ -122,7 +123,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   }
   const classSelector=multiple&&<label className="l-field"><span>Spellcasting class</span><select value={active.catalogId} onChange={e=>{setClassId(e.target.value);setCast(null);setSwarmSelection(null);setStudyError('');}}>{rows.map(r=><option key={r.catalogId} value={r.catalogId}>{r.name} {r.level} · {editionName(r.edition)}</option>)}</select></label>;
   if(campaignKind(active.definition)==='archivist')return <>{classSelector}<CampaignSpellbook char={char} patch={patch} roll={roll} show={show} homebrew={homebrew}/></>;
-  if(campaignKind(active.definition))return <>{classSelector}<p>Manifest powers and manage the shared power point reserve in Actions. Known powers are chosen at creation and level-up.</p></>;
+  if(campaignKind(active.definition))return <>{classSelector}<p>Manifest powers and manage the shared power point reserve in Class tools. Known powers are chosen at creation and level-up.</p></>;
   return <><div className="l-section-head"><h2>{maneuverMode?'Maneuvers & stances':'Spellbook'} · {editionName(char.ruleset)}</h2><button className="l-button" onClick={()=>{setSwarmSelection(null);setStudyError('');setStudyHour(false);setManage(!manage);}}>{manage?'Done':maneuverMode?'Manage maneuvers':'Manage spells'}</button></div>
 
     {subclassProfile?.schools.length>0&&<p className="l-notice">Choose {subclassProfile.schools.join(' or ')} spells, plus up to {subclassProfile.unrestrictedChoices} known spell{subclassProfile.unrestrictedChoices===1?'':'s'} from other Wizard schools. Granted cantrips are listed separately from your chosen cantrips.</p>}<SubclassSpellChoices char={char} model={classModel} classId={active.catalogId} patch={patch}/>{pools.restricted?.some(Boolean)&&<p className="l-notice">Your class also grants domain slots: {pools.restricted.flatMap((n,level)=>n?[`level ${level}: ${n}`]:[]).join(' · ')}. Choose your domains in Manage spells. Prepare domain spells in their separate domain slots.</p>}

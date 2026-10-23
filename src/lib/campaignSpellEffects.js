@@ -1,11 +1,10 @@
 import {campaignProfile,campaignFeats,campaignCystSpells,castCampaignSpell} from './archivistCampaign.js';
 import {necroticRules} from '../data/campaignExpansion.js';
-import {updateCreature,whole,creatureProfile,castCreatureSpell,creatureTemplate} from './campaignCreatures.js';
+import {updateCreature,whole,creatureProfile,castCreatureSpell,creatureTemplate,damageCreature as damage} from './campaignCreatures.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {tickCampaign} from './campaignTime.js';
 export const spellRule=(c,id)=>({...necroticRules[id.replace('darkdonte:','')],...c.archivistCampaign?.rulings?.spellRules?.[id.replace('darkdonte:','')]});
 const activeControl=n=>n.control&&(n.control.minutes===null||n.control.minutes>0);
-function damage(n,amount){const temp=Math.max(0,n.hp.temp-amount);return {...n,hp:{...n.hp,temp,current:Math.max(0,n.hp.current-Math.max(0,amount-n.hp.temp))}};}
 export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,secondary=false,area=false,cystSave,blocked=false,intRoll,chaRoll,language='Common',order='Reasonable suggestion'}={}){
  const p=campaignProfile(c),state=c.archivistCampaign||{},cast={...state.lastCast},rule=cast?.rule||spellRule(c,cast?.spellId||'');
  if(!cast?.id||!rule.effect)throw Error('Cast a campaign effect first.');
@@ -24,13 +23,13 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,second
  const passed=!!(rule.save||area||secondary&&rule.damageCap)&&effectiveSave>=dc;
  let amount=0;
  if(rule.damageCap){whole(rolledDamage,'Damage',0,Math.min(p.archivist,rule.damageCap)*6);amount=rolledDamage;if(secondary||area&&passed)amount=Math.floor(amount/2);if(secondary&&passed)amount=Math.floor(amount/2);}
- if(rule.effect==='empower'){
+ if(blocked){result='Blocked: no effect';
+ }else if(rule.effect==='empower'){
   if(targetId!=='self')throw Error('Empowerment affects the caster.');
   const temp=Number(rule.tempHP??100);whole(temp,'Temporary HP');
   next={...c,hp:{...c.hp,temp:Math.max(c.hp.temp||0,temp),...((c.hp.temp||0)<temp?{tempSource:'campaign-empowerment'}:{})},archivistCampaign:{...state,empowerment:{rounds:p.archivist,abilityBonus:Number(rule.abilityBonus??8),acBonus:Number(rule.acBonus??8),conSaveBonus:Number(rule.conSaveBonus??5)}}};
  }else if(rule.effect==='sense'){
   next={...c,archivistCampaign:{...state,sensing:{minutes:rule.minutes,stage:1}}};result='Cyst detection active; advance rounds to reveal count and location.';
- }else if(blocked){result='Blocked: no effect';
  }else if(rule.effect==='awaken'){
   if(!String(p.rulings.awakenTypes||'beast,monstrosity').split(',').map(t=>t.trim().toLowerCase()).includes(n.type.toLowerCase())||n.abilities.int>3||n.awakened)throw Error('Awakening requires an eligible living type with INT 3 or lower, not already awakened.');
   whole(intRoll,'3d6 Intelligence',3,18);whole(chaRoll,'1d3 Charisma',1,3);
@@ -66,5 +65,5 @@ export function castCooperativeSpell(c,id,options,participants=[]){
  if(new Set(participants.map(x=>x.creatureId)).size!==participants.length)throw Error('Duplicate cooperator.');
  let next=c,dc=campaignProfile(c).dc;
  for(const entry of participants){const n=next.archivistCampaign?.creatures?.find(n=>n.id===entry.creatureId),s=n?.spells?.find(s=>s.id===entry.spellId);const source=[...c.spells||[],...campaignCystSpells(c)].find(s=>s.catalogId===id);if(!n?.cooperative||n.reactionUsed||s?.name!==source?.name)throw Error('Each cooperator needs the feat, same prepared spell and unused reaction.');next=castCreatureSpell(next,n.id,s.id,entry.slot);next=updateCreature(next,n.id,n=>({...n,reactionUsed:true}));dc=Math.max(dc,creatureProfile(n).dc);}
- next=castCampaignSpell(next,id,options);return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...next.archivistCampaign.lastCast,dc:dc+participants.length+1,cooperators:participants.map(p=>p.creatureId)}}};
+ next=castCampaignSpell(next,id,options);const combinedDC=dc+participants.length+1;return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...next.archivistCampaign.lastCast,dc:combinedDC,secondaryDC:next.archivistCampaign.lastCast.chain?combinedDC-4:null,cooperators:participants.map(p=>p.creatureId)}}};
 }

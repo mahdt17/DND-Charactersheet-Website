@@ -1,13 +1,16 @@
 import {campaignProfile,hasConversionFeat,campaignCystSpells,acquireCampaignSpell,castCampaignSpell,advanceCampaignTime} from './archivistCampaign.js';
 import {graftRecipes} from '../data/campaignExpansion.js';
 import {spendCampaignGold} from './campaignEconomy.js';
-import {whole,updateCreature,creatureProfile} from './campaignCreatures.js';
+import {whole,updateCreature,creatureProfile,damageCreature} from './campaignCreatures.js';
 import {campaignModifiers,graftModifiers} from './campaignModifiers.js';
+import {conversionSlotPool} from './conversionSlots.js';
+import {assertCampaignCanAct} from './campaignActivity.js';
 export const campaignRecipe=(c,id)=>{const r=graftRecipes.find(r=>r.id===id);return r?{...r,...c.archivistCampaign?.rulings?.graftRecipes?.[id]}:null;};
 const findSpell=(c,id)=>[...(c.spells||[]).filter(s=>s.castingClassId==='homebrew:darkdonte:archivist'),...campaignCystSpells(c)].find(s=>s.catalogId===id);
 function recipient(c,id){return id==='self'?{grafts:c.archivistCampaign?.grafts||[],hp:c.hp,type:'humanoid'}:c.archivistCampaign?.creatures?.find(n=>n.id===id);}
 function eligibleGraft(c,id,recipe){const n=recipient(c,id);if(!n||n.dead||n.hp.current<=0||['construct','undead'].includes(n.type))throw Error('A living corporeal recipient is required.');if(n.grafts?.some(g=>g.recipeId===recipe.id))throw Error('Recipient already has this graft.');if((n.grafts||[]).length>=Number(c.archivistCampaign?.rulings?.graftLimit??3))throw Error('Recipient graft limit reached.');}
 export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',source='',materialsConfirmed=false}={}){
+ assertCampaignCanAct(c);
  const p=campaignProfile(c),r=p.rulings;if(!p.archivist||!materialsConfirmed)throw Error('Archivist and confirmed materials/workspace required.');
  let cost,hours,record,recipe,next=c;
  if(kind==='graft'){
@@ -17,7 +20,8 @@ export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',sour
  }else if(kind==='scroll'){
   record=findSpell(c,spell?.catalogId);if(!record||record.level>p.maxSpellLevel||record.level&&!record.prepared&&!record.campaignCyst)throw Error('Prepare an available prayerbook spell or choose an unlocked cyst spell.');
   cost=Number(r.scrollGoldPerLevel??25)*Math.max(1,record.level)**2;hours=Number(r.scrollHoursPerLevel??2)*Math.max(1,record.level);
-  if(record.level){if((c.slotsUsed?.[record.level]||0)>=p.slots[record.level])throw Error('Scribing requires an available slot at the spell level.');next={...c,slotsUsed:{...c.slotsUsed,[record.level]:(c.slotsUsed?.[record.level]||0)+1}};}
+  const slots=Array.isArray(c.slotOverride)?c.slotOverride:conversionSlotPool(c)?.standard||p.slots;
+  if(record.level){if(!slots[record.level]||(c.slotsUsed?.[record.level]||0)>=slots[record.level])throw Error('Scribing requires an available slot at the spell level.');next={...c,slotsUsed:{...c.slotsUsed,[record.level]:(c.slotsUsed?.[record.level]||0)+1}};}
  }else throw Error('Choose copying, scroll scribing or grafting.');
  whole(hours,'Project hours',1,100000);if(!Number.isFinite(cost)||cost<0)throw Error('Invalid project cost.');
  const paid=spendCampaignGold(next,cost),job={id:crypto.randomUUID(),kind,spell:record,recipe,targetId,source,cost,hours,worked:0,status:'active',name:recipe?.name||record.name};
@@ -25,16 +29,17 @@ export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',sour
 }
 function project(c,id){const job=c.archivistCampaign?.projects?.find(p=>p.id===id);if(!job||job.status!=='active')throw Error('Project is not active or already completed.');return job;}
 const setJob=(c,id,values)=>({...c,archivistCampaign:{...c.archivistCampaign,projects:c.archivistCampaign.projects.map(j=>j.id===id?{...j,...values}:j)}});
-export function workCampaignProject(c,id,hours){const j=project(c,id);whole(hours,'Work hours',1,j.hours-j.worked);return setJob(advanceCampaignTime(c,hours*60),id,{worked:j.worked+hours});}
+export function workCampaignProject(c,id,hours){assertCampaignCanAct(c);const j=project(c,id);whole(hours,'Work hours',1,j.hours-j.worked);return setJob(advanceCampaignTime(c,hours*60),id,{worked:j.worked+hours});}
 export function finishCampaignProject(c,id,{medicine}={}){
  const j=project(c,id);if(j.worked<j.hours)throw Error('Complete the project work first.');let next=c;
  if(j.kind==='copy')next=acquireCampaignSpell(c,j.spell,{channel:'outside',source:j.source,confirmed:true});
  if(j.kind==='scroll')next={...c,inventory:[...(c.inventory||[]),{id:crypto.randomUUID(),name:`Scroll of ${j.spell.name}`,qty:1,weight:0,description:'Campaign scribed scroll; one use, no slot spent on activation.',campaignScroll:{spell:j.spell,level:j.spell.level}}]};
  if(j.kind==='graft'){
+  assertCampaignCanAct(c);
   eligibleGraft(c,j.targetId,j.recipe);if(!Number.isFinite(medicine))throw Error('Enter the Medicine check total.');
   if(medicine<Number(c.archivistCampaign.rulings?.graftDC??15)){
    const amount=Number(c.archivistCampaign.rulings?.graftFailureDamage??10);whole(amount,'Failure damage');
-   next=j.targetId==='self'?{...c,hp:{...c.hp,current:Math.max(0,c.hp.current-amount)}}:updateCreature(c,j.targetId,n=>({...n,hp:{...n.hp,current:Math.max(0,n.hp.current-amount)}}));return setJob(next,id,{status:'failed',medicine});
+   next=j.targetId==='self'?damageCreature(c,amount):updateCreature(c,j.targetId,n=>damageCreature(n,amount));return setJob(next,id,{status:'failed',medicine});
   }
   const graft={id:crypto.randomUUID(),recipeId:j.recipe.id,effects:j.recipe};
   if(j.targetId==='self'){
