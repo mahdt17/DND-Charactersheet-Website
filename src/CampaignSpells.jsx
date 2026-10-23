@@ -14,7 +14,7 @@ const B=({children,...props})=><button type="button" className="l-button" {...pr
 const F=({label,children})=><label className="l-field"><span>{label}</span>{React.cloneElement(children,{'aria-label':label})}</label>;
 
 export default function CampaignSpells({char,patch,roll,show,homebrew=[],mode='book'}){
- const cyst=mode==='cyst',p=campaignProfile(char),state=char.archivistCampaign||{},pools=cyst?conversionFeatSlots(char):spellSlotPools(char),caster=conversionFeatCaster(char),casters=conversionFeatCasters(char);
+ const cyst=mode==='cyst',p=campaignProfile(char),state=char.archivistCampaign||{},pools=cyst?(hasConversionFeat(char,'Mother Cyst')?conversionFeatSlots(char):{standard:[],pact:[]}):spellSlotPools(char),caster=conversionFeatCaster(char),casters=conversionFeatCasters(char);
  const [manage,setManage]=useState(false),[cast,setCast]=useState(null),[search,setSearch]=useState(''),[channel,setChannel]=useState('growth'),[source,setSource]=useState(''),[confirmed,setConfirmed]=useState(false),[error,setError]=useState('');
  const [slot,setSlot]=useState(1),[pool,setPool]=useState('standard'),[reach,setReach]=useState(false),[chain,setChain]=useState(false),[effects,setEffects]=useState(false),[helpers,setHelpers]=useState({}),[formation,setFormation]=useState(false);
  const book=(char.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist),spells=cyst?campaignCystSpells(char):book,blocked=campaignActionBlockReason(char);
