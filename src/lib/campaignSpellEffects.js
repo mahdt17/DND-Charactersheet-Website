@@ -22,12 +22,12 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,second
  if((rule.save||area||secondary&&rule.damageCap)&&!Number.isFinite(save))throw Error('Enter the target save total.');
  const passed=!!(rule.save||area||secondary&&rule.damageCap)&&effectiveSave>=dc;
  let amount=0;
- if(rule.damageCap){whole(rolledDamage,'Damage',0,Math.min(p.archivist,rule.damageCap)*6);amount=rolledDamage;if(secondary||area&&passed)amount=Math.floor(amount/2);if(secondary&&passed)amount=Math.floor(amount/2);}
+ if(rule.damageCap){whole(rolledDamage,'Damage',0,Math.min(cast.casterLevel??p.archivist,rule.damageCap)*6);amount=rolledDamage;if(secondary||area&&passed)amount=Math.floor(amount/2);if(secondary&&passed)amount=Math.floor(amount/2);}
  if(blocked){result='Blocked: no effect';
  }else if(rule.effect==='empower'){
   if(targetId!=='self')throw Error('Empowerment affects the caster.');
   const temp=Number(rule.tempHP??100);whole(temp,'Temporary HP');
-  next={...c,hp:{...c.hp,temp:Math.max(c.hp.temp||0,temp),...((c.hp.temp||0)<temp?{tempSource:'campaign-empowerment'}:{})},archivistCampaign:{...state,empowerment:{rounds:p.archivist,abilityBonus:Number(rule.abilityBonus??8),acBonus:Number(rule.acBonus??8),conSaveBonus:Number(rule.conSaveBonus??5)}}};
+  next={...c,hp:{...c.hp,temp:Math.max(c.hp.temp||0,temp),...((c.hp.temp||0)<temp?{tempSource:'campaign-empowerment'}:{})},archivistCampaign:{...state,empowerment:{rounds:cast.casterLevel??p.archivist,abilityBonus:Number(rule.abilityBonus??8),acBonus:Number(rule.acBonus??8),conSaveBonus:Number(rule.conSaveBonus??5)}}};
  }else if(rule.effect==='sense'){
   next={...c,archivistCampaign:{...state,sensing:{minutes:rule.minutes,stage:1}}};result='Cyst detection active; advance rounds to reveal count and location.';
  }else if(rule.effect==='awaken'){
@@ -63,7 +63,7 @@ export function castCooperativeSpell(c,id,options,participants=[]){
  if(!participants.length)return castCampaignSpell(c,id,options);
  if(!campaignFeats(c).some(f=>f.name==='Cooperative Spell')||!options.formationConfirmed)throw Error('Cooperative feat and confirmed formation/Ready timing required.');
  if(new Set(participants.map(x=>x.creatureId)).size!==participants.length)throw Error('Duplicate cooperator.');
- let next=c,dc=campaignProfile(c).dc;
+ let next=c,dc=castCampaignSpell(c,id,options).archivistCampaign.lastCast.dc;
  for(const entry of participants){const n=next.archivistCampaign?.creatures?.find(n=>n.id===entry.creatureId),s=n?.spells?.find(s=>s.id===entry.spellId);const source=[...c.spells||[],...campaignCystSpells(c)].find(s=>s.catalogId===id);if(!n?.cooperative||n.reactionUsed||s?.name!==source?.name)throw Error('Each cooperator needs the feat, same prepared spell and unused reaction.');next=castCreatureSpell(next,n.id,s.id,entry.slot);next=updateCreature(next,n.id,n=>({...n,reactionUsed:true}));dc=Math.max(dc,creatureProfile(n).dc);}
  next=castCampaignSpell(next,id,options);const combinedDC=dc+participants.length+1;return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...next.archivistCampaign.lastCast,dc:combinedDC,secondaryDC:next.archivistCampaign.lastCast.chain?combinedDC-4:null,cooperators:participants.map(p=>p.creatureId)}}};
 }

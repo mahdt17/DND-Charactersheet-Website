@@ -11,7 +11,8 @@ function recipient(c,id){return id==='self'?{grafts:c.archivistCampaign?.grafts|
 function eligibleGraft(c,id,recipe){const n=recipient(c,id);if(!n||n.dead||n.hp.current<=0||['construct','undead'].includes(n.type))throw Error('A living corporeal recipient is required.');if(n.grafts?.some(g=>g.recipeId===recipe.id))throw Error('Recipient already has this graft.');if((n.grafts||[]).length>=Number(c.archivistCampaign?.rulings?.graftLimit??3))throw Error('Recipient graft limit reached.');}
 export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',source='',materialsConfirmed=false}={}){
  assertCampaignCanAct(c);
- const p=campaignProfile(c),r=p.rulings;if(!p.archivist||!materialsConfirmed)throw Error('Archivist and confirmed materials/workspace required.');
+ const p=campaignProfile(c),r=p.rulings;if(!materialsConfirmed)throw Error('Confirmed materials/workspace required.');
+ if(kind!=='graft'&&!p.archivist)throw Error('Archivist required for prayerbook copying and Scribe Scroll.');
  let cost,hours,record,recipe,next=c;
  if(kind==='graft'){
   if(!hasConversionFeat(c,'Graft Flesh: Silthilar'))throw Error('Choose Graft Flesh: Silthilar before creating grafts.');recipe=campaignRecipe(c,recipeId);if(!recipe)throw Error('Unknown graft recipe.');if(recipe.heart&&!r.heartEnabled)throw Error('Enable the optional Silthilar Heart conversion first.');eligibleGraft(c,targetId,recipe);cost=recipe.cost;hours=recipe.hours;
@@ -28,10 +29,12 @@ export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',sour
  return {...paid,archivistCampaign:{...paid.archivistCampaign,projects:[...(paid.archivistCampaign?.projects||[]),job]}};
 }
 function project(c,id){const job=c.archivistCampaign?.projects?.find(p=>p.id===id);if(!job||job.status!=='active')throw Error('Project is not active or already completed.');return job;}
+function requireProjectSource(c,j){if(j.kind==='graft'&&!hasConversionFeat(c,'Graft Flesh: Silthilar'))throw Error('Graft Flesh feat required for this project.');if(j.kind!=='graft'&&!campaignProfile(c).archivist)throw Error('Archivist required for this project.');}
 const setJob=(c,id,values)=>({...c,archivistCampaign:{...c.archivistCampaign,projects:c.archivistCampaign.projects.map(j=>j.id===id?{...j,...values}:j)}});
-export function workCampaignProject(c,id,hours){assertCampaignCanAct(c);const j=project(c,id);whole(hours,'Work hours',1,j.hours-j.worked);return setJob(advanceCampaignTime(c,hours*60),id,{worked:j.worked+hours});}
+export function workCampaignProject(c,id,hours){assertCampaignCanAct(c);const j=project(c,id);requireProjectSource(c,j);whole(hours,'Work hours',1,j.hours-j.worked);return setJob(advanceCampaignTime(c,hours*60),id,{worked:j.worked+hours});}
 export function finishCampaignProject(c,id,{medicine}={}){
  const j=project(c,id);if(j.worked<j.hours)throw Error('Complete the project work first.');let next=c;
+ requireProjectSource(c,j);
  if(j.kind==='copy')next=acquireCampaignSpell(c,j.spell,{channel:'outside',source:j.source,confirmed:true});
  if(j.kind==='scroll')next={...c,inventory:[...(c.inventory||[]),{id:crypto.randomUUID(),name:`Scroll of ${j.spell.name}`,qty:1,weight:0,description:'Campaign scribed scroll; one use, no slot spent on activation.',campaignScroll:{spell:j.spell,level:j.spell.level}}]};
  if(j.kind==='graft'){

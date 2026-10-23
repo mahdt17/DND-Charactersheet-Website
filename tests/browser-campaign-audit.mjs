@@ -19,7 +19,7 @@ const dark=[3,3,3,4,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9];
 const lore=[0,0,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,4,4];
 const thralls=[5,6,7,8,9,10,11,12,12,13,14,15,15,16,17];
 const featSchedule=[[1,'Mother Cyst'],[2,'Psicrystal Affinity'],[5,'Reach Spell'],[10,'Draconic Archivist'],[12,'Chain Spell'],[14,'Graft Flesh: Silthilar'],[18,'Cooperative Spell']];
-const tools=()=>page.getByRole('region',{name:'Converted class abilities',exact:true});
+const tools=()=>page.locator('.class-owner-panel:visible');
 const reserve=name=>page.getByRole('group',{name:name+' resource',exact:true}).locator('.resource-count');
 function build(level,name='Guide level '+level){
  const base=createArchivistCampaign(name),a=archivist[level-1];
@@ -31,7 +31,7 @@ function build(level,name='Guide level '+level){
  };
 }
 async function load(char){await page.locator('input[type=file]').setInputFiles({name:'gameplay-audit.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(char))});await page.locator('.sheet-identity').filter({hasText:char.name}).waitFor();}
-async function prayerbook(){await page.getByRole('tab',{name:'Spells',exact:true}).click();const selector=page.getByLabel('Spellcasting class');if(await selector.count())await selector.selectOption(campaignClasses[0].catalogId);return page.getByRole('region',{name:'Archivist prayerbook',exact:true});}
+async function prayerbook(){await page.getByRole('tab',{name:'Spells',exact:true}).click();const selector=page.getByLabel('Spellcasting class',{exact:true}).filter({visible:true});if(await selector.count())await selector.selectOption(campaignClasses[0].catalogId);return page.getByRole('region',{name:'Archivist prayerbook',exact:true});}
 async function saved(name){return page.evaluate(async name=>{const index=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+index.find(c=>c.name===name).id)).value);},name);}
 try{
  mkdirSync('test-results',{recursive:true});await page.goto('http://127.0.0.1:5211');await page.getByRole('button',{name:'Explore the demo'}).click();
@@ -50,7 +50,7 @@ try{
   for(let i=0;i<shown.length;i++)assert.match(shown[i],new RegExp(`Level ${i+1}\\s*${slots[a][i]} / ${slots[a][i]} slots`));
   await book.getByRole('button',{name:'Cast Cure Wounds',exact:true}).click();assert.match(await book.locator('.slot-level').first().innerText(),new RegExp(`${slots[a][0]-1} / ${slots[a][0]} slots`));
   await openClassTools(page);await tools().getByRole('button',{name:'Long rest · restore resources',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
-  assert.equal(await reserve('Dark Knowledge').innerText(),`${dark[level-1]} / ${dark[level-1]}`);if(level>=2)assert.equal(await reserve('Power Points').innerText(),'3 / 3');
+  assert.equal(await reserve('Dark Knowledge').innerText(),`${dark[level-1]} / ${dark[level-1]}`);if(level>=2){await chooseClassPower(page,'Mindlink');assert.equal(await reserve('Power Points').innerText(),'3 / 3');}
   console.log(`PASS guide character level ${level}: class tools, abilities, slots, spending, lore, roster and recovery`);
  }
  for(const condition of ['Unconscious','Stunned','Paralyzed']){
