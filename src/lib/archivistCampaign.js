@@ -1,4 +1,6 @@
 import {conversionSlotPool} from './conversionSlots.js';
+import {conversionFeatOwned,conversionFeatActive,conversionStateActive} from './conversionFeatures.js';
+import {conversionFeatSlots,conversionFeatCaster} from './conversionFeatCasting.js';
 import {campaignScores,campaignModifiers} from './campaignModifiers.js';
 import {tickCampaign} from './campaignTime.js';
 import {spendCampaignGold} from './campaignEconomy.js';
@@ -16,14 +18,14 @@ const rows=c=>c.classLevels?.length?c.classLevels:[{definition:c.classDefinition
 export function campaignProfile(c){
  const state=c.archivistCampaign||{},r=state.rulings||{},valid=(c.ruleset||'2014')==='2014';
  const classLevels=Object.fromEntries(Object.keys(campaignIds).map(k=>[k,valid?rows(c).filter(row=>campaignKind(row.definition||row)===k&&(row.edition||'2014')==='2014').reduce((n,row)=>n+count(row.level),0):0]));
- const {archivist,psion,thrallherd}=classLevels,active=!!(archivist||psion||thrallherd),total=rows(c).reduce((n,row)=>n+count(row.level),0),pb=2+Math.floor((Math.max(1,total)-1)/4);
+ const {archivist,psion,thrallherd}=classLevels,classActive=!!(archivist||psion||thrallherd),active=classActive||conversionFeatActive(c)||conversionStateActive(c),total=rows(c).reduce((n,row)=>n+count(row.level),0),pb=2+Math.floor((Math.max(1,total)-1)/4);
  const scores=campaignScores(c);
  const table=levels.find(row=>row.class.name==='Wizard'&&row.level===archivist&&!row.subclass)?.spellcasting||{};
  const slots=Array.isArray(r.slots)?[0,...Array.from({length:9},(_,i)=>count(r.slots[i+1]))]:[0,...Array.from({length:9},(_,i)=>Number(table[`spell_slots_level_${i+1}`]||0))];
  const maxSpellLevel=slots.reduce((n,x,i)=>x?i:n,0),growthAllowance=archivist*2,growthUsed=count(state.growthSpent??(c.spells||[]).filter(s=>s.campaignAcquisition==='growth').length);
  const manifesterLevel=Math.min(20,psion+Math.min(8,Math.max(0,thrallherd-1)));
  const score=total+mod(scores.cha)+thrallherd,roster=thrallherd?followerTable[Math.max(1,Math.min(25,score))]:null;
- return {...classLevels,active,total,pb,scores,manifesterLevel,int:mod(scores.int),dc:8+pb+mod(scores.int),slots,maxSpellLevel,
+ return {...classLevels,active,classActive,total,pb,scores,manifesterLevel,int:mod(scores.int),dc:8+pb+mod(scores.int),slots,maxSpellLevel,
   cantrips:archivist?count(r.cantrips??(archivist>=10?5:archivist>=4?4:3)):0,preparedLimit:archivist?count(r.preparedLimit??Math.max(1,archivist+mod(scores.int))):0,
   growthAllowance,growthUsed,growthRemaining:Math.max(0,growthAllowance-growthUsed),ppMax:psion?count(r.ppMax??(manifesterLevel===1&&(legacyPreset(c)||r.levelOnePPMax!=null)?Number(r.levelOnePPMax??3):psionPoints[manifesterLevel]+Math.max(0,Math.floor(mod(scores.int)*manifesterLevel/2)))):0,ppUsed:count(c.powerPointsUsed),
   darkMax:archivist?3+Math.floor(archivist/3):0,darkUsed:count(state.darkUsed),score,thrallLevel:roster?Math.min(total-1,roster.thrall):null,believers:roster?.believers||null,
@@ -31,11 +33,11 @@ export function campaignProfile(c){
 }
 // Old saves encoded choices implicitly. Read them until the one-time migration runs.
 export const legacyPreset=c=>!c.archivistCampaign?.independentChoices&&(c.archivistCampaign?.preset===true||rows(c).some(row=>campaignKind(row.definition||row)&&row.definition?.source?.startsWith('Archivist campaign codex')));
-export function hasConversionFeat(c,name){return (c.feats||[]).some(f=>f.name===name)||(legacyPreset(c)&&legacyFeats(c).some(f=>f.name===name));}
+export function hasConversionFeat(c,name){return conversionFeatOwned(c,name)||(legacyPreset(c)&&legacyFeats(c).some(f=>f.name===name));}
 function legacyFeats(c){const levels=Object.fromEntries(Object.keys(campaignIds).map(k=>[k,rows(c).filter(row=>campaignKind(row.definition||row)===k).reduce((n,row)=>n+count(row.level),0)]));return featTimeline.filter(f=>f.kind==='human'?(c.race==='Variant Human'||c.archivistCampaign?.motherCyst===true)&&levels.archivist>0:levels[f.kind]>=f.level);}
-export function campaignFeats(c){return [...new Map([...(legacyPreset(c)?legacyFeats(c):[]),...(c.feats||[]).filter(f=>featTimeline.some(t=>t.name===f.name))].map(f=>[f.name,f])).values()];}
+export function campaignFeats(c){return [...new Map([...(legacyPreset(c)?legacyFeats(c):[]),...(c.feats||[]).filter(f=>conversionFeatOwned(c,f.name))].map(f=>[f.name,f])).values()];}
 export function selectedBasePowers(c){return legacyPreset(c)?campaignPowers:campaignPowers.filter(p=>(c.archivistCampaign?.knownPowers||[]).some(k=>k.id===p.id));}
-export function campaignCystSpells(c){const p=campaignProfile(c);return campaignFeats(c).some(f=>f.name==='Mother Cyst')?cystSpells.filter(s=>s.level<=p.maxSpellLevel).map(s=>({...s,...p.rulings.spellRules?.[s.catalogId.replace('darkdonte:','')]})):[];}
+export function campaignCystSpells(c){const p=campaignProfile(c);return hasConversionFeat(c,'Mother Cyst')?cystSpells.filter(s=>s.level<=Math.min(9,Math.ceil(p.total/2))).map(s=>({...s,...p.rulings.spellRules?.[s.catalogId.replace('darkdonte:','')],featSource:'Mother Cyst',featGrantId:'homebrew:conversion-feat:mother-cyst',castingClassId:undefined})):[];}
 export function campaignFeatureRows(c){const p=campaignProfile(c);if(!p.active)return [];return [
  ...archivistFeatures.filter(f=>f[0]<=p.archivist).map(([level,name,description],i)=>({index:'campaign-archivist-'+i,level,name,description:description||archivistFeatures.find(f=>f[1]===name&&f[2])?.[2]||'Choose a metamagic or crafting bonus feat.'})),
  ...(p.psion?[{index:'campaign-telepath',level:1,name:'Telepath manifesting',description:'Choose known powers and psionic bonus feats. Power points include the Intelligence bonus and recover on a long rest.'}]:[]),
@@ -92,8 +94,11 @@ export function campaignRest(c,rest){const p=campaignProfile(c);if(!p.active)ret
 export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=false,chain=false,confirmed=false}={}){
  assertCampaignCanAct(c);
  if(!['standard','pact'].includes(pool))throw Error('Choose a valid spell slot pool.');
- const p=campaignProfile(c),pools=Array.isArray(c.slotOverride)?{standard:c.slotOverride,pact:Array(10).fill(0)}:conversionSlotPool(c)||{standard:p.slots,pact:Array(10).fill(0)},slots=pools[pool],usedKey=pool==='pact'?'pactSlotsUsed':'slotsUsed',used=c[usedKey]||{},spell=[...(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist),...campaignCystSpells(c)].find(s=>key(s)===id);
- if(!spell||spell.level>p.maxSpellLevel)throw Error('This spell is not available to the Archivist.');
+ const p=campaignProfile(c),spell=[...(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist),...campaignCystSpells(c)].find(s=>key(s)===id);
+ if(!spell||!spell.campaignCyst&&(!p.archivist||spell.level>p.maxSpellLevel))throw Error('This spell is not available to the Archivist or selected feat.');
+ const caster=spell.campaignCyst?conversionFeatCaster(c):{level:p.archivist,ability:'int'},pools=spell.campaignCyst?conversionFeatSlots(c):Array.isArray(c.slotOverride)?{standard:c.slotOverride,pact:Array(10).fill(0)}:conversionSlotPool(c)||{standard:p.slots,pact:Array(10).fill(0)};
+ if(!caster)throw Error('Choose an available spellcasting class for this feat.');
+ const slots=pools?.[pool]||[],usedKey=pool==='pact'?'pactSlotsUsed':'slotsUsed',used=c[usedKey]||{},dc=8+p.pb+mod(p.scores[caster.ability]),casterLevel=spell.campaignCyst?p.total:caster.level;
  if(spell.campaignCyst&&c.archivistCampaign?.empowerment?.rounds>0&&spell.name!=='Necrotic Empowerment')throw Error('Necrotic Empowerment blocks other Mother Cyst spells.');
  if(spell.campaignCyst&&!confirmed)throw Error('Confirm the campaign spell effects with your DM before casting.');
  if(ritual){if(!spell.ritual||spell.campaignCyst||reach||chain)throw Error('Only a recorded ritual can be cast without a slot.');return {...c,...(spell.concentration?{concentration:spell.name}:{}),archivistCampaign:{...c.archivistCampaign,lastCast:{name:spell.name,spellId:id,ritual:true}}};}
@@ -106,7 +111,7 @@ export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=
  if(minimum&&(!Number.isInteger(slot)||slot<minimum||!slots[slot]||count(used[slot])>=slots[slot]))throw Error('Choose an available slot that covers the adjusted spell level.');
  const ruleId=id.replace('darkdonte:',''),rule={...necroticRules[ruleId],...p.rulings.spellRules?.[ruleId]};
  const paid=rule.cost?spendCampaignGold(c,Number(rule.cost)):c;
- return {...paid,...(spell.concentration?{concentration:spell.name}:{}),...(minimum?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...c.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,effectLevel:minimum?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):0,slot:minimum?slot:0,pool,dc:p.dc,reach,chain,secondaryTargets:chain?Math.min(20,p.archivist):0,secondaryDC:chain?p.dc-4:null}}};
+ return {...paid,...(spell.concentration?{concentration:spell.name}:{}),...(minimum?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...c.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,casterLevel,castingAbility:caster.ability,effectLevel:minimum?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):0,slot:minimum?slot:0,pool,dc,reach,chain,secondaryTargets:chain?Math.min(20,caster.level):0,secondaryDC:chain?dc-4:null}}};
 }
 export function addCampaignFollower(c,{name,kind='believers',level=1,quantity=1,notes=''}={}){
  const p=campaignProfile(c),list=c.archivistCampaign?.followers||[];

@@ -25,11 +25,11 @@ export const campaignClasses=Object.entries(campaignIds).map(([kind,catalogId])=
  progression:[['Level','Features'],...Array.from({length:kind==='thrallherd'?10:20},(_,i)=>[String(i+1),kind==='archivist'?archivistFeatures.filter(f=>f[0]===i+1).map(f=>f[1]).concat([4,8,12,16,19].includes(i+1)?['Ability Score Improvement']:[]).join(', '):kind==='psion'?`${psionPoints[i+1]} base PP; ${psionKnown[i+1]} powers; ${[1,5,10,15,20].includes(i+1)?'Bonus feat':''}${[4,8,12,16,19].includes(i+1)?'; Ability Score Improvement':''}`:thrallFeatures.filter(([level])=>level===i+1).map(([,name])=>name).concat(i>0&&i<9?['+1 manifesting level']:[],[4,8].includes(i+1)?['Ability Score Improvement']:[]).join(', ')])]
 }));
 export const featTimeline=[
- {name:'Mother Cyst',characterLevel:1,kind:'human',level:1,description:'Automatic access to the necrotic spell chain at unlocked Archivist spell tiers. Discovery and copying are not required.'},
+ {name:'Mother Cyst',characterLevel:1,kind:'human',level:1,description:'Automatic access to the necrotic spell chain at total-character-level spell tiers (1, 3, 5, 7, 9, 11, 13, 15, 17). Discovery and copying are not required.'},
  {name:'Psicrystal Affinity',characterLevel:2,kind:'psion',level:1,description:'Sage Psicrystal; +3 Arcana while within one mile. No autonomous casting or revival is assumed.'},
  {name:'Reach Spell',characterLevel:5,kind:'archivist',level:4,description:'Eligible Touch spells become 30 feet; +2 adjusted slot levels.'},
  {name:'Draconic Archivist',characterLevel:10,kind:'archivist',level:8,description:'Dark Knowledge also applies to dragons and constructs, using Arcana.'},
- {name:'Chain Spell',characterLevel:12,kind:'archivist',level:10,description:'One primary target, up to Archivist level secondary targets (maximum 20), each within 30 feet of primary. +3 slot levels; nondamaging secondary save DC -4. High-end slot cap remains a table ruling.'},
+ {name:'Chain Spell',characterLevel:12,kind:'archivist',level:10,description:'One primary target, up to the chosen spellcasting class level secondary targets (maximum 20), each within 30 feet of primary. +3 slot levels; nondamaging secondary save DC -4. High-end slot cap remains a table ruling.'},
  {name:'Graft Flesh: Silthilar',characterLevel:14,kind:'archivist',level:12,description:'Medicine replaces Heal. Use the Campaign workshop for paid graft projects, recipient limits and Medicine outcomes; conversion defaults are adjustable.'},
  {name:'Cooperative Spell',characterLevel:18,kind:'archivist',level:16,description:'Working rule: same spell and feat; highest participant DC +2 for first cooperator, +1 each additional. Ready/reaction timing requires final table approval.'}
 ];

@@ -34,7 +34,7 @@ assert.equal(c.archivistCampaign.creatures.at(-1).control.minutes,null);
 c=C.castCampaignSpell(c,'darkdonte:necrotic-empowerment',{slot:8,confirmed:true});
 c=S.resolveCampaignSpell(c,'self');assert.equal(c.hp.temp,100);assert.equal(C.campaignProfile(c).scores.int,23);
 assert.throws(()=>C.castCampaignSpell(c,'darkdonte:necrotic-awareness',{slot:1,confirmed:true}),/Empowerment/);
-c=S.advanceCampaignRound(c);assert.equal(c.archivistCampaign.empowerment.rounds,17);
+c=S.advanceCampaignRound(c);assert.equal(c.archivistCampaign.empowerment.rounds,19,'Mother Cyst scales with total character level');
 c=C.advanceCampaignTime(c,2);assert.equal(C.campaignProfile(c).scores.int,15);
 assert.equal(c.hp.temp,0);
 console.log('PASS cyst dependency, unique resolution, damage, control and empowerment expiry');
@@ -100,7 +100,7 @@ x=C.advanceArchivistCampaign(C.createArchivistCampaign());x=C.addCampaignFollowe
 let t=C.createArchivistCampaign();for(let i=0;i<9;i++)t=C.advanceArchivistCampaign(t,{kind:'thrallherd'});assert.throws(()=>P.manifestExtendedPower(t,'psionic-dominate',{augmentation:3,discount:true}),/before/);assert.throws(()=>P.manifestExtendedPower({...t,abilities:{...t.abilities,int:10}},'psionic-dominate'),/Intelligence/);
 t=N.addCampaignCreature(t,{name:'Mental target'});t=P.manifestExtendedPower(t,'psionic-dominate');t=P.resolveExtendedPower(t,t.archivistCampaign.creatures[0].id,{save:0});assert.throws(()=>P.resolveExtendedPower(t,t.archivistCampaign.creatures[0].id,{save:0}),/one target/);
 t=C.advanceArchivistCampaign(t,{kind:'thrallherd'});t=C.addCampaignFollower(t,{name:'High',kind:'thrall',level:14});t=C.addCampaignFollower(t,{name:'Low',kind:'thrall',level:8});t.archivistCampaign.followers[0].lost=true;assert.doesNotThrow(()=>C.addCampaignFollower(t,{name:'Replacement high',kind:'thrall',level:14}));
-x=fresh();x.archivistCampaign.grafts=[{recipeId:'chitin'}];assert.equal(campaignModifiers(x).ac,1);assert.equal(campaignModifiers({...x,ruleset:'3.5'}).ac,0);assert.equal(campaignModifiers({...x,classLevels:[],classDefinition:{edition:'2014',catalogId:'fighter'}}).ac,0);
+x=fresh();x.archivistCampaign.grafts=[{recipeId:'chitin'}];assert.equal(campaignModifiers(x).ac,1);assert.equal(campaignModifiers({...x,ruleset:'3.5'}).ac,0);assert.equal(campaignModifiers({...x,classLevels:[],classDefinition:{edition:'2014',catalogId:'fighter'}}).ac,1,'an installed graft persists after a same-edition class change');
 console.log('PASS every class level, all 12 spell effects, copying, Chain saves, expiry, death guards, delayed followers, augmentation caps and source isolation');
 
 x=cysted();const thrallSpell=outsideCampaignSpells.find(s=>s.index==='monstrous-thrall');x=C.acquireCampaignSpell(x,thrallSpell,{channel:'outside',source:'Test',confirmed:true});x=C.prepareCampaignSpell(x,thrallSpell.catalogId,true);x=C.castCampaignSpell(x,thrallSpell.catalogId,{slot:9});x=S.resolveCampaignSpell(x,x.archivistCampaign.creatures[0].id,{save:C.campaignProfile(x).dc});assert(!x.archivistCampaign.creatures[0].control,'Cysts penalize necromancy saves, not Monstrous Thrall enchantment');

@@ -1,5 +1,7 @@
 # Independent 5e class conversions
 
+The [class and feat tools guide](CLASS_FEAT_TOOLS.md) describes the independent tabs and the requested total-character-level Mother Cyst progression added October 23, 2026. It supersedes the combined workspace and Archivist-only Cyst access described in historical notes below.
+
 The [2026-10-22 gameplay audit](ARCHIVIST_GAMEPLAY_AUDIT.md) records level 1–20 coverage, repaired gameplay defects, and the remaining explicit table inputs.
 
 The Archivist PDF is a multiclass example, not a campaign preset. Use normal **Create character** to start as Archivist or Psion (Telepath) at level 1. **Level up** offers continuing a class, adding another class, or entering Thrallherd when level 5, Arcana/Religion proficiency, Mindlink and the converted Intelligence requirement are met.
@@ -16,7 +18,7 @@ The internal `archivistCampaign` state and `homebrew:darkdonte:*` identifiers re
 
 Checks: `npm run test:archivist`, `npm run test:browser:archivist`, plus the ordinary rules/edition/Entomancer/presentation suites. The browser progression creates an Archivist at 1, copies an outside spell, freely selects Psion and Thrallherd, takes a chosen feat at an ASI, switches spellbooks, checks persistence and independently creates a Psion at 1.
 
-## Class tools workspace — 2026-10-22
+## Previous Class tools workspace — 2026-10-22
 
 Supported converted Archivist, Telepath and Thrallherd characters open on **Class tools**. The four sections are **Abilities**, **Companions**, **Projects** and **Settings**. Shared Dark Knowledge and Power Point counters stay at the top, with direct rest shortcuts and collapsed manual adjustments. Actions keeps weapon attacks, other resources and an Open Class tools shortcut; prayerbook preparation, casting and Mother Cyst effects remain in Spells.
 
