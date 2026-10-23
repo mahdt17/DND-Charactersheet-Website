@@ -1,3 +1,4 @@
+import {assertCampaignCanAct} from './campaignActivity.js';
 import {resolveFeatSpell,featSpellUsesSlots} from './featMagic.js';
 import {availableSlots,spendSpellSlot} from './play.js';
 import {entomancerActionBlockReason} from './entomancer.js';
@@ -8,6 +9,7 @@ export function featCastOptions(c,spell){
  return [...(s.featRitual?[{pool:'ritual',level:s.level,remaining:Infinity}]:[]),...(!s.featRitualOnly&&!(c.featSpellUses?.[s.featUseKey])?[{pool:'feat',level:s.level,remaining:1}]:[]),...(featSpellUsesSlots(c,s)?availableSlots(c,s).map(x=>({...x,pool:x.pool||'standard'})):[])];
 }
 export function spendFeatCast(c,spell,option){
+ assertCampaignCanAct(c);
  const blocked=entomancerActionBlockReason(c);if(blocked)throw Error(blocked);
  const s=resolveFeatSpell(c,spell);
  if(!s||!featCastOptions(c,s).some(x=>x.pool===option.pool&&x.level===option.level))throw Error('This feat spell or casting use is no longer available.');

@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {activeFollowerQuantity,followerMemberLost,recordFollowerLoss} from '../src/lib/campaignFollowers.js';
+
+const group={id:'believers',name:'Scouts',quantity:5,kind:'believers',level:1,arrivalHours:0};
+const base={archivistCampaign:{followers:[group],creatures:Array.from({length:5},(_,member)=>({id:'scout-'+member,followerId:group.id,member,concentration:'Bless'}))}};
+const one=recordFollowerLoss(base,group.id,{member:2}),follower=one.archivistCampaign.followers[0];
+assert.equal(activeFollowerQuantity(follower),4,'one lost believer frees one roster place');
+assert.equal(followerMemberLost(follower,2),true);
+assert.equal(followerMemberLost(follower,1),false,'surviving believers stay available');
+assert.equal(one.archivistCampaign.creatures[2].concentration,null);
+assert.equal(one.archivistCampaign.creatures[2].followerLost,true);
+assert.equal(one.archivistCampaign.creatures[1].concentration,'Bless');
+assert.equal(base.archivistCampaign.followers[0].lostMembers,undefined,'loss updates are immutable');
+assert.throws(()=>recordFollowerLoss(one,group.id,{member:2}),/already|lost/i);
+assert.throws(()=>recordFollowerLoss(one,group.id,{quantity:5}),/available|remaining/i);
+assert.throws(()=>recordFollowerLoss(one,group.id,{quantity:1.5}),/whole/i);
+const bulk=recordFollowerLoss(one,group.id,{quantity:2});
+assert.equal(activeFollowerQuantity(bulk.archivistCampaign.followers[0]),2);
+const gone=recordFollowerLoss(bulk,group.id,{quantity:2});
+assert.equal(activeFollowerQuantity(gone.archivistCampaign.followers[0]),0);
+assert.equal(gone.archivistCampaign.followers[0].lost,true);
+assert(gone.archivistCampaign.creatures.every(n=>n.followerLost));
+assert.equal(activeFollowerQuantity(JSON.parse(JSON.stringify(one)).archivistCampaign.followers[0]),4,'partial losses survive saved JSON');
+assert.equal(activeFollowerQuantity({...group,lost:true}),0,'old whole-group loss remains supported');
+console.log('PASS independent follower losses, active roster quantities, surviving members and saved history');

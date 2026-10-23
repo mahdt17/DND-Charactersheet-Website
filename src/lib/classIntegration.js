@@ -4,6 +4,7 @@ import modern from '../data/srd2024.json' with {type:'json'};
 import proficiencySupplements35 from '../data/class-proficiencies35.json' with {type:'json'};
 import legacyFeatureSummaries from '../data/class-feature-summaries-35.json' with {type:'json'};
 import {characterClasses,contentKey,progressionTables} from './advancement.js';
+import {campaignKind} from './archivistCampaign.js';
 import {normalizeEdition} from './content.js';
 import {reconcileSubclassSpells} from './subclassSpells.js';
 import {reconcileCompanions35,companionProgression35} from './companions35.js';
@@ -1005,7 +1006,12 @@ export function removeClassProgression(character,classId){
   const spells=(character.spells||[]).filter(spell=>spell.auto||(spell.castingClassId||originalPrimary)!==classId);
   const spellAccessGrants=(character.spellAccessGrants||[]).filter(grant=>grant.classId!==classId);
   const featureChoices=Object.fromEntries(Object.entries(character.featureChoices||{}).filter(([key,value])=>value?.classId!==classId&&value?.sourceClassId!==classId&&value?.className!==removedName&&!key.includes(':'+removedName+':')));
-  const feats=(character.feats||[]).filter(feat=>!(feat.sourceType==='class-choice'&&feat.sourceClassId===classId));
+  const removedConversion=campaignKind(removed?.definition||removed);
+  const feats=(character.feats||[]).filter(feat=>{
+    if(['class-choice','converted-class-bonus'].includes(feat.sourceType)&&feat.sourceClassId===classId)return false;
+    // Earlier converted saves identified class ownership by the bonus slot only.
+    return !(removedConversion&&String(feat.conversionBonusSlot||'').startsWith(removedConversion+':'));
+  });
   const castingAdvancements=(character.castingAdvancements||[]).filter(entry=>entry.sourceClassId!==classId&&entry.targetClassId!==classId);
   const priorLanguageGrants=Array.isArray(character.languageGrants)?character.languageGrants:[];
   const managedLanguageNames=new Set(priorLanguageGrants.map(grant=>norm(grant?.name)).filter(Boolean));

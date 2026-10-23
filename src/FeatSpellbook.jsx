@@ -1,3 +1,4 @@
+import {campaignActionBlockReason} from './lib/campaignActivity';
 import {entomancerActionBlockReason} from './lib/entomancer';
 import React,{useState} from 'react';
 import {featMagicState,featMagicSpells,featMagicKey,resolveFeatSpell} from './lib/featMagic';
@@ -13,7 +14,7 @@ export default function FeatSpellbook({char,patch,show,roll}){
  const [cast,setCast]=useState(null),[choice,setChoice]=useState(''),[error,setError]=useState(''),[notice,setNotice]=useState('');
  const feats=(char.feats||[]).filter(f=>featMagicState(f,char).supported),spells=featMagicSpells(char);
  if(!feats.length)return null;
- const blocked=entomancerActionBlockReason(char);
+ const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char);
  const options=cast?featCastOptions(char,cast):[],option=options.find(o=>`${o.pool}:${o.level}`===choice)||options[0];
  const mod=cast?modifier(effectiveAbilities(char)[cast.featAbility]):0,pb=2+Math.floor((char.level-1)/4),plan=cast?spellPlan(cast,char,option?.level||cast.level,mod):null;
  function open(s){setCast(s);const first=featCastOptions(char,s)[0];setChoice(first?`${first.pool}:${first.level}`:'');setError('');}

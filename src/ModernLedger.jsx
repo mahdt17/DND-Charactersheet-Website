@@ -1,3 +1,5 @@
+import {campaignActionBlockReason} from './lib/campaignActivity';
+import {preservePsicrystalDestruction} from './lib/campaignPsicrystal';
 import Eladrin from './Eladrin';
 import {reconcileEladrin} from './lib/eladrin';
 import {createSwarmUi} from './lib/entomancerSubsystem';
@@ -188,10 +190,10 @@ function CharacterSheet({char,patchCharacter,back,levelUp,roll:rawRoll,show,remo
   const featCatalogEntries=featureFeatCatalog.entries.filter(entry=>/feat/i.test(entry.category||'')),featSpellEntries=[...homebrew.filter(entry=>entry.category==='spell'),...featureFeatCatalog.entries.filter(entry=>entry.category==='spell')];
   const featByName=new Map(featCatalogEntries.map(feat=>[feat.name.toLocaleLowerCase(),feat]));
   const featById=new Map(featCatalogEntries.map(feat=>[feat.catalogId||feat.id,feat]));
-  function roll(expression,label,options={}){if(options.ignoreCharacterEffects)return rawRoll(expression,label,options);const kind=options.kind||(/attack/i.test(label||'')?'attack':/saving throw| save$/i.test(label||'')?'save':'check');if(kind==='attack'&&entomancerActionBlockReason(char))return null;const d20=kind!=='damage'&&!/damage|healing/i.test(label||'')&&/^1d20(?:[+-]\d+)?$/.test(expression);const traits=entomancerRollTraits(char,label),psychic=d20&&kind==='save'&&swarm.level>=13&&char.entomancer?.psychicSave;const result=rawRoll(expression,label,{...options,advantage:d20&&(traits.advantage||psychic||options.advantage),disadvantage:d20&&(options.disadvantage||traits.disadvantage||(kind==='attack'?effects.attackDisadvantage:kind==='save'?effects.saveDisadvantage:effects.checkDisadvantage)),penalty:d20?effects.penalty:0});if(result&&psychic)patch(current=>applyEntomancerAction(current,'consume-psychic-save'));if(result&&kind==='attack'&&swarm.song&&swarm.level<14)patch(current=>applyEntomancerAction(current,'other-action'));return result;}
+  function roll(expression,label,options={}){if(options.ignoreCharacterEffects)return rawRoll(expression,label,options);const kind=options.kind||(/attack/i.test(label||'')?'attack':/saving throw| save$/i.test(label||'')?'save':'check');if(kind==='attack'&&(entomancerActionBlockReason(char)||campaignActionBlockReason(char)))return null;const d20=kind!=='damage'&&!/damage|healing/i.test(label||'')&&/^1d20(?:[+-]\d+)?$/.test(expression);const traits=entomancerRollTraits(char,label),psychic=d20&&kind==='save'&&swarm.level>=13&&char.entomancer?.psychicSave;const result=rawRoll(expression,label,{...options,advantage:d20&&(traits.advantage||psychic||options.advantage),disadvantage:d20&&(options.disadvantage||traits.disadvantage||(kind==='attack'?effects.attackDisadvantage:kind==='save'?effects.saveDisadvantage:effects.checkDisadvantage)),penalty:d20?effects.penalty:0});if(result&&psychic)patch(current=>applyEntomancerAction(current,'consume-psychic-save'));if(result&&kind==='attack'&&swarm.song&&swarm.level<14)patch(current=>applyEntomancerAction(current,'other-action'));return result;}
   const displayedArmor=char.autoArmor&&!is35(char)?armorFor(char,abilities):char.ac;
   const activeConditions=Array.isArray(char.conditions)?char.conditions:char.conditions?char.conditions.split(',').map(x=>x.trim()).filter(Boolean):[];
-  const patch=values=>patchCharacter(char.id,current=>{const resolved=typeof values==='function'?values(current):values;let next=observeEntomancerHP(current,{...current,...resolved});if(entomancerProfile(next).form&&next.hp.current===0)next={...next,entomancer:{...next.entomancer,dead:true}};if(Object.hasOwn(resolved,'subclass'))next.classLevels=characterClasses(next).map((row,i)=>i===0?{...row,subclass:resolved.subclass}:row);if(next.autoArmor&&!is35(next))next.ac=armorFor(next,effectiveAbilities(next));next.hp={...next.hp,current:Math.min(next.hp.current,conditionEffects(next).maxHP)};return next;});
+  const patch=values=>patchCharacter(char.id,current=>{const prepared=preservePsicrystalDestruction(current),resolved=typeof values==='function'?values(prepared):values;let next=observeEntomancerHP(prepared,{...prepared,...resolved});if(campaignActionBlockReason(next))next={...next,concentration:null};if(entomancerProfile(next).form&&next.hp.current===0)next={...next,entomancer:{...next.entomancer,dead:true}};if(Object.hasOwn(resolved,'subclass'))next.classLevels=characterClasses(next).map((row,i)=>i===0?{...row,subclass:resolved.subclass}:row);if(next.autoArmor&&!is35(next))next.ac=armorFor(next,effectiveAbilities(next));next.hp={...next.hp,current:Math.min(next.hp.current,conditionEffects(next).maxHP)};return next;});
   function adjustHitPoints(healing=false){
     try{
       const next=patch(current=>{
@@ -233,7 +235,7 @@ function CharacterSheet({char,patchCharacter,back,levelUp,roll:rawRoll,show,remo
 }
 
 function Actions({char,patch,roll,abilities,onSwarm,onClassTools}) {
-  const blocked=entomancerActionBlockReason(char),swarm=entomancerProfile(char,abilities),unarmedExtra=swarm.species==='Exo-Gotas'&&swarm.level>=14?swarm.con:0;
+  const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char),swarm=entomancerProfile(char,abilities),unarmedExtra=swarm.species==='Exo-Gotas'&&swarm.level>=14?swarm.con:0;
   function attack(weapon) {
     const result=roll(`1d20${signed(weapon.attack)}`,`${weapon.name} · attack`);
     if(result&&weapon.entomancerStrike)patch(current=>applyEntomancerAction(current,'consume-strike'));

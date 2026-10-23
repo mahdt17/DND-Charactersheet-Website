@@ -1,5 +1,7 @@
 # Independent 5e class conversions
 
+The [2026-10-22 gameplay audit](ARCHIVIST_GAMEPLAY_AUDIT.md) records level 1–20 coverage, repaired gameplay defects, and the remaining explicit table inputs.
+
 The Archivist PDF is a multiclass example, not a campaign preset. Use normal **Create character** to start as Archivist or Psion (Telepath) at level 1. **Level up** offers continuing a class, adding another class, or entering Thrallherd when level 5, Arcana/Religion proficiency, Mindlink and the converted Intelligence requirement are met.
 
 - The approved adjustable 2014/5e conversion defaults remain in use. These are not original 3.5 class records.

@@ -1,3 +1,4 @@
+import {assertCampaignCanAct} from './campaignActivity.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {entomancerProfile,entomancerActionBlockReason} from './entomancer.js';
 import { mechanics, is35, spellSlotPools } from './editions';
@@ -43,6 +44,7 @@ export function availableSlots(c,s){
   .filter(x=>x.remaining>0&&x.level>=Math.max(is35(c)?0:1,level));
 }
 export function spendSpellSlot(c,s,level,pool='standard') {
+ assertCampaignCanAct(c);
  const blocked=entomancerActionBlockReason(c);if(blocked)throw Error(blocked);
  if(!availableSlots(c,s).some(x=>x.level===level&&(x.pool||'standard')===pool))throw Error('Choose an available slot for this spell.');
  const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';

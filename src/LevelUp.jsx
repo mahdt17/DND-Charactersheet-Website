@@ -1,3 +1,4 @@
+import {preservePsicrystalDestruction} from './lib/campaignPsicrystal';
 import {campaignKind} from './lib/archivistCampaign';
 import {isEntomancerRecord} from './lib/entomancer';
 import ClassFeatureChoices from './ClassFeatureChoices';
@@ -18,6 +19,7 @@ import {featSpellAcquisitionProfile35,featSpellAcquisitionComplete35} from './li
 import {reconcileSpellAcquisition35} from './lib/spellAcquisition35';
 
 export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
+  char=preservePsicrystalDestruction(char);
   const [flow,setFlow]=useState('existing'),[selected,setSelected]=useState(''),[query,setQuery]=useState(''),[confirmations,setConfirmations]=useState({}),[proceed,setProceed]=useState(false),[reviewed,setReviewed]=useState(false);
   const [trainingChoices,setTrainingChoices]=useState({}),[pending,setPending]=useState(null),[featurePicks,setFeaturePicks]=useState({}),[featureFeatOverrides,setFeatureFeatOverrides]=useState({}),[inheritanceChoice,setInheritanceChoice]=useState(''),[castingTargets,setCastingTargets]=useState({});
   const ruleset=char.ruleset||'2014',spellReference=useReferenceIndex(['3.5','custom'].includes(ruleset)?['spells']:[],ruleset);

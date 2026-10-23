@@ -68,7 +68,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   if(acquisitionClassId&&!featRows.some(row=>row.catalogId===acquisitionClassId))featRows.push({catalogId:acquisitionClassId,name:char.className,edition:char.ruleset,level:target,definition:char.classDefinition});
   const featCharacter={...fullBase,...conversion,level:characterLevel,abilities:nextAbilities,classLevels:featRows.length?featRows:fullBase.classLevels};
   const featValid=validFeatSelection(feat,featCharacter,{required:asi&&mode==='feat'});
-  const choicesValid=entomancerChoicesComplete(draft,{startingClass:entomancerStartsCharacter(fullBase)})&&conversionChoicesComplete(featCharacter)&&acquisitionPrereqsComplete&&(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
+  const choicesValid=entomancerChoicesComplete(draft,{startingClass:entomancerStartsCharacter(fullBase)})&&conversionChoicesComplete(featCharacter,fullBase)&&acquisitionPrereqsComplete&&(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
   const spellsValid=invocationProfile?invocationChoicesComplete35(invocationTarget,invocationEvents,invocationPicks):managedAcquisition?spellAcquisitionPicksComplete35(acquisitionEvents,acquisitionPicks,acquisitionLegalIds):added.every(s=>candidates.some(x=>keyOf(x)===keyOf(s)))&&(manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain);
   function finish(){
     if(!choicesValid||!spellsValid)return;

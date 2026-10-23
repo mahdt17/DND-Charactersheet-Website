@@ -1,5 +1,6 @@
 import {isEladrin} from './eladrin.js';
 import {campaignKind,campaignProfile,selectedBasePowers} from './archivistCampaign.js';
+import {preservePsicrystalDestruction} from './campaignPsicrystal.js';
 import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
@@ -208,6 +209,7 @@ export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,s
   if(totalLevel(c)>=20)throw Error('The supported character-level limit is 20.');
   const eligibility=eligibleClass(c,record,flow,confirmations);
   if(!eligibility.allowed)throw Error('Resolve all class prerequisites before leveling up.');
+  if(campaignProfile(c).psion)c=preservePsicrystalDestruction(c);
   const rows=characterClasses(c),key=contentKey(record),old=rows.find(r=>r.catalogId===key),nextLevel=(old?.level||0)+1;
   const row={...old,catalogId:key,name:record.name,edition:normalizeEdition(record.edition||c.ruleset),definition:structuredClone(record),level:nextLevel,subclass:subclass??old?.subclass??''};
   const classLevels=old?rows.map(r=>r.catalogId===key?row:r):[...rows,row];
