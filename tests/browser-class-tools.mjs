@@ -4,7 +4,7 @@ import {createServer} from 'vite';
 import {chromium} from 'playwright';
 import {createArchivistCampaign} from '../src/lib/archivistCampaign.js';
 import {campaignClasses} from '../src/data/archivistCampaign.js';
-import {openClassTools,chooseClassPower,classToolPanel} from './helpers/class-tools.mjs';
+import {castSpellRow,openSpellCast,openClassTools,chooseClassPower,classToolPanel} from './helpers/class-tools.mjs';
 const server=await createServer({server:{host:'127.0.0.1',port:5206}});await server.listen();
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox']});
 const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -15,12 +15,12 @@ const load=async c=>{await page.locator('input[type=file]').setInputFiles({name:
 try{
  mkdirSync('test-results',{recursive:true});await page.goto('http://127.0.0.1:5206');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character',exact:true}).click();assert.equal(await page.getByRole('tab',{name:'Class tools',exact:true}).count(),1);
  await load(base);assert.equal(await page.getByRole('tab',{name:'Class tools',exact:true}).getAttribute('aria-selected'),'true');
- for(const label of ['Abilities','Prayerbook','Projects','Settings'])assert.equal(await tools().getByRole('button',{name:label,exact:true}).count(),1);
+ for(const label of ['Abilities','Projects','Settings'])assert.equal(await tools().getByRole('button',{name:label,exact:true}).count(),1);
  assert.equal(await count('Dark Knowledge').innerText(),'4 / 4');assert.match(await tools().innerText(),/allied attacks/);
  await tools().getByLabel('Studied creature or group').fill('Undead scouts');await tools().getByLabel('Knowledge check result').fill('25');
  await owner('Psicrystal Affinity');assert.equal(await tools().getByText('Sage Psicrystal',{exact:true}).isVisible(),true);
  await openClassTools(page,'Projects');await tools().getByLabel('Project work hours').fill('12');await openClassTools(page,'Settings');assert.equal(await tools().getByLabel('Lore Mastery 1').isVisible(),true);
- await page.getByRole('tab',{name:'Spells',exact:true}).click();await page.getByRole('region',{name:'Archivist prayerbook',exact:true}).waitFor();
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();await page.getByRole('region',{name:'Archivist spells',exact:true}).waitFor();
  await page.getByRole('tab',{name:'Actions',exact:true}).click();assert.equal(await tools().isVisible(),false);await page.getByRole('button',{name:'Open Class tools',exact:true}).click();await openClassTools(page);
  assert.equal(await tools().getByLabel('Studied creature or group').inputValue(),'Undead scouts');assert.equal(await tools().getByLabel('Knowledge check result').inputValue(),'25');await tools().getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();assert.equal(await count('Dark Knowledge').innerText(),'3 / 4');
  await chooseClassPower(page,'Mindlink');assert.equal(await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).count(),1);await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).click();assert.equal(await count('Power Points').innerText(),'2 / 3');assert.match(await tools().innerText(),/Mindlink.*1 PP spent/s);assert.match(await tools().innerText(),/10 minutes remaining/);
