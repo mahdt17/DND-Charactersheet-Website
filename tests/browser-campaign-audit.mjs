@@ -4,7 +4,7 @@ import {createServer} from 'vite';
 import {chromium} from 'playwright';
 import {campaignClasses,campaignPowers,conversionFeats} from '../src/data/archivistCampaign.js';
 import {createArchivistCampaign} from '../src/lib/archivistCampaign.js';
-import {openClassTools,openClassDisclosure,chooseClassPower} from './helpers/class-tools.mjs';
+import {castSpellRow,openSpellCast,openClassTools,openClassDisclosure,chooseClassPower} from './helpers/class-tools.mjs';
 
 const server=await createServer({server:{host:'127.0.0.1',port:5211,strictPort:true,hmr:false}});await server.listen();
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox']});
@@ -31,7 +31,7 @@ function build(level,name='Guide level '+level){
  };
 }
 async function load(char){await page.locator('input[type=file]').setInputFiles({name:'gameplay-audit.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(char))});await page.locator('.sheet-identity').filter({hasText:char.name}).waitFor();}
-async function prayerbook(){await page.getByRole('tab',{name:'Spells',exact:true}).click();const selector=page.getByLabel('Spellcasting class',{exact:true}).filter({visible:true});if(await selector.count())await selector.selectOption(campaignClasses[0].catalogId);return page.getByRole('region',{name:'Archivist prayerbook',exact:true});}
+async function prayerbook(){await page.getByRole('tab',{name:'Spells',exact:true}).click();const selector=page.getByLabel('Spellcasting class',{exact:true}).filter({visible:true});if(await selector.count())await selector.selectOption(campaignClasses[0].catalogId);return page.getByRole('region',{name:'Archivist spells',exact:true});}
 async function saved(name){return page.evaluate(async name=>{const index=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+index.find(c=>c.name===name).id)).value);},name);}
 try{
  mkdirSync('test-results',{recursive:true});await page.goto('http://127.0.0.1:5211');await page.getByRole('button',{name:'Explore the demo'}).click();
@@ -48,7 +48,7 @@ try{
   await openClassTools(page,'Companions');if(level>=6)assert.match(await tools().innerText(),new RegExp('Maximum thrall level: '+thralls[level-6]+'\\.'));
   const book=await prayerbook();const shown=await book.locator('.slot-level').allInnerTexts();assert.equal(shown.length,slots[a].length);
   for(let i=0;i<shown.length;i++)assert.match(shown[i],new RegExp(`Level ${i+1}\\s*${slots[a][i]} / ${slots[a][i]} slots`));
-  await book.getByRole('button',{name:'Cast Cure Wounds',exact:true}).click();assert.match(await book.locator('.slot-level').first().innerText(),new RegExp(`${slots[a][0]-1} / ${slots[a][0]} slots`));
+  await castSpellRow(page,'Cure Wounds');assert.match(await book.locator('.slot-level').first().innerText(),new RegExp(`${slots[a][0]-1} / ${slots[a][0]} slots`));
   await openClassTools(page);await tools().getByRole('button',{name:'Long rest · restore resources',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
   assert.equal(await reserve('Dark Knowledge').innerText(),`${dark[level-1]} / ${dark[level-1]}`);if(level>=2){await chooseClassPower(page,'Mindlink');assert.equal(await reserve('Power Points').innerText(),'3 / 3');}
   console.log(`PASS guide character level ${level}: class tools, abilities, slots, spending, lore, roster and recovery`);
@@ -57,7 +57,7 @@ try{
   const char={...build(20,'Blocked '+condition),conditions:[condition]};await load(char);await openClassTools(page);
   assert(await tools().getByRole('button',{name:'Use Dark Knowledge',exact:true}).isDisabled(),'incapacity must disable class actions');
   await chooseClassPower(page,'Mindlink');assert(await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).isDisabled());
-  const book=await prayerbook();assert(await book.getByRole('button',{name:'Cast Cure Wounds',exact:true}).isDisabled());
+  const book=await prayerbook();assert(await book.locator('.spell-item').filter({hasText:'Cure Wounds'}).getByRole('button',{name:'Cast',exact:true}).isDisabled());
   await page.getByRole('tab',{name:'Actions',exact:true}).click();assert(await page.getByRole('button',{name:/to hit/}).first().isDisabled());
  }
  let followers=build(6,'Individual follower handling');followers=C.addCampaignFollower(followers,{name:'Scout group',kind:'believers',level:1,quantity:5});followers=N.createFollowerSheets(followers,followers.archivistCampaign.followers[0].id,'caster');followers=C.advanceCampaignTime(followers,1440);

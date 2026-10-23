@@ -15,3 +15,12 @@ export async function chooseClassPower(page,name){
  await page.getByRole('button',{name:'Telepath powers',exact:true}).click();
  await page.getByRole('button',{name:'Select '+name,exact:true}).click();
 }
+
+export async function openSpellCast(page,name){
+ await page.locator('.spell-item').filter({has:page.getByText(name,{exact:true})}).getByRole('button',{name:'Cast',exact:true}).click();
+ return page.getByRole('dialog',{name:'Cast '+name,exact:true});
+}
+export async function castSpellRow(page,name){
+ const dialog=await openSpellCast(page,name);
+ await dialog.getByRole('button',{name:'Cast & spend slot',exact:true}).click();
+}
