@@ -4,7 +4,7 @@ import {createServer} from 'vite';
 import {chromium} from 'playwright';
 import {campaignClasses,campaignPowers,conversionFeats} from '../src/data/archivistCampaign.js';
 import {createArchivistCampaign} from '../src/lib/archivistCampaign.js';
-import {castSpellRow,openSpellCast,openClassTools,openClassDisclosure,chooseClassPower} from './helpers/class-tools.mjs';
+import {chooseCreatureAction,castSpellRow,openSpellCast,openClassTools,openClassDisclosure,chooseClassPower} from './helpers/class-tools.mjs';
 
 const server=await createServer({server:{host:'127.0.0.1',port:5211,strictPort:true,hmr:false}});await server.listen();
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox']});
@@ -64,9 +64,9 @@ try{
  for(const n of followers.archivistCampaign.creatures)n.spells=[{id:'bless',name:'Bless',level:1,prepared:true,concentration:true}];
  await load(followers);await openClassTools(page,'Companions');await openClassDisclosure(page,'Creatures and follower combat sheets');
  const first=page.locator(`[data-creature-id="${followers.archivistCampaign.creatures[0].id}"]`),second=page.locator(`[data-creature-id="${followers.archivistCampaign.creatures[1].id}"]`);
- await first.locator('summary').first().click();await first.getByRole('button',{name:'Record follower loss — Scout group 1',exact:true}).click();
- assert(await first.getByRole('button',{name:'Attack +4',exact:true}).isDisabled());await second.locator('summary').first().click();assert(await second.getByRole('button',{name:'Attack +4',exact:true}).isEnabled());
- await tools().getByLabel('Follower name or group').fill('Replacement scout');await tools().getByRole('button',{name:'Add follower record',exact:true}).click();assert.match(await tools().innerText(),/Replacement scout.*24 hours until arrival/s);
+ await first.locator('summary').first().click();await chooseCreatureAction(first,'Manage');await first.getByRole('button',{name:'Record follower loss — Scout group 1',exact:true}).click();
+ await chooseCreatureAction(first,'Attack');assert(await first.getByRole('button',{name:'Attack +4',exact:true}).isDisabled());await second.locator('summary').first().click();assert(await second.getByRole('button',{name:'Attack +4',exact:true}).isEnabled());
+ await openClassDisclosure(page,'Manage follower roster');await tools().getByLabel('Follower name or group').fill('Replacement scout');await tools().getByRole('button',{name:'Add follower record',exact:true}).click();assert.match(await tools().innerText(),/Replacement scout.*24 hours until arrival/s);
  let persisted=false;for(let attempt=0;attempt<100;attempt++){const state=await saved(followers.name);if(state.archivistCampaign.followers[0].lostMembers?.[0]===0&&state.archivistCampaign.followers.length===2){persisted=true;break;}await page.waitForTimeout(50);}assert(persisted,'individual losses and the replacement are saved');
  const groupState=await saved(followers.name);assert.deepEqual(groupState.archivistCampaign.followers[0].lostMembers,[0]);
  await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.screenshot({path:'test-results/campaign-gameplay-audit-mobile.png',fullPage:true});
