@@ -24,3 +24,7 @@ export async function castSpellRow(page,name){
  const dialog=await openSpellCast(page,name);
  await dialog.getByRole('button',{name:'Cast & spend slot',exact:true}).click();
 }
+
+export async function chooseCreatureAction(sheet,name){
+ await sheet.locator('.creature-action-picker').getByRole('button',{name,exact:true}).click();
+}

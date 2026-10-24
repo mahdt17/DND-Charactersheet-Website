@@ -28,7 +28,7 @@ try{
  await health.getByLabel('Psicrystal HP adjustment',{exact:true}).fill('5');await health.getByRole('button',{name:'Damage Psicrystal',exact:true}).click();await page.waitForFunction(()=>document.querySelector('[aria-label="Psicrystal HP"]')?.getAttribute('aria-valuenow')==='12');
  await health.getByLabel('Psicrystal HP adjustment',{exact:true}).fill('2');await health.getByRole('button',{name:'Heal Psicrystal',exact:true}).click();await page.waitForFunction(()=>document.querySelector('[aria-label="Psicrystal HP"]')?.getAttribute('aria-valuenow')==='14');
  await tool('Archivist').click();await tool('Psicrystal Affinity').click();assert.equal(await bar.getAttribute('aria-valuenow'),'14');await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await health.screenshot({path:'test-results/psicrystal-health-mobile.png'});await page.setViewportSize({width:1440,height:1100});await health.screenshot({path:'test-results/psicrystal-health-desktop.png'});
- await tool('Thrallherd').click();await page.getByLabel('Follower name or group',{exact:true}).fill('Keep this draft');
+ await tool('Thrallherd').click();await page.getByText('Manage follower roster',{exact:true}).click();await page.getByLabel('Follower name or group',{exact:true}).fill('Keep this draft');
  await tool('Archivist').click();await page.getByRole('button',{name:'Dark Knowledge',exact:true}).waitFor();
  assert.equal(await page.getByRole('button',{name:'Telepath powers',exact:true}).isVisible(),false);
  await tool('Thrallherd').click();assert.equal(await page.getByLabel('Follower name or group',{exact:true}).inputValue(),'Keep this draft');

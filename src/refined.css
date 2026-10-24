@@ -473,3 +473,36 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
 .psicrystal-save-options { margin-top:12px; }
 .psicrystal-save-options summary { color:var(--muted); font-size:12px; cursor:pointer; }
 .psicrystal-save-options label { display:flex; align-items:center; gap:8px; margin-top:10px; font-size:12px; }
+
+/* Focused follower and creature combat sheets. */
+.creature-sheet>summary { display:grid; grid-template-columns:minmax(0,1fr) minmax(120px,180px); gap:12px; align-items:center; }
+.creature-summary-name,.creature-summary-health { display:grid; min-width:0; gap:6px; overflow-wrap:anywhere; }
+.creature-summary-name small,.creature-summary-health { font-size:12px; color:var(--muted); }
+.creature-summary-health>span:first-child { text-align:right; }
+.creature-summary-health .swarm-creature-hp-meter { display:block; width:100%; }
+.creature-health { margin:14px 0; padding:12px; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; }
+.creature-vitals { display:flex; flex-wrap:wrap; gap:8px 16px; font-size:12px; margin-bottom:10px; }
+.creature-health .hp-controls input,.creature-health .hp-controls .l-button { min-height:40px; }
+.creature-action-panel[hidden] { display:none!important; }
+.creature-action-panel { margin-top:12px; }
+.creature-action-panel h3,.creature-action-panel h4 { margin-top:0; }
+.creature-action-panel .l-toolbar { flex-wrap:wrap; }
+.creature-spell-preparation { display:flex; flex-wrap:wrap; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); }
+.creature-spell-preparation>strong { flex:1 0 100%; }
+@media(max-width:700px) {
+ .creature-sheet>summary { grid-template-columns:minmax(0,1fr) minmax(110px,130px); gap:8px; }
+ .creature-action-picker,.creature-action-panel .class-power-picker { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .creature-action-panel .form-grid { grid-template-columns:minmax(0,1fr); }
+ .creature-action-panel .l-toolbar .l-button { white-space:normal; }
+}
+
+.creature-sheet { border-left:3px solid var(--accent); margin:10px 0; }
+.creature-sheet[data-relationship="thrall"] { border-left-color:var(--gold); }
+.creature-sheet[data-relationship="believers"] { border-left-color:var(--health); }
+.creature-identity { display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; }
+.creature-kind { font-size:10px; padding:3px 6px; border:1px solid var(--border); border-radius:4px; color:var(--muted); }
+.creature-availability { font-size:11px; color:var(--danger); }
+.creature-sheet[data-availability="ready"] .creature-availability { color:var(--health); }
+.creature-roster-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-top:14px; margin:14px 0 8px; border-top:1px solid var(--border); }
+.creature-roster-heading h3 { margin:0; font-size:15px; }
+.creature-roster-heading>span { color:var(--muted); font-size:12px; }
