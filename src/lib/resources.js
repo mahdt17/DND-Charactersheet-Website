@@ -1,3 +1,4 @@
+import {aasimarResources,isAasimar,endAasimarTransformation,aasimarHealingId,aasimarTransformationId} from './aasimar.js';
 import {campaignResources,campaignProfile,campaignRest,campaignKind} from './archivistCampaign.js';
 import {campaignPPId,campaignDarkId} from '../data/archivistCampaign.js';
 import {characterClasses} from './advancement.js';
@@ -14,7 +15,7 @@ const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.homebrew||r?.
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
-  const population=entomancerResource(c),fey=eladrinResource(c),result=[...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[])];
+  const population=entomancerResource(c),fey=eladrinResource(c),result=[...aasimarResources(c),...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[])];
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return result;
   for(const row of rows) {
     const n=row.level,cls=row.name;
@@ -57,7 +58,7 @@ export function characterResources(c,abilities) {
   const definitions=classResourceDefinitions(c,abilities),saved=reconcileManifesting35(c).resources;
   // Rebuild the source-owned reserve from its saved expenditure so imported IDs
   // and manual flags cannot separate tracker spending from swarm actions.
-  const resources=saved.filter(r=>!r.raceManaged&&r.id!==feyStepId&&!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
+  const resources=saved.filter(r=>!r.raceManaged&&![aasimarHealingId,aasimarTransformationId].includes(r.id)&&r.id!==feyStepId&&!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
     const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey);
     return {...r,...(definition&&!r.manual?definition:{}),id:r.id,used:count(r.used)};
   });
@@ -97,5 +98,5 @@ export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=f
   });
   const campaign=campaignRest({...c,resources},rest);
   const entomancer=entomancerRest(campaign,rest,{fed});
-  return {...migration,...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
+  return {...migration,...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }
