@@ -466,3 +466,10 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
 .class-ability-picker .l-button,.class-power-picker .l-button { display:flex; flex-direction:column; align-items:start; justify-content:center; white-space:normal; min-height:64px; gap:5px; text-align:left; }
 .class-ability-picker [aria-pressed="true"],.class-power-picker [aria-pressed="true"] { border-color:var(--gold); background:var(--accent-soft); }
 .class-ability-picker small,.class-power-picker small { color:var(--muted); font-size:11px; }
+
+.psicrystal-health { margin:16px 0; padding:14px; border:1px solid var(--border); border-radius:8px; background:var(--surface-2); }
+.psicrystal-health .hp-controls { margin-top:12px; }
+.psicrystal-health .hp-controls input,.psicrystal-health .hp-controls .l-button { min-height:40px; }
+.psicrystal-save-options { margin-top:12px; }
+.psicrystal-save-options summary { color:var(--muted); font-size:12px; cursor:pointer; }
+.psicrystal-save-options label { display:flex; align-items:center; gap:8px; margin-top:10px; font-size:12px; }
