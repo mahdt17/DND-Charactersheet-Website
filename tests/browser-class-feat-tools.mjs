@@ -24,6 +24,10 @@ try{
  await load(build('Independent class and feat panels',converted,conversionFeats.map(f=>({...f,id:f.catalogId}))));
  for(const name of ['Archivist','Psion (Telepath)','Thrallherd',...conversionFeats.map(f=>f.name)])assert.equal(await tool(name).count(),1,name);
  await tool('Psicrystal Affinity').click();await page.locator('summary').filter({hasText:'Sage Psicrystal'}).click();await page.getByRole('button',{name:'Activate Psicrystal legs',exact:true}).waitFor();
+ const health=page.getByRole('region',{name:'Psicrystal health',exact:true}),bar=health.getByRole('progressbar',{name:'Psicrystal HP',exact:true});await bar.waitFor();assert.equal(await bar.getAttribute('aria-valuenow'),'17');assert.equal(await bar.getAttribute('aria-valuemax'),'17');
+ await health.getByLabel('Psicrystal HP adjustment',{exact:true}).fill('5');await health.getByRole('button',{name:'Damage Psicrystal',exact:true}).click();await page.waitForFunction(()=>document.querySelector('[aria-label="Psicrystal HP"]')?.getAttribute('aria-valuenow')==='12');
+ await health.getByLabel('Psicrystal HP adjustment',{exact:true}).fill('2');await health.getByRole('button',{name:'Heal Psicrystal',exact:true}).click();await page.waitForFunction(()=>document.querySelector('[aria-label="Psicrystal HP"]')?.getAttribute('aria-valuenow')==='14');
+ await tool('Archivist').click();await tool('Psicrystal Affinity').click();assert.equal(await bar.getAttribute('aria-valuenow'),'14');await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await health.screenshot({path:'test-results/psicrystal-health-mobile.png'});await page.setViewportSize({width:1440,height:1100});await health.screenshot({path:'test-results/psicrystal-health-desktop.png'});
  await tool('Thrallherd').click();await page.getByLabel('Follower name or group',{exact:true}).fill('Keep this draft');
  await tool('Archivist').click();await page.getByRole('button',{name:'Dark Knowledge',exact:true}).waitFor();
  assert.equal(await page.getByRole('button',{name:'Telepath powers',exact:true}).isVisible(),false);
