@@ -506,3 +506,19 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
 .creature-roster-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-top:14px; margin:14px 0 8px; border-top:1px solid var(--border); }
 .creature-roster-heading h3 { margin:0; font-size:15px; }
 .creature-roster-heading>span { color:var(--muted); font-size:12px; }
+.creature-notes { margin-top:18px; padding-top:14px; border-top:1px solid var(--border); }
+.creature-notes h3 { margin:0 0 10px; }
+.creature-notes textarea { min-height:100px; resize:vertical; }
+.creature-inventory .inventory-row { display:grid; grid-template-columns:20px minmax(0,1fr) 65px minmax(100px,1.1fr) 40px; gap:8px; }
+.creature-inventory .inventory-row>button:first-of-type { min-width:0; overflow-wrap:break-word; white-space:normal; }
+.creature-inventory .inventory-row input[placeholder="Item notes"] { min-width:0; width:100%; }
+.creature-inventory .inventory-row>button:last-of-type { padding:8px; }
+.creature-inventory .l-toolbar>input { min-width:0; max-width:100%; }
+@media(max-width:700px) {
+ .creature-inventory .inventory-row { grid-template-columns:20px minmax(0,1fr) 65px 40px; }
+ .creature-inventory .inventory-row>input[type=checkbox] { grid-column:1; grid-row:1; }
+ .creature-inventory .inventory-row>button:first-of-type { grid-column:2; grid-row:1; }
+ .creature-inventory .inventory-row>input[type=number] { grid-column:3; grid-row:1; }
+ .creature-inventory .inventory-row>input[placeholder="Item notes"] { grid-column:2 / -1; grid-row:2; }
+ .creature-inventory .inventory-row>button:last-of-type { grid-column:4; grid-row:1; }
+}
