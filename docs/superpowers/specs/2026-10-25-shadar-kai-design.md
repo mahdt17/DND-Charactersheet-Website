@@ -1,0 +1,15 @@
+# Shadar-kai for 5e
+
+The user paused the dice feature and requested Shadar-kai for 5e, then explicitly selected both the 2018 Mordenkainen's Tome of Foes and 2022 Monsters of the Multiverse versions with clear labels. Work in the separate codex/shadar-kai-5e checkout; leave the paused codex/reference-dice-sets checkout intact.
+
+Use two canonical, source-identified records with the same race name and distinct visible source/year labels. Both are 2014-mechanics 5e options, also usable in Custom with 2014 mechanics; neither is a 2024 or 3.5 race. Both are Medium humanoid elves, speed 30, darkvision 60 feet, Perception proficiency, necrotic resistance, Fey Ancestry, Trance and magical-sleep immunity. MToF has Dexterity +2, Constitution +1, Common/Elvish, charm-save advantage, and one Blessing use per long rest. MotM has flexible +2/+1 or three +1 increases to different scores (maximum 20), Common plus one language, advantage to avoid/end charm, and proficiency-bonus Blessing uses per long rest. Only MotM receives optional two PHB weapon/tool proficiencies after Trance, expiring at the next long rest.
+
+Blessing of the Raven Queen: a bonus-action teleport of up to 30 feet to visible, unoccupied space. From total character level 3, it also gives resistance to all damage until the start of the next turn. Track source-specific uses through the existing race-managed resources; preserve uses across save/reopen and short rests; restore on a long rest. Guard against incapacity, zero HP, exhausted uses and wrong source/edition. A visible resistance reminder can be cleared with a Start next turn button; ending it does not restore a use. Rest clears the brief effect. The app has no automatic combat turn clock or map: resolve movement and damage at the table, state that clearly, and do not imply automatic target/damage handling.
+
+Approaches: two source-labelled race choices reuse canonical creation and shared resources, following Eladrin/Aasimar; this is the chosen implementation approach. A single combined rules option would incorrectly mix editions of the race; an Elf subrace plus independent MotM option would hide the source choice in different places. No separate creator or new dependencies.
+
+Keen Senses must not consume class skill picks: disallow redundant Perception picks and collect a replacement for a background overlap. Only MotM uses flexible racial ability bonuses; both retain distinct source metadata on save. Trance training affects existing weapon attacks/tool display and never becomes permanent; source changes cannot retain the other version's benefits. Count both sources as elves for existing prerequisite checks.
+
+Sources checked: official D&D Beyond species directory lists MotM Shadar-kai and its traits (https://www.dndbeyond.com/species/1026401-shadar-kai); full book entry redirects to purchase. Cross-check rules at https://dnd5e.wikidot.com/lineage:shadar-kai-mtf and https://dnd5e.wikidot.com/lineage:shadar-kai-mpmm. Store concise paraphrased rules, not book prose.
+
+Deliver a tested, independently reviewed PR without paused dice work. Merging is a separate user request.

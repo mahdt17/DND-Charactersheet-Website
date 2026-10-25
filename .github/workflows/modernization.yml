@@ -144,6 +144,9 @@ jobs:
       - name: Run Aasimar creation and racial ability browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:aasimar
+      - name: Run Shadar-kai creation and racial ability browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser:shadar-kai
       - name: Run Entomancer browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:entomancer
