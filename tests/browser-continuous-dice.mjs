@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
+import {verifySharedDiceCollisions} from './helpers/dice-collisions.mjs';
 
 const server=process.env.DICE_TEST_URL?null:await createServer({server:{host:'127.0.0.1',port:5189}});
 await server?.listen();
@@ -92,7 +93,9 @@ try {
  assert.equal((await page.locator('.dice-canvas').getAttribute('data-values')).split(',').length,18);
  assert.equal(await tray.locator('.roll-result').count(),22);
  assert.equal(await page.evaluate(()=>window.diceContexts.size),1);
+ assert(Number(await page.locator('.dice-canvas').getAttribute('data-collisions'))>0,'Queued separate one-die rolls must physically collide');
  await page.locator('.dice-stage').waitFor({state:'hidden'});await checkSettleDelay();
+ if(server)await verifySharedDiceCollisions(browser,'http://127.0.0.1:5189/',server.config.base);
  assert.deepEqual(errors,[]);
- console.log('PASS single and repeated dice settle before the 600 ms hold, hold/fade interruption, shared context, queued rolls, bounded geometry, saved results and reduced motion');
+ console.log('PASS cross-roll contacts with sleeping dice, pruned bodies, mixed styles, single/repeated settling, hold/fade interruption, shared context, queued rolls, bounded geometry, saved results and reduced motion');
 }finally{await browser.close();await server?.close();}
