@@ -95,7 +95,7 @@ try {
  assert.equal(await page.evaluate(()=>window.diceContexts.size),1);
  assert(Number(await page.locator('.dice-canvas').getAttribute('data-collisions'))>0,'Queued separate one-die rolls must physically collide');
  await page.locator('.dice-stage').waitFor({state:'hidden'});await checkSettleDelay();
- if(server)await verifySharedDiceCollisions(browser,'http://127.0.0.1:5189/');
+ if(server)await verifySharedDiceCollisions(browser,'http://127.0.0.1:5189/',server.config.base);
  assert.deepEqual(errors,[]);
  console.log('PASS cross-roll contacts with sleeping dice, pruned bodies, mixed styles, single/repeated settling, hold/fade interruption, shared context, queued rolls, bounded geometry, saved results and reduced motion');
 }finally{await browser.close();await server?.close();}
