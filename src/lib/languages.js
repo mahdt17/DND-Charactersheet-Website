@@ -1,3 +1,4 @@
+import {shadowScholarLanguage} from './shadowScholar.js';
 import {shadarKaiRace} from './shadarKai.js';
 import {isAasimar} from './aasimar.js';
 import {aasimarRace} from '../data/aasimar.js';
@@ -26,6 +27,7 @@ export function languagePlan(c,intelligence=10) {
   const edition=c.ruleset==='custom'?(c.mechanics||'2014'):(c.ruleset||'2014'), automatic=[],groups=[];
   const grant=(names,source)=>names.forEach(name=>{if(!automatic.some(x=>x.name===name))automatic.push({name,source});});
   const choice=(id,source,count,options)=>{if(count>0)groups.push({id,source,count,options:[...new Set(options)]});};
+  const backgroundLanguage=shadowScholarLanguage(c);if(backgroundLanguage)grant([backgroundLanguage],'Shadow Scholar');
   if(c.raceDefinition?.referenceOnly||c.raceDefinition?.category==='race'||c.raceDefinition?.edition&&c.raceDefinition.edition!==edition)return {automatic,groups,manual:true};
   if(edition==='2024'){
     grant(['Common'],'Starting language');choice('origin','Origin',2,standard24);

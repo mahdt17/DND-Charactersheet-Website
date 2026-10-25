@@ -1,3 +1,4 @@
+import {shadowScholarBackground} from './data/shadowScholar';
 import ClassSpellLimits from './ClassSpellLimits';
 import {effectiveAbilityScores as effectiveAbilities} from './lib/abilityScores';
 import LevelUpFeatChoice from './LevelUpFeatChoice';
@@ -265,6 +266,7 @@ const CLASS_DATA = {
 };
 
 const BACKGROUND_DATA = {
+  'Shadow Scholar': shadowScholarBackground,
   Acolyte: { blurb: "You've spent your life in service to a temple.", skills: "Insight, Religion", proficiencies: "Two languages of your choice", equipment: "Holy symbol, prayer book, vestments, common clothes, 15 gp", feature: ["Shelter of the Faithful", "Temples of your faith offer you aid, and you have a priestly contact nearby."] },
   Charlatan: { blurb: "You've always had a gift for telling people what they want to hear.", skills: "Deception, Sleight of Hand", proficiencies: "Disguise kit, forgery kit", equipment: "Fine clothes, disguise kit, forgery tools, 15 gp", feature: ["False Identity", "You have a second identity, complete with documents and contacts, that others can't easily trace to you."] },
   Criminal: { blurb: "You have a history of breaking the law and survived by it.", skills: "Deception, Stealth", proficiencies: "One gaming set, thieves' tools", equipment: "Crowbar, dark common clothes with a hood, 15 gp", feature: ["Criminal Contact", "You have a reliable contact in the criminal underworld who relays messages and can point you to fences."] },
