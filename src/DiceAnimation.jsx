@@ -40,7 +40,7 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
     function flush(createDiceRenderer){
       if(cancelled||!pending.length)return;
       if(!renderer)renderer=createDiceRenderer(node,{onPhase:renderedPhase,onUnavailable:fallback});
-      pending.forEach(batch=>renderer.addDice(batch.dice,batch.style));pending=[];
+      renderer.addBatches(pending);pending=[];
       if(unavailable)fallback();
     }
     session.current={stop,add(fresh,styleId){

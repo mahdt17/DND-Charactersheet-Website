@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {simulateDice} from './dicePhysics';
+import {simulateDice,sampleDiceSimulation} from './dicePhysics';
 
 const v=values=>new THREE.Vector3(...values);
 function makeAtlas(style,labels) {
@@ -50,7 +50,7 @@ function makeDie(mesh,labels,style,radius) {
 export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
   canvas.dataset.ready='false';
   let renderer;
-  const empty={addDice(){},clear(){},dispose(){}};
+  const empty={addDice(){},addBatches(){},clear(){},dispose(){}};
   try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});}catch{onUnavailable?.();return empty;}
   renderer.setClearColor(0x000000,0);renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -63,62 +63,71 @@ export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
   const rim=new THREE.DirectionalLight(0xb5d9ff,2.2);rim.position.set(8,8,-12);scene.add(rim);
   const floor=new THREE.Mesh(new THREE.PlaneGeometry(150,150),new THREE.ShadowMaterial({opacity:.29}));floor.rotation.x=-Math.PI/2;floor.position.y=-.015;floor.receiveShadow=true;scene.add(floor);
   const a=new THREE.Quaternion(),b=new THREE.Quaternion(),pa=new THREE.Vector3(),pb=new THREE.Vector3();
-  let batches=[],frame=0,disposed=false,unavailable=false,hiddenAt=null,width=0,height=0,halfWidth=12;
+  let diceEntries=[],playback=null,frame=0,disposed=false,unavailable=false,hiddenAt=null,width=0,height=0,halfWidth=12;
   const disposeObject=object=>object.traverse(child=>{child.geometry?.dispose();const materials=Array.isArray(child.material)?child.material:[child.material];materials.filter(Boolean).forEach(m=>{m.map?.dispose();m.dispose();});});
-  const entries=()=>batches.flatMap(batch=>batch.objects.flatMap((object,i)=>object?[{batch,object,i}]:[]));
   function metadata(){
-    const active=entries();
-    canvas.dataset.diceIds=active.map(({batch,i})=>batch.dice[i].id).join(',');
-    canvas.dataset.values=active.map(({batch,i})=>batch.dice[i].value).join(',');
-    canvas.dataset.topValues=active.map(({batch,i})=>batch.simulation.labels[i][batch.simulation.tops[i]]).join(',');
-    canvas.dataset.collisions=String(batches.reduce((n,batch)=>n+batch.simulation.collisions,0));
+    canvas.dataset.diceIds=diceEntries.map(e=>e.die.id).join(',');
+    canvas.dataset.values=diceEntries.map(e=>e.die.value).join(',');
+    // Older dice keep their printed faces even if a later impact turns them over.
+    canvas.dataset.topValues=diceEntries.map((e,i)=>e.labels[playback.simulation.tops[i]]).join(',');
+    canvas.dataset.collisions=String(playback?.simulation.collisions||0);
+    canvas.dataset.collisionPairs=JSON.stringify(playback?.simulation.collisionPairs||[]);
   }
   function resize(){
     const rect=canvas.getBoundingClientRect();if(rect.width<2||rect.height<2||rect.width===width&&rect.height===height)return;
     width=rect.width;height=rect.height;
     renderer.setSize(width,height,false);
-    if(!batches.length)halfWidth=7.5*Math.max(.6,Math.min(2.5,width/height));
+    if(!diceEntries.length)halfWidth=7.5*Math.max(.6,Math.min(2.5,width/height));
     const aspect=width/height,vertical=Math.max(9.5,(halfWidth+1.5)/aspect);
     camera.left=-vertical*aspect;camera.right=vertical*aspect;camera.top=vertical;camera.bottom=-vertical;camera.updateProjectionMatrix();
     // Paint immediately after resizing; never expose the cleared drawing buffer.
     renderer.render(scene,camera);
   }
   function wake(){if(!frame&&!disposed&&!unavailable)frame=requestAnimationFrame(draw);}
+  function syncPause(now){
+    if(document.hidden||innerWidth<120||innerHeight<120){if(hiddenAt===null)hiddenAt=now;return true;}
+    if(hiddenAt!==null){if(playback)playback.start+=now-hiddenAt;hiddenAt=null;}return false;
+  }
   function draw(now){
     frame=0;if(disposed||unavailable)return;
-    if(document.hidden||innerWidth<120||innerHeight<120){if(hiddenAt===null)hiddenAt=now;wake();return;}
-    if(hiddenAt!==null){batches.forEach(batch=>{batch.start+=now-hiddenAt;});hiddenAt=null;}
-    let moving=false;
-    batches.forEach(batch=>{
-      const progress=Math.min(1,Math.max(0,(now-batch.start)/batch.duration)),index=progress*(batch.simulation.frames.length-1),lo=Math.floor(index),hi=Math.min(lo+1,batch.simulation.frames.length-1),fraction=index-lo;
-      moving ||= progress<1;
-      batch.objects.forEach((object,i)=>{if(!object)return;const from=batch.simulation.frames[lo][i],to=batch.simulation.frames[hi][i];pa.fromArray(from);pb.fromArray(to);object.position.copy(pa).lerp(pb,fraction);a.fromArray(from,3);b.fromArray(to,3);object.quaternion.copy(a).slerp(b,fraction);});
-    });
+    if(syncPause(now)){wake();return;}
+    if(!playback)return;
+    const progress=Math.min(1,Math.max(0,(now-playback.start)/playback.duration)),index=progress*(playback.simulation.frames.length-1),lo=Math.floor(index),hi=Math.min(lo+1,playback.simulation.frames.length-1),fraction=index-lo;
+    diceEntries.forEach(({object},i)=>{const from=playback.simulation.frames[lo][i],to=playback.simulation.frames[hi][i];pa.fromArray(from);pb.fromArray(to);object.position.copy(pa).lerp(pb,fraction);a.fromArray(from,3);b.fromArray(to,3);object.quaternion.copy(a).slerp(b,fraction);});
     renderer.render(scene,camera);canvas.dataset.ready='true';
-    const phase=moving?'rolling':'settled';if(canvas.dataset.phase!==phase){canvas.dataset.phase=phase;onPhase?.(phase);}
-    if(moving)wake();
+    const phase=progress<1?'rolling':'settled';if(canvas.dataset.phase!==phase){canvas.dataset.phase=phase;onPhase?.(phase);}
+    if(progress<1)wake();
   }
-  function addDice(dice,style){
-    if(disposed||unavailable||!dice.length)return;
+  function addBatches(batches){
+    if(disposed||unavailable)return;
+    const incoming=batches.flatMap(({dice,style})=>dice.map(die=>({die,style}))).slice(-18);if(!incoming.length)return;
     resize();
-    const simulation=simulateDice(dice,{aspect:halfWidth/7.5});
-    const objects=simulation.meshes.map((mesh,i)=>{const object=makeDie(mesh,simulation.labels[i],style,simulation.radius);scene.add(object);return object;});
-    batches.push({dice,simulation,objects,start:performance.now(),duration:Math.max(2100,Math.min(3800,simulation.duration*1000))});
-    // Keep the latest 18 visual dice under sustained spam; all results stay in history.
-    const active=entries();active.slice(0,Math.max(0,active.length-18)).forEach(({batch,object,i})=>{scene.remove(object);disposeObject(object);batch.objects[i]=null;});
-    batches=batches.filter(batch=>batch.objects.some(Boolean));metadata();
+    const now=performance.now();syncPause(now);
+    const initialStates=playback?sampleDiceSimulation(playback.simulation,((hiddenAt??now)-playback.start)/playback.duration):[];
+    // Retain only bodies that still have a visible mesh; queued bursts simulate once.
+    const remove=Math.max(0,diceEntries.length+incoming.length-18);
+    diceEntries.slice(0,remove).forEach(({object})=>{scene.remove(object);disposeObject(object);});
+    const retained=diceEntries.slice(remove),next=[...retained,...incoming],simulation=simulateDice(next.map(e=>e.die),{aspect:halfWidth/7.5,initialStates});
+    diceEntries=next.map((entry,i)=>{
+      if(entry.object)return entry;
+      const labels=simulation.labels[i],radius=simulation.radii[i],object=makeDie(simulation.meshes[i],labels,entry.style,radius);scene.add(object);return {...entry,labels,radius,object};
+    });
+    playback={simulation,start:performance.now(),duration:Math.max(2100,Math.min(3800,simulation.duration*1000))};
+    if(hiddenAt!==null)hiddenAt=playback.start;
+    metadata();
     canvas.dataset.engine='webgl-physics';canvas.dataset.phase='rolling';onPhase?.('rolling');wake();
   }
+  const addDice=(dice,style)=>addBatches([{dice,style}]);
   function clear(){
     cancelAnimationFrame(frame);frame=0;hiddenAt=null;
-    entries().forEach(({object})=>{scene.remove(object);disposeObject(object);});batches=[];metadata();
+    diceEntries.forEach(({object})=>{scene.remove(object);disposeObject(object);});diceEntries=[];playback=null;metadata();
     canvas.dataset.ready='false';canvas.dataset.phase='idle';
     if(!unavailable)renderer.render(scene,camera);
   }
   const lost=e=>{e.preventDefault();unavailable=true;cancelAnimationFrame(frame);frame=0;canvas.dataset.ready='false';onUnavailable?.();};
   canvas.addEventListener('webglcontextlost',lost);
   resize();const observer=new ResizeObserver(resize);observer.observe(canvas);
-  return {addDice,clear,dispose(){
+  return {addDice,addBatches,clear,dispose(){
     if(disposed)return;disposed=true;clear();observer.disconnect();canvas.removeEventListener('webglcontextlost',lost);
     disposeObject(scene);key.shadow.dispose();renderer.dispose();renderer.forceContextLoss();
   }};
