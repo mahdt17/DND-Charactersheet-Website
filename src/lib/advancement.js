@@ -1,3 +1,4 @@
+import {isShadarKai} from './shadarKai.js';
 import {isEladrin} from './eladrin.js';
 import {campaignKind,campaignProfile,selectedBasePowers} from './archivistCampaign.js';
 import {preservePsicrystalDestruction} from './campaignPsicrystal.js';
@@ -133,7 +134,7 @@ function evaluateOne(p,c,scope={}) {
     const names=text.replace(/\.$/,'').split(/\s*;\s*|,\s*(?![^()]*\))/);
     if(names.every(n=>/^[\w ()'-]+$/.test(n)))return names.every(name=>ownsPrerequisiteFeat35(c,{name}));
   }
-  if(kind==='race'&&/^[\w -]+\.?$/.test(text)&&!/\b(or|any|not|except)\b/i.test(text))return norm(c.race)===norm(text.replace(/\.$/,''))||norm(text.replace(/\.$/,''))==='elf'&&isEladrin(c);
+  if(kind==='race'&&/^[\w -]+\.?$/.test(text)&&!/\b(or|any|not|except)\b/i.test(text))return norm(c.race)===norm(text.replace(/\.$/,''))||norm(text.replace(/\.$/,''))==='elf'&&(isEladrin(c)||isShadarKai(c));
   if(kind==='alignment') {
     const a=norm(c.alignment),t=norm(text.replace(/\.$/,''));
     if(!a)return null;
