@@ -522,3 +522,21 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
  .creature-inventory .inventory-row>input[placeholder="Item notes"] { grid-column:2 / -1; grid-row:2; }
  .creature-inventory .inventory-row>button:last-of-type { grid-column:4; grid-row:1; }
 }
+
+/* Score details keep ability-check rolls separate from editing. */
+.ability-tile>small.ability-score-label { padding:0; border:0; background:none; }
+.ability-score-open { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-width:48px; min-height:32px; padding:4px 8px; border:1px solid var(--ornament); border-radius:12px; background:var(--surface-2); color:var(--text); font:inherit; }
+.ability-score-open:hover { background:var(--accent-soft); border-color:var(--accent); }
+.ability-score-open:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.l-dialog.ability-score-dialog { width:min(440px,calc(100% - 24px)); }
+.ability-breakdown table { width:100%; border-collapse:collapse; font-size:14px; }
+.ability-breakdown th,.ability-breakdown td { border:1px solid var(--border); padding:9px 12px; text-align:left; }
+.ability-breakdown th { font-weight:500; }
+.ability-breakdown td { text-align:center; width:72px; font-family:'IBM Plex Mono',monospace; }
+.ability-breakdown th small { display:block; color:var(--muted); font-size:12px; font-weight:400; margin-top:2px; }
+.ability-breakdown .ability-total { background:var(--accent-soft); color:var(--text); font-weight:600; }
+.ability-breakdown p { font-size:13px; line-height:1.5; }
+.ability-breakdown .ability-formula { color:var(--muted); margin:10px 0 18px; }
+.ability-breakdown .form-grid { margin-top:16px; }
+.ability-breakdown .l-toolbar { justify-content:flex-end; margin-top:18px; }
+.ability-edit-error { color:var(--danger); }

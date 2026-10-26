@@ -29,7 +29,7 @@ await fs.writeFile(importPath,JSON.stringify(character));
 const server=await createServer({server:{host:'127.0.0.1',port:5191}});await server.listen();
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
-const wisdomButton=()=>page.locator('.ability-tile').filter({hasText:'Wisdom'}).getByRole('button');
+const wisdomButton=()=>page.locator('.ability-tile').filter({hasText:'Wisdom'}).getByRole('button',{name:'Roll Wisdom check',exact:true});
 const operationalPanel=()=>page.locator('section.l-panel').filter({has:page.getByRole('heading',{name:'3.5 attacks & saves',exact:true})});
 try{
   await page.goto('http://127.0.0.1:5191/');
