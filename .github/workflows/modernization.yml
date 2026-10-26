@@ -147,6 +147,9 @@ jobs:
       - name: Run Shadar-kai creation and racial ability browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:shadar-kai
+      - name: Run Variant Human creation browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser:variant-human
       - name: Run Shadow Scholar background browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:shadow-scholar
