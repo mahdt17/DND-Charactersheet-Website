@@ -2,11 +2,18 @@ import spells from '../data/spells.json' with {type:'json'};
 import {campaignIds} from '../data/archivistCampaign.js';
 const count=n=>Math.max(0,Math.floor(Number(n)||0));
 export const clericCantrips=spells.filter(s=>s.level===0&&s.classes.some(x=>(x.name||x)==='Cleric')).map(s=>({...s,edition:'2014',catalogId:'2014:'+s.index,classes:s.classes.map(x=>x.name||x),school:s.school?.name||s.school,description:s.desc?.join('\n\n')||'',castingClassId:campaignIds.archivist,campaignAcquisition:'cantrip',prepared:true}));
+export function migratePrayerbookOwnership(c){
+ const primary=c.classLevels?.[0]?.definition?.catalogId||c.classLevels?.[0]?.catalogId||c.classDefinition?.catalogId;
+ if(primary!==campaignIds.archivist)return c;
+ return {...c,spells:(c.spells||[]).map(s=>s.castingClassId||s.featGrantId||s.featSpellGrant||s.campaignCyst?s:{...s,castingClassId:campaignIds.archivist,campaignAcquisition:s.campaignAcquisition||(s.level===0?'cantrip':s.acquisitionSource?'outside':'growth')})};
+}
 export function prayerbookAllowance(c,level,intModifier){
- const state=c.archivistCampaign||{},book=(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist&&s.level>0),startingAllowance=3+count(state.startingIntBonus??Math.max(0,intModifier));
+ c=migratePrayerbookOwnership(c);
+ const state=c.archivistCampaign||{},book=(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist&&s.level>0&&!s.featGrantId&&!s.featSpellGrant&&!s.campaignCyst),startingAllowance=3+count(state.startingIntBonus??Math.max(0,intModifier));
  const growthAllowance=level?startingAllowance+Math.max(0,level-1)*2:0;
- const growthUsed=count(state.growthSpent??book.filter(s=>['starting','growth'].includes(s.campaignAcquisition)).length);
- const explicit=book.filter(s=>s.campaignAcquisition==='starting').length,oldFirst=book.filter(s=>s.level===1&&s.campaignAcquisition==='growth').length;
+ const free=book.filter(s=>['starting','growth'].includes(s.campaignAcquisition)||!s.campaignAcquisition&&!s.acquisitionSource);
+ const growthUsed=Math.max(count(state.growthSpent),free.length);
+ const explicit=free.filter(s=>s.campaignAcquisition==='starting').length,oldFirst=free.filter(s=>s.level===1&&s.campaignAcquisition!=='starting'&&!s.campaignClassLevel).length;
  // Old saves did not distinguish starting spells. Preserve all spent choices,
  // assigning any excess above later-level capacity to their starting allowance.
  const startingUsed=count(state.startingSpent??Math.min(startingAllowance,Math.max(explicit+oldFirst,growthUsed-Math.max(0,level-1)*2)));

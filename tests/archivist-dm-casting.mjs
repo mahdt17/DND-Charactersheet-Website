@@ -18,7 +18,7 @@ test('starting prayerbook and live preparation use distinct historical and curre
  assert.equal(C.reconcileCampaign(c).spells.length,c.spells.length);
  c={...c,abilities:{...c.abilities,int:18}};p=C.campaignProfile(c);
  assert.equal(p.startingAllowance,6,'starting allotment is historical');assert.equal(p.preparedLimit,5,'preparation follows current Int');
- assert.equal(C.campaignProfile({...c,otherClassLevels:2}).preparedLimit,7,'level-up class drafts include other classes');
+ assert.equal(C.campaignProfile({...c,classLevels:undefined,otherClassLevels:2}).preparedLimit,7,'level-up class drafts include other classes');
  assert.equal(C.campaignProfile(make(4,18,2)).preparedLimit,10,'total character level, not Archivist level');
  assert.equal(C.campaignProfile(make(1,3)).preparedLimit,1);
 });
@@ -102,4 +102,22 @@ test('Archivist Scribe Scroll uses the DM rates and own-book backups cost one ho
 test('copying from another book has the normal rate without consuming its source or requiring a scroll check',()=>{
  const s=spell('Book divine spell',2);let c={...make(3),currency:{gp:500},inventory:[{id:'book',name:'Borrowed prayerbook',qty:1}]};
  c=W.startCampaignProject(c,{kind:'copy',spell:s,source:'Approved divine prayerbook',copySource:'book',materialsConfirmed:true});let j=c.archivistCampaign.projects[0];assert.equal(j.cost,100);assert.equal(j.hours,4);assert.equal(j.scrollConsumed,false);c=W.workCampaignProject(c,j.id,4);c=W.finishCampaignProject(c,j.id);assert(c.spells.some(x=>x.catalogId===s.catalogId));assert.equal(c.inventory[0].qty,1);
+});
+test('saved multiclass rows take precedence over the temporary otherClassLevels draft value',()=>{
+ const c={...make(4,16,2),otherClassLevels:2};
+ assert.equal(C.campaignProfile(c).preparedLimit,9,'six total levels plus Int 3, without counting the other levels twice');
+ assert.equal(C.campaignProfile({...c,classLevels:undefined,level:4}).preparedLimit,9,'a class-only draft still includes the other levels');
+});
+test('legacy unowned and unclassified leveled spells consume free additions exactly once',()=>{
+ let c={...make(),spells:[spell('Old unowned prayer')],archivistCampaign:{independentChoices:true}};
+ c=C.reconcileCampaign(c);assert.equal(C.campaignProfile(c).growthUsed,1);assert.equal(C.campaignProfile(c).startingUsed,1);assert.equal(C.campaignProfile(c).growthRemaining,5);assert.deepEqual(C.reconcileCampaign(c),c);
+ const stale={...make(),spells:[{...spell('Owned legacy prayer'),castingClassId:campaignIds.archivist}],archivistCampaign:{independentChoices:true,growthSpent:0}};
+ assert.equal(C.campaignProfile(C.reconcileCampaign(stale)).growthUsed,1,'a stale zero counter does not erase an actual owned free spell');
+});
+test('scribing pays required spell materials once, and activation requires no second bundle',()=>{
+ const s={...spell('Revivify',3),components:['V','S','M'],material:'Diamonds worth 300 gp, which the spell consumes.',castingClassId:campaignIds.archivist,prepared:true,campaignAcquisition:'outside'};
+ let c={...make(5),currency:{gp:500},inventory:[{id:'diamonds',name:'300 gp diamonds',qty:1}],spells:[s]};
+ assert.throws(()=>W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true}),/component|material/i);assert.equal(c.currency.gp,500);assert.equal(c.inventory[0].qty,1);assert(!c.slotsUsed);
+ c=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true,componentsConfirmed:true,componentItemId:'diamonds'});assert.equal(c.inventory[0].qty,0);assert.equal(c.currency.gp,350);assert.equal(c.slotsUsed[3],1);
+ let j=c.archivistCampaign.projects[0];c=W.workCampaignProject(c,j.id,6);c=W.finishCampaignProject(c,j.id);const scroll=c.inventory.find(i=>i.campaignScroll);c=W.useCampaignScroll(c,scroll.id);assert.equal(c.inventory.find(i=>i.id==='diamonds').qty,0);assert.equal(c.currency.gp,350);assert.equal(c.slotsUsed[3],1);assert.equal(c.inventory.find(i=>i.id===scroll.id).qty,0);
 });

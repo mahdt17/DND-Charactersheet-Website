@@ -46,6 +46,15 @@
 ### Task 4: Browser journey, regressions and review
 **Files:** tests/browser-archivist-dm-casting.mjs, package.json, .github/workflows/modernization.yml, existing tests whose old expectations are superseded by the approved rules.
 **Interfaces:** npm run test:archivist-dm-casting and test:browser:archivist-dm-casting.
-- [ ] Add and run a browser journey for creation, preparation/Int edits, level-ups, recovery, reopen, feature/feat removal, components and copying; observe failures and correct the actual cause.
-- [ ] Run existing Archivist suites, full npm test, build and diff whitespace validation; read results.
-- [ ] Obtain a fresh whole-branch review, fix important issues with regression tests, and record final verification.
+- [x] Add and run a browser journey for creation, preparation/Int edits, level-ups, recovery, reopen, feature/feat removal, components and copying; observe failures and correct the actual cause.
+- [x] Run existing Archivist suites, full npm test, build and diff whitespace validation; read results.
+- [x] Obtain a fresh whole-branch review, fix important issues with regression tests, and record final verification.
+
+## Final verification
+- New Archivist rules: 13 tests pass, including all three reproduced independent-review defects.
+- Full npm test and npm run test:archivist pass.
+- npm run test:browser:archivist passes all eleven suites; general browser suite passes.
+- New browser coverage includes creation, levels 1–4 and Int ASI, saved preparation capacity, rest cancellation/recovery/reopen, feature/feat removal, real materials, paid copying, backup and scribe/activation lifecycle.
+- Existing mixed-class advancement explicitly verifies character level is counted once for preparation.
+- Production build passes (existing bundle-size advisory); git diff --check passes.
+- Independent review: three important findings reproduced RED and fixed GREEN; no deferred findings.

@@ -1,6 +1,6 @@
 import {conversionSlotPool} from './conversionSlots.js';
 import {archivistFeatureEnabled} from './archivistFeatures.js';
-import {clericCantrips,prayerbookAllowance,reconcilePrayerbook} from './archivistPrayerbook.js';
+import {clericCantrips,prayerbookAllowance,reconcilePrayerbook,migratePrayerbookOwnership} from './archivistPrayerbook.js';
 import {supplyArchivistComponents} from './archivistComponents.js';
 import {conversionFeatOwned,conversionFeatActive,conversionStateActive} from './conversionFeatures.js';
 import {conversionFeatSlots,conversionFeatCaster} from './conversionFeatCasting.js';
@@ -22,14 +22,15 @@ export function campaignProfile(c){
  const state=c.archivistCampaign||{},r=state.rulings||{},valid=(c.ruleset||'2014')==='2014';
  const classLevels=Object.fromEntries(Object.keys(campaignIds).map(k=>[k,valid?rows(c).filter(row=>campaignKind(row.definition||row)===k&&(row.edition||'2014')==='2014').reduce((n,row)=>n+count(row.level),0):0]));
  const {archivist,psion,thrallherd}=classLevels,classActive=!!(archivist||psion||thrallherd),active=classActive||conversionFeatActive(c)||conversionStateActive(c),total=rows(c).reduce((n,row)=>n+count(row.level),0),pb=2+Math.floor((Math.max(1,total)-1)/4);
+ const characterLevel=total+(c.classLevels?.length?0:count(c.otherClassLevels));
  const scores=campaignScores(c);
  const table=levels.find(row=>row.class.name==='Wizard'&&row.level===archivist&&!row.subclass)?.spellcasting||{};
  const slots=Array.isArray(r.slots)?[0,...Array.from({length:9},(_,i)=>count(r.slots[i+1]))]:[0,...Array.from({length:9},(_,i)=>Number(table[`spell_slots_level_${i+1}`]||0))];
  const maxSpellLevel=slots.reduce((n,x,i)=>x?i:n,0),book=prayerbookAllowance(c,archivist,mod(scores.int));
  const manifesterLevel=Math.min(20,psion+Math.min(8,Math.max(0,thrallherd-1)));
  const score=total+mod(scores.cha)+thrallherd,roster=thrallherd?followerTable[Math.max(1,Math.min(25,score))]:null;
- return {...classLevels,active,classActive,total,pb,scores,manifesterLevel,int:mod(scores.int),dc:8+pb+mod(scores.int),slots,maxSpellLevel,
-  cantrips:archivist?clericCantrips.length:0,preparedLimit:archivist?count(r.preparedLimit??Math.max(1,total+count(c.otherClassLevels)+mod(scores.int))):0,
+ return {...classLevels,active,classActive,total,characterLevel,pb,scores,manifesterLevel,int:mod(scores.int),dc:8+pb+mod(scores.int),slots,maxSpellLevel,
+  cantrips:archivist?clericCantrips.length:0,preparedLimit:archivist?count(r.preparedLimit??Math.max(1,characterLevel+mod(scores.int))):0,
   ...book,recoveryBudget:archivist&&archivistFeatureEnabled(c,'Arcane Recovery')?Math.ceil(archivist/2):0,recoveryUsed:!!state.arcaneRecoveryUsed,
   ppMax:psion?count(r.ppMax??(manifesterLevel===1&&(legacyPreset(c)||r.levelOnePPMax!=null)?Number(r.levelOnePPMax??3):psionPoints[manifesterLevel]+Math.max(0,Math.floor(mod(scores.int)*manifesterLevel/2)))):0,ppUsed:count(c.powerPointsUsed),
   darkMax:archivist&&archivistFeatureEnabled(c,'Dark Knowledge')?3+Math.floor(archivist/3):0,darkUsed:count(state.darkUsed),score,thrallLevel:roster?Math.min(total-1,roster.thrall):null,believers:roster?.believers||null,
@@ -69,6 +70,7 @@ export function advanceArchivistCampaign(c,{hpGain,kind:chosenKind}={}){
  return {...c,level:p.total+1,classLevels:nextRows,hp:{...c.hp,max:c.hp.max+gain,current:c.hp.current+gain}};
 }
 export function acquireCampaignSpell(c,s,{channel='auto',source='',confirmed=false}={}){
+ c=migratePrayerbookOwnership(c);
  c=reconcilePrayerbook(c,campaignProfile(c));
  const p=campaignProfile(c);if(!p.archivist)throw Error('Archivist levels are required.');
  if(s.edition!=='2014'||!Number.isInteger(s.level)||s.level<0||s.level>p.maxSpellLevel)throw Error('Choose a 2014 spell at an available class spell level.');
@@ -156,7 +158,7 @@ export function reconcileCampaign(c){
  }
  const p=campaignProfile(c);if(!p.active)return c;
  const classLevels=rows(c).map(row=>{const kind=campaignKind(row.definition),die=p.rulings[kind+'HitDie'];return kind?{...row,definition:{...row.definition,...(die?{hit_die:Number(die)}:{}),...(kind==='archivist'&&Array.isArray(p.rulings.proficiencies)?{proficiencies:p.rulings.proficiencies}: {})}}:row;});
- const spells=(c.spells||[]).map(s=>!s.castingClassId&&campaignKind(classLevels[0]?.definition)==='archivist'?{...s,castingClassId:campaignIds.archivist,campaignAcquisition:s.level===0?'cantrip':'growth'}:s);
  const state=c.archivistCampaign||{};
- return reconcilePrayerbook({...c,classLevels,spells,archivistCampaign:{...state,sensing:c.concentration==='Necrotic Awareness'?state.sensing:null,creatures:(state.creatures||[]).map(n=>({...n,sensor:c.concentration==='Necrotic Scrying'?n.sensor:null}))}},p);
+ const migrated=migratePrayerbookOwnership({...c,classLevels,archivistCampaign:{...state,sensing:c.concentration==='Necrotic Awareness'?state.sensing:null,creatures:(state.creatures||[]).map(n=>({...n,sensor:c.concentration==='Necrotic Scrying'?n.sensor:null}))}});
+ return reconcilePrayerbook(migrated,campaignProfile(migrated));
 }

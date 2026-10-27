@@ -1,5 +1,6 @@
 import {campaignProfile,hasConversionFeat,campaignCystSpells,acquireCampaignSpell,castCampaignSpell,advanceCampaignTime} from './archivistCampaign.js';
-import {graftRecipes} from '../data/campaignExpansion.js';
+import {graftRecipes,necroticRules} from '../data/campaignExpansion.js';
+import {supplyArchivistComponents} from './archivistComponents.js';
 import {spendCampaignGold} from './campaignEconomy.js';
 import {whole,updateCreature,creatureProfile,damageCreature} from './campaignCreatures.js';
 import {campaignModifiers,graftModifiers} from './campaignModifiers.js';
@@ -10,7 +11,7 @@ export const campaignRecipe=(c,id)=>{const r=graftRecipes.find(r=>r.id===id);ret
 const findSpell=(c,id)=>[...(c.spells||[]).filter(s=>s.castingClassId==='homebrew:darkdonte:archivist'),...campaignCystSpells(c)].find(s=>s.catalogId===id);
 function recipient(c,id){return id==='self'?{grafts:c.archivistCampaign?.grafts||[],hp:c.hp,type:'humanoid'}:c.archivistCampaign?.creatures?.find(n=>n.id===id);}
 function eligibleGraft(c,id,recipe){const n=recipient(c,id);if(!n||n.dead||n.hp.current<=0||['construct','undead'].includes(n.type))throw Error('A living corporeal recipient is required.');if(n.grafts?.some(g=>g.recipeId===recipe.id))throw Error('Recipient already has this graft.');if((n.grafts||[]).length>=Number(c.archivistCampaign?.rulings?.graftLimit??3))throw Error('Recipient graft limit reached.');}
-export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',source='',scrollId='',copySource='scroll',materialsConfirmed=false}={}){
+export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',source='',scrollId='',copySource='scroll',materialsConfirmed=false,componentsConfirmed=false,componentItemId=''}={}){
  assertCampaignCanAct(c);
  const p=campaignProfile(c),r=p.rulings;if(!materialsConfirmed)throw Error('Confirmed materials/workspace required.');
  if(kind!=='graft'&&!p.archivist)throw Error('Archivist required for prayerbook copying and Scribe Scroll.');
@@ -30,9 +31,12 @@ export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',sour
  }else if(kind==='scroll'){
   if(!archivistFeatureEnabled(c,'Scribe Scroll'))throw Error('Scribe Scroll is disabled by your DM.');
   record=findSpell(c,spell?.catalogId);if(!record||record.level>p.maxSpellLevel||record.level&&!record.prepared&&!record.campaignCyst)throw Error('Prepare an available prayerbook spell or choose an unlocked cyst spell.');
+  next=supplyArchivistComponents(c,record,{componentsConfirmed,componentItemId});
   cost=Number(r.scrollGoldPerLevel??50)*Math.max(1,record.level);hours=Number(r.scrollHoursPerLevel??2)*Math.max(1,record.level);
+  const ruleId=record.catalogId.replace('darkdonte:',''),rule={...necroticRules[ruleId],...r.spellRules?.[ruleId]};
+  const spellCost=Number(rule.cost||0);if(!Number.isFinite(spellCost)||spellCost<0)throw Error('Invalid spell material cost.');cost+=spellCost;
   const slots=Array.isArray(c.slotOverride)?c.slotOverride:conversionSlotPool(c)?.standard||p.slots;
-  if(record.level){if(!slots[record.level]||(c.slotsUsed?.[record.level]||0)>=slots[record.level])throw Error('Scribing requires an available slot at the spell level.');next={...c,slotsUsed:{...c.slotsUsed,[record.level]:(c.slotsUsed?.[record.level]||0)+1}};}
+  if(record.level){if(!slots[record.level]||(c.slotsUsed?.[record.level]||0)>=slots[record.level])throw Error('Scribing requires an available slot at the spell level.');next={...next,slotsUsed:{...c.slotsUsed,[record.level]:(c.slotsUsed?.[record.level]||0)+1}};}
  }else throw Error('Choose copying, scroll scribing or grafting.');
  whole(hours,'Project hours',1,100000);if(!Number.isFinite(cost)||cost<0)throw Error('Invalid project cost.');
  const paid=spendCampaignGold(next,cost),job={id:crypto.randomUUID(),kind,spell:record,recipe,targetId,source,cost,hours,worked:0,status:'active',name:recipe?.name||record.name,...(kind==='copy'?{copyRules:copySource==='scroll'?'5e-scroll':'5e-book',arcanaDC:10+record.level,scrollId:copySource==='scroll'?scrollId:'',scrollConsumed:copySource==='scroll'}: {})};

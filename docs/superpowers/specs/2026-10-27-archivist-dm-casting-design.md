@@ -27,3 +27,6 @@ Use existing component styles and persistence. Store historical prayerbook allow
 
 ## Verification
 Rule tests: levels 1–20 slot rows and recovery budgets; recovery invalid inputs, repeat use, long rest, reload and multiclass pools; starting/growth distinction, all cantrips, ability changes and preserved books; disabled mechanics and non-resurrection of removed feats; component substitution/consumption and transactional failures; copying success/failure and expenditures. Browser tests: create Human Archivist, prepare/cast, short-rest recovery, reopen, feature/feat removal, copy a divine scroll, change Intelligence and level up. Run existing Archivist and related caster regressions, full npm test and build, then an independent code review.
+
+## Verified reference
+2014 Wizard Arcane Recovery and copying rules: https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes . The scribing price is the user’s explicit Archivist table rule from the supplied image. Scribing supplies required spell materials at creation, so finished scroll activation does not consume them again.
