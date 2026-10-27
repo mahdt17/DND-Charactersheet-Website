@@ -134,7 +134,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:artificer:armorer",
@@ -279,7 +280,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:artificer:artillerist",
@@ -416,7 +418,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:artificer:battle-smith",
@@ -561,7 +564,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:artificer:archivist-ua",
@@ -690,7 +694,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:artificer:armorer-ua",
@@ -835,7 +840,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:creation",
@@ -885,7 +891,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:creation"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:eloquence",
@@ -943,7 +950,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:eloquence"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:glamour",
@@ -993,7 +1001,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:glamour"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:lore",
@@ -1043,7 +1052,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:lore"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:spirits",
@@ -1109,7 +1119,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:swords",
@@ -1167,7 +1178,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:swords"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:valor",
@@ -1217,7 +1229,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:valor"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:whispers",
@@ -1267,7 +1280,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:whispers"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:mage-of-lorehold-ua",
@@ -1400,6 +1414,7 @@
         "alwaysPrepared": true
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -1462,6 +1477,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -1504,7 +1520,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:creation-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:spirits-ua",
@@ -1570,7 +1587,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:bard:satire-ua",
@@ -1620,7 +1638,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:satire-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:arcana",
@@ -1749,7 +1768,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:death",
@@ -1886,7 +1906,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:forge",
@@ -2023,7 +2044,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:grave",
@@ -2167,7 +2189,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:knowledge",
@@ -2296,7 +2319,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:life",
@@ -2433,7 +2457,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:light",
@@ -2577,7 +2602,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:nature",
@@ -2714,7 +2740,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:order",
@@ -2851,7 +2878,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:peace",
@@ -2988,7 +3016,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:tempest",
@@ -3125,7 +3154,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:trickery",
@@ -3254,7 +3284,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:twilight",
@@ -3399,7 +3430,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:war",
@@ -3536,7 +3568,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:solidarity",
@@ -3673,7 +3706,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:strength",
@@ -3810,7 +3844,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:ambition",
@@ -3939,7 +3974,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:zeal",
@@ -4076,7 +4112,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:fate-ua",
@@ -4213,7 +4250,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:city-ua",
@@ -4365,7 +4403,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:protection-ua",
@@ -4502,7 +4541,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:twilight-ua",
@@ -4647,7 +4687,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:cleric:unity-ua",
@@ -4776,7 +4817,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:dreams",
@@ -4826,7 +4868,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:dreams"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:land",
@@ -4892,7 +4935,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:land"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:moon",
@@ -4950,7 +4994,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:moon"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:shepherd",
@@ -5008,7 +5053,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:shepherd"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:spores",
@@ -5083,13 +5129,6 @@
         "alwaysPrepared": true
       },
       {
-        "name": "Chill Touch",
-        "spellSlug": "chill-touch",
-        "classLevel": 2,
-        "acquisition": "prepared",
-        "alwaysPrepared": true
-      },
-      {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
@@ -5145,7 +5184,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:stars",
@@ -5220,7 +5260,8 @@
         "alwaysPrepared": true,
         "condition": "holding-star-map"
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:wildfire",
@@ -5349,7 +5390,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:primeval-ua",
@@ -5407,7 +5449,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:primeval-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:mage-of-prismari-ua",
@@ -5469,6 +5512,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -5609,6 +5653,7 @@
         "alwaysPrepared": true
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -5667,7 +5712,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:stars-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:twilight-ua",
@@ -5717,7 +5763,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:twilight-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:druid:wildlife-ua",
@@ -5839,7 +5886,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:astral-self",
@@ -5889,7 +5937,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:astral-self"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:ascendant-dragon",
@@ -5947,7 +5996,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:ascendant-dragon"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:drunken-master",
@@ -6005,7 +6055,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:drunken-master"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:four-elements",
@@ -6032,6 +6083,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "disciplineOptions": [
       {
         "name": "Breath of Winter",
@@ -6197,7 +6249,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:kensei"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:long-death",
@@ -6247,7 +6300,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:long-death"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:mercy",
@@ -6313,7 +6367,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:mercy"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:open-hand",
@@ -6363,7 +6418,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:open-hand"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:shadow",
@@ -6413,7 +6469,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:shadow"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:sun-soul",
@@ -6463,7 +6520,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:sun-soul"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:ascendant-dragon-ua",
@@ -6521,7 +6579,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:ascendant-dragon-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:astral-self-ua",
@@ -6571,7 +6630,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:astral-self-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:kensei-ua",
@@ -6621,7 +6681,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:kensei-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:mercy-ua",
@@ -6687,7 +6748,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:mercy-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:monk:tranquility-ua",
@@ -6745,7 +6807,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/monk:tranquility-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:ancients",
@@ -6883,7 +6946,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:conquest",
@@ -7021,7 +7085,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:crown",
@@ -7159,7 +7224,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:devotion",
@@ -7297,7 +7363,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:glory",
@@ -7435,7 +7502,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:redemption",
@@ -7573,7 +7641,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:vengeance",
@@ -7711,7 +7780,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:watchers",
@@ -7849,7 +7919,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:oathbreaker",
@@ -7978,7 +8049,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:treachery-ua",
@@ -8116,7 +8188,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:redemption-ua",
@@ -8270,7 +8343,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:watchers-ua",
@@ -8408,7 +8482,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:paladin:heroism-ua",
@@ -8546,7 +8621,8 @@
         "acquisition": "prepared",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:beast-master",
@@ -8604,7 +8680,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/ranger:beast-master"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:fey-wanderer",
@@ -8706,7 +8783,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:gloom-stalker",
@@ -8808,7 +8886,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:horizon-walker",
@@ -8910,7 +8989,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:hunter",
@@ -8960,7 +9040,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/ranger:hunter"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:monster-slayer",
@@ -9062,7 +9143,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:swarmkeeper",
@@ -9163,7 +9245,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:drakewarden",
@@ -9229,7 +9312,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:drakewarden-ua",
@@ -9295,7 +9379,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:deep-stalker-ua",
@@ -9389,7 +9474,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:fey-wanderer-ua",
@@ -9508,7 +9594,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:monster-slayer-ua",
@@ -9610,7 +9697,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:primeval-guardian-ua",
@@ -9712,7 +9800,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:ranger:swarmkeeper-ua",
@@ -9806,7 +9895,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:arcane-trickster",
@@ -9872,7 +9962,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:assassin",
@@ -9930,7 +10021,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:assassin"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:inquisitive",
@@ -9996,7 +10088,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:inquisitive"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:mastermind",
@@ -10054,7 +10147,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:mastermind"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:phantom",
@@ -10112,7 +10206,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:phantom"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:scout",
@@ -10170,7 +10265,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:scout"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:soulknife",
@@ -10228,7 +10324,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:soulknife"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:swashbuckler",
@@ -10286,7 +10383,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:swashbuckler"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:thief",
@@ -10344,7 +10442,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:thief"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:phantom-ua",
@@ -10402,7 +10501,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:phantom-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:revived-ua",
@@ -10468,7 +10568,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:revived-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:soulknife-ua",
@@ -10526,7 +10627,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:soulknife-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:rogue:soulknife-revisited-ua",
@@ -10592,7 +10694,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:soulknife-revisited-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:aberrant-mind",
@@ -10736,7 +10839,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:clockwork-soul",
@@ -10865,7 +10969,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:draconic-bloodline",
@@ -10923,7 +11028,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:draconic-bloodline"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:divine-soul",
@@ -10981,7 +11087,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:divine-soul"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:lunar-sorcery",
@@ -11048,6 +11155,13 @@
       }
     ],
     "spellGrants": [
+      {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
       {
         "name": "Shield",
         "spellSlug": "shield",
@@ -11153,7 +11267,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:shadow-magic",
@@ -11228,7 +11343,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:storm-sorcery",
@@ -11294,7 +11410,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:storm-sorcery"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:wild-magic",
@@ -11352,7 +11469,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:wild-magic"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:pyromancy",
@@ -11402,7 +11520,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:pyromancy"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:lunar-magic-ua",
@@ -11469,6 +11588,13 @@
       }
     ],
     "spellGrants": [
+      {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
       {
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
@@ -11574,7 +11700,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:aberrant-mind-ua",
@@ -11711,7 +11838,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:clockwork-soul-ua",
@@ -11840,7 +11968,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:favored-soul-ua",
@@ -11898,7 +12027,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:favored-soul-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:favored-soul-revisited-ua",
@@ -11964,7 +12094,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:favored-soul-revisited-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:giant-soul-ua",
@@ -12022,7 +12153,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:giant-soul-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:mage-of-prismari-ua",
@@ -12084,6 +12216,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -12217,6 +12350,7 @@
         "alwaysPrepared": true
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -12275,7 +12409,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:phoenix-sorcery-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:psionic-soul-ua",
@@ -12342,7 +12477,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:psionic-soul-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:sea-sorcery-ua",
@@ -12400,7 +12536,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:sea-sorcery-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:sorcerer:shadow-ua",
@@ -12458,13 +12595,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:shadow-ua"
       }
     ],
-    "spellGrants": [
+    "spellGrants": [],
+    "spellCasts": [
       {
         "name": "Darkness",
         "spellSlug": "darkness",
-        "classLevel": 3,
-        "acquisition": "known",
-        "alwaysPrepared": true
+        "classLevel": 1,
+        "resourceId": "2014:Sorcerer:points",
+        "cost": 1,
+        "sourceFeature": "Eyes of the Dark"
       }
     ]
   },
@@ -12596,7 +12735,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:archfey",
@@ -12725,7 +12865,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:celestial",
@@ -12876,7 +13017,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:fathomless",
@@ -13021,7 +13163,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:fiend",
@@ -13150,7 +13293,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:the-genie",
@@ -13431,7 +13575,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:great-old-one",
@@ -13560,7 +13705,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:hexblade",
@@ -13697,7 +13843,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:undead",
@@ -13826,7 +13973,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:undying",
@@ -13962,7 +14110,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:mage-of-lorehold-ua",
@@ -14095,6 +14244,7 @@
         "alwaysPrepared": true
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -14157,6 +14307,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -14297,6 +14448,7 @@
         "alwaysPrepared": true
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -14448,7 +14600,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:genie-ua",
@@ -14729,7 +14882,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:ghost-in-the-machine-ua",
@@ -14865,7 +15019,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:hexblade-ua",
@@ -15002,7 +15157,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:lurker-in-the-deep-ua",
@@ -15147,7 +15303,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:noble-genie-ua",
@@ -15284,7 +15441,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:raven-queen-ua",
@@ -15413,7 +15571,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:seeker-ua",
@@ -15550,7 +15709,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:undead-ua",
@@ -15679,7 +15839,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:warlock:undying-light-ua",
@@ -15787,7 +15948,8 @@
         "acquisition": "expanded",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:abjuration",
@@ -15845,7 +16007,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:abjuration"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:bladesinging",
@@ -15903,7 +16066,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:bladesinging"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:chronurgy",
@@ -15961,7 +16125,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:chronurgy"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:conjuration",
@@ -16019,7 +16184,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:conjuration"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:divination",
@@ -16077,7 +16243,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:divination"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:enchantment",
@@ -16135,7 +16302,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:enchantment"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:evocation",
@@ -16193,7 +16361,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:evocation"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:graviturgy",
@@ -16243,7 +16412,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:graviturgy"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:illusion",
@@ -16309,7 +16479,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:necromancy",
@@ -16375,7 +16546,8 @@
         "acquisition": "spellbook",
         "alwaysPrepared": false
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:order-of-scribes",
@@ -16433,7 +16605,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:order-of-scribes"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:transmutation",
@@ -16491,7 +16664,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:transmutation"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:war-magic",
@@ -16549,7 +16723,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:war-magic"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:runecrafter-ua",
@@ -16616,7 +16791,8 @@
         "alwaysPrepared": true,
         "freeCasting": "at-will"
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:artificer-ua",
@@ -16674,7 +16850,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:artificer-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:invention-ua",
@@ -16740,7 +16917,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:invention-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:lore-mastery-ua",
@@ -16806,7 +16984,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:lore-mastery-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:mage-of-lorehold-ua",
@@ -16939,6 +17118,7 @@
         "alwaysPrepared": false
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -17001,6 +17181,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -17134,6 +17315,7 @@
         "alwaysPrepared": false
       }
     ],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -17196,6 +17378,7 @@
       }
     ],
     "spellGrants": [],
+    "spellCasts": [],
     "flexibleFeatureSelection": true
   },
   {
@@ -17262,7 +17445,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:onomancy-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:order-of-scribes-ua",
@@ -17320,7 +17504,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:order-of-scribes-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:psionics-ua",
@@ -17386,7 +17571,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:psionics-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:technomancy-ua",
@@ -17444,7 +17630,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:technomancy-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:wizard:theurgy-ua",
@@ -17518,7 +17705,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:theurgy-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:arcane-archer",
@@ -17584,7 +17772,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:arcane-archer"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:banneret",
@@ -17634,7 +17823,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:banneret"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:battle-master",
@@ -17692,7 +17882,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:battle-master"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:cavalier",
@@ -17766,7 +17957,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:cavalier"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:champion",
@@ -17824,7 +18016,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:champion"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:echo-knight",
@@ -17890,7 +18083,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:echo-knight"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:eldritch-knight",
@@ -17956,7 +18150,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:eldritch-knight"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:psi-warrior",
@@ -18014,7 +18209,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:psi-warrior"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:rune-knight",
@@ -18088,7 +18284,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:rune-knight"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:samurai",
@@ -18154,7 +18351,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:samurai"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:arcane-archer-ua",
@@ -18228,7 +18426,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:arcane-archer-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:arcane-archer-revised-ua",
@@ -18294,7 +18493,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:arcane-archer-revised-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:brute-ua",
@@ -18352,7 +18552,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:brute-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:cavalier-ua",
@@ -18418,7 +18619,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:cavalier-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:knight-ua",
@@ -18484,7 +18686,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:knight-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:monster-hunter-ua",
@@ -18550,7 +18753,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:monster-hunter-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:psi-knight-ua",
@@ -18616,7 +18820,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:psi-knight-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:psychic-warrior-ua",
@@ -18690,7 +18895,8 @@
         "acquisition": "known",
         "alwaysPrepared": true
       }
-    ]
+    ],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:rune-knight-ua",
@@ -18764,7 +18970,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:rune-knight-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:samurai-ua",
@@ -18830,7 +19037,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:samurai-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:scout-ua",
@@ -18888,7 +19096,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:scout-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:fighter:sharpshooter-ua",
@@ -18946,7 +19155,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:sharpshooter-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:ancestral-guardian",
@@ -18996,7 +19206,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:ancestral-guardian"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:battlerager",
@@ -19055,7 +19266,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:battlerager"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:beast",
@@ -19105,7 +19317,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:beast"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:berserker",
@@ -19155,7 +19368,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:berserker"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:giant",
@@ -19213,7 +19427,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:giant"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:storm-herald",
@@ -19263,7 +19478,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:storm-herald"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:totem-warrior",
@@ -19321,7 +19537,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:totem-warrior"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:wild-magic",
@@ -19379,7 +19596,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:wild-magic"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:zealot",
@@ -19437,7 +19655,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:zealot"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:beast-ua",
@@ -19487,7 +19706,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:beast-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:giant-ua",
@@ -19545,7 +19765,8 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:giant-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   },
   {
     "id": "2014:subclass:barbarian:wild-soul-ua",
@@ -19603,6 +19824,7 @@
         "sourceUrl": "https://dnd5e.wikidot.com/barbarian:wild-soul-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [],
+    "spellCasts": []
   }
 ]

@@ -40,7 +40,8 @@ function fixedSpellGrants(row){
   'cleric:grave':[['Spare the Dying',1]],'cleric:light':[['Light',1]],'cleric:city-ua':[['On/Off',1]],
   'druid:spores':[['Chill Touch',2]],'druid:wildlife-ua':[['Fire Bolt',2]],
   'ranger:drakewarden':[['Thaumaturgy',3]],'ranger:drakewarden-ua':[['Thaumaturgy',3]],
-  'rogue:arcane-trickster':[['Mage Hand',3]],'sorcerer:shadow-magic':[['Darkness',3]],'sorcerer:shadow-ua':[['Darkness',3]],
+  'rogue:arcane-trickster':[['Mage Hand',3]],'sorcerer:shadow-magic':[['Darkness',3]],
+  'sorcerer:lunar-sorcery':[['Sacred Flame',1]],'sorcerer:lunar-magic-ua':[['Sacred Flame',1]],
   'warlock:celestial':[['Light',1],['Sacred Flame',1]],'warlock:celestial-ua':[['Light',1],['Sacred Flame',1]],
   'warlock:undying':[['Spare the Dying',1]],'warlock:ghost-in-the-machine-ua':[['On/Off',1]],
   'warlock:undying-light-ua':[['Light',1],['Sacred Flame',1]],
@@ -50,6 +51,9 @@ function fixedSpellGrants(row){
  if(row.slug==='wizard:necromancy')add('Animate Dead',6,'spellbook');
  if(row.slug==='wizard:runecrafter-ua')add('Comprehend Languages',2,'prepared',{freeCasting:'at-will'});
  return list;
+}
+function featureSpellCasts(row){
+ return row.slug==='sorcerer:shadow-ua'?[{name:'Darkness',spellSlug:'darkness',classLevel:1,resourceId:'2014:Sorcerer:points',cost:1,sourceFeature:'Eyes of the Dark'}]:[];
 }
 function spellTables(text,row){
  if(row.className==='Druid'&&row.label==='Land')return []; // Existing land-choice adapter owns these tables.
@@ -96,7 +100,9 @@ function buildRecord(row,raw){
   features.push(feature);
  }
  const name=row.label.replace(/\s*\(UA\)/g,'')+(row.playtest?' (UA)':'');
- const record={id,index:`expanded-${row.className.toLowerCase()}-${row.slug.split(':').slice(1).join('-')}`,name,class:{name:row.className,index:row.className.toLowerCase()},edition:'2014',sourceBook:row.sourceBook,sourceUrl:row.sourceUrl,sourceHash:createHash('sha256').update(raw).digest('hex'),playtest:row.playtest,entryLevel:row.entryLevel,features,spellGrants:[...fixedSpellGrants(row),...spellTables(text,row)]};
+ const grants=[...fixedSpellGrants(row),...spellTables(text,row)],spellGrants=[];
+ for(const grant of grants)if(!spellGrants.some(g=>g.name.toLowerCase()===grant.name.toLowerCase()&&g.classLevel===grant.classLevel&&g.choiceKey===grant.choiceKey&&g.choice===grant.choice))spellGrants.push(grant);
+ const record={id,index:`expanded-${row.className.toLowerCase()}-${row.slug.split(':').slice(1).join('-')}`,name,class:{name:row.className,index:row.className.toLowerCase()},edition:'2014',sourceBook:row.sourceBook,sourceUrl:row.sourceUrl,sourceHash:createHash('sha256').update(raw).digest('hex'),playtest:row.playtest,entryLevel:row.entryLevel,features,spellGrants,spellCasts:featureSpellCasts(row)};
  if(flexible)record.flexibleFeatureSelection=true;
  return record;
 }

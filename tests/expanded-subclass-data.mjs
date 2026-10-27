@@ -41,12 +41,21 @@ test('source metadata separates random casts, expanded access, known spells and 
  const wizard=find('Wizard','Mage of Lorehold (UA)').spellGrants.find(g=>g.name==='Knock');
  assert.equal(wizard.acquisition,'spellbook');assert.equal(wizard.alwaysPrepared,false);
  for(const name of ['Lunar Sorcery','Lunar Magic (UA)']){
-  const grants=find('Sorcerer',name).spellGrants;assert.equal(grants.length,15,name);
+  const grants=find('Sorcerer',name).spellGrants;assert.equal(grants.length,16,name);
+  assert.ok(grants.some(g=>g.name==='Sacred Flame'&&g.classLevel===1),name);
   assert.ok(grants.every(g=>!g.choiceKey&&g.acquisition==='known'),name);
  }
  const genie=find('Warlock','Genie').spellGrants;
  assert.ok(genie.some(g=>g.choiceKey==='genie-kind'&&g.choice==='Dao'));
  assert.ok(genie.some(g=>g.name==='Phantasmal Force'&&!g.choiceKey));
+});
+
+test('historical UA feature casting is distinct from knowledge and duplicate cantrip grants collapse',()=>{
+ const shadow=find('Sorcerer','Shadow (UA)');
+ assert.ok(!shadow.spellGrants.some(g=>g.name==='Darkness'));
+ assert.ok(shadow.spellCasts.some(g=>g.name==='Darkness'&&g.classLevel===1&&g.resourceId==='2014:Sorcerer:points'&&g.cost===1));
+ const spores=find('Druid','Spores').spellGrants.filter(g=>g.name==='Chill Touch');
+ assert.equal(spores.length,1);assert.equal(spores[0].acquisition,'known');
 });
 
 test('fixed non-table spell grants retain acquisition levels, conditions and preparation rules',()=>{
