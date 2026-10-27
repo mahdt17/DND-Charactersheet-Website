@@ -1,3 +1,4 @@
+import {totemDamageResistance} from './totemWarrior.js';
 import {entomancerProfile,entomancerResource,populationId,entomancerActionBlockReason,entomancerSongSaves} from './entomancer.js';
 import {entomancerActionDetails} from '../data/entomancerActionDetails.js';
 const integer=(v,min=0)=>{const n=Number(v);if(!Number.isInteger(n)||n<min)throw Error(`Enter a whole number of at least ${min}.`);return n;};
@@ -56,7 +57,7 @@ export function observeEntomancerHP(before,after){
 export function entomancerDamage(c,amount,{type='',magical=false,vulnerable=false,deadMan=false}={}){
  amount=integer(amount);const p=entomancerProfile(c);if(!p.level)return c;
  let n=amount;if(!magical&&['bludgeoning','piercing','slashing'].includes(type))n=Math.max(0,n-p.physicalReduction);
- const resistant=p.resistances.includes(type)||p.nonmagicalSlashing&&!magical&&type==='slashing'||p.allResistance&&!!type&&!vulnerable;
+ const resistant=totemDamageResistance(c,type)||p.resistances.includes(type)||p.nonmagicalSlashing&&!magical&&type==='slashing'||p.allResistance&&!!type&&!vulnerable;
  if(resistant)n=Math.floor(n/2);if(vulnerable)n*=2;
  const absorbed=Math.min(c.hp.temp||0,n),hp={...c.hp,temp:(c.hp.temp||0)-absorbed,current:Math.max(0,c.hp.current-(n-absorbed))};
  let next=observeEntomancerHP(c,{...c,hp});next={...next,entomancer:state(next)};

@@ -2,6 +2,7 @@ import {backgrounds2014} from '../data/backgrounds2014.js';
 import modern from '../data/srd2024.json' with {type:'json'};
 import {leoninId,leoninRace,leoninSkills} from '../data/leonin.js';
 import {effectiveAbilityScores} from './abilityScores.js';
+import {totemProfile} from './totemWarrior.js';
 export const leoninRoarId='race:leonin-mot:roar';
 const count=value=>Math.max(0,Math.floor(Number(value)||0));
 export const isLeonin=c=>c?.race==='Leonin'&&c.raceDefinition?.catalogId===leoninId&&c.raceDefinition.edition==='2014'&&((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')==='2014';
@@ -9,7 +10,8 @@ export const leoninChoicesComplete=(c,backgroundSkills=[])=>!isLeonin(c)||leonin
 export function leoninProfile(c,abilities=effectiveAbilityScores(c)){
  if(!isLeonin(c))return {active:false};
  const level=Math.max(1,Math.min(20,count(c.level)||1)),pb=2+Math.floor((level-1)/4),str=Math.floor(((abilities.str??10)-10)/2),con=Math.floor(((abilities.con??10)-10)/2),used=count(c.resources?.find(r=>r.id===leoninRoarId)?.used);
- return {active:true,pb,attack:pb+str,damage:`1d4${str>=0?'+':''}${str}`,dc:8+pb+con,used,remaining:Math.max(0,1-used),roaring:!!c.leonin?.roaring};
+ const rage=totemProfile(c,abilities),damage=str+(rage.activeRage&&!rage.heavyArmor?rage.rageDamage:0);
+ return {active:true,pb,attack:pb+str,damage:`1d4${damage>=0?'+':''}${damage}`,dc:8+pb+con,used,remaining:Math.max(0,1-used),roaring:!!c.leonin?.roaring};
 }
 export function leoninResource(c){const p=leoninProfile(c);return p.active?{id:leoninRoarId,classResourceKey:leoninRoarId,raceManaged:true,className:'Leonin',name:'Daunting Roar',max:1,used:p.used,reset:'short',shortRecovery:'all',manual:false}:null;}
 export function leoninActionBlock(c){

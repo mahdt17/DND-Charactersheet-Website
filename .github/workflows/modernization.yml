@@ -132,6 +132,9 @@ jobs:
       - name: Run class spell access browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-spell-access.mjs
+      - name: Run ability rolls and martial subclass browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser:martial-subclasses
       - name: Run subclass and feat magic browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-subclass-feat-magic.mjs

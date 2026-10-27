@@ -1,3 +1,5 @@
+import {totemChoicePlan} from './totemWarrior.js';
+import {fighterChoicePlan} from './fighterSubclasses.js';
 import {isEntomancerRecord} from './entomancer.js';
 import {sourceFeatTemplateOptions35} from './sourceFeatTemplates35.js';
 import {sourceChoiceProviderOptions35} from './sourceChoiceProviders35.js';
@@ -406,7 +408,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
 
 // Choices are collected only for features gained in this creation/advancement.
 // Existing characters never have historical selections silently invented.
-export function featureChoicePlan(c,previous=null,picks={},context={}) {
+function baseFeatureChoicePlan(c,previous=null,picks={},context={}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),before=previous?characterClasses(previous):[];
   if(edition==='3.5'||rows.some(row=>row.edition==='3.5')&&!['2014','2024'].includes(edition))return sourceChoicePlan(c,previous,picks,context);
   const patch={skillProf:{...c.skillProf},expertise:{...c.expertise},toolExpertise:{...c.toolExpertise},featureChoices:{...c.featureChoices},trainingGrants:[...c.trainingGrants||[]]};
@@ -460,6 +462,11 @@ export function featureChoicePlan(c,previous=null,picks={},context={}) {
   }
   if(knownLanguages.length)patch.languages=knownLanguages.join(', ');
   return {groups,patch,valid};
+}
+export function featureChoicePlan(c,previous=null,picks={},context={}) {
+ const base=baseFeatureChoicePlan(c,previous,picks,context),fighter=fighterChoicePlan({...c,...base.patch},previous,picks);
+ const totem=totemChoicePlan({...c,...base.patch,...fighter.patch},previous,picks);
+ return {groups:[...base.groups,...fighter.groups,...totem.groups],patch:{...base.patch,...fighter.patch,...totem.patch},valid:base.valid&&fighter.valid&&totem.valid};
 }
 export function applyFeatureChoices(c,previous,picks,context={}) {
   const plan=featureChoicePlan(c,previous,picks,context);

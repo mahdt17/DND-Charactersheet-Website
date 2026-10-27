@@ -1,0 +1,285 @@
+const battleMasterUrl = 'https://dnd5e.wikidot.com/fighter:battle-master';
+const cavalierUrl = 'https://dnd5e.wikidot.com/fighter:cavalier';
+
+// 2014 subclass rules, including the seven additional Tasha's maneuvers on the
+// linked maneuver page. Each maneuver costs one superiority die. `damage` means
+// that die is added to an attack's damage roll, including an ally's attack for
+// Commander's Strike; it does not describe separate damage or temporary HP.
+export const fighterSubclassRecords = [
+  {
+    index: 'battle-master',
+    name: 'Battle Master',
+    class: { name: 'Fighter' },
+    edition: '2014',
+    sourceBook: "Player's Handbook",
+    sourceUrl: battleMasterUrl,
+    features: [
+      {
+        level: 3,
+        name: 'Combat Superiority',
+        description: 'Choose 3 maneuvers and gain four d8 superiority dice. A maneuver spends one die; only one maneuver can apply to an attack. Recover spent dice after a short or long rest. Learn 2 more maneuvers at Fighter levels 7, 10, and 15; whenever you learn maneuvers, you may also replace one known maneuver. Gain another die at levels 7 and 15. Maneuver save DC = 8 + proficiency bonus + your choice of Strength or Dexterity modifier.',
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 3,
+        name: 'Student of War',
+        description: "Choose one type of artisan's tools and gain proficiency with it.",
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 7,
+        name: 'Know Your Enemy',
+        description: 'After at least 1 minute observing or interacting with a creature outside combat, ask the DM to compare two of its traits with yours: Strength, Dexterity, Constitution, AC, current HP, total class levels, or Fighter levels. For each, learn whether it is lower, equal, or higher.',
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 7,
+        name: 'Combat Superiority: Additional Training',
+        description: 'Learn 2 more maneuvers (5 total), optionally replace one known maneuver, and gain a fifth superiority die.',
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 10,
+        name: 'Improved Combat Superiority',
+        description: 'Superiority dice become d10s. Learn 2 more maneuvers (7 total) and optionally replace one known maneuver.',
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 15,
+        name: 'Relentless',
+        description: 'If you have no superiority dice when rolling initiative, recover 1 superiority die.',
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 15,
+        name: 'Combat Superiority: Additional Training',
+        description: 'Learn 2 more maneuvers (9 total), optionally replace one known maneuver, and gain a sixth superiority die.',
+        sourceUrl: battleMasterUrl,
+      },
+      {
+        level: 18,
+        name: 'Improved Combat Superiority',
+        description: 'Superiority dice become d12s.',
+        sourceUrl: battleMasterUrl,
+      },
+    ],
+  },
+  {
+    index: 'cavalier',
+    name: 'Cavalier',
+    class: { name: 'Fighter' },
+    edition: '2014',
+    sourceBook: "Xanathar's Guide to Everything",
+    sourceUrl: cavalierUrl,
+    features: [
+      {
+        level: 3,
+        name: 'Bonus Proficiency',
+        description: 'Gain proficiency in Animal Handling, History, Insight, Performance, or Persuasion; alternatively, learn one language of your choice.',
+        sourceUrl: cavalierUrl,
+      },
+      {
+        level: 3,
+        name: 'Born to the Saddle',
+        description: 'You have advantage on saves against falling off your mount. When a fall from your mount is 10 feet or less, you may land standing unless incapacitated. Mounting or dismounting costs 5 feet of movement.',
+        sourceUrl: cavalierUrl,
+      },
+      {
+        level: 3,
+        name: 'Unwavering Mark',
+        description: 'A melee weapon hit can mark its target through the end of your next turn. The mark ends if you become incapacitated, die, or another creature marks that target. While within 5 feet of you, the marked target has disadvantage on attacks that exclude you. If it damages someone else, on your next turn you can spend a bonus action for a melee weapon attack against it with advantage and extra weapon damage equal to half your Fighter level (rounded down). These special attacks have uses equal to your Strength modifier (minimum 1), all recovered after a long rest; applying marks does not spend a use.',
+        sourceUrl: cavalierUrl,
+      },
+      {
+        level: 7,
+        name: 'Warding Maneuver',
+        description: 'While wielding a melee weapon or shield, when an attack hits you or a creature you can see within 5 feet, spend your reaction and roll d8. Add the result to that target\'s AC against this attack. If it still hits, the target resists the damage of that attack. Uses equal your Constitution modifier (minimum 1); recover all after a long rest.',
+        sourceUrl: cavalierUrl,
+      },
+      {
+        level: 10,
+        name: 'Hold the Line',
+        description: 'A creature moving at least 5 feet within your reach provokes your opportunity attack. Any opportunity attack you hit with reduces its target\'s speed to 0 for the rest of the current turn.',
+        sourceUrl: cavalierUrl,
+      },
+      {
+        level: 15,
+        name: 'Ferocious Charger',
+        description: 'Once on each of your turns, after moving at least 10 feet straight immediately before an attack that hits a creature, force a Strength save or knock it prone. DC = 8 + proficiency bonus + Strength modifier. This works mounted or on foot.',
+        sourceUrl: cavalierUrl,
+      },
+      {
+        level: 18,
+        name: 'Vigilant Defender',
+        description: 'In combat, gain one special reaction on each other creature\'s turn, usable only for an opportunity attack. You cannot use it on your own turn or on a turn when you use your normal reaction.',
+        sourceUrl: cavalierUrl,
+      },
+    ],
+  },
+];
+
+export const battleMasterManeuvers = [
+  {
+    id: 'ambush',
+    name: 'Ambush',
+    timing: 'When rolling initiative or making a Dexterity (Stealth) check, unless incapacitated.',
+    effect: 'Add one superiority die to that roll.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'bait-and-switch',
+    name: 'Bait and Switch',
+    timing: 'On your turn, beside a willing creature within 5 feet that is not incapacitated.',
+    effect: 'Spend at least 5 feet of movement to swap places without opportunity attacks. Roll a superiority die; choose yourself or that creature to gain that much AC until the start of your next turn.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'brace',
+    name: 'Brace',
+    timing: 'Reaction when a visible creature moves into the reach of your wielded melee weapon.',
+    effect: 'Attack that creature once with that weapon; a hit adds a superiority die to weapon damage.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'commanders-strike',
+    name: "Commander's Strike",
+    timing: 'During your Attack action on your turn, give up one attack and spend a bonus action.',
+    effect: 'A friendly creature that can see or hear you may immediately use its reaction for one weapon attack, adding your superiority die to its damage roll.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'commanding-presence',
+    name: 'Commanding Presence',
+    timing: 'When making a Charisma (Intimidation, Performance, or Persuasion) check.',
+    effect: 'Add one superiority die to the check.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'disarming-attack',
+    name: 'Disarming Attack',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. On a failed Strength save, the target drops one held item you choose at its feet.',
+    save: 'Strength', damage: true, extraAbility: null,
+  },
+  {
+    id: 'distracting-strike',
+    name: 'Distracting Strike',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. The next attack against that target by someone other than you has advantage if made before the start of your next turn.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'evasive-footwork',
+    name: 'Evasive Footwork',
+    timing: 'When you move.',
+    effect: 'Add a superiority die roll to your AC until you stop moving.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'feinting-attack',
+    name: 'Feinting Attack',
+    timing: 'Bonus action on your turn; choose a creature within 5 feet.',
+    effect: 'Your next attack roll against that creature this turn has advantage; a hit adds a superiority die to its damage roll.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'goading-attack',
+    name: 'Goading Attack',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. A failed Wisdom save gives the target disadvantage on attacks against anyone other than you until the end of your next turn.',
+    save: 'Wisdom', damage: true, extraAbility: null,
+  },
+  {
+    id: 'grappling-strike',
+    name: 'Grappling Strike',
+    timing: 'Immediately after your melee attack hits a creature on your turn.',
+    effect: 'Spend a bonus action to attempt a normal grapple against that target, adding a superiority die to your Strength (Athletics) check. Normal grapple restrictions, including a free hand, reach, and a target no more than one size larger, still apply.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'lunging-attack',
+    name: 'Lunging Attack',
+    timing: 'When making a melee weapon attack on your turn.',
+    effect: 'Increase your reach by 5 feet for that attack only; a hit adds a superiority die to attack damage.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'maneuvering-attack',
+    name: 'Maneuvering Attack',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. A friendly creature that can see or hear you may use its reaction to move up to half its speed; this prevents opportunity attacks only from the target you hit.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'menacing-attack',
+    name: 'Menacing Attack',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. On a failed Wisdom save, the target is frightened of you until the end of your next turn.',
+    save: 'Wisdom', damage: true, extraAbility: null,
+  },
+  {
+    id: 'parry',
+    name: 'Parry',
+    timing: 'Reaction when another creature damages you with a melee attack.',
+    effect: 'Reduce that damage by a superiority die roll + your Dexterity modifier.',
+    save: null, damage: false, extraAbility: 'dex',
+  },
+  {
+    id: 'precision-attack',
+    name: 'Precision Attack',
+    timing: 'Before or after a weapon attack roll against a creature, before any attack effects apply.',
+    effect: 'Add one superiority die to the attack roll.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'pushing-attack',
+    name: 'Pushing Attack',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. A Large or smaller target must make a Strength save; failure lets you push it up to 15 feet away from you.',
+    save: 'Strength', damage: true, extraAbility: null,
+  },
+  {
+    id: 'quick-toss',
+    name: 'Quick Toss',
+    timing: 'Bonus action.',
+    effect: 'Make a ranged attack with a thrown-property weapon, drawing it as part of the attack if needed. A hit adds a superiority die to weapon damage.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'rally',
+    name: 'Rally',
+    timing: 'Bonus action on your turn.',
+    effect: 'A friendly creature that can see or hear you gains temporary HP equal to a superiority die roll + your Charisma modifier.',
+    save: null, damage: false, extraAbility: 'cha',
+  },
+  {
+    id: 'riposte',
+    name: 'Riposte',
+    timing: 'Reaction when a creature misses you with a melee attack.',
+    effect: 'Make one melee weapon attack against that creature; a hit adds a superiority die to attack damage.',
+    save: null, damage: true, extraAbility: null,
+  },
+  {
+    id: 'sweeping-attack',
+    name: 'Sweeping Attack',
+    timing: 'After a melee weapon attack hits a creature.',
+    effect: 'Choose a second creature within 5 feet of the first and within your reach. If the same attack roll would hit it, deal only the superiority die result to it, using the original damage type.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'tactical-assessment',
+    name: 'Tactical Assessment',
+    timing: 'When making Intelligence (Investigation or History) or Wisdom (Insight) checks.',
+    effect: 'Add one superiority die to the check.',
+    save: null, damage: false, extraAbility: null,
+  },
+  {
+    id: 'trip-attack',
+    name: 'Trip Attack',
+    timing: 'After a weapon attack hits a creature.',
+    effect: 'Add a superiority die to attack damage. A Large or smaller target must make a Strength save or fall prone.',
+    save: 'Strength', damage: true, extraAbility: null,
+  },
+];
+
+export const cavalierSkills = ['Animal Handling', 'History', 'Insight', 'Performance', 'Persuasion'];

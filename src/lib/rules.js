@@ -1,10 +1,14 @@
+import {totemProfile} from './totemWarrior.js';
+import {totemSubclassRecords} from '../data/totemWarrior.js';
+import {fighterSubclassRecords} from '../data/fighterSubclasses.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {campaignProfile} from './archivistCampaign.js';
 import levels from '../data/levels.json';
 import spells from '../data/spells.json';
 import classes from '../data/classes.json';
 import features from '../data/features.json';
-import subclasses from '../data/subclasses.json';
+import subclasses14 from '../data/subclasses.json';
+const subclasses=[...subclasses14,...fighterSubclassRecords,...totemSubclassRecords];
 import equipment from '../data/equipment.json';
 import {hasWeaponTraining,startingProficiencies} from './training.js';
 import {entomancerArmor,entomancerProfile} from './entomancer.js';
@@ -39,11 +43,16 @@ export function grantedClassFeatures(char) {
   return [...new Map(base.flatMap(l=>(l.features||[]).map(f=>[f.index,{...f,...features.find(x=>x.index===f.index),level:l.level}]))).values()];
 }
 export function rollDice(expression, mode='normal', random=Math.random) {
-  const match=String(expression).replace(/\s/g,'').match(/^(\d{1,2})d(\d{1,3})([+-]\d{1,3})?$/i);
-  if(!match) throw new Error('Use a dice expression such as 1d20+5 or 2d6+3.');
-  const [,quantity,sides,bonus='0']=match;
+  const match=String(expression).replace(/\s/g,'').match(/^(\d{1,2})d(\d{1,3})(dl1)?([+-]\d{1,3})?$/i);
+  if(!match) throw new Error('Use a dice expression such as 1d20+5, 2d6+3 or 4d6dl1.');
+  const [,quantity,sides,dropLowest,bonus='0']=match;
   if(+quantity<1 || +quantity>50 || +sides<2 || +sides>100) throw new Error('Use 1–50 dice with 2–100 sides.');
+  if(dropLowest && +quantity<2) throw new Error('Dropping the lowest die requires at least two dice.');
   const rolls=Array.from({length:+quantity},()=>Math.floor(random()*+sides)+1);
+  if(dropLowest){
+    const droppedIndex=rolls.indexOf(Math.min(...rolls)),kept=rolls.filter((_,index)=>index!==droppedIndex),dropped=[rolls[droppedIndex]];
+    return {id:crypto.randomUUID(),expression,rolls,kept,dropped,droppedIndices:[droppedIndex],bonus:+bonus,total:kept.reduce((a,b)=>a+b,0)+(+bonus),mode,time:new Date().toISOString()};
+  }
   if(+quantity===1 && +sides===20 && mode!=='normal') rolls.push(Math.floor(random()*20)+1);
   const subtotal=rolls.length===2 && +quantity===1 ? (mode==='advantage'?Math.max(...rolls):Math.min(...rolls)) : rolls.reduce((a,b)=>a+b,0);
   return {id:crypto.randomUUID(),expression,rolls,bonus:+bonus,total:subtotal+(+bonus),mode,time:new Date().toISOString()};
@@ -92,7 +101,8 @@ export function weaponAttacks(char, abilities) {
     const finesse=data.properties?.some(p=>p.index==='finesse');
     const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str;
     const trained=hasWeaponTraining(char,data,proficiencies);
+    const totem=totemProfile(char,abilities),rage=totem.activeRage&&!totem.heavyArmor&&data.weapon_range==='Melee'&&(!finesse||str>=dex)?totem.rageDamage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&data.weapon_range==='Melee'?2:0;
-    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike,damage:`${data.damage.damage_dice}${signed(ability+strike)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike,damage:`${data.damage.damage_dice}${signed(ability+strike+rage)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }
