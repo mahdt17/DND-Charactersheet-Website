@@ -73,6 +73,18 @@ try {
  }
  const {spellPlan}=await server.ssrLoadModule('/src/lib/play.js');
  const {allSpells}=await server.ssrLoadModule('/src/lib/editions.js');
+ for(const [name,slot,label] of [['False Life',1,'Temporary HP'],['Aid',2,'Maximum and current HP increase']]){
+  const spell=allSpells.find(s=>s.edition==='2014'&&s.name===name),plan=spellPlan(spell,wizard,slot,4);
+  c=apply(wizard,spell,{recipient:'self',plan,rolls:[{label,total:5}]});
+  assert.equal(c.hp.current,3,`${name} must not become ordinary healing`);assert.equal(c.hp.max,20);assert.equal(c.hp.temp,name==='False Life'?5:2);
+  assert.equal(effects.healingSpell(spell,plan),false);assert.equal(plan.rolls[0].label,label);if(name==='Aid')assert.match(plan.notes,/table/i,'Unsupported HP semantics must be explicit');
+  if(name==='False Life'){
+   c=apply({...wizard,hp:{...wizard.hp,temp:12},deathSaves:{success:1,failure:2}},spell,{plan,rolls:[{label,total:5}]});assert.equal(c.hp.temp,12,'False Life never stacks with or lowers higher existing temporary HP');assert.deepEqual(c.deathSaves,{success:1,failure:2});
+   assert.throws(()=>apply(wizard,spell,{plan}),/temporary.*result/i,'A missing temporary HP roll must fail before spending');
+  }
+ }
+ const revisedFalseLife=allSpells.find(s=>s.edition==='2024'&&s.name==='False Life'),revisedTempPlan=spellPlan(revisedFalseLife,wizard,1,4);
+ assert.equal(revisedTempPlan.rolls[0]?.expression,'2d4+4','Revised False Life preserves its separate two-die formula');
  const heal70=allSpells.find(s=>s.edition==='2014'&&s.name==='Heal');const healPlan=spellPlan(heal70,wizard,6,4);assert.equal(healPlan.rolls[0].expression,'70');
  c=apply({...wizard,hp:{current:10,max:100}},heal70,{recipient:'self',plan:healPlan,rolls:[{label:'Healing',total:70}]});assert.equal(c.hp.current,80);
  console.log('PASS Shield/Mage Armor bases and bonuses, manual AC, recasting, equipment restrictions, persistence, game-time and turn expiry, recipient healing/caps/validation, concentration cleanup and 3.5 isolation');

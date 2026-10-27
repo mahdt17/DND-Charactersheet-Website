@@ -3,8 +3,10 @@ const legacy=c=>c?.ruleset==='3.5'||c?.mechanics==='3.5';
 const armored=c=>(c.inventory||[]).some(i=>i.equipped&&equipment.some(e=>e.index===i.equipmentIndex&&e.armor_class&&e.index!=='shield'));
 const spellName=s=>String(s?.name||'').trim().toLowerCase();
 const delayedHealing=new Set(['aura of vitality','goodberry','vampiric touch','healing spirit','enervation']);
+const otherHpEffects=new Set(['false life','aid']);
+export const temporaryHpSpell=s=>spellName(s)==='false life';
 const recipientBuffs=new Set(['mage armor','shield of faith','haste','barkskin','warding bond']);
-export function healingSpell(s,plan){return !delayedHealing.has(spellName(s))&&(!!s?.heal_at_slot_level||!!plan?.rolls?.some(r=>/healing/i.test(r.label)));}
+export function healingSpell(s,plan){return !delayedHealing.has(spellName(s))&&!otherHpEffects.has(spellName(s))&&(!!s?.heal_at_slot_level||!!plan?.rolls?.some(r=>/healing/i.test(r.label)));}
 export function needsEffectRecipient(s,plan){return recipientBuffs.has(spellName(s))||healingSpell(s,plan);}
 export function activeEffects(c){
  if(legacy(c))return [];
@@ -25,6 +27,11 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,maxHP=c.hp?.max
  if(spellName(spell)==='mage armor'&&recipient==='self'&&armored(c))throw Error('Remove worn armor before casting Mage Armor on yourself.');
  let effects=activeEffects(c),patch={};
  if(spell.concentration){effects=effects.filter(e=>!e.concentration);patch.concentration=spell.name;}
+ if(temporaryHpSpell(spell)){
+  const result=rolls.find(r=>/^temporary HP$/i.test(r.label));
+  if(!result||!Number.isFinite(result.total)||result.total<0)throw Error('A valid temporary HP roll result is required before spending a slot.');
+  patch.hp={...c.hp,temp:Math.max(Number(c.hp.temp)||0,result.total)};
+ }
  if(healingSpell(spell,plan)){
   const healing=rolls.filter(r=>/healing/i.test(r.label));
   if(!healing.length||healing.some(r=>!Number.isFinite(r.total)||r.total<0))throw Error('A valid healing roll result is required before spending a slot.');

@@ -22,6 +22,12 @@ export function spellPlan(s,c,slot,mod){
  if(s.name==='Scorching Ray')result.count=slot+1;
  if(s.name==='Eldritch Blast')result.count=1+[5,11,17].filter(n=>c.level>=n).length;
  const healing=s.heal_at_slot_level;
+ if(['False Life','Aid'].includes(s.name)){
+  const expression=healing?pick(healing,slot).replace(/\s/g,''):s.name==='False Life'?`${revised?2:1}d4+${4+Math.max(0,slot-1)*5}`:String(5+Math.max(0,slot-2)*5);
+  result.rolls.push({expression,label:s.name==='False Life'?'Temporary HP':'Maximum and current HP increase'});
+  result.notes=s.name==='False Life'?'This grants temporary HP, which do not stack. Casting keeps the higher of your existing temporary HP and this roll; your ordinary HP is not healed.':'This increases maximum and current HP for its duration. Resolve the increase, affected creatures, and later expiration at the table; it is not applied as ordinary healing.';
+  return result;
+ }
  if(healing)result.rolls.push({expression:pick(healing,slot).replace(/MOD/g,String(mod)).replace(/\s/g,'').replaceAll('+-','-'),label:'Healing'});
  if(revised&&!healing&&['Cure Wounds','Healing Word','Mass Cure Wounds','Mass Healing Word'].includes(s.name)){
   const mass=s.name.startsWith('Mass'),base=mass?s.name==='Mass Cure Wounds'?5:3:1;
