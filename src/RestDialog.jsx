@@ -15,6 +15,7 @@ import {spellSlotPools} from './lib/editions';
 import {restFeatMagic} from './lib/featMagic';
 import {restSpellAcquisition35} from './lib/spellAcquisition35';
 import {restDailySpellLike35} from './lib/dailySpellLike35';
+import {restEffectPatch} from './lib/spellEffects';
 import {hitDicePools,needsHitDiceReview,recoveryLimit,defaultRecovery,setSpentHitDice,spendHitDice,recoverHitDice} from './lib/hitDice';
 
 function Count({label,value=0,max,onChange,disabled=false}) {
@@ -62,7 +63,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
         ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
-        concentration:null,deathSaves:{success:0,failure:0},
+        ...restEffectPatch(char,'long'),deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated,fed,shadarKai:{...shadarKai,trance:(shadarKai.trance||[]).filter(Boolean)},eladrin:{...eladrin,trance:(eladrin.trance||[]).filter(Boolean)}},abilities)
       });
       else {
@@ -70,7 +71,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
         // and recovery together, so cancelling the dialog never spends a use.
         const recovered=arcaneTotal?recoverArchivistSlots(char,arcaneSlots):char;
         const spent=spend(),resting={...recovered,...spent};
-        patch({...spent,...restSpellSlots(resting,'short'),...restResources(resting,'short',{meditated,restoreSorcery,fed},abilities)});
+        patch({...spent,...restEffectPatch(resting,'short'),...restSpellSlots(resting,'short'),...restResources(resting,'short',{meditated,restoreSorcery,fed},abilities)});
       }
       onClose();
     }catch(e){setError(e.message);}

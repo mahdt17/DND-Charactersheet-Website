@@ -1,4 +1,5 @@
 import {totemProfile} from './totemWarrior.js';
+import {effectArmor} from './spellEffects.js';
 import {totemSubclassRecords} from '../data/totemWarrior.js';
 import {fighterSubclassRecords} from '../data/fighterSubclasses.js';
 import {campaignModifiers} from './campaignModifiers.js';
@@ -76,7 +77,8 @@ export function armorFor(char, abilities) {
   const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
   const shield=worn.some(e=>e.index==='shield');
   const armor=worn.filter(e=>e.armor_class&&e.index!=='shield');
-  if(armor.length){const e=armor[0];return entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities);}
+  const spellArmor=effectArmor(char,abilities,{armored:armor.length>0,shield});
+  if(armor.length){const e=armor[0];return Math.max(spellArmor.minimum,entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities)+spellArmor.bonus);}
   const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
@@ -90,7 +92,13 @@ export function armorFor(char, abilities) {
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
   const campaign=campaignProfile(char),inertial=campaign.psion&&char.archivistCampaign?.powerEffects?.['inertial-armor']?.minutes>0?Number(campaign.rulings.inertialArmorBase??13)+dex:0;
-  return entomancerArmor(char,Math.max(base,inertial)+(shield?2:0)+campaignModifiers(char).ac,'',abilities);
+  return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(base,inertial,...spellArmor.bases)+(shield?2:0)+campaignModifiers(char).ac,'',abilities)+spellArmor.bonus);
+}
+export function sheetArmorFor(char,abilities){
+ if(char.autoArmor&&char.ruleset!=='3.5'&&char.mechanics!=='3.5')return armorFor(char,abilities);
+ const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
+ const effects=effectArmor(char,abilities,{armored:worn.some(e=>e.armor_class&&e.index!=='shield'),shield:worn.some(e=>e.index==='shield')});
+ return Math.max(effects.minimum,Number(char.ac||0)+effects.bonus);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
