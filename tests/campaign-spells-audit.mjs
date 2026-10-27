@@ -128,15 +128,15 @@ test('Psion1–20 known tiers, canonical costs, undiscounted ML caps and rest re
  }
 });
 
-test('cantrip limits, class ownership and unprepared rituals keep independent prayerbook accounting',()=>{
+test('automatic Cleric cantrips, class ownership and unprepared rituals keep independent prayerbook accounting',()=>{
  for(let level=1;level<=20;level++){
-  let c=build('archivist',level);const limit=C.campaignProfile(c).cantrips;
-  for(let i=0;i<limit;i++)c=C.acquireCampaignSpell(c,{...cure,name:'Cantrip '+i,catalogId:'test:cantrip'+i,level:0});
+  let c=C.reconcileCampaign(build('archivist',level));const limit=C.campaignProfile(c).cantrips;
+  assert.equal(c.spells.filter(s=>s.level===0).length,limit);assert.equal(limit,7);
   assert.throws(()=>C.acquireCampaignSpell(c,{...cure,catalogId:'test:extra-cantrip',level:0}),/Cantrip limit/);
-  assert.equal(C.campaignProfile(c).growthUsed,0);const cantrip=C.castCampaignSpell(c,'test:cantrip0');assert.equal(cantrip.archivistCampaign.lastCast.slot,0);assert(!cantrip.slotsUsed);
+  assert.equal(C.campaignProfile(c).growthUsed,0);const cantrip=C.castCampaignSpell(c,'2014:guidance');assert.equal(cantrip.archivistCampaign.lastCast.slot,0);assert(!cantrip.slotsUsed);
  }
  let c=build('archivist',1);c.spells=[{...cure,castingClassId:'2014:wizard',prepared:true}];assert.throws(()=>C.castCampaignSpell(c,cure.catalogId,{slot:1}),/not available/);
- c=C.acquireCampaignSpell(c,cure);assert.equal(c.spells.length,2);assert.throws(()=>C.castCampaignSpell(c,cure.catalogId,{slot:1}),/Prepare/);
+ c=C.acquireCampaignSpell(c,cure);assert.equal(c.spells.filter(s=>s.level>0).length,2);assert.throws(()=>C.castCampaignSpell(c,cure.catalogId,{slot:1}),/Prepare/);
  const ritual={...cure,catalogId:'test:ritual',name:'Detect Magic',ritual:true,concentration:true};c=C.acquireCampaignSpell(c,ritual);const before=structuredClone(c.slotsUsed);c=C.castCampaignSpell(c,ritual.catalogId,{ritual:true});assert.equal(c.concentration,'Detect Magic');assert.deepEqual(c.slotsUsed,before);assert(!c.spells.find(s=>s.catalogId===ritual.catalogId).prepared);
 });
 

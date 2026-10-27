@@ -43,7 +43,7 @@ test('scroll projects spend an available pooled slot after Archivist-only slots 
  const s={catalogId:'2014:audit-cure',name:'Cure Wounds',edition:'2014',level:1,classes:['Cleric']};
  c=C.prepareCampaignSpell(C.acquireCampaignSpell(c,s),s.catalogId,true);c.slotsUsed={1:2};
  const paid=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true});
- assert.equal(paid.slotsUsed[1],3);assert.equal(paid.currency.gp,49975);
+ assert.equal(paid.slotsUsed[1],3);assert.equal(paid.currency.gp,49950);
  assert.throws(()=>W.startCampaignProject(paid,{kind:'scroll',spell:s,materialsConfirmed:true}),/slot/i);
 });
 test('copper precision accepts exact copper costs and rejects fractions of copper',()=>{

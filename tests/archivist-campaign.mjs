@@ -7,7 +7,7 @@ let c=C.createArchivistCampaign('Darkdonte');
 assert.equal(c.level,5);assert.deepEqual(c.classLevels.map(r=>r.level),[4,1]);
 assert.deepEqual(c.abilities,{str:10,dex:10,con:10,int:15,wis:13,cha:16});
 assert.equal(C.campaignProfile(c).ppMax,3);assert.equal(C.campaignProfile(c).darkMax,4);
-assert.equal(C.campaignProfile(c).maxSpellLevel,2);assert.equal(C.campaignProfile(c).growthAllowance,8);
+assert.equal(C.campaignProfile(c).maxSpellLevel,2);assert.equal(C.campaignProfile(c).growthAllowance,11);
 assert.equal(C.campaignProfile({...c,ruleset:'3.5'}).active,false);
 assert.equal(C.campaignProfile({...c,classLevels:[{name:'Archivist',level:4,edition:'3.5',definition:{name:'Archivist',catalogId:'dndtools:classes/archivist-74',edition:'3.5'}}]}).active,false);
 assert.throws(()=>C.useCampaignPower({...c,powerPointsUsed:3},'mindlink'),/points/i);
@@ -28,7 +28,7 @@ assert.equal(C.campaignProfile({...c,archivistCampaign:{...c.archivistCampaign,r
 const cleric={id:'cure-wounds',index:'cure-wounds',catalogId:'2014:cure-wounds',edition:'2014',name:'Cure Wounds',level:1,classes:['Cleric'],ritual:false};
 let starter=C.createArchivistCampaign('Book');
 starter=C.acquireCampaignSpell(starter,cleric,{channel:'growth'});
-assert.equal(C.campaignProfile(starter).growthRemaining,7);
+assert.equal(C.campaignProfile(starter).growthRemaining,10);
 assert.throws(()=>C.acquireCampaignSpell(starter,cleric,{channel:'growth'}),/already/i);
 assert.throws(()=>C.acquireCampaignSpell(starter,{...cleric,name:'Other',catalogId:'2014:other',classes:['Wizard']},{channel:'growth'}),/Cleric/);
 assert.throws(()=>C.acquireCampaignSpell(starter,{...cleric,level:3},{channel:'growth'}),/level/i);

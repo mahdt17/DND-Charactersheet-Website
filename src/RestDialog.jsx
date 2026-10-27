@@ -10,6 +10,8 @@ import {mechanics,is35} from './lib/editions';
 import {modifier,changeHP} from './lib/rules';
 import {conditionEffects,conditionNames,exhaustionLevel} from './lib/play';
 import {restSpellSlots} from './lib/multiclassCasting';
+import {campaignProfile,recoverArchivistSlots} from './lib/archivistCampaign';
+import {spellSlotPools} from './lib/editions';
 import {restFeatMagic} from './lib/featMagic';
 import {restSpellAcquisition35} from './lib/spellAcquisition35';
 import {restDailySpellLike35} from './lib/dailySpellLike35';
@@ -28,6 +30,9 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   const [rest,setRest]=useState(is35(char)?'long':initialRest==='long'?'long':'short');
   const [spending,setSpending]=useState({}),[recovery,setRecovery]=useState(()=>defaultRecovery(char));
   const [recoverExhaustion,setRecoverExhaustion]=useState(false),[error,setError]=useState(''),[lastRoll,setLastRoll]=useState(null);
+  const [arcaneSlots,setArcaneSlots]=useState({});
+  const archivist=campaignProfile(char),spellSlots=spellSlotPools(char).standard;
+  const arcaneTotal=Object.entries(arcaneSlots).reduce((sum,[level,n])=>sum+Number(level)*n,0);
   const pools=hitDicePools(char),legacy=is35(char),revised=mechanics(char)==='2024',exhaustion=exhaustionLevel(char);
   const recoveryTotal=Object.values(recovery).reduce((n,v)=>n+v,0),limit=recoveryLimit(char);
   const excess=rest==='long'&&!revised&&recoveryTotal>limit;
@@ -60,7 +65,13 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
         concentration:null,deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated,fed,shadarKai:{...shadarKai,trance:(shadarKai.trance||[]).filter(Boolean)},eladrin:{...eladrin,trance:(eladrin.trance||[]).filter(Boolean)}},abilities)
       });
-      else {const spent=spend();patch({...spent,...restSpellSlots(char,'short'),...restResources({...char,...spent},'short',{meditated,restoreSorcery,fed},abilities)});}
+      else {
+        // Validate recovery before rolling/spending Hit Dice. Commit the rest
+        // and recovery together, so cancelling the dialog never spends a use.
+        const recovered=arcaneTotal?recoverArchivistSlots(char,arcaneSlots):char;
+        const spent=spend(),resting={...recovered,...spent};
+        patch({...spent,...restSpellSlots(resting,'short'),...restResources(resting,'short',{meditated,restoreSorcery,fed},abilities)});
+      }
       onClose();
     }catch(e){setError(e.message);}
   }
@@ -89,6 +100,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
         {needsReview&&<button className="l-button" onClick={()=>{patch(setSpentHitDice(char,{}));}}>Confirm spent dice</button>}
       </details>
       {rest==='short'?<>
+        {archivist.recoveryBudget>0&&<section aria-label="Archivist Arcane Recovery"><h3>Arcane Recovery</h3><p>{archivist.recoveryUsed?'Already used. Available again after a long rest.':`Choose expended slots totaling up to ${archivist.recoveryBudget} spell-slot levels. Only levels 1–5 qualify. Once per long rest.`}</p>{!archivist.recoveryUsed&&<><p>Recovery selected: {arcaneTotal} / {archivist.recoveryBudget}</p>{spellSlots.flatMap((n,level)=>level>=1&&level<=5&&n>0?[<Count key={level} label={`Arcane Recovery — level ${level} slots`} max={Math.min(n,Number(char.slotsUsed?.[level]||0))} value={arcaneSlots[level]||0} onChange={value=>setArcaneSlots({...arcaneSlots,[level]:value})}/>]:[])}{arcaneTotal>archivist.recoveryBudget&&<p role="alert">Choose slots within the recovery budget.</p>}<p className="l-muted">Recovery is applied only when you complete this short rest.</p></>}</section>}
         {pools.map(p=><Count key={p.key} label={`Hit dice to spend — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'}; ${p.available} available)`} max={p.available} value={spending[p.key]||0} disabled={!p.sides} onChange={n=>setSpending({...spending,[p.key]:n})}/>)}
         {pools.some(p=>!p.sides)&&<p className="l-notice">A class hit die is missing. Record its source value before rolling that class’s dice.</p>}
         <button className="l-button" disabled={needsReview||!Object.values(spending).some(n=>n>0)} onClick={rollSelected}>Roll &amp; spend selected hit dice</button>
@@ -104,6 +116,6 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       </>}
     </>}
     {error&&<p role="alert">{error}</p>}
-    <button className="l-button primary" disabled={!legacy&&(excess||needsReview)} onClick={takeRest}>Complete {rest} rest</button>
+    <button className="l-button primary" disabled={!legacy&&(excess||needsReview||rest==='short'&&arcaneTotal>archivist.recoveryBudget)} onClick={takeRest}>Complete {rest} rest</button>
   </Modal>;
 }

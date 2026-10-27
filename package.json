@@ -16,8 +16,8 @@
     "review:completion:queue": "node scripts/build_class_review_queue.mjs",
     "test:entomancer": "node scripts/build_entomancer_spell_details.mjs --check && node tests/entomancer.mjs && node tests/entomancer-actions.mjs && node tests/entomancer-integration.mjs && node tests/entomancer-preparation.mjs && node tests/entomancer-companions.mjs && node tests/entomancer-playability.mjs && node tests/entomancer-feedback.mjs && node tests/entomancer-subsystem.mjs",
     "test:browser:entomancer": "node tests/browser-entomancer.mjs && node tests/browser-entomancer-playability.mjs && node tests/browser-entomancer-resources.mjs && node tests/browser-entomancer-feedback.mjs && node tests/browser-entomancer-subsystem.mjs && node tests/browser-entomancer-spells.mjs",
-    "test:archivist": "node tests/independent-conversions.mjs && node tests/archivist-campaign.mjs && node tests/archivist-campaign-integration.mjs && node tests/campaign-expansion.mjs && node tests/campaign-psicrystal.mjs && npm run test:campaign-audit && npm run test:class-feat-tools",
-    "test:browser:archivist": "node tests/browser-dark-knowledge.mjs && node tests/browser-archivist-campaign.mjs && node tests/browser-campaign-expansion.mjs && node tests/browser-class-tools.mjs && node tests/browser-campaign-audit.mjs && node tests/browser-campaign-play-actions.mjs && node tests/browser-class-feat-tools.mjs && node tests/browser-simpler-spells.mjs && node tests/browser-thrall-combat.mjs && node tests/browser-follower-inventory.mjs",
+    "test:archivist": "npm run test:archivist-dm-casting && node tests/independent-conversions.mjs && node tests/archivist-campaign.mjs && node tests/archivist-campaign-integration.mjs && node tests/campaign-expansion.mjs && node tests/campaign-psicrystal.mjs && npm run test:campaign-audit && npm run test:class-feat-tools",
+    "test:browser:archivist": "npm run test:browser:archivist-dm-casting && node tests/browser-dark-knowledge.mjs && node tests/browser-archivist-campaign.mjs && node tests/browser-campaign-expansion.mjs && node tests/browser-class-tools.mjs && node tests/browser-campaign-audit.mjs && node tests/browser-campaign-play-actions.mjs && node tests/browser-class-feat-tools.mjs && node tests/browser-simpler-spells.mjs && node tests/browser-thrall-combat.mjs && node tests/browser-follower-inventory.mjs",
     "test:ability-rolls": "node tests/ability-rolls.mjs",
     "test:martial-subclasses": "node tests/fighter-subclass-data.mjs && node tests/fighter-subclasses.mjs && node tests/totem-warrior.mjs && node tests/martial-subclass-integration.mjs",
     "test:browser:martial-subclasses": "node tests/browser-ability-rolls.mjs && node tests/browser-martial-subclasses.mjs && node tests/browser-totem-warrior.mjs",
@@ -40,7 +40,9 @@
     "test:class-feat-tools": "node tests/class-feat-tools.mjs && node tests/class-feat-casting.mjs",
     "test:campaign-audit": "node tests/campaign-activity.mjs && node tests/campaign-followers-audit.mjs && node tests/campaign-progression-audit.mjs && node tests/campaign-spells-audit.mjs && node tests/campaign-companions-audit.mjs && node tests/campaign-roster-matrix.mjs",
     "test:lupin": "node tests/lupin.mjs",
-    "test:browser:lupin": "node tests/browser-lupin.mjs"
+    "test:browser:lupin": "node tests/browser-lupin.mjs",
+    "test:archivist-dm-casting": "node tests/archivist-dm-casting.mjs",
+    "test:browser:archivist-dm-casting": "node tests/browser-archivist-dm-casting.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",
