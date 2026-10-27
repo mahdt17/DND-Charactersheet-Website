@@ -89,7 +89,7 @@ This document tracks implementation progress. Source rules and progression data 
 | Paladin | Redemption (UA) | UA playtest | 3, 7, 15, 20 | [Unearthed Arcana 35 - A Trio of Subclasses](https://dnd5e.wikidot.com/paladin:redemption-ua) |
 | Paladin | Watchers (UA) | UA playtest | 3, 7, 15, 20 | [Unearthed Arcana 67 - Subclasses, Part 1](https://dnd5e.wikidot.com/paladin:watchers-ua) |
 | Paladin | Heroism (UA) | UA playtest | 3, 7, 15, 20 | [Unearthed Arcana 62 - Bard and Paladin](https://dnd5e.wikidot.com/paladin:heroism-ua) |
-| Ranger | Beast Master | Published | 3, 7, 11 | [Player's Handbook](https://dnd5e.wikidot.com/ranger:beast-master) |
+| Ranger | Beast Master | Published | 3, 7, 11, 15 | [Player's Handbook](https://dnd5e.wikidot.com/ranger:beast-master) |
 | Ranger | Fey Wanderer | Published | 3, 7, 11, 15 | [Tasha's Cauldron of Everything](https://dnd5e.wikidot.com/ranger:fey-wanderer) |
 | Ranger | Gloom Stalker | Published | 3, 7, 11, 15 | [Xanathar's Guide to Everything](https://dnd5e.wikidot.com/ranger:gloom-stalker) |
 | Ranger | Horizon Walker | Published | 3, 7, 11, 15 | [Xanathar's Guide to Everything](https://dnd5e.wikidot.com/ranger:horizon-walker) |

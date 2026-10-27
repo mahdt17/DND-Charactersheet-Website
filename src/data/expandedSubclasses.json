@@ -68,60 +68,70 @@
         "name": "Healing Word",
         "spellSlug": "healing-word",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Sickness",
         "spellSlug": "ray-of-sickness",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flaming Sphere",
         "spellSlug": "flaming-sphere",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Melf's Acid Arrow",
         "spellSlug": "melfs-acid-arrow",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Gaseous Form",
         "spellSlug": "gaseous-form",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Healing Word",
         "spellSlug": "mass-healing-word",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cloudkill",
         "spellSlug": "cloudkill",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Raise Dead",
         "spellSlug": "raise-dead",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -203,60 +213,70 @@
         "name": "Magic Missile",
         "spellSlug": "magic-missile",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mirror Image",
         "spellSlug": "mirror-image",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shatter",
         "spellSlug": "shatter",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hypnotic Pattern",
         "spellSlug": "hypnotic-pattern",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Lightning Bolt",
         "spellSlug": "lightning-bolt",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Passwall",
         "spellSlug": "passwall",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -330,60 +350,70 @@
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shatter",
         "spellSlug": "shatter",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wind Wall",
         "spellSlug": "wind-wall",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ice Storm",
         "spellSlug": "ice-storm",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Fire",
         "spellSlug": "wall-of-fire",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -465,60 +495,70 @@
         "name": "Heroism",
         "spellSlug": "heroism",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Branding Smite",
         "spellSlug": "branding-smite",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Warding Bond",
         "spellSlug": "warding-bond",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Vitality",
         "spellSlug": "aura-of-vitality",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Conjure Barrage",
         "spellSlug": "conjure-barrage",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Purity",
         "spellSlug": "aura-of-purity",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Banishing Smite",
         "spellSlug": "banishing-smite",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -584,60 +624,70 @@
         "name": "Comprehend Languages",
         "spellSlug": "comprehend-languages",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dissonant Whispers",
         "spellSlug": "dissonant-whispers",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Detect Thoughts",
         "spellSlug": "detect-thoughts",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Locate Object",
         "spellSlug": "locate-object",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hypnotic Pattern",
         "spellSlug": "Hypnotic-Pattern",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Tongues",
         "spellSlug": "tongues",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Locate Creature",
         "spellSlug": "Locate-creature",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Phantasmal Killer",
         "spellSlug": "phantasmal-killer",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Modify Memory",
         "spellSlug": "modify-memory",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -719,60 +769,70 @@
         "name": "Magic Missile",
         "spellSlug": "magic-missile",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mirror Image",
         "spellSlug": "mirror-image",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shatter",
         "spellSlug": "shatter",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hypnotic Pattern",
         "spellSlug": "hypnotic-pattern",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Lightning Bolt",
         "spellSlug": "lightning-bolt",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Passwall",
         "spellSlug": "passwall",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -1041,7 +1101,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:spirits"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Guidance",
+        "spellSlug": "guidance",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:bard:swords",
@@ -1262,51 +1330,73 @@
     ],
     "spellGrants": [
       {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Comprehend Languages",
+        "spellSlug": "comprehend-languages",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Knock",
         "spellSlug": "knock",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Locate Object",
         "spellSlug": "locate-object",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Spirit Guardians",
         "spellSlug": "spirit-guardians",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Stone Shape",
         "spellSlug": "stone-shape",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ],
@@ -1472,7 +1562,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/bard:spirits-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Guidance",
+        "spellSlug": "guidance",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:bard:satire-ua",
@@ -1585,60 +1683,70 @@
         "name": "Detect Magic",
         "spellSlug": "detect-magic",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Missile",
         "spellSlug": "magic-missile",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Nystul's Magic Aura",
         "spellSlug": "nystuls-magic-aura",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Circle",
         "spellSlug": "magic-circle",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Leomund's Secret Chest",
         "spellSlug": "leomunds-secret-chest",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Planar Binding",
         "spellSlug": "planar-binding",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Teleportation Circle",
         "spellSlug": "teleportation-circle",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -1712,60 +1820,70 @@
         "name": "False Life",
         "spellSlug": "false-life",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Sickness",
         "spellSlug": "ray-of-sickness",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Enfeeblement",
         "spellSlug": "ray-of-enfeeblement",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Animate Dead",
         "spellSlug": "animate-dead",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Vampiric Touch",
         "spellSlug": "vampiric-touch",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cloudkill",
         "spellSlug": "cloudkill",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -1839,60 +1957,70 @@
         "name": "Identify",
         "spellSlug": "identify",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Searing Smite",
         "spellSlug": "searing-smite",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Heat Metal",
         "spellSlug": "heat-metal",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Elemental Weapon",
         "spellSlug": "elemental-weapon",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fabricate",
         "spellSlug": "fabricate",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Fire",
         "spellSlug": "wall-of-fire",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Animate Objects",
         "spellSlug": "animate-objects",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Creation",
         "spellSlug": "creation",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -1963,63 +2091,80 @@
     ],
     "spellGrants": [
       {
+        "name": "Spare the Dying",
+        "spellSlug": "spare-the-dying",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Bane",
         "spellSlug": "bane",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "False Life",
         "spellSlug": "false-life",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Gentle Repose",
         "spellSlug": "gentle-repose",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Enfeeblement",
         "spellSlug": "ray-of-enfeeblement",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Vampiric Touch",
         "spellSlug": "vampiric-touch",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Raise Dead",
         "spellSlug": "raise-dead",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2085,60 +2230,70 @@
         "name": "Command",
         "spellSlug": "command",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Identify",
         "spellSlug": "identify",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Augury",
         "spellSlug": "augury",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Suggestion",
         "spellSlug": "suggestion",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Nondetection",
         "spellSlug": "nondetection",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Confusion",
         "spellSlug": "confusion",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scrying",
         "spellSlug": "scrying",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2212,60 +2367,70 @@
         "name": "Bless",
         "spellSlug": "bless",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cure Wounds",
         "spellSlug": "cure-wounds",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Lesser Restoration",
         "spellSlug": "lesser-restoration",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Spiritual Weapon",
         "spellSlug": "spiritual-weapon",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Beacon of Hope",
         "spellSlug": "beacon-of-hope",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Raise Dead",
         "spellSlug": "raise-dead",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2336,63 +2501,80 @@
     ],
     "spellGrants": [
       {
+        "name": "Light",
+        "spellSlug": "light",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flaming Sphere",
         "spellSlug": "flaming-sphere",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Daylight",
         "spellSlug": "daylight",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Fire",
         "spellSlug": "wall-of-fire",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scrying",
         "spellSlug": "scrying",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2466,60 +2648,70 @@
         "name": "Animal Friendship",
         "spellSlug": "animal-friendship",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Speak with Animals",
         "spellSlug": "speak-with-animals",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Barkskin",
         "spellSlug": "barkskin",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Spike Growth",
         "spellSlug": "spike-growth",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Plant Growth",
         "spellSlug": "plant-growth",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wind Wall",
         "spellSlug": "wind-wall",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Beast",
         "spellSlug": "dominate-beast",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Grasping Vine",
         "spellSlug": "grasping-vine",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Insect Plague",
         "spellSlug": "insect-plague",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Tree Stride",
         "spellSlug": "tree-stride",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2593,60 +2785,70 @@
         "name": "Command",
         "spellSlug": "command",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Heroism",
         "spellSlug": "heroism",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Person",
         "spellSlug": "hold-person",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Zone of Truth",
         "spellSlug": "zone-of-truth",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Healing Word",
         "spellSlug": "mass-healing-word",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Slow",
         "spellSlug": "slow",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Compulsion",
         "spellSlug": "compulsion",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Locate Creature",
         "spellSlug": "locate-creature",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune",
         "spellSlug": "commune",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2720,60 +2922,70 @@
         "name": "Heroism",
         "spellSlug": "heroism",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aid",
         "spellSlug": "aid",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Warding Bond",
         "spellSlug": "warding-bond",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Beacon of Hope",
         "spellSlug": "beacon-of-hope",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sending",
         "spellSlug": "sending",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Purity",
         "spellSlug": "aura-of-purity",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Otiluke's Resilient Sphere",
         "spellSlug": "otilukes-resilient-sphere",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Rary's Telepathic Bond",
         "spellSlug": "rarys-telepathic-bond",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2847,60 +3059,70 @@
         "name": "Fog Cloud",
         "spellSlug": "fog-cloud",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Gust of Wind",
         "spellSlug": "gust-of-wind",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shatter",
         "spellSlug": "shatter",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Call Lightning",
         "spellSlug": "call-lightning",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sleet Storm",
         "spellSlug": "sleet-storm",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ice Storm",
         "spellSlug": "ice-storm",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Insect Plague",
         "spellSlug": "insect-plague",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -2966,60 +3188,70 @@
         "name": "Charm Person",
         "spellSlug": "charm-person",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Disguise Self",
         "spellSlug": "disguise-self",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mirror Image",
         "spellSlug": "mirror-image",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Pass without Trace",
         "spellSlug": "pass-without-trace",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blink",
         "spellSlug": "blink",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dimension Door",
         "spellSlug": "dimension-door",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Polymorph",
         "spellSlug": "polymorph",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Modify Memory",
         "spellSlug": "modify-memory",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3101,60 +3333,70 @@
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sleep",
         "spellSlug": "sleep",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Moonbeam",
         "spellSlug": "moonbeam",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "See Invisibility",
         "spellSlug": "see-invisibility",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Vitality",
         "spellSlug": "aura-of-vitality",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Leomund's Tiny Hut",
         "spellSlug": "leomunds-tiny-hut",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Life",
         "spellSlug": "aura-of-life",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Circle of Power",
         "spellSlug": "circle-of-power",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mislead",
         "spellSlug": "mislead",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3228,60 +3470,70 @@
         "name": "Divine Favor",
         "spellSlug": "divine-favor",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shield of Faith",
         "spellSlug": "shield-of-faith",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Spiritual Weapon",
         "spellSlug": "spiritual-weapon",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Crusader's Mantle",
         "spellSlug": "crusaders-mantle",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Spirit Guardians",
         "spellSlug": "spirit-guardians",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Stoneskin",
         "spellSlug": "stoneskin",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3355,60 +3607,70 @@
         "name": "Bless",
         "spellSlug": "bless",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guiding Bolt",
         "spellSlug": "guiding-bolt",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aid",
         "spellSlug": "aid",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Warding Bond",
         "spellSlug": "warding-bond",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Beacon of Hope",
         "spellSlug": "beacon-of-hope",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Crusader's Mantle",
         "spellSlug": "crusaders-mantle",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Life",
         "spellSlug": "aura-of-life",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Circle of Power",
         "spellSlug": "circle-of-power",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3482,60 +3744,70 @@
         "name": "Divine Favor",
         "spellSlug": "divine-favor",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shield of Faith",
         "spellSlug": "shield-of-faith",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Enhance Ability",
         "spellSlug": "enhance-ability",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Poison",
         "spellSlug": "protection-from-poison",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Beast",
         "spellSlug": "dominate-beast",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Stoneskin",
         "spellSlug": "stoneskin",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Insect Plague",
         "spellSlug": "insect-plague",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3601,60 +3873,70 @@
         "name": "Bane",
         "spellSlug": "bane",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Disguise Self",
         "spellSlug": "disguise-self",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mirror Image",
         "spellSlug": "mirror-image",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Enfeeblement",
         "spellSlug": "ray-of-enfeeblement",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Bestow Curse",
         "spellSlug": "bestow-curse",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Vampiric Touch",
         "spellSlug": "vampiric-touch",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dimension Door",
         "spellSlug": "dimension-door",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Modify Memory",
         "spellSlug": "modify-memory",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3728,60 +4010,70 @@
         "name": "Searing Smite",
         "spellSlug": "searing-smite",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Thunderous Smite",
         "spellSlug": "thunderous-smite",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shatter",
         "spellSlug": "shatter",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3855,60 +4147,70 @@
         "name": "Dissonant Whispers",
         "spellSlug": "dissonant-whispers",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Heroism",
         "spellSlug": "heroism",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "See Invisibility",
         "spellSlug": "see-invisibility",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Warding Bond",
         "spellSlug": "warding-bond",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Beacon of Hope",
         "spellSlug": "beacon-of-hope",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Clairvoyance",
         "spellSlug": "clairvoyance",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Divination",
         "spellSlug": "divination",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune",
         "spellSlug": "commune",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Geas",
         "spellSlug": "geas",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -3987,63 +4289,80 @@
     ],
     "spellGrants": [
       {
+        "name": "On/Off",
+        "spellSlug": "on-off",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Comprehend Languages",
         "spellSlug": "comprehend-languages",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Remote Access",
         "spellSlug": "remote-access",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Find Vehicle",
         "spellSlug": "find-vehicle",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Heat Metal",
         "spellSlug": "heat-metal",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Lightning Bolt",
         "spellSlug": "lightning-bolt",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Ballistics",
         "spellSlug": "protection-from-ballistics",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Locate Creature",
         "spellSlug": "locate-creature",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Synchronicity",
         "spellSlug": "synchronicity",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune with City",
         "spellSlug": "commune-with-city",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shutdown",
         "spellSlug": "shutdown",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -4117,60 +4436,70 @@
         "name": "Compelled Duel",
         "spellSlug": "compelled-duel",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aid",
         "spellSlug": "aid",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Poison",
         "spellSlug": "protection-from-poison",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Slow",
         "spellSlug": "slow",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Otiluke's Resilient Sphere",
         "spellSlug": "otilukes-resilient-sphere",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -4252,60 +4581,70 @@
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sleep",
         "spellSlug": "sleep",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Darkness",
         "spellSlug": "darkness",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Invisibility",
         "spellSlug": "invisibility",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Leomund's Tiny Hut",
         "spellSlug": "leomunds-tiny-hut",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Vitality",
         "spellSlug": "aura-of-vitality",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Life",
         "spellSlug": "aura-of-life",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Circle of Power",
         "spellSlug": "circle-of-power",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dream",
         "spellSlug": "dream",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -4371,60 +4710,70 @@
         "name": "Heroism",
         "spellSlug": "heroism",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Shield of Faith",
         "spellSlug": "shield-of-faith",
         "classLevel": 1,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aid",
         "spellSlug": "aid",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Warding Bond",
         "spellSlug": "warding-bond",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Beacon of Hope",
         "spellSlug": "beacon-of-hope",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sending",
         "spellSlug": "sending",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Purity",
         "spellSlug": "aura-of-purity",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Rary's Telepathic Bond",
         "spellSlug": "rarys-telepathic-bond",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -4730,54 +5079,70 @@
         "name": "Chill Touch",
         "spellSlug": "chill-touch",
         "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Chill Touch",
+        "spellSlug": "chill-touch",
+        "classLevel": 2,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Gentle Repose",
         "spellSlug": "gentle-repose",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Animate Dead",
         "spellSlug": "animate-dead",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Gaseous Form",
         "spellSlug": "gaseous-form",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Confusion",
         "spellSlug": "confusion",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cloudkill",
         "spellSlug": "cloudkill",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Contagion",
         "spellSlug": "contagion",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -4838,7 +5203,24 @@
         "sourceUrl": "https://dnd5e.wikidot.com/druid:stars"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Guidance",
+        "spellSlug": "guidance",
+        "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true,
+        "condition": "holding-star-map"
+      },
+      {
+        "name": "Guiding Bolt",
+        "spellSlug": "guiding-bolt",
+        "classLevel": 2,
+        "acquisition": "prepared",
+        "alwaysPrepared": true,
+        "condition": "holding-star-map"
+      }
+    ]
   },
   {
     "id": "2014:subclass:druid:wildfire",
@@ -4901,60 +5283,70 @@
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 2,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cure Wounds",
         "spellSlug": "cure-wounds",
         "classLevel": 2,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flaming Sphere",
         "spellSlug": "flaming-sphere",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Plant Growth",
         "spellSlug": "plant-growth",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Life",
         "spellSlug": "aura-of-life",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -5140,51 +5532,80 @@
     ],
     "spellGrants": [
       {
+        "name": "Spare the Dying",
+        "spellSlug": "spare-the-dying",
+        "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Cure Wounds",
+        "spellSlug": "cure-wounds",
+        "classLevel": 2,
+        "acquisition": "prepared",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Inflict Wounds",
+        "spellSlug": "inflict-wounds",
+        "classLevel": 2,
+        "acquisition": "prepared",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Lesser Restoration",
         "spellSlug": "Lesser-restoration",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Enfeeblement",
         "spellSlug": "ray-of-enfeeblement",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Vampiric Touch",
         "spellSlug": "vampiric-touch",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ],
@@ -5356,51 +5777,66 @@
     ],
     "spellGrants": [
       {
+        "name": "Fire Bolt",
+        "spellSlug": "fire-bolt",
+        "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Locate Animals or Plants",
         "spellSlug": "locate-animals-or-plants",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Plant Growth",
         "spellSlug": "plant-growth",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Life",
         "spellSlug": "aura-of-life",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Raise Dead",
         "spellSlug": "raise-dead",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -6381,60 +6817,70 @@
         "name": "Ensnaring Strike",
         "spellSlug": "ensnaring-strike",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Speak with Animals",
         "spellSlug": "speak-with-animals",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Moonbeam",
         "spellSlug": "moonbeam",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Misty Step",
         "spellSlug": "misty-step",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Plant Growth",
         "spellSlug": "plant-growth",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ice Storm",
         "spellSlug": "ice-storm",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Stoneskin",
         "spellSlug": "stoneskin",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune with Nature",
         "spellSlug": "commune-with-nature",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Tree Stride",
         "spellSlug": "tree-stride",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -6509,60 +6955,70 @@
         "name": "Armor of Agathys",
         "spellSlug": "armor-of-agathys",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Command",
         "spellSlug": "command",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Person",
         "spellSlug": "hold-person",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Spiritual Weapon",
         "spellSlug": "spiritual-weapon",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Bestow Curse",
         "spellSlug": "bestow-curse",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Fear",
         "spellSlug": "fear",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Beast",
         "spellSlug": "dominate-beast",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Stoneskin",
         "spellSlug": "stoneskin",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Cloudkill",
         "spellSlug": "cloudkill",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -6637,60 +7093,70 @@
         "name": "Command",
         "spellSlug": "command",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Compelled Duel",
         "spellSlug": "compelled-duel",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Warding Bond",
         "spellSlug": "warding-bond",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Zone of Truth",
         "spellSlug": "zone-of-truth",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Vitality",
         "spellSlug": "aura-of-vitality",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Spirit Guardians",
         "spellSlug": "spirit-guardians",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Circle of Power",
         "spellSlug": "circle-of-power",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Geas",
         "spellSlug": "geas",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -6765,60 +7231,70 @@
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Lesser Restoration",
         "spellSlug": "lesser-restoration",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Zone of Truth",
         "spellSlug": "zone-of-truth",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Beacon of Hope",
         "spellSlug": "beacon-of-hope",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune",
         "spellSlug": "commune",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -6893,60 +7369,70 @@
         "name": "Guiding Bolt",
         "spellSlug": "guiding-bolt",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Heroism",
         "spellSlug": "heroism",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Enhance Ability",
         "spellSlug": "enhance-ability",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection From Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Compulsion",
         "spellSlug": "compulsion",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom Of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune",
         "spellSlug": "commune",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7021,60 +7507,70 @@
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sleep",
         "spellSlug": "sleep",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Calm Emotions",
         "spellSlug": "calm-emotions",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Person",
         "spellSlug": "hold-person",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Counterspell",
         "spellSlug": "counterspell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hypnotic Pattern",
         "spellSlug": "hypnotic-pattern",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Otiluke's Resilient Sphere",
         "spellSlug": "otilukes-resilient-sphere",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Stoneskin",
         "spellSlug": "stoneskin",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7149,60 +7645,70 @@
         "name": "Bane",
         "spellSlug": "bane",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hunter's Mark",
         "spellSlug": "hunters-mark",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Person",
         "spellSlug": "hold-person",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Misty Step",
         "spellSlug": "misty-step",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dimension Door",
         "spellSlug": "dimension-door",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scrying",
         "spellSlug": "scrying",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7277,60 +7783,70 @@
         "name": "Alarm",
         "spellSlug": "alarm",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Detect Magic",
         "spellSlug": "detect-magic",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Moonbeam",
         "spellSlug": "moonbeam",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "See Invisibility",
         "spellSlug": "see-invisibility",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Counterspell",
         "spellSlug": "counterspell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Nondetection",
         "spellSlug": "nondetection",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Purity",
         "spellSlug": "aura-of-purity",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Scrying",
         "spellSlug": "scrying",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7396,60 +7912,70 @@
         "name": "Hellish Rebuke",
         "spellSlug": "hellish-rebuke",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Inflict Wounds",
         "spellSlug": "inflict-wounds",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Crown of Madness",
         "spellSlug": "crown-of-madness",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Darkness",
         "spellSlug": "darkness",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Animate Dead",
         "spellSlug": "animate-dead",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Bestow Curse",
         "spellSlug": "bestow-curse",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Confusion",
         "spellSlug": "confusion",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Contagion",
         "spellSlug": "contagion",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7524,60 +8050,70 @@
         "name": "Charm Person",
         "spellSlug": "charm-person",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Expeditious Retreat",
         "spellSlug": "expeditious-retreat",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Invisibility",
         "spellSlug": "invisibility",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Mirror Image",
         "spellSlug": "mirror-image",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Gaseous Form",
         "spellSlug": "gaseous-form",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Confusion",
         "spellSlug": "confusion",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Passwall",
         "spellSlug": "passwall",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7668,60 +8204,70 @@
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Sleep",
         "spellSlug": "sleep",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Person",
         "spellSlug": "hold-person",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Enfeeblement",
         "spellSlug": "ray-of-enfeeblement",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Counterspell",
         "spellSlug": "counterspell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hypnotic Pattern",
         "spellSlug": "hypnotic-pattern",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Otiluke’s Resilient Sphere",
         "spellSlug": "Otilukes-resilient-sphere",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Stoneskin",
         "spellSlug": "stoneskin",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7796,60 +8342,70 @@
         "name": "Alarm",
         "spellSlug": "alarm",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Chromatic Orb",
         "spellSlug": "chromatic-orb",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Augury",
         "spellSlug": "augury",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Moonbeam",
         "spellSlug": "moonbeam",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Counterspell",
         "spellSlug": "counterspell",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Nondetection",
         "spellSlug": "nondetection",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Purity",
         "spellSlug": "aura-of-purity",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hallow",
         "spellSlug": "hallow",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -7924,60 +8480,70 @@
         "name": "Expeditious Retreat",
         "spellSlug": "expeditious-retreat",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Guiding Bolt",
         "spellSlug": "guiding-bolt",
         "classLevel": 3,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Enhance Ability",
         "spellSlug": "enhance-ability",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Enthrall",
         "spellSlug": "enthrall",
         "classLevel": 5,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 9,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Compulsion",
         "spellSlug": "compulsion",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 13,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Commune",
         "spellSlug": "commune",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       },
       {
         "name": "Conjure Volley",
         "spellSlug": "conjure-volley",
         "classLevel": 17,
+        "acquisition": "prepared",
         "alwaysPrepared": true
       }
     ]
@@ -8033,7 +8599,7 @@
         "id": "2014:subclass:ranger:beast-master:share-spells",
         "index": "expanded:ranger:beast-master:share-spells",
         "name": "Share Spells",
-        "level": 3,
+        "level": 15,
         "description": "Beginning at 15th level, when you cast a spell targeting yourself, you can also affect your beast companion with the spell if the beast is within 30 feet of you.",
         "sourceUrl": "https://dnd5e.wikidot.com/ranger:beast-master"
       }
@@ -8109,30 +8675,35 @@
         "name": "Charm Person",
         "spellSlug": "charm-person",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Misty Step",
         "spellSlug": "misty-step",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dimension Door",
         "spellSlug": "dimension-door",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Mislead",
         "spellSlug": "mislead",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8206,30 +8777,35 @@
         "name": "Disguise Self",
         "spellSlug": "disguise-self",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Rope Trick",
         "spellSlug": "rope-trick",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Fear",
         "spellSlug": "fear",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Seeming",
         "spellSlug": "seeming",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8303,30 +8879,35 @@
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Misty Step",
         "spellSlug": "misty-step",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Teleportation Circle",
         "spellSlug": "teleportation-circle",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8450,30 +9031,35 @@
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Zone of Truth",
         "spellSlug": "zone-of-truth",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Circle",
         "spellSlug": "magic-circle",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8539,36 +9125,42 @@
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Mage Hand",
         "spellSlug": "mage-hand",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Web",
         "spellSlug": "web",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Gaseous Form",
         "spellSlug": "gaseous-form",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Insect Plague",
         "spellSlug": "insect-plague",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8629,7 +9221,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/ranger:drakewarden"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Thaumaturgy",
+        "spellSlug": "thaumaturgy",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:ranger:drakewarden-ua",
@@ -8687,7 +9287,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/ranger:drakewarden-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Thaumaturgy",
+        "spellSlug": "thaumaturgy",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:ranger:deep-stalker-ua",
@@ -8750,30 +9358,35 @@
         "name": "Disguise Self",
         "spellSlug": "disguise-self",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Rope Trick",
         "spellSlug": "rope-trick",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Glyph of Warding",
         "spellSlug": "glyph-of-warding",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Seeming",
         "spellSlug": "seeming",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8864,30 +9477,35 @@
         "name": "Charm Person",
         "spellSlug": "charm-person",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Misty Step",
         "spellSlug": "misty-step",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Mislead",
         "spellSlug": "mislead",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -8961,30 +9579,35 @@
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Zone of Truth",
         "spellSlug": "zone-of-truth",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Magic Circle",
         "spellSlug": "magic-circle",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Banishment",
         "spellSlug": "banishment",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Planar Binding",
         "spellSlug": "planar-binding",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -9058,30 +9681,35 @@
         "name": "Entangle",
         "spellSlug": "entangle",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Enhance Ability",
         "spellSlug": "enhance-ability",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Conjure Animals",
         "spellSlug": "conjure-animals",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Giant Insect",
         "spellSlug": "giant-insect",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Insect Plague",
         "spellSlug": "insect-plague",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -9147,30 +9775,35 @@
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Web",
         "spellSlug": "web",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Gaseous Form",
         "spellSlug": "gaseous-form",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Giant Insect",
         "spellSlug": "giant-insect",
         "classLevel": 13,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Insect Plague",
         "spellSlug": "insect-plague",
         "classLevel": 17,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -9231,7 +9864,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/rogue:arcane-trickster"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Mage Hand",
+        "spellSlug": "mage-hand",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:rogue:assassin",
@@ -10022,66 +10663,77 @@
         "name": "Arms of Hadar",
         "spellSlug": "arms-of-hadar",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dissonant Whispers",
         "spellSlug": "dissonant-whispers",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Mind Sliver",
         "spellSlug": "mind-sliver",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Calm Emotions",
         "spellSlug": "calm-emotions",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Detect Thoughts",
         "spellSlug": "detect-thoughts",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Hunger of Hadar",
         "spellSlug": "hunger-of-hadar",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Sending",
         "spellSlug": "sending",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Evard's Black Tentacles",
         "spellSlug": "evards-black-tentacles",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Summon Aberration",
         "spellSlug": "summon-aberration",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Rary's Telepathic Bond",
         "spellSlug": "rarys-telepathic-bond",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Telekinesis",
         "spellSlug": "telekinesis",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -10147,60 +10799,70 @@
         "name": "Alarm",
         "spellSlug": "alarm",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Aid",
         "spellSlug": "aid",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Lesser Restoration",
         "spellSlug": "lesser-restoration",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Summon Construct",
         "spellSlug": "summon-construct",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -10390,111 +11052,106 @@
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Ray of Sickness",
         "spellSlug": "ray-of-sickness",
         "classLevel": 1,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Color Spray",
         "spellSlug": "color-spray",
         "classLevel": 1,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Lesser Restoration",
         "spellSlug": "lesser-restoration",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Alter Self",
         "spellSlug": "alter-self",
         "classLevel": 3,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Dispel Magic",
         "spellSlug": "dispel-magic",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Vampiric Touch",
         "spellSlug": "vampiric-touch",
         "classLevel": 5,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Phantom Steed",
         "spellSlug": "phantom-steed",
         "classLevel": 5,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Confusion",
         "spellSlug": "confusion",
         "classLevel": 7,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Hallucinatory Terrain",
         "spellSlug": "hallucinatory-terrain",
         "classLevel": 7,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Rary's Telepathic Bond",
         "spellSlug": "rarys-telepathic-bond",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Hold Monster",
         "spellSlug": "hold-monster",
         "classLevel": 9,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Mislead",
         "spellSlug": "mislead",
         "classLevel": 9,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       }
     ]
   },
@@ -10563,7 +11220,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:shadow-magic"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Darkness",
+        "spellSlug": "darkness",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:sorcerer:storm-sorcery",
@@ -10808,111 +11473,106 @@
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dissonant Whispers",
         "spellSlug": "dissonant-whispers",
         "classLevel": 1,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 1,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Moonbeam",
         "spellSlug": "moonbeam",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Darkness",
         "spellSlug": "darkness",
         "classLevel": 3,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Bestow Curse",
         "spellSlug": "bestow-curse",
         "classLevel": 5,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Phantom Steed",
         "spellSlug": "phantom-steed",
         "classLevel": 5,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Evard's Black Tentacles",
         "spellSlug": "evards-black-tentacles",
         "classLevel": 7,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Hallucinatory Terrain",
         "spellSlug": "hallucinatory-terrain",
         "classLevel": 7,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Mislead",
         "spellSlug": "mislead",
         "classLevel": 9,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "New Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Dream",
         "spellSlug": "dream",
         "classLevel": 9,
-        "alwaysPrepared": true,
-        "choiceKey": "spell-table",
-        "choice": "Crescent Moon"
+        "acquisition": "known",
+        "alwaysPrepared": true
       }
     ]
   },
@@ -10985,60 +11645,70 @@
         "name": "Arms of Hadar",
         "spellSlug": "arms-of-hadar",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Dissonant Whispers",
         "spellSlug": "dissonant-whispers",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Calm Emotions",
         "spellSlug": "calm-emotions",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Detect Thoughts",
         "spellSlug": "detect-thoughts",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Hunger of Hadar",
         "spellSlug": "hunger-of-hadar",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Sending",
         "spellSlug": "sending",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Compulsion",
         "spellSlug": "compulsion",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Evard's Black Tentacles",
         "spellSlug": "evards-black-tentacles",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Modify Memory",
         "spellSlug": "modify-memory",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Rary's Telepathic Bond",
         "spellSlug": "rarys-telepathic-bond",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -11104,60 +11774,70 @@
         "name": "Alarm",
         "spellSlug": "alarm",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Protection from Evil and Good",
         "spellSlug": "protection-from-evil-and-good",
         "classLevel": 1,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Find Traps",
         "spellSlug": "find-traps",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Heat Metal",
         "spellSlug": "heat-metal",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Counterspell",
         "spellSlug": "counterspell",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Glyph of Warding",
         "spellSlug": "glyph-of-warding",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Otiluke’s Resilient Sphere",
         "spellSlug": "otilukes-resilient-sphere",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Animate Objects",
         "spellSlug": "animate-objects",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Wall of Force",
         "spellSlug": "wall-of-force",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ]
@@ -11467,51 +12147,73 @@
     ],
     "spellGrants": [
       {
+        "name": "Guidance",
+        "spellSlug": "guidance",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Guiding Bolt",
+        "spellSlug": "guiding-bolt",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Enlarge/Reduce",
         "spellSlug": "enlarge-reduce",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Spike Growth",
         "spellSlug": "spike-growth",
         "classLevel": 3,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Aura of Vitality",
         "spellSlug": "aura-of-vitality",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 5,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 7,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Circle of Power",
         "spellSlug": "circle-of-power",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       },
       {
         "name": "Passwall",
         "spellSlug": "passwall",
         "classLevel": 9,
+        "acquisition": "known",
         "alwaysPrepared": true
       }
     ],
@@ -11756,7 +12458,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:shadow-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Darkness",
+        "spellSlug": "darkness",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:sorcerer:stone-sorcery-ua",
@@ -11827,55 +12537,64 @@
         "name": "Compelled Duel",
         "spellSlug": "compelled-duel",
         "classLevel": 1,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Searing Smite",
         "spellSlug": "searing-smite",
         "classLevel": 1,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Thunderous Smite",
         "spellSlug": "thunderous-smite",
         "classLevel": 1,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Wrathful Smite",
         "spellSlug": "wrathful-smite",
         "classLevel": 1,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Branding Smite",
         "spellSlug": "branding-smite",
         "classLevel": 3,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 3,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Blinding Smite",
         "spellSlug": "blinding-smite",
         "classLevel": 5,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Elemental Weapon",
         "spellSlug": "elemental-weapon",
         "classLevel": 5,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       },
       {
         "name": "Staggering Smite",
         "spellSlug": "staggering-smite",
         "classLevel": 7,
-        "alwaysPrepared": true
+        "acquisition": "expanded",
+        "alwaysPrepared": false
       }
     ]
   },
@@ -11940,60 +12659,70 @@
         "name": "Faerie Fire",
         "spellSlug": "faerie-fire",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sleep",
         "spellSlug": "sleep",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Calm Emotions",
         "spellSlug": "calm-emotions",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blink",
         "spellSlug": "blink",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Plant Growth",
         "spellSlug": "plant-growth",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Dominate Beast",
         "spellSlug": "dominate-beast",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Seeming",
         "spellSlug": "seeming",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12064,63 +12793,87 @@
     ],
     "spellGrants": [
       {
+        "name": "Light",
+        "spellSlug": "light",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Cure Wounds",
         "spellSlug": "cure-wounds",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Guiding Bolt",
         "spellSlug": "guiding-bolt",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flaming Sphere",
         "spellSlug": "flaming-sphere",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Lesser Restoration",
         "spellSlug": "lesser-restoration",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Daylight",
         "spellSlug": "daylight",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wall of Fire",
         "spellSlug": "wall-of-fire",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12202,60 +12955,70 @@
         "name": "Create or Destroy Water",
         "spellSlug": "create-or-destroy-water",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Gust of Wind",
         "spellSlug": "gust-of-wind",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Silence",
         "spellSlug": "silence",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Lightning Bolt",
         "spellSlug": "lightning-bolt",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sleet Storm",
         "spellSlug": "sleet-storm",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Summon Elemental",
         "spellSlug": "summon-elemental",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Bigby's Hand",
         "spellSlug": "bigbys-hand",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12321,60 +13084,70 @@
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Command",
         "spellSlug": "command",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Stinking Cloud",
         "spellSlug": "stinking-cloud",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wall of Fire",
         "spellSlug": "wall-of-fire",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Hallow",
         "spellSlug": "hallow",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12440,196 +13213,222 @@
         "name": "Detect Evil and Good",
         "spellSlug": "detect-evil-and-good",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Fog Cloud",
         "spellSlug": "fog-cloud",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Spike Growth",
         "spellSlug": "spike-growth",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Gust of Wind",
         "spellSlug": "gust-of-wind",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Blur",
         "spellSlug": "blur",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Create Food and Water",
         "spellSlug": "create-food-and-water",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Meld into Stone",
         "spellSlug": "meld-into-stone",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Wind Wall",
         "spellSlug": "wind-wall",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Sleet Storm",
         "spellSlug": "sleet-storm",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Phantasmal Killer",
         "spellSlug": "phantasmal-killer",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Stone Shape",
         "spellSlug": "stone-shape",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Creation",
         "spellSlug": "creation",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wall of Stone",
         "spellSlug": "wall-of-stone",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Seeming",
         "spellSlug": "seeming",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Wish",
         "spellSlug": "wish",
         "classLevel": 17,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12695,60 +13494,70 @@
         "name": "Dissonant Whispers",
         "spellSlug": "dissonant-whispers",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Tasha's Hideous Laughter",
         "spellSlug": "tashas-hideous-laughter",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Detect Thoughts",
         "spellSlug": "detect-thoughts",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Clairvoyance",
         "spellSlug": "clairvoyance",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sending",
         "spellSlug": "sending",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Dominate Beast",
         "spellSlug": "dominate-beast",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Evard's Black Tentacles",
         "spellSlug": "evards-black-tentacles",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Dominate Person",
         "spellSlug": "dominate-person",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Telekinesis",
         "spellSlug": "telekinesis",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12822,60 +13631,70 @@
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wrathful Smite",
         "spellSlug": "wrathful-smite",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blur",
         "spellSlug": "blur",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Branding Smite",
         "spellSlug": "branding-smite",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blink",
         "spellSlug": "blink",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Elemental Weapon",
         "spellSlug": "elemental-weapon",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Killer",
         "spellSlug": "phantasmal-killer",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Staggering Smite",
         "spellSlug": "staggering-smite",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Banishing Smite",
         "spellSlug": "banishing-smite",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -12941,60 +13760,70 @@
         "name": "Bane",
         "spellSlug": "bane",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "False Life",
         "spellSlug": "false-life",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantom Steed",
         "spellSlug": "phantom-steed",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cloudkill",
         "spellSlug": "cloudkill",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -13057,63 +13886,80 @@
     ],
     "spellGrants": [
       {
+        "name": "Spare the Dying",
+        "spellSlug": "spare-the-dying",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "False Life",
         "spellSlug": "false-life",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Ray of Sickness",
         "spellSlug": "ray-of-sickness",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Silence",
         "spellSlug": "silence",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Feign Death",
         "spellSlug": "feign-death",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Aura of Life",
         "spellSlug": "aura-of-life",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Contagion",
         "spellSlug": "contagion",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -13179,52 +14025,74 @@
     ],
     "spellGrants": [
       {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Comprehend Languages",
+        "spellSlug": "comprehend-languages",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Knock",
         "spellSlug": "knock",
         "classLevel": 3,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Locate Object",
         "spellSlug": "locate-object",
         "classLevel": 3,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Spirit Guardians",
         "spellSlug": "spirit-guardians",
         "classLevel": 5,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Stone Shape",
         "spellSlug": "stone-shape",
         "classLevel": 7,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 9,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       }
     ],
     "flexibleFeatureSelection": true
@@ -13352,52 +14220,81 @@
     ],
     "spellGrants": [
       {
+        "name": "Spare the Dying",
+        "spellSlug": "spare-the-dying",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Cure Wounds",
+        "spellSlug": "cure-wounds",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Inflict Wounds",
+        "spellSlug": "inflict-wounds",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Lesser Restoration",
         "spellSlug": "Lesser-restoration",
         "classLevel": 3,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Ray of Enfeeblement",
         "spellSlug": "ray-of-enfeeblement",
         "classLevel": 3,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Vampiric Touch",
         "spellSlug": "vampiric-touch",
         "classLevel": 5,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Blight",
         "spellSlug": "blight",
         "classLevel": 7,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 7,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       },
       {
         "name": "Mass Cure Wounds",
         "spellSlug": "mass-cure-wounds",
         "classLevel": 9,
-        "alwaysPrepared": false
+        "acquisition": "known",
+        "alwaysPrepared": true
       }
     ],
     "flexibleFeatureSelection": true
@@ -13468,63 +14365,87 @@
     ],
     "spellGrants": [
       {
+        "name": "Light",
+        "spellSlug": "light",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cure Wounds",
         "spellSlug": "cure-wounds",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flaming Sphere",
         "spellSlug": "flaming-sphere",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Lesser Restoration",
         "spellSlug": "lesser-restoration",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Daylight",
         "spellSlug": "daylight",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Revivify",
         "spellSlug": "revivify",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Guardian of Faith",
         "spellSlug": "guardian-of-faith",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wall of Fire",
         "spellSlug": "wall-of-fire",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Greater Restoration",
         "spellSlug": "greater-restoration",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -13590,196 +14511,222 @@
         "name": "Detect Evil and Good",
         "spellSlug": "detect-evil-and-good",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Fog Cloud",
         "spellSlug": "fog-cloud",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Spike Growth",
         "spellSlug": "spike-growth",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Gust of Wind",
         "spellSlug": "gust-of-wind",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Scorching Ray",
         "spellSlug": "scorching-ray",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Blur",
         "spellSlug": "blur",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Create Food and Water",
         "spellSlug": "create-food-and-water",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Meld into Stone",
         "spellSlug": "meld-into-stone",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Wind Wall",
         "spellSlug": "wind-wall",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Fireball",
         "spellSlug": "fireball",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Sleet Storm",
         "spellSlug": "sleet-storm",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Phantasmal Killer",
         "spellSlug": "phantasmal-killer",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Stone Shape",
         "spellSlug": "stone-shape",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Creation",
         "spellSlug": "creation",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wall of Stone",
         "spellSlug": "wall-of-stone",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Dao"
       },
       {
         "name": "Seeming",
         "spellSlug": "seeming",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Djinni"
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Efreeti"
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false,
-        "choiceKey": "spell-table",
+        "choiceKey": "genie-kind",
         "choice": "Marid"
       },
       {
         "name": "Wish",
         "spellSlug": "wish",
         "classLevel": 17,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -13842,63 +14789,80 @@
     ],
     "spellGrants": [
       {
+        "name": "On/Off",
+        "spellSlug": "on-off",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Infallible Relay",
         "spellSlug": "infallible-relay",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Remote Access",
         "spellSlug": "remote-access",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Arcane Hacking",
         "spellSlug": "arcane-hacking",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Digital Phantom",
         "spellSlug": "digital-phantom",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Haywire",
         "spellSlug": "haywire",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Invisibility to Cameras",
         "spellSlug": "invisibility-to-cameras",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Conjure Knowbot",
         "spellSlug": "conjure-knowbot",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "System Backdoor",
         "spellSlug": "system-backdoor",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Shutdown",
         "spellSlug": "shutdown",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Synchronicity",
         "spellSlug": "synchronicity",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -13972,60 +14936,70 @@
         "name": "Shield",
         "spellSlug": "shield",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Wrathful Smite",
         "spellSlug": "wrathful-smite",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Branding Smite",
         "spellSlug": "branding-smite",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Magic Weapon",
         "spellSlug": "magic-weapon",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blink",
         "spellSlug": "blink",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Elemental Weapon",
         "spellSlug": "elemental-weapon",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Killer",
         "spellSlug": "phantasmal-killer",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Staggering Smite",
         "spellSlug": "staggering-smite",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -14107,60 +15081,70 @@
         "name": "Create or Destroy Water",
         "spellSlug": "create-or-destroy-water",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Thunderwave",
         "spellSlug": "thunderwave",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Gust of Wind",
         "spellSlug": "gust-of-wind",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Shatter",
         "spellSlug": "shatter",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Lightning Bolt",
         "spellSlug": "lightning-bolt",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sleet Storm",
         "spellSlug": "sleet-storm",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Evard's Black Tentacles",
         "spellSlug": "evards-black-tentacles",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Commune with Nature",
         "spellSlug": "commune-with-nature",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -14234,60 +15218,70 @@
         "name": "Fog Cloud",
         "spellSlug": "fog-cloud",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sleep",
         "spellSlug": "sleep",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Enlarge/Reduce",
         "spellSlug": "enlarge-reduce",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Create Food and Water",
         "spellSlug": "create-food-and-water",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Protection from Energy",
         "spellSlug": "protection-from-energy",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Polymorph",
         "spellSlug": "polymorph",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Killer",
         "spellSlug": "phantasmal-killer",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Bigby's Hand",
         "spellSlug": "bigbys-hand",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Creation",
         "spellSlug": "creation",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -14353,60 +15347,70 @@
         "name": "False Life",
         "spellSlug": "false-life",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sanctuary",
         "spellSlug": "sanctuary",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Silence",
         "spellSlug": "silence",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Spiritual Weapon",
         "spellSlug": "spiritual-weapon",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Feign Death",
         "spellSlug": "feign-death",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Ice Storm",
         "spellSlug": "ice-storm",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Locate Creature",
         "spellSlug": "locate-creature",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Commune",
         "spellSlug": "commune",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cone of Cold",
         "spellSlug": "cone-of-cold",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -14480,60 +15484,70 @@
         "name": "Feather Fall",
         "spellSlug": "feather-fall",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Jump",
         "spellSlug": "jump",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Levitate",
         "spellSlug": "levitate",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Locate Object",
         "spellSlug": "locate-object",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Clairvoyance",
         "spellSlug": "clairvoyance",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Sending",
         "spellSlug": "sending",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Locate Creature",
         "spellSlug": "locate-creature",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Passwall",
         "spellSlug": "passwall",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -14599,60 +15613,70 @@
         "name": "Bane",
         "spellSlug": "bane",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "False Life",
         "spellSlug": "false-life",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Blindness/Deafness",
         "spellSlug": "blindness-deafness",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantasmal Force",
         "spellSlug": "phantasmal-force",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Phantom Steed",
         "spellSlug": "phantom-steed",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Death Ward",
         "spellSlug": "death-ward",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Greater Invisibility",
         "spellSlug": "greater-invisibility",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Antilife Shell",
         "spellSlug": "antilife-shell",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Cloudkill",
         "spellSlug": "cloudkill",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -14715,33 +15739,52 @@
     ],
     "spellGrants": [
       {
+        "name": "Light",
+        "spellSlug": "light",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 1,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
         "name": "Burning Hands",
         "spellSlug": "burning-hands",
         "classLevel": 1,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flaming Sphere",
         "spellSlug": "flaming-sphere",
         "classLevel": 3,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Daylight",
         "spellSlug": "daylight",
         "classLevel": 5,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Fire Shield",
         "spellSlug": "fire-shield",
         "classLevel": 7,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       },
       {
         "name": "Flame Strike",
         "spellSlug": "flame-strike",
         "classLevel": 9,
+        "acquisition": "expanded",
         "alwaysPrepared": false
       }
     ]
@@ -15258,7 +16301,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:illusion"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Minor Illusion",
+        "spellSlug": "minor-illusion",
+        "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:wizard:necromancy",
@@ -15316,7 +16367,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:necromancy"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Animate Dead",
+        "spellSlug": "animate-dead",
+        "classLevel": 6,
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
+      }
+    ]
   },
   {
     "id": "2014:subclass:wizard:order-of-scribes",
@@ -15548,7 +16607,16 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:runecrafter-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Comprehend Languages",
+        "spellSlug": "comprehend-languages",
+        "classLevel": 2,
+        "acquisition": "prepared",
+        "alwaysPrepared": true,
+        "freeCasting": "at-will"
+      }
+    ]
   },
   {
     "id": "2014:subclass:wizard:artificer-ua",
@@ -15672,278 +16740,7 @@
         "sourceUrl": "https://dnd5e.wikidot.com/wizard:invention-ua"
       }
     ],
-    "spellGrants": [
-      {
-        "name": "Burning Hands",
-        "spellSlug": "burning-hands",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Chromatic Orb",
-        "spellSlug": "chromatic-orb",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Color Spray",
-        "spellSlug": "color-spray",
-        "classLevel": 3,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Faerie Fire",
-        "spellSlug": "faerie-fire",
-        "classLevel": 4,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "False Life",
-        "spellSlug": "false-life",
-        "classLevel": 5,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Fog Cloud",
-        "spellSlug": "fog-cloud",
-        "classLevel": 6,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Jump",
-        "spellSlug": "jump",
-        "classLevel": 7,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Magic Missile",
-        "spellSlug": "magic-missile",
-        "classLevel": 8,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Thunderwave",
-        "spellSlug": "thunderwave",
-        "classLevel": 9,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Blur",
-        "spellSlug": "blur",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Darkness",
-        "spellSlug": "darkness",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Enlarge/Reduce",
-        "spellSlug": "enlarge-reduce",
-        "classLevel": 3,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Gust of Wind",
-        "spellSlug": "gust-of-wind",
-        "classLevel": 4,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Invisibility",
-        "spellSlug": "invisibility",
-        "classLevel": 5,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Levitate",
-        "spellSlug": "levitate",
-        "classLevel": 6,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Melf's Acid Arrow",
-        "spellSlug": "melfs-acid-arrow",
-        "classLevel": 7,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Scorching Ray",
-        "spellSlug": "scorching-ray",
-        "classLevel": 8,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Shatter",
-        "spellSlug": "shatter",
-        "classLevel": 9,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Blink",
-        "spellSlug": "blink",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Fear",
-        "spellSlug": "fear",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Feign Death",
-        "spellSlug": "feign-death",
-        "classLevel": 3,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Fireball",
-        "spellSlug": "fireball",
-        "classLevel": 4,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Fly",
-        "spellSlug": "fly",
-        "classLevel": 5,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Gaseous Form",
-        "spellSlug": "gaseous-form",
-        "classLevel": 6,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Lightning Bolt",
-        "spellSlug": "lightning-bolt",
-        "classLevel": 7,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Sleet Storm",
-        "spellSlug": "sleet-storm",
-        "classLevel": 8,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Stinking Cloud",
-        "spellSlug": "stinking-cloud",
-        "classLevel": 9,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Blight",
-        "spellSlug": "blight",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Confusion",
-        "spellSlug": "confusion",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Evard's Black Tentacles",
-        "spellSlug": "evards-black-tentacles",
-        "classLevel": 3,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Fire Shield",
-        "spellSlug": "fire-shield",
-        "classLevel": 4,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Greater Invisibility",
-        "spellSlug": "greater-invisibility",
-        "classLevel": 5,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Ice Storm",
-        "spellSlug": "ice-storm",
-        "classLevel": 6,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Phantasmal Killer",
-        "spellSlug": "phantasmal-killer",
-        "classLevel": 7,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Stoneskin",
-        "spellSlug": "stoneskin",
-        "classLevel": 8,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Wall of Fire",
-        "spellSlug": "wall-of-fire",
-        "classLevel": 9,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Cloudkill",
-        "spellSlug": "cloudkill",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Cone of Cold",
-        "spellSlug": "cone-of-cold",
-        "classLevel": 2,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Destructive Wave",
-        "spellSlug": "destructive-wave",
-        "classLevel": 3,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Flame Strike",
-        "spellSlug": "flame-strike",
-        "classLevel": 4,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Hold Monster",
-        "spellSlug": "hold-monster",
-        "classLevel": 5,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Insect Plague",
-        "spellSlug": "insect-plague",
-        "classLevel": 6,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Mass Cure Wounds",
-        "spellSlug": "mass-cure-wounds",
-        "classLevel": 7,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Wall of Force",
-        "spellSlug": "wall-of-force",
-        "classLevel": 8,
-        "alwaysPrepared": true
-      },
-      {
-        "name": "Wall of Stone",
-        "spellSlug": "wall-of-stone",
-        "classLevel": 9,
-        "alwaysPrepared": true
-      }
-    ]
+    "spellGrants": []
   },
   {
     "id": "2014:subclass:wizard:lore-mastery-ua",
@@ -16072,52 +16869,74 @@
     ],
     "spellGrants": [
       {
+        "name": "Sacred Flame",
+        "spellSlug": "sacred-flame",
+        "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Comprehend Languages",
+        "spellSlug": "comprehend-languages",
+        "classLevel": 2,
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
+      },
+      {
         "name": "Knock",
         "spellSlug": "knock",
         "classLevel": 3,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Locate Object",
         "spellSlug": "locate-object",
         "classLevel": 3,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Speak with Dead",
         "spellSlug": "speak-with-dead",
         "classLevel": 5,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Spirit Guardians",
         "spellSlug": "spirit-guardians",
         "classLevel": 5,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Arcane Eye",
         "spellSlug": "arcane-eye",
         "classLevel": 7,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Stone Shape",
         "spellSlug": "stone-shape",
         "classLevel": 7,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Destructive Wave",
         "spellSlug": "destructive-wave",
         "classLevel": 9,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Legend Lore",
         "spellSlug": "legend-lore",
         "classLevel": 9,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       }
     ],
     "flexibleFeatureSelection": true
@@ -16245,52 +17064,74 @@
     ],
     "spellGrants": [
       {
+        "name": "Guidance",
+        "spellSlug": "guidance",
+        "classLevel": 2,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      },
+      {
+        "name": "Guiding Bolt",
+        "spellSlug": "guiding-bolt",
+        "classLevel": 2,
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
+      },
+      {
         "name": "Enlarge/Reduce",
         "spellSlug": "enlarge-reduce",
         "classLevel": 3,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Spike Growth",
         "spellSlug": "spike-growth",
         "classLevel": 3,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Aura of Vitality",
         "spellSlug": "aura-of-vitality",
         "classLevel": 5,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Haste",
         "spellSlug": "haste",
         "classLevel": 5,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Control Water",
         "spellSlug": "control-water",
         "classLevel": 7,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Freedom of Movement",
         "spellSlug": "freedom-of-movement",
         "classLevel": 7,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Circle of Power",
         "spellSlug": "circle-of-power",
         "classLevel": 9,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       },
       {
         "name": "Passwall",
         "spellSlug": "passwall",
         "classLevel": 9,
-        "alwaysPrepared": true
+        "acquisition": "spellbook",
+        "alwaysPrepared": false
       }
     ],
     "flexibleFeatureSelection": true
@@ -17841,7 +18682,15 @@
         "sourceUrl": "https://dnd5e.wikidot.com/fighter:psychic-warrior-ua"
       }
     ],
-    "spellGrants": []
+    "spellGrants": [
+      {
+        "name": "Mage Hand",
+        "spellSlug": "mage-hand",
+        "classLevel": 3,
+        "acquisition": "known",
+        "alwaysPrepared": true
+      }
+    ]
   },
   {
     "id": "2014:subclass:fighter:rune-knight-ua",
