@@ -99,6 +99,9 @@ try {
   await page.getByLabel('Search monsters').fill('goblin');
   await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
   await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
+  // The continuous dice tray can still contain rolls from earlier checks.
+  // This assertion measures only the two new initiative dice.
+  await page.locator('.dice-stage').waitFor({state:'hidden'});
   await page.getByRole('button',{name:'Roll initiative',exact:true}).click();
   await page.locator('.dice-canvas[data-ready="true"]').waitFor();const initiativeDice=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(initiativeDice.length,2);const initiativeTotals=await page.getByLabel('Initiative',{exact:true}).evaluateAll(inputs=>inputs.map(input=>Number(input.value)));assert.deepEqual(initiativeTotals.sort((a,b)=>a-b),initiativeDice.map(n=>n+2).sort((a,b)=>a-b));
   await page.getByRole('button',{name:'Start combat'}).click();

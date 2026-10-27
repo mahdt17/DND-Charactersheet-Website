@@ -144,6 +144,9 @@ jobs:
       - name: Run Archivist campaign browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:archivist
+      - name: Run Lupin conversion browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser:lupin
       - name: Run Leonin creation and racial ability browser tests
         if: steps.scope.outputs.mode == 'full'
         run: npm run test:browser:leonin
