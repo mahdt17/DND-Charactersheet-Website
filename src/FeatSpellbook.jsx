@@ -1,5 +1,6 @@
 import {campaignActionBlockReason} from './lib/campaignActivity';
 import {entomancerActionBlockReason} from './lib/entomancer';
+import {totemCastingBlockReason} from './lib/totemWarrior';
 import React,{useState} from 'react';
 import {featMagicState,featMagicSpells,featMagicKey,resolveFeatSpell} from './lib/featMagic';
 import {featCastOptions,spendFeatCast} from './lib/featCasting';
@@ -14,7 +15,7 @@ export default function FeatSpellbook({char,patch,show,roll,featId}){
  const [cast,setCast]=useState(null),[choice,setChoice]=useState(''),[error,setError]=useState(''),[notice,setNotice]=useState('');
  const feats=(char.feats||[]).filter(f=>featMagicState(f,char).supported&&(!featId||featMagicKey(f)===featId)),spells=featMagicSpells(char).filter(s=>feats.some(f=>featMagicKey(f)===s.featGrantId));
  if(!feats.length)return null;
- const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char);
+ const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char)||totemCastingBlockReason(char);
  const options=cast?featCastOptions(char,cast):[],option=options.find(o=>`${o.pool}:${o.level}`===choice)||options[0];
  const mod=cast?modifier(effectiveAbilities(char)[cast.featAbility]):0,pb=2+Math.floor((char.level-1)/4),plan=cast?spellPlan(cast,char,option?.level||cast.level,mod):null;
  function open(s){setCast(s);const first=featCastOptions(char,s)[0];setChoice(first?`${first.pool}:${first.level}`:'');setError('');}
@@ -26,6 +27,7 @@ export default function FeatSpellbook({char,patch,show,roll,featId}){
   patch({...values,...(cast.concentration?{concentration:cast.name}:{})});setNotice(`${cast.name} cast${option.pool==='feat'?' using its feat use':option.pool==='ritual'?' as a ritual (+10 minutes)':option.pool==='cantrip'?'':` using a level ${option.level} ${option.pool==='pact'?'Pact Magic ':''}slot`}.`);setCast(null);
  }catch(e){setError(e.message);}}
  return <section aria-label="Feat spells"><h2>Feat spells</h2><p>Feat uses recover on a Long Rest. Class spell slots remain separate.</p>
+ {blocked&&<p className="l-notice">{blocked}</p>}
  {feats.map(f=><details className="feature-detail" key={featMagicKey(f)} open={!featMagicState(f,char).valid}><summary>{f.name} · spell choices</summary><FeatMagicManager feat={f} char={char} onChange={next=>patch({feats:char.feats.map(x=>x===f?next:x)})}/></details>)}
  {featMagicActions({...char,feats},effectiveAbilities(char)).map(a=><details className="feature-detail" key={a.name}><summary>{a.name}</summary><p>{a.description}</p></details>)}{notice&&<p role="status">{notice}</p>}<div className="spell-table">{spells.map(s=>{const ability=modifier(effectiveAbilities(char)[s.featAbility]);return <div className="spell-item" key={`${s.featGrantId}:${s.catalogId}`}><button className="spell-name" onClick={()=>show(s)}><strong>{s.name}</strong><small>{s.featSource} · {s.featAbility.toUpperCase()} · DC {8+pb+ability} · Attack {signed(pb+ability)}{s.featRitualOnly?' · Ritual book':s.level>0?` · Feat use ${char.featSpellUses?.[s.featUseKey]?0:1}/1`:' · Cantrip'}</small></button><button className="l-button" disabled={!!blocked||!featCastOptions(char,s).length} onClick={()=>open(s)}>Cast feat spell</button></div>;})}</div>
  {cast&&<Dialog title={`Cast ${cast.name} from ${cast.featSource}`} onClose={()=>setCast(null)}><label className="l-field"><span>Casting resource</span><select aria-label="Casting resource" value={option?`${option.pool}:${option.level}`:''} onChange={e=>setChoice(e.target.value)}>{options.map(o=><option key={`${o.pool}:${o.level}`} value={`${o.pool}:${o.level}`}>{o.pool==='ritual'?'Ritual · 10 extra minutes, no slot':o.pool==='cantrip'?'Cantrip · no resource':o.pool==='feat'?(cast.featRitual?'Quick Ritual · shared feat use':'Feat use · 1 available'):`${o.pool==='pact'?'Pact Magic':'Spell slot'} level ${o.level} · ${o.remaining} available`}</option>)}</select></label><p>{plan?.notes?.replace(', or enter a roll below','')}</p>{cast.featNotes&&<p>{cast.featNotes}</p>}{featSpellNotes(char,cast).map(n=><p key={n}>{n}</p>)}{error&&<p role="alert">{error}</p>}<button className="l-button primary" disabled={!!blocked||!option} onClick={perform}>Cast using selected resource</button><button className="l-button" onClick={()=>setCast(null)}>Cancel casting</button></Dialog>}

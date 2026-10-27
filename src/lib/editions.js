@@ -1,3 +1,5 @@
+import {totemFeatureRows} from './totemWarrior.js';
+import {fighterFeatureRows} from './fighterSubclasses.js';
 import {campaignKind,campaignProfile,campaignFeatureRows} from './archivistCampaign.js';
 import {characterClasses,classCharacter,baseProgression,progressionRow} from './advancement';
 import {entomancerProfile,entomancerFeatureRows} from './entomancer.js';
@@ -126,6 +128,8 @@ function legacyClassFeatures(record,level){
  return [...grouped.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
 }
 export function classFeatures(c){if(characterClasses(c).length===1&&campaignKind(c.classDefinition))return campaignFeatureRows(c);if(characterClasses(c).length>1)return characterClasses(c).flatMap(row=>{const model=classCharacter(c,row);return (classFeatures(model)||grantedClassFeatures(model)).map(f=>({...f,index:row.catalogId+':'+f.index,className:row.name,featureName:f.featureName||f.name,name:row.name+' · '+f.name}));});if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){const record=classRecord(c);const features=legacyClassFeatures(record,c.level);if(features.length)return features;return [{index:'class-reference',name:c.className+' progression',featureName:c.className+' progression',level:c.level,desc:[classRecord(c)?.description||'No structured class features are available for this source entry yet.'],sourceUrl:record?.sourceUrl||record?.url||''}];}
+ const totem=totemFeatureRows(c);if(totem.length)return [...grantedClassFeatures(c),...totem];
+ const martial=fighterFeatureRows(c);if(martial.length)return [...grantedClassFeatures(c),...martial];
  if(entomancerProfile(c).level)return entomancerFeatureRows(c);
  if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,featureName:f.name,level:Number(f.level?.name?.match(/\d+$/)?.[0]||0),desc:[f.description]}));
  return null;}

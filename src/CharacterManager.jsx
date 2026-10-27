@@ -1,3 +1,5 @@
+import {totemFeatureRows} from './lib/totemWarrior';
+import {fighterFeatureRows} from './lib/fighterSubclasses';
 import {shadowScholarBackground} from './data/shadowScholar';
 import ClassSpellLimits from './ClassSpellLimits';
 import {effectiveAbilityScores as effectiveAbilities} from './lib/abilityScores';
@@ -915,7 +917,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   const targetLevel = Math.min(20, char.level + 1);
   const classData = CLASS_DATA[char.className];
   const [subclass, setSubclass] = useState(char.subclass || "");
-  const newFeatures = (classLevel(char.className,targetLevel).features||[]).map(f=>f.name);
+  const newFeatures = [...(classLevel(char.className,targetLevel).features||[]),...fighterFeatureRows({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel),...totemFeatureRows({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel)].map(f=>f.name);
   const hasASI = (classLevel(char.className,targetLevel).ability_score_bonuses||0) > (classLevel(char.className,char.level).ability_score_bonuses||0);
   const subclassFeature = SUBCLASS_FEATURES[char.className];
   const needsSubclass = targetLevel >= ({Cleric:1,Sorcerer:1,Warlock:1,Wizard:2,Druid:2}[char.className]||3) && !char.subclass;

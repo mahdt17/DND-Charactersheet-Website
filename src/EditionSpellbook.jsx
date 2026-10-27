@@ -4,6 +4,7 @@ import FeatMetamagic from './FeatMetamagic';
 import {hasConversionFeat} from './lib/archivistCampaign';
 import {campaignKind} from './lib/archivistCampaign';
 import {entomancerProfile,entomancerActionBlockReason} from './lib/entomancer';
+import {totemCastingBlockReason} from './lib/totemWarrior';
 import {prepareEntomancerSpells} from './lib/entomancerPreparation';
 import {refreshEntomancerSpell} from './lib/entomancerSpellDetails';
 import {manualSpellChoices} from './lib/spellcastingPolicy';
@@ -42,7 +43,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
   const [classId,setClassId]=useState('');
   const active=rows.find(r=>r.catalogId===(castingClassId||classId))||rows[0],classModel=multiple?classCharacter(char,active):char;
   const swarm=entomancerProfile(classModel),special=specialCastingProfile(classModel),reserve=powerPointReserve(char);
-  const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char);
+  const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char)||totemCastingBlockReason(char);
   const accessModel=char.ruleset==='custom'?{...classModel,ruleset:'custom',mechanics:active.edition}:classModel;
   const accessFor=s=>s.auto||s.dailySpellLikeGrant?{allowed:true,level:s.level}:spellAccess(accessModel,resolveSpell(s,classModel));
   const classSpells=(multiple?spellsForClass(char,active.catalogId):(char.spells||[])).map(s=>{const resolved=resolveSpell(s,classModel);return refreshEntomancerSpell({...resolved,...s,level:typeof s.level==='number'?s.level:resolved.level,catalogId:resolved.catalogId||s.catalogId});});
@@ -101,7 +102,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
   const needsSlot=cast&&!cast.dailySpellLikeGrant&&!special&&!cast.isManeuver&&(is35(classModel)||cast.level!==0)&&!cast.auto;
   const dailySpellLikeDc=cast?.dailySpellLikeGrant?10+Number(cast.dailySpellLikeEffectiveLevel??cast.level??0)+modifier(effectiveAbilities(char).int||10):null;
   function castSpell(ritual=false,quick=false){
-    const reason=entomancerActionBlockReason(char)||campaignActionBlockReason(char);if(reason){setCastError(reason);return;}
+    const reason=entomancerActionBlockReason(char)||campaignActionBlockReason(char)||totemCastingBlockReason(char);if(reason){setCastError(reason);return;}
     if(ritual&&!canClassRitual(classModel,cast)){setCastError('This class cannot cast this spell as a ritual.');return;}
     if(quick&&!quickRitualOption(char,cast)){setCastError('Quick Ritual is unavailable.');return;}
     const access=accessFor(cast);
