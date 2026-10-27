@@ -29,6 +29,8 @@ try{
  await page.getByRole('button',{name:'Start next turn',exact:true}).click();assert.equal(await page.getByTestId('armor').innerText(),'AC 16');
 
  await page.getByRole('button',{name:'End Mage Armor',exact:true}).click();assert.equal(await page.getByTestId('armor').innerText(),'AC 13');
+ assert.equal(await page.getByLabel('Search spellbook',{exact:true}).count(),1,'Shared spellbook retains owned-spell searching');await page.getByLabel('Search spellbook',{exact:true}).fill('Shield');assert.equal(await page.locator('.spell-item').count(),1);await page.getByLabel('Search spellbook',{exact:true}).fill('');
+ await page.getByLabel('Spellbook filter',{exact:true}).selectOption('cantrips');assert.equal(await page.locator('.spell-item').count(),0);await page.getByLabel('Spellbook filter',{exact:true}).selectOption('all');assert.equal(await page.locator('.spell-item').count(),2);
 
  await page.evaluate(async()=>{const {allSpells}=await import('/src/lib/editions.js');window.resetEffects({className:'Cleric',classDefinition:{index:'cleric',name:'Cleric',edition:'2014'},spells:[{...allSpells.find(s=>s.edition==='2014'&&s.name==='Healing Word'),id:'heal',prepared:true}]});window.effectRolls=[];});
 
