@@ -1,6 +1,6 @@
 import {totemFeatureRows} from './lib/totemWarrior';
 import {fighterFeatureRows} from './lib/fighterSubclasses';
-import {shadowScholarBackground} from './data/shadowScholar';
+import {backgrounds2014 as BACKGROUND_DATA} from './data/backgrounds2014';
 import ClassSpellLimits from './ClassSpellLimits';
 import {effectiveAbilityScores as effectiveAbilities} from './lib/abilityScores';
 import LevelUpFeatChoice from './LevelUpFeatChoice';
@@ -267,22 +267,7 @@ const CLASS_DATA = {
   },
 };
 
-const BACKGROUND_DATA = {
-  'Shadow Scholar': shadowScholarBackground,
-  Acolyte: { blurb: "You've spent your life in service to a temple.", skills: "Insight, Religion", proficiencies: "Two languages of your choice", equipment: "Holy symbol, prayer book, vestments, common clothes, 15 gp", feature: ["Shelter of the Faithful", "Temples of your faith offer you aid, and you have a priestly contact nearby."] },
-  Charlatan: { blurb: "You've always had a gift for telling people what they want to hear.", skills: "Deception, Sleight of Hand", proficiencies: "Disguise kit, forgery kit", equipment: "Fine clothes, disguise kit, forgery tools, 15 gp", feature: ["False Identity", "You have a second identity, complete with documents and contacts, that others can't easily trace to you."] },
-  Criminal: { blurb: "You have a history of breaking the law and survived by it.", skills: "Deception, Stealth", proficiencies: "One gaming set, thieves' tools", equipment: "Crowbar, dark common clothes with a hood, 15 gp", feature: ["Criminal Contact", "You have a reliable contact in the criminal underworld who relays messages and can point you to fences."] },
-  Entertainer: { blurb: "You thrive in front of a crowd, on stage or in the street.", skills: "Acrobatics, Performance", proficiencies: "Disguise kit, one musical instrument", equipment: "A musical instrument, costume, 15 gp", feature: ["By Popular Demand", "You can find a place to perform almost anywhere, earning free lodging and a modest income."] },
-  "Folk Hero": { blurb: "You come from humble roots but are marked for greatness.", skills: "Animal Handling, Survival", proficiencies: "One artisan's tools, land vehicles", equipment: "Artisan's tools, shovel, iron pot, common clothes, 10 gp", feature: ["Rustic Hospitality", "Common folk will shelter and hide you, unless you've put them in danger."] },
-  "Guild Artisan": { blurb: "You're a member of an artisan's guild, skilled in a particular trade.", skills: "Insight, Persuasion", proficiencies: "One artisan's tools, one language", equipment: "Artisan's tools, letter of introduction, traveler's clothes, 15 gp", feature: ["Guild Membership", "Your guild provides lodging and political connections in exchange for dues and service."] },
-  Hermit: { blurb: "You lived in seclusion, whether for religious, spiritual, or exile reasons.", skills: "Medicine, Religion", proficiencies: "Herbalism kit, one language", equipment: "Herbalism kit, scroll case of notes, winter blanket, common clothes, 5 gp", feature: ["Discovery", "Your seclusion led to a unique discovery that could prove important."] },
-  Noble: { blurb: "You were raised in a family of privilege and expected to lead.", skills: "History, Persuasion", proficiencies: "One gaming set, one language", equipment: "Fine clothes, signet ring, pedigree scroll, 25 gp", feature: ["Position of Privilege", "People assume you have the right to be wherever you are, and merchants extend you credit."] },
-  Outlander: { blurb: "You grew up in the wilds, far from settled lands.", skills: "Athletics, Survival", proficiencies: "One musical instrument", equipment: "Staff, hunting trap, traveler's clothes, 10 gp", feature: ["Wanderer", "You have an excellent memory for maps and geography, and can always find food and fresh water."] },
-  Sage: { blurb: "You spent years learning the lore of the world in libraries and monasteries.", skills: "Arcana, History", proficiencies: "Two languages", equipment: "Ink, quill, small knife, common clothes, 10 gp", feature: ["Researcher", "You know where to find information, even if you don't have it, often through a library or sage contact."] },
-  Sailor: { blurb: "You've sailed on a seagoing vessel for years.", skills: "Athletics, Perception", proficiencies: "Navigator's tools, water vehicles", equipment: "Rope, lucky charm, common clothes, 10 gp", feature: ["Ship's Passage", "You can secure free passage on a ship for yourself and companions in exchange for work."] },
-  Soldier: { blurb: "You served in an army, militia, or mercenary company.", skills: "Athletics, Intimidation", proficiencies: "One gaming set, land vehicles", equipment: "Insignia of rank, weapon trophy, common clothes, 10 gp", feature: ["Military Rank", "Soldiers loyal to your former organization recognize your authority and influence."] },
-  Urchin: { blurb: "You grew up on the streets, alone and forgotten by the wealthy.", skills: "Sleight of Hand, Stealth", proficiencies: "Disguise kit, thieves' tools", equipment: "Small knife, city map, pet mouse, common clothes, 10 gp", feature: ["City Secrets", "You know the secret patterns and flow of cities and can find passages others miss."] },
-};
+
 
 const SKILLS = [
   ["Acrobatics", "dex"], ["Animal Handling", "wis"], ["Arcana", "int"],

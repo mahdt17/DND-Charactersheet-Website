@@ -21,3 +21,6 @@ Final review: fresh-context reviewer inspected the whole working change, includi
 
 Final verification after fixes: npm test passed; npm run build passed (existing bundle-size advisory); all three test:browser:martial-subclasses journeys passed, including new feat-casting controls while raging. Individual-ability browser tests confirm non-default assignments and audit records survive save/reopen. Existing browser-casting-setup and browser-class-feat-tools passed. Existing browser-subclass-feat-magic passed again after the feat guard change. git diff --check passed. All required checks are green.
 
+
+Merge integration: user authorized merging both PR38 and Leonin PR37. PR37 merged as a6937c5. Resolved overlapping creator, normalization, Actions, resources and test-script edits by preserving both implementations. Added RED-to-GREEN integration coverage for Rage damage on Leonin claws (heavy armor still suppresses it), and browser coverage for claws plus independent short-rest Roar/Rage recovery. Combined full npm test, production build, Leonin browser tests and all martial/ability browser tests passed. The persistence assertion waits for the asynchronous save to complete.
+

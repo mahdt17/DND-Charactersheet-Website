@@ -15,5 +15,11 @@ try{
  const caster={...c,feats:[{id:'initiate',name:'Magic Initiate',edition:'2014',magicChoices:{list:'Wizard',cantrips:['2014:mage-hand','2014:minor-illusion'],spell:'2014:shield'}},{id:'ritual',name:'Ritual Caster',edition:'2014',magicChoices:{list:'Wizard',spells:['2014:detect-magic','2014:find-familiar']}}]};
  const calm={...caster,totemWarrior:{...caster.totemWarrior,activeRage:false}},granted=magic.featMagicSpells(caster);assert.equal(granted.length,5);
  for(const spell of granted){const option=casting.featCastOptions(calm,spell)[0];assert(option);assert.throws(()=>casting.spendFeatCast(caster,spell,option),/raging/,'Rage blocks cantrips, feat uses, rituals and concentration alike');assert.deepEqual(casting.featCastOptions(caster,spell),[]);assert.doesNotThrow(()=>casting.spendFeatCast(calm,spell,option));}
+ const lion=await server.ssrLoadModule('/src/lib/leonin.js'),lionData=await server.ssrLoadModule('/src/data/leonin.js');
+ const lionBarbarian={...c,race:'Leonin',raceDefinition:lionData.leoninRace,leonin:{skill:'Perception'}};
+ assert.equal(lion.leoninProfile(lionBarbarian).damage,'1d4+5','Leonin Strength-based claws receive the same Rage bonus as other melee attacks');
+ assert.equal(lion.leoninProfile({...lionBarbarian,inventory:heavy.inventory}).damage,'1d4+3','heavy armor suppresses Rage damage on claws too');
+ const roared={...lionBarbarian,...lion.useDauntingRoar(lionBarbarian)},shortRest={...roared,...res.restResources(roared,'short')};
+ assert.equal(shortRest.resources.find(r=>r.id===t.totemRageId).used,1);assert.equal(shortRest.resources.find(r=>r.id===lion.leoninRoarId).used,0);assert(!shortRest.totemWarrior.activeRage);assert(!shortRest.leonin.roaring);
  console.log('PASS martial subclass integration: Rage damage, heavy armor, Dexterity weapon exclusion, physical resistance, one shared counter, source changes and rests');
 }finally{await server.close();}
