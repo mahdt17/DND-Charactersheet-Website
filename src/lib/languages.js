@@ -1,3 +1,5 @@
+import {isLupin} from './lupin.js';
+import {lupinRace} from '../data/lupin.js';
 import {isLeonin} from './leonin.js';
 import {leoninRace} from '../data/leonin.js';
 import {isVariantHuman,variantHumanRace} from '../data/variantHuman.js';
@@ -41,7 +43,7 @@ export function languagePlan(c,intelligence=10) {
     const extra=c.className==='Cleric'?['Abyssal','Celestial','Infernal']:c.className==='Druid'?['Sylvan']:c.className==='Wizard'?['Draconic']:[];
     choice('intelligence',`${c.race} / Intelligence`,Math.max(0,Math.floor((intelligence-10)/2)),[...race[1],...extra]);
   } else {
-    const race=(isLeonin(c)?leoninRace:null)||(isVariantHuman(c)?variantHumanRace:null)||(isAasimar(c)?aasimarRace:null)||shadarKaiRace(c)||races.find(r=>r.name===c.race)||(isEladrin(c)?{languages:[{name:'Common'}],language_options:{choose:1}}:null);if(!race)return {automatic,groups,manual:true};
+    const race=(isLupin(c)?lupinRace:null)||(isLeonin(c)?leoninRace:null)||(isVariantHuman(c)?variantHumanRace:null)||(isAasimar(c)?aasimarRace:null)||shadarKaiRace(c)||races.find(r=>r.name===c.race)||(isEladrin(c)?{languages:[{name:'Common'}],language_options:{choose:1}}:null);if(!race)return {automatic,groups,manual:true};
     grant((race.languages||[]).map(x=>x.name),c.race);
     const options=c.allowExoticLanguages?[...standard14,...exotic14,'Druidic',"Thieves' Cant"]:standard14;
     choice('race',c.race,race.language_options?.choose||0,options);
