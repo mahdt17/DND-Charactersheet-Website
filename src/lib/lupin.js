@@ -17,7 +17,12 @@ function independentRider(c){
 }
 export function reconcileLupin(c){
  const active=isLupin(c),old=c.lupin?.skillGrant,skillProf={...c.skillProf},trainingGrants=(c.trainingGrants||[]).filter(g=>!g.lupinManaged),traits=(c.traits||[]).filter(t=>t.homebrew||t.raceGrantId!==lupinId);
- if(!active){if(old?.previous===false&&!independentRider(c))delete skillProf['Animal Handling'];return {...c,skillProf,trainingGrants,traits,...(old?{lupin:{...c.lupin,skillGrant:undefined}}:{})};}
+ if(!active){
+  const managed=old||(c.trainingGrants||[]).some(g=>g.lupinManaged)||(c.traits||[]).some(t=>!t.homebrew&&t.raceGrantId===lupinId);
+  if(!managed)return c;
+  if(old?.previous===false&&!independentRider(c))delete skillProf['Animal Handling'];
+  return {...c,skillProf,trainingGrants,...(c.traits?{traits}:{}),...(old?{lupin:{...c.lupin,skillGrant:undefined}}:{})};
+ }
  const skillGrant=old||{name:'Animal Handling',previous:!!skillProf['Animal Handling']};skillProf['Animal Handling']=true;
  trainingGrants.push({id:lupinId+':rider',classId:lupinId,sourceFeatureId:lupinId+':rider',sourceClassName:'Lupin',edition:'2014',lupinManaged:true,proficiencies:[{kind:'skills',name:'Animal Handling',index:'skill-animal-handling',source:'Lupin · Expert Rider'}]});
  return {...c,skillProf,trainingGrants,lupin:{...c.lupin,skillGrant},traits:[...traits,...lupinRace.traits.map(t=>({...t,id:lupinId+':'+t.name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),source:lupinRace.source}))]};
