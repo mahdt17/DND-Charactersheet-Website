@@ -59,6 +59,8 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
       spellAcquisition35Incomplete:classResult.spellAcquisition35Incomplete??advanced.spellAcquisition35Incomplete,
       classDefinition:advanced.classLevels[0].definition,subclass:advanced.classLevels[0].subclass,
       advancementNotes:[...(char.advancementNotes||[]),{level:advanced.level,classId:contentKey(candidate),reviewed,trainingMode:training.mode,notes:'Review feature choices, resources, and any manual spellcasting conversions in the source.'}]};
+    // This value belongs to the class-only draft. Full rows are restored above.
+    delete next.otherClassLevels;
     const plan=featureChoicePlan(next,char,{},featureContext);
     if(plan.groups.length){setPending(next);setFeaturePicks({});setFeatureFeatOverrides({});}else onFinish(applyFeatureChoices(next,char,{},featureContext));
   }

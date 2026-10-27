@@ -59,8 +59,8 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const acquisitionEvents=managedAcquisition&&acquisitionPrereqsComplete?spellAcquisitionEvents35(acquisitionTarget,{classId:acquisitionClassId,previousClassLevel:char.level,targetClassLevel:target}):[];
   const candidates=(managedAcquisition?spellAcquisitionCandidates35(acquisitionTarget,acquisitionClassId,allReference):permittedSpells(draft,allReference)).filter(s=>managedAcquisition?!current.some(c=>keyOf(c)===keyOf(s)):!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
   const acquisitionLegalIds=new Set(candidates.map(keyOf));
-  const cantripGain=managedAcquisition?0:manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
-  const spellGain=campaignKind(char.classDefinition)==='archivist'?campaignProfile({...draft,spells:current}).growthRemaining:managedAcquisition?0:manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
+  const cantripGain=campaignKind(char.classDefinition)==='archivist'?0:managedAcquisition?0:manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
+  const spellGain=campaignKind(char.classDefinition)==='archivist'?(target===1?campaignProfile(draft).startingAllowance:2):managedAcquisition?0:manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
   const selectedCantrips=added.filter(s=>s.level===0),selectedSpells=added.filter(s=>s.level!==0);
   const hp=Math.max(1,hpGain+modifier(effective.con))+(mechanics(char)==='2024'&&char.race==='Dwarf'?1:0)+(modifier(effective.con)-modifier(effectiveAbilities(char).con))*char.level;
   function toggle(s){setAdded(list=>list.some(x=>keyOf(x)===keyOf(s))?list.filter(x=>keyOf(x)!==keyOf(s)):[...list,s]);}
@@ -73,7 +73,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   function finish(){
     if(!choicesValid||!spellsValid)return;
     char={...char,...conversion,entomancer};
-    let acquisitionResult=null,finalSpells=[...current,...added.map(s=>({...s,id:crypto.randomUUID(),...(campaignKind(char.classDefinition)==='archivist'?{campaignAcquisition:s.level===0?'cantrip':'growth'}:{}),prepared:manual||counts.mode!=='spellbook'}))];
+    let acquisitionResult=null,finalSpells=[...current,...added.map(s=>({...s,id:crypto.randomUUID(),...(campaignKind(char.classDefinition)==='archivist'?{campaignAcquisition:s.level===0?'cantrip':target===1?'starting':'growth'}:{}),prepared:manual||counts.mode!=='spellbook'}))];
     if(managedAcquisition){
       acquisitionResult=acquisitionTarget;
       for(const event of acquisitionEvents.filter(event=>event.required!==false)){
@@ -110,7 +110,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
     }
     const invocationResult=invocationProfile?applyInvocationChoices35(invocationTarget,invocationEvents,invocationPicks):null;
     if(invocationResult)finalSpells=invocationResult.spells.filter(spell=>spell.castingClassId===acquisitionClassId);
-    const result={...draft,...(campaignKind(char.classDefinition)==='archivist'?{archivistCampaign:{...conversion.archivistCampaign,growthSpent:campaignProfile({...draft,spells:current}).growthUsed+selectedSpells.length}}:{}),...(invocationResult?{invocationAcquisition35:invocationResult.invocationAcquisition35,invocationAcquisition35Incomplete:invocationResult.invocationAcquisition35Incomplete}:{}),subclass:subclass.trim(),featureChoices:acquisitionTarget?.featureChoices||draft.featureChoices,hp:{...char.hp,max:char.hp.max+hp,current:Math.min(char.hp.max+hp,char.hp.current+hp)},spells:finalSpells,notes:[char.notes,notes].filter(Boolean).join('\n\n'),...(acquisitionResult?{spellAcquisition35:acquisitionResult.spellAcquisition35,spellAcquisition35Incomplete:acquisitionResult.spellAcquisition35Incomplete}:{})};
+    const result={...draft,...(campaignKind(char.classDefinition)==='archivist'?{archivistCampaign:{...conversion.archivistCampaign,startingIntBonus:conversion.archivistCampaign.startingIntBonus??Math.max(0,Math.floor((effective.int-10)/2)),startingSpent:target===1?selectedSpells.length:campaignProfile({...char,spells:current}).startingUsed,growthByLevel:{...campaignProfile({...char,spells:current}).growthByLevel,...(target>1?{[target]:selectedSpells.length}:{})},growthSpent:campaignProfile({...char,spells:current}).growthUsed+selectedSpells.length}}:{}),...(invocationResult?{invocationAcquisition35:invocationResult.invocationAcquisition35,invocationAcquisition35Incomplete:invocationResult.invocationAcquisition35Incomplete}:{}),subclass:subclass.trim(),featureChoices:acquisitionTarget?.featureChoices||draft.featureChoices,hp:{...char.hp,max:char.hp.max+hp,current:Math.min(char.hp.max+hp,char.hp.current+hp)},spells:finalSpells,notes:[char.notes,notes].filter(Boolean).join('\n\n'),...(acquisitionResult?{spellAcquisition35:acquisitionResult.spellAcquisition35,spellAcquisition35Incomplete:acquisitionResult.spellAcquisition35Incomplete}:{})};
     if((manual||mode==='feat')&&feat)result.feats=[...(char.feats||[]),{...feat,level:characterLevel}];
     if(is35(result)){const before=legacyProgression(char),after=legacyProgression(result);result.bab=(Number(char.bab)||0)+after.bab-before.bab;result.save35=Object.fromEntries(['fort','ref','will'].map(k=>[k,(char.save35?.[k]||0)+after[k]-before[k]]));}
     onFinish(result);
