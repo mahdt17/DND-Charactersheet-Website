@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import {existsSync} from 'node:fs';
+import {createServer} from 'vite';
+import {chromium} from 'playwright';
+const present=existsSync(new URL('../src/BladesingingTools.jsx',import.meta.url));
+const harness=`import React,{useState} from 'react';import {createRoot} from 'react-dom/client';import {rollDice} from '/src/lib/rules.js';${present?"import Tools from '/src/BladesingingTools.jsx';":"const Tools=()=>null;"}import '/src/modern.css';
+const initial={ruleset:'2014',className:'Wizard',classDefinition:{name:'Wizard',index:'wizard',edition:'2014'},subclass:'Bladesinging',level:2,abilities:{str:10,dex:16,con:14,int:18,wis:10,cha:10},hp:{current:15,max:20,temp:0},saveProf:{con:true},resources:[],inventory:[],activeEffects:[],concentration:'Detect Magic'};
+function App(){const [char,setChar]=useState(()=>JSON.parse(localStorage.getItem('song-test')||'null')||initial);const patch=values=>setChar(current=>{const next={...current,...(typeof values==='function'?values(current):values)};localStorage.setItem('song-test',JSON.stringify(next));return next;});window.songFixture=value=>setChar(value);return React.createElement(Tools,{char,patch,roll:(expression,label)=>{window.songLastRoll={expression,label};return rollDice(expression,'normal',()=>0.5);}});}createRoot(document.getElementById('root')).render(React.createElement(App));`;
+const server=await createServer({base:'/',plugins:[{name:'bladesong-ui-test',resolveId:id=>id==='virtual:bladesong-ui.js'?id:null,load:id=>id==='virtual:bladesong-ui.js'?harness:null,configureServer(server){server.middlewares.use('/__bladesong-ui',(_req,res)=>{res.setHeader('Content-Type','text/html');res.end('<html><body><div id="root"></div><script type="module" src="/@id/virtual:bladesong-ui.js"></script></body></html>');});}}],server:{host:'127.0.0.1',port:5262,strictPort:true,hmr:false}});
+await server.listen();const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',args:['--no-sandbox']});
+try{
+ const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:5262/__bladesong-ui');await page.waitForFunction(()=>window.songFixture);
+ const tools=page.getByRole('region',{name:'Bladesinging tools',exact:true});
+ assert.equal(await tools.count(),1,'Bladesinging needs usable controls on the class sheet');
+ await tools.getByRole('button',{name:'Start Bladesong',exact:true}).click();
+ assert.match(await tools.innerText(),/\+4 AC/);assert.match(await tools.innerText(),/\+10 ft/);
+ await tools.getByRole('button',{name:'Roll concentration save',exact:true}).click();
+ assert.equal(await page.evaluate(()=>window.songLastRoll.expression),'1d20+8');
+ await tools.getByRole('button',{name:'End Bladesong',exact:true}).click();
+ await tools.getByRole('button',{name:'Start Bladesong',exact:true}).click();
+ assert(await tools.getByRole('button',{name:'Start Bladesong',exact:true}).isDisabled());
+ await page.reload();await tools.waitFor();assert.match(await tools.innerText(),/\+4 AC/);
+ const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('song-test')));
+ assert.equal(stored.concentration,'Detect Magic');assert.equal(stored.resources.find(r=>r.classResourceKey==='2014:Wizard:bladesong').used,2);
+ await page.evaluate(c=>window.songFixture({...c,level:10,resources:[],slotsUsed:{},activeEffects:[]}),stored);
+ await tools.getByRole('button',{name:'Start Bladesong',exact:true}).click();
+ await tools.getByLabel('Song of Defense slot',{exact:true}).selectOption('standard:3');
+ const defense=tools.getByRole('button',{name:'Use Song of Defense',exact:true});assert(await defense.isDisabled());
+ await tools.getByLabel('I am taking damage and my reaction is available',{exact:true}).check();await defense.click();
+ assert.match(await tools.innerText(),/15/);const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('song-test')));assert.equal(after.slotsUsed[3],1);assert.equal(after.hp.current,15);
+ await page.setViewportSize({width:390,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
+ assert.deepEqual(errors,[]);console.log('PASS Bladesinging tools: uses, benefits, concentration roll, ending, reload and Song of Defense slot spending');
+}finally{await browser.close();await server.close();}
