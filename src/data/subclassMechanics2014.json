@@ -2074,8 +2074,21 @@
           "schools": [
             "Divination",
             "Necromancy"
-          ]
+          ],
+          "maxBy": "pb",
+          "maxByInput": "participants"
         },
+        "inputs": [
+          {
+            "key": "participants",
+            "label": "Ritual participants",
+            "min": 1,
+            "max": "pb",
+            "default": 1
+          }
+        ],
+        "temporary": true,
+        "temporaryDuration": "until-long-rest",
         "featureId": "2014:subclass:bard:spirits:spirit-session"
       }
     ],
@@ -2747,36 +2760,6 @@
     "recordId": "2014:subclass:bard:mage-of-lorehold-ua",
     "choices": [
       {
-        "key": "later-subclass-feature",
-        "feature": "Using This Subclass",
-        "level": 3,
-        "kind": "feature",
-        "count": 1,
-        "options": [
-          "Lessons of the Past",
-          "War Echoes",
-          "History’s Whims"
-        ],
-        "notes": "Gain one eligible feature of choice at each actual subclass-feature level; listed feature levels are prerequisites, not automatic grants. Later mechanics require that feature selected. Initial pair automatic.",
-        "sourceEvidence": "bard--mage-of-lorehold-ua.md:15",
-        "scope": "advancement",
-        "countMode": "cumulative",
-        "optionDetails": [
-          {
-            "name": "Lessons of the Past",
-            "minimumClassLevel": 6
-          },
-          {
-            "name": "War Echoes",
-            "minimumClassLevel": 10
-          },
-          {
-            "name": "History’s Whims",
-            "minimumClassLevel": 14
-          }
-        ]
-      },
-      {
         "feature": "Ancient Companion",
         "level": 3,
         "sourceEvidence": "bard--mage-of-lorehold-ua.md:33",
@@ -2808,7 +2791,7 @@
           "Swiftness"
         ],
         "requiresFeatureSelection": true,
-        "scope": "advancement",
+        "scope": "activation",
         "countMode": "cumulative",
         "optionDetails": [],
         "featureId": "2014:subclass:bard:mage-of-lorehold-ua:historys-whims"
@@ -3029,36 +3012,6 @@
   {
     "recordId": "2014:subclass:bard:mage-of-silverquill-ua",
     "choices": [
-      {
-        "key": "later-subclass-feature",
-        "feature": "Using This Subclass",
-        "level": 3,
-        "kind": "feature",
-        "count": 1,
-        "options": [
-          "Inky Shroud",
-          "Infusion of Eloquence",
-          "Word of Power"
-        ],
-        "notes": "Gain one eligible feature of choice at each actual subclass-feature level; listed feature levels are prerequisites, not automatic grants. Later mechanics require that feature selected. Initial pair automatic.",
-        "sourceEvidence": "bard--mage-of-silverquill-ua.md:15",
-        "scope": "advancement",
-        "countMode": "cumulative",
-        "optionDetails": [
-          {
-            "name": "Inky Shroud",
-            "minimumClassLevel": 6
-          },
-          {
-            "name": "Infusion of Eloquence",
-            "minimumClassLevel": 10
-          },
-          {
-            "name": "Word of Power",
-            "minimumClassLevel": 14
-          }
-        ]
-      },
       {
         "feature": "Eloquent Apprentice",
         "level": 3,
@@ -3395,8 +3348,21 @@
           "schools": [
             "Divination",
             "Necromancy"
-          ]
+          ],
+          "maxBy": "pb",
+          "maxByInput": "participants"
         },
+        "inputs": [
+          {
+            "key": "participants",
+            "label": "Ritual participants",
+            "min": 1,
+            "max": "pb",
+            "default": 1
+          }
+        ],
+        "temporary": true,
+        "temporaryDuration": "until-long-rest",
         "featureId": "2014:subclass:bard:spirits-ua:spirit-session"
       }
     ],
@@ -3744,9 +3710,9 @@
         "level": 3,
         "sourceEvidence": "bard--satire-ua.md:15",
         "notes": "Thieves tools and Sleight of Hand duplicates each yield another skill.",
-        "key": "duplicate-proficiencies",
+        "key": "duplicate-skill-proficiency",
         "kind": "skill",
-        "count": "one per already-known fixed proficiency",
+        "count": 1,
         "options": [
           "Acrobatics",
           "Animal Handling",
@@ -3767,6 +3733,47 @@
           "Stealth",
           "Survival"
         ],
+        "when": {
+          "alreadyProficient": "Sleight of Hand",
+          "kind": "skills"
+        },
+        "scope": "advancement",
+        "countMode": "cumulative",
+        "optionDetails": [],
+        "featureId": "2014:subclass:bard:satire-ua:bonus-proficiencies"
+      },
+      {
+        "feature": "Bonus Proficiencies",
+        "level": 3,
+        "sourceEvidence": "bard--satire-ua.md:15",
+        "notes": "Thieves tools and Sleight of Hand duplicates each yield another skill.",
+        "key": "duplicate-tool-proficiency",
+        "kind": "skill",
+        "count": 1,
+        "options": [
+          "Acrobatics",
+          "Animal Handling",
+          "Arcana",
+          "Athletics",
+          "Deception",
+          "History",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Medicine",
+          "Nature",
+          "Perception",
+          "Performance",
+          "Persuasion",
+          "Religion",
+          "Sleight of Hand",
+          "Stealth",
+          "Survival"
+        ],
+        "when": {
+          "alreadyProficient": "Thieves' Tools",
+          "kind": "tools"
+        },
         "scope": "advancement",
         "countMode": "cumulative",
         "optionDetails": [],
@@ -8040,36 +8047,6 @@
     "recordId": "2014:subclass:druid:mage-of-prismari-ua",
     "choices": [
       {
-        "key": "later-subclass-feature",
-        "feature": "Using This Subclass",
-        "level": 2,
-        "kind": "feature",
-        "count": 1,
-        "options": [
-          "Favored Medium",
-          "Focused Expression",
-          "Impeccable Physicality"
-        ],
-        "notes": "Gain one eligible feature of choice at each actual subclass-feature level; listed feature levels are prerequisites, not automatic grants. Later mechanics require that feature selected. Initial pair automatic.",
-        "sourceEvidence": "multisubclass--mage-of-prismari-ua.md:15",
-        "scope": "advancement",
-        "countMode": "cumulative",
-        "optionDetails": [
-          {
-            "name": "Favored Medium",
-            "minimumClassLevel": 6
-          },
-          {
-            "name": "Focused Expression",
-            "minimumClassLevel": 10
-          },
-          {
-            "name": "Impeccable Physicality",
-            "minimumClassLevel": 14
-          }
-        ]
-      },
-      {
         "feature": "Creative Skills",
         "level": 2,
         "sourceEvidence": "multisubclass--mage-of-prismari-ua.md:17",
@@ -8226,36 +8203,6 @@
   {
     "recordId": "2014:subclass:druid:mage-of-witherbloom-ua",
     "choices": [
-      {
-        "key": "later-subclass-feature",
-        "feature": "Using This Subclass",
-        "level": 2,
-        "kind": "feature",
-        "count": 1,
-        "options": [
-          "Witherbloom Brew",
-          "Witherbloom Adept",
-          "Withering Vortex"
-        ],
-        "notes": "Gain one eligible feature of choice at each actual subclass-feature level; listed feature levels are prerequisites, not automatic grants. Later mechanics require that feature selected. Initial pair automatic.",
-        "sourceEvidence": "multisubclass--mage-of-witherbloom-ua.md:15",
-        "scope": "advancement",
-        "countMode": "cumulative",
-        "optionDetails": [
-          {
-            "name": "Witherbloom Brew",
-            "minimumClassLevel": 6
-          },
-          {
-            "name": "Witherbloom Adept",
-            "minimumClassLevel": 10
-          },
-          {
-            "name": "Withering Vortex",
-            "minimumClassLevel": 14
-          }
-        ]
-      },
       {
         "feature": "Essence Tap",
         "level": 2,
@@ -9892,9 +9839,9 @@
         "level": 3,
         "sourceEvidence": "monk--kensei.md:9",
         "notes": "Both become monk weapons.",
-        "key": "initial-kensei-weapons",
+        "key": "initial-kensei-melee",
         "kind": "weapon-proficiency",
-        "count": 2,
+        "count": 1,
         "options": [
           "Club",
           "Dagger",
@@ -9906,10 +9853,6 @@
           "Quarterstaff",
           "Sickle",
           "Spear",
-          "Crossbow, light",
-          "Dart",
-          "Shortbow",
-          "Sling",
           "Battleaxe",
           "Flail",
           "Longsword",
@@ -9920,10 +9863,39 @@
           "Trident",
           "War pick",
           "Warhammer",
-          "Whip",
+          "Whip"
+        ],
+        "excludeDuplicatesAcross": [
+          "initial-kensei-melee",
+          "initial-kensei-ranged",
+          "later-kensei-weapons"
+        ],
+        "scope": "advancement",
+        "countMode": "cumulative",
+        "optionDetails": [],
+        "featureId": "2014:subclass:monk:kensei:path-of-the-kensei"
+      },
+      {
+        "feature": "Path of the Kensei",
+        "level": 3,
+        "sourceEvidence": "monk--kensei.md:9",
+        "notes": "Both become monk weapons.",
+        "key": "initial-kensei-ranged",
+        "kind": "weapon-proficiency",
+        "count": 1,
+        "options": [
+          "Crossbow, light",
+          "Dart",
+          "Shortbow",
+          "Sling",
           "Blowgun",
           "Crossbow, hand",
           "Longbow"
+        ],
+        "excludeDuplicatesAcross": [
+          "initial-kensei-melee",
+          "initial-kensei-ranged",
+          "later-kensei-weapons"
         ],
         "scope": "advancement",
         "countMode": "cumulative",
@@ -9973,6 +9945,11 @@
           "Longbow"
         ],
         "countMode": "gained",
+        "excludeDuplicatesAcross": [
+          "initial-kensei-melee",
+          "initial-kensei-ranged",
+          "later-kensei-weapons"
+        ],
         "scope": "advancement",
         "optionDetails": [],
         "featureId": "2014:subclass:monk:kensei:path-of-the-kensei"
@@ -13700,6 +13677,10 @@
         "countMode": "per-selection",
         "scope": "advancement",
         "optionDetails": [],
+        "when": {
+          "alreadyProficient": "wis",
+          "kind": "saves"
+        },
         "featureId": "2014:subclass:ranger:gloom-stalker:iron-mind"
       }
     ],
@@ -13788,6 +13769,14 @@
         "sourceEvidence": "ranger--gloom-stalker.md:32",
         "featureId": "2014:subclass:ranger:gloom-stalker:iron-mind",
         "rulesFromFeature": true
+      },
+      {
+        "feature": "Iron Mind",
+        "level": 7,
+        "sourceEvidence": "ranger--gloom-stalker.md:32",
+        "kind": "save-proficiency",
+        "value": "wis",
+        "featureId": "2014:subclass:ranger:gloom-stalker:iron-mind"
       }
     ],
     "spellNotes": [
@@ -20618,14 +20607,36 @@
         "key": "psionic-discovery",
         "kind": "temporary-spell",
         "count": 1,
-        "options": [
-          "Sorcerer divination or enchantment spell; spell level for which you have slots"
-        ],
+        "options": [],
         "notes": "Meditate 10 minutes and roll talent die; know chosen spell for rolled hours.",
         "sourceEvidence": "sorcerer--psionic-soul-ua.md:28",
         "countMode": "per-selection",
-        "scope": "advancement",
+        "scope": "activation",
         "optionDetails": [],
+        "temporary": true,
+        "temporaryDuration": "psionic-talent-hours",
+        "filter": {
+          "type": "spell",
+          "classes": [
+            "Sorcerer"
+          ],
+          "maxByClass": true,
+          "levels": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "schools": [
+            "Divination",
+            "Enchantment"
+          ]
+        },
         "featureId": "2014:subclass:sorcerer:psionic-soul-ua:psionic-talent"
       },
       {
@@ -23422,7 +23433,7 @@
         "sourceEvidence": "multisubclass--mage-of-witherbloom-ua.md:46",
         "countMode": "per-selection",
         "requiresSelectedFeature": true,
-        "scope": "advancement",
+        "scope": "activation",
         "optionDetails": [],
         "featureId": "2014:subclass:warlock:mage-of-witherbloom-ua:witherbloom-brew"
       }
@@ -27439,7 +27450,7 @@
         ],
         "sourceEvidence": "wizard--lore-mastery-ua.md:9",
         "countMode": "per-selection",
-        "scope": "advancement",
+        "scope": "activation",
         "optionDetails": [],
         "featureId": "2014:subclass:wizard:lore-mastery-ua:lore-mastery",
         "rulesFromFeature": true
@@ -29713,6 +29724,10 @@
         "countMode": "per-selection",
         "scope": "advancement",
         "optionDetails": [],
+        "when": {
+          "alreadyProficient": "Persuasion",
+          "kind": "skills"
+        },
         "featureId": "2014:subclass:fighter:banneret:royal-envoy"
       }
     ],
@@ -29800,6 +29815,22 @@
         "sourceEvidence": "fighter--banneret.md:17",
         "featureId": "2014:subclass:fighter:banneret:royal-envoy",
         "rulesFromFeature": true
+      },
+      {
+        "feature": "Royal Envoy",
+        "level": 7,
+        "sourceEvidence": "fighter--banneret.md:17",
+        "kind": "skill-proficiency",
+        "value": "Persuasion",
+        "featureId": "2014:subclass:fighter:banneret:royal-envoy"
+      },
+      {
+        "feature": "Royal Envoy",
+        "level": 7,
+        "sourceEvidence": "fighter--banneret.md:17",
+        "kind": "expertise",
+        "value": "Persuasion",
+        "featureId": "2014:subclass:fighter:banneret:royal-envoy"
       }
     ],
     "spellNotes": [],
@@ -30762,7 +30793,32 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative",
         "scope": "advancement",
-        "optionDetails": [],
+        "optionDetails": [
+          {
+            "name": "Cloud",
+            "minimumClassLevel": 3
+          },
+          {
+            "name": "Fire",
+            "minimumClassLevel": 3
+          },
+          {
+            "name": "Frost",
+            "minimumClassLevel": 3
+          },
+          {
+            "name": "Stone",
+            "minimumClassLevel": 3
+          },
+          {
+            "name": "Hill",
+            "minimumClassLevel": 7
+          },
+          {
+            "name": "Storm",
+            "minimumClassLevel": 7
+          }
+        ],
         "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
       }
     ],
@@ -30793,7 +30849,11 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative-capacity",
         "sourceReset": "short-or-long-rest",
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Cloud"
+        }
       },
       {
         "feature": "Rune Carver",
@@ -30809,7 +30869,11 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative-capacity",
         "sourceReset": "short-or-long-rest",
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Fire"
+        }
       },
       {
         "feature": "Rune Carver",
@@ -30825,7 +30889,11 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative-capacity",
         "sourceReset": "short-or-long-rest",
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Frost"
+        }
       },
       {
         "feature": "Rune Carver",
@@ -30841,11 +30909,15 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative-capacity",
         "sourceReset": "short-or-long-rest",
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Stone"
+        }
       },
       {
         "feature": "Rune Carver",
-        "level": 3,
+        "level": 7,
         "key": "rune-hill",
         "name": "Hill Rune",
         "max": {
@@ -30857,11 +30929,15 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative-capacity",
         "sourceReset": "short-or-long-rest",
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Hill"
+        }
       },
       {
         "feature": "Rune Carver",
-        "level": 3,
+        "level": 7,
         "key": "rune-storm",
         "name": "Storm Rune",
         "max": {
@@ -30873,7 +30949,11 @@
         "sourceEvidence": "fighter--rune-knight.md:11",
         "countMode": "cumulative-capacity",
         "sourceReset": "short-or-long-rest",
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Storm"
+        }
       },
       {
         "feature": "Giant's Might",
@@ -31167,6 +31247,10 @@
         "countMode": "per-selection",
         "scope": "advancement",
         "optionDetails": [],
+        "when": {
+          "alreadyProficient": "wis",
+          "kind": "saves"
+        },
         "featureId": "2014:subclass:fighter:samurai:elegant-courtier"
       }
     ],
@@ -31319,6 +31403,14 @@
         "kind": "source-training",
         "notes": "Your self-control also causes you to gain proficiency in Wisdom saving throws. If you already have this proficiency, you instead gain proficiency in Intelligence or Charisma saving throws (your choice).",
         "sourceEvidence": "fighter--samurai.md:17",
+        "featureId": "2014:subclass:fighter:samurai:elegant-courtier"
+      },
+      {
+        "feature": "Elegant Courtier",
+        "level": 7,
+        "sourceEvidence": "fighter--samurai.md:17",
+        "kind": "save-proficiency",
+        "value": "wis",
         "featureId": "2014:subclass:fighter:samurai:elegant-courtier"
       }
     ],
@@ -31965,40 +32057,78 @@
       {
         "feature": "Noble Cavalry",
         "level": 7,
+        "key": "noble-training-kind",
+        "kind": "permanent",
+        "count": 1,
+        "options": [
+          "Skills",
+          "Language"
+        ],
+        "notes": "Choose either two listed skill proficiencies or one language.",
+        "sourceEvidence": "fighter--knight-ua.md:21",
+        "countMode": "per-selection",
+        "scope": "advancement",
+        "optionDetails": [],
+        "featureId": "2014:subclass:fighter:knight-ua:noble-cavalry"
+      },
+      {
+        "feature": "Noble Cavalry",
+        "level": 7,
         "key": "noble-training",
-        "kind": "skill-or-language",
-        "count": {
-          "skills": 2,
-          "languageAlternative": 1
-        },
+        "kind": "skill",
+        "count": 2,
         "options": [
           "Animal Handling",
           "History",
           "Insight",
           "Persuasion",
-          "Religion",
-          "Language: Common",
-          "Language: Dwarvish",
-          "Language: Elvish",
-          "Language: Giant",
-          "Language: Gnomish",
-          "Language: Goblin",
-          "Language: Halfling",
-          "Language: Orc",
-          "Language: Abyssal",
-          "Language: Celestial",
-          "Language: Draconic",
-          "Language: Deep Speech",
-          "Language: Infernal",
-          "Language: Primordial",
-          "Language: Sylvan",
-          "Language: Undercommon"
+          "Religion"
         ],
         "notes": "Either two listed skills OR one language; not two selections mixing skill/language.",
         "sourceEvidence": "fighter--knight-ua.md:21",
         "countMode": "per-selection",
+        "when": {
+          "choice": "noble-training-kind",
+          "equals": "Skills"
+        },
         "scope": "advancement",
         "optionDetails": [],
+        "featureId": "2014:subclass:fighter:knight-ua:noble-cavalry"
+      },
+      {
+        "feature": "Noble Cavalry",
+        "level": 7,
+        "key": "noble-language",
+        "kind": "language",
+        "count": 1,
+        "options": [
+          "Common",
+          "Dwarvish",
+          "Elvish",
+          "Giant",
+          "Gnomish",
+          "Goblin",
+          "Halfling",
+          "Orc",
+          "Abyssal",
+          "Celestial",
+          "Draconic",
+          "Deep Speech",
+          "Infernal",
+          "Primordial",
+          "Sylvan",
+          "Undercommon"
+        ],
+        "notes": "Either two listed skills OR one language; not two selections mixing skill/language.",
+        "sourceEvidence": "fighter--knight-ua.md:21",
+        "countMode": "per-selection",
+        "when": {
+          "choice": "noble-training-kind",
+          "equals": "Language"
+        },
+        "scope": "advancement",
+        "optionDetails": [],
+        "freeText": true,
         "featureId": "2014:subclass:fighter:knight-ua:noble-cavalry"
       }
     ],
@@ -32168,6 +32298,51 @@
         "countMode": "per-selection",
         "scope": "advancement",
         "optionDetails": [],
+        "quotas": [
+          {
+            "kind": "tools",
+            "max": 1
+          }
+        ],
+        "optionKinds": {
+          "Arcana": "skills",
+          "History": "skills",
+          "Insight": "skills",
+          "Investigation": "skills",
+          "Nature": "skills",
+          "Perception": "skills",
+          "Alchemist's Supplies": "tools",
+          "Brewer's Supplies": "tools",
+          "Calligrapher's Supplies": "tools",
+          "Carpenter's Tools": "tools",
+          "Cartographer's Tools": "tools",
+          "Cobbler's Tools": "tools",
+          "Cook's utensils": "tools",
+          "Glassblower's Tools": "tools",
+          "Jeweler's Tools": "tools",
+          "Leatherworker's Tools": "tools",
+          "Mason's Tools": "tools",
+          "Painter's Supplies": "tools",
+          "Potter's Tools": "tools",
+          "Smith's Tools": "tools",
+          "Tinker's Tools": "tools",
+          "Weaver's Tools": "tools",
+          "Woodcarver's Tools": "tools",
+          "Dice Set": "tools",
+          "Playing Card Set": "tools",
+          "Bagpipes": "tools",
+          "Drum": "tools",
+          "Dulcimer": "tools",
+          "Flute": "tools",
+          "Lute": "tools",
+          "Lyre": "tools",
+          "Horn": "tools",
+          "Pan flute": "tools",
+          "Shawm": "tools",
+          "Viol": "tools",
+          "Navigator's Tools": "tools",
+          "Thieves' Tools": "tools"
+        },
         "featureId": "2014:subclass:fighter:monster-hunter-ua:bonus-proficiencies"
       }
     ],
@@ -33136,6 +33311,10 @@
         "countMode": "per-selection",
         "scope": "advancement",
         "optionDetails": [],
+        "when": {
+          "alreadyProficient": "wis",
+          "kind": "saves"
+        },
         "featureId": "2014:subclass:fighter:samurai-ua:tireless-spirit"
       },
       {
@@ -33289,6 +33468,14 @@
         "sourceEvidence": "fighter--samurai-ua.md:23",
         "featureId": "2014:subclass:fighter:samurai-ua:tireless-spirit",
         "rulesFromFeature": true
+      },
+      {
+        "feature": "Tireless Spirit",
+        "level": 10,
+        "sourceEvidence": "fighter--samurai-ua.md:23",
+        "kind": "save-proficiency",
+        "value": "wis",
+        "featureId": "2014:subclass:fighter:samurai-ua:tireless-spirit"
       }
     ],
     "spellNotes": [],

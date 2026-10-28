@@ -23,7 +23,7 @@ const externalPools=new Set(['base:channel-divinity','base:ki','base:bardic-insp
 function scope(kind,key){
  if(key==='session-spell')return 'activation';
  if(kind==='optional-feature-replacement')return 'replacement';
- if(/^(?:per-(?:use|hit|summon|activation|brew)|on-(?:use|hit|rage|rage-or-bonus-action|gathered-swarm|activation|summon|destroy-stone|creation-or-transmutation-cast)|random-result-dependent)$/.test(kind))return 'activation';
+ if(kind==='temporary-spell'||/^on-|^per-(?!rest$)|random-result-dependent/.test(kind))return 'activation';
  if(/rest|^after-/.test(kind))return 'rest';
  return 'advancement';
 }
@@ -36,14 +36,15 @@ function choice(raw,record,training){
  c.optionDetails=(c.options||[]).filter(o=>o&&typeof o==='object');
  c.options=(c.options||[]).map(o=>typeof o==='string'?o:o.name);
  const text=c.options.join(' '),lower=text.toLowerCase();
- if(c.kind==='spell'||c.kind==='cantrip'){
-  const placeholder=c.options.some(s=>/\bany\b|\b(?:wizard|druid)\s+(?:cantrip|level)/i.test(s));
+ if(['spell','cantrip','temporary-spell'].includes(c.kind)){
+  const placeholder=c.kind==='temporary-spell'||c.options.some(s=>/\bany\b|\b(?:wizard|druid)\s+(?:cantrip|level)/i.test(s));
   if(placeholder){
    const filter={type:'spell'};
    const classes=['Artificer','Bard','Cleric','Druid','Paladin','Ranger','Sorcerer','Warlock','Wizard'].filter(n=>new RegExp(`\\b${n}\\b`,'i').test(text));
    if(classes.length)filter.classes=classes;
    const fixedLevel=text.match(/level\s+(\d)/i);
    if(c.kind==='cantrip')filter.levels=[0];else if(fixedLevel)filter.levels=[Number(fixedLevel[1])];else filter.maxByClass=true;
+   if(c.kind==='temporary-spell'){filter.levels=[1,2,3,4,5,6,7,8,9];c.temporary=true;c.temporaryDuration='psionic-talent-hours';}
    const schools=['Abjuration','Conjuration','Divination','Enchantment','Evocation','Illusion','Necromancy','Transmutation'].filter(n=>new RegExp(n,'i').test(text));
    if(schools.length)filter.schools=schools;
    c.filter=filter;c.options=[];
@@ -85,6 +86,11 @@ function choice(raw,record,training){
  if(c.key==='minor-illusion-fallback')c.when={alreadyKnownSpell:'Minor Illusion'};
  if(c.key==='giant-language')c.when={alreadyKnownLanguage:'Giant'};
  if(c.key==='draconic-language')c.when={alreadyKnownLanguage:'Draconic'};
+ if(['iron-mind-save','courtier-save-fallback','tireless-save-fallback'].includes(c.key))c.when={alreadyProficient:'wis',kind:'saves'};
+ if(c.key==='royal-envoy-fallback')c.when={alreadyProficient:'Persuasion',kind:'skills'};
+ if(c.key==='monster-hunter-training'){c.quotas=[{kind:'tools',max:1}];c.optionKinds=Object.fromEntries(c.options.map(n=>[n,skills.includes(n)?'skills':'tools']));}
+ if(c.key==='runes-known'&&record.id==='2014:subclass:fighter:rune-knight')c.optionDetails=c.options.map(n=>({name:n,minimumClassLevel:['Hill','Storm'].includes(n)?7:3}));
+ if(c.key==='session-spell'){c.filter.maxBy='pb';c.filter.maxByInput='participants';c.inputs=[{key:'participants',label:'Ritual participants',min:1,max:'pb',default:1}];c.temporary=true;c.temporaryDuration='until-long-rest';}
  if(record.id==='2014:subclass:ranger:beast-master'){
   if(c.key==='beast-type'){c.scope='activation';c.options=[];c.filter={type:'creature',creatureType:'beast',maxCR:0.25,maxSize:'Medium'};c.when={choice:'companion-implementation',equals:"Ranger's Companion"};}
   if(c.key==='primal-profile'){c.scope='activation';c.when={choice:'companion-implementation',equals:'Primal Companion'};}
@@ -92,6 +98,26 @@ function choice(raw,record,training){
  if(c.key==='divine-affinity')c.spellsByOption=Object.fromEntries(c.options.map(s=>[s,[{name:s.slice(s.indexOf(':')+1),acquisition:'known',alwaysPrepared:true}]]));
  c.options=[...new Set(c.options)];
  return c;
+}
+function sourceChoices(facts,record){
+ return (facts.choices||[]).flatMap(c=>{
+  if(record.flexibleFeatureSelection&&['feature','subclass-feature'].includes(c.kind))return [];
+  if(record.id==='2014:subclass:bard:satire-ua'&&c.key==='duplicate-proficiencies')return [
+   {...c,key:'duplicate-skill-proficiency',count:1,when:{alreadyProficient:'Sleight of Hand',kind:'skills'}},
+   {...c,key:'duplicate-tool-proficiency',count:1,when:{alreadyProficient:"Thieves' Tools",kind:'tools'}},
+  ];
+  if(record.id==='2014:subclass:fighter:knight-ua'&&c.key==='noble-training')return [
+   {...c,key:'noble-training-kind',kind:'permanent',count:1,options:['Skills','Language'],notes:'Choose either two listed skill proficiencies or one language.'},
+   {...c,kind:'skill',count:2,options:c.options.filter(n=>skills.includes(n)),when:{choice:'noble-training-kind',equals:'Skills'}},
+   {...c,key:'noble-language',kind:'language',count:1,options:['any language'],when:{choice:'noble-training-kind',equals:'Language'}},
+  ];
+  if(record.id==='2014:subclass:monk:kensei'&&c.key==='initial-kensei-weapons'){
+   const allowed=weapons.filter(e=>e.index==='longbow'||!e.properties?.some(p=>['heavy','special'].includes(p.index)));
+   return ['Melee','Ranged'].map(type=>({...c,key:`initial-kensei-${type.toLowerCase()}`,count:1,options:allowed.filter(e=>e.weapon_range===type).map(e=>e.name),excludeDuplicatesAcross:['initial-kensei-melee','initial-kensei-ranged','later-kensei-weapons']}));
+  }
+  if(record.id==='2014:subclass:monk:kensei'&&c.key==='later-kensei-weapons')return [{...c,excludeDuplicatesAcross:['initial-kensei-melee','initial-kensei-ranged','later-kensei-weapons']}];
+  return [c];
+ });
 }
 function reference(item,record){
  const feature=record.features.find(f=>norm(f.name)===norm(item.feature));
@@ -106,13 +132,29 @@ function reference(item,record){
 }
 function compile(facts,record){
  const training=(facts.training||[]).map(t=>reference(t,record));
- const choices=(facts.choices||[]).filter(c=>!(record.flexibleFeatureSelection&&c.kind==='subclass-feature')).map(c=>reference(choice(c,record,training),record));
+ const saveFallback=(facts.choices||[]).find(c=>['iron-mind-save','courtier-save-fallback','tireless-save-fallback'].includes(c.key));
+ if(saveFallback)training.push(reference({feature:saveFallback.feature,level:saveFallback.level,sourceEvidence:saveFallback.sourceEvidence,kind:'save-proficiency',value:'wis'},record));
+ const envoy=(facts.choices||[]).find(c=>c.key==='royal-envoy-fallback');
+ if(envoy)for(const kind of ['skill-proficiency','expertise'])training.push(reference({feature:envoy.feature,level:envoy.level,sourceEvidence:envoy.sourceEvidence,kind,value:'Persuasion'},record));
+ const choices=sourceChoices(facts,record).map(c=>reference(choice(c,record,training),record));
  const resources=(facts.resources||[]).map(r=>{
   const reset=/^short(?:-or-long)?-rest$/.test(r.reset)?'short':r.reset==='long-rest'?'long':'none';
-  return reference({...r,sourceReset:r.reset,reset,...(reset==='none'?{recoveryText:r.notes||`Recovery: ${r.reset}`}:{})},record);
+  const result=reference({...r,sourceReset:r.reset,reset,...(reset==='none'?{recoveryText:r.notes||`Recovery: ${r.reset}`}:{})},record);
+  if(record.id==='2014:subclass:fighter:rune-knight'&&/^rune-/.test(r.key)){
+   const name=r.key.slice(5);result.when={choice:'runes-known',equals:name[0].toUpperCase()+name.slice(1)};
+   if(['hill','storm'].includes(name))result.level=7;
+  }
+  return result;
  });
  const keys=new Set(resources.map(r=>r.key));
- const actions=(facts.actions||[]).map(a=>reference({...a,...(a.resourceKey&&!keys.has(a.resourceKey)&&!externalPools.has(a.resourceKey)?{referenceOnly:true}:{} )},record));
+ const actions=(facts.actions||[]).map(a=>{
+  const result=reference({...a,...(a.resourceKey&&!keys.has(a.resourceKey)&&!externalPools.has(a.resourceKey)?{referenceOnly:true}:{} )},record);
+  if(record.id==='2014:subclass:fighter:rune-knight'&&/^rune-/.test(a.key)){
+   const name=a.key.slice(5);result.when={choice:'runes-known',equals:name[0].toUpperCase()+name.slice(1)};
+   if(['hill','storm'].includes(name))result.level=7;
+  }
+  return result;
+ });
  const passives=(facts.passives||[]).filter(p=>!['source-rule','source-feature'].includes(p.kind)).map(p=>reference(p,record));
  return {recordId:record.id,...(adapters[record.id]?{adapter:adapters[record.id]}:{}),choices,resources,actions,passives,training,spellNotes:facts.spellNotes||[],companions:facts.companions||[],unresolved:facts.unresolved||[]};
 }
@@ -123,6 +165,7 @@ function validate(records){
   for(const type of ['choices','resources','actions'])if(new Set(r[type].map(x=>x.key)).size!==r[type].length)throw Error(`Duplicate ${type}: ${r.recordId}`);
   for(const item of [...r.choices,...r.resources,...r.actions,...r.passives,...r.training])if(!item.sourceEvidence)throw Error(`Missing source evidence: ${r.recordId}/${item.key||item.feature}`);
   for(const c of r.choices)for(const value of c.options)if(typeof value!=='string'||value.length>200||value.includes('\n')||/Click here|Wikidot/.test(value))throw Error(`Invalid choice label: ${r.recordId}/${c.key}`);
+  for(const c of r.choices)if(c.count!=null)subclassValue(c.count,values);
   for(const p of r.resources)subclassValue(p.max,values);
  }
 }
