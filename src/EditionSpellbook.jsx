@@ -95,7 +95,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
       patch({spells:[...char.spells,{...s,id:crypto.randomUUID(),castingClassId:active.catalogId,prepared:stance}]});
       return;
     }
-    const number=classSpells.filter(x=>!x.auto&&!accessFor(x).alwaysPrepared&&(x.level===0)===(s.level===0)).length;
+    const number=classSpells.filter(x=>!x.auto&&!accessFor(x).alwaysPrepared&&!accessFor(x).bonusKnown&&(x.level===0)===(s.level===0)).length;
     const limit=special?special.known:manual?Infinity:s.level===0?counts.cantrips:preparesSpells?Infinity:counts.mode==='known'?counts.known:counts.prepared;
     if(number>=limit)return;
     patch({spells:[...char.spells,{...s,id:crypto.randomUUID(),castingClassId:active.catalogId,prepared:manual||counts.mode!=='spellbook'&&(!preparesSpells||prepared<counts.prepared)}]});

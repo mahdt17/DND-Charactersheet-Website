@@ -20,7 +20,25 @@ export function expandedChoiceId(row,record,key){return `expanded:${row.catalogI
 export function expandedSelectedFeatures(profile){if(!profile.record.flexibleFeatureSelection)return [];const selected=[];for(const level of milestones[profile.row.name]||[]){if(level<=profile.record.entryLevel||level>profile.row.level)continue;const values=profile.state[`later-subclass-feature:${level}`]||[];if(values.length===1&&!selected.includes(values[0])&&profile.record.features.some(f=>f.name===values[0]&&f.level<=level))selected.push(values[0]);}return selected;}
 export function expandedFeatureUnlocked(profile,item){return Number(item.level||1)<=profile.row.level&&(!profile.record.flexibleFeatureSelection||Number(item.level||1)<=profile.record.entryLevel||expandedSelectedFeatures(profile).includes(item.feature||item.name));}
 export function expandedSubclassFeatures(c){return expandedSubclassRows(c).flatMap(p=>p.record.features.filter(f=>expandedFeatureUnlocked(p,f)).map(f=>({...f,index:`${p.row.catalogId}:${f.index}`,sourceClassId:p.row.catalogId,sourceClassName:p.row.name,sourceClassLevel:f.level,subclassRecordId:p.record.id,expandedSubclassManaged:true,featureName:f.name,desc:[f.description],source:p.record.sourceBook})));}
-function independent(c){const skillProf={...c.skillProf},expertise={...c.expertise},saveProf={...c.saveProf};const other=(c.trainingGrants||[]).filter(g=>!g.expandedSubclassManaged);for(const [kind,values] of Object.entries(c.expandedSubclassTraining?.previous||{}))for(const [name,prior] of Object.entries(values)){const map={skills:skillProf,expertise,saves:saveProf}[kind];if(map){const still=other.some(g=>g.proficiencies?.some(p=>p.name===name))||kind==='skills'&&[...list(c.classSkills),...list(c.backgroundSkills),...list(c.backgroundDefinition?.skills),...list(c.bonusSkills),...list(c.manualSkills),c.variantHuman?.skill].includes(name);map[name]=prior||still;}}
+function independentTraining(c,kind,name){
+ const explicit=(c.trainingGrants||[]).filter(g=>!g.expandedSubclassManaged).some(g=>g.proficiencies?.some(p=>norm(p.name)===norm(name)&&(kind==='expertise'?p.kind==='expertise'||p.expertise===true:kind==='skills'?['skills','skill','expertise'].includes(p.kind):kind==='saves'?['saves','save-proficiency','saving-throw'].includes(p.kind):false)));
+ if(explicit)return true;
+ const expertise=Object.entries(c.featureChoices||{}).some(([id,choice])=>/:expertise:/.test(id)&&list(choice.choices).includes(name));
+ if(kind==='expertise')return expertise;
+ return kind==='skills'&&(expertise||[...list(c.classSkills),...list(c.backgroundSkills),...list(c.backgroundDefinition?.skills),...list(c.bonusSkills),...list(c.manualSkills),c.variantHuman?.skill].includes(name));
+}
+// Transfer only the old published Lore record; retain its history and mark it
+// consumed so switching away cannot silently restore an obsolete selection.
+function migrateLegacySubclassChoices(c){
+ const key='2014:Bard:3:lore-skills',legacy=c.featureChoices?.[key];
+ if(!legacy||legacy.expandedSubclassMigratedTo||legacy.className!=='Bard'||legacy.edition!=='2014'||legacy.level!==3||!Array.isArray(legacy.choices)||legacy.choices.length!==3||new Set(legacy.choices).size!==3||!legacy.choices.every(name=>skillNames.includes(name)))return c;
+ const profile=expandedSubclassRows(c).find(p=>p.record.id==='2014:subclass:bard:lore'&&(!legacy.sourceClassId||legacy.sourceClassId===p.row.catalogId));
+ if(!profile||profile.state['bonus-skills'])return c;
+ const {row,record}=profile,previous=c.expandedSubclassTraining?.previous||{},skills={...previous.skills};
+ for(const name of legacy.choices)if(!(name in skills))skills[name]=independentTraining(c,'skills',name);
+ return {...c,featureChoices:{...c.featureChoices,[key]:{...legacy,expandedSubclassMigratedTo:{classId:row.catalogId,recordId:record.id}}},expandedSubclassChoices:{...c.expandedSubclassChoices,[row.catalogId]:{...c.expandedSubclassChoices?.[row.catalogId],[record.id]:{...profile.state,'bonus-skills':[...legacy.choices]}}},expandedSubclassTraining:{...c.expandedSubclassTraining,previous:{...previous,skills}}};
+}
+function independent(c){const skillProf={...c.skillProf},expertise={...c.expertise},saveProf={...c.saveProf};const other=(c.trainingGrants||[]).filter(g=>!g.expandedSubclassManaged);for(const [kind,values] of Object.entries(c.expandedSubclassTraining?.previous||{}))for(const [name,prior] of Object.entries(values)){const map={skills:skillProf,expertise,saves:saveProf}[kind];if(map){const still=independentTraining(c,kind,name);map[name]=prior||still;}}
  const own=new Set((c.languageGrants||[]).filter(g=>g.expandedSubclassManaged).map(g=>norm(g.name))),otherLang=(c.languageGrants||[]).filter(g=>!g.expandedSubclassManaged);
  return {...c,skillProf,expertise,saveProf,trainingGrants:other,languageGrants:otherLang,languages:list(c.languages).filter(n=>!own.has(norm(n))||otherLang.some(g=>norm(g.name)===norm(n))).join(', ')};
 }
@@ -33,7 +51,7 @@ function optionsFor(c,p,q,context){let options=q.optionsByChoice?q.optionsByChoi
  if(f?.type==='creature'){const sizes=['Tiny','Small','Medium','Large','Huge','Gargantuan'];options=(context.creatures||[]).filter(s=>(s.type?.name||s.type)===f.creatureType&&Number(s.challenge_rating??s.cr)<=f.maxCR&&sizes.indexOf(s.size)<=sizes.indexOf(f.maxSize)).map(s=>s.name);}
  options=options.filter(n=>!(q.excludeDuplicatesAcross||[]).filter(key=>key!==q.key).some(key=>(p.state[key]||[]).includes(n)));
  options=options.filter(n=>!q.optionDetails?.some(d=>d.name===n&&d.minimumClassLevel>p.row.level));
- if(['skill','skill-expertise'].includes(q.kind))options=options.filter(n=>!c.skillProf?.[n]||q.kind==='skill-expertise');
+ if(['skill','skill-expertise'].includes(q.kind))options=options.filter(n=>!c.skillProf?.[n]||q.kind==='skill-expertise'||p.state[q.key]?.includes(n));
  if(q.kind==='tool')options=options.filter(n=>!hasTraining(c,n));
  if(q.kind==='language')options=options.filter(n=>!list(c.languages).some(v=>norm(v)===norm(n)));
  if(q.kind==='skill-or-language')options=options.filter(n=>n.startsWith('Language: ')?!list(c.languages).some(v=>norm(v)===norm(n.slice(10))):!c.skillProf?.[n]);
@@ -42,6 +60,7 @@ function optionsFor(c,p,q,context){let options=q.optionsByChoice?q.optionsByChoi
  return [...new Set(options)];
 }
 export function expandedSubclassChoicePlan(c,previous=null,picks={},context={}){
+ c=migrateLegacySubclassChoices(c);
  const base=independent(c),state=JSON.parse(JSON.stringify(c.expandedSubclassChoices||{})),groups=[];const scopes=context.scopes||['advancement'];
  for(const profile of expandedSubclassRows({...c,expandedSubclassChoices:state})){
   if(specialized.has(profile.mechanics?.adapter))continue;
@@ -64,10 +83,11 @@ export function expandedSubclassChoicePlan(c,previous=null,picks={},context={}){
   }
  }
  const next=reconcileExpandedSubclasses({...c,expandedSubclassChoices:state});
- return {groups,valid:groups.every(g=>g.valid),patch:{expandedSubclassChoices:next.expandedSubclassChoices,expandedSubclassTraining:next.expandedSubclassTraining,trainingGrants:next.trainingGrants,skillProf:next.skillProf,expertise:next.expertise,saveProf:next.saveProf,languages:next.languages,languageGrants:next.languageGrants}};
+ return {groups,valid:groups.every(g=>g.valid),patch:{...(next.featureChoices?{featureChoices:next.featureChoices}:{}),expandedSubclassChoices:next.expandedSubclassChoices,expandedSubclassTraining:next.expandedSubclassTraining,trainingGrants:next.trainingGrants,skillProf:next.skillProf,expertise:next.expertise,saveProf:next.saveProf,languages:next.languages,languageGrants:next.languageGrants}};
 }
 const trainingKind=kind=>({'skill-proficiency':'skills',skill:'skills','skill-expertise':'expertise',expertise:'expertise','tool-proficiency':'tools',tool:'tools','armor-proficiency':'armor',armor:'armor','weapon-proficiency':'weapons',weapon:'weapons','vehicle-proficiency':'vehicles','save-proficiency':'saves','saving-throw':'saves',language:'languages'}[kind]);
 export function reconcileExpandedSubclasses(c){
+ c=migrateLegacySubclassChoices(c);
  const base=independent(c),trainingGrants=[...base.trainingGrants],languageGrants=[...base.languageGrants],skillProf={...base.skillProf},expertise={...base.expertise},saveProf={...base.saveProf},previous={};let languages=list(base.languages);const state={};
  const add=(p,kind,name,key)=>{if(!kind||!name)return;if(kind==='saves')name=saveKey(name);const meta={expandedSubclassManaged:true,sourceClassId:p.row.catalogId,sourceClassName:p.row.name,subclassRecordId:p.record.id,sourceFeatureId:key};
   if(kind==='languages'){if(!languages.some(n=>norm(n)===norm(name))){languages.push(name);languageGrants.push({...meta,id:`expanded-language:${p.row.catalogId}:${key}:${norm(name)}`,name});}return;}
