@@ -1,3 +1,4 @@
+import {styleSpellAttackBonus} from './lib/fightingStyles';
 import SpellEffects from './SpellEffects';
 import {castEffectPatch,needsEffectRecipient,healingSpell,temporaryHpSpell} from './lib/spellEffects';
 import {conditionEffects} from './lib/play';
@@ -124,7 +125,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
     const spend=quick?spendQuickRitual(char,cast):needsSlot&&!ritual?spendActiveSlot(cast,slot,slotPool):{};
     const rolled=[];
     if(!ritual)for(let i=0;i<(plan.attack||attack?plan.count:1);i++){
-      const hit=plan.attack||attack?roll(`1d20${signed(is35(classModel)?(Number(char.bab)||0)+modifier(effectiveAbilities(char)[/ranged/i.test(cast.attack_type||cast.description||'')?'dex':'str']):pb+mod)}`,`${cast.name} · attack ${i+1}`,{kind:'attack'}):null;
+      const hit=plan.attack||attack?roll(`1d20${signed(is35(classModel)?(Number(char.bab)||0)+modifier(effectiveAbilities(char)[/ranged/i.test(cast.attack_type||cast.description||'')?'dex':'str']):pb+mod+styleSpellAttackBonus(char,cast))}`,`${cast.name} · attack ${i+1}`,{kind:'attack'}):null;
       for(const d of dice){if(/^\d+$/.test(d.expression)){rolled.push({label:d.label,total:Number(d.expression)});continue;}const result=roll(!is35(classModel)&&hit&&hit.total-hit.bonus===20&&d.critical!==false&&/damage/i.test(d.label)?criticalDice(d.expression):d.expression,`${cast.name} · ${d.label}`,{kind:'damage'});rolled.push({label:d.label,total:result?.total});}
     }
     const effectPatch=castEffectPatch({...char,...(is35(classModel)?{mechanics:'3.5'}:{})},cast,{recipient,rolls:rolled,plan,maxHP:conditionEffects(char).maxHP});

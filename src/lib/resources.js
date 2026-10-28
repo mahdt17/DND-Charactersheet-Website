@@ -1,3 +1,4 @@
+import {styleResources,techniqueId} from './fightingStyles.js';
 import {totemRageResource,totemRageId,endTotemRage} from './totemWarrior.js';
 import {fighterResources,fighterResourceIds,clearCavalierMarks} from './fighterSubclasses.js';
 import {leoninResource,leoninRoarId,isLeonin,endDauntingRoar} from './leonin.js';
@@ -19,7 +20,7 @@ const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.homebrew||r?.
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
-  const population=entomancerResource(c),fey=eladrinResource(c),shadow=blessingResource(c),lion=leoninResource(c),result=[...(totemRageResource(c)?[totemRageResource(c)]:[]),...fighterResources(c),...aasimarResources(c),...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[]),...(shadow?[shadow]:[]),...(lion?[lion]:[])];
+  const population=entomancerResource(c),fey=eladrinResource(c),shadow=blessingResource(c),lion=leoninResource(c),result=[...(totemRageResource(c)?[totemRageResource(c)]:[]),...fighterResources(c),...styleResources(c),...aasimarResources(c),...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[]),...(shadow?[shadow]:[]),...(lion?[lion]:[])];
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return result;
   for(const row of rows) {
     const n=row.level,cls=row.name;
@@ -63,12 +64,12 @@ export function characterResources(c,abilities) {
   // Rebuild the source-owned reserve from its saved expenditure so imported IDs
   // and manual flags cannot separate tracker spending from swarm actions.
   const totemManaged=definitions.some(d=>d.totemManaged),hasNativeRage=definitions.some(d=>d.classResourceKey===totemRageId);
-  const resources=saved.filter(r=>!((r.totemManaged||r.id===totemRageId||r.classResourceKey===totemRageId)&&(totemManaged||r.totemManaged&&!hasNativeRage))&&!r.raceManaged&&!r.fighterManaged&&!fighterResourceIds.includes(r.id)&&!shadarKaiResourceIds.includes(r.id)&&![aasimarHealingId,aasimarTransformationId].includes(r.id)&&r.id!==feyStepId&&r.id!==leoninRoarId&&!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
+  const resources=saved.filter(r=>!((r.totemManaged||r.id===totemRageId||r.classResourceKey===totemRageId)&&(totemManaged||r.totemManaged&&!hasNativeRage))&&!r.raceManaged&&!r.fighterManaged&&!r.styleManaged&&r.id!==techniqueId&&!fighterResourceIds.includes(r.id)&&!shadarKaiResourceIds.includes(r.id)&&![aasimarHealingId,aasimarTransformationId].includes(r.id)&&r.id!==feyStepId&&r.id!==leoninRoarId&&!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
     const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey);
     return {...r,...(definition&&!r.manual?definition:{}),id:r.id,used:count(r.used),...(r.totemManaged&&!definition?.totemManaged?{totemManaged:false}:{})};
   });
   for(const d of definitions) {
-    if(d.id===populationId||d.campaignManaged||d.raceManaged||d.fighterManaged||d.totemManaged){resources.push(d);continue;}
+    if(d.id===populationId||d.campaignManaged||d.raceManaged||d.fighterManaged||d.styleManaged||d.totemManaged){resources.push(d);continue;}
     if(d.id!==populationId&&c.hiddenClassResources?.includes(d.classResourceKey))continue;
     // Preserve older hand-entered pools and their rules until explicitly adopted.
     if(resources.some(r=>r.classResourceKey===d.classResourceKey||(!r.classResourceKey&&resourceMatches(r,d))))continue;

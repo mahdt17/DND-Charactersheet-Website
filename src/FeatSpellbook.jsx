@@ -1,3 +1,4 @@
+import {styleSpellAttackBonus} from './lib/fightingStyles';
 import {campaignActionBlockReason} from './lib/campaignActivity';
 import {entomancerActionBlockReason} from './lib/entomancer';
 import {totemCastingBlockReason} from './lib/totemWarrior';
@@ -23,7 +24,7 @@ export default function FeatSpellbook({char,patch,show,roll,featId}){
   const canonical=resolveFeatSpell(char,cast);if(!canonical)throw Error('The feat no longer grants this spell.');
   const values=spendFeatCast(char,canonical,option||{});
   const rolls=(plan?.rolls||[]).filter(r=>!/^\d+$/.test(r.expression));for(const r of rolls){rollDice(r.expression,'normal',()=>0);if(plan?.attack&&/damage/i.test(r.label))rollDice(criticalDice(r.expression),'normal',()=>0);}
-  for(let n=0;n<(plan?.attack?plan.count:1);n++){const hit=plan?.attack?roll(`1d20${signed(pb+mod)}`,`${cast.name} · feat spell attack`,{kind:'attack'}):null;for(const r of rolls)roll(hit&&hit.total-hit.bonus===20&&/damage/i.test(r.label)?criticalDice(r.expression):r.expression,`${cast.name} · ${r.label}`,{kind:'damage'});}
+  for(let n=0;n<(plan?.attack?plan.count:1);n++){const hit=plan?.attack?roll(`1d20${signed(pb+mod+styleSpellAttackBonus(char,cast))}`,`${cast.name} · feat spell attack`,{kind:'attack'}):null;for(const r of rolls)roll(hit&&hit.total-hit.bonus===20&&/damage/i.test(r.label)?criticalDice(r.expression):r.expression,`${cast.name} · ${r.label}`,{kind:'damage'});}
   patch({...values,...(cast.concentration?{concentration:cast.name}:{})});setNotice(`${cast.name} cast${option.pool==='feat'?' using its feat use':option.pool==='ritual'?' as a ritual (+10 minutes)':option.pool==='cantrip'?'':` using a level ${option.level} ${option.pool==='pact'?'Pact Magic ':''}slot`}.`);setCast(null);
  }catch(e){setError(e.message);}}
  return <section aria-label="Feat spells"><h2>Feat spells</h2><p>Feat uses recover on a Long Rest. Class spell slots remain separate.</p>

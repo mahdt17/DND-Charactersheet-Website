@@ -1,3 +1,4 @@
+import {styleChoicePlan} from './fightingStyles.js';
 import {totemChoicePlan} from './totemWarrior.js';
 import {fighterChoicePlan} from './fighterSubclasses.js';
 import {isEntomancerRecord} from './entomancer.js';
@@ -464,9 +465,9 @@ function baseFeatureChoicePlan(c,previous=null,picks={},context={}) {
   return {groups,patch,valid};
 }
 export function featureChoicePlan(c,previous=null,picks={},context={}) {
- const base=baseFeatureChoicePlan(c,previous,picks,context),fighter=fighterChoicePlan({...c,...base.patch},previous,picks);
+ const base=baseFeatureChoicePlan(c,previous,picks,context),styles=styleChoicePlan({...c,...base.patch},previous,picks),fighter=fighterChoicePlan({...c,...base.patch,...styles.patch},previous,picks);
  const totem=totemChoicePlan({...c,...base.patch,...fighter.patch},previous,picks);
- return {groups:[...base.groups,...fighter.groups,...totem.groups],patch:{...base.patch,...fighter.patch,...totem.patch},valid:base.valid&&fighter.valid&&totem.valid};
+ return {groups:[...base.groups,...styles.groups,...fighter.groups,...totem.groups],patch:{...base.patch,...styles.patch,...fighter.patch,...totem.patch},valid:base.valid&&styles.valid&&fighter.valid&&totem.valid};
 }
 export function applyFeatureChoices(c,previous,picks,context={}) {
   const plan=featureChoicePlan(c,previous,picks,context);

@@ -1,3 +1,4 @@
+import {fightingStyleProfile,styleWeaponModifiers} from './fightingStyles.js';
 import {totemProfile} from './totemWarrior.js';
 import {effectArmor} from './spellEffects.js';
 import {totemSubclassRecords} from '../data/totemWarrior.js';
@@ -78,7 +79,7 @@ export function armorFor(char, abilities) {
   const shield=worn.some(e=>e.index==='shield');
   const armor=worn.filter(e=>e.armor_class&&e.index!=='shield');
   const spellArmor=effectArmor(char,abilities,{armored:armor.length>0,shield});
-  if(armor.length){const e=armor[0];return Math.max(spellArmor.minimum,entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities)+spellArmor.bonus);}
+  if(armor.length){const e=armor[0];return Math.max(spellArmor.minimum,entomancerArmor(char,e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities)+spellArmor.bonus+fightingStyleProfile(char,abilities).ac);}
   const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
@@ -92,13 +93,13 @@ export function armorFor(char, abilities) {
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
   const campaign=campaignProfile(char),inertial=campaign.psion&&char.archivistCampaign?.powerEffects?.['inertial-armor']?.minutes>0?Number(campaign.rulings.inertialArmorBase??13)+dex:0;
-  return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(base,inertial,...spellArmor.bases)+(shield?2:0)+campaignModifiers(char).ac,'',abilities)+spellArmor.bonus);
+  return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(base,inertial,...spellArmor.bases)+(shield?2:0)+campaignModifiers(char).ac,'',abilities)+spellArmor.bonus+fightingStyleProfile(char,abilities).ac);
 }
 export function sheetArmorFor(char,abilities){
  if(char.autoArmor&&char.ruleset!=='3.5'&&char.mechanics!=='3.5')return armorFor(char,abilities);
  const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
  const effects=effectArmor(char,abilities,{armored:worn.some(e=>e.armor_class&&e.index!=='shield'),shield:worn.some(e=>e.index==='shield')});
- return Math.max(effects.minimum,Number(char.ac||0)+effects.bonus);
+ return Math.max(effects.minimum,Number(char.ac||0)+effects.bonus+fightingStyleProfile(char,abilities).ac);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
@@ -106,11 +107,11 @@ export function weaponAttacks(char, abilities) {
     const data=equipment.find(e=>e.index===i.equipmentIndex);
     if(!data?.damage?.damage_dice)return null;
     const dex=modifier(abilities.dex),str=modifier(abilities.str);
-    const finesse=data.properties?.some(p=>p.index==='finesse');
-    const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str;
+    const style=styleWeaponModifiers(char,i,data),finesse=data.properties?.some(p=>p.index==='finesse');
+    const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str,damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
     const trained=hasWeaponTraining(char,data,proficiencies);
-    const totem=totemProfile(char,abilities),rage=totem.activeRage&&!totem.heavyArmor&&data.weapon_range==='Melee'&&(!finesse||str>=dex)?totem.rageDamage:0;
-    const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&data.weapon_range==='Melee'?2:0;
-    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike,damage:`${data.damage.damage_dice}${signed(ability+strike+rage)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    const totem=totemProfile(char,abilities),rage=totem.activeRage&&!totem.heavyArmor&&style.melee&&(!finesse||str>=dex)?totem.rageDamage:0;
+    const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
+    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack,damage:`${style.dice}${signed(damageAbility+strike+rage+style.damage)}`,description:`${style.thrown?'Ranged thrown':style.offhand?'Offhand melee':data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }
