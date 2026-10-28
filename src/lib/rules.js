@@ -112,6 +112,6 @@ export function weaponAttacks(char, abilities) {
     const trained=hasWeaponTraining(char,data,proficiencies);
     const totem=totemProfile(char,abilities),rage=totem.activeRage&&!totem.heavyArmor&&style.melee&&(!finesse||str>=dex)?totem.rageDamage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
-    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack,damage:`${style.dice}${signed(damageAbility+strike+rage+style.damage)}`,description:`${style.thrown?'Ranged thrown':style.offhand?'Offhand melee':data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack,damage:`${style.dice}${signed(damageAbility+strike+rage+style.damage)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }
