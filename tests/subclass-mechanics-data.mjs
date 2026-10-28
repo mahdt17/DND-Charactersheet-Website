@@ -37,6 +37,16 @@ test('flexible Strixhaven progression has one canonical choice system and rune p
  assert.ok(get('fighter:rune-knight-ua').choices.find(c=>/runes/.test(c.key)).optionDetails.every(o=>!o.minimumClassLevel||o.minimumClassLevel===3));
 });
 
+test('published rune invocation actions require their selected rune and correct unlock level',()=>{
+ const published=get('fighter:rune-knight');
+ for(const name of ['Cloud','Fire','Frost','Stone','Hill','Storm']){
+  const action=published.actions.find(a=>a.key===`invoke-${name.toLowerCase()}`);
+  assert.ok(action,name);
+  assert.equal(action.level,['Hill','Storm'].includes(name)?7:3,name);
+  assert.deepEqual(action.when,{choice:'runes-known',equals:name},name);
+ }
+});
+
 test('conditional fallback training and mixed-choice quotas encode their actual eligibility',()=>{
  for(const [tail,key] of [['ranger:gloom-stalker','iron-mind-save'],['fighter:samurai','courtier-save-fallback'],['fighter:samurai-ua','tireless-save-fallback']]){
   const r=get(tail);assert.deepEqual(r.choices.find(c=>c.key===key).when,{alreadyProficient:'wis',kind:'saves'});assert.ok(r.training.some(t=>t.kind==='save-proficiency'&&t.value==='wis'));

@@ -149,8 +149,8 @@ function compile(facts,record){
  const keys=new Set(resources.map(r=>r.key));
  const actions=(facts.actions||[]).map(a=>{
   const result=reference({...a,...(a.resourceKey&&!keys.has(a.resourceKey)&&!externalPools.has(a.resourceKey)?{referenceOnly:true}:{} )},record);
-  if(record.id==='2014:subclass:fighter:rune-knight'&&/^rune-/.test(a.key)){
-   const name=a.key.slice(5);result.when={choice:'runes-known',equals:name[0].toUpperCase()+name.slice(1)};
+  if(record.id==='2014:subclass:fighter:rune-knight'&&/^rune-/.test(a.resourceKey)){
+   const name=a.resourceKey.slice(5);result.when={choice:'runes-known',equals:name[0].toUpperCase()+name.slice(1)};
    if(['hill','storm'].includes(name))result.level=7;
   }
   return result;

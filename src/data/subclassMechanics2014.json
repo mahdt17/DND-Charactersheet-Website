@@ -31040,7 +31040,11 @@
         "notes": "Individual rune pool. Published runeDC8+pb+con; UA8+pb+int. Exact rune-specific passive benefit remains in Rune source bundle.",
         "sourceEvidence": "fighter--rune-knight.md:11",
         "verifiedAction": true,
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Cloud"
+        }
       },
       {
         "feature": "Rune Carver",
@@ -31060,7 +31064,11 @@
         "notes": "Individual rune pool. Published runeDC8+pb+con; UA8+pb+int. Exact rune-specific passive benefit remains in Rune source bundle.",
         "sourceEvidence": "fighter--rune-knight.md:11",
         "verifiedAction": true,
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Fire"
+        }
       },
       {
         "feature": "Rune Carver",
@@ -31075,7 +31083,11 @@
         "notes": "Individual rune pool. Published runeDC8+pb+con; UA8+pb+int. Exact rune-specific passive benefit remains in Rune source bundle.",
         "sourceEvidence": "fighter--rune-knight.md:11",
         "verifiedAction": true,
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Frost"
+        }
       },
       {
         "feature": "Rune Carver",
@@ -31090,11 +31102,15 @@
         "notes": "Individual rune pool. Published runeDC8+pb+con; UA8+pb+int. Exact rune-specific passive benefit remains in Rune source bundle.",
         "sourceEvidence": "fighter--rune-knight.md:11",
         "verifiedAction": true,
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Stone"
+        }
       },
       {
         "feature": "Rune Carver",
-        "level": 3,
+        "level": 7,
         "key": "invoke-hill",
         "name": "Invoke Hill Rune",
         "timing": "bonus-action",
@@ -31105,11 +31121,15 @@
         "notes": "Individual rune pool. Published runeDC8+pb+con; UA8+pb+int. Exact rune-specific passive benefit remains in Rune source bundle.",
         "sourceEvidence": "fighter--rune-knight.md:11",
         "verifiedAction": true,
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Hill"
+        }
       },
       {
         "feature": "Rune Carver",
-        "level": 3,
+        "level": 7,
         "key": "invoke-storm",
         "name": "Invoke Storm Rune",
         "timing": "bonus-action",
@@ -31120,7 +31140,11 @@
         "notes": "Individual rune pool. Published runeDC8+pb+con; UA8+pb+int. Exact rune-specific passive benefit remains in Rune source bundle.",
         "sourceEvidence": "fighter--rune-knight.md:11",
         "verifiedAction": true,
-        "featureId": "2014:subclass:fighter:rune-knight:rune-carver"
+        "featureId": "2014:subclass:fighter:rune-knight:rune-carver",
+        "when": {
+          "choice": "runes-known",
+          "equals": "Storm"
+        }
       }
     ],
     "passives": [
