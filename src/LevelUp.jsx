@@ -9,7 +9,7 @@ import EditionLevelUp from './EditionLevelUp';
 import {classOptions} from './GuidedSetup';
 import {useReferenceIndex} from './lib/referenceIndex';
 import {characterClasses,contentKey,eligibleClass,advanceClass,prestige,spellsForClass,recalculateLegacyBaseProgression35} from './lib/advancement';
-import {editionName} from './lib/editions';
+import {editionName,catalogSpells} from './lib/editions';
 import Requirements from './Requirements';
 import Dialog from './Dialog';
 import {multiclassTrainingPlan,trainingChoicesValid} from './lib/training';
@@ -25,7 +25,7 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
   const ruleset=char.ruleset||'2014',spellReference=useReferenceIndex(['3.5','custom'].includes(ruleset)?['spells']:[],ruleset);
   const catalog=useReferenceIndex(['classes','feats','equipment'],ruleset),rows=characterClasses(char);
   const featureContext={
-    spells:[...homebrew.filter(entry=>entry?.category==='spell'),...spellReference.entries],
+    spells:[...catalogSpells(ruleset,homebrew),...spellReference.entries],
     feats:[...homebrew.filter(entry=>/feat/i.test(entry?.category||'')),...catalog.entries.filter(entry=>/feat/i.test(entry?.category||''))],
     equipment:[...homebrew.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon'),...catalog.entries.filter(entry=>/equipment/i.test(entry?.category||'')||/weapon/i.test(entry?.category||'')||entry?.kind==='weapon'||entry?.itemType==='weapon')]
   };

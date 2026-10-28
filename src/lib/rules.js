@@ -1,3 +1,4 @@
+import {availableSubclasses,findExpandedSubclass,legacySubclassName} from './expandedSubclassCatalog.js';
 import {fightingStyleProfile,styleWeaponModifiers} from './fightingStyles.js';
 import {totemProfile} from './totemWarrior.js';
 import {effectArmor} from './spellEffects.js';
@@ -10,7 +11,8 @@ import spells from '../data/spells.json';
 import classes from '../data/classes.json';
 import features from '../data/features.json';
 import subclasses14 from '../data/subclasses.json';
-const subclasses=[...subclasses14,...fighterSubclassRecords,...totemSubclassRecords];
+const oldSubclasses=[...subclasses14,...fighterSubclassRecords,...totemSubclassRecords];
+const subclasses=[...oldSubclasses,...availableSubclasses().filter(r=>!oldSubclasses.some(old=>findExpandedSubclass(old.class.name,old.name)?.id===r.id)).map(r=>({...r,name:legacySubclassName(r)}))];
 import equipment from '../data/equipment.json';
 import {hasWeaponTraining,startingProficiencies} from './training.js';
 import {entomancerArmor,entomancerProfile} from './entomancer.js';

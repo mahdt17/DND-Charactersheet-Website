@@ -1,3 +1,6 @@
+import SubclassPicker from './SubclassPicker';
+import {catalogSpells} from './lib/editions';
+import {expandedSubclassFeatures} from './lib/expandedSubclasses';
 import {totemFeatureRows} from './lib/totemWarrior';
 import {fighterFeatureRows} from './lib/fighterSubclasses';
 import {backgrounds2014 as BACKGROUND_DATA} from './data/backgrounds2014';
@@ -403,7 +406,7 @@ const FIXED_RACIAL_SPELLS = {
 
 // Starter 2014 spell catalog used by the guided creator and level-up flow.
 // This intentionally contains concise descriptions; the content database will eventually expand this.
-const SPELL_DATA = spellCatalog;
+const SPELL_DATA = catalogSpells('2014');
 
 const CANTRIP_COUNTS_2014 = {
   Bard:[0,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4],
@@ -902,16 +905,16 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   const targetLevel = Math.min(20, char.level + 1);
   const classData = CLASS_DATA[char.className];
   const [subclass, setSubclass] = useState(char.subclass || "");
-  const newFeatures = [...(classLevel(char.className,targetLevel).features||[]),...fighterFeatureRows({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel),...totemFeatureRows({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel)].map(f=>f.name);
+  const newFeatures = [...(classLevel(char.className,targetLevel).features||[]),...expandedSubclassFeatures({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel),...fighterFeatureRows({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel),...totemFeatureRows({...char,classLevels:undefined,level:targetLevel,subclass}).filter(f=>f.level===targetLevel)].map(f=>f.name);
   const hasASI = (classLevel(char.className,targetLevel).ability_score_bonuses||0) > (classLevel(char.className,char.level).ability_score_bonuses||0);
   const subclassFeature = SUBCLASS_FEATURES[char.className];
   const needsSubclass = targetLevel >= ({Cleric:1,Sorcerer:1,Warlock:1,Wizard:2,Druid:2}[char.className]||3) && !char.subclass;
   const spellcasting = !!SPELL_PROGRESSION[char.className]||!!castingSubclassNames[char.className];
   const counts = spellcasting ? spellCounts({...char,level:targetLevel,subclass},effectiveAbilities(char)[castingKey({...char,subclass})]||10) : null;
   const prevCounts = spellcasting ? spellCountsFor(char, char.level) : null;
-  const cantripGain = counts ? Math.max(0, counts.cantrips - (char.spells || []).filter(s => s.source !== char.race && !spellAccess(char,resolveSpell(s,char)).alwaysPrepared && (s.level === "Cantrip" || s.level === 0)).length) : 0;
+  const cantripGain = counts ? Math.max(0, counts.cantrips - (char.spells || []).filter(s => s.source !== char.race && !spellAccess(char,resolveSpell(s,char)).alwaysPrepared&&!spellAccess(char,resolveSpell(s,char)).bonusKnown && (s.level === "Cantrip" || s.level === 0)).length) : 0;
   const currentCantrips = (char.spells || []).filter((s) => s.level === "Cantrip" || s.level === 0).map((s) => s.name);
-  const currentChosen = (char.spells || []).filter((s) => !s.auto&&!spellAccess(char,resolveSpell(s,char)).alwaysPrepared).map((s) => s.name);
+  const currentChosen = (char.spells || []).filter((s) => !s.auto&&!spellAccess(char,resolveSpell(s,char)).alwaysPrepared&&!spellAccess(char,resolveSpell(s,char)).bonusKnown).map((s) => s.name);
   const knownTarget = counts?.known ?? counts?.prepared ?? 0;
   const currentKnown = currentChosen.filter((name) => SPELL_DATA.some((s) => s.name === name && s.level > 0)).length;
   const spellGain = counts?.mode === "known" || counts?.mode === "spellbook" ? Math.max(0, knownTarget - currentKnown) : 0;
@@ -944,7 +947,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
     setter((prev) => prev.includes(name) ? prev.filter((x) => x !== name) : (prev.length >= limit ? prev : [...prev, name]));
   };
   const accessModel={...char,level:targetLevel,subclass,abilities:abilityChanges(),spells:[...(char.spells||[]),...newSpells.map(name=>SPELL_DATA.find(s=>s.name===name)).filter(Boolean)]};
-  const selectable=SPELL_DATA.filter(s=>{const access=spellAccess(accessModel,s);return access.allowed&&!access.alwaysPrepared;});
+  const selectable=SPELL_DATA.filter(s=>{const access=spellAccess(accessModel,s);return access.allowed&&!access.alwaysPrepared&&!access.bonusKnown;});
   const spellCandidates = selectable.filter(s=>s.level>0);
   const cantripCandidates = selectable.filter(s=>s.level===0);
   const normalPrepared=preparedSpells.filter(name=>spellCandidates.some(s=>s.name===name));
@@ -1036,7 +1039,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
               {abilityPlan.mode==='feat'?<LevelUpFeatChoice char={featCharacter} feat={feat} onChange={setFeat} homebrew={homebrew}/>:<><div className="creation-section-grid two"><label className="creation-field"><span>{abilityPlan.mode==='plus-two'?'Ability to increase by 2':'First ability (+1)'}</span><select value={abilityPlan.first} onChange={e=>setAbilityPlan(x=>({...x,first:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>{abilityPlan.mode==='plus-one-two'&&<label className="creation-field"><span>Second ability (+1)</span><select value={abilityPlan.second} onChange={e=>setAbilityPlan(x=>({...x,second:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>}</div><div className="review-grid">{ABILITIES.map(a=><div key={a.key} className="review-stat"><span>{a.label}</span><strong>{effectiveAbilities(char)[a.key]} → {effectiveNextAbilities[a.key]}</strong></div>)}</div></>}
               <div className="creation-auto-note"><strong>Automatically recalculated</strong><span>Ability modifiers, saving throws, skills, spell attacks, and Constitution-based HP update automatically. Review custom attacks and feat effects manually.</span></div>
             </div>}
-            {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><label className="creation-field"><span>Subclass name</span><input aria-label="Subclass name" list="level-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)} placeholder="Choose an SRD subclass or enter your own"/><datalist id="level-subclasses">{subclasses.filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}{castingSubclassNames[char.className]&&<option value={castingSubclassNames[char.className]}/>}</datalist><small>SRD subclass features appear on your sheet. Custom subclass effects require manual input.</small></label></div>}
+            {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><SubclassPicker className={char.className} value={subclass} onChange={setSubclass} id="level-subclasses"/></div>}
           </>}
           {isSpell && <>
             <CreationStepHeader eyebrow="Spellcasting" title="Choose your new spells" description="Only spells available to your class are shown. Your current selections remain on the character sheet, and new choices are added automatically when you finish leveling up."/>

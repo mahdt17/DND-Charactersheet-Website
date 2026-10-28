@@ -1,3 +1,6 @@
+import {expandedSubclassFeatures} from './expandedSubclasses.js';
+import extraSubclassSpells from '../data/subclassSpellCatalog.json';
+import subclassChoiceSpells from '../data/subclassChoiceSpellCatalog.json';
 import {totemFeatureRows} from './totemWarrior.js';
 import {fighterFeatureRows} from './fighterSubclasses.js';
 import {campaignKind,campaignProfile,campaignFeatureRows} from './archivistCampaign.js';
@@ -21,8 +24,8 @@ export const editionName=e=>editions.find(x=>x[0]===e)?.[1]||'5e';
 export const mechanics=c=>c.ruleset==='custom'?(c.mechanics||'2014'):(c.ruleset||'2014');
 export const is35=c=>mechanics(c)==='3.5';
 export const keyOf=s=>s.catalogId||`${s.edition||'2014'}:${s.index||s.id||s.name}`;
-const normalizeSpell=(s,edition)=>({...s,edition,source:edition==='2024'?'SRD 5.2.1':s.source||'SRD 5.1',description:s.description||s.desc?.join('\n\n')||'',school:typeof s.school==='object'?s.school.name:s.school||'Homebrew',classes:(s.classes||[]).map(c=>typeof c==='string'?c:c.name),higher_level:typeof s.higher_level==='string'?[s.higher_level]:s.higher_level||[],catalogId:`${edition}:${s.index}`});
-export const allSpells=[...spellCatalog.map(s=>normalizeSpell(s,'2014')),...modern.spells.map(s=>normalizeSpell(s,'2024')),...legacy.spells.map(s=>({...s,catalogId:`3.5:${s.index}`}))];
+const normalizeSpell=(s,edition)=>({...s,edition,source:edition==='2024'?'SRD 5.2.1':s.source||'SRD 5.1',description:s.description||s.desc?.join('\n\n')||'',school:typeof s.school==='object'?s.school.name:s.school||'Homebrew',classes:(s.classes||[]).map(c=>typeof c==='string'?c:c.name),higher_level:typeof s.higher_level==='string'?[s.higher_level]:s.higher_level||[],catalogId:s.catalogId||`${edition}:${s.index}`});
+export const allSpells=[...[...spellCatalog,...extraSubclassSpells,...subclassChoiceSpells].map(s=>normalizeSpell(s,'2014')),...modern.spells.map(s=>normalizeSpell(s,'2024')),...legacy.spells.map(s=>({...s,catalogId:`3.5:${s.index}`}))];
 export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homebrew.filter(x=>x.category==='spell'&&!x.integrityIssues?.length).map(s=>({...s,catalogId:s.catalogId||s.id,index:s.index||s.id}))].map(refreshEntomancerSpell).filter(s=>edition==='custom'||edition==='all'||s.edition===edition);}
 export function resolveSpell(s,char){return refreshEntomancerSpell(reviewedEntomancerSpell(s)||allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s);}
 export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'?modern.classes:is35(c)?legacy.classes:classes).find(x=>x.name===c.className);}
@@ -132,6 +135,7 @@ export function classFeatures(c){if(characterClasses(c).length===1&&campaignKind
  const martial=fighterFeatureRows(c);if(martial.length)return [...grantedClassFeatures(c),...martial];
  if(entomancerProfile(c).level)return entomancerFeatureRows(c);
  if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,featureName:f.name,level:Number(f.level?.name?.match(/\d+$/)?.[0]||0),desc:[f.description]}));
+ const expanded=expandedSubclassFeatures(c);if(expanded.length)return [...grantedClassFeatures({...c,subclass:''}),...expanded];
  return null;}
 export function legacyProgression(c){const d=classRecord(c),classId=c.classDefinition?.catalogId||c.classDefinition?.id||c.activeCastingClassId,r=baseProgression(d,c.level,c,classId);return Object.fromEntries(Object.entries(r).map(([k,v])=>[k,Number.isFinite(v)?v:0]));}
 export function validPack(value){const list=Array.isArray(value)?value:value?.entries;if(!Array.isArray(list)||!list.length||list.length>2000)throw Error('Use an array of 1–2,000 homebrew entries.');
