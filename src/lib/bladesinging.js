@@ -1,3 +1,5 @@
+import {actorActionBlock} from './subclassState.js';
+import {findExpandedSubclass} from './expandedSubclassCatalog.js';
 import {characterClasses,totalLevel} from './advancement.js';
 import {effectiveAbilityScores} from './abilityScores.js';
 import {activeEffects} from './spellEffects.js';
@@ -15,14 +17,14 @@ function restriction(c){
  if(worn.some(e=>e.equipmentIndex==='shield'||e.index==='shield'||e.shield||e.armor_category==='Shield'))return 'Bladesong cannot be used with a shield.';
  if(worn.some(e=>['Medium','Heavy'].includes(e.armor_category)))return 'Remove medium or heavy armor before using Bladesong.';
  const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(x=>name(x?.name||x));
- if(count(c.hp?.current)===0||count(c.deathSaves?.failure)>=3)return 'You must be conscious to use Bladesong.';
+ if(actorActionBlock(c))return actorActionBlock(c);
  if(conditions.some(x=>['incapacitated','unconscious','stunned','paralyzed','petrified','dead'].includes(x)))return 'Bladesong ends while you are incapacitated.';
  return '';
 }
 
 export function bladesongProfile(c,abilities=effectiveAbilityScores(c)){
  const edition=(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
- const row=characterClasses(c).find(r=>r.name==='Wizard'&&r.edition==='2014'&&!r.definition?.homebrew&&r.definition?.source!=='Homebrew'&&!r.definition?.prestige&&['bladesinging','bladesinger'].includes(name(r.subclass)));
+ const row=characterClasses(c).find(r=>r.name==='Wizard'&&r.edition==='2014'&&!r.definition?.homebrew&&r.definition?.source!=='Homebrew'&&!r.definition?.prestige&&findExpandedSubclass(r.name,r.subclass)?.id==='2014:subclass:wizard:bladesinging');
  if(edition!=='2014'||!row||row.level<2)return {active:false,singing:false,acBonus:0,speedBonus:0,concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1};
  const level=count(row.level),pb=2+Math.floor((Math.max(1,totalLevel(c))-1)/4),blocked=restriction(c);
  const used=Math.max(0,...(c.resources||[]).filter(matchesResource).map(r=>count(r.used)));

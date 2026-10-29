@@ -1,3 +1,5 @@
+import {subclassNumericProfile} from './lib/subclassNumerics';
+import {campaignModifiers} from './lib/campaignModifiers';
 import React,{useState} from 'react';
 import {bladesongProfile,bladesongEffectId,startBladesong,endBladesong,useSongOfDefense} from './lib/bladesinging.js';
 import {effectiveAbilityScores} from './lib/abilityScores.js';
@@ -19,7 +21,7 @@ export default function BladesingingTools({char,patch,roll,onSpells}){
   patch(result.patch);setTriggered(false);setNotice(`Prevent ${result.reduction} damage from the triggering hit. Apply any remaining damage to your HP.`);
  });}
  function concentration(){
-  const bonus=Math.floor((Number(scores.con??10)-10)/2)+(char.saveProf?.con?p.pb:0)+p.concentrationBonus;
+  const bonus=Math.floor((Number(scores.con??10)-10)/2)+(char.saveProf?.con?p.pb:0)+p.concentrationBonus+subclassNumericProfile(char).saveBonus+(campaignModifiers(char).conSave||0);
   roll?.(`1d20${bonus>=0?'+':''}${bonus}`,'Concentration save · Bladesong',{kind:'save'});
  }
  return <section aria-label="Bladesinging tools" className="class-ability">

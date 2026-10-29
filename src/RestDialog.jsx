@@ -49,7 +49,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       return result;
     });
     if(inline)setLastRoll({healing,results});
-    return {...counts,hp:changeHP(char.hp,healing,true),...(healing>0&&char.hp.current===0?{deathSaves:{success:0,failure:0}}:{})};
+    return {...counts,hp:{...changeHP({...char.hp,max:conditionEffects(char).maxHP},healing,true),max:char.hp.max},...(healing>0&&char.hp.current===0?{deathSaves:{success:0,failure:0}}:{})};
   }
   function rollSelected() {
     try {patch(spend(true));setSpending({});setError('');}catch(e){setError(e.message);}

@@ -1,4 +1,4 @@
-import equipment from '../data/equipment.json';
+import equipment from '../data/equipment.json' with {type:'json'};
 const legacy=c=>c?.ruleset==='3.5'||c?.mechanics==='3.5';
 const armored=c=>(c.inventory||[]).some(i=>i.equipped&&equipment.some(e=>e.index===i.equipmentIndex&&e.armor_class&&e.index!=='shield'));
 const spellName=s=>String(s?.name||'').trim().toLowerCase();
