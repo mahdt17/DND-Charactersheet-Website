@@ -7,6 +7,7 @@ import {resourceEvent} from './subclassQuantities.js';import {conditionalActions
 import {rageProfile} from './rage2014.js';
 import {armorModelProfile,kenseiWeaponProfile,monkMartialArtsAvailable} from './subclassEquipment.js';
 import {conditionEffects} from './play.js';
+import {subclassRollTraits} from './subclassNumerics.js';
 const signed=v=>v>=0?`+${v}`:String(v),base={'base:ki':'2014:Monk:points','base:rage':'2014:Barbarian:rage','base:sorcery-points':'2014:Sorcerer:points','base:bardic-inspiration':'2014:Bard:inspiration','base:wild-shape':'2014:Druid:wild-shape','base:channel-divinity':'2014:channel-divinity'};
 export const martialArtsDie=level=>level>=17?10:level>=11?8:level>=5?6:4;
 const records=(c,ids,feature)=>{try{return sourceFeature(c,ids,feature);}catch{return null;}};
@@ -35,7 +36,7 @@ p=records(c,['monk:long-death'],'mastery-of-death');add(p,'mastery-of-death','Ma
 export function triggeredFeaturePlan(c,key,input={}){
  const d=triggeredFeatures(c).find(d=>d.key===key);if(!d)throw Error('This triggered feature is not available.');let rolls=[...d.rolls];const {p}=d; if(d.conditional)return conditionalActionPlan(c,key,input);
  if(d.verified)rolls=(d.verified.rolls||[]).map(r=>{let e=r.expression;if(typeof e==='object')e=e[Object.keys(e).map(Number).filter(n=>n<=p.row.level).sort((a,b)=>b-a)[0]];return subclassRoll(String(e).replace(/martialArtsDie/g,String(martialArtsDie(p.row.level))),{...p.context,level:p.row.level,spellAttack:p.context.pb+(p.context.wis||0)});});
- if(key==='fanatical-focus'){const ability=input.ability||'con';if(!['str','dex','con','int','wis','cha'].includes(ability))throw Error('Choose a saving throw ability.');rolls=[`1d20${signed(p.context[ability]+(c.saveProf?.[ability]?p.context.pb:0))}`];} if(key==='wails-from-grave')rolls=[`${Math.ceil(Math.ceil(p.row.level/2)/2)}d6`];
+ if(key==='fanatical-focus'){const ability=input.ability||'con';if(!['str','dex','con','int','wis','cha'].includes(ability))throw Error('Choose a saving throw ability.');rolls=[`1d20${signed(p.context[ability]+(c.saveProf?.[ability]?p.context.pb:0)+subclassRollTraits(c,{kind:'save',name:({str:'Strength',dex:'Dexterity',con:'Constitution',int:'Intelligence',wis:'Wisdom',cha:'Charisma'})[ability]}).bonus)}`];} if(key==='wails-from-grave')rolls=[`${Math.ceil(Math.ceil(p.row.level/2)/2)}d6`];
  return {...d,rolls};
 }
 export function executeTriggeredFeature(c,key,input={}){

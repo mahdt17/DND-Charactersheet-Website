@@ -189,3 +189,7 @@ test('Martial Arts substitutions require legal equipment while independent Sun B
  let d=make('Monk','Ascendant Dragon',5);d.inventory=[{id:'armor',equipmentIndex:'chain-mail',equipped:true}];assert.equal(triggers.subclassNaturalAttacks(d)[0].damage,'4');assert.equal(triggers.subclassNaturalAttacks({...d,subclass:'Sun Soul'})[0].damage,'1d6+2');
  let k=make('Monk','Kensei',6);k.abilities={...k.abilities,dex:20,str:10};k.expandedSubclassChoices={'2014:monk':{'2014:subclass:monk:kensei':{'initial-kensei-melee':['Club']}}};k.inventory=[{id:'club',equipmentIndex:'club',name:'Club',equipped:true},{id:'armor',equipmentIndex:'chain-mail',equipped:true}];assert.equal(rules.weaponAttacks(k,k.abilities)[0].damage,'1d4+0');
 });
+
+test('Fanatical Focus rerolls the actual source save including another class active save bonus',()=>{
+ let c=make('Barbarian','Zealot',13);c.classLevels=[{catalogId:'2014:barbarian',name:'Barbarian',edition:'2014',level:6,subclass:'Zealot'},{catalogId:'2014:fighter',name:'Fighter',edition:'2014',level:7,subclass:'Rune Knight'}];c.saveProf={con:true};c.expandedSubclassChoices={'2014:fighter':{'2014:subclass:fighter:rune-knight':{'runes-known':['Frost','Hill','Fire']}}};c=apply(c,triggers.executeTriggeredFeature(c,'invoke-frost',{triggered:true,equipment:true}));c=apply(c,active.startRage(c));assert.equal(triggers.triggeredFeaturePlan(c,'fanatical-focus',{ability:'con'}).rolls[0],'1d20+10');
+});
