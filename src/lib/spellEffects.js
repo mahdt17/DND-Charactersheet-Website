@@ -68,8 +68,8 @@ export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false,max
 }
 export function endEffect(c,id){
  if(legacy(c))return {};
- const effect=activeEffects(c).find(e=>e.id===id),concentration=effect?.concentration?null:c.concentration;
- const removed=effect?.stateKey==='rage'?['rage','rage-beyond-death','beast-weapon','storm-aura']:[];
+ const effect=activeEffects(c).find(e=>e.id===id);if(effect?.canEnd===false)throw Error('This source state cannot be ended manually; advance the clock or finish its source rest.');const concentration=effect?.concentration?null:c.concentration;
+ const removed=effect?.stateKey==='rage'?['rage','rage-beyond-death','beast-weapon','storm-aura','rage-wild-surge']:[];
  return {concentration,...finishSubclassEffects(c,(c.activeEffects||[]).filter(e=>e.id!==id&&!removed.includes(e.stateKey))),...(effect?.stateKey==='rage'?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{})};
 }
 export function restEffectPatch(c,kind){

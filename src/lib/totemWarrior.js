@@ -43,7 +43,7 @@ export function startTotemRage(c){
  return {totemWarrior:{...c.totemWarrior,activeRage:true},concentration:'',activeEffects:[...(c.activeEffects||[]).filter(e=>!e.concentration&&e.stateKey!=='rage'),{id:'barbarian:rage',name:'Rage',stateKey:'rage',baseClassId:totemRageId,remainingSeconds:60}],resources:[...(c.resources||[]).filter(r=>r.id!==totemRageId&&r.classResourceKey!==totemRageId),{...totemRageResource(c),used:p.unlimited?p.used:p.used+1}]};
 }
 export const endTotemRage=c=>({totemWarrior:{...c.totemWarrior,activeRage:false},activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='rage')});
-export const totemCastingBlockReason=rageCastingBlock;
+export function totemCastingBlockReason(c){return rageCastingBlock(c);}
 const damageTypes=['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','radiant','slashing','thunder'];
 export function totemDamageResistance(c,type){const p=totemProfile(c);return p.activeRage&&(p.spirit==='Bear'&&damageTypes.includes(norm(type))||!p.heavyArmor&&['bludgeoning','piercing','slashing'].includes(norm(type))); }
 const beastSense={index:'beast-sense',name:'Beast Sense',level:2,casting_time:'1 action',range:'Touch',components:['S'],duration:'Concentration, up to 1 hour',concentration:true,description:'Touch a willing beast. Spend an action to perceive through its sight and hearing; spend another action to return to your own senses. See the linked spell source for the full effect.'};

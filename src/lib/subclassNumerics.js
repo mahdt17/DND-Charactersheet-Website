@@ -7,6 +7,7 @@ import {bladesongProfile} from './bladesinging.js';
 import {actorActionBlock,sourceSubclassEffects} from './subclassState.js';
 import {characterClasses} from './advancement.js';
 import {subclassHitPointBonus} from './subclassHitPoints.js';
+import {quantityProfile} from './subclassQuantities.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 
 const id=(cls,sub)=>`2014:subclass:${cls}:${sub}`;
@@ -62,6 +63,8 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  if(armorModel?.model==='Infiltrator')result.speedBonus+=5;
  if(active.frostBonus){result.saveBonuses.str=2;result.saveBonuses.con=2;result.abilityCheckBonuses.str=(result.abilityCheckBonuses.str||0)+2;result.abilityCheckBonuses.con=(result.abilityCheckBonuses.con||0)+2;result.skillBonuses.Athletics=(result.skillBonuses.Athletics||0)+2;}
  if(sourceSubclassEffects(c,{stateKey:'awaken-astral'}).length)result.acBonus+=2;
+ if(sourceSubclassEffects(c).some(e=>['astral-arms','awaken-astral'].includes(e.stateKey))){const amount=Math.max(0,Math.floor((abilities.wis-10)/2)-Math.floor((abilities.str-10)/2));result.saveBonuses.str=(result.saveBonuses.str||0)+amount;result.abilityCheckBonuses.str=(result.abilityCheckBonuses.str||0)+amount;result.skillBonuses.Athletics=(result.skillBonuses.Athletics||0)+amount;}
+ if(quantityProfile(c,'soul-trinkets')?.current>0)result.saveAdvantages.push('con','death');
  if(result.abilityCheckBonuses.dex&&!result.rows.some(r=>r.applied&&r.kind==='initiative-bonus'&&r.value==='pb')){const lore=result.rows.find(r=>r.applied&&r.kind==='initiative-ability');result.initiativeBonus+=Math.max(0,result.abilityCheckBonuses.dex-(lore?.computedValue||0));}
  return result;
 }
@@ -70,7 +73,7 @@ export function subclassRollTraits(c,{kind='check',name='',concentration=false}=
  const p=subclassNumericProfile(c);
  name=name.replace(/ check$/i,'');
  const active=activeFormProfile(c),strength=/^(Strength|Athletics)\b/i.test(name),con=/^Constitution\b/i.test(name),dragon=active.star==='Dragon'&&(kind==='save'&&(concentration||/concentration/i.test(name))||kind==='check'&&['Intelligence','Wisdom','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival'].includes(name));
- return {minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:strength&&active.strengthAdvantage||kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
+ return {minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:strength&&active.strengthAdvantage||kind==='save'&&(con&&p.saveAdvantages.includes('con')||/^Death\b/i.test(name)&&p.saveAdvantages.includes('death'))||kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
 }
 
 // Explicit, narrowly scoped states. Other source prose remains table-resolved.

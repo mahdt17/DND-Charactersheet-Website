@@ -12,6 +12,7 @@ export function wardCastPatch(c,spell,slotLevel){
  return quantityPatch(c,p,p.saved.created?p.current+2*slotLevel:p.max,{created:true});
 }
 export function absorbWard(c,{amount,rawDamage,project=false,resistant=false,vulnerable=false,immune=false}={}){
+ if(project)assertAct(c);
  const p=quantityProfile(c,'arcane-ward-hp');if(!p||!p.saved.created)throw Error('Create the ward with a level 1+ abjuration spell first.');if(project&&p.row.level<6)throw Error('Projected Ward requires Wizard 6.');
  if(!Number.isInteger(amount)||amount<0||!project&&(!Number.isInteger(rawDamage)||rawDamage<0))throw Error('Enter nonnegative whole raw damage and absorption amounts.');
  const absorbed=Math.min(amount,p.current,project?Infinity:rawDamage),remaining=project?0:rawDamage-absorbed,adjusted=immune?0:Math.floor(remaining*(resistant?.5:1))*(vulnerable?2:1),temp=Math.min(Number(c.hp.temp)||0,adjusted),loss=adjusted-temp;

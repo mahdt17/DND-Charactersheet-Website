@@ -14,15 +14,22 @@ export function tableExtraRolls(c,key,result){const d=tableOutcome(c,key,result)
  if(key==='barbarian-wild-magic')return n===1?['1d12','1d12']:[3,5,8].includes(n)?['1d6']:[];
  if(key==='barbarian-wild-soul-ua')return n===1?['1d10']:n===3?['1d4','2d8']:n===8?['2d8']:[];
  if(key==='spirit-tales')return [];
- return ({7:['8d6',`1d20+${d.p.context.dex+(c.saveProf?.dex?d.p.context.pb:0)}`],9:['7d4+7'],11:['1d10'],35:['1d10'],37:['1d6'],39:['2d10'],53:['5d6'],65:['4d10'],73:['1d4'],83:['1d10']})[n]||[];
+ return ({7:['8d6',`1d20+${d.p.context.dex+(c.saveProf?.dex?d.p.context.pb:0)}`],9:['7d4+7'],11:['1d10'],35:['1d10'],37:['1d6'],39:['2d10'],53:['5d6'],65:['4d10'],73:['1d4'],77:[`1d20+${d.p.context.wis+(c.saveProf?.wis?d.p.context.pb:0)}`],83:['1d10']})[n]||[];
 }
-export function applySubclassTable(c,key,result,{triggered=false,rolls=[],maxHP=c.hp.max,damageDealt}={}){
+export function applySubclassTable(c,key,result,{triggered=false,rolls=[],maxHP=c.hp.max,damageDealt,recipient,itemId}={}){
  assertAct(c);if(!triggered)throw Error('Confirm the source table trigger first.');const d=tableOutcome(c,key,result),{p,outcome}=d,n=outcome.min,expressions=tableExtraRolls(c,key,result);if(rolls.length!==expressions.length)throw Error('Resolve the visible outcome rolls first.');rolls.forEach(r=>validRoll(r));let patch={},state=null;
  if(key==='spirit-tales'){patch=spendFeature(c,p,'2014:Bard:inspiration');state=featureState(c,p,'held-spirit-tale',{tableResult:n,tableInstructions:outcome.description,endsOnRest:true});}
- else if(key.startsWith('barbarian-')){const ua=key.endsWith('-ua');state=featureState(c,p,'rage-wild-surge',{remainingSeconds:60,tableResult:n,tableInstructions:outcome.description,...(n===(ua?4:6)?{acBonus:ua?2:1}:{})});if(n===1){if(ua){if(!Number.isFinite(damageDealt)||damageDealt<0)throw Error('Confirm total necrotic damage actually dealt before granting UA temporary HP.');patch=tempHP(c,damageDealt,'wild-surge');}else patch=tempHP(c,rolls[1].total,'wild-surge');}}
+ else if(key.startsWith('barbarian-')){const ua=key.endsWith('-ua');if(n===(ua?7:4)&&!(c.inventory||[]).some(i=>i.id===itemId&&i.equipped&&i.equipmentIndex))throw Error('Choose the actual held weapon for this surge.');state=featureState(c,p,'rage-wild-surge',{remainingSeconds:60,tableResult:n,tableInstructions:outcome.description,...(n===(ua?7:4)?{itemId,weaponDamageType:ua?'psychic':'force'}:{}),...(n===(ua?4:6)?{acBonus:ua?2:1}:{})});if(n===1){if(ua){if(!Number.isFinite(damageDealt)||damageDealt<0)throw Error('Confirm total necrotic damage actually dealt before granting UA temporary HP.');patch=tempHP(c,damageDealt,'wild-surge');}else patch=tempHP(c,rolls[1].total,'wild-surge');}}
  else {
   const extra={remainingSeconds:60,tableResult:n,tableInstructions:outcome.description};
   if(n===51)extra.acBonus=2;
+  if([45,87].includes(n))extra.remainingSeconds=600;
+  if(n===63)extra.remainingSeconds=3600;
+  if(n===85)extra.mirrorImages=3;
+  if(n===87&&!['self','other'].includes(recipient))throw Error('Confirm whether the randomly chosen target is Self or Other recipient.');
+  if(n===87&&recipient==='other')extra.externalTarget=true;
+  if(n===77){extra.remainingSeconds=3600;const failed=rolls[0].total<8+p.context.pb+p.context.cha;extra.saveSucceeded=!failed;if(failed)extra.profileRef={catalogId:'2014:creatures',creatureId:'sheep',kind:'shape-result'};}
+  if(n===41)extra.profileRef={catalogId:'2014:objects',creatureId:'potted-plant',kind:'shape-result'};
   if(n===15)extra.healAtTurnStart=5;
   if(n===41){extra.expires='start-next-turn';extra.blocksActions=true;extra.endsAtZero=true;}
   if(n===49)extra.preventsVerbal=true;

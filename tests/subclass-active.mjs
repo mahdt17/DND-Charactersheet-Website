@@ -4,7 +4,7 @@ import {createServer} from 'vite';
 import {existsSync} from 'node:fs';
 const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
 const load=async path=>existsSync(`src/lib/${path}.js`)?server.ssrLoadModule(`/src/lib/${path}.js`):{};
-const [active,effect,actor,play,styles,resources,integration,quant,healing,bindings,featurecast,recovery,triggers,numerics,theurgy,tables,featmagic,featcast]=await Promise.all(['subclassActive','spellEffects','subclassState','play','fightingStyles','resources','classIntegration','subclassQuantities','subclassHealing','subclassEquipment','subclassFeatureCasting','subclassRecovery','subclassTriggered','subclassNumerics','subclassTheurgy','subclassTables','featMagic','featCasting'].map(load));await server.close();
+const [active,effect,actor,play,styles,resources,integration,quant,healing,bindings,featurecast,recovery,triggers,numerics,theurgy,tables,featmagic,featcast,rules]=await Promise.all(['subclassActive','spellEffects','subclassState','play','fightingStyles','resources','classIntegration','subclassQuantities','subclassHealing','subclassEquipment','subclassFeatureCasting','subclassRecovery','subclassTriggered','subclassNumerics','subclassTheurgy','subclassTables','featMagic','featCasting','rules'].map(load));await server.close();
 export const make=(className='Druid',subclass='Stars',level=10)=>({ruleset:'2014',className,subclass,level,classDefinition:{name:className,index:className.toLowerCase(),edition:'2014'},abilities:{str:16,dex:14,con:16,int:18,wis:18,cha:18},hp:{current:30,max:50,temp:0},speed:30,inventory:[],resources:[],activeEffects:[],spells:[],actions:[]});
 const apply=(c,p)=>({...c,...p});
 test('normal Rage spends canonical pool once, clears concentration-owned states, forbids casting and expires',()=>{
@@ -139,4 +139,53 @@ test('Conditional Giant and Beast riders validate actual active forms and enforc
 test('Feature casting guards preserve Ward and Arcanum in one patch and protect explicit death from revival',()=>{
  let c=make('Warlock','Genie',19);c.classLevels=[{name:'Warlock',catalogId:'2014:warlock',edition:'2014',level:17,subclass:'The Genie'},{name:'Wizard',catalogId:'2014:wizard',edition:'2014',level:2,subclass:'Abjuration'}];const patch=featurecast.executeFeatureCast(c,'arcanum:9',{name:'Imprisonment',confirmed:true,rolls:[]});assert.equal(patch.subclassArcanum['2014:warlock'][9].used,true);assert.equal(patch.subclassQuantities['2014:wizard']['2014:subclass:wizard:abjuration']['arcane-ward-hp'].current,8);
  const dead={...make('Warlock','Celestial',14),hp:{current:0,max:50,temp:0},dead:true};assert.throws(()=>healing.useHealingFeature(dead,'searing-vengeance',{triggered:true,result:{total:10},maxHP:50}),/dead/);
+});
+
+
+test('Wild Rage requires a visible table result and applies its owned state atomically with the Rage spend',()=>{
+ let b=make('Barbarian','Wild Magic',3);assert.throws(()=>active.startRage(b),/surge|roll/i);b=apply(b,active.startRage(b,{surgeResult:{total:6},surgeRolls:[]}));assert.equal(b.resources.find(r=>r.id==='2014:Barbarian:rage').used,1);assert.equal(b.activeEffects.find(e=>e.stateKey==='rage-wild-surge').acBonus,1);b=apply(b,active.endRage(b));assert(!b.activeEffects.some(e=>e.stateKey==='rage-wild-surge'));
+ let high=make('Barbarian','Wild Magic',14);assert.throws(()=>active.startRage(high,{surgeResult:{total:6}}),/two|2|roll/);high=apply(high,active.startRage(high,{surgeResult:{total:6},surgeChoices:[{total:6},{total:3}]}));assert.equal(high.activeEffects.find(e=>e.stateKey==='rage-wild-surge').tableResult,6);
+});
+
+test('Wild self spell and shape outcomes retain source durations and exact profile handoff without concentration',()=>{
+ let c=make('Sorcerer','Wild Magic',6);c.concentration='Bless';c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:45},{triggered:true}));assert.equal(c.activeEffects.find(e=>e.stateKey==='wild-surge:45').remainingSeconds,600);assert.equal(c.concentration,'Bless');c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:77},{triggered:true,rolls:[{total:2}]}));const sheep=c.activeEffects.find(e=>e.stateKey==='wild-surge:77');assert.equal(sheep.remainingSeconds,3600);assert.equal(sheep.profileRef.creatureId,'sheep');assert.equal(c.concentration,'Bless');assert.throws(()=>tables.applySubclassTable(c,'sorcerer-wild-magic',{total:87},{triggered:true}),/target|recipient/);
+});
+
+
+test('Kensei active ranged hit bonus reaches actual damage; UA pummel keeps its source action and no false ki cost',()=>{
+ let k=make('Monk','Kensei',6);k.expandedSubclassChoices={'2014:monk':{'2014:subclass:monk:kensei':{'initial-kensei-melee':['Longsword'],'initial-kensei-ranged':['Longbow']}}};k.inventory=[{id:'bow',name:'Longbow',equipmentIndex:'longbow',equipped:true}];k=apply(k,triggers.executeTriggeredFeature(k,'kensei-shot',{triggered:true,itemId:'bow'}));assert.match(rules.weaponAttacks(k,k.abilities)[0].damage,/1d4/);assert.equal(rules.rollDice(rules.weaponAttacks(k,k.abilities)[0].damage,'normal',()=>0).total,5);k=apply(k,effect.advanceEffectTime(k,{endTurn:true}));assert(!/1d4/.test(rules.weaponAttacks(k,k.abilities)[0].damage));
+ const ua=make('Monk','Kensei (UA)',6);assert(!triggers.triggeredFeatures(ua).some(d=>d.key==='deft-strike'));assert.equal(triggers.triggeredFeaturePlan(ua,'kensei-pummel').rolls[0],'1d4');
+});
+
+
+test('Active defenses and Astral substitutions reach derived profiles and actual save traits',()=>{
+ let p=make('Rogue','Phantom',9);p=apply(p,quant.resourceEvent(p,'collect-trinket',{visibleDeath:true,within30:true,freeHand:true}));assert(numerics.subclassRollTraits(p,{kind:'save',name:'Constitution save'}).advantage);
+ let a=make('Monk','Astral Self',6);a=apply(a,triggers.executeTriggeredFeature(a,'astral-arms',{triggered:true,rolls:[{total:7}]}));assert.equal(numerics.subclassNumericProfile(a).saveBonuses.str,1);
+ let u=make('Warlock','Undead',10);u=apply(u,active.activateSubclassForm(u,'form-of-dread',{result:{total:15}}));assert(active.activeFormProfile(u).damageImmunities.includes('necrotic'));assert(active.activeFormProfile(u).conditionImmunities.includes('frightened'));
+});
+
+
+test('Generic quantity adjustment writes the authoritative amount and projected Ward rejects incapacitated reactions',()=>{
+ let p=make('Rogue','Phantom',9);p=apply(p,quant.resourceEvent(p,'collect-trinket',{visibleDeath:true,within30:true,freeHand:true}));const resource=resources.characterResources(p).find(r=>r.key==='soul-trinkets');p=apply(p,resources.adjustResource(p,resource.id,1));assert.equal(quant.quantityProfile(p,'soul-trinkets').current,0);p=apply(p,resources.adjustResource(p,resource.id,-1));assert.equal(quant.quantityProfile(p,'soul-trinkets').current,1);
+ let w=make('Wizard','Abjuration',6);w=apply(w,quant.wardCastPatch(w,{school:'Abjuration'},1));assert.throws(()=>quant.absorbWard({...w,conditions:['Stunned']},{amount:2,project:true}),/incapacitated/);
+});
+
+test('Defensive reactions apply own-sheet AC only against the triggering attack and retain separate casting restriction',()=>{
+ let w=make('Wizard','War Magic',2);w=apply(w,triggers.executeTriggeredFeature(w,'arcane-deflection',{triggered:true,defense:'ac'}));assert.equal(rules.sheetArmorFor({...w,ac:12,autoArmor:false},w.abilities),14);assert(w.activeEffects.some(e=>e.stateKey==='arcane-deflection'&&e.onlyCantrips));w=apply(w,active.endSubclassForm(w,'arcane-deflection-defense'));assert.equal(rules.sheetArmorFor({...w,ac:12,autoArmor:false},w.abilities),12);assert(w.activeEffects.some(e=>e.stateKey==='arcane-deflection'));
+ let b=make('Barbarian','Beast',3);b=apply(b,active.startRage(b,{weapon:'Tail'}));b=apply(b,triggers.executeTriggeredFeature(b,'beast-tail-defense',{triggered:true,rolls:[{total:5}]}));assert.equal(rules.sheetArmorFor({...b,ac:12,autoArmor:false},b.abilities),17);
+});
+
+test('Armorer UA binds the owning multiclass feature; Kensei rejects source-ineligible selected weapons',()=>{
+ let a=make('Wizard','Evocation',6);a.classLevels=[{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:3,subclass:'Evocation'},{catalogId:'2014:artificer',name:'Artificer',edition:'2014',level:3,subclass:'Armorer (UA)'}];a.inventory=[{id:'armor',name:'Plate',equipmentIndex:'plate-armor',equipped:true}];a=apply(a,bindings.bindSubclassEquipment(a,'arcane-armor','armor',{confirmed:true,model:'Guardian'}));assert.equal(bindings.armorModelProfile(a).row.catalogId,'2014:artificer');
+ let k=make('Monk','Kensei',3);k.expandedSubclassChoices={'2014:monk':{'2014:subclass:monk:kensei':{'initial-kensei-melee':['Greatsword']}}};assert.equal(bindings.kenseiWeaponProfile(k,{id:'bad',equipmentIndex:'greatsword'}),null);
+});
+
+test('Omen and Tranquility cooldown cannot be ended manually to reroll or bypass source recovery',()=>{
+ let s=make();s=apply(s,recovery.consultCosmicOmen(s,{total:4}));assert.throws(()=>effect.endEffect(s,s.activeEffects.find(e=>e.stateKey==='cosmic-omen').id),/rest|cannot/i);
+ let t=make('Monk','Tranquility (UA)',3);t=apply(t,recovery.tranquilityCast(t,{confirmed:true}));assert.throws(()=>effect.endEffect(t,t.activeEffects.find(e=>e.stateKey==='tranquility-cooldown').id),/cannot|clock/i);
+});
+
+test('Martial Arts substitutions require legal equipment while independent Sun Bolt and UA Kensei retain their own rules',()=>{
+ let d=make('Monk','Ascendant Dragon',5);d.inventory=[{id:'armor',equipmentIndex:'chain-mail',equipped:true}];assert.equal(triggers.subclassNaturalAttacks(d)[0].damage,'4');assert.equal(triggers.subclassNaturalAttacks({...d,subclass:'Sun Soul'})[0].damage,'1d6+2');
+ let k=make('Monk','Kensei',6);k.abilities={...k.abilities,dex:20,str:10};k.expandedSubclassChoices={'2014:monk':{'2014:subclass:monk:kensei':{'initial-kensei-melee':['Club']}}};k.inventory=[{id:'club',equipmentIndex:'club',name:'Club',equipped:true},{id:'armor',equipmentIndex:'chain-mail',equipped:true}];assert.equal(rules.weaponAttacks(k,k.abilities)[0].damage,'1d4+0');
 });

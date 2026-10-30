@@ -1,4 +1,4 @@
-import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile} from './subclassEquipment.js';
+import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile,weaponSubclassDamageDice,weaponSubclassDamageType,monkMartialArtsAvailable} from './subclassEquipment.js';
 import {rageProfile} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {availableSubclasses,findExpandedSubclass,legacySubclassName} from './expandedSubclassCatalog.js';
@@ -10,7 +10,7 @@ import {fighterSubclassRecords} from '../data/fighterSubclasses.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {campaignProfile} from './archivistCampaign.js';
 import levels from '../data/levels.json';
-import spells from '../data/spells.json';
+import {spellCatalog} from './coreSpellCatalog.js';
 import classes from '../data/classes.json';
 import features from '../data/features.json';
 import subclasses14 from '../data/subclasses.json';
@@ -25,7 +25,7 @@ export const castingAbility = { Bard:'cha', Cleric:'wis', Druid:'wis', Paladin:'
 export const modifier = score => Math.floor((Number(score) - 10) / 2);
 export const signed = value => value >= 0 ? `+${value}` : `${value}`;
 export const spellLevel = spell => spell.level === 'Cantrip' ? 0 : parseInt(spell.level, 10) || 0;
-export const spellCatalog = spells.map(s => ({ ...s, description:s.desc.join('\n\n'), school:s.school.name, classes:s.classes.map(c=>c.name) }));
+export {spellCatalog};
 export function classLevel(name, level) {
   return levels.find(l=>l.class.name===name && l.level===Number(level) && !l.subclass) || {};
 }
@@ -50,6 +50,12 @@ export function grantedClassFeatures(char) {
   return [...new Map(base.flatMap(l=>(l.features||[]).map(f=>[f.index,{...f,...features.find(x=>x.index===f.index),level:l.level}]))).values()];
 }
 export function rollDice(expression, mode='normal', random=Math.random) {
+  const mixed=String(expression).replace(/\s/g,'');
+  if(/^\d{1,2}d\d{1,3}(?:\+\d{1,2}d\d{1,3})+(?:[+-]\d{1,3})?$/i.test(mixed)){
+    const dice=mixed.match(/\d+d\d+/gi);if(dice.reduce((n,e)=>n+Number(e.split(/d/i)[0]),0)>50)throw Error('Use at most50 dice.');
+    const groups=dice.map(e=>rollDice(e,'normal',random)),rolls=groups.flatMap(r=>r.rolls),bonus=Number(mixed.match(/([+-]\d+)$/)?.[1]||0);
+    return {id:crypto.randomUUID(),expression,rolls,groups,bonus,total:rolls.reduce((n,v)=>n+v,0)+bonus,mode:'normal',time:new Date().toISOString()};
+  }
   const match=String(expression).replace(/\s/g,'').match(/^(\d{1,2})d(\d{1,3})(dl1)?([+-]\d{1,3})?$/i);
   if(!match) throw new Error('Use a dice expression such as 1d20+5, 2d6+3 or 4d6dl1.');
   const [,quantity,sides,dropLowest,bonus='0']=match;
@@ -118,8 +124,8 @@ export function weaponAttacks(char, abilities) {
     const trained=hasWeaponTraining(char,data,proficiencies);
     const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&(!alternate||alternate==='str')&&(!finesse||str>=dex)?rp.damage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
-    const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;
+    const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei&&(kensei.record.playtest||monkMartialArtsAvailable(char))?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;
     const subclass=subclassNumericProfile(char,abilities),victory=style.melee&&!style.two?subclass.meleeWeaponDamageBonus:0;
-    return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${weaponSubclassDamageDice(char,i)}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${weaponSubclassDamageType(char,i)||data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }
