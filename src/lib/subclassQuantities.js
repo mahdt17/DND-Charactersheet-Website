@@ -15,7 +15,7 @@ export function absorbWard(c,{amount,rawDamage,project=false,resistant=false,vul
  const p=quantityProfile(c,'arcane-ward-hp');if(!p||!p.saved.created)throw Error('Create the ward with a level 1+ abjuration spell first.');if(project&&p.row.level<6)throw Error('Projected Ward requires Wizard 6.');
  if(!Number.isInteger(amount)||amount<0||!project&&(!Number.isInteger(rawDamage)||rawDamage<0))throw Error('Enter nonnegative whole raw damage and absorption amounts.');
  const absorbed=Math.min(amount,p.current,project?Infinity:rawDamage),remaining=project?0:rawDamage-absorbed,adjusted=immune?0:Math.floor(remaining*(resistant?.5:1))*(vulnerable?2:1),temp=Math.min(Number(c.hp.temp)||0,adjusted),loss=adjusted-temp;
- return {absorbed,remaining,concentrationDC:loss>0?Math.max(10,Math.floor(loss/2)):null,patch:{...quantityPatch(c,p,p.current-absorbed),...(!project?{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-loss)}}:{})}};
+ return {absorbed,remaining,concentrationDC:adjusted>0?Math.max(10,Math.floor(adjusted/2)):null,patch:{...quantityPatch(c,p,p.current-absorbed),...(!project?{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-loss)}}:{})}};
 }
 export function resourceEvent(c,event,input={}){
  assertAct(c);

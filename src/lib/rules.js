@@ -1,4 +1,4 @@
-import {weaponSubclassAbility} from './subclassEquipment.js';
+import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile} from './subclassEquipment.js';
 import {rageProfile} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {availableSubclasses,findExpandedSubclass,legacySubclassName} from './expandedSubclassCatalog.js';
@@ -116,9 +116,10 @@ export function weaponAttacks(char, abilities) {
     const style=styleWeaponModifiers(char,i,data),finesse=data.properties?.some(p=>p.index==='finesse');
     const alternate=weaponSubclassAbility(char,i),ability=alternate?modifier(abilities[alternate]):finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str,damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
     const trained=hasWeaponTraining(char,data,proficiencies);
-    const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&!alternate&&(!finesse||str>=dex)?rp.damage:0;
+    const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&(!alternate||alternate==='str')&&(!finesse||str>=dex)?rp.damage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
+    const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;
     const subclass=subclassNumericProfile(char,abilities),victory=style.melee&&!style.two?subclass.meleeWeaponDamageBonus:0;
-    return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack,damage:`${style.dice}${signed(damageAbility+strike+rage+style.damage+victory)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

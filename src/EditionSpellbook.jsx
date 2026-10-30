@@ -123,7 +123,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
     if(needsSlot&&!ritual&&!quick&&!slotOptions(cast).some(x=>x.level===slot&&(x.pool||'standard')===slotPool)){setCastError('Choose an available slot for this spell.');return;}
     if(formula&&!/^(\d{1,2})d(\d{1,3})([+-]\d{1,3})?$/.test(formula.replace(/\s/g,''))){setCastError('Use a roll such as 3d6+2.');return;}
     if(!is35(classModel)&&needsEffectRecipient(cast,plan)&&!['self','other'].includes(recipient)){setCastError('Choose a spell recipient: Self or another creature.');return;}
-    const dice=formula?[{expression:formula.replace(/\s/g,''),label:temporaryHpSpell(cast)?'Temporary HP':healingSpell(cast,plan)?'Healing':'Custom spell roll'}]:expressions;
+    const dice=formula?healingFeaturePlan(char,cast,{...basePlan,rolls:[{expression:formula.replace(/\s/g,''),label:temporaryHpSpell(cast)?'Temporary HP':healingSpell(cast,plan)?'Healing':'Custom spell roll'}]},{slotLevel:slot,recipient,targetAtZero}).rolls:expressions;
     try{for(const d of dice){if(!/^\d+$/.test(d.expression)){rollDice(d.expression,'normal',()=>0);if(!is35(classModel)&&(plan.attack||attack)&&d.critical!==false&&/damage/i.test(d.label))rollDice(criticalDice(d.expression),'normal',()=>0);}}}catch(error){setCastError(error.message);return;}
     try {
     const spend=quick?spendQuickRitual(char,cast):needsSlot&&!ritual?spendActiveSlot(cast,slot,slotPool):{};

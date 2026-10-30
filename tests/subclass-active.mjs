@@ -4,7 +4,7 @@ import {createServer} from 'vite';
 import {existsSync} from 'node:fs';
 const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
 const load=async path=>existsSync(`src/lib/${path}.js`)?server.ssrLoadModule(`/src/lib/${path}.js`):{};
-const [active,effect,actor,play,styles,resources,integration,quant,healing,bindings,featurecast,recovery,triggers,numerics]=await Promise.all(['subclassActive','spellEffects','subclassState','play','fightingStyles','resources','classIntegration','subclassQuantities','subclassHealing','subclassEquipment','subclassFeatureCasting','subclassRecovery','subclassTriggered','subclassNumerics'].map(load));await server.close();
+const [active,effect,actor,play,styles,resources,integration,quant,healing,bindings,featurecast,recovery,triggers,numerics,theurgy,tables,featmagic,featcast]=await Promise.all(['subclassActive','spellEffects','subclassState','play','fightingStyles','resources','classIntegration','subclassQuantities','subclassHealing','subclassEquipment','subclassFeatureCasting','subclassRecovery','subclassTriggered','subclassNumerics','subclassTheurgy','subclassTables','featMagic','featCasting'].map(load));await server.close();
 export const make=(className='Druid',subclass='Stars',level=10)=>({ruleset:'2014',className,subclass,level,classDefinition:{name:className,index:className.toLowerCase(),edition:'2014'},abilities:{str:16,dex:14,con:16,int:18,wis:18,cha:18},hp:{current:30,max:50,temp:0},speed:30,inventory:[],resources:[],activeEffects:[],spells:[],actions:[]});
 const apply=(c,p)=>({...c,...p});
 test('normal Rage spends canonical pool once, clears concentration-owned states, forbids casting and expires',()=>{
@@ -67,4 +67,44 @@ test('verified rune activation and Stars Archer rolls require source choices and
 test('active benefits reach actual roll traits and source-owned Monk attack dice',()=>{
  let c=make('Druid','Stars',10);c=apply(c,active.activateSubclassForm(c,'starry-form',{choice:'Dragon'}));assert.equal(numerics.subclassRollTraits(c,{kind:'save',name:'Concentration save',concentration:true}).minimumD20,10);assert.equal(numerics.subclassRollTraits(c,{kind:'check',name:'Perception'}).minimumD20,10);
  let m=make('Monk','Sun Soul',11);assert.equal(triggers.subclassNaturalAttacks(m)[0].damage,'1d8+2');m={...m,level:15,classLevels:[{catalogId:'2014:monk',name:'Monk',edition:'2014',level:3,subclass:'Sun Soul'},{catalogId:'2014:fighter',name:'Fighter',edition:'2014',level:12}]};assert.equal(triggers.subclassNaturalAttacks(m)[0].damage,'1d4+2');
+});
+
+test('Life low-level roll expression remains executable and active quantities never appear full by default',()=>{
+ const c=make('Cleric','Life',6),s={name:'Cure Wounds',level:1,heal_at_slot_level:{1:'1d8+MOD'}};assert.equal(healing.healingFeaturePlan(c,s,play.spellPlan(s,c,1,4),{slotLevel:1,recipient:'other'}).rolls[0].expression,'1d8+7');const w=make('Wizard','Abjuration',2),r=resources.characterResources(w).find(r=>r.key==='arcane-ward-hp');assert.equal(r.max-r.used,0);assert(r.quantityManaged);
+});
+
+test('Theurgy trades one free Wizard book acquisition for selected domain, then unlocks Cleric list only with all domain spells',()=>{
+ assert.equal(typeof theurgy.replaceTheurgySpell,'function');let c=make('Wizard','Theurgy (UA)',2);c.expandedSubclassChoices={'2014:wizard':{'2014:subclass:wizard:theurgy-ua':{'divine-domain':['Life']}}};c.spells=[{id:'free',name:'Magic Missile',level:1,classes:['Wizard'],castingClassId:'2014:wizard'}];assert(theurgy.theurgyProfile(c).options.some(s=>s.name==='Cure Wounds'));assert(!theurgy.theurgyProfile(c).options.some(s=>s.name==='Guiding Bolt'));c=apply(c,theurgy.replaceTheurgySpell(c,{removedId:'free',name:'Cure Wounds',confirmed:true}));assert.equal(c.spells.length,1);assert(c.spells[0].theurgyBookSpell);assert.throws(()=>theurgy.replaceTheurgySpell(c,{removedId:c.spells[0].id,name:'Bless',confirmed:true}),/already/);
+});
+
+test('Wild Magic tables use visible outcomes, execute typed self effects, and preserve source distinctions',()=>{
+ assert.equal(typeof tables.applySubclassTable,'function');let c=make('Sorcerer','Wild Magic',6);c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:51},{triggered:true,maxHP:50}));assert.equal(c.activeEffects.find(e=>e.stateKey==='wild-surge:51').acBonus,2);assert.throws(()=>tables.applySubclassTable(c,'sorcerer-wild-magic',{total:39},{triggered:true}),/roll/);c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:39},{triggered:true,rolls:[{total:12}],maxHP:50}));assert.equal(c.hp.current,42);
+ const ua=make('Barbarian','Wild Soul (UA)',3),u=tables.applySubclassTable(ua,'barbarian-wild-soul-ua',{total:4},{triggered:true,maxHP:50});assert.equal(u.activeEffects.find(e=>e.stateKey==='rage-wild-surge').acBonus,2);
+});
+test('Spirits retain a rolled tale until bestowed; Alchemist creates real consumables before drinking',()=>{
+ assert.equal(typeof tables.bestowSpiritTale,'function');let c=make('Bard','Spirits',6);c=apply(c,tables.applySubclassTable(c,'spirit-tales',{total:6},{triggered:true,maxHP:50}));assert(c.activeEffects.some(e=>e.stateKey==='held-spirit-tale'));assert.equal(c.hp.temp,0);c=apply(c,tables.bestowSpiritTale(c,{recipient:'self',triggered:true,rolls:[{total:10}],maxHP:50}));assert.equal(c.hp.temp,10);assert(!c.activeEffects.some(e=>e.stateKey==='held-spirit-tale'));assert.throws(()=>tables.bestowSpiritTale(c,{triggered:true,rolls:[{total:8}],maxHP:50}),/tale/);
+ let a=make('Artificer','Alchemist',3);a=apply(a,tables.createElixir(a,{result:{total:3},confirmed:true}));assert.equal(a.subclassElixirs.length,1);a=apply(a,tables.drinkElixir(a,a.subclassElixirs[0].id,{recipient:'self',confirmed:true,maxHP:50}));assert.equal(a.subclassElixirs.length,0);assert.equal(a.activeEffects.find(e=>e.stateKey==='elixir-resilience').acBonus,1);
+});
+
+test('Bastion stores unrolled ward dice, then reaction rolls and spends selected dice once with raw-damage self workflow',()=>{
+ assert.equal(typeof healing.consumeBastion,'function');let c=make('Sorcerer','Clockwork Soul',6);c=apply(c,healing.useHealingFeature(c,'bastion-of-law',{n:3,recipient:'self',triggered:true,maxHP:50}));assert.equal(c.activeEffects.find(e=>e.stateKey==='bastion-of-law').dice,3);assert.throws(()=>healing.consumeBastion(c,{n:2,rawDamage:14,triggered:true}),/roll/);const r=healing.consumeBastion(c,{n:2,result:{total:10},rawDamage:14,triggered:true});c=apply(c,r.patch);assert.equal(c.hp.current,26);assert.equal(c.activeEffects.find(e=>e.stateKey==='bastion-of-law').dice,1);
+});
+
+test('UA Frost changes Strength score instead of published check/save bonus; Ghost Walk trinkets and source revival consume correctly',()=>{
+ let c=make('Fighter','Rune Knight (UA)',7);c.expandedSubclassChoices={'2014:fighter':{'2014:subclass:fighter:rune-knight-ua':{'runes-known':['Frost','Hill','Fire']}}};c=apply(c,triggers.executeTriggeredFeature(c,'invoke-frost',{triggered:true,equipment:true}));assert.equal(active.activeFormProfile(c).frostBonus,0);assert.equal(numerics.subclassNumericProfile(c).abilityCheckBonuses.str||0,0);
+ let p=make('Rogue','Phantom',13);p=apply(p,quant.resourceEvent(p,'collect-trinket',{visibleDeath:true,within30:true,freeHand:true}));p=apply(p,active.activateSubclassForm(p,'ghost-walk',{useTrinket:true}));assert.equal(quant.quantityProfile(p,'soul-trinkets').current,0);
+ let v=make('Warlock','Celestial',14);v.hp.current=0;v=apply(v,healing.useHealingFeature(v,'searing-vengeance',{triggered:true,result:{total:14},maxHP:50}));assert.equal(v.hp.current,25);assert.deepEqual(v.deathSaves,{success:0,failure:0});
+});
+
+test('source variants retain Stars early ending and Chalice formula, Shadow UA cost, and Giant Might activation',()=>{
+ let c=make('Druid','Stars (UA)',10);c=apply(c,active.activateSubclassForm(c,'starry-form',{choice:'Chalice'}));assert.equal(triggers.triggeredFeaturePlan(c,'chalice').rolls[0],'1d8+5');assert(!integration.reconcileClassGrants({...c,conditions:['Stunned']}).activeEffects.some(e=>e.stateKey==='starry-form'));
+ const shadow=featurecast.featureCastPlan(make('Sorcerer','Shadow (UA)',2),'shadow-darkness');assert.equal(shadow.cost,1);const g=make('Fighter','Rune Knight',3);assert(active.subclassForms(g).some(d=>d.key==='giants-might'));assert(active.activateSubclassForm(g,'giants-might').activeEffects.some(e=>e.stateKey==='giants-might'));
+});
+
+test('free feat spells share actor and source casting restrictions without spending on invalid casts',()=>{
+ let c=make('Fighter','Champion',4);c.feats=[{id:'initiate',name:'Magic Initiate',edition:'2014',magicChoices:{list:'Wizard',ability:'int',cantrips:['2014:fire-bolt','2014:mage-hand'],spell:'2014:magic-missile'}}];const spell=featmagic.featMagicSpells(c).find(s=>s.level===1);assert(spell);assert.throws(()=>featcast.spendFeatCast({...c,hp:{...c.hp,current:0}},spell,{pool:'feat',level:1}),/conscious/);
+});
+
+test('Kensei binds sharpened bonus to an eligible actual weapon and validated ki; Dragon uses own Monk die',()=>{
+ let c=make('Monk','Kensei',11);c.expandedSubclassChoices={'2014:monk':{'2014:subclass:monk:kensei':{'initial-kensei-melee':['Longsword'],'initial-kensei-ranged':['Longbow']}}};c.inventory=[{id:'sword',name:'Longsword',equipmentIndex:'longsword',equipped:true}];assert.throws(()=>triggers.executeTriggeredFeature(c,'sharpen-blade',{itemId:'sword',n:4,triggered:true}),/1.*3/);c=apply(c,triggers.executeTriggeredFeature(c,'sharpen-blade',{itemId:'sword',n:2,triggered:true}));assert.equal(bindings.weaponSubclassBonus(c,c.inventory[0]),2);assert.equal(c.resources.find(r=>r.id==='2014:Monk:points').used,2);assert.equal(triggers.subclassNaturalAttacks(make('Monk','Ascendant Dragon',5))[0].damage,'1d6+3');
 });

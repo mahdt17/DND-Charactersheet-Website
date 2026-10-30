@@ -1,3 +1,4 @@
+import {subclassSpellModifiers} from './subclassSpellModifiers.js';
 import {featureCastingBlock} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {actorActionBlock} from './subclassState.js';
@@ -18,10 +19,10 @@ const pick=(map,level)=>{const k=Object.keys(map||{}).map(Number).filter(n=>n<=l
 export function spellPlan(s,c,slot,mod){
  const level=Number(s.level)||0,description=s.description||s.desc?.join('\n')||'',revised=s.edition==='2024';
  const result={attack:!!s.attack_type||/ranged spell attack|melee spell attack|ranged touch attack|melee touch attack/i.test(description),rolls:[],count:1,save:s.dc?.dc_type?.name||'',notes:''};
- if(s.edition==='3.5'||s.referenceOnly){result.notes='3.5 spells scale with caster level, not slot level. Confirm damage and metamagic below.';return result;}
- if(s.rollResolution==='description'){result.attack=false;result.notes=s.rollNotes;return result;}
+ if(s.edition==='3.5'||s.referenceOnly){result.notes='3.5 spells scale with caster level, not slot level. Confirm damage and metamagic below.';return subclassSpellModifiers(c,s,result);}
+ if(s.rollResolution==='description'){result.attack=false;result.notes=s.rollNotes;return subclassSpellModifiers(c,s,result);}
  result.notes=s.rollNotes||'';
- if(s.name==='Magic Missile'){result.rolls=[{expression:`${slot+2}d4+${slot+2}`,label:'Force damage · all darts (split between targets)'}];return result;}
+ if(s.name==='Magic Missile'){result.rolls=[{expression:`${slot+2}d4+${slot+2}`,label:'Force damage · all darts (split between targets)'}];return subclassSpellModifiers(c,s,result);}
  if(s.name==='Scorching Ray')result.count=slot+1;
  if(s.name==='Eldritch Blast')result.count=1+[5,11,17].filter(n=>c.level>=n).length;
  const healing=s.heal_at_slot_level;
@@ -29,7 +30,7 @@ export function spellPlan(s,c,slot,mod){
   const expression=healing?pick(healing,slot).replace(/\s/g,''):s.name==='False Life'?`${revised?2:1}d4+${4+Math.max(0,slot-1)*5}`:String(5+Math.max(0,slot-2)*5);
   result.rolls.push({expression,label:s.name==='False Life'?'Temporary HP':'Maximum and current HP increase'});
   result.notes=s.name==='False Life'?'This grants temporary HP, which do not stack. Casting keeps the higher of your existing temporary HP and this roll; your ordinary HP is not healed.':'This increases maximum and current HP for its duration. Resolve the increase, affected creatures, and later expiration at the table; it is not applied as ordinary healing.';
-  return result;
+  return subclassSpellModifiers(c,s,result);
  }
  if(healing)result.rolls.push({expression:pick(healing,slot).replace(/MOD/g,String(mod)).replace(/\s/g,'').replaceAll('+-','-'),label:'Healing'});
  if(revised&&!healing&&['Cure Wounds','Healing Word','Mass Cure Wounds','Mass Healing Word'].includes(s.name)){
@@ -45,7 +46,7 @@ export function spellPlan(s,c,slot,mod){
  }
  const swarm=entomancerProfile(c);if(swarm.species==='Decomposers')for(const d of [...result.rolls]){const n=d.expression?.match(/^(\d+)d/);if(n&&/necrotic/i.test(d.label))result.rolls.push({expression:`${n[1]}d4`,label:'Half Alive · necrotic damage'});}
  if(!result.rolls.length&&!result.notes)result.notes='Resolve this spell’s effects from its description. No automatic damage or healing roll is needed.';
- return result;
+ return subclassSpellModifiers(c,s,result);
 }
 export function availableSlots(c,s){
  const level=Number(s.level)||0,{standard,pact}=spellSlotPools(c);

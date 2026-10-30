@@ -1,3 +1,4 @@
+import {sourceSubclassEffects} from './subclassState.js';
 import races from '../data/races.json' with {type:'json'};
 import {applyFeatAbilityIncrease,featMagicState} from './featMagic.js';
 import {campaignModifiers} from './campaignModifiers.js';
@@ -8,8 +9,8 @@ export function recordedAbilityBonuses(c){
  return Object.fromEntries(keys.map(key=>[key,c.abilityBonuses?Number(c.abilityBonuses[key]||0):Number(racial.find(b=>b.ability_score.index===key)?.bonus||0)+Number(c.ancestryBonuses?.[key]||0)]));
 }
 function calculate(c,key,bonuses,effects){
- const base=Number(c.abilities?.[key]||0),bonus=bonuses[key],featBonus=applyFeatAbilityIncrease(c,key,base+bonus)-(base+bonus),effectBonus=Number(effects[key]||0),total=base+bonus+featBonus+effectBonus;
- return {base,bonus,featBonus,effectBonus,total,modifier:Math.floor((total-10)/2)};
+ const base=Number(c.abilities?.[key]||0),bonus=bonuses[key],featBonus=applyFeatAbilityIncrease(c,key,base+bonus)-(base+bonus),effectBonus=Number(effects[key]||0),subtotal=base+bonus+featBonus+effectBonus,subclassBonus=key==='str'&&sourceSubclassEffects(c,{recordId:'2014:subclass:fighter:rune-knight-ua',stateKey:'rune-frost'}).length?Math.max(0,Math.min(2,30-subtotal)):0,total=subtotal+subclassBonus;
+ return {base,bonus,featBonus,effectBonus:effectBonus+subclassBonus,total,modifier:Math.floor((total-10)/2)};
 }
 // The popup and all existing sheet consumers share this calculation.
 export function effectiveAbilityScores(c){const bonuses=recordedAbilityBonuses(c),effects=campaignModifiers(c).abilities;return Object.fromEntries(keys.map(key=>[key,calculate(c,key,bonuses,effects).total]));}

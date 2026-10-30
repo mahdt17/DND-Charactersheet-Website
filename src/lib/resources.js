@@ -23,7 +23,7 @@ const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.homebrew||r?.
 // Reviewed core class counters only. Feature effects, conversions, and initiative
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
-  const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
+  const edition=(c.ruleset==='custom'?(c.mechanics||'custom'):c.ruleset)||'2014',rows=characterClasses(c),revised=edition==='2024';
   const population=entomancerResource(c),fey=eladrinResource(c),shadow=blessingResource(c),lion=leoninResource(c),result=[...bladesongResources(c),...expandedSubclassResources(c),...(totemRageResource(c)?[totemRageResource(c)]:[]),...fighterResources(c),...styleResources(c),...aasimarResources(c),...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[]),...(shadow?[shadow]:[]),...(lion?[lion]:[])];
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return result;
   for(const row of rows) {
@@ -94,7 +94,7 @@ export function adjustResource(c,id,amount,abilities) {
   if(r.unlimited)return {...migration,resources};
   if(amount>0&&count(r.used)+amount>count(r.max))throw Error('Not enough resource uses remaining.');
   const used=Math.max(0,count(r.used)+amount);
-  return {...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
+  return {...(id==='2014:Druid:wild-shape'&&amount>0?{activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='symbiotic-entity')}:{}),...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
 }
 export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=false,eladrin,shadarKai}={},abilities) {
   if(!['short','long'].includes(rest))throw Error('Choose a short or long rest.');
@@ -109,5 +109,5 @@ export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=f
   const shadow=isShadarKai(c)?endBlessingWard({...c,...(rest==='long'?finishShadarKaiTrance(c,shadarKai):{})}):{};
   const campaign=campaignRest({...c,resources},rest);
   const entomancer=entomancerRest(campaign,rest,{fed});
-  return {...specialRecoveryRest(c,rest),...featureCastingRest(c,rest),...quantityRest(c,rest),...migration,...shadow,...(isLeonin(c)?endDauntingRoar(c):{}),...(c.totemWarrior?.activeRage?endTotemRage(c):{}),...(c.fighterSubclass?.cavalier?.marks?.length?clearCavalierMarks(c):{}),...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
+  return {...specialRecoveryRest(c,rest),...featureCastingRest(c,rest),...quantityRest(c,rest),...migration,...shadow,...(isLeonin(c)?endDauntingRoar(c):{}),...(c.totemWarrior?.activeRage?{totemWarrior:endTotemRage(c).totemWarrior}:{}),...(c.fighterSubclass?.cavalier?.marks?.length?clearCavalierMarks(c):{}),...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }

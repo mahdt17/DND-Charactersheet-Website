@@ -20,6 +20,7 @@ export function actorActionBlock(c){
  if(edition(c)!=='2014')return '';
  const zealot=sourceSubclassEffects(c,{recordId:'2014:subclass:barbarian:zealot',featureId:'2014:subclass:barbarian:zealot:rage-beyond-death',stateKey:'rage-beyond-death'}).length>0;
  if(Number(c.hp?.current??1)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath)return 'A dead character must be revived before acting.';
+ if(sourceSubclassEffects(c,{recordId:'2014:subclass:sorcerer:wild-magic',stateKey:'wild-surge:41'}).some(e=>e.blocksActions))return 'You are incapacitated while transformed into a potted plant.';
  if(names(c).some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified'].includes(n)))return 'You cannot act while incapacitated.';
  return Number(c.hp?.current??1)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
 }
@@ -32,11 +33,11 @@ export function finishSubclassEffects(c,effects){
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
  const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||Number(c.hp?.current)<=0&&!consciousAtZero(c);
- const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
+ const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
  const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
  const live=new Set(effects.map(e=>e.id));
  const owners=characterClasses(c).flatMap(row=>{const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);return record?[{owner:row.catalogId,record:record.id}]:[];});
  const owned={};for(const key of ['subclassQuantities','subclassPortent','subclassEquipment','subclassPsionic'])if(c[key])owned[key]=Object.fromEntries(Object.entries(c[key]).flatMap(([owner,records])=>{const keep=Object.fromEntries(Object.entries(records).filter(([record])=>owners.some(p=>p.owner===owner&&p.record===record)));return Object.keys(keep).length?[[owner,keep]]:[];}));
 
- return {...c,...owned,spells:(c.spells||[]).filter(s=>!s.temporarySubclassSpell||live.has(s.sourceEffectId)),...finishSubclassEffects(c,effects.filter(e=>!['rage-beyond-death','beast-weapon','storm-aura'].includes(e.stateKey)||hasRage||!c.activeEffects.some(e=>e.stateKey==='rage')))};
+ return {...c,...owned,...(c.subclassElixirs?{subclassElixirs:c.subclassElixirs.filter(e=>owners.some(p=>p.owner===e.sourceClassId&&p.record===e.subclassRecordId))}:{}),spells:(c.spells||[]).filter(s=>!s.temporarySubclassSpell||live.has(s.sourceEffectId)),...finishSubclassEffects(c,effects.filter(e=>!['rage-beyond-death','beast-weapon','storm-aura','rage-wild-surge'].includes(e.stateKey)||hasRage||!c.activeEffects.some(e=>e.stateKey==='rage')))};
 }

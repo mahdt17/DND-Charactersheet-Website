@@ -27,6 +27,7 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   const subclassGrant=subclassSpellAccess(c,spell);
   if(subclassGrant&&validLevel(spell.level))return {allowed:true,level:spell.level,alwaysPrepared:subclassGrant.alwaysPrepared,bonusKnown:!!subclassGrant.bonusKnown,ability:subclassGrant.ability,acquisition:subclassGrant.acquisition,reason:`Granted by ${subclassGrant.source}`};
   const classId=c.activeCastingClassId||contentKey(c.classDefinition||{name:c.className,edition});
+  if(edition==='2014'&&findExpandedSubclass(c.className,c.subclass)?.id==='2014:subclass:wizard:theurgy-ua'&&spell.theurgyBookSpell&&spell.sourceClassId===classId&&spell.subclassRecordId==='2014:subclass:wizard:theurgy-ua')return {allowed:true,level:spell.level,ability:'int',acquisition:'spellbook',reason:'Theurgy Arcane Initiate book spell'};
   const grants=(c.spellAccessGrants||[]).filter(g=>g.classId===classId&&Number(g.classLevel||1)<=c.level&&
     (g.spellId===(spell.catalogId||`${spell.edition||'2014'}:${spell.index||spell.id||spell.name}`))&&g.source);
   if(grants.length){const level=grants[0].spellLevel??spell.level;return validLevel(level)?{allowed:true,level,reason:`Granted by ${grants[0].source}`} : deny('Set a valid level for this granted spell.');}

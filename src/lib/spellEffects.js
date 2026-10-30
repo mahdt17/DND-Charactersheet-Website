@@ -29,7 +29,7 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell
  if(/^self(?:$|\s|\()/i.test(spell.range||'')&&recipient==='other')throw Error('This spell has a Self range and affects the caster.');
  if(spellName(spell)==='warding bond'&&recipient==='self')throw Error('Warding Bond requires another creature as its recipient.');
  if(spellName(spell)==='mage armor'&&recipient==='self'&&armored(c))throw Error('Remove worn armor before casting Mage Armor on yourself.');
- let effects=activeEffects(c),patch={};
+ let effects=activeEffects(c).filter(e=>!e.breaksOnAttackOrCast&&!(e.stateKey==='wild-surge-max-damage'&&plan?.rolls?.some(r=>/damage/i.test(r.label)))&&!(e.stateKey==='wild-surge-save-disadvantage'&&plan?.save)),patch={};
  if(spell.concentration){effects=effects.filter(e=>!e.concentration);patch.concentration=spell.name;}
  if(temporaryHpSpell(spell)){
   const result=rolls.find(r=>/^temporary HP$/i.test(r.label));
@@ -53,16 +53,18 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell
  if(name==='haste'&&recipient==='self')effect={key:name,name:spell.name,acBonus:2,remainingSeconds:60};
  if(name==='barkskin'&&recipient==='self')effect={key:name,name:spell.name,minimumAC:(spell.edition||c.mechanics||c.ruleset)==='2024'?17:16,remainingSeconds:3600};
  if(effect){effect={...effect,id:`spell:${name.replaceAll(' ','-')}`,...(spell.concentration?{concentration:spell.name}:{})};effects=[...effects.filter(e=>e.key!==effect.key),effect];}
- if(effect||spell.concentration)patch.activeEffects=effects;
+ if(effect||spell.concentration||effects.length!==activeEffects(c).length)patch.activeEffects=effects;
  return {...wardCastPatch(c,spell,slotLevel),...patch,...blessedHealerPatch({...c,...patch},spell,{recipient,slotLevel,maxHP})};
 }
 // Durations follow elapsed game time, never the device clock. A turn boundary
 // is explicit because the encounter tracker keeps independent combatants.
-export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false}={}){
+export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false,maxHP}={}){
  if(legacy(c))return {};
  if(!Number.isFinite(seconds)||seconds<0)throw Error('Elapsed game time must be nonnegative.');
- const before=activeEffects(c),after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')&&!(endTurn&&e.expires==='end-turn')).map(e=>startTurn&&e.expires==='end-next-turn'?{...e,expires:'end-turn'}:e).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
- return {...(startTurn?{...quantityTurn(c),subclassTurnUsed:[]}:{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
+ const before=activeEffects(c),healing=startTurn?before.reduce((n,e)=>n+(e.healAtTurnStart||0),0):0;
+ if(healing&&!Number.isFinite(maxHP))throw Error('Supply the effective HP maximum for turn healing.');
+ const after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')&&!(endTurn&&e.expires==='end-turn')).map(e=>startTurn&&e.expires==='end-next-turn'?{...e,expires:'end-turn'}:e).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
+ return {...(healing?{hp:{...c.hp,current:Math.min(maxHP,c.hp.current+healing)},...(c.hp.current===0?{deathSaves:{success:0,failure:0}}:{})}:{}),...(startTurn?{...quantityTurn(c),subclassTurnUsed:[]}:{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
 }
 export function endEffect(c,id){
  if(legacy(c))return {};
@@ -73,5 +75,6 @@ export function endEffect(c,id){
 export function restEffectPatch(c,kind){
  if(legacy(c))return {};
  const concentration=kind==='long'?null:c.concentration;
- return {concentration,...advanceEffectTime({...c,concentration},{seconds:kind==='long'?28800:3600})};
+ const timed=advanceEffectTime({...c,concentration,activeEffects:kind==='short'?(c.activeEffects||[]).filter(e=>!e.endsOnRest):c.activeEffects},{seconds:kind==='long'?28800:3600});
+ return {concentration,...timed,...(kind==='long'?{activeEffects:timed.activeEffects.filter(e=>!e.endsOnLongRest&&!e.endsOnRest),subclassSessionUsed:{}}:{})};
 }

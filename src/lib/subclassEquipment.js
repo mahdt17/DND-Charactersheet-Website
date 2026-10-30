@@ -1,3 +1,4 @@
+import {sourceSubclassEffects} from './subclassState.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 import classes from '../data/classes.json' with {type:'json'};
 import {hasWeaponTraining,startingProficiencies} from './training.js';
@@ -25,6 +26,9 @@ export function weaponSubclassAbility(c,item){
   if(p.record.id==='2014:subclass:warlock:hexblade'&&(p.binding['hex-weapon']===item.id&&!d.properties?.some(p=>p.index==='two-handed')||p.row.level>=3&&p.binding['pact-weapon']===item.id))return 'cha';
   if(p.record.id==='2014:subclass:warlock:hexblade-ua'&&p.binding['hex-weapon']===item.id&&d.weapon_range==='Melee'&&!d.properties?.some(p=>p.index==='two-handed')&&proficient(c,d))return 'cha';
   if(p.record.id==='2014:subclass:artificer:battle-smith'&&p.row.level>=3&&p.binding['magic-weapon']?.includes(item.id))return 'int';
- }return null;
+ }const k=kenseiWeaponProfile(c,item);if(k)return (Number(c.abilities?.dex)||10)>(Number(c.abilities?.str)||10)?'dex':'str';return null;
 }
 export function armorModelProfile(c){const p=subclassEquipmentProfiles(c).find(p=>p.record.id.includes(':armorer')),binding=p?.binding['arcane-armor'],item=c.inventory?.find(i=>i.id===binding?.itemId&&i.equipped);return p&&item?{...p,...binding,item}:null;}
+
+export function kenseiWeaponProfile(c,item){const d=dataFor(item),p=subclassEquipmentProfiles(c).find(p=>p.record.id.includes(':kensei'));if(!d?.damage||!p)return null;const selected=Object.entries(p.state).filter(([k])=>k.includes('kensei')).flatMap(([,v])=>Array.isArray(v)?v:[]),known=selected.some(n=>String(n).toLowerCase()===d.name.toLowerCase())||p.record.playtest&&d.weapon_category==='Martial'&&proficient(c,d);return known?{...p,item,data:d}:null;}
+export function weaponSubclassBonus(c,item){return kenseiWeaponProfile(c,item)?Math.max(0,...sourceSubclassEffects(c,{stateKey:'sharpen-blade'}).filter(e=>e.itemId===item.id).map(e=>Number(e.bonus)||0)):0;}

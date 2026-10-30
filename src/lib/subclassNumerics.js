@@ -58,6 +58,7 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
   }
  }
  const active=activeFormProfile(c),armorModel=armorModelProfile(c);
+ for(const e of sourceSubclassEffects(c))if(['elixir-swiftness','spirit-traveler'].includes(e.stateKey))result.speedBonus+=10;
  if(armorModel?.model==='Infiltrator')result.speedBonus+=5;
  if(active.frostBonus){result.saveBonuses.str=2;result.saveBonuses.con=2;result.abilityCheckBonuses.str=(result.abilityCheckBonuses.str||0)+2;result.abilityCheckBonuses.con=(result.abilityCheckBonuses.con||0)+2;result.skillBonuses.Athletics=(result.skillBonuses.Athletics||0)+2;}
  if(sourceSubclassEffects(c,{stateKey:'awaken-astral'}).length)result.acBonus+=2;
