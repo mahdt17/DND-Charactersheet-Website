@@ -6,6 +6,7 @@ const server=await createServer({server:{middlewareMode:true,hmr:false},optimize
 const rules=await server.ssrLoadModule('/src/lib/rules.js'),play=await server.ssrLoadModule('/src/lib/play.js'),song=await server.ssrLoadModule('/src/lib/bladesinging.js'),res=await server.ssrLoadModule('/src/lib/resources.js'),styles=await server.ssrLoadModule('/src/lib/fightingStyles.js'),integration=await server.ssrLoadModule('/src/lib/classIntegration.js');
 const numeric=existsSync('src/lib/subclassNumerics.js')?await server.ssrLoadModule('/src/lib/subclassNumerics.js'):{};
 const actor=existsSync('src/lib/subclassState.js')?await server.ssrLoadModule('/src/lib/subclassState.js'):{};
+const advancement=await server.ssrLoadModule('/src/lib/advancement.js');
 const effect=await server.ssrLoadModule('/src/lib/spellEffects.js'),expanded=await server.ssrLoadModule('/src/lib/expandedSubclasses.js');
 await server.close();
 const abilities={str:12,dex:16,con:16,int:18,wis:14,cha:16};
@@ -108,4 +109,41 @@ test('inherently two-handed weapons always use both hands even with an invalid i
  const c={...started(make('Wizard','Bladesinging',14)),inventory:[gear('longbow'),gear('greatsword')],fightingStyles:{attackModes:{longbow:{grip:'one'},greatsword:{grip:'one'}}}};
  for(const a of rules.weaponAttacks(c,abilities)){assert.equal(a.hands,2);assert(!song.bladesongProfile({...c,...song.afterBladesingerAttack(c,a)}).singing);}
  assert.equal(rules.weaponAttacks({...c,fightingStyles:{}},abilities)[0].hands,2);
+});
+
+const sorcerer={...rules.classes.find(c=>c.name==='Sorcerer'),edition:'2014'};
+const fighter={...rules.classes.find(c=>c.name==='Fighter'),edition:'2014'};
+const draconic=current=>({...make('Sorcerer','Draconic Bloodline',4),classDefinition:sorcerer,hp:{current,max:20,temp:3}});
+test('own-class advancement adds base gain and new subclass HP while retaining injury',()=>{
+ for(const [current,want] of [[24,30],[17,23],[0,6]]){
+  const before=draconic(current),after=advancement.advanceClass(before,sorcerer,{hpGain:5});
+  assert.deepEqual(after.hp,{current:want,max:25,temp:3});assert.equal(play.conditionEffects(after).maxHP,30);assert.equal(before.hp.current,current);
+ }
+});
+test('advancing another class retains earned Sorcerer HP and prior injury',()=>{
+ for(const [current,want] of [[24,31],[17,24]]){
+  const after=advancement.advanceClass(draconic(current),fighter,{hpGain:7});
+  assert.deepEqual(after.hp,{current:want,max:27,temp:3});assert.equal(play.conditionEffects(after).maxHP,31);
+ }
+});
+test('advancement does not add 2014 subclass HP to 2024 or 3.5 characters',()=>{
+ for(const edition of ['2024','3.5']){
+  const record={...sorcerer,edition},c={...draconic(17),ruleset:edition,classDefinition:record};
+  const after=advancement.advanceClass(c,record,{hpGain:5});assert.deepEqual(after.hp,{current:22,max:25,temp:3});assert.equal(play.conditionEffects(after).maxHP,25);
+ }
+});
+test('reloading source-owned HP retains base and injury without refilling or double-counting',()=>{
+ let c=draconic(17);
+ for(let i=0;i<3;i++){c=integration.reconcileClassGrants(advancement.normalizeAdvancement(JSON.parse(JSON.stringify(c))));assert.deepEqual(c.hp,{current:17,max:20,temp:3});assert.equal(play.conditionEffects(c).maxHP,24);}
+});
+
+test('all four unconditional HP sources advance by owner class level, including Custom and multiclass',()=>{
+ for(const source of ['draconic-bloodline','favored-soul-revisited-ua','giant-soul-ua','stone-sorcery-ua']){
+  const c={...draconic(24),subclass:`2014:subclass:sorcerer:${source}`,ruleset:'custom',mechanics:'2014'};
+  const after=advancement.advanceClass(c,sorcerer,{hpGain:5});assert.equal(after.hp.max,25);assert.equal(after.hp.current,30);assert.equal(play.conditionEffects(after).maxHP,30);
+ }
+ const c={...draconic(31),level:5,hp:{current:31,max:27,temp:3},classLevels:[{catalogId:advancement.contentKey(sorcerer),name:'Sorcerer',edition:'2014',level:4,subclass:'Draconic Bloodline',definition:sorcerer},{catalogId:advancement.contentKey(fighter),name:'Fighter',edition:'2014',level:1,definition:fighter}]};
+ const after=advancement.advanceClass(c,sorcerer,{hpGain:5});assert.deepEqual(after.hp,{current:37,max:32,temp:3});assert.equal(play.conditionEffects(after).maxHP,37);
+ const homebrew={...draconic(20),classDefinition:{...sorcerer,homebrew:true}};
+ assert.equal(advancement.advanceClass(homebrew,{...sorcerer,homebrew:true},{hpGain:5}).hp.current,25);
 });

@@ -4,12 +4,14 @@ import {effectiveAbilityScores} from './abilityScores.js';
 import {bladesongProfile} from './bladesinging.js';
 import {actorActionBlock,sourceSubclassEffects} from './subclassState.js';
 import {characterClasses} from './advancement.js';
+import {subclassHitPointBonus} from './subclassHitPoints.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 
 const id=(cls,sub)=>`2014:subclass:${cls}:${sub}`;
 export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  const result={acBases:[],acBonus:0,hpBonus:0,speedBonus:0,initiativeBonus:0,initiativeAdvantage:false,saveBonus:0,skillBonuses:{},abilityCheckBonuses:{},skillAdvantages:[],saveAdvantages:[],concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1,criticalThreshold:20,rows:[]};
  if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014')return result;
+ result.hpBonus=subclassHitPointBonus(c,characterClasses(c));
  const worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
  const shield=worn.some(e=>e.index==='shield'||e.equipmentIndex==='shield'||e.shield),heavy=worn.some(e=>e.armor_category==='Heavy');
  const armored=worn.some(e=>e.armor_class&&e.index!=='shield'),blocked=actorActionBlock(c),song=bladesongProfile(c,abilities);
@@ -33,7 +35,7 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
    else if(kind==='base-armor-class'&&record===id('paladin','redemption-ua')){source.status='automated';if(!armored&&!shield){result.acBases.push(value());source.applied=true;source.computedValue=value();}}
    else if(['persuasion-check-bonus','charisma-check-bonus'].includes(kind)&&!condition){const skills=kind==='persuasion-check-bonus'?['Persuasion']:['Deception','Intimidation','Performance','Persuasion'];for(const skill of skills)result.skillBonuses[skill]=(result.skillBonuses[skill]||0)+value();if(kind==='charisma-check-bonus')result.abilityCheckBonuses.cha=(result.abilityCheckBonuses.cha||0)+value();source.status='automated';source.applied=true;source.computedValue=value();}
    else if(kind==='physical-ability-check-bonus'&&record===id('fighter','champion')){for(const key of ['str','dex','con'])result.abilityCheckBonuses[key]=(result.abilityCheckBonuses[key]||0)+value();for(const skill of ['Athletics','Acrobatics','Sleight of Hand','Stealth'])if(!c.skillProf?.[skill]&&!c.expertise?.[skill])result.skillBonuses[skill]=(result.skillBonuses[skill]||0)+value();source.status='automated';source.applied=true;source.computedValue=value();}
-   else if(kind==='hp-max-bonus' &&!condition)apply('hpBonus',value());
+   else if(kind==='hp-max-bonus'&&!condition&&(!p.record.flexibleFeatureSelection||Number(passive.level||1)<=p.record.entryLevel)){source.status='automated';source.applied=true;source.computedValue=value();}
    else if(kind==='ac'&&(['sorcerer:draconic-bloodline','sorcerer:aberrant-mind-ua'].map(x=>'2014:subclass:'+x).includes(record)||record===id('sorcerer','stone-sorcery-ua'))){
     source.status='automated';if(!armored&&(record!==id('sorcerer','stone-sorcery-ua')||!blocked&&state.some(e=>e.stateKey==='stone-skin'))){result.acBases.push(value());source.applied=true;source.computedValue=value();}
    }
