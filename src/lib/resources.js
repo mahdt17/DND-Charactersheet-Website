@@ -1,3 +1,4 @@
+import {specialRecoveryRest,featureCastingRest} from './subclassRest.js';
 import {quantityRest} from './subclassQuantities.js';
 import {bladesongResources,bladesongId} from './bladesinging.js';
 import {expandedSubclassResources} from './expandedSubclasses.js';
@@ -108,5 +109,5 @@ export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=f
   const shadow=isShadarKai(c)?endBlessingWard({...c,...(rest==='long'?finishShadarKaiTrance(c,shadarKai):{})}):{};
   const campaign=campaignRest({...c,resources},rest);
   const entomancer=entomancerRest(campaign,rest,{fed});
-  return {...quantityRest(c,rest),...migration,...shadow,...(isLeonin(c)?endDauntingRoar(c):{}),...(c.totemWarrior?.activeRage?endTotemRage(c):{}),...(c.fighterSubclass?.cavalier?.marks?.length?clearCavalierMarks(c):{}),...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
+  return {...specialRecoveryRest(c,rest),...featureCastingRest(c,rest),...quantityRest(c,rest),...migration,...shadow,...(isLeonin(c)?endDauntingRoar(c):{}),...(c.totemWarrior?.activeRage?endTotemRage(c):{}),...(c.fighterSubclass?.cavalier?.marks?.length?clearCavalierMarks(c):{}),...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }

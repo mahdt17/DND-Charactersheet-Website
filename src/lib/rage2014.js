@@ -11,3 +11,4 @@ export function rageProfile(c){
  return {level,active:!!level&&!!(state||legacy),state,heavy,max,used,unlimited:level>=20,damage:level>=16?4:level>=9?3:2,persistent:level>=15};
 }
 export const rageCastingBlock=c=>rageProfile(c).active?'You cannot cast spells or rituals while raging. End Rage first.':'';
+export function featureCastingBlock(c,spell){if(Number(spell.level)>0&&(c.activeEffects||[]).some(e=>e.stateKey==='arcane-deflection'&&e.remainingSeconds>0))return 'Arcane Deflection permits only cantrips until the end of your next turn.';return rageCastingBlock(c);}

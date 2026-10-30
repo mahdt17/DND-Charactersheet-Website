@@ -58,11 +58,11 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell
 }
 // Durations follow elapsed game time, never the device clock. A turn boundary
 // is explicit because the encounter tracker keeps independent combatants.
-export function advanceEffectTime(c,{seconds=0,startTurn=false}={}){
+export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false}={}){
  if(legacy(c))return {};
  if(!Number.isFinite(seconds)||seconds<0)throw Error('Elapsed game time must be nonnegative.');
- const before=activeEffects(c),after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
- return {...(startTurn?quantityTurn(c):{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
+ const before=activeEffects(c),after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')&&!(endTurn&&e.expires==='end-turn')).map(e=>startTurn&&e.expires==='end-next-turn'?{...e,expires:'end-turn'}:e).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
+ return {...(startTurn?{...quantityTurn(c),subclassTurnUsed:[]}:{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
 }
 export function endEffect(c,id){
  if(legacy(c))return {};

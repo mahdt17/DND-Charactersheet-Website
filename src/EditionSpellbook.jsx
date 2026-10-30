@@ -1,3 +1,4 @@
+import {featureCastingBlock} from './lib/rage2014';
 import {healingFeaturePlan} from './lib/subclassHealing';
 import {actorActionBlock} from './lib/subclassState';
 import {styleSpellAttackBonus} from './lib/fightingStyles';
@@ -110,7 +111,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
   const needsSlot=cast&&!cast.dailySpellLikeGrant&&!special&&!cast.isManeuver&&(is35(classModel)||cast.level!==0)&&!cast.auto;
   const dailySpellLikeDc=cast?.dailySpellLikeGrant?10+Number(cast.dailySpellLikeEffectiveLevel??cast.level??0)+modifier(effectiveAbilities(char).int||10):null;
   function castSpell(ritual=false,quick=false){
-    const reason=actorActionBlock(char)||entomancerActionBlockReason(char)||campaignActionBlockReason(char)||totemCastingBlockReason(char);if(reason){setCastError(reason);return;}
+    const reason=actorActionBlock(char)||entomancerActionBlockReason(char)||campaignActionBlockReason(char)||featureCastingBlock(char,cast);if(reason){setCastError(reason);return;}
     if(ritual&&!canClassRitual(classModel,cast)){setCastError('This class cannot cast this spell as a ritual.');return;}
     if(quick&&!quickRitualOption(char,cast)){setCastError('Quick Ritual is unavailable.');return;}
     const access=accessFor(cast);

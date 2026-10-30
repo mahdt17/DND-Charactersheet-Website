@@ -1,0 +1,65 @@
+import {subclassRoll} from './subclassFormulas.js';
+import {expandedSubclassRows,expandedFeatureUnlocked,expandedSubclassContext} from './expandedSubclasses.js';
+import {sourceFeature,assertAct,spendFeature,featureState,putState,tempHP,healHP,validRoll} from './subclassActionUtils.js';
+import {sourceSubclassEffects} from './subclassState.js';
+import {activeFormProfile} from './subclassActive.js';
+import {rageProfile} from './rage2014.js';
+import {armorModelProfile} from './subclassEquipment.js';
+import {conditionEffects} from './play.js';
+const signed=v=>v>=0?`+${v}`:String(v),base={'base:ki':'2014:Monk:points','base:rage':'2014:Barbarian:rage','base:sorcery-points':'2014:Sorcerer:points','base:bardic-inspiration':'2014:Bard:inspiration','base:wild-shape':'2014:Druid:wild-shape','base:channel-divinity':'2014:channel-divinity'};
+export const martialArtsDie=level=>level>=17?10:level>=11?8:level>=5?6:4;
+const records=(c,ids,feature)=>{try{return sourceFeature(c,ids,feature);}catch{return null;}};
+export function triggeredFeatures(c){
+ const list=[];const add=(p,key,name,rolls=[],extra={})=>{if(p)list.push({p,key,name,rolls,...extra});};
+ let p=records(c,['druid:stars','druid:stars-ua'],'starry-form');if(p){add(p,'archer','Archer attack',[`1d20${signed(p.context.pb+p.context.wis)}`,`${!p.record.playtest&&p.row.level>=10?2:1}d8${signed(p.context.wis)}`],{requires:'Archer active; bonus action; visible target within 60 ft'});add(p,'chalice','Chalice healing',[`${!p.record.playtest&&p.row.level>=10?2:1}d8${signed(p.context.wis)}`],{requires:'Chalice active; a spell cast with a slot just restored HP; self/other within 30 ft'});}
+ p=records(c,['druid:spores','druid:spores-ua'],'halo-of-spores');if(p)add(p,'halo-spores','Halo of Spores',[`${activeFormProfile(c).symbiotic?2:1}d${p.row.level>=14?10:p.row.level>=10?8:p.row.level>=6?6:4}`],{requires:'Reaction; visible creature enters within 10 ft or starts there; Constitution save negates'});
+ for(const p of expandedSubclassRows(c)){
+  const ctx=expandedSubclassContext(c,p.row);
+  if(['2014:subclass:fighter:rune-knight','2014:subclass:fighter:rune-knight-ua'].includes(p.record.id))for(const rune of ['Cloud','Fire','Frost','Stone','Hill','Storm']){const f=p.record.features.find(f=>f.id.endsWith(p.record.playtest?':rune-magic':':rune-carver'));if(f)add({...p,feature:f,context:ctx},`invoke-${rune.toLowerCase()}`,`${rune} Rune`,rune==='Fire'?['2d6']:[],{resource:`rune-${rune.toLowerCase()}`,requires:`Known ${rune} rune; inscribed object worn/carried. ${rune==='Frost'?'+2 Strength/Constitution checks and saves for 10 minutes.':rune==='Hill'?'Resistance to bludgeoning/piercing/slashing for 1 minute.':rune==='Storm'?'For 1 minute, use reactions to impose advantage/disadvantage on a visible creature’s roll within 60 ft.':rune==='Cloud'?'Reaction to an attack hit within 30 ft; choose another target within 30 ft other than attacker; same roll.':rune==='Fire'?`${p.record.playtest?'Ongoing':'Initial and ongoing'} fire damage; Strength save DC ${8+ctx.pb+(p.record.playtest?ctx.int:ctx.con)} to avoid restraints; repeats save at end of target turns.`:`Reaction when a visible creature ends its turn within 30 ft; Wisdom save DC ${8+ctx.pb+(p.record.playtest?ctx.int:ctx.con)} or charm/incapacitation; repeats at end of target turns.`}`});}
+  for(const a of p.mechanics?.actions||[])if(a.verifiedAction&&expandedFeatureUnlocked(p,a)&&!list.some(d=>d.p.record.id===p.record.id&&d.key===a.key))add({...p,feature:p.record.features.find(f=>f.id===a.featureId),context:ctx},a.key,a.name||a.feature,[],{verified:a,resource:base[a.resourceKey]||a.resourceKey,requires:a.requires});
+ }
+ p=records(c,['barbarian:storm-herald'],'storm-aura');if(p)add(p,'storm-aura','Storm Aura',p.state['storm-environment']?.[0]==='sea'?[`${p.row.level>=20?4:p.row.level>=15?3:p.row.level>=10?2:1}d6`]:[],{requires:'While raging; entry or bonus action on your turn. Aura 10 ft; no total cover. Choose self/other for Tundra.'});
+ p=records(c,['barbarian:zealot'],'fanatical-focus');add(p,'fanatical-focus','Fanatical Focus',[],{requires:'Failed saving throw while raging; once per Rage. Reroll and use the new result.'});
+ p=records(c,['wizard:war-magic'],'arcane-deflection');add(p,'arcane-deflection','Arcane Deflection',[],{requires:'Reaction when hit by an attack or failing a save: +2 AC against that attack OR +4 to that save. Until end of your next turn you can cast only cantrips.'});
+ p=records(c,['sorcerer:shadow-magic'],'hound-of-ill-omen');add(p,'summon-hound','Hound of Ill Omen',[],{resource:'2014:Sorcerer:points',cost:3,requires:'Bonus action; visible target within120ft; hound appears within30ft of target. Hound has half Sorcerer level tempHP; lasts5minutes; target within5ft has disadvantage on saves against your spells. Hound sheet in companions.'});
+ p=records(c,['warlock:hexblade-ua'],'shadow-hound');add(p,'shadow-hound','Shadow Hound',[],{requires:'Bonus action; visible target within60ft. Hound merges into shadow; no half/three-quarter cover against your attacks; know direction/distance. Ends on other plane, incapacity, or dispelling.'});
+ p=records(c,['sorcerer:shadow-magic'],'umbral-form');add(p,'shadow-form','Umbral Form',[],{resource:'2014:Sorcerer:points',cost:6,requires:'Bonus action; 1 minute; resistance to all except force/radiant; move through creatures/objects as difficult terrain;5force if ending turn inside object.'});
+ for(const [key,feature,level] of [['astral-arms','arms-of-the-astral-self',3],['astral-visage','visage-of-the-astral-self',6],['awaken-astral','awakened-astral-self',17]]){p=records(c,['monk:astral-self','monk:astral-self-ua'],feature);if(!p&&key==='awaken-astral')p=records(c,['monk:astral-self-ua'],'complete-astral-self');if(p)add(p,key,p.feature.name,key==='astral-arms'&&!p.record.playtest?[`${2}d${martialArtsDie(p.row.level)}`]:[],{resource:'2014:Monk:points',cost:key==='awaken-astral'?p.record.playtest?10:5:key==='astral-arms'&&p.record.playtest?2:1,requires:'Bonus action; manifests for10minutes. Source features retain their own level gates. Astral Arms use Wisdom instead of Strength for Strength checks/saves and unarmed attacks; reach10ft on own turn.'});}
+ const armor=armorModelProfile(c);if(armor?.model==='Guardian')add({...armor,feature:armor.record.features.find(f=>f.id.endsWith(':armor-model')),context:expandedSubclassContext(c,armor.row)},'defensive-field','Defensive Field',[],{resource:armor.record.playtest?null:'defensive-field',requires:'Bonus action while wearing Guardian arcane armor. Gain temporary HP equal to Artificer level.'});
+ p=records(c,['monk:long-death'],'mastery-of-death');add(p,'mastery-of-death','Mastery of Death',[],{resource:'2014:Monk:points',requires:'When reduced to 0 HP without dying outright, spend 1 ki to have 1 HP instead.'});
+ return list.filter(d=>d.p?.feature);
+}
+export function triggeredFeaturePlan(c,key,input={}){
+ const d=triggeredFeatures(c).find(d=>d.key===key);if(!d)throw Error('This triggered feature is not available.');let rolls=[...d.rolls];const {p}=d;
+ if(d.verified)rolls=(d.verified.rolls||[]).map(r=>{let e=r.expression;if(typeof e==='object')e=e[Object.keys(e).map(Number).filter(n=>n<=p.row.level).sort((a,b)=>b-a)[0]];return subclassRoll(String(e).replace(/martialArtsDie/g,String(martialArtsDie(p.row.level))),{...p.context,level:p.row.level,spellAttack:p.context.pb+(p.context.wis||0)});});
+ if(key==='fanatical-focus'){const ability=input.ability||'con';if(!['str','dex','con','int','wis','cha'].includes(ability))throw Error('Choose a saving throw ability.');rolls=[`1d20${signed(p.context[ability]+(c.saveProf?.[ability]?p.context.pb:0))}`];}
+ return {...d,rolls};
+}
+export function executeTriggeredFeature(c,key,input={}){
+ const d=triggeredFeaturePlan(c,key,input),{p}=d;if(!input.triggered)throw Error('Confirm the exact source trigger and timing first.');if(key==='mastery-of-death')assertAct({...c,hp:{...c.hp,current:1}});else assertAct(c);
+ if(key==='archer'&&activeFormProfile(c).star!=='Archer')throw Error('Archer Starry Form must be active.');if(key==='chalice'&&activeFormProfile(c).star!=='Chalice')throw Error('Chalice Starry Form must be active.');
+ if(key.startsWith('invoke-')){const rune=key.slice(7),known=p.state['runes-known']||[];if(!known.some(n=>n.toLowerCase()===rune)||!p.record.playtest&&['hill','storm'].includes(rune)&&p.row.level<7)throw Error('This rune must be known and unlocked.');if(!input.equipment)throw Error('Confirm the inscribed object is worn or carried.');}
+ if(['storm-aura','fanatical-focus'].includes(key)&&!rageProfile(c).active)throw Error('Rage must be active.');if(key==='storm-aura'&&!['desert','sea','tundra'].includes(p.state['storm-environment']?.[0]))throw Error('Choose a Storm environment first.');if(key==='fanatical-focus'&&c.totemWarrior?.fanaticalFocusUsed)throw Error('Fanatical Focus already used this Rage.');
+ if(key==='mastery-of-death'&&c.hp.current!==0)throw Error('You must have just dropped to 0 HP without dying.');
+ const results=input.rolls||[];if(results.length!==d.rolls.length)throw Error('Resolve each visible feature roll before spending.');for(const r of results)validRoll(r);
+ const once=new Set(['beast-tail-defense','infectious-fury','deft-strike','archer','storm-aura']);if(once.has(key)&&c.subclassTurnUsed?.includes(`${p.record.id}:${key}`))throw Error('This feature was already used this turn.');
+ let patch={...spendFeature(c,p,d.resource,d.cost||1)},state=null;
+ if(key==='invoke-frost'||key==='invoke-hill'||key==='invoke-storm')state=featureState(c,p,key.replace('invoke-','rune-'),{remainingSeconds:key==='invoke-frost'?600:60});
+ if(key==='summon-hound'||key==='shadow-hound'||key==='shadow-form')state=featureState(c,p,key,{remainingSeconds:key==='summon-hound'?300:key==='shadow-form'?60:undefined,endsOnIncapacitated:true});
+ if(['astral-arms','astral-visage','awaken-astral'].includes(key))state=featureState(c,p,key,{remainingSeconds:600,endsOnIncapacitated:false});
+ if(key==='defensive-field')patch={...patch,...tempHP(c,p.row.level,'defensive-field')};
+ if(key==='mastery-of-death')patch={...patch,hp:{...c.hp,current:1},deathSaves:{success:0,failure:0}};
+ if(key==='chalice'&&input.recipient==='self')patch={...patch,...healHP(c,results[0].total,conditionEffects(c).maxHP)};
+ if(key==='storm-aura'&&p.state['storm-environment'][0]==='tundra'&&input.recipient==='self')patch={...patch,...tempHP(c,p.row.level>=20?6:p.row.level>=15?5:p.row.level>=10?4:p.row.level>=5?3:2)};
+ if(key==='fanatical-focus')patch.totemWarrior={...c.totemWarrior,fanaticalFocusUsed:true};
+ if(key==='arcane-deflection')state=featureState(c,p,key,{remainingSeconds:12,expires:'end-next-turn',onlyCantrips:true});
+ if(state)patch={...patch,...putState(c,state)};
+ return {...patch,...(once.has(key)?{subclassTurnUsed:[...(c.subclassTurnUsed||[]),`${p.record.id}:${key}`]}:{}),subclassLastResult:{feature:d.name,rolls:results.map(r=>r.total),instructions:d.requires}};
+}
+export function subclassNaturalAttacks(c){
+ const list=[],rage=rageProfile(c);for(const e of sourceSubclassEffects(c)){
+  if(e.stateKey==='beast-weapon'&&rage.active){const p=sourceFeature(c,['barbarian:beast','barbarian:beast-ua'],'form-of-the-beast'),die=e.choice==='Bite'?8:e.choice==='Claws'?6:p.record.playtest?12:8;list.push({name:`Beast ${e.choice}`,attack:p.context.str+p.context.pb,damage:`1d${die}${signed(p.context.str+(!rage.heavy?rage.damage:0))}`,notes:e.choice==='Claws'?'One additional Claw attack when using the Attack action on your turn.':e.choice==='Tail'?'Reach10ft; published Tail Defense is a reaction.':'After bite damage use its explicit healing trigger.'});}
+ }
+ for(const p of expandedSubclassRows(c).filter(p=>p.row.name==='Monk')){const ctx=expandedSubclassContext(c,p.row),die=martialArtsDie(p.row.level);if(p.record.id.endsWith(':sun-soul'))list.push({name:'Radiant Sun Bolt',attack:ctx.dex+ctx.pb,damage:`1d${die}${signed(ctx.dex)}`,spellAttack:true,notes:'Ranged spell attack;30ft; use with Attack action. Bonus action bolts cost1ki after using this attack.'});if(p.record.id.includes(':astral-self')&&sourceSubclassEffects(c,{recordId:p.record.id}).some(e=>['astral-arms','awaken-astral'].includes(e.stateKey)))list.push({name:'Astral Arms',attack:Math.max(ctx.wis,ctx.dex,ctx.str)+ctx.pb,damage:`1d${die}${signed(Math.max(ctx.wis,ctx.dex,ctx.str))}`,notes:'Unarmed strike; Wisdom/Strength/Dexterity choice; reach10ft on your turn; force (published) or radiant/necrotic (UA).'});}
+ const armor=armorModelProfile(c);if(armor){const ctx=expandedSubclassContext(c,armor.row),guardian=armor.model==='Guardian';list.push({name:guardian?'Thunder Gauntlets':'Lightning Launcher',attack:ctx.int+ctx.pb,damage:`1d${guardian?8:6}${signed(ctx.int)}`,notes:guardian?'Empty gauntlet; target hit has disadvantage attacking others until your next turn.':'Range90/300; once on own turn add1d6 lightning after a hit.'});}return list;
+}

@@ -1,3 +1,5 @@
+import {activeFormProfile} from './subclassActive.js';
+import {armorModelProfile} from './subclassEquipment.js';
 import {expandedSubclassRows,expandedSubclassContext,expandedFeatureUnlocked} from './expandedSubclasses.js';
 import {subclassValue} from './subclassFormulas.js';
 import {effectiveAbilityScores} from './abilityScores.js';
@@ -9,7 +11,7 @@ import equipment from '../data/equipment.json' with {type:'json'};
 
 const id=(cls,sub)=>`2014:subclass:${cls}:${sub}`;
 export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
- const result={acBases:[],acBonus:0,hpBonus:0,speedBonus:0,initiativeBonus:0,initiativeAdvantage:false,saveBonus:0,skillBonuses:{},abilityCheckBonuses:{},skillAdvantages:[],saveAdvantages:[],concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1,criticalThreshold:20,rows:[]};
+ const result={acBases:[],acBonus:0,hpBonus:0,speedBonus:0,initiativeBonus:0,initiativeAdvantage:false,saveBonus:0,saveBonuses:{},skillBonuses:{},abilityCheckBonuses:{},skillAdvantages:[],saveAdvantages:[],concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1,criticalThreshold:20,rows:[]};
  if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014')return result;
  result.hpBonus=subclassHitPointBonus(c,characterClasses(c));
  const worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
@@ -55,13 +57,19 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
    result.rows.push(source);
   }
  }
+ const active=activeFormProfile(c),armorModel=armorModelProfile(c);
+ if(armorModel?.model==='Infiltrator')result.speedBonus+=5;
+ if(active.frostBonus){result.saveBonuses.str=2;result.saveBonuses.con=2;result.abilityCheckBonuses.str=(result.abilityCheckBonuses.str||0)+2;result.abilityCheckBonuses.con=(result.abilityCheckBonuses.con||0)+2;result.skillBonuses.Athletics=(result.skillBonuses.Athletics||0)+2;}
+ if(sourceSubclassEffects(c,{stateKey:'awaken-astral'}).length)result.acBonus+=2;
  if(result.abilityCheckBonuses.dex&&!result.rows.some(r=>r.applied&&r.kind==='initiative-bonus'&&r.value==='pb')){const lore=result.rows.find(r=>r.applied&&r.kind==='initiative-ability');result.initiativeBonus+=Math.max(0,result.abilityCheckBonuses.dex-(lore?.computedValue||0));}
  return result;
 }
 
 export function subclassRollTraits(c,{kind='check',name='',concentration=false}={}){
  const p=subclassNumericProfile(c);
- return {bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0):p.skillBonuses[name]||0,advantage:kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
+ name=name.replace(/ check$/i,'');
+ const active=activeFormProfile(c),strength=/^(Strength|Athletics)\b/i.test(name),con=/^Constitution\b/i.test(name),dragon=active.star==='Dragon'&&(kind==='save'&&(concentration||/concentration/i.test(name))||kind==='check'&&['Intelligence','Wisdom','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival'].includes(name));
+ return {minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:strength&&active.strengthAdvantage||kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
 }
 
 // Explicit, narrowly scoped states. Other source prose remains table-resolved.

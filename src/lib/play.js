@@ -1,3 +1,4 @@
+import {featureCastingBlock} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {actorActionBlock} from './subclassState.js';
 import {assertCampaignCanAct} from './campaignActivity.js';
@@ -54,7 +55,7 @@ export function availableSlots(c,s){
 }
 export function spendSpellSlot(c,s,level,pool='standard') {
  assertCampaignCanAct(c);
- const blocked=actorActionBlock(c)||entomancerActionBlockReason(c)||totemCastingBlockReason(c);if(blocked)throw Error(blocked);
+ const blocked=actorActionBlock(c)||entomancerActionBlockReason(c)||featureCastingBlock(c,s);if(blocked)throw Error(blocked);
  if(!availableSlots(c,s).some(x=>x.level===level&&(x.pool||'standard')===pool))throw Error('Choose an available slot for this spell.');
  const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';
  return {[key]:{...c[key],[level]:(c[key]?.[level]||0)+1}};

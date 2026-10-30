@@ -1,3 +1,4 @@
+import {sourceSubclassEffects} from './subclassState.js';
 import {actorActionBlock} from './subclassState.js';
 import {fightingStyleGrants} from './fightingStyleGrants.js';
 import mechanics from '../data/subclassMechanics2014.json' with {type:'json'};
@@ -69,6 +70,7 @@ export function expandedSubclassChoicePlan(c,previous=null,picks={},context={}){
   const {row,record}=profile;state[row.catalogId]||={};state[row.catalogId][record.id]||={};profile.state=state[row.catalogId][record.id];
   const definitions=[...(profile.mechanics?.choices||[])];if(record.flexibleFeatureSelection&&!definitions.some(q=>q.key==='later-subclass-feature'))definitions.unshift({key:'later-subclass-feature',feature:'Later subclass feature',level:record.entryLevel,kind:'feature',scope:'advancement',count:1,options:record.features.filter(f=>f.level>record.entryLevel).map(f=>f.name)});
   for(const original of definitions){
+   if(original.key==='hex-weapon'&&['2014:subclass:warlock:hexblade','2014:subclass:warlock:hexblade-ua'].includes(record.id))continue;
    if(['2014:subclass:fighter:champion','2014:subclass:fighter:brute-ua'].includes(record.id)&&original.key==='additional-fighting-style')continue;
    const flexible=original.key==='later-subclass-feature'&&record.flexibleFeatureSelection;
    const choices=flexible?(milestones[row.name]||[]).filter(l=>l>record.entryLevel&&l<=row.level).map(level=>({...original,key:`later-subclass-feature:${level}`,level,options:original.options.filter(n=>record.features.some(f=>f.name===n&&f.level<=level))})):[original];
@@ -125,5 +127,6 @@ export function expandedSubclassSpellGrants(c){return expandedSubclassRows(c).fl
   if(['cantrip','spell'].includes(q.kind))for(const name of selected){const acquisition=q.feature==='Arcane Mastery'?'prepared':'known';grants.push({name,classLevel:q.level,acquisition,alwaysPrepared:acquisition==='prepared'});}
   if(q.kind==='domain'&&p.record.id==='2014:subclass:sorcerer:favored-soul-ua'){const domain=findExpandedSubclass('Cleric',selected[0]);for(const g of domain?.spellGrants||[])if(g.classLevel<=p.row.level)grants.push({...g,acquisition:'known',alwaysPrepared:false});}
  }
+ for(const e of sourceSubclassEffects(c,{recordId:p.record.id,ownerId:p.row.catalogId}).filter(e=>e.temporarySpell))grants.push({name:e.temporarySpell,acquisition:'known',temporarySubclassSpell:true,sourceEffectId:e.id});
  return grants.map(g=>({...g,alwaysPrepared:g.acquisition==='prepared',edition:'2014',ability,sourceAbility:ability,source:p.record.name,sourceClassId:p.row.catalogId,subclassRecordId:p.record.id,expandedSubclassManaged:true,bonusKnown:g.acquisition==='known'}));
 });}
