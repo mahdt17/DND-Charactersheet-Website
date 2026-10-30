@@ -6,11 +6,17 @@ import {rageProfile} from './rage2014.js';
 // concentration and rest lifecycle. These helpers never start a state implicitly.
 const edition=c=>(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
 const names=c=>(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(n=>String(n?.name||n).trim().toLowerCase());
+function selectedFeature(c,row,record,f){
+ if(!record.flexibleFeatureSelection||f.level<=record.entryLevel)return true;
+ const milestones={Bard:[3,6,14],Druid:[2,6,10,14],Sorcerer:[1,6,14,18],Warlock:[1,6,10,14],Wizard:[2,6,10,14]},state=c.expandedSubclassChoices?.[row.catalogId]?.[record.id]||{},selected=[];
+ for(const level of milestones[row.name]||[]){if(level<=record.entryLevel||level>row.level)continue;const values=state[`later-subclass-feature:${level}`]||[];if(values.length===1&&!selected.includes(values[0])&&record.features.some(v=>v.name===values[0]&&v.level<=level))selected.push(values[0]);}
+ return selected.includes(f.name);
+}
 export function sourceSubclassEffects(c,{recordId,ownerId,featureId,stateKey}={}){
  if(edition(c)!=='2014')return [];
  return (c.activeEffects||[]).filter(e=>e.subclassRecordId&&(!recordId||e.subclassRecordId===recordId)&&(!ownerId||e.sourceClassId===ownerId)&&(!featureId||e.sourceFeatureId===featureId)&&(!stateKey||e.stateKey===stateKey)&&(e.remainingSeconds==null||e.remainingSeconds>0)&&(!e.concentration||e.concentration===c.concentration)&&characterClasses(c).some(row=>{
   const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);
-  return record&&record.id===e.subclassRecordId&&row.catalogId===e.sourceClassId&&record.features.some(f=>f.id===e.sourceFeatureId&&f.level<=row.level);
+  return record&&record.id===e.subclassRecordId&&row.catalogId===e.sourceClassId&&record.features.some(f=>f.id===e.sourceFeatureId&&f.level<=row.level&&selectedFeature(c,row,record,f));
  }));
 }
 export function consciousAtZero(c){
@@ -33,7 +39,7 @@ export function finishSubclassEffects(c,effects){
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
  const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||Number(c.hp?.current)<=0&&!consciousAtZero(c);
- const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
+ const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.requiresEquippedItem&&!(c.inventory||[]).some(i=>i.id===e.itemId&&i.equipped))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
  const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
  const live=new Set(effects.map(e=>e.id));
  const owners=characterClasses(c).flatMap(row=>{const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);return record?[{owner:row.catalogId,record:record.id}]:[];});

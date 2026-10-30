@@ -2,6 +2,7 @@ import {resourceEvent} from './subclassQuantities.js';
 import {rageProfile,rageId} from './rage2014.js';
 import {sourceFeature,spendFeature,assertAct,featureState,putState,tempHP,validRoll} from './subclassActionUtils.js';
 import {sourceSubclassEffects,finishSubclassEffects} from './subclassState.js';
+import {availableSlots} from './play.js';
 export {rageProfile};
 export function startRage(c,{weapon,ongoing=false}={}){
  assertAct(c);const p=rageProfile(c);if(!p.level)throw Error('2014 Barbarian Rage is not available.');if(p.active)throw Error('Rage is already active.');if(p.heavy)throw Error('Remove heavy armor before using Rage benefits.');
@@ -24,18 +25,28 @@ const forms=[
  {key:'giants-might',records:['fighter:rune-knight','fighter:rune-knight-ua'],feature:'giants-might',cost:'giants-might',seconds:60},
  {key:'scuttling-eyes',records:['ranger:swarmkeeper-ua'],feature:'scuttling-eyes',cost:'scuttling-eyes',seconds:3600},
  {key:'ghost-walk',records:['rogue:phantom','rogue:phantom-ua'],feature:'ghost-walk',cost:'ghost-walk',seconds:600},
+ {key:'spirit-projection',records:['warlock:undead','warlock:undead-ua'],feature:'spirit-projection',cost:'spirit-projection',seconds:3600},
 ];
 export function subclassForms(c){return forms.flatMap(d=>{try{let p;try{p=sourceFeature(c,d.records,d.feature);}catch(e){if(d.key!=='giants-might')throw e;p=sourceFeature(c,d.records,'Giant Might');}return [{...d,p,roll:d.roll?.(p),active:sourceSubclassEffects(c,{recordId:p.record.id,stateKey:d.key})[0]}];}catch{return [];}});}
-export function activateSubclassForm(c,key,{choice,result,replaceTemp=false,useTrinket=false}={}){
+export function activateSubclassForm(c,key,{choice,result,replaceTemp=false,useTrinket=false,slotLevel,slotPool='standard'}={}){
  assertAct(c);const d=subclassForms(c).find(d=>d.key===key);if(!d)throw Error('This form is not available.');if(d.active)throw Error('This form is already active.');if(d.choices&&!d.choices.includes(choice))throw Error('Choose a legal form.');
  let hp={};if(key==='symbiotic-entity'){const amount=4*d.p.row.level;if(c.hp.temp>amount&&!replaceTemp)throw Error('Choose to replace your temporary HP to activate Symbiotic Entity.');hp=tempHP(c,amount,'symbiotic-entity',{replace:true});}if(d.roll)hp=tempHP(c,validRoll(result,{min:1+d.p.row.level,max:10+d.p.row.level}),'form-of-dread');
- return {...(key==='ghost-walk'&&useTrinket?resourceEvent(c,'destroy-trinket'):spendFeature(c,d.p,d.cost)),...hp,...putState(d.cost==='2014:Druid:wild-shape'&&key!=='symbiotic-entity'?{...c,activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='symbiotic-entity')}:c,featureState(c,d.p,key,{remainingSeconds:d.seconds,choice,endsOnIncapacitated:key==='starry-form',...(key==='symbiotic-entity'?{requiresTempSource:'symbiotic-entity'}:{})}))};
+ let spend=key==='ghost-walk'&&useTrinket?resourceEvent(c,'destroy-trinket'):slotLevel!=null&&key==='scuttling-eyes'?spendSubclassSlot(c,slotLevel,slotPool,3):spendFeature(c,d.p,d.cost);
+ if(slotLevel!=null&&key!=='scuttling-eyes')throw Error('This form has no spell slot alternative.');
+ const projection=key==='spirit-projection',concentration=projection?'Spirit Projection':c.concentration;
+ if(projection&&rageProfile(c).active)throw Error('Rage prevents concentrating on Spirit Projection.');
+ const state=featureState(c,d.p,key,{remainingSeconds:d.seconds,choice,endsOnIncapacitated:['starry-form','spirit-projection'].includes(key),...(projection?{concentration}:{}),...(key==='symbiotic-entity'?{requiresTempSource:'symbiotic-entity'}:{})});
+ const next={...c,activeEffects:(c.activeEffects||[]).filter(e=>!(projection&&e.concentration)&&!(d.cost==='2014:Druid:wild-shape'&&key!=='symbiotic-entity'&&e.stateKey==='symbiotic-entity'))};
+ return {...spend,...hp,...putState(next,state),...(projection?{concentration}:{})};
 }
-export function endSubclassForm(c,key){return finishSubclassEffects(c,(c.activeEffects||[]).filter(e=>e.stateKey!==key));}
+export function spendSubclassSlot(c,level,pool='standard',minimum=1){if(!Number.isInteger(level)||level<minimum||!['standard','pact'].includes(pool)||!availableSlots(c,{level:minimum}).some(s=>s.level===level&&(s.pool||'standard')===pool))throw Error(`Choose an available spell slot of level ${minimum} or higher.`);const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';return {[key]:{...c[key],[level]:Number(c[key]?.[level]||0)+1}};}
+export function endSubclassForm(c,key){const removed=sourceSubclassEffects(c,{stateKey:key});return {...finishSubclassEffects(c,(c.activeEffects||[]).filter(e=>e.stateKey!==key)),...(removed.some(e=>e.concentration===c.concentration)&&c.concentration?{concentration:null}:{})};}
+export function switchStarryForm(c,choice,{startTurn=false}={}){assertAct(c);const d=subclassForms(c).find(d=>d.key==='starry-form');if(!d?.active||d.p.record.playtest||d.p.row.level<10)throw Error('Constellation switching is not available.');if(!startTurn)throw Error('Confirm the start of your turn.');if(!d.choices.includes(choice))throw Error('Choose a legal constellation.');return putState(c,{...d.active,choice});}
 export function activeFormProfile(c){
  const states=sourceSubclassEffects(c),star=states.find(e=>e.stateKey==='starry-form'),spores=states.find(e=>e.stateKey==='symbiotic-entity'&&c.hp.temp>0&&c.hp.tempSource==='symbiotic-entity'),giant=states.find(e=>e.stateKey==='giants-might');
  const result={states,symbiotic:!!spores,star:star?.choice,flyingSpeed:0,resistances:[],strengthAdvantage:!!giant,weaponAdvantage:states.some(e=>e.stateKey==='fighting-spirit'),frostBonus:states.some(e=>e.stateKey==='rune-frost'&&e.subclassRecordId==='2014:subclass:fighter:rune-knight')?2:0};
- if(star){const p=sourceFeature(c,['druid:stars','druid:stars-ua'],'starry-form');if(!p.record.playtest&&p.row.level>=10&&star.choice==='Dragon')result.flyingSpeed=20;if(!p.record.playtest&&p.row.level>=14)result.resistances.push('bludgeoning','piercing','slashing');}
+ if(star){const p=sourceFeature(c,['druid:stars','druid:stars-ua'],'starry-form');if(!p.record.playtest&&p.row.level>=10&&star.choice==='Dragon')result.flyingSpeed=20;if(p.row.level>=(p.record.playtest?10:14))result.resistances.push('bludgeoning','piercing','slashing');}
+ if(states.some(e=>e.stateKey==='spirit-projection')){result.resistances.push('bludgeoning','piercing','slashing');result.flyingSpeed=Math.max(result.flyingSpeed,Number(c.speed)||30);}
  if(states.some(e=>e.stateKey==='wild-surge:71'))result.resistances.push('acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder');
  if(states.some(e=>e.stateKey==='shadow-form')){result.resistances.push('acid','bludgeoning','cold','fire','lightning','necrotic','piercing','poison','psychic','slashing','thunder');if(states.some(e=>e.stateKey==='shadow-form'&&e.subclassRecordId.endsWith(':shadow-ua')))result.resistances.push('radiant');}
  if(states.some(e=>e.stateKey==='rune-hill'))result.resistances.push('bludgeoning','piercing','slashing');if(states.some(e=>e.stateKey==='ghost-walk'))result.flyingSpeed=Math.max(result.flyingSpeed,10);
