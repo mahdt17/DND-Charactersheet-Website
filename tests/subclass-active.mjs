@@ -1,0 +1,45 @@
+import assert from 'node:assert/strict';
+import {test} from 'node:test';
+import {createServer} from 'vite';
+import {existsSync} from 'node:fs';
+const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
+const load=async path=>existsSync(`src/lib/${path}.js`)?server.ssrLoadModule(`/src/lib/${path}.js`):{};
+const [active,effect,actor,play,styles,resources,integration,quant,healing]=await Promise.all(['subclassActive','spellEffects','subclassState','play','fightingStyles','resources','classIntegration','subclassQuantities','subclassHealing'].map(load));await server.close();
+export const make=(className='Druid',subclass='Stars',level=10)=>({ruleset:'2014',className,subclass,level,classDefinition:{name:className,index:className.toLowerCase(),edition:'2014'},abilities:{str:16,dex:14,con:16,int:18,wis:18,cha:18},hp:{current:30,max:50,temp:0},speed:30,inventory:[],resources:[],activeEffects:[],spells:[],actions:[]});
+const apply=(c,p)=>({...c,...p});
+test('normal Rage spends canonical pool once, clears concentration-owned states, forbids casting and expires',()=>{
+ assert.equal(typeof active.startRage,'function');let c=make('Barbarian','Zealot',14);c.concentration='Bless';c.activeEffects=[{id:'bless',concentration:'Bless'},{id:'mage',key:'mage armor'}];
+ c=apply(c,active.startRage(c));assert.equal(c.resources.find(r=>r.id==='2014:Barbarian:rage').used,1);assert(!c.activeEffects.some(e=>e.id==='bless'));assert(c.activeEffects.some(e=>e.id==='mage'));assert.throws(()=>active.startRage(c),/already/);assert.throws(()=>play.spendSpellSlot(c,{level:1},1),/Rage|raging/);assert.equal(active.rageProfile(c).damage,3);
+ c=apply(c,effect.advanceEffectTime(c,{seconds:60}));assert(!active.rageProfile(c).active);
+});
+test('Zealot postpones failed-save death until rage ends; Samurai can trigger at zero and heal with Second Wind',()=>{
+ assert.equal(typeof active.startStrengthBeforeDeath,'function');let z=apply(make('Barbarian','Zealot',14),active.startRage(make('Barbarian','Zealot',14)));z.hp.current=0;z.deathSaves={failure:3};assert.equal(actor.actorActionBlock(z),'');assert.equal(apply(z,active.endRage(z)).dead,true);
+ let healed=apply(z,styles.useSecondWind({...z,classLevels:[{catalogId:'2014:barbarian',name:'Barbarian',edition:'2014',level:14,subclass:'Zealot'},{catalogId:'2014:fighter',name:'Fighter',edition:'2014',level:1}]},{total:6},{maxHP:50}));assert.equal(healed.deathSaves.failure,0);assert(!apply(healed,active.endRage(healed)).dead);
+ let c=make('Fighter','Samurai',18);c.hp.current=0;c=apply(c,active.startStrengthBeforeDeath(c,{triggered:true}));assert.equal(actor.actorActionBlock(c),'');assert(actor.actorActionBlock({...c,deathSaves:{failure:3}}));c=apply(c,styles.useSecondWind(c,{total:8},{maxHP:50}));assert.equal(c.hp.current,8);assert.deepEqual(c.deathSaves,{success:0,failure:0});c=apply(c,effect.advanceEffectTime(c,{seconds:6}));assert.equal(actor.actorActionBlock(c),'');
+});
+test('Stars validates constellation and source; Spores tracks its own replaceable temporary HP pool',()=>{
+ assert.equal(typeof active.activateSubclassForm,'function');let c=make();assert.throws(()=>active.activateSubclassForm(c,'starry-form',{choice:'unknown'}),/Choose/);c=apply(c,active.activateSubclassForm(c,'starry-form',{choice:'Dragon'}));assert.equal(c.activeEffects.find(e=>e.stateKey==='starry-form').choice,'Dragon');assert.equal(c.resources.find(r=>r.id==='2014:Druid:wild-shape').used,1);assert.equal(active.activeFormProfile(c).flyingSpeed,20);assert.throws(()=>active.activateSubclassForm({...c,level:1},'starry-form',{choice:'Dragon'}),/available/);
+ let s=make('Druid','Spores',6);s.hp.temp=40;assert.throws(()=>active.activateSubclassForm(s,'symbiotic-entity'),/replace/i);s=apply(s,active.activateSubclassForm(s,'symbiotic-entity',{replaceTemp:true}));assert.equal(s.hp.temp,24);assert.equal(s.hp.tempSource,'symbiotic-entity');assert(active.activeFormProfile(s).symbiotic);s=integration.reconcileClassGrants({...s,hp:{...s.hp,temp:0}});assert(!active.activeFormProfile(s).symbiotic);assert(!integration.reconcileClassGrants({...c,subclass:'Land'}).activeEffects.some(e=>e.stateKey==='starry-form'));
+});
+
+test('Ward starts empty, creates on qualifying cast once per cycle, restores and absorbs raw damage before resistance',()=>{
+ assert.equal(typeof quant.wardCastPatch,'function');let c=make('Wizard','Abjuration',6);assert.equal(quant.quantityProfile(c,'arcane-ward-hp').current,0);assert.deepEqual(quant.wardCastPatch(c,{name:'Magic Missile',level:1,school:'Evocation'},1),{});
+ c=apply(c,quant.wardCastPatch(c,{name:'Shield',level:1,school:'Abjuration'},1));assert.equal(quant.quantityProfile(c,'arcane-ward-hp').current,16);c.concentration='Bless';const absorbed=quant.absorbWard(c,{amount:12,rawDamage:12});c=apply(c,absorbed.patch);assert.equal(c.hp.current,30);assert.equal(c.concentration,'Bless');assert.equal(quant.quantityProfile(c,'arcane-ward-hp').current,4);c=apply(c,quant.wardCastPatch(c,{level:2,school:'Abjuration'},2));assert.equal(quant.quantityProfile(c,'arcane-ward-hp').current,8);c=apply(c,quant.quantityRest(c,'long'));assert.equal(quant.quantityProfile(c,'arcane-ward-hp').current,0);
+});
+test('Trinkets retain actual quantity across PB changes; surges start one and recover only when empty',()=>{
+ assert.equal(typeof quant.resourceEvent,'function');let c=make('Rogue','Phantom',9);assert.equal(quant.quantityProfile(c,'soul-trinkets').current,0);assert.throws(()=>quant.resourceEvent(c,'collect-trinket',{}),/Confirm/);c=apply(c,quant.resourceEvent(c,'collect-trinket',{visibleDeath:true,within30:true,freeHand:true}));assert.equal(quant.quantityProfile({...c,level:17},'soul-trinkets').current,1);assert.equal(quant.quantityProfile(apply(c,quant.quantityRest(c,'long')),'soul-trinkets').current,1);
+ let w=make('Wizard','War Magic',6);assert.equal(quant.quantityProfile(w,'power-surges').current,1);w=apply(w,quant.resourceEvent(w,'spend-surge',{ownTurn:true,wizardSpellDamage:true}));assert.equal(quant.quantityProfile(w,'power-surges').current,0);assert.throws(()=>quant.resourceEvent(w,'gain-surge',{}),/Confirm/);w=apply(w,quant.quantityRest(w,'short'));assert.equal(quant.quantityProfile(w,'power-surges').current,1);
+});
+test('Portent stores visible d20s and consumes one selected result, never rerolls on reload',()=>{
+ assert.equal(typeof quant.rollPortent,'function');let c=make('Wizard','Divination',14);assert.throws(()=>quant.rollPortent(c,[{total:2}]),/three|3/);c=apply(c,quant.rollPortent(c,[{total:2},{total:12},{total:20}]));assert.deepEqual(quant.portentProfile(c).values,[2,12,20]);c=apply(c,quant.usePortent(c,1,{triggered:true}));assert.deepEqual(quant.portentProfile(c).values,[2,null,20]);assert.throws(()=>quant.usePortent(c,1,{triggered:true}),/spent/);assert.throws(()=>quant.rollPortent(c,[{total:1},{total:1},{total:1}]),/already/);c=apply(c,quant.quantityRest(c,'long'));assert.deepEqual(quant.portentProfile(c).values,[]);
+});
+
+test('Life healing adds slot bonus, Blessed Healer heals caster only for Other; Grave maximizes only confirmed zero',()=>{
+ assert.equal(typeof healing.healingFeaturePlan,'function');const life=make('Cleric','Life',17),spell={name:'Cure Wounds',level:1,heal_at_slot_level:{1:'1d8+MOD'}},plan=play.spellPlan(spell,life,1,4);assert.equal(healing.healingFeaturePlan(life,spell,plan,{slotLevel:1,recipient:'self'}).rolls[0].expression,'15');
+ const other=effect.castEffectPatch(life,spell,{recipient:'other',rolls:[{label:'Healing',total:15}],plan,slotLevel:1,maxHP:50});assert.equal(other.hp.current,33);const self=effect.castEffectPatch(life,spell,{recipient:'self',rolls:[{label:'Healing',total:15}],plan,slotLevel:1,maxHP:50});assert.equal(self.hp.current,45);
+ const grave=make('Cleric','Grave',1);assert.equal(healing.healingFeaturePlan(grave,spell,plan,{slotLevel:1,recipient:'other'}).rolls[0].expression,'1d8+4');assert.equal(healing.healingFeaturePlan(grave,spell,plan,{slotLevel:1,recipient:'other',targetAtZero:true}).rolls[0].expression,'12');
+});
+test('Fighting Spirit executes temp HP and turn advantage; variable healing validates cost and roll before spend',()=>{
+ assert.equal(typeof healing.useHealingFeature,'function');let c=make('Fighter','Samurai',10);c=apply(c,healing.useHealingFeature(c,'fighting-spirit',{}));assert.equal(c.hp.temp,10);assert(active.activeFormProfile(c).weaponAdvantage);c=apply(c,effect.advanceEffectTime(c,{seconds:6}));assert(!active.activeFormProfile(c).weaponAdvantage);
+ let d=make('Druid','Dreams',6);assert.throws(()=>healing.useHealingFeature(d,'balm',{n:4,recipient:'self',triggered:true,result:{total:12},maxHP:50}),/1.*3/);assert.throws(()=>healing.useHealingFeature(d,'balm',{n:2,recipient:'self',triggered:true,maxHP:50}),/roll/);d=apply(d,healing.useHealingFeature(d,'balm',{n:2,recipient:'self',triggered:true,result:{total:9},maxHP:50}));assert.equal(d.hp.current,39);assert.equal(d.hp.temp,2);assert.equal(d.resources.find(r=>r.id.endsWith('resource:balm-dice')).used,2);
+});

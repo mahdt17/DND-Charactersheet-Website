@@ -1,3 +1,4 @@
+import {rageProfile} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {availableSubclasses,findExpandedSubclass,legacySubclassName} from './expandedSubclassCatalog.js';
 import {fightingStyleProfile,styleWeaponModifiers} from './fightingStyles.js';
@@ -114,7 +115,7 @@ export function weaponAttacks(char, abilities) {
     const style=styleWeaponModifiers(char,i,data),finesse=data.properties?.some(p=>p.index==='finesse');
     const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str,damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
     const trained=hasWeaponTraining(char,data,proficiencies);
-    const totem=totemProfile(char,abilities),rage=totem.activeRage&&!totem.heavyArmor&&style.melee&&(!finesse||str>=dex)?totem.rageDamage:0;
+    const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&(!finesse||str>=dex)?rp.damage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
     const subclass=subclassNumericProfile(char,abilities),victory=style.melee&&!style.two?subclass.meleeWeaponDamageBonus:0;
     return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack,damage:`${style.dice}${signed(damageAbility+strike+rage+style.damage+victory)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};

@@ -1,5 +1,6 @@
 import {characterClasses} from './advancement.js';
 import {findExpandedSubclass} from './expandedSubclassCatalog.js';
+import {rageProfile} from './rage2014.js';
 
 // Shared source-owned states live in activeEffects, using the existing game-time,
 // concentration and rest lifecycle. These helpers never start a state implicitly.
@@ -22,7 +23,15 @@ export function actorActionBlock(c){
  if(names(c).some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified'].includes(n)))return 'You cannot act while incapacitated.';
  return Number(c.hp?.current??1)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
 }
+export function finishSubclassEffects(c,effects){
+ const was=(c.activeEffects||[]).some(e=>e.stateKey==='rage-beyond-death');
+ const postponedDeath=was&&!effects.some(e=>e.stateKey==='rage-beyond-death'&&(e.remainingSeconds==null||e.remainingSeconds>0))&&Number(c.hp?.current)<=0&&Number(c.deathSaves?.failure)>=3;
+ return {activeEffects:effects,...((c.activeEffects||[]).some(e=>e.stateKey==='rage')&&!effects.some(e=>e.stateKey==='rage')?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{}),...(postponedDeath?{dead:true}:{})};
+}
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
- return {...c,activeEffects:(c.activeEffects||[]).filter(e=>!e.subclassRecordId||valid.has(e)&&!(e.endsOnIncapacitated&&actorActionBlock(c)))};
+ const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||Number(c.hp?.current)<=0&&!consciousAtZero(c);
+ const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
+ const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
+ return {...c,...finishSubclassEffects(c,effects.filter(e=>!['rage-beyond-death','beast-weapon','storm-aura'].includes(e.stateKey)||hasRage||!c.activeEffects.some(e=>e.stateKey==='rage')))};
 }

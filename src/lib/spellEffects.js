@@ -1,4 +1,8 @@
 import equipment from '../data/equipment.json' with {type:'json'};
+import {blessedHealerPatch} from './subclassHealing.js';
+import {quantityTurn} from './subclassQuantities.js';
+import {wardCastPatch} from './subclassQuantities.js';
+import {finishSubclassEffects} from './subclassState.js';
 const legacy=c=>c?.ruleset==='3.5'||c?.mechanics==='3.5';
 const armored=c=>(c.inventory||[]).some(i=>i.equipped&&equipment.some(e=>e.index===i.equipmentIndex&&e.armor_class&&e.index!=='shield'));
 const spellName=s=>String(s?.name||'').trim().toLowerCase();
@@ -19,7 +23,7 @@ export function effectArmor(c,abilities,{armored=false,shield=false}={}){
 export function reconcileEffects(c,previous=c){
  return legacy(c)?{}:{activeEffects:activeEffects(c).filter(e=>!(e.key==='mage armor'&&armored(c)&&!armored(previous)))};
 }
-export function castEffectPatch(c,spell,{recipient,rolls=[],plan,maxHP=c.hp?.max}={}){
+export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell.level,maxHP=c.hp?.max}={}){
  if(legacy(c)||spell?.edition==='3.5')return {};
  if(needsEffectRecipient(spell,plan)&&!['self','other'].includes(recipient))throw Error('Choose a spell recipient: Self or another creature.');
  if(/^self(?:$|\s|\()/i.test(spell.range||'')&&recipient==='other')throw Error('This spell has a Self range and affects the caster.');
@@ -30,7 +34,7 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,maxHP=c.hp?.max
  if(temporaryHpSpell(spell)){
   const result=rolls.find(r=>/^temporary HP$/i.test(r.label));
   if(!result||!Number.isFinite(result.total)||result.total<0)throw Error('A valid temporary HP roll result is required before spending a slot.');
-  patch.hp={...c.hp,temp:Math.max(Number(c.hp.temp)||0,result.total)};
+  patch.hp={...c.hp,temp:Math.max(Number(c.hp.temp)||0,result.total),...(result.total>Number(c.hp.temp||0)?{tempSource:null}:{})};
  }
  if(healingSpell(spell,plan)){
   const healing=rolls.filter(r=>/healing/i.test(r.label));
@@ -50,7 +54,7 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,maxHP=c.hp?.max
  if(name==='barkskin'&&recipient==='self')effect={key:name,name:spell.name,minimumAC:(spell.edition||c.mechanics||c.ruleset)==='2024'?17:16,remainingSeconds:3600};
  if(effect){effect={...effect,id:`spell:${name.replaceAll(' ','-')}`,...(spell.concentration?{concentration:spell.name}:{})};effects=[...effects.filter(e=>e.key!==effect.key),effect];}
  if(effect||spell.concentration)patch.activeEffects=effects;
- return patch;
+ return {...wardCastPatch(c,spell,slotLevel),...patch,...blessedHealerPatch({...c,...patch},spell,{recipient,slotLevel,maxHP})};
 }
 // Durations follow elapsed game time, never the device clock. A turn boundary
 // is explicit because the encounter tracker keeps independent combatants.
@@ -58,12 +62,13 @@ export function advanceEffectTime(c,{seconds=0,startTurn=false}={}){
  if(legacy(c))return {};
  if(!Number.isFinite(seconds)||seconds<0)throw Error('Elapsed game time must be nonnegative.');
  const before=activeEffects(c),after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
- return {activeEffects:after,...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
+ return {...(startTurn?quantityTurn(c):{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
 }
 export function endEffect(c,id){
  if(legacy(c))return {};
  const effect=activeEffects(c).find(e=>e.id===id),concentration=effect?.concentration?null:c.concentration;
- return {concentration,...reconcileEffects({...c,concentration,activeEffects:(c.activeEffects||[]).filter(e=>e.id!==id)})};
+ const removed=effect?.stateKey==='rage'?['rage','rage-beyond-death','beast-weapon','storm-aura']:[];
+ return {concentration,...finishSubclassEffects(c,(c.activeEffects||[]).filter(e=>e.id!==id&&!removed.includes(e.stateKey))),...(effect?.stateKey==='rage'?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{})};
 }
 export function restEffectPatch(c,kind){
  if(legacy(c))return {};
