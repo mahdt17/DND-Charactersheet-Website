@@ -1,6 +1,6 @@
 import {expandedSubclassRows,expandedFeatureUnlocked,expandedChoiceId,expandedSubclassContext} from './expandedSubclasses.js';
 import {characterResources} from './resources.js';
-import {actorActionBlock,actorDeathBlock} from './subclassState.js';
+import {actorActionBlock,actorDeathBlock,sourceSubclassEffects} from './subclassState.js';
 export {expandedSubclassContext};
 export function sourceFeature(c,records,feature){
  const p=expandedSubclassRows(c).find(p=>records.includes(p.record.id.split(':').slice(-2).join(':')));
@@ -21,4 +21,4 @@ export function featureState(c,p,key,extra={}){return {id:`subclass:${p.row.cata
 export function putState(c,state){return {activeEffects:[...(c.activeEffects||[]).filter(e=>e.id!==state.id),state]};}
 export function validRoll(result,{min=0,max=Infinity}={}){if(!Number.isFinite(result?.total)||result.total<min||result.total>max)throw Error('A valid visible roll result is required.');return result.total;}
 export function tempHP(c,amount,source=null,{replace=false}={}){if(!Number.isFinite(amount)||amount<0)throw Error('Invalid temporary HP.');return {hp:amount>Number(c.hp.temp||0)||replace?{...c.hp,temp:amount,tempSource:source}:{...c.hp}};}
-export function healHP(c,amount,maxHP){if(!Number.isFinite(amount)||amount<0||!Number.isFinite(maxHP))throw Error('Invalid healing.');return {hp:{...c.hp,current:Math.min(maxHP,Number(c.hp.current)+amount)},...(amount>0&&c.hp.current===0?{deathSaves:{success:0,failure:0}}:{})};}
+export function healHP(c,amount,maxHP){if(!Number.isFinite(amount)||amount<0||!Number.isFinite(maxHP))throw Error('Invalid healing.');const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0],state=e&&c.profileState?.[e.id];if(state?.hp)return {profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:Math.min(state.hp.max,state.hp.current+amount)}}}};return {hp:{...c.hp,current:Math.min(maxHP,Number(c.hp.current)+amount)},...(amount>0&&c.hp.current===0?{deathSaves:{success:0,failure:0}}:{})};}

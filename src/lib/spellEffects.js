@@ -1,3 +1,4 @@
+import {healHP} from './subclassActionUtils.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 import {blessedHealerPatch} from './subclassHealing.js';
 import {quantityTurn} from './subclassQuantities.js';
@@ -41,8 +42,7 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell
   if(!healing.length||healing.some(r=>!Number.isFinite(r.total)||r.total<0))throw Error('A valid healing roll result is required before spending a slot.');
   if(recipient==='self'){
    const amount=healing.reduce((n,r)=>n+r.total,0);
-   patch.hp={...c.hp,current:Math.min(Number(maxHP),Number(c.hp.current)+amount)};
-   if(amount>0&&c.hp.current===0)patch.deathSaves={success:0,failure:0};
+   Object.assign(patch,healHP(c,amount,Number(maxHP)));
   }
  }
  const name=spellName(spell);

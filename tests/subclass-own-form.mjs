@@ -6,6 +6,7 @@ const server=await createServer({server:{middlewareMode:true,hmr:false},optimize
 const lifecycle=await server.ssrLoadModule('/src/lib/spellEffects.js');
 const actor=await server.ssrLoadModule('/src/lib/subclassState.js');
 const casting=await server.ssrLoadModule('/src/lib/rage2014.js');
+const actions=await server.ssrLoadModule('/src/lib/subclassActionUtils.js');
 const lib=existsSync('src/lib/subclassOwnForm.js')?await server.ssrLoadModule('/src/lib/subclassOwnForm.js'):{};await server.close();
 const make=(level=2)=>({ruleset:'2014',className:'Druid',subclass:'Moon',level,classDefinition:{name:'Druid',index:'druid',edition:'2014'},abilities:{str:10,dex:10,con:10,int:14,wis:16,cha:12},hp:{current:20,max:20,temp:0},resources:[],inventory:[],activeEffects:[],spells:[],actions:[]});const apply=(c,p)=>({...c,...p});
 test('Moon form requires seen confirmation and spends canonical Wild Shape',()=>{
@@ -34,4 +35,10 @@ test('Beast Spells permits Druid verbal and somatic spells at 18; Archdruid can 
 });
 test('ordinary healing in Wild Shape heals form HP only',()=>{
  assert.equal(typeof lib.healOwnForm,'function');let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,lib.healOwnForm(c,5));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);
+});
+test('shared healing features heal the active form, preserving normal HP',()=>{
+ let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,actions.healHP(c,5,20));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);
+});
+test('self healing spell effects heal the form rather than normal HP',()=>{
+ let c=make(18);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,lifecycle.castEffectPatch(c,{name:'Cure Wounds',level:1,heal_at_slot_level:{1:'1d8'}},{recipient:'self',rolls:[{label:'Healing',total:5}],slotLevel:1,maxHP:20}));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);
 });
