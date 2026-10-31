@@ -1,3 +1,4 @@
+import {effectiveAbilityScores} from './abilityScores.js';
 import {characterClasses} from './advancement.js';
 import {findExpandedSubclass} from './expandedSubclassCatalog.js';
 import {rageProfile} from './rage2014.js';
@@ -47,7 +48,9 @@ export function reconcileSubclassStates(c){
  const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
  const live=new Set(effects.map(e=>e.id));
  const owners=characterClasses(c).flatMap(row=>{const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);return record?[{owner:row.catalogId,record:record.id}]:[];});
+ const score=Array.isArray(c.subclassCompanions)&&c.subclassCompanions.some(e=>e.managedSubclassCompanion&&e.profileId==='steel-defender')?effectiveAbilityScores(c):null;
+ const companions=Array.isArray(c.subclassCompanions)?c.subclassCompanions.filter(e=>!e.managedSubclassCompanion||(!(e.endsOnOwnerDeath&&actorDeathBlock(c))&&characterClasses(c).some(row=>{const r=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);return r&&row.catalogId===e.sourceClassId&&r.id===e.subclassRecordId&&r.features.some(f=>f.id===e.sourceFeatureId&&f.level<=row.level&&selectedFeature(c,row,r,f));}))).map(e=>{if(!e.managedSubclassCompanion||e.profileId!=='steel-defender')return e;const row=characterClasses(c).find(r=>r.catalogId===e.sourceClassId),max=Math.max(1,2+Math.floor((score.int-10)/2)+5*row.level);return {...e,hp:{...e.hp,current:Math.min(max,e.hp.current)}};}):null;
  const owned={};for(const key of ['subclassQuantities','subclassPortent','subclassEquipment','subclassPsionic'])if(c[key])owned[key]=Object.fromEntries(Object.entries(c[key]).flatMap(([owner,records])=>{const keep=Object.fromEntries(Object.entries(records).filter(([record])=>owners.some(p=>p.owner===owner&&p.record===record)));return Object.keys(keep).length?[[owner,keep]]:[];}));
 
- return {...c,...owned,...(c.subclassElixirs?{subclassElixirs:c.subclassElixirs.filter(e=>owners.some(p=>p.owner===e.sourceClassId&&p.record===e.subclassRecordId))}:{}),spells:(c.spells||[]).filter(s=>!s.temporarySubclassSpell||live.has(s.sourceEffectId)),...finishSubclassEffects(c,effects.filter(e=>!['rage-beyond-death','beast-weapon','storm-aura','rage-wild-surge'].includes(e.stateKey)||hasRage||!c.activeEffects.some(e=>e.stateKey==='rage')))};
+ return {...c,...owned,...(companions?{subclassCompanions:companions}:{}),...(c.subclassElixirs?{subclassElixirs:c.subclassElixirs.filter(e=>owners.some(p=>p.owner===e.sourceClassId&&p.record===e.subclassRecordId))}:{}),spells:(c.spells||[]).filter(s=>!s.temporarySubclassSpell||live.has(s.sourceEffectId)),...finishSubclassEffects(c,effects.filter(e=>!['rage-beyond-death','beast-weapon','storm-aura','rage-wild-surge'].includes(e.stateKey)||hasRage||!c.activeEffects.some(e=>e.stateKey==='rage')))};
 }

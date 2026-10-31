@@ -63,7 +63,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
         ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
-        ...restEffectPatch(char,'long'),deathSaves:{success:0,failure:0},
+        ...restEffectPatch(char,'long'),subclassCompanionRest:Number(char.subclassCompanionRest||0)+1,deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated,fed,shadarKai:{...shadarKai,trance:(shadarKai.trance||[]).filter(Boolean)},eladrin:{...eladrin,trance:(eladrin.trance||[]).filter(Boolean)}},abilities)
       });
       else {
