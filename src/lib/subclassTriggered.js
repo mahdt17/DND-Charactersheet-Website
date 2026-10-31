@@ -1,7 +1,7 @@
 import {subclassRoll} from './subclassFormulas.js';
 import {expandedSubclassRows,expandedFeatureUnlocked,expandedSubclassContext} from './expandedSubclasses.js';
 import {sourceFeature,assertAct,assertZeroHPTrigger,spendFeature,featureState,putState,tempHP,healHP,validRoll} from './subclassActionUtils.js';
-import {sourceSubclassEffects} from './subclassState.js';
+import {sourceSubclassEffects,equippedForActiveBody} from './subclassState.js';
 import {activeFormProfile} from './subclassActive.js';
 import {resourceEvent} from './subclassQuantities.js';import {conditionalActions,conditionalActionPlan,executeConditionalAction} from './subclassConditionalActions.js';
 import {rageProfile} from './rage2014.js';
@@ -48,7 +48,7 @@ export function executeTriggeredFeature(c,key,input={}){
  if(key==='mastery-of-death'&&c.hp.current!==0)throw Error('You must have just dropped to 0 HP without dying.');
  const results=input.rolls||[];if(results.length!==d.rolls.length)throw Error('Resolve each visible feature roll before spending.');for(const r of results)validRoll(r);
  const once=new Set(['deft-strike','archer','storm-aura']);if(once.has(key)&&c.subclassTurnUsed?.includes(`${p.record.id}:${key}`))throw Error('This feature was already used this turn.');
- let item;if(['sharpen-blade','agile-parry','deft-strike','kensei-shot'].includes(key)){item=c.inventory?.find(i=>i.id===input.itemId&&i.equipped);if(key==='sharpen-blade'&&(!Number.isInteger(input.n)||input.n<1||input.n>3))throw Error('Choose 1 through3 ki.');const k=item&&kenseiWeaponProfile(c,item);if(!k)throw Error('Choose an equipped eligible Kensei weapon.');if(key==='agile-parry'&&!p.record.playtest&&k.data.weapon_range!=='Melee')throw Error('Agile Parry requires a melee Kensei weapon.');if(key==='kensei-shot'&&!p.record.playtest&&k.data.weapon_range!=='Ranged')throw Error('Kensei’s Shot requires a ranged Kensei weapon.');if(key==='sharpen-blade'&&!p.record.playtest&&(Number(item.magicBonus)||Number(item.attackBonus)||Number(item.damageBonus)))throw Error('This weapon already has a magic attack/damage bonus.');}
+ let item;if(['sharpen-blade','agile-parry','deft-strike','kensei-shot'].includes(key)){item=c.inventory?.find(i=>i.id===input.itemId&&equippedForActiveBody(c,i));if(key==='sharpen-blade'&&(!Number.isInteger(input.n)||input.n<1||input.n>3))throw Error('Choose 1 through3 ki.');const k=item&&kenseiWeaponProfile(c,item);if(!k)throw Error('Choose an equipped eligible Kensei weapon.');if(key==='agile-parry'&&!p.record.playtest&&k.data.weapon_range!=='Melee')throw Error('Agile Parry requires a melee Kensei weapon.');if(key==='kensei-shot'&&!p.record.playtest&&k.data.weapon_range!=='Ranged')throw Error('Kensei’s Shot requires a ranged Kensei weapon.');if(key==='sharpen-blade'&&!p.record.playtest&&(Number(item.magicBonus)||Number(item.attackBonus)||Number(item.damageBonus)))throw Error('This weapon already has a magic attack/damage bonus.');}
  let patch={...(key==='wails-from-grave'&&input.useTrinket?resourceEvent(c,'destroy-trinket'):spendFeature(c,p,d.resource,key==='sharpen-blade'?input.n:d.cost||1))},state=null;
  if(key==='invoke-frost'||key==='invoke-hill'||key==='invoke-storm')state=featureState(c,p,key.replace('invoke-','rune-'),{remainingSeconds:key==='invoke-frost'?600:60});
  if(key==='summon-hound'||key==='shadow-hound'||key==='shadow-form')state=featureState(c,p,key,{remainingSeconds:key==='summon-hound'?300:key==='shadow-form'?60:undefined,endsOnIncapacitated:true});

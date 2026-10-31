@@ -14,6 +14,7 @@ const fighter=await server.ssrLoadModule('/src/lib/fightingStyles.js');
 const aasimar=await server.ssrLoadModule('/src/lib/aasimar.js');
 const race=await server.ssrLoadModule('/src/data/aasimar.js');
 const tables=await server.ssrLoadModule('/src/lib/subclassTables.js');
+const blade=await server.ssrLoadModule('/src/lib/bladesinging.js');
 const lib=existsSync('src/lib/subclassOwnForm.js')?await server.ssrLoadModule('/src/lib/subclassOwnForm.js'):{};await server.close();
 const make=(level=2)=>({ruleset:'2014',className:'Druid',subclass:'Moon',level,classDefinition:{name:'Druid',index:'druid',edition:'2014'},abilities:{str:10,dex:10,con:10,int:14,wis:16,cha:12},hp:{current:20,max:20,temp:0},resources:[],inventory:[],activeEffects:[],spells:[],actions:[]});const apply=(c,p)=>({...c,...p});
 test('Moon form requires seen confirmation and spends canonical Wild Shape',()=>{
@@ -87,4 +88,48 @@ test('form retains explicit table-resolved equipment and base AC choices',()=>{
 });
 test('worn armor suppresses Mage Armor while additive defenses remain',()=>{
  let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true,equipmentNotes:'armor worn',baseAC:12,wearingArmor:true}));c.activeEffects.push({id:'mage',key:'mage armor',baseAC:{base:13,ability:'dex'},requiresUnarmored:true},{id:'shield',key:'shield',acBonus:5});assert.equal(lib.ownFormArmor(c),17);
+});
+test('Beast Spells does not allow another class to cast a spell merely on the Druid list',()=>{
+ let c=make(18);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert.match(casting.featureCastingBlock(c,{name:'Cure Wounds',level:1,castingClassId:'2014:bard',classes:['Druid','Bard'],components:['V','S']}),/Druid spells/);
+});
+test('worn armor or shield requires a confirmed form base AC',()=>{
+ assert.throws(()=>lib.activateMoonForm(make(),'brown-bear',{seen:true,equipmentResolved:true,wearingArmor:true}),/base AC/i);assert.throws(()=>lib.activateMoonForm(make(),'brown-bear',{seen:true,equipmentResolved:true,wearingShield:true}),/base AC/i);
+});
+test('merged equipment is not considered equipped by active-body consumers',()=>{
+ assert.equal(typeof actor.equippedForActiveBody,'function');let c={...make(),inventory:[{id:'staff',equipped:true}]};c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert.equal(actor.equippedForActiveBody(c,c.inventory[0]),false);c=apply(c,lib.endOwnForm(c));c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true,wornItemIds:['staff']}));assert.equal(actor.equippedForActiveBody(c,c.inventory[0]),true);
+});
+test('active Bladesong AC bonus is retained by an eligible form',()=>{
+ let c=make(2);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:2,subclass:'Moon'},{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:2,subclass:'Bladesinging'}];c.level=4;c=apply(c,blade.startBladesong(c));c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert.equal(lib.ownFormArmor(c),13);
+});
+test('removing Moon cleans its form state and preserves unrelated effects and manual entries',()=>{
+ let c=make();c.activeEffects=[{id:'manual',name:'Manual'}];c.subclassCompanions=[{id:'manual-pet'}];c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=integration.reconcileClassGrants({...c,subclass:'Land'});assert.equal(lib.ownFormProfile(c),null);assert.deepEqual(c.profileState,{});assert(c.activeEffects.some(e=>e.id==='manual'));assert.deepEqual(c.subclassCompanions,[{id:'manual-pet'}]);
+});
+test('level loss invalidates a form above the current Moon CR limit before actor guards run',()=>{
+ let c=make(6);c=apply(c,lib.activateMoonForm(c,'polar-bear',{seen:true,equipmentResolved:true}));c.level=2;c.hp.current=0;
+ assert.equal(lib.ownFormProfile(c),null);assert.match(actor.actorActionBlock(c),/conscious/);c=integration.reconcileClassGrants(c);assert.deepEqual(c.profileState,{});
+});
+test('Primal Strike follows current Druid level rather than the activation snapshot',()=>{
+ let c=make(6);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c.level=5;
+ assert.equal(lib.ownFormProfile(c).magicalAttacks,false);
+});
+test('Moon profile rejects a wrong source feature and an unrelated profile catalog',()=>{
+ let c=make(10);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));
+ const effect=c.activeEffects.find(e=>e.stateKey==='moon-wild-shape');effect.sourceFeatureId='2014:subclass:druid:moon:primal-strike';
+ assert.equal(lib.ownFormProfile(c),null);effect.sourceFeatureId='2014:subclass:druid:moon:combat-wild-shape';effect.profileRef.catalogId='manual';assert.equal(lib.ownFormProfile(c),null);
+});
+test('Archdruid confirmation cannot waive listed costly or consumed materials',()=>{
+ let c=make(20);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));
+ for(const material of ['Diamond dust worth 100 gp, which the spell consumes.','A pearl worth at least 100gp.','Herbs that the spell consumes.'])assert.match(casting.featureCastingBlock(c,{name:'Material spell',level:1,castingClassId:'2014:druid',components:['V','S','M'],material,archdruidMaterialEligible:true}),/material/i);
+});
+test('merged shield does not prevent Bladesong or cancel it on sheet reconciliation',()=>{
+ let c=make(2);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:2,subclass:'Moon'},{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:2,subclass:'Bladesinging'}];c.level=4;c.inventory=[{id:'shield',equipmentIndex:'shield',equipped:true}];
+ c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert.equal(blade.bladesongProfile(c).blocked,'');c=apply(c,blade.startBladesong(c));c=blade.reconcileBladesinging(c);assert.equal(lib.ownFormArmor(c),13);
+});
+test('form damage applies elemental nonmagical resistance and explicit vulnerability once',()=>{
+ let c=make(10);c=apply(c,lib.activateMoonForm(c,'fire-elemental',{equipmentResolved:true}));
+ assert.equal(lib.ownFormDamageAmount(c,15,{type:'slashing',weapon:true}),7);assert.equal(lib.ownFormDamageAmount(c,15,{type:'slashing',magical:true}),15);assert.equal(lib.ownFormDamageAmount(c,15,{type:'slashing',weapon:true,vulnerable:true}),14);assert.equal(lib.ownFormDamageAmount(c,15,{type:'fire',vulnerable:true}),0);
+});
+test('retained Rage resistance applies to form damage without stacking resistance',()=>{
+ let c=make(2);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:2,subclass:'Moon'},{catalogId:'2014:barbarian',name:'Barbarian',edition:'2014',level:1}];c.level=3;c.activeEffects=[{id:'rage',stateKey:'rage',baseClassId:'2014:Barbarian:rage',remainingSeconds:60}];c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));
+ assert.equal(lib.ownFormDamageAmount(c,15,{type:'slashing',magical:true}),7);assert.equal(lib.ownFormDamageAmount(c,15,{type:'cold'}),15);
 });

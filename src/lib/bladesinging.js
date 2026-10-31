@@ -1,4 +1,4 @@
-import {actorActionBlock} from './subclassState.js';
+import {actorActionBlock,equippedForActiveBody} from './subclassState.js';
 import {findExpandedSubclass} from './expandedSubclassCatalog.js';
 import {characterClasses,totalLevel} from './advancement.js';
 import {effectiveAbilityScores} from './abilityScores.js';
@@ -13,7 +13,7 @@ const name=value=>String(value||'').trim().toLowerCase();
 export const bladesingerWeaponOptions=equipment.filter(e=>e.weapon_range==='Melee'&&e.damage&&!e.properties?.some(p=>p.index==='two-handed')).map(e=>({name:e.name,index:e.index}));
 
 function restriction(c){
- const worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
+ const worn=(c.inventory||[]).filter(i=>equippedForActiveBody(c,i)).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
  if(worn.some(e=>e.equipmentIndex==='shield'||e.index==='shield'||e.shield||e.armor_category==='Shield'))return 'Bladesong cannot be used with a shield.';
  if(worn.some(e=>['Medium','Heavy'].includes(e.armor_category)))return 'Remove medium or heavy armor before using Bladesong.';
  const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(x=>name(x?.name||x));

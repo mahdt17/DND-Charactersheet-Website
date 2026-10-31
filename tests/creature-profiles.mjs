@@ -18,4 +18,7 @@ test('original ranger options are beasts no larger than Medium with CR at most o
  assert.equal(typeof profiles.rangerBeastOptions,'function');
  const options=profiles.rangerBeastOptions(); assert(options.some(x=>x.id==='wolf')); assert(!options.some(x=>x.id==='dire-wolf')); assert(!options.some(x=>x.id==='brown-bear'));
 });
+test('elemental condition immunities are readable source names',()=>{
+ assert(profiles.localCreatureProfile('fire-elemental').conditionImmunities.includes('Poisoned'));
+});
 

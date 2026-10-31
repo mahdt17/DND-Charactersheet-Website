@@ -1,6 +1,6 @@
 import {rageProfile} from './rage2014.js';
 import {bladesongProfile} from './bladesinging.js';
-import {actorActionBlock,healActiveBody} from './subclassState.js';
+import {actorActionBlock,healActiveBody,equippedForActiveBody} from './subclassState.js';
 import {fightingStyleGrants} from './fightingStyleGrants.js';
 import {totemProfile} from './totemWarrior.js';
 import {totalLevel} from './advancement.js';
@@ -20,7 +20,7 @@ const findStyle=value=>fightingStyles.find(s=>[s.id,s.name,label(s)].includes(ty
 export function fightingStyleProfile(c,abilities=effectiveAbilityScores(c)){
  const {active,row,fighterRow,max,styles}=fightingStyleGrants(c);
  if(!active)return {active:false,styles:[],ac:0};
- const has=id=>styles.some(s=>s.id===id),worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean),armored=worn.some(e=>e.armor_class&&e.index!=='shield'),shield=worn.some(e=>e.index==='shield'),heavy=worn.some(e=>e.armor_category==='Heavy'),mariner=has('mariner')&&!shield&&!heavy,pb=2+Math.floor((totalLevel(c)-1)/4);
+ const has=id=>styles.some(s=>s.id===id),worn=(c.inventory||[]).filter(i=>equippedForActiveBody(c,i)).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean),armored=worn.some(e=>e.armor_class&&e.index!=='shield'),shield=worn.some(e=>e.index==='shield'),heavy=worn.some(e=>e.armor_category==='Heavy'),mariner=has('mariner')&&!shield&&!heavy,pb=2+Math.floor((totalLevel(c)-1)/4);
  return {active:true,row,fighterRow,level:row.level,pb,styles,has,armored,shield,heavy,mariner,ac:(has('defense')&&armored?1:0)+(mariner?1:0),max,dc:8+pb+mod(abilities[c.fightingStyles?.dcAbility==='dex'?'dex':'str'])};
 }
 export function styleChoicePlan(c,previous=null,picks={}, {configure=false}={}){

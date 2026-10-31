@@ -2,6 +2,7 @@ import {effectiveAbilityScores} from './abilityScores.js';
 import {characterClasses} from './advancement.js';
 import {findExpandedSubclass} from './expandedSubclassCatalog.js';
 import {rageProfile} from './rage2014.js';
+import {isEligibleMoonProfile,localCreatureProfile} from './creatureProfiles.js';
 
 // Shared source-owned states live in activeEffects, using the existing game-time,
 // concentration and rest lifecycle. These helpers never start a state implicitly.
@@ -17,9 +18,14 @@ export function sourceSubclassEffects(c,{recordId,ownerId,featureId,stateKey}={}
  if(edition(c)!=='2014')return [];
  return (c.activeEffects||[]).filter(e=>e.subclassRecordId&&(!recordId||e.subclassRecordId===recordId)&&(!ownerId||e.sourceClassId===ownerId)&&(!featureId||e.sourceFeatureId===featureId)&&(!stateKey||e.stateKey===stateKey)&&(e.remainingSeconds==null||e.remainingSeconds>0)&&(!e.concentration||e.concentration===c.concentration)&&characterClasses(c).some(row=>{
   const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);
+  if(e.stateKey==='moon-wild-shape'){
+   const ref=e.profileRef,profile=localCreatureProfile(ref?.creatureId),feature=profile?.type==='beast'?'combat-wild-shape':'elemental-wild-shape';
+   if(record?.id!=='2014:subclass:druid:moon'||ref?.catalogId!=='2014:creatures'||e.sourceFeatureId!==`${record.id}:${feature}`||!isEligibleMoonProfile(ref?.creatureId,row.level))return false;
+  }
   return record&&record.id===e.subclassRecordId&&row.catalogId===e.sourceClassId&&record.features.some(f=>f.id===e.sourceFeatureId&&f.level<=row.level&&selectedFeature(c,row,record,f));
  }));
 }
+export function equippedForActiveBody(c,item){if(!item?.equipped)return false;const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0];return !e||(e.wornItemIds||[]).includes(item.id);}
 export function actorBodyHP(c){const e=sourceSubclassEffects(c).find(e=>e.stateKey==='moon-wild-shape');const hp=e&&c.profileState?.[e.id]?.hp;return hp&&Number.isFinite(hp.current)?hp.current:Number(c.hp?.current??1);}
 export function healActiveBody(c,amount){const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0],state=e&&c.profileState?.[e.id];if(!state?.hp)return null;if(!Number.isFinite(amount)||amount<0)throw Error('Invalid healing.');return {profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:Math.min(state.hp.max,state.hp.current+amount)}}}};}
 export function longRestBody(c,maxHP){const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0],state=e&&c.profileState?.[e.id];return state?.hp?{hp:{...c.hp,temp:0},profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:state.hp.max}}}}:{hp:{...c.hp,current:maxHP,temp:0}};}
@@ -53,7 +59,7 @@ export function finishSubclassEffects(c,effects){
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
  const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||actorBodyHP(c)<=0&&!consciousAtZero(c);
- const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.requiresEquippedItem&&!(c.inventory||[]).some(i=>i.id===e.itemId&&i.equipped))&&!(e.stateKey==='moon-wild-shape'&&(unconscious||actorDeathBlock(c)))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
+ const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.requiresEquippedItem&&!(c.inventory||[]).some(i=>i.id===e.itemId&&equippedForActiveBody(c,i)))&&!(e.stateKey==='moon-wild-shape'&&(unconscious||actorDeathBlock(c)))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
  const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
  const live=new Set(effects.map(e=>e.id));
  const owners=characterClasses(c).flatMap(row=>{const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);return record?[{owner:row.catalogId,record:record.id}]:[];});

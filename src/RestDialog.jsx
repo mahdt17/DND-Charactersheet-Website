@@ -1,4 +1,5 @@
 import {longRestBody,sourceSubclassEffects} from './lib/subclassState';
+import {ownFormProfile} from './lib/subclassOwnForm';
 import {ShadarKaiChoices} from './ShadarKai';
 import {EladrinChoices} from './Eladrin';
 import {isEladrin} from './lib/eladrin';
@@ -32,18 +33,20 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   const [rest,setRest]=useState(is35(char)?'long':initialRest==='long'?'long':'short');
   const [spending,setSpending]=useState({}),[recovery,setRecovery]=useState(()=>defaultRecovery(char));
   const [recoverExhaustion,setRecoverExhaustion]=useState(false),[error,setError]=useState(''),[lastRoll,setLastRoll]=useState(null);
+  const [consciousRest,setConsciousRest]=useState(false);
+  const form=ownFormProfile(char),formSurvivesLongRest=!!form&&sourceSubclassEffects(char,{stateKey:'moon-wild-shape'}).some(e=>e.remainingSeconds>28800);
   const [arcaneSlots,setArcaneSlots]=useState({});
   const archivist=campaignProfile(char),spellSlots=spellSlotPools(char).standard;
   const arcaneTotal=Object.entries(arcaneSlots).reduce((sum,[level,n])=>sum+Number(level)*n,0);
   const pools=hitDicePools(char),legacy=is35(char),revised=mechanics(char)==='2024',exhaustion=exhaustionLevel(char);
   const recoveryTotal=Object.values(recovery).reduce((n,v)=>n+v,0),limit=recoveryLimit(char);
-  const excess=rest==='long'&&!revised&&recoveryTotal>limit;
-  const needsReview=needsHitDiceReview(char);
+  const excess=rest==='long'&&!formSurvivesLongRest&&!revised&&recoveryTotal>limit;
+  const needsReview=!form&&needsHitDiceReview(char);
   const swarm=entomancerProfile(char);
   let populationAfter=null;
   if(swarm.level&&!char.entomancer?.dead){try{populationAfter=entomancerProfile({...char,...restResources(char,rest,{fed,meditated,restoreSorcery},abilities)}).remaining;}catch{}}
   function spend(inline=false) {
-    if(sourceSubclassEffects(char,{stateKey:'moon-wild-shape'}).length&&Object.values(spending).some(n=>n>0))throw Error('Resolve the form’s Hit Dice at the table and apply healing to the form.');
+    if(form){if(Object.values(spending).some(n=>n>0))throw Error('Resolve the form’s Hit Dice at the table and apply healing to the form.');return {};}
     const results=[];
     const {healing,...counts}=spendHitDice(char,spending,modifier(constitution),(expression,label,options)=>{
       const result=roll(expression,label,{...options,inline});
@@ -59,11 +62,12 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   function takeRest() {
     try {
       if(entomancerLevel(char)&&char.entomancer?.dead)throw Error('A dead character must be revived before resting.');
+      if(form&&rest==='long'&&!consciousRest)throw Error('Confirm a qualifying conscious rest, or close this dialog and end Wild Shape before resting.');
       const conditions=conditionNames(char);
       if(legacy)patch(current=>{const daily=restDailySpellLike35(current,'long'),acquisition=restSpellAcquisition35(daily,'long'),currentConditions=conditionNames(current);return {hp:changeHP(current.hp,current.level,true),...restSpellSlots(current,'long'),...restFeatMagic(current,'long'),...restResources(current,'long',{},abilities),conditions:currentConditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted'),dailySpellLike35:daily.dailySpellLike35,spellAcquisition35:acquisition.spellAcquisition35,spellAcquisition35Incomplete:acquisition.spellAcquisition35Incomplete,spells:acquisition.spells};});
       else if(rest==='long'){const timed=restEffectPatch(char,'long'),rested={...char,...timed};patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
-        ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
+        ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...(sourceSubclassEffects(rested,{stateKey:'moon-wild-shape'}).length?{}:recoverHitDice(char,recovery)),
         ...timed,...longRestBody(rested,conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP),subclassCompanionRest:Number(char.subclassCompanionRest||0)+1,deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated,fed,shadarKai:{...shadarKai,trance:(shadarKai.trance||[]).filter(Boolean)},eladrin:{...eladrin,trance:(eladrin.trance||[]).filter(Boolean)}},abilities)
       });}
@@ -78,6 +82,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
     }catch(e){setError(e.message);}
   }
   function adjust(pool,value) {
+    if(form)return;
     const values=setSpentHitDice(char,{[pool.key]:value});patch(values);
     setSpending({});setRecovery(defaultRecovery({...char,...values}));
   }
@@ -88,6 +93,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
     </div>
     <p>{legacy?'After a full night of qualifying rest, recover your level in hit points. Prepared spell slots remain spent until daily study or prayer; account for casts in the last 8 hours. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared. Any 3.5 prepared spells still require daily study or prayer.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
     {!legacy&&<>
+      {form&&<section aria-label="Wild Shape rest policy"><h3>Resting as {form.name}</h3><p>This form has {form.hitDice} Hit Dice and Constitution {form.abilities.con}. Confirm available form dice and rest eligibility at the table. Roll the form’s dice there, then close this dialog and use the sheet’s Heal control before advancing the rest. Normal-body Hit Dice are archived while transformed.</p><p>Falling unconscious ends Wild Shape. For ordinary sleep, close this dialog, end Wild Shape, then rest. A qualifying conscious rest advances the shared form duration; when the form expires, recovery uses your normal body.</p>{rest==='long'&&<><p>{formSurvivesLongRest?'The form will remain after 8 hours: restore its HP, leaving normal HP and Hit Dice unchanged. Resolve creature Hit Dice recovery at the table.':'The form will expire during 8 hours: normal HP and selected normal Hit Dice recover.'}</p><label className="l-check"><input type="checkbox" aria-label="Confirm conscious rest in Wild Shape" checked={consciousRest} onChange={e=>setConsciousRest(e.target.checked)}/>I confirm this is a qualifying rest and I remain conscious while transformed.</label></>}</section>}
       {rest==='long'&&<ShadarKaiChoices rest char={{...char,shadarKai}} patch={values=>setShadarKai(values.shadarKai)}/>}
       {rest==='long'&&isEladrin(char)&&<EladrinChoices rest char={{...char,eladrin}} patch={values=>setEladrin(values.eladrin)}/>}
       {swarm.level>0&&<section className="rest-population" aria-label="Swarm recovery"><h3>Population recovery</h3><label className="l-check"><input type="checkbox" checked={fed} onChange={e=>setFed(e.target.checked)}/>Swarm was fed during this rest</label><p>A fed long rest fully refills Population. Uncheck this only if the swarm had no food.</p>{populationAfter!=null&&<p role="status" aria-label="Population recovery preview"><strong>{swarm.remaining} → {populationAfter} / {swarm.max} Population</strong>{rest==='long'&&!fed?' · No full refill without food.':` · Recover ${Math.max(0,populationAfter-swarm.remaining)}.`}</p>}{rest==='long'&&<p className="l-muted">Daily abilities recharge. Hungry Mouths also requires feeding.</p>}</section>}
@@ -98,12 +104,12 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       <details className="feature-detail" open={needsReview||undefined}>
         <summary>Review spent hit dice</summary>
         <p>Correct the spent count for each class if needed. Changes save immediately.</p>
-        {pools.map(p=><Count key={p.key} label={`Spent hit dice — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'})`} value={p.used} max={p.total} onChange={n=>adjust(p,n)}/>)}
+        {pools.map(p=><Count key={p.key} label={`Spent hit dice — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'})`} value={p.used} max={p.total} disabled={!!form} onChange={n=>adjust(p,n)}/>)}
         {needsReview&&<button className="l-button" onClick={()=>{patch(setSpentHitDice(char,{}));}}>Confirm spent dice</button>}
       </details>
       {rest==='short'?<>
         {archivist.recoveryBudget>0&&<section aria-label="Archivist Arcane Recovery"><h3>Arcane Recovery</h3><p>{archivist.recoveryUsed?'Already used. Available again after a long rest.':`Choose expended slots totaling up to ${archivist.recoveryBudget} spell-slot levels. Only levels 1–5 qualify. Once per long rest.`}</p>{!archivist.recoveryUsed&&<><p>Recovery selected: {arcaneTotal} / {archivist.recoveryBudget}</p>{spellSlots.flatMap((n,level)=>level>=1&&level<=5&&n>0?[<Count key={level} label={`Arcane Recovery — level ${level} slots`} max={Math.min(n,Number(char.slotsUsed?.[level]||0))} value={arcaneSlots[level]||0} onChange={value=>setArcaneSlots({...arcaneSlots,[level]:value})}/>]:[])}{arcaneTotal>archivist.recoveryBudget&&<p role="alert">Choose slots within the recovery budget.</p>}<p className="l-muted">Recovery is applied only when you complete this short rest.</p></>}</section>}
-        {pools.map(p=><Count key={p.key} label={`Hit dice to spend — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'}; ${p.available} available)`} max={p.available} value={spending[p.key]||0} disabled={!p.sides} onChange={n=>setSpending({...spending,[p.key]:n})}/>)}
+        {pools.map(p=><Count key={p.key} label={`Hit dice to spend — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'}; ${p.available} available)`} max={p.available} value={spending[p.key]||0} disabled={!!form||!p.sides} onChange={n=>setSpending({...spending,[p.key]:n})}/>)}
         {pools.some(p=>!p.sides)&&<p className="l-notice">A class hit die is missing. Record its source value before rolling that class’s dice.</p>}
         <button className="l-button" disabled={needsReview||!Object.values(spending).some(n=>n>0)} onClick={rollSelected}>Roll &amp; spend selected hit dice</button>
         {lastRoll&&<div role="status"><strong>Hit dice healing: {lastRoll.healing} HP</strong>{lastRoll.results.map((r,i)=><p key={i}>{r.label} · {r.expression}: {r.total} {modifier(constitution)<0?'−':'+'} {Math.abs(modifier(constitution))} Constitution = {Math.max(0,r.total+modifier(constitution))} HP</p>)}</div>}
@@ -111,7 +117,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       </>:<>
         {revised?<p>Recover all {pools.reduce((n,p)=>n+p.used,0)} spent hit dice.</p>:<>
           <p>Hit dice to recover: {recoveryTotal} / {limit} maximum.</p>
-          {pools.map(p=><Count key={p.key} label={`Recover hit dice — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'})`} value={recovery[p.key]||0} max={p.used} onChange={n=>setRecovery({...recovery,[p.key]:n})}/>)}
+          {pools.map(p=><Count key={p.key} label={`Recover hit dice — ${p.name} (${p.sides?`d${p.sides}`:'die unknown'})`} value={recovery[p.key]||0} max={p.used} disabled={formSurvivesLongRest} onChange={n=>setRecovery({...recovery,[p.key]:n})}/>)}
           {excess&&<p role="alert">Choose no more than {limit} hit dice in total.</p>}
         </>}
         {exhaustion>0&&<label className="spell-picker-toggle"><input type="checkbox" checked={recoverExhaustion} onChange={e=>setRecoverExhaustion(e.target.checked)}/> Reduce exhaustion by one (food and drink requirements met)</label>}
