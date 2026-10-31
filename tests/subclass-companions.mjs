@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {createServer} from 'vite';
-import {existsSync} from 'node:fs';
+import {existsSync,readFileSync} from 'node:fs';
 const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
 const integration=await server.ssrLoadModule('/src/lib/classIntegration.js');
 const lib=existsSync('src/lib/subclassCompanions.js')?await server.ssrLoadModule('/src/lib/subclassCompanions.js'):{};
@@ -30,4 +30,9 @@ test('a completed long rest permits only one replacement',()=>{
 });
 test('lowering and then raising the maximum never restores previously capped hit points',()=>{
  let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));c={...c,abilities:{...c.abilities,int:10}};c=integration.reconcileClassGrants(c);assert.equal(lib.steelDefenderProfile(c).hp.current,17);c={...c,abilities:{...c.abilities,int:16}};c=integration.reconcileClassGrants(c);assert.equal(lib.steelDefenderProfile(c).hp.current,17);
+});
+test('reviving the same defender spends a slot and retains its repair uses',()=>{
+ const classes=JSON.parse(readFileSync('public/catalogs/wikidot5e/classes.json','utf8'));const definition=classes.find(x=>x.name==='Artificer');let c={...make(),classDefinition:definition,classLevels:[{catalogId:'2014:artificer',name:'Artificer',edition:'2014',level:3,subclass:'Battle Smith',definition}],slotsUsed:{}};
+ c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;c=apply(c,lib.adjustCompanionHP(c,id,-5));c=apply(c,lib.repairSteelDefender(c,id,{total:7},{recipient:'self',confirmed:true}));c=apply(c,lib.adjustCompanionHP(c,id,-99));
+ c=apply(c,lib.reviveSteelDefender(c,id,{withinHour:true,withinFiveFeet:true,smithTools:true,slotLevel:1,slotPool:'standard'}));assert.equal(c.slotsUsed[1],1);assert.equal(lib.steelDefenderProfile(c).id,id);assert.equal(lib.steelDefenderProfile(c).repairUsed,1);assert.equal(lib.steelDefenderProfile(c).hp.current,20);
 });
