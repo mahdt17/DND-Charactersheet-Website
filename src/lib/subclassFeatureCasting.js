@@ -2,7 +2,7 @@ import {expandedSubclassRows,subclassSpellOptions,expandedSubclassContext} from 
 import {sourceFeature,assertAct,spendFeature,featureState,putState,validRoll} from './subclassActionUtils.js';
 import {characterClasses} from './advancement.js';
 import {rageCastingBlock,featureCastingBlock} from './rage2014.js';
-import {spellPlan,conditionEffects} from './play.js';
+import {spellPlan,conditionEffects,criticalDice} from './play.js';
 import {castEffectPatch} from './spellEffects.js';
 import {healingFeaturePlan} from './subclassHealing.js';
 const spellNamed=name=>subclassSpellOptions.find(s=>s.name.toLowerCase()===String(name).toLowerCase());
@@ -26,11 +26,33 @@ export function featureCastPlan(c,key,{ki,name,recipient,targetAtZero}={}){
  if(key==='inky-shroud')resource='inky-shroud';
  const spell=materialize(raw),context=p?.context||expandedSubclassContext(c,p?.row||d.row),mod=context[ability];return {...d,spell,ability,mod,dc:8+context.pb+mod,slotLevel,cost,resource,plan:healingFeaturePlan(c,spell,spellPlan(spell,c,slotLevel,mod),{slotLevel,recipient,targetAtZero})};
 }
-export function executeFeatureCast(c,key,input={}){
+// Validate source/cost before opening dice, then validate every callback again before
+// returning a spend. Attack metadata stays explicit all the way through this handoff.
+export function prepareFeatureCast(c,key,input={}){
  const d=featureCastPlan(c,key,input);if(!input.confirmed)throw Error('Confirm required components, equipment, targets, and casting time.');
- const results=input.rolls||[];for(const r of d.plan.rolls)if(!results.some(v=>v.label===r.label&&Number.isFinite(v.total)&&v.total>=0))throw Error('Resolve each visible spell roll before spending.');
  let spend={};if(key.startsWith('arcanum:')){const level=Number(key.split(':')[1]),owner=d.row.catalogId,saved=c.subclassArcanum?.[owner]?.[level];if(saved?.name&&saved.name!==d.spell.name)throw Error('Use your selected Mystic Arcanum; replace choices at advancement.');if(saved?.used)throw Error('This Mystic Arcanum was already used; finish a long rest.');spend={subclassArcanum:{...c.subclassArcanum,[owner]:{...c.subclassArcanum?.[owner],[level]:{name:d.spell.name,used:true}}}};}else spend=spendFeature(c,d.p,d.resource,d.cost);
- return {...spend,...castEffectPatch(c,d.spell,{recipient:input.recipient,rolls:results,plan:d.plan,slotLevel:d.slotLevel,maxHP:conditionEffects(c).maxHP})};
+ return {d,spend};
+}
+const attackExpression=d=>{const bonus=d.dc-8;return `1d20${bonus>=0?'+':''}${bonus}`;};
+const damageExpression=(r,critical)=>critical&&r.critical!==false&&/damage/i.test(r.label)?criticalDice(r.expression):r.expression;
+export function rollFeatureCast(d,roll){
+ const results=[];for(let i=0;i<(d.plan.attack?d.plan.count:1);i++){
+  let critical=false;if(d.plan.attack){const expression=attackExpression(d),hit=roll?.(expression,`${d.spell.name} · attack ${i+1}`,{kind:'attack',ability:d.ability});validRoll(hit,{min:-Infinity});const naturalD20=hit.total-hit.bonus;if(!Number.isInteger(naturalD20)||naturalD20<1||naturalD20>20)throw Error('A valid visible spell attack is required.');critical=naturalD20===20;results.push({...hit,kind:'attack',index:i,label:`attack ${i+1}`,expression,naturalD20});}
+  for(const r of d.plan.rolls){const expression=damageExpression(r,critical),hit=/^\d+$/.test(expression)?{total:Number(expression)}:roll?.(expression,`${d.spell.name} · ${r.label}`,{kind:'damage'});validRoll(hit);results.push({...hit,kind:'damage',index:i,label:r.label,expression});}
+ }
+ return results;
+}
+function validateFeatureCastRolls(d,results){
+ if(!d.plan.attack){if(results.length!==d.plan.rolls.length||d.plan.rolls.some((r,i)=>results[i]?.label!==r.label||!Number.isFinite(results[i]?.total)||results[i].total<0))throw Error('Resolve each visible spell roll before spending.');return;}
+ let cursor=0;for(let i=0;i<d.plan.count;i++){
+  const hit=results[cursor++];if(hit?.kind!=='attack'||hit.index!==i||hit.expression!==attackExpression(d)||!Number.isFinite(hit.total)||!Number.isFinite(hit.bonus)||hit.naturalD20!==hit.total-hit.bonus||!Number.isInteger(hit.naturalD20)||hit.naturalD20<1||hit.naturalD20>20)throw Error('Resolve each visible spell attack before spending.');
+  for(const r of d.plan.rolls){const value=results[cursor++];if(value?.kind!=='damage'||value.index!==i||value.label!==r.label||value.expression!==damageExpression(r,hit.naturalD20===20)||!Number.isFinite(value.total)||value.total<0)throw Error('Resolve each visible spell damage roll, including critical dice, before spending.');}
+ }
+ if(cursor!==results.length)throw Error('Resolve exactly the required visible spell rolls.');
+}
+export function executeFeatureCast(c,key,input={}){
+ const {d,spend}=prepareFeatureCast(c,key,input),results=input.rolls||[];validateFeatureCastRolls(d,results);
+ return {...spend,...castEffectPatch(c,d.spell,{recipient:input.recipient,rolls:results.filter(r=>r.kind!=='attack'),plan:d.plan,slotLevel:d.slotLevel,maxHP:conditionEffects(c).maxHP})};
 }
 export function temporarySpellOptions(c,key,{participants=1}={}){
  const p=key==='spirit-session'?sourceFeature(c,['bard:spirits','bard:spirits-ua'],'spirit-session'):sourceFeature(c,['sorcerer:psionic-soul-ua'],'psionic-talent');

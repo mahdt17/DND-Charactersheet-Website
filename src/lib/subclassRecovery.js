@@ -1,4 +1,4 @@
-import {sourceFeature,validRoll,spendFeature,assertAct,featureState,putState} from './subclassActionUtils.js';
+import {sourceFeature,validRoll,spendFeature,assertAct,assertZeroHPTrigger,featureState,putState} from './subclassActionUtils.js';
 import {expandedSubclassRows,subclassSpellOptions} from './expandedSubclasses.js';
 import {castEffectPatch} from './spellEffects.js';
 import {spellPlan,conditionEffects} from './play.js';
@@ -16,7 +16,7 @@ const cooldowns=[{key:'limited-wish',records:['warlock:the-genie'],feature:'limi
 export function cooldownProfile(c){return cooldowns.flatMap(d=>{try{const p=sourceFeature(c,d.records,d.feature),id=`${p.row.catalogId}:${p.feature.id}`;return [{...d,p,id,remaining:Number(c.subclassCooldowns?.[id])||0}];}catch{return [];}});}
 export function useCooldownFeature(c,key,{triggered=false,cooldown,result,name,recipient='self',rolls=[]}={}){
  const d=cooldownProfile(c).find(d=>d.key===key);if(!d)throw Error('This feature is not available.');if(d.remaining)throw Error(`${d.remaining} long rests remain on this cooldown.`);if(!triggered)throw Error('Confirm the source trigger and requirements first.');const n=validRoll(cooldown,{min:1,max:4});if(!Number.isInteger(n))throw Error('Roll a visible d4 for the cooldown.');let effect={};
- if(key.endsWith('husk')){if(c.hp.current!==0)throw Error('Confirm damage reduced you to 0 HP.');assertAct({...c,hp:{...c.hp,current:1}});validRoll(result,{min:2+d.p.row.level,max:20+d.p.row.level});effect={hp:{...c.hp,current:1},deathSaves:{success:0,failure:0},exhaustion:Math.min(6,Number(c.exhaustion||0)+1)};}
+ if(key.endsWith('husk')){if(c.hp.current!==0)throw Error('Confirm damage reduced you to 0 HP.');assertZeroHPTrigger(c,{passive:d.p.record.playtest});validRoll(result,{min:2+d.p.row.level,max:20+d.p.row.level});effect={hp:{...c.hp,current:1},deathSaves:{success:0,failure:0},exhaustion:Math.min(6,Number(c.exhaustion||0)+1)};}
  else {assertAct(c);const s=subclassSpellOptions.find(s=>s.name===name&&s.level<=6&&/^(?:1 )?action$/i.test(s.casting_time));if(!s)throw Error('Choose a spell of level 6 or lower with a casting time of 1 action.');if(s.concentration&&rageCastingBlock(c))throw Error(rageCastingBlock(c));const plan=spellPlan(s,c,s.level,d.p.context.cha);for(const r of plan.rolls)if(!rolls.some(v=>v.label===r.label&&Number.isFinite(v.total)))throw Error('Resolve the visible spell effect rolls first.');effect=castEffectPatch(c,s,{recipient,rolls,plan,slotLevel:s.level,maxHP:conditionEffects(c).maxHP});}
  return {...effect,subclassCooldowns:{...c.subclassCooldowns,[d.id]:n},subclassLastResult:{feature:d.p.feature.name,total:result?.total,instructions:key.endsWith('husk')?`Each ${d.p.record.playtest?'creature':'chosen creature'} within 30 ft takes ${result.total} necrotic damage. You ${d.p.record.playtest?'revive':'drop'} to 1 HP and gain 1 exhaustion.`:`Limited Wish: ${name} takes effect; resolve external targets using its source.`}};
 }

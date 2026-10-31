@@ -193,3 +193,47 @@ test('Martial Arts substitutions require legal equipment while independent Sun B
 test('Fanatical Focus rerolls the actual source save including another class active save bonus',()=>{
  let c=make('Barbarian','Zealot',13);c.classLevels=[{catalogId:'2014:barbarian',name:'Barbarian',edition:'2014',level:6,subclass:'Zealot'},{catalogId:'2014:fighter',name:'Fighter',edition:'2014',level:7,subclass:'Rune Knight'}];c.saveProf={con:true};c.expandedSubclassChoices={'2014:fighter':{'2014:subclass:fighter:rune-knight':{'runes-known':['Frost','Hill','Fire']}}};c=apply(c,triggers.executeTriggeredFeature(c,'invoke-frost',{triggered:true,equipment:true}));c=apply(c,active.startRage(c));assert.equal(triggers.triggeredFeaturePlan(c,'fanatical-focus',{ability:'con'}).rolls[0],'1d20+10');
 });
+
+
+test('fix I1: damage-only feature callbacks cannot spend an attack cast; real counted attacks preserve critical damage',()=>{
+ let c=make();c.expandedSubclassChoices={'2014:druid':{'2014:subclass:druid:stars':{'holding-star-map':['yes']}}};
+ const input={confirmed:true,name:'Guiding Bolt',rolls:[{label:'Radiant damage on hit',total:12}]};
+ assert.throws(()=>featurecast.executeFeatureCast(c,'star-map',input),/attack|visible/i);
+ const d=featurecast.featureCastPlan(c,'star-map',input),seen=[];
+ const rolls=featurecast.rollFeatureCast(d,(expression,label,options)=>{seen.push({expression,label,...options});return rules.rollDice(expression,'normal',()=>.999);});
+ assert.deepEqual(seen.map(r=>[r.expression,r.kind]),[['1d20+8','attack'],['8d6','damage']]);
+ const patch=featurecast.executeFeatureCast(c,'star-map',{...input,rolls});assert.equal(patch.resources.find(r=>r.id.endsWith('resource:star-map-casts')).used,1);
+ assert.throws(()=>featurecast.executeFeatureCast(c,'star-map',{...input,rolls:rolls.slice(1)}),/visible|attack/i);
+ assert.throws(()=>featurecast.rollFeatureCast(d,()=>null),/visible|roll/i);
+ const counted=featurecast.rollFeatureCast({...d,plan:{...d.plan,count:3}},(e)=>rules.rollDice(e,'normal',()=>0));assert.equal(counted.filter(r=>r.kind==='attack').length,3);assert.equal(counted.filter(r=>r.kind==='damage').length,3);
+});
+
+test('fix I2: zero-HP triggers preserve original death representations and source-specific condition exceptions',()=>{
+ const actions=[['Monk','Long Death',11,c=>triggers.executeTriggeredFeature(c,'mastery-of-death',{triggered:true})],['Warlock','Celestial',14,c=>healing.useHealingFeature(c,'searing-vengeance',{triggered:true,result:{total:10},maxHP:50})],['Warlock','Undying',6,c=>healing.useHealingFeature(c,'defy-death',{triggered:true,result:{total:8},maxHP:50})],['Warlock','Undead',10,c=>recovery.useCooldownFeature(c,'necrotic-husk',{triggered:true,cooldown:{total:2},result:{total:20}})],['Warlock','Undead (UA)',10,c=>recovery.useCooldownFeature(c,'mortal-husk',{triggered:true,cooldown:{total:2},result:{total:20}})]];
+ for(const [cls,sub,lvl,use] of actions){const c={...make(cls,sub,lvl),hp:{current:0,max:50,temp:0}};
+  for(const dead of [{deathSaves:{failure:3}},{dead:true},{instantDeath:true},{exhaustion:6},{conditions:['Dead']}])assert.throws(()=>use({...c,...dead}),/dead|reviv/i,`${sub} ${JSON.stringify(dead)}`);
+  assert(use({...c,conditions:['Poisoned']}).hp.current>0);
+ }
+ const vengeance=actions[1][3],celestial={...make('Warlock','Celestial',14),hp:{current:0,max:50,temp:0},conditions:['Unconscious','Stunned','Poisoned']};assert.equal(vengeance(celestial).hp.current,25);
+ assert.throws(()=>actions[3][3]({...make('Warlock','Undead',10),hp:{current:0,max:50,temp:0},conditions:['Unconscious']}),/incapacitated|conscious/i);
+ assert(actions[4][3]({...make('Warlock','Undead (UA)',10),hp:{current:0,max:50,temp:0},conditions:['Unconscious']}).hp.current===1);
+ const paralyzed={...make('Monk','Long Death',11),hp:{current:0,max:50,temp:0},conditions:['Paralyzed']};assert.equal(actions[0][3](paralyzed).hp.current,1);assert.deepEqual(paralyzed.conditions,['Paralyzed']);
+});
+
+test('fix I3: compulsory deflection and Wild Magic states reject End while source clock and attack resolution remain legal',()=>{
+ let c=apply(make('Wizard','War Magic',6),triggers.executeTriggeredFeature(make('Wizard','War Magic',6),'arcane-deflection',{triggered:true,defense:'ac'}));
+ const restriction=c.activeEffects.find(e=>e.stateKey==='arcane-deflection'),defense=c.activeEffects.find(e=>e.stateKey==='arcane-deflection-defense');assert.throws(()=>effect.endEffect(c,restriction.id),/cannot.*end/i);c=apply(c,effect.endEffect(c,defense.id));assert(c.activeEffects.some(e=>e.id===restriction.id));c=apply(c,effect.advanceEffectTime(c,{startTurn:true}));c=apply(c,effect.advanceEffectTime(c,{endTurn:true}));assert(!c.activeEffects.some(e=>e.id===restriction.id));
+ const older={...c,activeEffects:[Object.fromEntries(Object.entries(restriction).filter(([key])=>key!=='canEnd'))]};assert.throws(()=>effect.endEffect(older,restriction.id),/cannot.*end/i);
+ for(const n of [49,95]){let s=make('Sorcerer','Wild Magic',5);s=apply(s,tables.applySubclassTable(s,'sorcerer-wild-magic',{total:n},{triggered:true}));assert.throws(()=>effect.endEffect(s,s.activeEffects[0].id),/cannot.*end/i);assert.equal(apply(s,effect.advanceEffectTime(s,{seconds:60})).activeEffects.length,0);}
+});
+
+test('fix I4: table outcomes carry typed source saves/attacks while table and duration dice remain raw',()=>{
+ const negative=make('Sorcerer','Wild Magic',5);assert.doesNotThrow(()=>tables.applySubclassTable(negative,'sorcerer-wild-magic',{total:77},{triggered:true,rolls:[{total:-1}]}));
+ const s=make('Sorcerer','Wild Magic',5);assert.deepEqual(tables.tableExtraRolls(s,'sorcerer-wild-magic',{total:77}).map(r=>[r.kind,r.ability,r.expression]),[['save','wis','1d20+4']]);assert.equal(tables.tableExtraRolls(s,'sorcerer-wild-magic',{total:73})[0].kind,'raw');assert.equal(tables.tableExtraRolls(s,'sorcerer-wild-magic',{total:7})[1].ability,'dex');
+ let b=make('Bard','Spirits',6);b=apply(b,tables.applySubclassTable(b,'spirit-tales',{total:2},{triggered:true}));assert.equal(tables.spiritTalePlan(b).rolls[0].kind,'attack');assert.equal(tables.spiritTalePlan(b).rolls[0].ability,'cha');
+});
+
+test('fix I5: active Flight and Boldness reach shared consumers only for their own active source duration',()=>{
+ let c=make('Artificer','Alchemist',6);const drink=(c,n)=>{c=apply(c,tables.createElixir(c,{confirmed:true,result:{total:n}}));return apply(c,tables.drinkElixir(c,c.subclassElixirs.at(-1).id,{confirmed:true,recipient:'self'}));};c=drink(c,5);assert.equal(active.activeFormProfile(c).flyingSpeed,10);c=drink(c,4);assert.deepEqual(numerics.subclassRollTraits(c,{kind:'attack'}).bonusDice,['1d4']);assert.deepEqual(numerics.subclassRollTraits(c,{kind:'save'}).bonusDice,['1d4']);assert.deepEqual(numerics.subclassRollTraits(c,{kind:'check'}).bonusDice,[]);assert.deepEqual(numerics.subclassRollTraits(c,{kind:'damage'}).bonusDice,[]);
+ c=apply(c,effect.advanceEffectTime(c,{seconds:60}));assert.deepEqual(numerics.subclassRollTraits(c,{kind:'attack'}).bonusDice,[]);assert.equal(active.activeFormProfile(c).flyingSpeed,10);c=apply(c,effect.advanceEffectTime(c,{seconds:540}));assert.equal(active.activeFormProfile(c).flyingSpeed,0);
+});

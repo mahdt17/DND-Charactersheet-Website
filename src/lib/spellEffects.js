@@ -2,7 +2,7 @@ import equipment from '../data/equipment.json' with {type:'json'};
 import {blessedHealerPatch} from './subclassHealing.js';
 import {quantityTurn} from './subclassQuantities.js';
 import {wardCastPatch} from './subclassQuantities.js';
-import {finishSubclassEffects} from './subclassState.js';
+import {finishSubclassEffects,sourceSubclassEffects} from './subclassState.js';
 const legacy=c=>c?.ruleset==='3.5'||c?.mechanics==='3.5';
 const armored=c=>(c.inventory||[]).some(i=>i.equipped&&equipment.some(e=>e.index===i.equipmentIndex&&e.armor_class&&e.index!=='shield'));
 const spellName=s=>String(s?.name||'').trim().toLowerCase();
@@ -66,9 +66,17 @@ export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false,max
  const after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')&&!(endTurn&&e.expires==='end-turn')).map(e=>startTurn&&e.expires==='end-next-turn'?{...e,expires:'end-turn'}:e).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
  return {...(healing?{hp:{...c.hp,current:Math.min(maxHP,c.hp.current+healing)},...(c.hp.current===0?{deathSaves:{success:0,failure:0}}:{})}:{}),...(startTurn?{...quantityTurn(c),subclassTurnUsed:[]}:{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
 }
+// Also protects source states loaded from saves written before canEnd metadata.
+export function canEndEffect(c,e){
+ if(e.canEnd===false)return false;
+ if(!sourceSubclassEffects(c).includes(e))return true;
+ if(e.subclassRecordId==='2014:subclass:wizard:war-magic'&&e.stateKey==='arcane-deflection')return false;
+ if(e.subclassRecordId==='2014:subclass:sorcerer:wild-magic'&&(e.stateKey?.startsWith('wild-surge:')||['wild-surge-max-damage','wild-surge-save-disadvantage'].includes(e.stateKey)))return false;
+ return e.stateKey!=='rage-wild-surge';
+}
 export function endEffect(c,id){
  if(legacy(c))return {};
- const effect=activeEffects(c).find(e=>e.id===id);if(effect?.canEnd===false)throw Error('This source state cannot be ended manually; advance the clock or finish its source rest.');const concentration=effect?.concentration?null:c.concentration;
+ const effect=activeEffects(c).find(e=>e.id===id);if(effect&&!canEndEffect(c,effect))throw Error('This source state cannot be ended manually; advance the clock or finish its source rest.');const concentration=effect?.concentration?null:c.concentration;
  const removed=effect?.stateKey==='rage'?['rage','rage-beyond-death','beast-weapon','storm-aura','rage-wild-surge']:[];
  return {concentration,...finishSubclassEffects(c,(c.activeEffects||[]).filter(e=>e.id!==id&&!removed.includes(e.stateKey))),...(effect?.stateKey==='rage'?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{})};
 }

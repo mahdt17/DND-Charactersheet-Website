@@ -1,6 +1,6 @@
 import {expandedSubclassRows,expandedFeatureUnlocked,expandedChoiceId,expandedSubclassContext} from './expandedSubclasses.js';
 import {characterResources} from './resources.js';
-import {actorActionBlock} from './subclassState.js';
+import {actorActionBlock,actorDeathBlock} from './subclassState.js';
 export {expandedSubclassContext};
 export function sourceFeature(c,records,feature){
  const p=expandedSubclassRows(c).find(p=>records.includes(p.record.id.split(':').slice(-2).join(':')));
@@ -8,6 +8,9 @@ export function sourceFeature(c,records,feature){
  if(!p||!f||!expandedFeatureUnlocked(p,f))throw Error('This source feature is not available.');return {...p,feature:f,context:expandedSubclassContext(c,p.row)};
 }
 export function assertAct(c){const why=actorActionBlock(c);if(why)throw Error(why);}
+// Zero-HP source triggers validate death on the original sheet. Passive triggers
+// need no action; reaction triggers still respect independent incapacitation.
+export function assertZeroHPTrigger(c,{passive=false}={}){const why=actorDeathBlock(c,{allowPostponedDeath:false})||(!passive&&actorActionBlock(c,{allowZeroHP:true}));if(why)throw Error(why);}
 export function spendFeature(c,p,key,amount=1){
  if(!key||!amount)return {};
  const id=key.startsWith('2014:')?key:expandedChoiceId(p.row,p.record,`resource:${key}`),resources=characterResources(c),r=resources.find(r=>r.id===id||r.classResourceKey===id);

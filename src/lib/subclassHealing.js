@@ -1,6 +1,6 @@
 import {subclassRoll} from './subclassFormulas.js';
 import {expandedSubclassRows} from './expandedSubclasses.js';
-import {sourceFeature,assertAct,spendFeature,tempHP,healHP,featureState,putState,validRoll} from './subclassActionUtils.js';
+import {sourceFeature,assertAct,assertZeroHPTrigger,spendFeature,tempHP,healHP,featureState,putState,validRoll} from './subclassActionUtils.js';
 import {sourceSubclassEffects} from './subclassState.js';
 const immediate=s=>!!s?.heal_at_slot_level&&!['false life','aid','goodberry','healing spirit','aura of vitality','vampiric touch','enervation'].includes(String(s.name).toLowerCase());
 const domain=(c,name)=>expandedSubclassRows(c).find(p=>p.record.id===`2014:subclass:cleric:${name}`);
@@ -24,7 +24,7 @@ const defs=[
 ];
 export function healingFeatures(c){return defs.flatMap(d=>{try{const p=sourceFeature(c,d.records,d.feature),max=d.key==='healing-light'?Math.max(1,p.context.cha):d.key==='balm'?Math.floor(p.row.level/2):5;return [{...d,p,max,roll:d.roll?.(p),expression:d.variable?`1d${d.die}`:null}];}catch{return [];}});}
 export function useHealingFeature(c,key,{n=1,result,recipient='self',triggered=false,maxHP,replaceTemp=false,targetType,removePoison=false}={}){
- const d=healingFeatures(c).find(d=>d.key===key);if(!d)throw Error('This healing feature is not available.');if(d.zeroTrigger&&c.hp.current===0)assertAct({...c,conditions:[],hp:{...c.hp,current:1}});else assertAct(c);const p=d.p;
+ const d=healingFeatures(c).find(d=>d.key===key);if(!d)throw Error('This healing feature is not available.');if(d.zeroTrigger&&c.hp.current===0)assertZeroHPTrigger(c,{passive:true});else assertAct(c);const p=d.p;
  if((d.trigger||d.variable)&&!triggered)throw Error('Confirm the source trigger, range and requirements first.');if(d.variable&&(!Number.isInteger(n)||n<1||n>d.max))throw Error(`Choose 1 through ${d.max} dice.`);
  if(d.points){if(['undead','construct'].includes(targetType))throw Error('Healing Hands cannot affect undead or constructs.');if(!Number.isInteger(n)||n<1||n>p.row.level*10||removePoison&&n%5)throw Error('Choose available healing points; curing poison/disease costs5each.');if(!['self','other'].includes(recipient))throw Error('Choose Self or Other.');const spend=spendFeature(c,p,d.resource,n);return {...spend,...(recipient==='self'?(removePoison?{conditions:(c.conditions||[]).filter(v=>String(v).toLowerCase()!=='poisoned')}:healHP(c,n,maxHP)):{}),subclassLastResult:{feature:'Healing Hands',instructions:removePoison?`Cure ${n/5} confirmed poison/disease effects; resolve diseases at the table.`:`Restore ${n} HP to the confirmed recipient.`}};}
  if(d.variable&&!['self','other'].includes(recipient))throw Error('Choose Self or Other.');const amount=d.variable&&d.die?validRoll(result,{min:n,max:n*d.die}):0,spend=spendFeature(c,p,d.resource,d.variable?n:1);

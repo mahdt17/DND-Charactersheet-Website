@@ -22,13 +22,17 @@ export function sourceSubclassEffects(c,{recordId,ownerId,featureId,stateKey}={}
 export function consciousAtZero(c){
  return sourceSubclassEffects(c).some(e=>e.subclassRecordId==='2014:subclass:barbarian:zealot'&&e.sourceFeatureId==='2014:subclass:barbarian:zealot:rage-beyond-death'&&e.stateKey==='rage-beyond-death'||e.subclassRecordId==='2014:subclass:fighter:samurai'&&e.sourceFeatureId==='2014:subclass:fighter:samurai:strength-before-death'&&e.stateKey==='strength-before-death');
 }
-export function actorActionBlock(c){
+export function actorDeathBlock(c,{allowPostponedDeath=true}={}){
  if(edition(c)!=='2014')return '';
- const zealot=sourceSubclassEffects(c,{recordId:'2014:subclass:barbarian:zealot',featureId:'2014:subclass:barbarian:zealot:rage-beyond-death',stateKey:'rage-beyond-death'}).length>0;
- if(Number(c.hp?.current??1)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath)return 'A dead character must be revived before acting.';
+ const zealot=allowPostponedDeath&&sourceSubclassEffects(c,{recordId:'2014:subclass:barbarian:zealot',featureId:'2014:subclass:barbarian:zealot:rage-beyond-death',stateKey:'rage-beyond-death'}).length>0;
+ return Number(c.hp?.current??1)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath?'A dead character must be revived before acting.':'';
+}
+export function actorActionBlock(c,{allowZeroHP=false}={}){
+ if(edition(c)!=='2014')return '';
+ const death=actorDeathBlock(c);if(death)return death;
  if(sourceSubclassEffects(c,{recordId:'2014:subclass:sorcerer:wild-magic',stateKey:'wild-surge:41'}).some(e=>e.blocksActions))return 'You are incapacitated while transformed into a potted plant.';
  if(names(c).some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified'].includes(n)))return 'You cannot act while incapacitated.';
- return Number(c.hp?.current??1)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
+ return !allowZeroHP&&Number(c.hp?.current??1)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
 }
 export function finishSubclassEffects(c,effects){
  const was=(c.activeEffects||[]).some(e=>e.stateKey==='rage-beyond-death');

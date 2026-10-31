@@ -1,6 +1,6 @@
 import {subclassRoll} from './subclassFormulas.js';
 import {expandedSubclassRows,expandedFeatureUnlocked,expandedSubclassContext} from './expandedSubclasses.js';
-import {sourceFeature,assertAct,spendFeature,featureState,putState,tempHP,healHP,validRoll} from './subclassActionUtils.js';
+import {sourceFeature,assertAct,assertZeroHPTrigger,spendFeature,featureState,putState,tempHP,healHP,validRoll} from './subclassActionUtils.js';
 import {sourceSubclassEffects} from './subclassState.js';
 import {activeFormProfile} from './subclassActive.js';
 import {resourceEvent} from './subclassQuantities.js';import {conditionalActions,conditionalActionPlan,executeConditionalAction} from './subclassConditionalActions.js';
@@ -40,7 +40,7 @@ export function triggeredFeaturePlan(c,key,input={}){
  return {...d,rolls};
 }
 export function executeTriggeredFeature(c,key,input={}){
- const d=triggeredFeaturePlan(c,key,input),{p}=d;if(d.conditional)return executeConditionalAction(c,key,input);if(!input.triggered)throw Error('Confirm the exact source trigger and timing first.');if(key==='mastery-of-death')assertAct({...c,conditions:[],hp:{...c.hp,current:1}});else assertAct(c); if(key==='arcane-deflection'&&(!['ac','save'].includes(input.defense)||input.defense==='save'&&!Number.isInteger(input.saveTotal)))throw Error('Choose AC or Saving throw; for a save enter its original total.');
+ const d=triggeredFeaturePlan(c,key,input),{p}=d;if(d.conditional)return executeConditionalAction(c,key,input);if(!input.triggered)throw Error('Confirm the exact source trigger and timing first.');if(key==='mastery-of-death')assertZeroHPTrigger(c,{passive:true});else assertAct(c); if(key==='arcane-deflection'&&(!['ac','save'].includes(input.defense)||input.defense==='save'&&!Number.isInteger(input.saveTotal)))throw Error('Choose AC or Saving throw; for a save enter its original total.');
  if(key==='beast-tail-defense'&&!sourceSubclassEffects(c,{recordId:p.record.id,stateKey:'beast-weapon'}).some(e=>e.choice==='Tail'))throw Error('Beast Tail must be active.'); if(key==='infectious-fury'&&!sourceSubclassEffects(c,{recordId:p.record.id,stateKey:'beast-weapon'}).length)throw Error('A Beast natural weapon must be active.');
  if(key==='archer'&&activeFormProfile(c).star!=='Archer')throw Error('Archer Starry Form must be active.');if(key==='chalice'&&activeFormProfile(c).star!=='Chalice')throw Error('Chalice Starry Form must be active.');
  if(key.startsWith('invoke-')){const rune=key.slice(7),known=p.state['runes-known']||[];if(!known.some(n=>n.toLowerCase()===rune)||!p.record.playtest&&['hill','storm'].includes(rune)&&p.row.level<7)throw Error('This rune must be known and unlocked.');if(!input.equipment)throw Error('Confirm the inscribed object is worn or carried.');}
@@ -62,7 +62,7 @@ export function executeTriggeredFeature(c,key,input={}){
  if(key==='chalice'&&input.recipient==='self')patch={...patch,...healHP(c,results[0].total,conditionEffects(c).maxHP)};
  if(key==='storm-aura'&&p.state['storm-environment'][0]==='tundra'&&input.recipient==='self')patch={...patch,...tempHP(c,p.row.level>=20?6:p.row.level>=15?5:p.row.level>=10?4:p.row.level>=5?3:2)};
  if(key==='fanatical-focus')patch.totemWarrior={...c.totemWarrior,fanaticalFocusUsed:true};
- if(key==='arcane-deflection')state=featureState(c,p,key,{remainingSeconds:12,expires:'end-next-turn',onlyCantrips:true});
+ if(key==='arcane-deflection')state=featureState(c,p,key,{remainingSeconds:12,expires:'end-next-turn',onlyCantrips:true,canEnd:false});
  if(state)patch={...patch,...putState(c,state)};
  if(key==='arcane-deflection'&&input.defense==='ac')patch={...patch,...putState({...c,...patch},featureState(c,p,'arcane-deflection-defense',{name:'Arcane Deflection · triggering attack',remainingSeconds:6,expires:'end-attack',acBonus:2}))};
  return {...patch,...(once.has(key)?{subclassTurnUsed:[...(c.subclassTurnUsed||[]),`${p.record.id}:${key}`]}:{}),subclassLastResult:{feature:d.name,rolls:results.map(r=>r.total),instructions:key==='arcane-deflection'?(input.defense==='save'?`The triggering saving throw total is ${input.saveTotal+4}. `:'AC+2 applies to the triggering attack only; end that defense after resolving the attack. ')+d.requires:key==='beast-tail-defense'?'The AC bonus applies to this triggering attack only. End the defense after resolving this attack.':d.requires}};

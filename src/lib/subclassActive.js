@@ -49,6 +49,8 @@ export function activeFormProfile(c){
  const states=sourceSubclassEffects(c),star=states.find(e=>e.stateKey==='starry-form'),spores=states.find(e=>e.stateKey==='symbiotic-entity'&&c.hp.temp>0&&c.hp.tempSource==='symbiotic-entity'),giant=states.find(e=>e.stateKey==='giants-might');
  const result={states,symbiotic:!!spores,star:star?.choice,flyingSpeed:0,resistances:[],damageImmunities:[],conditionImmunities:[],vulnerabilities:[],incomingAttackDisadvantage:states.some(e=>e.stateKey==='ghost-walk'),strengthAdvantage:!!giant,weaponAdvantage:states.some(e=>e.stateKey==='fighting-spirit'),frostBonus:states.some(e=>e.stateKey==='rune-frost'&&e.subclassRecordId==='2014:subclass:fighter:rune-knight')?2:0};
  const dread=states.find(e=>e.stateKey==='form-of-dread');if(dread)result.conditionImmunities.push('frightened');try{const p=sourceFeature(c,['warlock:undead','warlock:undead-ua'],'grave-touched');if(p.row.level>=10)(dread?result.damageImmunities:result.resistances).push('necrotic');}catch{}
+ result.flyingSpeed=Math.max(0,...states.filter(e=>e.stateKey==='elixir-flight').map(e=>Number(e.flyingSpeed)||0));
+ result.flyingSpeed=Math.max(0,...states.filter(e=>e.stateKey==='elixir-flight').map(e=>Number(e.flyingSpeed)||0));
  if(states.some(e=>e.stateKey==='wild-surge:87'&&!e.externalTarget))result.flyingSpeed=60;
  if(states.some(e=>e.stateKey==='wild-surge:95'))result.vulnerabilities.push('piercing');
  if(states.some(e=>e.stateKey==='wild-surge:41'))result.vulnerabilities.push('all');
