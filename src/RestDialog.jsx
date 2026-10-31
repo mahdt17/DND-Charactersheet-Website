@@ -1,3 +1,4 @@
+import {longRestBody,sourceSubclassEffects} from './lib/subclassState';
 import {ShadarKaiChoices} from './ShadarKai';
 import {EladrinChoices} from './Eladrin';
 import {isEladrin} from './lib/eladrin';
@@ -42,6 +43,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   let populationAfter=null;
   if(swarm.level&&!char.entomancer?.dead){try{populationAfter=entomancerProfile({...char,...restResources(char,rest,{fed,meditated,restoreSorcery},abilities)}).remaining;}catch{}}
   function spend(inline=false) {
+    if(sourceSubclassEffects(char,{stateKey:'moon-wild-shape'}).length&&Object.values(spending).some(n=>n>0))throw Error('Resolve the form’s Hit Dice at the table and apply healing to the form.');
     const results=[];
     const {healing,...counts}=spendHitDice(char,spending,modifier(constitution),(expression,label,options)=>{
       const result=roll(expression,label,{...options,inline});
@@ -59,13 +61,12 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       if(entomancerLevel(char)&&char.entomancer?.dead)throw Error('A dead character must be revived before resting.');
       const conditions=conditionNames(char);
       if(legacy)patch(current=>{const daily=restDailySpellLike35(current,'long'),acquisition=restSpellAcquisition35(daily,'long'),currentConditions=conditionNames(current);return {hp:changeHP(current.hp,current.level,true),...restSpellSlots(current,'long'),...restFeatMagic(current,'long'),...restResources(current,'long',{},abilities),conditions:currentConditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted'),dailySpellLike35:daily.dailySpellLike35,spellAcquisition35:acquisition.spellAcquisition35,spellAcquisition35Incomplete:acquisition.spellAcquisition35Incomplete,spells:acquisition.spells};});
-      else if(rest==='long')patch({
+      else if(rest==='long'){const timed=restEffectPatch(char,'long'),rested={...char,...timed};patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
-        hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
         ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
-        ...restEffectPatch(char,'long'),subclassCompanionRest:Number(char.subclassCompanionRest||0)+1,deathSaves:{success:0,failure:0},
+        ...timed,...longRestBody(rested,conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP),subclassCompanionRest:Number(char.subclassCompanionRest||0)+1,deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated,fed,shadarKai:{...shadarKai,trance:(shadarKai.trance||[]).filter(Boolean)},eladrin:{...eladrin,trance:(eladrin.trance||[]).filter(Boolean)}},abilities)
-      });
+      });}
       else {
         // Validate recovery before rolling/spending Hit Dice. Commit the rest
         // and recovery together, so cancelling the dialog never spends a use.

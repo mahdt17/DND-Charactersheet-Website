@@ -21,6 +21,14 @@ export function sourceSubclassEffects(c,{recordId,ownerId,featureId,stateKey}={}
  }));
 }
 export function actorBodyHP(c){const e=sourceSubclassEffects(c).find(e=>e.stateKey==='moon-wild-shape');const hp=e&&c.profileState?.[e.id]?.hp;return hp&&Number.isFinite(hp.current)?hp.current:Number(c.hp?.current??1);}
+export function healActiveBody(c,amount){const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0],state=e&&c.profileState?.[e.id];if(!state?.hp)return null;if(!Number.isFinite(amount)||amount<0)throw Error('Invalid healing.');return {profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:Math.min(state.hp.max,state.hp.current+amount)}}}};}
+export function longRestBody(c,maxHP){const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0],state=e&&c.profileState?.[e.id];return state?.hp?{hp:{...c.hp,temp:0},profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:state.hp.max}}}}:{hp:{...c.hp,current:maxHP,temp:0}};}
+export function damageActiveBody(c,amount){
+ const e=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0],state=e&&c.profileState?.[e.id];if(!state?.hp)return null;if(!Number.isInteger(amount)||amount<0)throw Error('Enter a nonnegative whole damage amount.');
+ const temp=Math.max(0,Number(c.hp?.temp)||0),absorbed=Math.min(temp,amount),damage=amount-absorbed,remaining=Math.max(0,state.hp.current-damage),overflow=Math.max(0,damage-state.hp.current),hp={...c.hp,temp:temp-absorbed,current:Math.max(0,c.hp.current-overflow)};
+ if(remaining)return {hp,profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:remaining}}}};
+ return {hp,...finishSubclassEffects(c,(c.activeEffects||[]).filter(x=>x.id!==e.id))};
+}
 export function consciousAtZero(c){
  return sourceSubclassEffects(c).some(e=>e.subclassRecordId==='2014:subclass:barbarian:zealot'&&e.sourceFeatureId==='2014:subclass:barbarian:zealot:rage-beyond-death'&&e.stateKey==='rage-beyond-death'||e.subclassRecordId==='2014:subclass:fighter:samurai'&&e.sourceFeatureId==='2014:subclass:fighter:samurai:strength-before-death'&&e.stateKey==='strength-before-death');
 }
@@ -45,7 +53,7 @@ export function finishSubclassEffects(c,effects){
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
  const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||actorBodyHP(c)<=0&&!consciousAtZero(c);
- const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.requiresEquippedItem&&!(c.inventory||[]).some(i=>i.id===e.itemId&&i.equipped))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
+ const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.requiresEquippedItem&&!(c.inventory||[]).some(i=>i.id===e.itemId&&i.equipped))&&!(e.stateKey==='moon-wild-shape'&&(unconscious||actorDeathBlock(c)))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
  const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
  const live=new Set(effects.map(e=>e.id));
  const owners=characterClasses(c).flatMap(row=>{const record=row.edition==='2014'&&!row.definition?.homebrew&&findExpandedSubclass(row.name,row.subclass);return record?[{owner:row.catalogId,record:record.id}]:[];});

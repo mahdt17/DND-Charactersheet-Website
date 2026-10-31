@@ -5,8 +5,15 @@ import {existsSync} from 'node:fs';
 const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
 const lifecycle=await server.ssrLoadModule('/src/lib/spellEffects.js');
 const actor=await server.ssrLoadModule('/src/lib/subclassState.js');
+const integration=await server.ssrLoadModule('/src/lib/classIntegration.js');
 const casting=await server.ssrLoadModule('/src/lib/rage2014.js');
 const actions=await server.ssrLoadModule('/src/lib/subclassActionUtils.js');
+const quant=await server.ssrLoadModule('/src/lib/subclassQuantities.js');
+const healing=await server.ssrLoadModule('/src/lib/subclassHealing.js');
+const fighter=await server.ssrLoadModule('/src/lib/fightingStyles.js');
+const aasimar=await server.ssrLoadModule('/src/lib/aasimar.js');
+const race=await server.ssrLoadModule('/src/data/aasimar.js');
+const tables=await server.ssrLoadModule('/src/lib/subclassTables.js');
 const lib=existsSync('src/lib/subclassOwnForm.js')?await server.ssrLoadModule('/src/lib/subclassOwnForm.js'):{};await server.close();
 const make=(level=2)=>({ruleset:'2014',className:'Druid',subclass:'Moon',level,classDefinition:{name:'Druid',index:'druid',edition:'2014'},abilities:{str:10,dex:10,con:10,int:14,wis:16,cha:12},hp:{current:20,max:20,temp:0},resources:[],inventory:[],activeEffects:[],spells:[],actions:[]});const apply=(c,p)=>({...c,...p});
 test('Moon form requires seen confirmation and spends canonical Wild Shape',()=>{
@@ -41,4 +48,43 @@ test('shared healing features heal the active form, preserving normal HP',()=>{
 });
 test('self healing spell effects heal the form rather than normal HP',()=>{
  let c=make(18);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,lifecycle.castEffectPatch(c,{name:'Cure Wounds',level:1,heal_at_slot_level:{1:'1d8'}},{recipient:'self',rolls:[{label:'Healing',total:5}],slotLevel:1,maxHP:20}));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);
+});
+test('Moon form retains owner training and uses the better monster proficiency',()=>{
+ let c=make(10);c.skillProf={Perception:true};c.saveProf={con:true};c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));const p=lib.ownFormProfile(c);assert.equal(p.skills.Perception,7);assert.equal(p.saves.con,7);
+});
+test('form AC composes with Mage Armor and additive magical defenses',()=>{
+ assert.equal(typeof lib.ownFormArmor,'function');let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c.activeEffects.push({id:'mage',key:'mage armor',baseAC:{base:13,ability:'dex'},requiresUnarmored:true},{id:'shield',key:'shield',acBonus:5});assert.equal(lib.ownFormArmor(c),18);
+});
+test('shared body damage helper handles temporary HP, reversion and overflow once',()=>{
+ assert.equal(typeof actor.damageActiveBody,'function');let c=make();c.hp.temp=3;c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,actor.damageActiveBody(c,40));assert.equal(lib.ownFormProfile(c),null);assert.equal(c.hp.current,17);assert.equal(c.hp.temp,0);
+});
+test('Arcane Ward sends remaining damage to the active form',()=>{
+ let c=make(10);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:10,subclass:'Moon'},{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:2,subclass:'Abjuration'}];c.level=12;c=apply(c,quant.wardCastPatch(c,{school:'Abjuration'},1));c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));const r=quant.absorbWard(c,{amount:2,rawDamage:10});c=apply(c,r.patch);assert.equal(lib.ownFormProfile(c).hp.current,26);assert.equal(c.hp.current,20);
+});
+test('Bastion damage reaches the form and retains its own remaining dice',()=>{
+ let c=make(10);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:10,subclass:'Moon'},{catalogId:'2014:sorcerer',name:'Sorcerer',edition:'2014',level:6,subclass:'Clockwork Soul'}];c.level=16;c=apply(c,healing.useHealingFeature(c,'bastion-of-law',{n:2,recipient:'self',triggered:true,maxHP:20}));c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,healing.consumeBastion(c,{n:1,result:{total:4},rawDamage:10,triggered:true}).patch);assert.equal(lib.ownFormProfile(c).hp.current,28);assert.equal(c.hp.current,20);assert.equal(c.activeEffects.find(e=>e.stateKey==='bastion-of-law').dice,1);
+});
+test('Second Wind heals the active form on a multiclass character',()=>{
+ let c=make(10);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:10,subclass:'Moon'},{catalogId:'2014:fighter',name:'Fighter',edition:'2014',level:1}];c.level=11;c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,fighter.useSecondWind(c,{total:6},{maxHP:20}));assert.equal(lib.ownFormProfile(c).hp.current,30);assert.equal(c.hp.current,20);
+});
+test('Moon form ends on unconsciousness or death, but not merely incapacitation',()=>{
+ let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert(lib.ownFormProfile(integration.reconcileClassGrants({...c,conditions:['Incapacitated']})));assert.equal(lib.ownFormProfile(integration.reconcileClassGrants({...c,conditions:['Unconscious']})),null);assert.equal(lib.ownFormProfile(integration.reconcileClassGrants({...c,dead:true})),null);
+});
+test('start-turn healing reaches form HP while effect and form states remain intact',()=>{
+ let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c.activeEffects.push({id:'regeneration',healAtTurnStart:5,remainingSeconds:60});c=apply(c,lifecycle.advanceEffectTime(c,{startTurn:true,maxHP:20}));assert.equal(lib.ownFormProfile(c).hp.current,29);assert(c.activeEffects.some(e=>e.id==='regeneration'));
+});
+test('a long rest heals whichever body remains after time advances',()=>{
+ assert.equal(typeof actor.longRestBody,'function');let c=make(18);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));const timed=lifecycle.restEffectPatch(c,'long');let rested=apply(c,{...timed,...actor.longRestBody({...c,...timed},20)});assert.equal(lib.ownFormProfile(rested).hp.current,34);assert.equal(rested.hp.current,20);let short=make(2);short.hp.current=10;short=apply(short,lib.activateMoonForm(short,'brown-bear',{seen:true,equipmentResolved:true}));const elapsed=lifecycle.restEffectPatch(short,'long');rested=apply(short,{...elapsed,...actor.longRestBody({...short,...elapsed},20)});assert.equal(lib.ownFormProfile(rested),null);assert.equal(rested.hp.current,20);
+});
+test('Aasimar Healing Hands heals the current form',()=>{
+ let c={...make(10),race:'Aasimar',raceDefinition:{catalogId:race.aasimarId,edition:'2014'}};c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,15));c=apply(c,aasimar.useHealingHands(c,{self:true}));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);
+});
+test('Wild Magic self damage reverts form without restoring stale form effects',()=>{
+ let c=make(10);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:10,subclass:'Moon'},{catalogId:'2014:sorcerer',name:'Sorcerer',edition:'2014',level:1,subclass:'Wild Magic'}];c.level=11;c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:7},{triggered:true,rolls:[{total:40},{total:0}],maxHP:20}));assert.equal(lib.ownFormProfile(c),null);assert.equal(c.hp.current,14);assert(!c.activeEffects.some(e=>e.stateKey==='moon-wild-shape'));
+});
+test('form retains explicit table-resolved equipment and base AC choices',()=>{
+ let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true,equipmentNotes:'Shield worn; armor merged',baseAC:13}));assert.equal(lib.ownFormProfile(c).equipmentNotes,'Shield worn; armor merged');assert.equal(lib.ownFormArmor(c),13);assert.equal(lib.ownFormProfile(JSON.parse(JSON.stringify(c))).equipmentNotes,'Shield worn; armor merged');
+});
+test('worn armor suppresses Mage Armor while additive defenses remain',()=>{
+ let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true,equipmentNotes:'armor worn',baseAC:12,wearingArmor:true}));c.activeEffects.push({id:'mage',key:'mage armor',baseAC:{base:13,ability:'dex'},requiresUnarmored:true},{id:'shield',key:'shield',acBonus:5});assert.equal(lib.ownFormArmor(c),17);
 });

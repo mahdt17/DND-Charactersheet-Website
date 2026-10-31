@@ -1,3 +1,4 @@
+import {damageActiveBody} from './subclassState.js';
 import {subclassRoll} from './subclassFormulas.js';
 import {expandedSubclassRows} from './expandedSubclasses.js';
 import {sourceFeature,assertAct,assertZeroHPTrigger,spendFeature,tempHP,healHP,featureState,putState,validRoll} from './subclassActionUtils.js';
@@ -41,5 +42,5 @@ export function consumeBastion(c,{n,result,rawDamage,triggered=false,resistant=f
  const state=sourceSubclassEffects(c,{stateKey:'bastion-of-law'})[0];if(!state)throw Error('Create a Bastion of Law ward first.');if(!triggered)throw Error('Confirm the warded creature takes damage and spends its reaction.');if(state.recipient==='self')assertAct(c);
  if(!Number.isInteger(n)||n<1||n>state.dice)throw Error('Choose available ward dice.');const reduction=validRoll(result,{min:n,max:n*8});if(!Number.isInteger(rawDamage)||rawDamage<0)throw Error('Enter raw damage before the ward and resistance.');const remaining=Math.max(0,rawDamage-reduction),damage=resistant?Math.floor(remaining/2):remaining,temp=Math.min(c.hp.temp||0,damage);
  const effects=(c.activeEffects||[]).flatMap(e=>e.id!==state.id?[e]:state.dice>n?[{...e,dice:state.dice-n}]:[]);
- return {reduction,remaining,patch:{activeEffects:effects,...(state.recipient==='self'?{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(damage-temp))}}:{})}};
+ return {reduction,remaining,patch:{activeEffects:effects,...(state.recipient==='self'?(damageActiveBody({...c,activeEffects:effects},damage)||{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(damage-temp))}}):{})}};
 }

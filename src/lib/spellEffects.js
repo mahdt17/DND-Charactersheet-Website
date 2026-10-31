@@ -64,7 +64,7 @@ export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false,max
  const before=activeEffects(c),healing=startTurn?before.reduce((n,e)=>n+(e.healAtTurnStart||0),0):0;
  if(healing&&!Number.isFinite(maxHP))throw Error('Supply the effective HP maximum for turn healing.');
  const after=before.filter(e=>!(startTurn&&e.expires==='start-next-turn')&&!(endTurn&&e.expires==='end-turn')).map(e=>startTurn&&e.expires==='end-next-turn'?{...e,expires:'end-turn'}:e).map(e=>e.remainingSeconds==null?e:{...e,remainingSeconds:e.remainingSeconds-seconds}).filter(e=>e.remainingSeconds==null||e.remainingSeconds>0);
- return {...(healing?{hp:{...c.hp,current:Math.min(maxHP,c.hp.current+healing)},...(c.hp.current===0?{deathSaves:{success:0,failure:0}}:{})}:{}),...(startTurn?{...quantityTurn(c),subclassTurnUsed:[]}:{}),...finishSubclassEffects(c,after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
+ const healed=healing?healHP(c,healing,maxHP):{};return {...healed,...(startTurn?{...quantityTurn(c),subclassTurnUsed:[]}:{}),...finishSubclassEffects({...c,...healed},after),...(before.some(e=>e.concentration===c.concentration)&&!after.some(e=>e.concentration===c.concentration)?{concentration:null}:{})};
 }
 // Also protects source states loaded from saves written before canEnd metadata.
 export function canEndEffect(c,e){

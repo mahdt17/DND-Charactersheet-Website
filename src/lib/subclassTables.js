@@ -1,3 +1,4 @@
+import {damageActiveBody} from './subclassState.js';
 import tables from '../data/subclassTables2014.json' with {type:'json'};
 import {sourceFeature,assertAct,spendFeature,featureState,putState,tempHP,healHP,validRoll} from './subclassActionUtils.js';
 import {sourceSubclassEffects} from './subclassState.js';
@@ -42,12 +43,12 @@ export function applySubclassTable(c,key,result,{triggered=false,rolls=[],maxHP=
   if([17,23,55].includes(n))delete extra.remainingSeconds;
   state=featureState(c,p,n===33?'wild-surge-max-damage':n===21?'wild-surge-save-disadvantage':`wild-surge:${n}`,extra);
   if(n===39)patch=healHP(c,rolls[0].total,maxHP);
-  if(n===7){const saved=rolls[1].total>=8+p.context.pb+p.context.cha,amount=saved?Math.floor(rolls[0].total/2):rolls[0].total,temp=Math.min(c.hp.temp||0,amount);patch={hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(amount-temp))}};}
+  if(n===7){const saved=rolls[1].total>=8+p.context.pb+p.context.cha,amount=saved?Math.floor(rolls[0].total/2):rolls[0].total,temp=Math.min(c.hp.temp||0,amount);patch=damageActiveBody(c,amount)||{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(amount-temp))}};}
   if(n===59){const pools=['slotsUsed','pactSlotsUsed'],choices=pools.flatMap(pool=>Object.entries(c[pool]||{}).filter(([level,used])=>Number(level)>0&&used>0).map(([level])=>({pool,level:Number(level)}))).sort((a,b)=>a.level-b.level);if(choices.length){const {pool,level}=choices[0];patch={[pool]:{...c[pool],[level]:c[pool][level]-1}};}}
   if(n===99){const resources=characterResources(c);patch={resources:resources.map(r=>r.id==='2014:Sorcerer:points'||r.classResourceKey==='2014:Sorcerer:points'?{...r,used:0}:r)};}
   if(n===83){if(!Number.isFinite(damageDealt)||damageDealt<0)throw Error('Confirm actual total necrotic damage dealt before healing.');patch=healHP(c,damageDealt,maxHP);}
  }
- return {...patch,...(state?putState(c,state):{}),subclassLastResult:{feature:p.feature.name,rolls:[d.number,...rolls.map(r=>r.total)],instructions:outcome.description}};
+ return {...patch,...(state?putState({...c,...patch},state):{}),subclassLastResult:{feature:p.feature.name,rolls:[d.number,...rolls.map(r=>r.total)],instructions:outcome.description}};
 }
 export function spiritTalePlan(c){const p=sourceFeature(c,['bard:spirits','bard:spirits-ua'],'tales-from-beyond'),held=sourceSubclassEffects(c,{recordId:p.record.id,stateKey:'held-spirit-tale'})[0];if(!held)throw Error('Roll a tale before bestowing it.');const die=p.row.level>=15?12:p.row.level>=10?10:p.row.level>=5?8:6,n=held.tableResult,bonus=n===6?p.row.level:p.context.cha,rolls=({2:[`1d20+${p.context.pb+p.context.cha}`,`2d${die}+${p.context.cha}`],3:[`1d${die}+${bonus}`],5:[`1d${die}`],6:[`1d${die}+${bonus}`],7:[`2d${die}`],8:[`1d${die}`],9:[`3d${die}`],10:[`4d${die}`],11:[`2d${die}+${bonus}`],12:[`3d${die}`]})[n]||[];return {p,held,n,rolls:rolls.map((expression,i)=>({expression,kind:n===2&&i===0?'attack':n===5||n===8?'raw':'damage',...(n===2&&i===0?{ability:'cha'}:{})}))};}
 export function bestowSpiritTale(c,{triggered=false,recipient,rolls=[],maxHP=c.hp.max,condition}={}){

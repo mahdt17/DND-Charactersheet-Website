@@ -1,3 +1,4 @@
+import {actorBodyHP,healActiveBody} from './subclassState.js';
 import {aasimarId,aasimarRace,aasimarSubraces} from '../data/aasimar.js';
 import {effectiveAbilityScores} from './abilityScores.js';
 import spells from '../data/spells.json' with {type:'json'};
@@ -18,14 +19,14 @@ export function aasimarResources(c){
 }
 export function aasimarActionBlock(c){
  if(!isAasimar(c))return 'This Aasimar source does not grant this ability.';
- if(Number(c.hp?.current)<=0)return 'You must be conscious to use this ability.';
+ if(actorBodyHP(c)<=0)return 'You must be conscious to use this ability.';
  const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(v=>String(typeof v==='object'?v?.name:v).trim().toLowerCase());
  return conditions.some(v=>['dead','incapacitated','unconscious','paralyzed','stunned','petrified'].includes(v))?'You cannot use this ability while incapacitated.':'';
 }
 function spend(c,id){const r=aasimarResources(c).find(r=>r.id===id);if(!r||r.used>=r.max)throw Error('No ability uses remaining.');return {resources:[...(c.resources||[]).filter(x=>x.id!==id),{...r,used:r.used+1}]};}
 export function useHealingHands(c,{self=false}={}){
  const blocked=aasimarActionBlock(c);if(blocked)throw Error(blocked);
- const result=spend(c,aasimarHealingId);return {...result,...(self?{hp:{...c.hp,current:Math.min(c.hp.max,c.hp.current+aasimarProfile(c).healing)}}:{})};
+ const result=spend(c,aasimarHealingId);return {...result,...(self?(healActiveBody(c,aasimarProfile(c).healing)||{hp:{...c.hp,current:Math.min(c.hp.max,c.hp.current+aasimarProfile(c).healing)}}):{})};
 }
 export function useAasimarTransformation(c){
  const blocked=aasimarActionBlock(c);if(blocked)throw Error(blocked);
