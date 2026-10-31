@@ -39,7 +39,7 @@ export function finishSubclassEffects(c,effects){
  const was=(c.activeEffects||[]).some(e=>e.stateKey==='rage-beyond-death');
  const samuraiDeath=(c.activeEffects||[]).some(e=>e.stateKey==='strength-before-death')&&Number(c.hp?.current)<=0&&Number(c.deathSaves?.failure)>=3;
  const postponedDeath=was&&!effects.some(e=>e.stateKey==='rage-beyond-death'&&(e.remainingSeconds==null||e.remainingSeconds>0))&&Number(c.hp?.current)<=0&&Number(c.deathSaves?.failure)>=3;
- return {activeEffects:effects,...((c.activeEffects||[]).some(e=>e.stateKey==='rage')&&!effects.some(e=>e.stateKey==='rage')?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{}),...(postponedDeath||samuraiDeath?{dead:true}:{})};
+ return {activeEffects:effects,...(c.profileState?{profileState:Object.fromEntries(Object.entries(c.profileState).filter(([id])=>effects.some(e=>e.id===id)))}:{}),...((c.activeEffects||[]).some(e=>e.stateKey==='rage')&&!effects.some(e=>e.stateKey==='rage')?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{}),...(postponedDeath||samuraiDeath?{dead:true}:{})};
 }
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
