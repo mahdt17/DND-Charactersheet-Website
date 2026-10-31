@@ -20,20 +20,21 @@ export function sourceSubclassEffects(c,{recordId,ownerId,featureId,stateKey}={}
   return record&&record.id===e.subclassRecordId&&row.catalogId===e.sourceClassId&&record.features.some(f=>f.id===e.sourceFeatureId&&f.level<=row.level&&selectedFeature(c,row,record,f));
  }));
 }
+export function actorBodyHP(c){const e=sourceSubclassEffects(c).find(e=>e.stateKey==='moon-wild-shape');const hp=e&&c.profileState?.[e.id]?.hp;return hp&&Number.isFinite(hp.current)?hp.current:Number(c.hp?.current??1);}
 export function consciousAtZero(c){
  return sourceSubclassEffects(c).some(e=>e.subclassRecordId==='2014:subclass:barbarian:zealot'&&e.sourceFeatureId==='2014:subclass:barbarian:zealot:rage-beyond-death'&&e.stateKey==='rage-beyond-death'||e.subclassRecordId==='2014:subclass:fighter:samurai'&&e.sourceFeatureId==='2014:subclass:fighter:samurai:strength-before-death'&&e.stateKey==='strength-before-death');
 }
 export function actorDeathBlock(c,{allowPostponedDeath=true}={}){
  if(edition(c)!=='2014')return '';
  const zealot=allowPostponedDeath&&sourceSubclassEffects(c,{recordId:'2014:subclass:barbarian:zealot',featureId:'2014:subclass:barbarian:zealot:rage-beyond-death',stateKey:'rage-beyond-death'}).length>0;
- return Number(c.hp?.current??1)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath?'A dead character must be revived before acting.':'';
+ return actorBodyHP(c)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath?'A dead character must be revived before acting.':'';
 }
 export function actorActionBlock(c,{allowZeroHP=false}={}){
  if(edition(c)!=='2014')return '';
  const death=actorDeathBlock(c);if(death)return death;
  if(sourceSubclassEffects(c,{recordId:'2014:subclass:sorcerer:wild-magic',stateKey:'wild-surge:41'}).some(e=>e.blocksActions))return 'You are incapacitated while transformed into a potted plant.';
  if(names(c).some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified'].includes(n)))return 'You cannot act while incapacitated.';
- return !allowZeroHP&&Number(c.hp?.current??1)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
+ return !allowZeroHP&&actorBodyHP(c)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
 }
 export function finishSubclassEffects(c,effects){
  const was=(c.activeEffects||[]).some(e=>e.stateKey==='rage-beyond-death');
@@ -43,7 +44,7 @@ export function finishSubclassEffects(c,effects){
 }
 export function reconcileSubclassStates(c){
  const valid=new Set(sourceSubclassEffects(c));
- const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||Number(c.hp?.current)<=0&&!consciousAtZero(c);
+ const rage=rageProfile(c),unconscious=names(c).includes('unconscious')||actorBodyHP(c)<=0&&!consciousAtZero(c);
  const effects=(c.activeEffects||[]).filter(e=>(!e.subclassRecordId||valid.has(e))&&!(e.requiresEquippedItem&&!(c.inventory||[]).some(i=>i.id===e.itemId&&i.equipped))&&!(e.endsOnIncapacitated&&actorActionBlock(c))&&!(e.endsAtZero&&Number(c.hp?.current)<=0)&&!(e.requiresTempSource&&(c.hp?.tempSource!==e.requiresTempSource||!(c.hp.temp>0)))&&!(e.baseClassId&&(!rage.level||unconscious)));
  const hasRage=effects.some(e=>e.stateKey==='rage'&&(e.remainingSeconds==null||e.remainingSeconds>0));
  const live=new Set(effects.map(e=>e.id));

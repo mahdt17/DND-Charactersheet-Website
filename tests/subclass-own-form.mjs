@@ -4,6 +4,8 @@ import {createServer} from 'vite';
 import {existsSync} from 'node:fs';
 const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
 const lifecycle=await server.ssrLoadModule('/src/lib/spellEffects.js');
+const actor=await server.ssrLoadModule('/src/lib/subclassState.js');
+const casting=await server.ssrLoadModule('/src/lib/rage2014.js');
 const lib=existsSync('src/lib/subclassOwnForm.js')?await server.ssrLoadModule('/src/lib/subclassOwnForm.js'):{};await server.close();
 const make=(level=2)=>({ruleset:'2014',className:'Druid',subclass:'Moon',level,classDefinition:{name:'Druid',index:'druid',edition:'2014'},abilities:{str:10,dex:10,con:10,int:14,wis:16,cha:12},hp:{current:20,max:20,temp:0},resources:[],inventory:[],activeEffects:[],spells:[],actions:[]});const apply=(c,p)=>({...c,...p});
 test('Moon form requires seen confirmation and spends canonical Wild Shape',()=>{
@@ -20,4 +22,16 @@ test('Moon projection retains mental scores and tags Primal Strike at Druid 6',(
 });
 test('Moon healing spends a spell slot without changing normal HP',()=>{
  assert.equal(typeof lib.healMoonForm,'function');let c=make(10);c.slotsUsed={};c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,lib.healMoonForm(c,{slotLevel:1,slotPool:'standard',result:{total:5}}));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);assert.equal(c.slotsUsed[1],1);
+});
+test('actor guard uses active form HP instead of the preserved normal body',()=>{
+ let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c.hp.current=0;assert.equal(actor.actorActionBlock(c),'');
+});
+test('Moon below Druid 18 cannot cast while transformed',()=>{
+ let c=make(10);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert.match(casting.featureCastingBlock(c,{name:'Cure Wounds',level:1,components:['V','S']}),/Wild Shape/i);
+});
+test('Beast Spells permits Druid verbal and somatic spells at 18; Archdruid can waive eligible materials at 20',()=>{
+ let c=make(18);c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));assert.equal(casting.featureCastingBlock(c,{name:'Cure Wounds',level:1,classes:['Druid'],components:['V','S']}),'');assert.match(casting.featureCastingBlock(c,{name:'Goodberry',level:1,classes:['Druid'],components:['V','S','M']}),/material/i);let d=make(20);d=apply(d,lib.activateMoonForm(d,'brown-bear',{seen:true,equipmentResolved:true}));assert.equal(casting.featureCastingBlock(d,{name:'Goodberry',level:1,classes:['Druid'],components:['V','S','M'],archdruidMaterialEligible:true}),'');
+});
+test('ordinary healing in Wild Shape heals form HP only',()=>{
+ assert.equal(typeof lib.healOwnForm,'function');let c=make();c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,lib.damageOwnForm(c,10));c=apply(c,lib.healOwnForm(c,5));assert.equal(lib.ownFormProfile(c).hp.current,29);assert.equal(c.hp.current,20);
 });

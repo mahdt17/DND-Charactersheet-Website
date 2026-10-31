@@ -24,3 +24,4 @@ export function damageOwnForm(c,amount){
 export function healMoonForm(c,{slotLevel,slotPool,result}={}){
  assertAct(c);const form=ownFormProfile(c);if(!form)throw Error('No active form.');if(!Number.isInteger(slotLevel)||slotLevel<1||!Number.isInteger(result?.total)||result.total<slotLevel||result.total>8*slotLevel)throw Error('A valid healing roll is required.');const spend=spendSubclassSlot(c,slotLevel,slotPool);return {...spend,profileState:{...c.profileState,[form.effectId]:{...c.profileState[form.effectId],hp:{...form.hp,current:Math.min(form.hp.max,form.hp.current+result.total)}}}};
 }
+export function healOwnForm(c,amount){const form=ownFormProfile(c);if(!form)throw Error('No active form.');if(!Number.isInteger(amount)||amount<0)throw Error('Enter a nonnegative whole healing amount.');return {profileState:{...c.profileState,[form.effectId]:{...c.profileState[form.effectId],hp:{...form.hp,current:Math.min(form.hp.max,form.hp.current+amount)}}}};}
