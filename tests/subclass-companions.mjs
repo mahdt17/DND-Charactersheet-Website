@@ -46,7 +46,7 @@ test('Repair recovers once after a confirmed defender long rest, without refilli
 });
 test('ordinary healing cannot revive a destroyed defender',()=>{
  let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;
- c=apply(c,lib.adjustCompanionHP(c,id,-99));assert.throws(()=>lib.adjustCompanionHP(c,id,5),/reviv/i);
+ c=apply(c,lib.adjustCompanionHP(c,id,-99));assert.throws(()=>lib.adjustCompanionHP(c,id,5),/reviv/i);assert.throws(()=>lib.recoverSteelDefenderRepair(c,id,{confirmed:true}),/destroyed/i);
 });
 test('legacy Repair counter transfers once and no duplicate companion actions are exposed',()=>{
  let c=make();const old=expanded.expandedSubclassResources(c).find(r=>r.key==='defender-repair');
@@ -56,4 +56,13 @@ test('legacy Repair counter transfers once and no duplicate companion actions ar
  assert.equal(lib.steelDefenderProfile(c).repairUsed,2);
  assert.equal(expanded.expandedSubclassResources(c).some(r=>r.key==='defender-repair'),false);
  assert.equal(expanded.expandedSubclassActions(c).some(a=>['repair','force-empowered-rend','deflect-attack','revive-defender'].includes(a.key)&&a.subclassRecordId==='2014:subclass:artificer:battle-smith'),false);
+});
+test('owner death makes the same defender perish without losing its Repair state',()=>{
+ const definition=JSON.parse(readFileSync('public/catalogs/wikidot5e/classes.json','utf8')).find(x=>x.name==='Artificer');
+ let c={...make(),classDefinition:definition,classLevels:[{catalogId:'2014:artificer',name:'Artificer',edition:'2014',level:3,subclass:'Battle Smith',definition}],slotsUsed:{}};c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;
+ c=apply(c,lib.repairSteelDefender(c,id,{total:7},{recipient:'other',confirmed:true}));
+ c=integration.reconcileClassGrants({...c,dead:true});const p=lib.steelDefenderProfile(c);
+ assert.equal(p.id,id);assert.equal(p.hp.current,0);assert.equal(p.repairUsed,1);
+ c=integration.reconcileClassGrants({...c,dead:false});assert.equal(lib.steelDefenderProfile(c).hp.current,0);
+ c=apply(c,lib.reviveSteelDefender(c,id,{withinHour:true,withinFiveFeet:true,smithTools:true,slotLevel:1,slotPool:'standard'}));assert.equal(lib.steelDefenderProfile(c).id,id);assert.equal(lib.steelDefenderProfile(c).repairUsed,1);assert.equal(c.slotsUsed[1],1);
 });

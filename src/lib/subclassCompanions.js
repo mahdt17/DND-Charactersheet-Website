@@ -1,6 +1,6 @@
-import {sourceFeature,assertAct} from './subclassActionUtils.js';
+import {sourceFeature,assertAct,spendFeature} from './subclassActionUtils.js';
 import {expandedSubclassRows,expandedFeatureUnlocked} from './expandedSubclasses.js';
-import {actorDeathBlock} from './subclassState.js';
+import {actorDeathBlock,sourceSubclassEffects} from './subclassState.js';
 import {spendSubclassSlot} from './subclassActive.js';
 
 const record='2014:subclass:artificer:battle-smith';
@@ -32,7 +32,7 @@ export function repairSteelDefender(c,id,result,{recipient,confirmed=false}={}){
  return save(c,{...entry,repairUsed:(entry.repairUsed||0)+1,hp:recipient==='self'?{...entry.hp,current:Math.min(maxHP(p),entry.hp.current+result.total)}:entry.hp});
 }
 export function recoverSteelDefenderRepair(c,id,{confirmed=false}={}){
- const {entry}=requireEntry(c,id);if(!confirmed)throw Error('Confirm the defender completed a long rest.');
+ const {entry}=requireEntry(c,id);if(!confirmed)throw Error('Confirm the defender completed a long rest.');if(entry.hp.current<=0)throw Error('A destroyed defender cannot complete a long rest.');
  return save(c,{...entry,repairUsed:0});
 }
 export function reviveSteelDefender(c,id,{withinHour=false,withinFiveFeet=false,smithTools=false,slotLevel,slotPool}={}){
@@ -42,8 +42,39 @@ export function reviveSteelDefender(c,id,{withinHour=false,withinFiveFeet=false,
 export function reconcileCompanions(c){
  if(!Array.isArray(c.subclassCompanions))return c;
  const owners=expandedSubclassRows(c);
- return {...c,subclassCompanions:c.subclassCompanions.filter(entry=>!entry.managedSubclassCompanion||(!(entry.endsOnOwnerDeath&&actorDeathBlock(c))&&owners.some(p=>p.row.catalogId===entry.sourceClassId&&p.record.id===entry.subclassRecordId&&p.record.features.some(f=>f.id===entry.sourceFeatureId&&expandedFeatureUnlocked(p,f))))) };
+ return {...c,subclassCompanions:c.subclassCompanions.filter(entry=>!entry.managedSubclassCompanion||((!(entry.endsOnOwnerDeath&&actorDeathBlock(c))||entry.profileId==='steel-defender')&&owners.some(p=>p.row.catalogId===entry.sourceClassId&&p.record.id===entry.subclassRecordId&&p.record.features.some(f=>f.id===entry.sourceFeatureId&&expandedFeatureUnlocked(p,f))))).map(entry=>entry.profileId==='steel-defender'&&entry.endsOnOwnerDeath&&actorDeathBlock(c)?{...entry,hp:{...entry.hp,current:0}}:entry) };
 }
 
 
 export function companionLongRest(c){return {subclassCompanionRest:Number(c.subclassCompanionRest||0)+1};}
+
+const cannonSource=c=>sourceFeature(c,['artificer:artillerist'],'eldritch-cannon');
+export function eldritchCannons(c){
+ let p;try{p=cannonSource(c);}catch{return [];}
+ return sourceSubclassEffects(c,{recordId:p.record.id,ownerId:p.row.catalogId,stateKey:'eldritch-cannon'}).map(e=>({...e,ac:18,hp:{...e.hp,current:Math.min(e.hp.current,5*p.row.level),max:5*p.row.level},spellAttack:p.context.pb+p.context.int,saveDC:8+p.context.pb+p.context.int,damageDice:p.row.level>=9?'3d8':'2d8',intModifier:p.context.int}));
+}
+export function createEldritchCannon(c,{type,size,legs=false,tools=false,cost,slotLevel,slotPool}={}){
+ assertAct(c);const p=cannonSource(c),active=eldritchCannons(c);
+ if(active.length>=(p.row.level>=15?2:1))throw Error('Cannon capacity reached.');
+ if(!['Flamethrower','Force Ballista','Protector'].includes(type)||!['Small','Tiny'].includes(size)||!tools)throw Error('Choose a cannon, size and confirm tools and placement.');
+ const charge=cost==='free'?spendFeature(c,p,'cannon-create'):cost==='slot'?spendSubclassSlot(c,slotLevel,slotPool):null;if(!charge)throw Error('Choose the free use or a spell slot.');
+ const id=`cannon:${Date.now()}:${Math.random().toString(36).slice(2)}`,entry={id,name:`${type} cannon`,stateKey:'eldritch-cannon',sourceClassId:p.row.catalogId,subclassRecordId:p.record.id,sourceFeatureId:p.feature.id,type,size,legs,remainingSeconds:3600,canEnd:false,hp:{current:5*p.row.level,temp:0}};
+ return {...charge,activeEffects:[...(c.activeEffects||[]),entry]};
+}
+function cannonEntry(c,id){const p=cannonSource(c),entry=eldritchCannons(c).find(x=>x.id===id);if(!entry)throw Error('Cannon is not available.');return {p,entry};}
+function saveCannon(c,entry){return {activeEffects:(c.activeEffects||[]).map(e=>e.id===entry.id?entry:e)};}
+export function activateProtectorCannon(c,id,result,{within60=false}={}){
+ assertAct(c);const {p,entry}=cannonEntry(c,id);if(entry.type!=='Protector'||!within60)throw Error('Confirm the Protector cannon is within 60 feet.');
+ const mod=Math.max(1,p.context.int);if(!Number.isInteger(result?.total)||result.total<1+mod||result.total>8+mod)throw Error('A valid Protector roll is required.');
+ return saveCannon(c,{...entry,hp:{...entry.hp,temp:Math.max(entry.hp.temp||0,result.total)}});
+}
+export function damageEldritchCannon(c,id,amount){
+ const {entry}=cannonEntry(c,id);if(!Number.isInteger(amount)||amount<0)throw Error('Enter nonnegative whole damage.');const absorbed=Math.min(entry.hp.temp||0,amount),current=Math.max(0,entry.hp.current-(amount-absorbed));
+ return current?saveCannon(c,{...entry,hp:{...entry.hp,current,temp:(entry.hp.temp||0)-absorbed}}):{activeEffects:(c.activeEffects||[]).filter(e=>e.id!==id)};
+}
+export function mendEldritchCannon(c,id,result,{confirmed=false}={}){
+ const {entry}=cannonEntry(c,id);if(!confirmed)throw Error('Confirm Mending was cast on the cannon.');if(!Number.isInteger(result?.total)||result.total<2||result.total>12)throw Error('A valid Mending roll is required.');
+ return saveCannon(c,{...entry,hp:{...entry.hp,current:Math.min(entry.hp.max,entry.hp.current+result.total)}});
+}
+export function dismissEldritchCannon(c,id){assertAct(c);cannonEntry(c,id);return {activeEffects:(c.activeEffects||[]).filter(e=>e.id!==id)};}
+export function detonateEldritchCannon(c,id,{within60=false}={}){assertAct(c);const {p}=cannonEntry(c,id);if(p.row.level<9)throw Error('Explosive Cannon requires Artificer level 9.');if(!within60)throw Error('Confirm the cannon is within 60 feet.');return {activeEffects:(c.activeEffects||[]).filter(e=>e.id!==id)};}
