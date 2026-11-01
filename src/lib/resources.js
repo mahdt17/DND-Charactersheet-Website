@@ -95,7 +95,7 @@ export function adjustResource(c,id,amount,abilities) {
   if(amount>0&&count(r.used)+amount>count(r.max))throw Error('Not enough resource uses remaining.');
   const used=Math.max(0,count(r.used)+amount);
   if(r.quantityManaged){const p=quantityProfile(c,r.key);if(!p)throw Error('This source quantity is not available.');return {...migration,...quantityPatch(c,p,r.max-used),resources:resources.map(x=>x.id===id?{...x,used}:x)};}
-  return {...(id==='2014:Druid:wild-shape'&&amount>0?{activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='symbiotic-entity')}:{}),...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
+  return {...(id==='2014:Druid:wild-shape'&&amount>0?{activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='symbiotic-entity'&&!(e.stateKey==='druid-companion'&&e.kind==='wildfire-ua'))}:{}),...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
 }
 export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=false,eladrin,shadarKai}={},abilities) {
   if(!['short','long'].includes(rest))throw Error('Choose a short or long rest.');
