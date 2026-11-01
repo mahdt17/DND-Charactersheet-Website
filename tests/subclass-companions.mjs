@@ -66,3 +66,16 @@ test('owner death makes the same defender perish without losing its Repair state
  c=integration.reconcileClassGrants({...c,dead:false});assert.equal(lib.steelDefenderProfile(c).hp.current,0);
  c=apply(c,lib.reviveSteelDefender(c,id,{withinHour:true,withinFiveFeet:true,smithTools:true,slotLevel:1,slotPool:'standard'}));assert.equal(lib.steelDefenderProfile(c).id,id);assert.equal(lib.steelDefenderProfile(c).repairUsed,1);assert.equal(c.slotsUsed[1],1);
 });
+test('Mending heals the defender only after a confirmed cast and never spends Repair',()=>{
+ let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;c=apply(c,lib.adjustCompanionHP(c,id,-10));
+ assert.throws(()=>lib.mendSteelDefender(c,id,{total:7},{}),/confirm/i);
+ c=apply(c,lib.mendSteelDefender(c,id,{total:7},{confirmed:true}));assert.equal(lib.steelDefenderProfile(c).hp.current,17);assert.equal(lib.steelDefenderProfile(c).repairUsed,0);
+ c=apply(c,lib.adjustCompanionHP(c,id,-99));assert.throws(()=>lib.mendSteelDefender(c,id,{total:7},{confirmed:true}),/reviv/i);
+});
+test('defender conditions are instance-owned, reject immunities and affect its rolls',()=>{
+ let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;
+ assert.throws(()=>lib.setSteelDefenderConditions(c,id,['Poisoned']),/immune/i);
+ c=apply(c,lib.setSteelDefenderConditions(c,id,['Blinded','Restrained']));
+ assert.equal(lib.steelDefenderRollState(c,id).attackDisadvantage,true);assert.equal(lib.steelDefenderRollState(c,id).dexSaveDisadvantage,true);
+ c=apply(c,lib.setSteelDefenderConditions(c,id,['Stunned']));assert.equal(lib.steelDefenderRollState(c,id).cannotAct,true);assert.equal(lib.steelDefenderRollState(c,id).strDexSaveFails,true);
+});

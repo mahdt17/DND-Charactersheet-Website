@@ -13,7 +13,7 @@ const maxHP=p=>Math.max(1,2+p.context.int+5*p.row.level);
 export function steelDefenderProfile(c){
  let p;try{p=source(c);}catch{return null;}const entry=owned(c,p);if(!entry)return null;
  const hpMax=maxHP(p),pb=p.context.pb;
- return {...entry,name:'Steel Defender',size:'Medium',type:'construct',ac:p.row.level>=15?17:15,hp:{current:Math.min(entry.hp.current,hpMax),max:hpMax},speed:40,saves:{dex:1+pb,con:2+pb},skills:{athletics:2+pb,perception:2*pb},spellAttack:pb+p.context.int,saveDC:8+pb+p.context.int,damage:`1d8+${pb}`,darkvision:60,repairUsed:entry.repairUsed||0};
+ return {...entry,name:'Steel Defender',size:'Medium',type:'construct',ac:p.row.level>=15?17:15,hp:{current:Math.min(entry.hp.current,hpMax),max:hpMax},speed:40,abilities:{str:14,dex:12,con:14,int:4,wis:10,cha:6},saves:{str:2,dex:1+pb,con:2+pb,int:-3,wis:0,cha:-2},skills:{athletics:2+pb,perception:2*pb},spellAttack:pb+p.context.int,saveDC:8+pb+p.context.int,damage:`1d8+${pb}`,darkvision:60,repairUsed:entry.repairUsed||0};
 }
 export function createSteelDefender(c,{initial=false,smithTools=false}={}){
  assertAct(c);const p=source(c),old=owned(c,p),key=`${p.row.catalogId}:${record}`,history=c.subclassCompanionHistory||{};
@@ -28,8 +28,21 @@ export function adjustCompanionHP(c,id,delta){
  const {p,entry}=requireEntry(c,id);if(!Number.isInteger(delta))throw Error('Enter a whole number of hit points.');if(entry.hp.current<=0&&delta>0)throw Error('A destroyed defender must be revived.');const current=Math.min(maxHP(p),Math.max(0,entry.hp.current+delta));return save(c,{...entry,hp:{...entry.hp,current}});
 }
 export function repairSteelDefender(c,id,result,{recipient,confirmed=false}={}){
- const {p,entry}=requireEntry(c,id),pb=p.context.pb;if(!confirmed||!['self','other'].includes(recipient))throw Error('Confirm the eligible construct or object within 5 feet.');if(entry.hp.current<=0)throw Error('A destroyed defender cannot use Repair.');if((entry.repairUsed||0)>=3)throw Error('No Repair uses remain today.');if(!Number.isInteger(result?.total)||result.total<2+pb||result.total>16+pb)throw Error('A valid Repair roll is required.');
+ const {p,entry}=requireEntry(c,id),pb=p.context.pb;if(!confirmed||!['self','other'].includes(recipient))throw Error('Confirm the eligible construct or object within 5 feet.');if(entry.hp.current<=0||steelDefenderRollState(c,id).cannotAct)throw Error('The defender cannot use Repair.');if((entry.repairUsed||0)>=3)throw Error('No Repair uses remain today.');if(!Number.isInteger(result?.total)||result.total<2+pb||result.total>16+pb)throw Error('A valid Repair roll is required.');
  return save(c,{...entry,repairUsed:(entry.repairUsed||0)+1,hp:recipient==='self'?{...entry.hp,current:Math.min(maxHP(p),entry.hp.current+result.total)}:entry.hp});
+}
+const defenderConditions=['Blinded','Deafened','Frightened','Grappled','Incapacitated','Invisible','Paralyzed','Petrified','Prone','Restrained','Stunned','Unconscious'];
+export function setSteelDefenderConditions(c,id,conditions){
+ const {entry}=requireEntry(c,id);if(!Array.isArray(conditions)||conditions.some(x=>!defenderConditions.includes(x)))throw Error('Invalid or immune condition.');
+ return save(c,{...entry,conditions:[...new Set(conditions)]});
+}
+export function steelDefenderRollState(c,id){
+ const {entry}=requireEntry(c,id),conditions=entry.conditions||[],has=(...names)=>names.some(n=>conditions.includes(n));
+ return {attackDisadvantage:has('Blinded','Prone','Restrained'),dexSaveDisadvantage:has('Restrained'),strDexSaveFails:has('Paralyzed','Petrified','Stunned','Unconscious'),cannotAct:entry.hp.current<=0||has('Incapacitated','Paralyzed','Petrified','Stunned','Unconscious')};
+}
+export function mendSteelDefender(c,id,result,{confirmed=false}={}){
+ if(!confirmed)throw Error('Confirm Mending was cast on the defender.');if(!Number.isInteger(result?.total)||result.total<2||result.total>12)throw Error('A valid Mending roll is required.');
+ return adjustCompanionHP(c,id,result.total);
 }
 export function recoverSteelDefenderRepair(c,id,{confirmed=false}={}){
  const {entry}=requireEntry(c,id);if(!confirmed)throw Error('Confirm the defender completed a long rest.');if(entry.hp.current<=0)throw Error('A destroyed defender cannot complete a long rest.');
