@@ -41,6 +41,11 @@ export function normalizeCatalogRecord(row, source, category) {
   const verified=Boolean(reviewedClassOverride?.verified)||(row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length);
   const normalized=normalizeContentEntry({...clean,sourceId:row.id,id:catalogId,catalogId,index:row.id,category:contentType(category),edition:source==='dndtools'?'3.5':'2014',source:clean.source||(source==='dndtools'?'DnD Tools':'D&D 5e Wikidot'),sourceUrl:clean.sourceUrl||clean.url||row.sourceUrl||row.url,description,referenceOnly:!verified,integrityIssues,
     tables:clean.progression?.length&&Array.isArray(clean.progression[0])&&!Array.isArray(clean.progression[0][0])?[clean.progression]:clean.tables||[]});
+  if(source==='wikidot5e'&&category==='classes'&&row.id==='wikidot5e:artificer'){
+    normalized.spellcastingAbility='int';
+    normalized.saving_throws=[{index:'con',name:'Constitution'},{index:'int',name:'Intelligence'}];
+    normalized.proficiency_choices=[{choose:2,type:'proficiencies',from:{options:['Arcana','History','Investigation','Medicine','Nature','Perception','Sleight of Hand'].map(name=>({item:{index:`skill-${name.toLowerCase().replaceAll(' ','-')}`,name:`Skill: ${name}`}}))}}];
+  }
   if(integrityIssues.length) normalized.completeness={...normalized.completeness,complete:false,missing:[...normalized.completeness.missing,'effectIntegrity']};
   if(normalized.category==='spell'){
     const labels=(row.classes||[]).map(x=>typeof x==='string'?x:x.name);
