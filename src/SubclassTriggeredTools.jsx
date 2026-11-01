@@ -9,7 +9,7 @@ import {spellPlan} from './lib/play';
 const Button=p=><button type="button" className="l-button" {...p}/>;
 export default function SubclassTriggeredTools({char,patch,roll,ownerId}){
  const [triggered,setTriggered]=useState(false),[equipment,setEquipment]=useState(false),[recipient,setRecipient]=useState('other'),[ability,setAbility]=useState('con'),[itemId,setItemId]=useState(''),[n,setN]=useState(1),[spell,setSpell]=useState(''),[name,setName]=useState(''),[error,setError]=useState(''),[useTrinket,setUseTrinket]=useState(false),[damageDealt,setDamageDealt]=useState(''),[defense,setDefense]=useState('ac'),[saveTotal,setSaveTotal]=useState('');
- const actions=triggeredFeatures(char).filter(d=>!ownerId||d.p.row.catalogId===ownerId),omen=cosmicOmenProfile(char),talent=psionicTalentProfile(char),cooldowns=cooldownProfile(char),attacks=subclassNaturalAttacks(char),profiles=expandedSubclassRows(char),tranquility=profiles.some(p=>p.record.id==='2014:subclass:monk:tranquility-ua');
+ const actions=triggeredFeatures(char).filter(d=>d.key!=='summon-hound'&&(!ownerId||d.p.row.catalogId===ownerId)),omen=cosmicOmenProfile(char),talent=psionicTalentProfile(char),cooldowns=cooldownProfile(char),attacks=subclassNaturalAttacks(char),profiles=expandedSubclassRows(char),tranquility=profiles.some(p=>p.record.id==='2014:subclass:monk:tranquility-ua');
  if(!actions.length&&!omen&&!talent&&!cooldowns.length&&!tranquility&&!attacks.length)return null;
  function run(fn){try{fn();setError('');}catch(e){setError(e.message);}}
  const discovery=talent?.record.id.endsWith(':psionic-soul-ua')?temporarySpellOptions(char,'psionic-discovery').spells:[];
