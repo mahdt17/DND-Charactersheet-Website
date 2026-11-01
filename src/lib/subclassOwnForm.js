@@ -8,6 +8,7 @@ import {effectiveAbilityScores} from './abilityScores.js';
 import {moonFormOptions,localCreatureProfile} from './creatureProfiles.js';
 import {sourceFeature,assertAct,spendFeature,featureState} from './subclassActionUtils.js';
 import {sourceSubclassEffects,damageActiveBody} from './subclassState.js';
+import {conditionEffects} from './play.js';
 
 export function ownFormProfile(c){
  const effect=sourceSubclassEffects(c).find(e=>e.stateKey==='moon-wild-shape');if(!effect)return null;
@@ -27,6 +28,11 @@ export function activateMoonForm(c,creatureId,{seen=false,equipmentResolved=fals
 }
 export function endOwnForm(c){const p=ownFormProfile(c);if(!p)throw Error('No active form.');const state={...c.profileState};delete state[p.effectId];return {activeEffects:(c.activeEffects||[]).filter(e=>e.id!==p.effectId),profileState:state};}
 export function damageOwnForm(c,amount){const patch=damageActiveBody(c,amount);if(!patch)throw Error('No active form.');return patch;}
+export function ownFormWalkingSpeed(c){
+ const form=ownFormProfile(c);if(!form)return null;
+ const projected={...c,speed:parseInt(form.speeds.walk,10)||0,hp:{...c.hp,current:form.hp.current},inventory:(c.inventory||[]).map(i=>({...i,equipped:i.equipped&&form.wornItemIds.includes(i.id)}))};
+ return conditionEffects(projected).speed;
+}
 export function ownFormDamageAmount(c,amount,{type='',magical=false,weapon=false,vulnerable=false}={}){
  const form=ownFormProfile(c);if(!form)throw Error('No active form.');
  const damageType=String(type).toLowerCase(),physical=['bludgeoning','piercing','slashing'].includes(damageType),projected={...c,hp:{...c.hp,current:form.hp.current},inventory:(c.inventory||[]).map(i=>({...i,equipped:i.equipped&&form.wornItemIds.includes(i.id)}))},retained=activeFormProfile(projected),rage=rageProfile(projected);

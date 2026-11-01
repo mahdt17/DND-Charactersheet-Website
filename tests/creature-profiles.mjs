@@ -21,4 +21,8 @@ test('original ranger options are beasts no larger than Medium with CR at most o
 test('elemental condition immunities are readable source names',()=>{
  assert(profiles.localCreatureProfile('fire-elemental').conditionImmunities.includes('Poisoned'));
 });
+test('Giant Spider Web preserves its structured recharge rule',()=>{
+ const web=profiles.localCreatureProfile('giant-spider').attacks.find(a=>a.name==='Web');
+ assert.deepEqual(web.usage,{type:'recharge on roll',dice:'1d6',min_value:5});
+});
 

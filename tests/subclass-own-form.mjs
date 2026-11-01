@@ -133,3 +133,11 @@ test('retained Rage resistance applies to form damage without stacking resistanc
  let c=make(2);c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:2,subclass:'Moon'},{catalogId:'2014:barbarian',name:'Barbarian',edition:'2014',level:1}];c.level=3;c.activeEffects=[{id:'rage',stateKey:'rage',baseClassId:'2014:Barbarian:rage',remainingSeconds:60}];c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));
  assert.equal(lib.ownFormDamageAmount(c,15,{type:'slashing',magical:true}),7);assert.equal(lib.ownFormDamageAmount(c,15,{type:'cold'}),15);
 });
+test('form walking speed applies grapple and exhaustion to the creature base',()=>{
+ let c={...make(10),speed:30};c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));
+ assert.equal(lib.ownFormWalkingSpeed(c),40);assert.equal(lib.ownFormWalkingSpeed({...c,conditions:['Grappled']}),0);assert.equal(lib.ownFormWalkingSpeed({...c,exhaustion:2}),20);assert.equal(c.speed,30);
+});
+test('form movement retains Bladesong once with merged equipment and preserves normal movement',()=>{
+ let c={...make(10),speed:30,inventory:[{id:'shield',equipmentIndex:'shield',equipped:true}]};c.classLevels=[{catalogId:'2014:druid',name:'Druid',edition:'2014',level:10,subclass:'Moon'},{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:2,subclass:'Bladesinging'}];c.level=12;c=apply(c,lib.activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true}));c=apply(c,blade.startBladesong(c));
+ const before=JSON.stringify(c);assert.equal(lib.ownFormWalkingSpeed(c),50);assert.equal(lib.ownFormWalkingSpeed({...c,exhaustion:2}),25);assert.equal(lib.ownFormWalkingSpeed({...c,conditions:['Grappled']}),0);assert.equal(JSON.stringify(c),before);c=apply(c,lib.endOwnForm(c));assert.equal(lib.ownFormWalkingSpeed(c),null);assert.equal(c.speed,30);
+});
