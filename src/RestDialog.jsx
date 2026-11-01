@@ -1,4 +1,4 @@
-import {longRestBody,sourceSubclassEffects} from './lib/subclassState';
+import {longRestBody,sourceSubclassEffects,pendingWildSheep,polymorphSheepEffect} from './lib/subclassState';
 import {ownFormProfile} from './lib/subclassOwnForm';
 import {ShadarKaiChoices} from './ShadarKai';
 import {EladrinChoices} from './Eladrin';
@@ -46,6 +46,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   let populationAfter=null;
   if(swarm.level&&!char.entomancer?.dead){try{populationAfter=entomancerProfile({...char,...restResources(char,rest,{fed,meditated,restoreSorcery},abilities)}).remaining;}catch{}}
   function spend(inline=false) {
+    if(pendingWildSheep(char)&&!polymorphSheepEffect(char))throw Error('Choose the DM-confirmed sheep profile before resting.');
     if(form){if(Object.values(spending).some(n=>n>0))throw Error('Resolve the form’s Hit Dice at the table and apply healing to the form.');return {};}
     const results=[];
     const {healing,...counts}=spendHitDice(char,spending,modifier(constitution),(expression,label,options)=>{
@@ -61,6 +62,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   }
   function takeRest() {
     try {
+      if(pendingWildSheep(char)&&!polymorphSheepEffect(char))throw Error('Choose the DM-confirmed sheep profile before resting.');
       if(entomancerLevel(char)&&char.entomancer?.dead)throw Error('A dead character must be revived before resting.');
       if(form&&rest==='long'&&!consciousRest)throw Error('Confirm a qualifying conscious rest, or close this dialog and end Wild Shape before resting.');
       const conditions=conditionNames(char);

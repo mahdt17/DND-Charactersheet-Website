@@ -24,3 +24,4 @@ export function rangerBeastOptions(){
  return monsters.filter(m=>m.type==='beast'&&Number.isFinite(m.challenge_rating)&&m.challenge_rating<=0.25&&sizes.indexOf(m.size)>=0&&sizes.indexOf(m.size)<=2).map(m=>localCreatureProfile(m.index));
 }
 export function localUndeadOptions(){return monsters.filter(m=>m.type==='undead').map(m=>localCreatureProfile(m.index));}
+export function localBeastOptions(){return monsters.filter(m=>m.type==='beast').map(m=>localCreatureProfile(m.index));}

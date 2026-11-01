@@ -148,7 +148,7 @@ test('Wild Rage requires a visible table result and applies its owned state atom
 });
 
 test('Wild self spell and shape outcomes retain source durations and exact profile handoff without concentration',()=>{
- let c=make('Sorcerer','Wild Magic',6);c.concentration='Bless';c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:45},{triggered:true}));assert.equal(c.activeEffects.find(e=>e.stateKey==='wild-surge:45').remainingSeconds,600);assert.equal(c.concentration,'Bless');c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:77},{triggered:true,rolls:[{total:2}]}));const sheep=c.activeEffects.find(e=>e.stateKey==='wild-surge:77');assert.equal(sheep.remainingSeconds,3600);assert.equal(sheep.profileRef.creatureId,'sheep');assert.equal(c.concentration,'Bless');assert.throws(()=>tables.applySubclassTable(c,'sorcerer-wild-magic',{total:87},{triggered:true}),/target|recipient/);
+ let c=make('Sorcerer','Wild Magic',6);c.concentration='Bless';c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:45},{triggered:true}));assert.equal(c.activeEffects.find(e=>e.stateKey==='wild-surge:45').remainingSeconds,600);assert.equal(c.concentration,'Bless');c=apply(c,tables.applySubclassTable(c,'sorcerer-wild-magic',{total:77},{triggered:true,rolls:[{total:2}]}));const sheep=c.activeEffects.find(e=>e.stateKey==='wild-surge:77');assert.equal(sheep.remainingSeconds,3600);assert.equal(sheep.profileRef.creatureId,'sheep');assert.equal(c.concentration,'Bless');assert.throws(()=>tables.applySubclassTable(make('Sorcerer','Wild Magic',6),'sorcerer-wild-magic',{total:87},{triggered:true}),/target|recipient/);
 });
 
 

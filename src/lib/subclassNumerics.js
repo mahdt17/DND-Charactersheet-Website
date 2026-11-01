@@ -1,3 +1,4 @@
+import {retainsOwnFeatures} from './subclassState.js';
 import {artificialMind,artificialMindSkillBonus} from './subclassArtificialMind.js';
 import {activeFormProfile} from './subclassActive.js';
 import {armorModelProfile} from './subclassEquipment.js';
@@ -14,7 +15,7 @@ import equipment from '../data/equipment.json' with {type:'json'};
 const id=(cls,sub)=>`2014:subclass:${cls}:${sub}`;
 export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  const result={acBases:[],acBonus:0,hpBonus:0,speedBonus:0,initiativeBonus:0,initiativeAdvantage:false,saveBonus:0,saveBonuses:{},skillBonuses:{},abilityCheckBonuses:{},skillAdvantages:[],saveAdvantages:[],concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1,criticalThreshold:20,rows:[]};
- if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014')return result;
+ if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014'||!retainsOwnFeatures(c))return result;
  result.hpBonus=subclassHitPointBonus(c,characterClasses(c));
  const worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
  const shield=worn.some(e=>e.index==='shield'||e.equipmentIndex==='shield'||e.shield),heavy=worn.some(e=>e.armor_category==='Heavy');

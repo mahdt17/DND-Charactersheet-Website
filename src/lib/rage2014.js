@@ -1,5 +1,5 @@
 import {characterClasses} from './advancement.js';
-import {sourceSubclassEffects,equippedForActiveBody} from './subclassState.js';
+import {sourceSubclassEffects,equippedForActiveBody,polymorphSheepEffect} from './subclassState.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 export const rageId='2014:Barbarian:rage';
 export function rageProfile(c){
@@ -18,6 +18,7 @@ export const rageCastingBlock=c=>rageProfile(c).active?'You cannot cast spells o
 // the user's confirmation and never establishes eligibility by itself.
 export function archdruidMaterialRestriction(spell){return /\d[\d,.]*\s*(?:cp|sp|ep|gp|pp)\b|\b(?:copper|silver|electrum|gold|platinum) pieces?\b|\bconsum(?:e[sd]?|ing|ption)\b/i.test(String(spell.material||''))?'Listed costly or consumed material components cannot be waived by Archdruid.':'';}
 export function featureCastingBlock(c,spell){
+ if(polymorphSheepEffect(c))return 'You cannot cast spells while polymorphed.';
  const form=sourceSubclassEffects(c,{stateKey:'moon-wild-shape'})[0];
  if(form){
   const level=characterClasses(c).find(r=>r.catalogId===form.sourceClassId)?.level||0;if(level<18)return 'You cannot cast spells while using Wild Shape.';
