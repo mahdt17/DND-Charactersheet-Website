@@ -19,15 +19,21 @@ export function createSteelDefender(c,{initial=false,smithTools=false}={}){
  assertAct(c);const p=source(c),old=owned(c,p),key=`${p.row.catalogId}:${record}`,history=c.subclassCompanionHistory||{};
  if(old||Object.hasOwn(history,key)){if(!smithTools||Number(c.subclassCompanionRest||0)<=Number(history[key]||0))throw Error('Complete a long rest and confirm smith’s tools to create a replacement.');}
  else if(!initial)throw Error('Confirm initial creation.');
- const entry={id:`steel-defender:${Date.now()}:${Math.random().toString(36).slice(2)}`,managedSubclassCompanion:true,sourceClassId:p.row.catalogId,subclassRecordId:record,sourceFeatureId:p.feature.id,profileId:'steel-defender',endsOnOwnerDeath:true,hp:{current:maxHP(p)},repairUsed:0};
- return {subclassCompanions:[...list(c).filter(x=>x!==old),entry],subclassCompanionHistory:{...history,[key]:Number(c.subclassCompanionRest||0)}};
+ const legacyId=`expanded:${p.row.catalogId}:${record}:resource:defender-repair`,legacy=(c.resources||[]).filter(r=>r.id===legacyId||r.classResourceKey===legacyId);
+ const repairUsed=old||Object.hasOwn(history,key)?0:Math.min(3,Math.max(0,...legacy.map(r=>Number(r.used)||0)));
+ const entry={id:`steel-defender:${Date.now()}:${Math.random().toString(36).slice(2)}`,managedSubclassCompanion:true,sourceClassId:p.row.catalogId,subclassRecordId:record,sourceFeatureId:p.feature.id,profileId:'steel-defender',endsOnOwnerDeath:true,hp:{current:maxHP(p)},repairUsed};
+ return {subclassCompanions:[...list(c).filter(x=>x!==old),entry],subclassCompanionHistory:{...history,[key]:Number(c.subclassCompanionRest||0)},...(legacy.length?{resources:(c.resources||[]).filter(r=>!legacy.includes(r))}:{})};
 }
 export function adjustCompanionHP(c,id,delta){
- const {p,entry}=requireEntry(c,id);if(!Number.isInteger(delta))throw Error('Enter a whole number of hit points.');const current=Math.min(maxHP(p),Math.max(0,entry.hp.current+delta));return save(c,{...entry,hp:{...entry.hp,current}});
+ const {p,entry}=requireEntry(c,id);if(!Number.isInteger(delta))throw Error('Enter a whole number of hit points.');if(entry.hp.current<=0&&delta>0)throw Error('A destroyed defender must be revived.');const current=Math.min(maxHP(p),Math.max(0,entry.hp.current+delta));return save(c,{...entry,hp:{...entry.hp,current}});
 }
 export function repairSteelDefender(c,id,result,{recipient,confirmed=false}={}){
  const {p,entry}=requireEntry(c,id),pb=p.context.pb;if(!confirmed||!['self','other'].includes(recipient))throw Error('Confirm the eligible construct or object within 5 feet.');if(entry.hp.current<=0)throw Error('A destroyed defender cannot use Repair.');if((entry.repairUsed||0)>=3)throw Error('No Repair uses remain today.');if(!Number.isInteger(result?.total)||result.total<2+pb||result.total>16+pb)throw Error('A valid Repair roll is required.');
  return save(c,{...entry,repairUsed:(entry.repairUsed||0)+1,hp:recipient==='self'?{...entry.hp,current:Math.min(maxHP(p),entry.hp.current+result.total)}:entry.hp});
+}
+export function recoverSteelDefenderRepair(c,id,{confirmed=false}={}){
+ const {entry}=requireEntry(c,id);if(!confirmed)throw Error('Confirm the defender completed a long rest.');
+ return save(c,{...entry,repairUsed:0});
 }
 export function reviveSteelDefender(c,id,{withinHour=false,withinFiveFeet=false,smithTools=false,slotLevel,slotPool}={}){
  assertAct(c);const {p,entry}=requireEntry(c,id);if(entry.hp.current>0||!withinHour||!withinFiveFeet||!smithTools)throw Error('Confirm the defender died within an hour, is within 5 feet, and smith’s tools are available.');const cost=spendSubclassSlot(c,slotLevel,slotPool);return {...cost,...save(c,{...entry,hp:{...entry.hp,current:maxHP(p)}})};

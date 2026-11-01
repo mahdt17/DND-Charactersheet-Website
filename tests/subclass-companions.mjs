@@ -4,6 +4,7 @@ import {createServer} from 'vite';
 import {existsSync,readFileSync} from 'node:fs';
 const server=await createServer({server:{middlewareMode:true,hmr:false},optimizeDeps:{noDiscovery:true,include:[]}});
 const integration=await server.ssrLoadModule('/src/lib/classIntegration.js');
+const expanded=await server.ssrLoadModule('/src/lib/expandedSubclasses.js');
 const lib=existsSync('src/lib/subclassCompanions.js')?await server.ssrLoadModule('/src/lib/subclassCompanions.js'):{};
 await server.close();
 const make=()=>({ruleset:'2014',className:'Artificer',subclass:'Battle Smith',level:3,classDefinition:{name:'Artificer',index:'artificer',edition:'2014'},abilities:{str:10,dex:10,con:10,int:16,wis:10,cha:10},hp:{current:20,max:20,temp:0},resources:[],inventory:[],activeEffects:[],spells:[],actions:[]});
@@ -35,4 +36,24 @@ test('reviving the same defender spends a slot and retains its repair uses',()=>
  const classes=JSON.parse(readFileSync('public/catalogs/wikidot5e/classes.json','utf8'));const definition=classes.find(x=>x.name==='Artificer');let c={...make(),classDefinition:definition,classLevels:[{catalogId:'2014:artificer',name:'Artificer',edition:'2014',level:3,subclass:'Battle Smith',definition}],slotsUsed:{}};
  c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;c=apply(c,lib.adjustCompanionHP(c,id,-5));c=apply(c,lib.repairSteelDefender(c,id,{total:7},{recipient:'self',confirmed:true}));c=apply(c,lib.adjustCompanionHP(c,id,-99));
  c=apply(c,lib.reviveSteelDefender(c,id,{withinHour:true,withinFiveFeet:true,smithTools:true,slotLevel:1,slotPool:'standard'}));assert.equal(c.slotsUsed[1],1);assert.equal(lib.steelDefenderProfile(c).id,id);assert.equal(lib.steelDefenderProfile(c).repairUsed,1);assert.equal(lib.steelDefenderProfile(c).hp.current,20);
+});
+test('Repair recovers once after a confirmed defender long rest, without refilling HP',()=>{
+ let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;
+ c=apply(c,lib.adjustCompanionHP(c,id,-10));c=apply(c,lib.repairSteelDefender(c,id,{total:7},{recipient:'other',confirmed:true}));
+ assert.throws(()=>lib.recoverSteelDefenderRepair(c,id,{}),/confirm/i);
+ c=apply(c,lib.recoverSteelDefenderRepair(c,id,{confirmed:true}));assert.equal(lib.steelDefenderProfile(c).repairUsed,0);assert.equal(lib.steelDefenderProfile(c).hp.current,10);
+ assert.equal(lib.steelDefenderProfile(c).id,id);assert.equal(c.subclassCompanionRest,undefined);
+});
+test('ordinary healing cannot revive a destroyed defender',()=>{
+ let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));const id=lib.steelDefenderProfile(c).id;
+ c=apply(c,lib.adjustCompanionHP(c,id,-99));assert.throws(()=>lib.adjustCompanionHP(c,id,5),/reviv/i);
+});
+test('legacy Repair counter transfers once and no duplicate companion actions are exposed',()=>{
+ let c=make();const old=expanded.expandedSubclassResources(c).find(r=>r.key==='defender-repair');
+ if(old)c.resources=[{...old,used:2}];
+ else c.resources=[{id:'expanded:2014:artificer:2014:subclass:artificer:battle-smith:resource:defender-repair',classResourceKey:'expanded:2014:artificer:2014:subclass:artificer:battle-smith:resource:defender-repair',expandedSubclassManaged:true,used:2}];
+ c=apply(c,lib.createSteelDefender(c,{initial:true}));
+ assert.equal(lib.steelDefenderProfile(c).repairUsed,2);
+ assert.equal(expanded.expandedSubclassResources(c).some(r=>r.key==='defender-repair'),false);
+ assert.equal(expanded.expandedSubclassActions(c).some(a=>['repair','force-empowered-rend','deflect-attack','revive-defender'].includes(a.key)&&a.subclassRecordId==='2014:subclass:artificer:battle-smith'),false);
 });
