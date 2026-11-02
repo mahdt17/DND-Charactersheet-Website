@@ -1,3 +1,4 @@
+import {historyWhimResists} from './subclassState.js';
 import {drakeOwnerResistance} from './subclassDrakewarden.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {fightingStyleProfile} from './fightingStyles.js';
@@ -41,7 +42,7 @@ export function ownFormDamageAmount(c,amount,{type='',magical=false,weapon=false
  const damageType=String(type).toLowerCase();if(form.polymorph){const immune=form.damageImmunities.some(x=>x.toLowerCase()===damageType),resistant=form.damageResistances.some(x=>x.toLowerCase()===damageType),doubled=vulnerable||form.damageVulnerabilities.some(x=>x.toLowerCase()===damageType);return immune?0:(resistant?Math.floor(amount/2):amount)*(doubled?2:1);}
  const physical=['bludgeoning','piercing','slashing'].includes(damageType),projected={...c,hp:{...c.hp,current:form.hp.current},inventory:(c.inventory||[]).map(i=>({...i,equipped:i.equipped&&form.wornItemIds.includes(i.id)}))},retained=activeFormProfile(projected),rage=rageProfile(projected);
  const immune=damageType&&(form.damageImmunities.some(x=>x.toLowerCase()===damageType)||retained.damageImmunities.includes(damageType));
- const resistant=damageType&&(form.damageResistances.some(x=>x.toLowerCase()===damageType||physical&&weapon&&!magical&&x.toLowerCase()==='bludgeoning, piercing, and slashing from nonmagical weapons')||retained.resistances.includes(damageType)||drakeOwnerResistance(projected)===damageType||totemDamageResistance(projected,damageType)||rage.active&&!rage.heavy&&physical);
+ const resistant=damageType&&(form.damageResistances.some(x=>x.toLowerCase()===damageType||physical&&weapon&&!magical&&x.toLowerCase()==='bludgeoning, piercing, and slashing from nonmagical weapons')||retained.resistances.includes(damageType)||drakeOwnerResistance(projected)===damageType||historyWhimResists(projected,damageType)||totemDamageResistance(projected,damageType)||rage.active&&!rage.heavy&&physical);
  const doubled=vulnerable||damageType&&(form.damageVulnerabilities.some(x=>x.toLowerCase()===damageType)||retained.vulnerabilities.includes(damageType)||retained.vulnerabilities.includes('all'));
  return immune?0:(resistant?Math.floor(amount/2):amount)*(doubled?2:1);
 }

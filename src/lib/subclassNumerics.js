@@ -1,6 +1,6 @@
 import {ravenKillerAdvantage} from './subclassSentinelRaven.js';
 import {loreholdOwnerHPBonus,loreholdSageAura,loreholdSageLessons} from './subclassLorehold.js';
-import {retainsOwnFeatures} from './subclassState.js';
+import {retainsOwnFeatures,historyWhimActive} from './subclassState.js';
 import {artificialMind,artificialMindSkillBonus} from './subclassArtificialMind.js';
 import {activeFormProfile} from './subclassActive.js';
 import {armorModelProfile} from './subclassEquipment.js';
@@ -63,6 +63,7 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
   }
  }
  const active=activeFormProfile(c),armorModel=armorModelProfile(c);
+ if(historyWhimActive(c,'Swiftness'))result.speedBonus+=15;
  for(const e of sourceSubclassEffects(c))if(['elixir-swiftness','spirit-traveler'].includes(e.stateKey))result.speedBonus+=10;
  if(armorModel?.model==='Infiltrator')result.speedBonus+=5;
  if(active.frostBonus){result.saveBonuses.str=2;result.saveBonuses.con=2;result.abilityCheckBonuses.str=(result.abilityCheckBonuses.str||0)+2;result.abilityCheckBonuses.con=(result.abilityCheckBonuses.con||0)+2;result.skillBonuses.Athletics=(result.skillBonuses.Athletics||0)+2;}
@@ -76,11 +77,11 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  return result;
 }
 
-export function subclassRollTraits(c,{kind='check',name='',concentration=false}={}){
+export function subclassRollTraits(c,{kind='check',name='',concentration=false,damageEffect=false}={}){
  const p=subclassNumericProfile(c);
  name=name.replace(/ check$/i,'');
  const active=activeFormProfile(c),strength=/^(Strength|Athletics)\b/i.test(name),con=/^Constitution\b/i.test(name),dragon=active.star==='Dragon'&&(kind==='save'&&(concentration||/concentration/i.test(name))||kind==='check'&&['Intelligence','Wisdom','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival'].includes(name));
- return {bonusDice:['attack','save'].includes(kind)&&active.states.some(e=>e.stateKey==='elixir-boldness')?['1d4']:[],minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:kind==='attack'&&ravenKillerAdvantage(c)||strength&&active.strengthAdvantage||kind==='save'&&(con&&p.saveAdvantages.includes('con')||/^Death\b/i.test(name)&&p.saveAdvantages.includes('death'))||kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
+ return {bonusDice:[...(['attack','save'].includes(kind)&&active.states.some(e=>e.stateKey==='elixir-boldness')?['1d4']:[]),...(kind==='save'&&damageEffect&&historyWhimActive(c,'Luck')?['1d6']:[])],minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:kind==='attack'&&ravenKillerAdvantage(c)||strength&&active.strengthAdvantage||kind==='save'&&(con&&p.saveAdvantages.includes('con')||/^Death\b/i.test(name)&&p.saveAdvantages.includes('death'))||kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
 }
 
 // Explicit, narrowly scoped states. Other source prose remains table-resolved.

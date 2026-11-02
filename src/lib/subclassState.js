@@ -49,6 +49,8 @@ export function actorDeathBlock(c,{allowPostponedDeath=true}={}){
  const zealot=allowPostponedDeath&&sourceSubclassEffects(c,{recordId:'2014:subclass:barbarian:zealot',featureId:'2014:subclass:barbarian:zealot:rage-beyond-death',stateKey:'rage-beyond-death'}).length>0;
  return actorBodyHP(c)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath?'A dead character must be revived before acting.':'';
 }
+export function historyWhimActive(c,choice){return retainsOwnFeatures(c)&&!actorIncapacitated(c)&&!actorDeathBlock(c)&&sourceSubclassEffects(c,{stateKey:'lorehold-history-whims'}).some(e=>e.choice===choice);}
+export function historyWhimResists(c,type){return ['bludgeoning','piercing','slashing'].includes(String(type).toLowerCase())&&historyWhimActive(c,'Resistance');}
 export function drakeResistsDamage(c,type){if(!type||!retainsOwnFeatures(c)||actorDeathBlock(c))return false;return sourceSubclassEffects(c,{stateKey:'drake-companion'}).some(e=>e.hp?.current>0&&String(e.essence).toLowerCase()===String(type).toLowerCase()&&characterClasses(c).some(r=>r.catalogId===e.sourceClassId&&r.level>=7));}
 export function loreholdOwnerHPBonus(c){if(actorDeathBlock(c))return 0;return sourceSubclassEffects(c,{stateKey:'ancient-companion'}).reduce((sum,e)=>{if(e.kind!=='Healer')return sum;const row=characterClasses(c).find(r=>r.catalogId===e.sourceClassId),record=row&&findExpandedSubclass(row.name,row.subclass),f=record?.features.find(x=>x.id===`${record.id}:lessons-of-the-past`);return sum+(row&&record&&f&&f.level<=row.level&&selectedFeature(c,row,record,f)?row.level:0);},0);}
 export function loreholdHealerActive(c){return loreholdOwnerHPBonus(c)>0;}
