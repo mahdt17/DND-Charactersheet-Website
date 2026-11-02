@@ -104,7 +104,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
     patch({spells:[...char.spells,{...s,id:crypto.randomUUID(),castingClassId:active.catalogId,prepared:manual||counts.mode!=='spellbook'&&(!preparesSpells||prepared<counts.prepared)}]});
   }
   function open(s){setArchdruidMaterial(false);const data=refreshEntomancerSpell({...resolveSpell(s,char),...s,level:accessFor(s).level??s.level});setCast(data);setRecipient('');setPowerCost(Math.max(1,(data.level||1)*2-1));setCastError('');const first=slotOptions(data)[0];setSlot(first?.level??Math.max(is35(classModel)?0:1,Number(data.level)||0));setSlotPool(first?.pool||'standard');setFormula(s.rollFormula||'');setAttack(!!s.rollAttack);}
-  const basePlan=cast?spellPlan(cast,char,slot,mod):null;
+  const basePlan=cast?spellPlan({...cast,castingClassId:active.catalogId},char,slot,mod):null;
   const plan=basePlan?healingFeaturePlan(char,cast,basePlan,{slotLevel:slot,recipient,targetAtZero}):null;
   const classSpellModifiers=cast&&is35(classModel)?classSpellModifiers35(char,active.catalogId,cast,active.level):null;
   const expressions=plan?.rolls.filter(r=>/^(\d{1,2})d(\d{1,3})([+-]\d{1,3})?$|^\d+$/.test(r.expression))||[];
