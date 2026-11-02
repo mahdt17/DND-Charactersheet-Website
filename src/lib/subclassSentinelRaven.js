@@ -3,7 +3,7 @@ import {sourceSubclassEffects,actorDeathBlock} from './subclassState.js';
 import {localCreatureProfile} from './creatureProfiles.js';
 const source=c=>sourceFeature(c,['warlock:raven-queen-ua'],'sentinel-raven');
 export function sentinelRaven(c){let p;try{p=source(c);}catch{return null;}const e=sourceSubclassEffects(c,{recordId:p.record.id,ownerId:p.row.catalogId,stateKey:'sentinel-raven'})[0];if(!e)return null;return {...localCreatureProfile('raven'),...e,status:actorDeathBlock(c)?'gone':e.status,hp:{...e.hp,max:1}};}
-export function callSentinelRaven(c,{restConfirmed=false,initial=false}={}){assertAct(c);const p=source(c);if(!restConfirmed&&!(initial&&!sentinelRaven(c)))throw Error('Confirm a completed short or long rest.');const state=featureState(c,p,'sentinel-raven',{profileId:'raven',status:'present',perched:false,hp:{current:1},conditions:[]});return putState(c,state);}
+export function callSentinelRaven(c,{restConfirmed=false,initial=false}={}){assertAct(c);const p=source(c);if(!restConfirmed&&!(initial&&!sentinelRaven(c)))throw Error('Confirm a completed short or long rest.');const state=featureState(c,p,'sentinel-raven',{canEnd:false,profileId:'raven',status:'present',perched:false,hp:{current:1},conditions:[]});return putState(c,state);}
 const requireRaven=c=>{const r=sentinelRaven(c);if(!r||r.status!=='present')throw Error('The raven is not present.');return r;};
 const update=(c,id,fn)=>({activeEffects:(c.activeEffects||[]).map(e=>e.id===id?fn(e):e)});
 export function setRavenPerched(c,perched){const r=requireRaven(c);return update(c,r.id,e=>({...e,perched:!!perched}));}

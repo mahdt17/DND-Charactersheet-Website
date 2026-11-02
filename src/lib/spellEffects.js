@@ -70,6 +70,7 @@ export function advanceEffectTime(c,{seconds=0,startTurn=false,endTurn=false,max
 export function canEndEffect(c,e){
  if(e.canEnd===false)return false;
  if(!sourceSubclassEffects(c).includes(e))return true;
+ if(e.subclassRecordId==='2014:subclass:warlock:raven-queen-ua'&&e.stateKey==='sentinel-raven')return false;
  if(e.subclassRecordId==='2014:subclass:wizard:war-magic'&&e.stateKey==='arcane-deflection')return false;
  if(e.subclassRecordId==='2014:subclass:sorcerer:wild-magic'&&(e.stateKey?.startsWith('wild-surge:')||['wild-surge-max-damage','wild-surge-save-disadvantage'].includes(e.stateKey)))return false;
  return e.stateKey!=='rage-wild-surge';
