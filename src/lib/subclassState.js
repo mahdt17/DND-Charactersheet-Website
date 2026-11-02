@@ -52,6 +52,7 @@ export function actorDeathBlock(c,{allowPostponedDeath=true}={}){
 export function loreholdOwnerHPBonus(c){if(actorDeathBlock(c))return 0;return sourceSubclassEffects(c,{stateKey:'ancient-companion'}).reduce((sum,e)=>{if(e.kind!=='Healer')return sum;const row=characterClasses(c).find(r=>r.catalogId===e.sourceClassId),record=row&&findExpandedSubclass(row.name,row.subclass),f=record?.features.find(x=>x.id===`${record.id}:lessons-of-the-past`);return sum+(row&&record&&f&&f.level<=row.level&&selectedFeature(c,row,record,f)?row.level:0);},0);}
 export function loreholdHealerActive(c){return loreholdOwnerHPBonus(c)>0;}
 export function reconcileLoreholdHP(before,after){const prior=Number.isFinite(before.loreholdHPGranted)?before.loreholdHPGranted:loreholdOwnerHPBonus(before),next=loreholdOwnerHPBonus(after),delta=next-prior;return {activeEffects:after.activeEffects,loreholdHPGranted:next,...(delta?{hp:{...after.hp,current:Math.max(0,Number(after.hp.current)+delta)}}:{})};}
+export function actorIncapacitated(c){return names(c).some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified'].includes(n))||actorBodyHP(c)<=0&&!consciousAtZero(c);}
 export function actorActionBlock(c,{allowZeroHP=false}={}){
  if(edition(c)!=='2014')return '';
  const death=actorDeathBlock(c);if(death)return death;
