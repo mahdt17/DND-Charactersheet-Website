@@ -9,3 +9,5 @@ export function damageDrake(c,amount){const d=get(c);if(!Number.isInteger(amount
 export function healDrake(c,amount,{eligible=false}={}){const d=get(c);if(!eligible||!Number.isInteger(amount)||amount<0)throw Error('Confirm eligible healing and amount.');return update(c,d.id,e=>({...e,hp:{...e.hp,current:Math.min(d.hp.max,d.hp.current+amount)}}));}
 export function setDrakeConditions(c,conditions){const d=get(c),allowed=['Blinded','Charmed','Deafened','Frightened','Grappled','Incapacitated','Invisible','Paralyzed','Petrified','Poisoned','Prone','Restrained','Stunned','Unconscious'];if(!Array.isArray(conditions)||conditions.some(x=>!allowed.includes(x)))throw Error('Invalid condition.');return update(c,d.id,e=>({...e,conditions:[...new Set(conditions)]}));}
 export function drakeOwnerResistance(c){const d=drakeCompanion(c);return d&&d.level>=7&&!actorDeathBlock(c)?d.essence:null;}
+
+export {drakeResistsDamage} from './subclassState.js';

@@ -1,3 +1,4 @@
+import {drakeResistsDamage} from './subclassState.js';
 import {damageActiveBody} from './subclassState.js';
 import tables from '../data/subclassTables2014.json' with {type:'json'};
 import {sourceFeature,assertAct,spendFeature,featureState,putState,tempHP,healHP,validRoll} from './subclassActionUtils.js';
@@ -43,7 +44,7 @@ export function applySubclassTable(c,key,result,{triggered=false,rolls=[],maxHP=
   if([17,23,55].includes(n))delete extra.remainingSeconds;
   state=featureState(c,p,n===33?'wild-surge-max-damage':n===21?'wild-surge-save-disadvantage':`wild-surge:${n}`,extra);
   if(n===39)patch=healHP(c,rolls[0].total,maxHP);
-  if(n===7){const saved=rolls[1].total>=8+p.context.pb+p.context.cha,amount=saved?Math.floor(rolls[0].total/2):rolls[0].total,temp=Math.min(c.hp.temp||0,amount);patch=damageActiveBody(c,amount)||{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(amount-temp))}};}
+  if(n===7){const saved=rolls[1].total>=8+p.context.pb+p.context.cha,afterSave=saved?Math.floor(rolls[0].total/2):rolls[0].total,amount=drakeResistsDamage(c,'fire')?Math.floor(afterSave/2):afterSave,temp=Math.min(c.hp.temp||0,amount);patch=damageActiveBody(c,amount)||{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(amount-temp))}};}
   if(n===59){const pools=['slotsUsed','pactSlotsUsed'],choices=pools.flatMap(pool=>Object.entries(c[pool]||{}).filter(([level,used])=>Number(level)>0&&used>0).map(([level])=>({pool,level:Number(level)}))).sort((a,b)=>a.level-b.level);if(choices.length){const {pool,level}=choices[0];patch={[pool]:{...c[pool],[level]:c[pool][level]-1}};}}
   if(n===99){const resources=characterResources(c);patch={resources:resources.map(r=>r.id==='2014:Sorcerer:points'||r.classResourceKey==='2014:Sorcerer:points'?{...r,used:0}:r)};}
   if(n===83){if(!Number.isFinite(damageDealt)||damageDealt<0)throw Error('Confirm actual total necrotic damage dealt before healing.');patch=healHP(c,damageDealt,maxHP);}
