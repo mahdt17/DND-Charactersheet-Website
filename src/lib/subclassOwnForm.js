@@ -1,4 +1,4 @@
-import {historyWhimResists} from './subclassState.js';
+import {historyWhimResists,warEchoesVulnerable} from './subclassState.js';
 import {drakeOwnerResistance} from './subclassDrakewarden.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {fightingStyleProfile} from './fightingStyles.js';
@@ -32,7 +32,7 @@ export function activateMoonForm(c,creatureId,{seen=false,equipmentResolved=fals
 export function endOwnForm(c){const p=ownFormProfile(c);if(!p)throw Error('No active form.');if(p.polymorph)throw Error('Polymorph ends at zero HP, death or duration, not voluntarily.');const state={...c.profileState};delete state[p.effectId];return {activeEffects:(c.activeEffects||[]).filter(e=>e.id!==p.effectId),profileState:state};}
 export function ownFormOverflowAdjuster(c,type){const form=ownFormProfile(c),effect=actorOwnFormEffect(c);if(!form?.polymorph||!type)return undefined;const normal={...c,activeEffects:(c.activeEffects||[]).filter(e=>e.id!==effect.id)};return overflow=>normalBodyOverflowAmount(normal,overflow,type);}
 export function damageOwnForm(c,amount,{type=''}={}){const patch=damageActiveBody(c,amount,{adjustOverflow:ownFormOverflowAdjuster(c,type)});if(!patch)throw Error('No active form.');return patch;}
-export function normalBodyOverflowAmount(c,amount,type){const damageType=String(type).toLowerCase(),physical=['bludgeoning','piercing','slashing'].includes(damageType),rage=rageProfile(c),active=activeFormProfile(c),immune=active.damageImmunities.includes(damageType),resisted=drakeOwnerResistance(c)===damageType||historyWhimResists(c,damageType)||totemDamageResistance(c,damageType)||rage.active&&!rage.heavy&&physical||active.resistances.includes(damageType),vulnerable=active.vulnerabilities.includes(damageType)||active.vulnerabilities.includes('all');return immune?0:(resisted?Math.floor(amount/2):amount)*(vulnerable?2:1);}
+export function normalBodyOverflowAmount(c,amount,type){const damageType=String(type).toLowerCase(),physical=['bludgeoning','piercing','slashing'].includes(damageType),rage=rageProfile(c),active=activeFormProfile(c),immune=active.damageImmunities.includes(damageType),resisted=drakeOwnerResistance(c)===damageType||historyWhimResists(c,damageType)||totemDamageResistance(c,damageType)||rage.active&&!rage.heavy&&physical||active.resistances.includes(damageType),vulnerable=warEchoesVulnerable(c,damageType)||active.vulnerabilities.includes(damageType)||active.vulnerabilities.includes('all');return immune?0:(resisted?Math.floor(amount/2):amount)*(vulnerable?2:1);}
 export function ownFormWalkingSpeed(c){
  const form=ownFormProfile(c);if(!form)return null;
  if(form.polymorph){const names=(c.conditions||[]).map(x=>String(x).toLowerCase());return names.some(x=>['grappled','restrained','paralyzed','stunned','unconscious','petrified'].includes(x))?0:parseInt(form.speeds.walk,10)||0;}
@@ -41,11 +41,11 @@ export function ownFormWalkingSpeed(c){
 }
 export function ownFormDamageAmount(c,amount,{type='',magical=false,weapon=false,vulnerable=false}={}){
  const form=ownFormProfile(c);if(!form)throw Error('No active form.');
- const damageType=String(type).toLowerCase();if(form.polymorph){const immune=form.damageImmunities.some(x=>x.toLowerCase()===damageType),resistant=form.damageResistances.some(x=>x.toLowerCase()===damageType),doubled=vulnerable||form.damageVulnerabilities.some(x=>x.toLowerCase()===damageType);return immune?0:(resistant?Math.floor(amount/2):amount)*(doubled?2:1);}
+ const damageType=String(type).toLowerCase();if(form.polymorph){const immune=form.damageImmunities.some(x=>x.toLowerCase()===damageType),resistant=form.damageResistances.some(x=>x.toLowerCase()===damageType),doubled=vulnerable||warEchoesVulnerable(c,damageType)||form.damageVulnerabilities.some(x=>x.toLowerCase()===damageType);return immune?0:(resistant?Math.floor(amount/2):amount)*(doubled?2:1);}
  const physical=['bludgeoning','piercing','slashing'].includes(damageType),projected={...c,hp:{...c.hp,current:form.hp.current},inventory:(c.inventory||[]).map(i=>({...i,equipped:i.equipped&&form.wornItemIds.includes(i.id)}))},retained=activeFormProfile(projected),rage=rageProfile(projected);
  const immune=damageType&&(form.damageImmunities.some(x=>x.toLowerCase()===damageType)||retained.damageImmunities.includes(damageType));
  const resistant=damageType&&(form.damageResistances.some(x=>x.toLowerCase()===damageType||physical&&weapon&&!magical&&x.toLowerCase()==='bludgeoning, piercing, and slashing from nonmagical weapons')||retained.resistances.includes(damageType)||drakeOwnerResistance(projected)===damageType||historyWhimResists(projected,damageType)||totemDamageResistance(projected,damageType)||rage.active&&!rage.heavy&&physical);
- const doubled=vulnerable||damageType&&(form.damageVulnerabilities.some(x=>x.toLowerCase()===damageType)||retained.vulnerabilities.includes(damageType)||retained.vulnerabilities.includes('all'));
+ const doubled=vulnerable||warEchoesVulnerable(c,damageType)||damageType&&(form.damageVulnerabilities.some(x=>x.toLowerCase()===damageType)||retained.vulnerabilities.includes(damageType)||retained.vulnerabilities.includes('all'));
  return immune?0:(resistant?Math.floor(amount/2):amount)*(doubled?2:1);
 }
 export function healMoonForm(c,{slotLevel,slotPool,result}={}){
