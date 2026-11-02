@@ -11,3 +11,7 @@ export function setDrakeConditions(c,conditions){const d=get(c),allowed=['Blinde
 export function drakeOwnerResistance(c){const d=drakeCompanion(c);return d&&d.level>=7&&!actorDeathBlock(c)?d.essence:null;}
 
 export {drakeResistsDamage} from './subclassState.js';
+
+const breathSource=c=>sourceFeature(c,['ranger:drakewarden','ranger:drakewarden-ua'],'drakes-breath');
+export function drakeBreathProfile(c){try{const p=breathSource(c),ua=p.record.playtest,level=p.row.level;return {dice:`${ua?(level>=15?8:6):(level>=15?10:8)}d6`,saveDC:8+p.context.pb+p.context.wis};}catch{return null;}}
+export function useDrakeBreath(c,{confirmed=false,type,origin,cost='free',slotLevel,slotPool='standard'}={}){assertAct(c);const p=breathSource(c);if(!confirmed||!['acid','cold','fire','lightning','poison'].includes(type)||!['self','drake'].includes(origin))throw Error('Confirm the cone, origin and damage type.');if(origin==='drake'&&!drakeCompanion(c)?.hp.current)throw Error('A living drake is required for that origin.');if(cost==='free')return spendFeature(c,p,'drake-breath');if(cost==='slot'&&Number.isInteger(slotLevel)&&slotLevel>=3)return spendSubclassSlot(c,slotLevel,slotPool);throw Error('Choose the free use or a level 3 or higher slot.');}
