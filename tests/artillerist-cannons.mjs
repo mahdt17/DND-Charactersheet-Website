@@ -40,3 +40,4 @@ test('detonation requires Artificer 9 and confirmed range, destroys only that ca
  assert.throws(()=>lib.detonateEldritchCannon(c,id,{}),/60 feet/i);
  c=apply(c,lib.detonateEldritchCannon(c,id,{within60:true}));assert.equal(lib.eldritchCannons(c).length,0);
 });
+test('losing Artillerist removes only its managed cannons and preserves manual effects',()=>{let c=make();c.activeEffects=[{id:'manual',name:'Manual'}];c=apply(c,lib.createEldritchCannon(c,{type:'Protector',size:'Small',tools:true,cost:'free'}));c.classLevels[0].subclass='Battle Smith';c.subclass='Battle Smith';c=state.reconcileSubclassStates(c);assert.deepEqual(c.activeEffects.map(e=>e.id),['manual']);});
