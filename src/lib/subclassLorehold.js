@@ -1,6 +1,6 @@
 import {expandedSubclassRows,expandedFeatureUnlocked,expandedSubclassContext} from './expandedSubclasses.js';
-import {assertAct,tempHP,validRoll} from './subclassActionUtils.js';
-import {sourceSubclassEffects,actorDeathBlock,loreholdOwnerHPBonus,reconcileLoreholdHP} from './subclassState.js';
+import {assertAct,tempHP,validRoll,featureState,putState} from './subclassActionUtils.js';
+import {sourceSubclassEffects,actorDeathBlock,retainsOwnFeatures,loreholdOwnerHPBonus,reconcileLoreholdHP} from './subclassState.js';
 import {spendSubclassSlot} from './subclassActive.js';
 const profiles=c=>expandedSubclassRows(c).filter(p=>p.record.id.endsWith(':mage-of-lorehold-ua'));
 const source=(c,ownerId)=>{const p=profiles(c).find(p=>!ownerId||p.row.catalogId===ownerId),f=p?.record.features.find(f=>f.id===`${p.record.id}:ancient-companion`);if(!p||!f||!expandedFeatureUnlocked(p,f))throw Error('Lorehold companion is not available.');return {...p,feature:f,context:expandedSubclassContext(c,p.row)};};
@@ -23,3 +23,5 @@ export function ancientHealerLight(c,{ownerId,recipient,confirmed=false,result}=
 
 
 export function loreholdSageLessons(c){if(actorDeathBlock(c))return false;return profiles(c).some(p=>{const d=ancientCompanion(c,p.row.catalogId);return d?.kind==='Sage'&&d.lessons&&d.hp.current>0;});}
+
+export function useSageSpellDamage(c,{ownerId,confirmed=false,spellLevel=0}={}){const d=get(c,ownerId),p=source(c,ownerId),f=p.record.features.find(f=>f.id===`${p.record.id}:lessons-of-the-past`);if(!d.lessons||d.kind!=='Sage'||!d.hp.current||!retainsOwnFeatures(c)||actorDeathBlock(c))throw Error('An active Sage Lessons bond is required.');if(!confirmed||!Number.isInteger(spellLevel)||spellLevel<1||spellLevel>9)throw Error('Confirm damage to a creature from a spell of level 1 or higher.');if(sourceSubclassEffects(c,{stateKey:'lorehold-sage-damage'}).length)throw Error('Sage damage was already used this turn.');return putState(c,featureState(c,{...p,feature:f},'lorehold-sage-damage',{expires:'end-turn',canEnd:false}));}
