@@ -1,3 +1,4 @@
+import {loreholdOwnerHPBonus,loreholdSageAura} from './subclassLorehold.js';
 import {retainsOwnFeatures} from './subclassState.js';
 import {artificialMind,artificialMindSkillBonus} from './subclassArtificialMind.js';
 import {activeFormProfile} from './subclassActive.js';
@@ -16,7 +17,7 @@ const id=(cls,sub)=>`2014:subclass:${cls}:${sub}`;
 export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  const result={acBases:[],acBonus:0,hpBonus:0,speedBonus:0,initiativeBonus:0,initiativeAdvantage:false,saveBonus:0,saveBonuses:{},skillBonuses:{},abilityCheckBonuses:{},skillAdvantages:[],saveAdvantages:[],concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1,criticalThreshold:20,rows:[]};
  if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014'||!retainsOwnFeatures(c))return result;
- result.hpBonus=subclassHitPointBonus(c,characterClasses(c));
+ result.hpBonus=subclassHitPointBonus(c,characterClasses(c))+loreholdOwnerHPBonus(c);
  const worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
  const shield=worn.some(e=>e.index==='shield'||e.equipmentIndex==='shield'||e.shield),heavy=worn.some(e=>e.armor_category==='Heavy');
  const armored=worn.some(e=>e.armor_class&&e.index!=='shield'),blocked=actorActionBlock(c),song=bladesongProfile(c,abilities);
@@ -68,6 +69,7 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  if(sourceSubclassEffects(c).some(e=>['astral-arms','awaken-astral'].includes(e.stateKey))){const amount=Math.max(0,Math.floor((abilities.wis-10)/2)-Math.floor((abilities.str-10)/2));result.saveBonuses.str=(result.saveBonuses.str||0)+amount;result.abilityCheckBonuses.str=(result.abilityCheckBonuses.str||0)+amount;result.skillBonuses.Athletics=(result.skillBonuses.Athletics||0)+amount;}
  if(quantityProfile(c,'soul-trinkets')?.current>0)result.saveAdvantages.push('con','death');
  if(result.abilityCheckBonuses.dex&&!result.rows.some(r=>r.applied&&r.kind==='initiative-bonus'&&r.value==='pb')){const lore=result.rows.find(r=>r.applied&&r.kind==='initiative-ability');result.initiativeBonus+=Math.max(0,result.abilityCheckBonuses.dex-(lore?.computedValue||0));}
+ const aura=loreholdSageAura(c);if(aura){for(const key of ['int','wis'])result.abilityCheckBonuses[key]=(result.abilityCheckBonuses[key]||0)+aura;for(const name of ['Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival'])result.skillBonuses[name]=(result.skillBonuses[name]||0)+aura;}
  for(const name of artificialMind(c)?.skills||[]){const bonus=artificialMindSkillBonus(c,name);if(bonus)result.skillBonuses[name]=(result.skillBonuses[name]||0)+bonus;}
  return result;
 }

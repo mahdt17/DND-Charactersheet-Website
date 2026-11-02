@@ -1,3 +1,4 @@
+import {loreholdSageAura} from './lib/subclassLorehold';
 import {drakeOwnerResistance} from './lib/subclassDrakewarden';
 import WildSheepTools from './WildSheepTools';
 import {pendingWildSheep} from './lib/subclassState';
@@ -219,7 +220,7 @@ function CharacterSheet({char,patchCharacter,back,levelUp,roll:rawRoll,show,remo
   });}
   function handleTabKey(e){if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const current=sheetTabs.findIndex(([key])=>key===tab),index=e.key==='Home'?0:e.key==='End'?sheetTabs.length-1:(current+(e.key==='ArrowRight'?1:-1)+sheetTabs.length)%sheetTabs.length;focusSheetTab(sheetTabs[index][0]);}
   const ownForm=ownFormProfile(char),abilities=ownForm?{...effectiveAbilities(char),...ownForm.abilities}:effectiveAbilities(char),pb=is35(char)?Number(char.bab)||0:profBonus(char.level),casting=castingKey(char),spellMod=modifier(abilities[casting]||10),slots=characterSlots(char).slice(1);
-  const swarm=entomancerProfile(char,abilities),exhaustion=exhaustionLevel(char),effects=conditionEffects(char),passivePerception=10+(ownForm?ownForm.skills.Perception:modifier(abilities.wis)+entomancerSkillRank(char,'Perception')*pb)+(ownForm?.polymorph?0:campaignSkillBonus(char,'Perception')+ravenPerceptionBonus(char)+artificialMindSkillBonus(char,'Perception'))+(ownForm?.polymorph?(effects.checkDisadvantage?-5:0):swarm.level>=7?(effects.checkDisadvantage?0:5):effects.checkDisadvantage?-5:0);
+  const swarm=entomancerProfile(char,abilities),exhaustion=exhaustionLevel(char),effects=conditionEffects(char),passivePerception=10+(ownForm?ownForm.skills.Perception:modifier(abilities.wis)+entomancerSkillRank(char,'Perception')*pb)+(ownForm?.polymorph?0:campaignSkillBonus(char,'Perception')+ravenPerceptionBonus(char)+artificialMindSkillBonus(char,'Perception')+loreholdSageAura(char))+(ownForm?.polymorph?(effects.checkDisadvantage?-5:0):swarm.level>=7?(effects.checkDisadvantage?0:5):effects.checkDisadvantage?-5:0);
   const [damageType,setDamageType]=useState(''),[magicalDamage,setMagicalDamage]=useState(false),[vulnerableDamage,setVulnerableDamage]=useState(false),[preventDeath,setPreventDeath]=useState(false);
   const classFeatureRows=campaignProfile(char).active?classFeatures(char):swarm.level?classFeatures(char):is35(char)?(classFeatures(char)||grantedClassFeatures(char)):((char.grantedFeatures?.length?char.grantedFeatures:null)||classFeatures(char)||grantedClassFeatures(char));
   const featureFeatCatalog=useReferenceIndex((tab==='features'||tab==='feats')&&is35(char)?['feats','spells']:[],'3.5');

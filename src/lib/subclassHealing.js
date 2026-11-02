@@ -1,3 +1,4 @@
+import {loreholdHealerActive} from './subclassLorehold.js';
 import {damageActiveBody} from './subclassState.js';
 import {subclassRoll} from './subclassFormulas.js';
 import {expandedSubclassRows} from './expandedSubclasses.js';
@@ -7,7 +8,7 @@ const immediate=s=>!!s?.heal_at_slot_level&&!['false life','aid','goodberry','he
 const domain=(c,name)=>expandedSubclassRows(c).find(p=>p.record.id===`2014:subclass:cleric:${name}`);
 export function healingFeaturePlan(c,spell,plan,{slotLevel=spell.level,recipient,targetAtZero=false}={}){
  if(!immediate(spell)||slotLevel<1)return plan;const life=domain(c,'life'),grave=domain(c,'grave'),bonus=life?2+slotLevel:0,maximize=life?.row.level>=17||!!grave&&(recipient==='self'?c.hp.current===0:recipient==='other'&&targetAtZero);
- return {...plan,rolls:plan.rolls.map(r=>{if(!/healing/i.test(r.label))return r;let expression=r.expression;if(maximize){const terms=expression.replace(/(\d+)d(\d+)/gi,(_,n,d)=>String(Number(n)*Number(d))).match(/[+-]?\d+/g);if(!terms||!/^[\d+\-]+$/.test(expression.replace(/(\d+)d(\d+)/gi,'1')))throw Error('Use a supported healing expression.');expression=String(terms.reduce((n,v)=>n+Number(v),0));}if(bonus)expression=/^\d+$/.test(expression)?String(Number(expression)+bonus):subclassRoll(`${expression}+${bonus}`);return {...r,expression};}),notes:[plan.notes,bonus?`Disciple of Life adds ${bonus} healing.`:'',maximize?'Healing dice use their maximum result.':''].filter(Boolean).join(' ')};
+ return {...plan,rolls:plan.rolls.map(r=>{if(!/healing/i.test(r.label))return r;let expression=r.expression;if(maximize){const terms=expression.replace(/(\d+)d(\d+)/gi,(_,n,d)=>String(Number(n)*Number(d))).match(/[+-]?\d+/g);if(!terms||!/^[\d+\-]+$/.test(expression.replace(/(\d+)d(\d+)/gi,'1')))throw Error('Use a supported healing expression.');expression=String(terms.reduce((n,v)=>n+Number(v),0));}if(bonus)expression=/^\d+$/.test(expression)?String(Number(expression)+bonus):subclassRoll(`${expression}+${bonus}`);if(recipient==='self'&&loreholdHealerActive(c)){const m=expression.match(/^(.*?)([+-]\d+)?$/);expression=/^\d+$/.test(expression)?`1d8+${expression}`:`${m[1]}+1d8${m[2]||''}`;}return {...r,expression};}),notes:[plan.notes,bonus?`Disciple of Life adds ${bonus} healing.`:'',maximize?'Healing dice use their maximum result.':''].filter(Boolean).join(' ')};
 }
 export function blessedHealerPatch(c,spell,{recipient,slotLevel,maxHP}={}){const life=domain(c,'life');return immediate(spell)&&slotLevel>=1&&recipient==='other'&&life?.row.level>=6?healHP(c,2+slotLevel,maxHP):{};}
 const defs=[
