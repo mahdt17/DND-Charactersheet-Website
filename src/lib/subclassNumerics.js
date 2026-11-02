@@ -15,10 +15,15 @@ import {quantityProfile} from './subclassQuantities.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 
 const id=(cls,sub)=>`2014:subclass:${cls}:${sub}`;
+// Stored char.hp belongs to the normal body, including while a replacement body suppresses class features.
+export function subclassNormalBodyHPBonus(c){
+ if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014')return 0;
+ return subclassHitPointBonus(c,characterClasses(c))+loreholdOwnerHPBonus(c);
+}
 export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
  const result={acBases:[],acBonus:0,hpBonus:0,speedBonus:0,initiativeBonus:0,initiativeAdvantage:false,saveBonus:0,saveBonuses:{},skillBonuses:{},abilityCheckBonuses:{},skillAdvantages:[],saveAdvantages:[],concentrationBonus:0,meleeWeaponDamageBonus:0,attacks:1,criticalThreshold:20,rows:[]};
  if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014'||!retainsOwnFeatures(c))return result;
- result.hpBonus=subclassHitPointBonus(c,characterClasses(c))+loreholdOwnerHPBonus(c);
+ result.hpBonus=subclassNormalBodyHPBonus(c);
  const worn=(c.inventory||[]).filter(i=>i.equipped).map(i=>({...equipment.find(e=>e.index===i.equipmentIndex),...i}));
  const shield=worn.some(e=>e.index==='shield'||e.equipmentIndex==='shield'||e.shield),heavy=worn.some(e=>e.armor_category==='Heavy');
  const armored=worn.some(e=>e.armor_class&&e.index!=='shield'),blocked=actorActionBlock(c),song=bladesongProfile(c,abilities);
