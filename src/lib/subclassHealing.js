@@ -1,4 +1,4 @@
-import {loreholdHealerActive} from './subclassLorehold.js';
+import {loreholdHealerActive} from './subclassState.js';
 import {damageActiveBody} from './subclassState.js';
 import {subclassRoll} from './subclassFormulas.js';
 import {expandedSubclassRows} from './expandedSubclasses.js';
