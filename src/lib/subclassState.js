@@ -34,10 +34,10 @@ export function equippedForActiveBody(c,item){if(!item?.equipped)return false;co
 export function actorBodyHP(c){const e=actorOwnFormEffect(c);const hp=e&&c.profileState?.[e.id]?.hp;return hp&&Number.isFinite(hp.current)?hp.current:Number(c.hp?.current??1);}
 export function healActiveBody(c,amount){if(pendingWildSheep(c)&&!polymorphSheepEffect(c))throw Error('Choose the DM-confirmed sheep profile before healing.');const e=actorOwnFormEffect(c),state=e&&c.profileState?.[e.id];if(!state?.hp)return null;if(!Number.isFinite(amount)||amount<0)throw Error('Invalid healing.');return {profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:Math.min(state.hp.max,state.hp.current+amount)}}}};}
 export function longRestBody(c,maxHP){if(pendingWildSheep(c)&&!polymorphSheepEffect(c))throw Error('Choose the DM-confirmed sheep profile before resting.');const e=actorOwnFormEffect(c),state=e&&c.profileState?.[e.id];return state?.hp?{hp:{...c.hp,temp:0},profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:state.hp.max}}}}:{hp:{...c.hp,current:maxHP,temp:0}};}
-export function damageActiveBody(c,amount){
+export function damageActiveBody(c,amount,{adjustOverflow}={}){
  if(pendingWildSheep(c)&&!polymorphSheepEffect(c))throw Error('Choose the DM-confirmed sheep profile before applying damage.');
  const e=actorOwnFormEffect(c),state=e&&c.profileState?.[e.id];if(!state?.hp)return null;if(!Number.isInteger(amount)||amount<0)throw Error('Enter a nonnegative whole damage amount.');
- const temp=Math.max(0,Number(c.hp?.temp)||0),absorbed=Math.min(temp,amount),damage=amount-absorbed,remaining=Math.max(0,state.hp.current-damage),overflow=Math.max(0,damage-state.hp.current),hp={...c.hp,temp:temp-absorbed,current:Math.max(0,c.hp.current-overflow)};
+ const temp=Math.max(0,Number(c.hp?.temp)||0),absorbed=Math.min(temp,amount),damage=amount-absorbed,remaining=Math.max(0,state.hp.current-damage),rawOverflow=Math.max(0,damage-state.hp.current),overflow=rawOverflow&&adjustOverflow?adjustOverflow(rawOverflow):rawOverflow,hp={...c.hp,temp:temp-absorbed,current:Math.max(0,c.hp.current-overflow)};
  if(remaining)return {hp,profileState:{...c.profileState,[e.id]:{...state,hp:{...state.hp,current:remaining}}}};
  return {hp,...finishSubclassEffects(c,(c.activeEffects||[]).filter(x=>x.id!==e.id))};
 }

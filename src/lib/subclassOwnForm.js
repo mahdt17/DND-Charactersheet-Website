@@ -9,7 +9,7 @@ import {totemDamageResistance} from './totemWarrior.js';
 import {effectiveAbilityScores} from './abilityScores.js';
 import {moonFormOptions,localCreatureProfile} from './creatureProfiles.js';
 import {sourceFeature,assertAct,spendFeature,featureState} from './subclassActionUtils.js';
-import {sourceSubclassEffects,damageActiveBody,polymorphSheepEffect} from './subclassState.js';
+import {sourceSubclassEffects,damageActiveBody,polymorphSheepEffect,actorOwnFormEffect} from './subclassState.js';
 import {conditionEffects} from './play.js';
 
 export function ownFormProfile(c){
@@ -30,7 +30,8 @@ export function activateMoonForm(c,creatureId,{seen=false,equipmentResolved=fals
  return {...spend,activeEffects:[...(c.activeEffects||[]),state],profileState:{...c.profileState,[state.id]:{hp:{current:profile.hpMax,max:profile.hpMax}}}};
 }
 export function endOwnForm(c){const p=ownFormProfile(c);if(!p)throw Error('No active form.');if(p.polymorph)throw Error('Polymorph ends at zero HP, death or duration, not voluntarily.');const state={...c.profileState};delete state[p.effectId];return {activeEffects:(c.activeEffects||[]).filter(e=>e.id!==p.effectId),profileState:state};}
-export function damageOwnForm(c,amount){const patch=damageActiveBody(c,amount);if(!patch)throw Error('No active form.');return patch;}
+export function damageOwnForm(c,amount,{type=''}={}){const form=ownFormProfile(c),effect=actorOwnFormEffect(c),normal=form?.polymorph?{...c,activeEffects:(c.activeEffects||[]).filter(e=>e.id!==effect.id)}:null;const patch=damageActiveBody(c,amount,{adjustOverflow:normal&&type?overflow=>normalBodyOverflowAmount(normal,overflow,type):undefined});if(!patch)throw Error('No active form.');return patch;}
+export function normalBodyOverflowAmount(c,amount,type){const damageType=String(type).toLowerCase(),physical=['bludgeoning','piercing','slashing'].includes(damageType),rage=rageProfile(c),active=activeFormProfile(c),immune=active.damageImmunities.includes(damageType),resisted=drakeOwnerResistance(c)===damageType||historyWhimResists(c,damageType)||totemDamageResistance(c,damageType)||rage.active&&!rage.heavy&&physical||active.resistances.includes(damageType),vulnerable=active.vulnerabilities.includes(damageType)||active.vulnerabilities.includes('all');return immune?0:(resisted?Math.floor(amount/2):amount)*(vulnerable?2:1);}
 export function ownFormWalkingSpeed(c){
  const form=ownFormProfile(c);if(!form)return null;
  if(form.polymorph){const names=(c.conditions||[]).map(x=>String(x).toLowerCase());return names.some(x=>['grappled','restrained','paralyzed','stunned','unconscious','petrified'].includes(x))?0:parseInt(form.speeds.walk,10)||0;}

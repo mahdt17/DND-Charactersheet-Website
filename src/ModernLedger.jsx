@@ -237,7 +237,7 @@ function CharacterSheet({char,patchCharacter,back,levelUp,roll:rawRoll,show,remo
     try{
       const next=patch(current=>{
         if(pendingWildSheep(current)&&!ownFormProfile(current)?.polymorph)throw Error('Choose the DM-confirmed sheep profile before applying damage or healing.');
-        const form=ownFormProfile(current);if(form){if(healing)return healOwnForm(current,amount);return damageOwnForm(current,ownFormDamageAmount(current,amount,{type:damageType,magical:magicalDamage,weapon:weaponDamageSource,vulnerable:vulnerableDamage}));}
+        const form=ownFormProfile(current);if(form){if(healing)return healOwnForm(current,amount);return damageOwnForm(current,ownFormDamageAmount(current,amount,{type:damageType,magical:magicalDamage,weapon:weaponDamageSource,vulnerable:vulnerableDamage}),{type:damageType});}
         if(healing&&entomancerLevel(current)&&current.entomancer?.dead)throw Error('Record a revival before healing this character.');
         if(!healing)return entomancerLevel(current)?entomancerDamage(current,amount,{type:damageType,magical:magicalDamage,vulnerable:vulnerableDamage,deadMan:preventDeath}):{hp:changeHP(current.hp,(drakeOwnerResistance(current)===damageType||historyWhimResists(current,damageType)||totemDamageResistance(current,damageType)||rageProfile(current).active&&!rageProfile(current).heavy&&['bludgeoning','piercing','slashing'].includes(damageType)||activeFormProfile(current).resistances.includes(damageType)?Math.floor(amount/2):amount)*(totemProfile(current).level>=3&&vulnerableDamage?2:1))};
         return {hp:{...changeHP({...current.hp,max:conditionEffects(current).maxHP},amount,true),max:current.hp.max},...(current.hp.current===0&&amount>0?{deathSaves:{success:0,failure:0}}:{})};
