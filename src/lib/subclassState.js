@@ -49,6 +49,7 @@ export function actorDeathBlock(c,{allowPostponedDeath=true}={}){
  const zealot=allowPostponedDeath&&sourceSubclassEffects(c,{recordId:'2014:subclass:barbarian:zealot',featureId:'2014:subclass:barbarian:zealot:rage-beyond-death',stateKey:'rage-beyond-death'}).length>0;
  return actorBodyHP(c)<=0&&Number(c.deathSaves?.failure)>=3&&!zealot||Number(c.exhaustion)>=6||names(c).includes('dead')||c.dead||c.instantDeath?'A dead character must be revived before acting.':'';
 }
+export function pendingDrakeResistance(c,target){return sourceSubclassEffects(c,{stateKey:'drake-reflexive-resistance'}).find(e=>e.target===target&&sourceSubclassEffects(c,{stateKey:'drake-companion'}).some(d=>d.id===e.drakeId&&d.hp?.current>0))||null;}
 export function warEchoesVulnerable(c,type){return !!type&&sourceSubclassEffects(c,{stateKey:'lorehold-war-echoes-vulnerability'}).some(e=>e.target==='self'&&e.damageType===String(type).toLowerCase());}
 export function historyWhimActive(c,choice){return retainsOwnFeatures(c)&&!actorIncapacitated(c)&&!actorDeathBlock(c)&&sourceSubclassEffects(c,{stateKey:'lorehold-history-whims'}).some(e=>e.choice===choice);}
 export function historyWhimResists(c,type){return ['bludgeoning','piercing','slashing'].includes(String(type).toLowerCase())&&historyWhimActive(c,'Resistance');}
@@ -69,7 +70,7 @@ export function finishSubclassEffects(c,effects){
  const was=(c.activeEffects||[]).some(e=>e.stateKey==='rage-beyond-death');
  const samuraiDeath=(c.activeEffects||[]).some(e=>e.stateKey==='strength-before-death')&&Number(c.hp?.current)<=0&&Number(c.deathSaves?.failure)>=3;
  const postponedDeath=was&&!effects.some(e=>e.stateKey==='rage-beyond-death'&&(e.remainingSeconds==null||e.remainingSeconds>0))&&Number(c.hp?.current)<=0&&Number(c.deathSaves?.failure)>=3;
- effects=effects.filter(e=>(e.stateKey!=='primeval-boost'||effects.some(d=>d.id===e.companionId))&&(e.stateKey!=='echo-avatar'||effects.some(d=>d.id===e.echoId))&&(e.stateKey!=='beast-revival-window'||effects.some(d=>d.id===e.beastId))).map(e=>e.stateKey==='druid-companion'&&e.hp?.tempSource==='primeval-boost'&&!effects.some(b=>b.stateKey==='primeval-boost'&&b.companionId===e.id)?{...e,hp:{...e.hp,temp:0,tempSource:null}}:e);
+ effects=effects.filter(e=>(e.stateKey!=='primeval-boost'||effects.some(d=>d.id===e.companionId))&&(e.stateKey!=='echo-avatar'||effects.some(d=>d.id===e.echoId))&&(e.stateKey!=='beast-revival-window'||effects.some(d=>d.id===e.beastId))&&(e.stateKey!=='drake-reflexive-resistance'||effects.some(d=>d.id===e.drakeId))).map(e=>e.stateKey==='druid-companion'&&e.hp?.tempSource==='primeval-boost'&&!effects.some(b=>b.stateKey==='primeval-boost'&&b.companionId===e.id)?{...e,hp:{...e.hp,temp:0,tempSource:null}}:e);
  return {activeEffects:effects,...(c.concentration==='Artificial Mind senses'&&!effects.some(e=>e.stateKey==='mind-senses')?{concentration:null}:{}),...(c.profileState?{profileState:Object.fromEntries(Object.entries(c.profileState).filter(([id])=>effects.some(e=>e.id===id)))}:{}),...((c.activeEffects||[]).some(e=>e.stateKey==='rage')&&!effects.some(e=>e.stateKey==='rage')?{totemWarrior:{...c.totemWarrior,activeRage:false}}:{}),...(postponedDeath||samuraiDeath?{dead:true}:{})};
 }
 export function reconcileSubclassStates(c){
