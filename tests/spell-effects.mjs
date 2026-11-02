@@ -3,7 +3,7 @@ import {createServer} from 'vite';
 import fs from 'node:fs/promises';
 const server=await createServer({server:{middlewareMode:true},optimizeDeps:{noDiscovery:true,include:[]}});
 try {
- const {armorFor,sheetArmorFor}=await server.ssrLoadModule('/src/lib/rules.js');
+ const {armorFor,sheetArmorFor,rollDice}=await server.ssrLoadModule('/src/lib/rules.js');
  const effects=await server.ssrLoadModule('/src/lib/spellEffects.js');
  const scores={str:10,dex:16,con:18,int:18,wis:18,cha:10};
  const wizard={ruleset:'2014',className:'Wizard',level:5,inventory:[],hp:{current:3,max:20,temp:2},autoArmor:true};
@@ -87,5 +87,16 @@ try {
  assert.equal(revisedTempPlan.rolls[0]?.expression,'2d4+4','Revised False Life preserves its separate two-die formula');
  const heal70=allSpells.find(s=>s.edition==='2014'&&s.name==='Heal');const healPlan=spellPlan(heal70,wizard,6,4);assert.equal(healPlan.rolls[0].expression,'70');
  c=apply({...wizard,hp:{current:10,max:100}},heal70,{recipient:'self',plan:healPlan,rolls:[{label:'Healing',total:70}]});assert.equal(c.hp.current,80);
+ const {bondAncientCompanion}=await server.ssrLoadModule('/src/lib/subclassLorehold.js');
+ const {healingFeaturePlan}=await server.ssrLoadModule('/src/lib/subclassHealing.js');
+ let healer={ruleset:'2014',className:'Bard',subclass:'Mage of Lorehold (UA)',level:6,classDefinition:{name:'Bard',index:'bard',edition:'2014'},abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:16},hp:{current:5,max:30,temp:0},resources:[],activeEffects:[],inventory:[],spells:[],actions:[],expandedSubclassChoices:{'2014:bard':{'2014:subclass:bard:mage-of-lorehold-ua':{'later-subclass-feature:6':['Lessons of the Past']}}}};
+ healer={...healer,...bondAncientCompanion(healer,{kind:'Healer',confirmed:true})};
+ for(const [name,want,total] of [['Cure Wounds','1d8+1d8+3',19],['Healing Word','1d4+1d8+3',15]]){
+  const spell=allSpells.find(s=>s.edition==='2014'&&s.name===name),base=spellPlan(spell,healer,1,3),self=healingFeaturePlan(healer,spell,base,{slotLevel:1,recipient:'self'});
+  assert.equal(self.rolls[0].expression,want);const visible=rollDice(self.rolls[0].expression,'normal',()=>0.99);assert.equal(visible.total,total);
+  const healed=apply(healer,spell,{recipient:'self',plan:self,rolls:[{label:self.rolls[0].label,total:visible.total}],maxHP:36});assert.equal(healed.hp.current,11+total,'Reuse exactly the displayed base and Healer roll total');
+  const other=healingFeaturePlan(healer,spell,base,{slotLevel:1,recipient:'other'});assert.equal(other.rolls[0].expression,name==='Cure Wounds'?'1d8+3':'1d4+3');
+  assert.deepEqual(apply(healer,spell,{recipient:'other',plan:other,rolls:[{label:other.rolls[0].label,total:rollDice(other.rolls[0].expression,'normal',()=>0.99).total}],maxHP:36}).hp,healer.hp,'Other healing neither adds Healer die nor heals the caster');
+ }
  console.log('PASS Shield/Mage Armor bases and bonuses, manual AC, recasting, equipment restrictions, persistence, game-time and turn expiry, recipient healing/caps/validation, concentration cleanup and 3.5 isolation');
 }finally{await server.close();}

@@ -107,7 +107,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
   const basePlan=cast?spellPlan({...cast,castingClassId:active.catalogId},char,slot,mod):null;
   const plan=basePlan?healingFeaturePlan(char,cast,basePlan,{slotLevel:slot,recipient,targetAtZero}):null;
   const classSpellModifiers=cast&&is35(classModel)?classSpellModifiers35(char,active.catalogId,cast,active.level):null;
-  const expressions=plan?.rolls.filter(r=>/^(\d{1,2})d(\d{1,3})([+-]\d{1,3})?$|^\d+$/.test(r.expression))||[];
+  const expressions=plan?.rolls.filter(r=>/^\d{1,2}d\d{1,3}(?:\+\d{1,2}d\d{1,3})*(?:[+-]\d{1,3})?$|^\d+$/i.test(r.expression))||[];
   const needsSlot=cast&&!cast.dailySpellLikeGrant&&!special&&!cast.isManeuver&&(is35(classModel)||cast.level!==0)&&!cast.auto;
   const dailySpellLikeDc=cast?.dailySpellLikeGrant?10+Number(cast.dailySpellLikeEffectiveLevel??cast.level??0)+modifier(effectiveAbilities(char).int||10):null;
   function castSpell(ritual=false,quick=false){
