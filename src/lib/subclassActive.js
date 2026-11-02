@@ -39,7 +39,7 @@ export function activateSubclassForm(c,key,{choice,result,replaceTemp=false,useT
  const projection=key==='spirit-projection',concentration=projection?'Spirit Projection':c.concentration;
  if(projection&&rageProfile(c).active)throw Error('Rage prevents concentrating on Spirit Projection.');
  const state=featureState(c,d.p,key,{remainingSeconds:d.seconds,choice,endsOnIncapacitated:['starry-form','spirit-projection'].includes(key),...(projection?{concentration}:{}),...(key==='symbiotic-entity'?{requiresTempSource:'symbiotic-entity'}:{})});
- const next={...c,activeEffects:(c.activeEffects||[]).filter(e=>!(projection&&e.concentration)&&!(d.cost==='2014:Druid:wild-shape'&&key!=='symbiotic-entity'&&e.stateKey==='symbiotic-entity'))};
+ const next={...c,activeEffects:(c.activeEffects||[]).filter(e=>!(projection&&e.concentration)&&!(d.cost==='2014:Druid:wild-shape'&&(e.stateKey==='druid-companion'&&e.kind==='wildfire-ua'||key!=='symbiotic-entity'&&e.stateKey==='symbiotic-entity')))};
  return {...spend,...hp,...putState(next,state),...(projection?{concentration}:{})};
 }
 export function spendSubclassSlot(c,level,pool='standard',minimum=1){if(!Number.isInteger(level)||level<minimum||!['standard','pact'].includes(pool)||!availableSlots(c,{level:minimum}).some(s=>s.level===level&&(s.pool||'standard')===pool))throw Error(`Choose an available spell slot of level ${minimum} or higher.`);const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';return {[key]:{...c[key],[level]:Number(c[key]?.[level]||0)+1}};}
