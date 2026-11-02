@@ -21,3 +21,5 @@ export function loreholdSageAura(c){if(actorDeathBlock(c))return 0;return profil
 
 export function ancientHealerLight(c,{ownerId,recipient,confirmed=false,result}={}){const d=get(c,ownerId);if((d.conditions||[]).some(x=>['Incapacitated','Paralyzed','Petrified','Stunned','Unconscious'].includes(x)))throw Error('The companion is incapacitated.');if(d.kind!=='Healer'||!d.hp.current||!confirmed||!['self','other'].includes(recipient))throw Error('Confirm a visible target within 15 feet and an active Healer.');const amount=validRoll(result,{min:1+d.pb,max:8+d.pb});return recipient==='self'?tempHP(c,amount,'ancient-healer'):{};}
 
+
+export function loreholdSageLessons(c){if(actorDeathBlock(c))return false;return profiles(c).some(p=>{const d=ancientCompanion(c,p.row.catalogId);return d?.kind==='Sage'&&d.lessons&&d.hp.current>0;});}
