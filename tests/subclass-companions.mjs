@@ -79,3 +79,4 @@ test('defender conditions are instance-owned, reject immunities and affect its r
  assert.equal(lib.steelDefenderRollState(c,id).attackDisadvantage,true);assert.equal(lib.steelDefenderRollState(c,id).dexSaveDisadvantage,true);
  c=apply(c,lib.setSteelDefenderConditions(c,id,['Stunned']));assert.equal(lib.steelDefenderRollState(c,id).cannotAct,true);assert.equal(lib.steelDefenderRollState(c,id).strDexSaveFails,true);
 });
+test('Steel Defender has own Artificer level d8 Hit Dice',()=>{let c=make();c=apply(c,lib.createSteelDefender(c,{initial:true}));assert.equal(lib.steelDefenderProfile(c).hitDice,'3d8');});

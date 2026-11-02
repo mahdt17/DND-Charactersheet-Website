@@ -11,3 +11,4 @@ test('UA spirit ends when Wild Shape is used through the canonical resource cont
 
 test('source duration controls cannot be bypassed with generic End',()=>{let c=make();c=apply(c,lib.summonDruidCompanion(c,{placement:true}));assert.equal(c.activeEffects.find(e=>e.stateKey==='druid-companion').canEnd,false);});
 test('incapacitated wildfire spirit cannot use teleport',()=>{let c=make();c=apply(c,lib.summonDruidCompanion(c,{placement:true}));c=apply(c,lib.setDruidCompanionConditions(c,['Stunned']));assert.throws(()=>lib.useDruidTeleport(c,{confirmed:true}),/incapacitated/i);});
+test('Primeval Companion has Druid level d10 Hit Dice',()=>{let c=make('Primeval (UA)',10);c=apply(c,lib.summonDruidCompanion(c,{placement:true,movement:'swim'}));assert.equal(lib.druidCompanion(c).hitDice,'10d10');});

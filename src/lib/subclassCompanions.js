@@ -13,7 +13,7 @@ const maxHP=p=>Math.max(1,2+p.context.int+5*p.row.level);
 export function steelDefenderProfile(c){
  let p;try{p=source(c);}catch{return null;}const entry=owned(c,p);if(!entry)return null;
  const hpMax=maxHP(p),pb=p.context.pb;
- return {...entry,name:'Steel Defender',size:'Medium',type:'construct',ac:p.row.level>=15?17:15,hp:{current:Math.min(entry.hp.current,hpMax),max:hpMax},speed:40,abilities:{str:14,dex:12,con:14,int:4,wis:10,cha:6},saves:{str:2,dex:1+pb,con:2+pb,int:-3,wis:0,cha:-2},skills:{athletics:2+pb,perception:2*pb},spellAttack:pb+p.context.int,saveDC:8+pb+p.context.int,damage:`1d8+${pb}`,darkvision:60,repairUsed:entry.repairUsed||0};
+ return {...entry,name:'Steel Defender',size:'Medium',type:'construct',hitDice:`${p.row.level}d8`,ac:p.row.level>=15?17:15,hp:{current:Math.min(entry.hp.current,hpMax),max:hpMax},speed:40,abilities:{str:14,dex:12,con:14,int:4,wis:10,cha:6},saves:{str:2,dex:1+pb,con:2+pb,int:-3,wis:0,cha:-2},skills:{athletics:2+pb,perception:2*pb},spellAttack:pb+p.context.int,saveDC:8+pb+p.context.int,damage:`1d8+${pb}`,darkvision:60,repairUsed:entry.repairUsed||0};
 }
 export function createSteelDefender(c,{initial=false,smithTools=false}={}){
  assertAct(c);const p=source(c),old=owned(c,p),key=`${p.row.catalogId}:${record}`,history=c.subclassCompanionHistory||{};
