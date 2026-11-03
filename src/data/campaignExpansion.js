@@ -15,15 +15,23 @@ export const necroticRules={
 };
 export const outsideCampaignSpells=['monstrous-thrall','awaken-magical-beast'].map(id=>({catalogId:'darkdonte:'+id,index:id,name:id.split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(' '),level:9,edition:'2014',category:'spell',classes:['Archivist'],source:'Campaign conversion defaults',...necroticRules[id]}));
 export const graftRecipes=[
- {id:'chitin',name:'Chitin Plating',cost:2000,hours:40,ac:1,description:'+1 AC; editable conversion, does not stack with another Chitin graft.'},
- {id:'spine',name:'Flexible Spine',cost:5000,hours:80,initiative:4,acrobatics:4,description:'+4 initiative and Acrobatics.'},
- {id:'legs',name:'Extended Legs',cost:5000,hours:80,speed:5,description:'+5 feet walking speed.'},
- {id:'blood',name:'Healing Blood',cost:10000,hours:160,healing:2,description:'Regain 2 HP at the start of your turn while alive; explicit turn control.'},
- {id:'eyes',name:'Rudimentary Eye Spots',cost:4000,hours:80,perception:4,description:'+4 Perception; cannot be flanked under the table’s flanking rule.'},
- {id:'bones',name:'Silthilar Bones',cost:6000,hours:80,abilities:{con:2},description:'+2 CON; maximum HP increases by hit dice when the modifier increases.'},
- {id:'muscles',name:'Silthilar Muscles',cost:6000,hours:80,abilities:{str:2},description:'+2 STR.'},
- {id:'tendons',name:'Silthilar Tendons',cost:6000,hours:80,abilities:{dex:2},description:'+2 DEX.'},
- {id:'heart',name:'Silthilar Heart',cost:8000,hours:120,heart:true,description:'Optional conversion: at 0 HP, restore 4d8+20 HP once per 24 hours; cannot reverse death. Requires explicit activation of the optional recipe.'}
+ ...[250,750,2000,4500,9000].map((cost,index)=>({
+  id:index===0?'chitin':`chitin-${index+1}`,name:`Chitin Plating +${index+1}`,cost,ac:index+1,prerequisites:[],
+  description:'Additive AC bonus. Only the highest Chitin Plating bonus applies.'
+ })),
+ {id:'spine',name:'Flexible Spine',cost:2000,initiative:4,acrobatics:4,prerequisites:['Regenerate (7th level)'],description:'+4 initiative and Acrobatics.'},
+ {id:'legs',name:'Extended Legs',cost:500,speed:5,prerequisites:['Longstrider (1st level)'],description:'+5 feet walking speed.'},
+ {id:'blood',name:'Healing Blood',cost:12000,healing:2,prerequisites:['Regenerate (7th level)'],description:'Regain 2 HP at the start of each turn while alive, including at 0 HP.'},
+ {id:'eyes',name:'Rudimentary Eyespots',cost:1000,perception:4,prerequisites:['Regenerate (7th level)'],description:'+4 Perception. The table’s flanking rule cannot flank the recipient.'},
+ {id:'bones',name:'Silthilar Bones',cost:5000,abilities:{con:2},prerequisites:['Enhance Ability: Bear’s Endurance (Constitution)'],description:'+2 CON, to a maximum of 20. Maximum HP increases by hit dice when the modifier increases.'},
+ {id:'muscles',name:'Silthilar Muscles',cost:5000,abilities:{str:2},prerequisites:['Enhance Ability: Bull’s Strength (Strength)'],description:'+2 STR, to a maximum of 20.'},
+ {id:'tendons',name:'Silthilar Tendons',cost:5000,abilities:{dex:2},prerequisites:['Enhance Ability: Cat’s Grace (Dexterity)'],description:'+2 DEX, to a maximum of 20.'},
+ {id:'heart',name:'Silthilar Heart',cost:2500,heart:true,prerequisites:['Cure Wounds cast at 3rd level','Contingency (6th level)'],description:'At 0 HP while alive, restore 4d8 + 20 HP once per 24 hours.'}
+];
+export const scrollScribingCosts=[
+ {days:1,cost:15},{days:1,cost:25},{days:3,cost:250},{days:5,cost:500},
+ {days:10,cost:2500},{days:20,cost:5000},{days:40,cost:15000},
+ {days:80,cost:25000},{days:160,cost:50000},{days:240,cost:250000}
 ];
 export const psionPoints=[0,2,6,11,17,25,35,46,58,72,88,106,126,147,170,195,221,250,280,311,343];
 export const psionKnown=[0,3,5,7,9,11,13,15,17,19,21,22,24,25,27,28,30,31,33,34,36];

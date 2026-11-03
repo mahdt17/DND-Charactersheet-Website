@@ -50,9 +50,53 @@ test('base powers reject unsupported augmentation and discount without spending 
 });
 
 test('cooperative Chain DC includes the cooperation bonus in primary and secondary feedback',()=>{
- let c=withCreature(build('archivist',20),{name:'Helper',role:'caster',cooperative:true,spells:[{id:'helper',name:'Necrotic Domination',level:4,prepared:true}]});
+ let c=withCreature(build('archivist',20),{name:'Helper',role:'caster',cooperative:true,spells:[{id:'helper',name:'Necrotic Domination',level:4,prepared:true,concentration:true}]});
  c=S.castCooperativeSpell(c,'darkdonte:necrotic-domination',{slot:7,chain:true,confirmed:true,formationConfirmed:true},[{creatureId:c.archivistCampaign.creatures[0].id,spellId:'helper',slot:4}]);
  const cast=c.archivistCampaign.lastCast;assert.equal(cast.dc,C.campaignProfile(c).dc+2);assert.equal(cast.secondaryDC,cast.dc-4);
+ assert.equal(c.archivistCampaign.creatures[0].concentration,undefined);
+ assert.equal(c.archivistCampaign.creatures[0].slotsUsed[4],1);
+ assert.equal(c.archivistCampaign.creatures[0].reactionUsed,true);
+ assert.equal(c.slotsUsed[7],1);
+});
+
+test('Chain uses the approved caster level and the primary damage roll',()=>{
+ let c=withCreature(withCreature(build('archivist',11)));
+ const [primary,secondary]=c.archivistCampaign.creatures;
+ c={...c,archivistCampaign:{...c.archivistCampaign,rulings:{approvedEffectiveCasterLevel:18},creatures:[primary,secondary].map(n=>({...n,cyst:{caster:c.id}}))}};
+ c=C.castCampaignSpell(c,'darkdonte:necrotic-bloat',{slot:6,chain:true,confirmed:true});
+ assert.equal(c.archivistCampaign.lastCast.secondaryTargets,18);
+ c=S.resolveCampaignSpell(c,primary.id,{damage:21});
+ assert.throws(()=>S.resolveCampaignSpell(c,secondary.id,{secondary:true,distanceFromPrimary:31,save:100}),/30 feet/);
+ c=S.resolveCampaignSpell(c,secondary.id,{secondary:true,distanceFromPrimary:30,save:100,damage:5});
+ assert.equal(c.archivistCampaign.creatures[1].hp.current,secondary.hp.current-5);
+});
+
+test('Healing Blood restores a living recipient at zero at the start of a round',()=>{
+ let c=withCreature(build('archivist',10));
+ const graft={recipeId:'blood',effects:{healing:2}};
+ c={...c,hp:{...c.hp,current:0},deathSaves:{success:1,failure:2},archivistCampaign:{...c.archivistCampaign,grafts:[graft],creatures:c.archivistCampaign.creatures.map(n=>({...n,hp:{...n.hp,current:0},grafts:[graft]}))}};
+ const healed=S.advanceCampaignRound(c);
+ assert.equal(healed.hp.current,2);
+ assert.deepEqual(healed.deathSaves,{success:0,failure:0});
+ assert.equal(healed.archivistCampaign.creatures[0].hp.current,2);
+ assert.equal(S.advanceCampaignRound({...c,deathSaves:{failure:3}}).hp.current,0);
+});
+
+test('ordinary Archivist spells can record one primary and resolve secondary Chain effects',()=>{
+ let c=withCreature(withCreature(build('archivist',11)));
+ const [primary,secondary]=c.archivistCampaign.creatures;
+ const spell={...cure,catalogId:'2014:guiding-bolt',name:'Guiding Bolt',range:'120 feet',castingClassId:campaignClasses[0].catalogId,prepared:true};
+ c=C.castCampaignSpell({...c,spells:[spell]},spell.catalogId,{slot:4,chain:true,confirmed:true});
+ c=S.resolveCampaignSpell(c,primary.id,{damaging:true,damage:23});
+ assert.equal(c.archivistCampaign.creatures[0].hp.current,primary.hp.current);
+ const options={secondary:true,distanceFromPrimary:29,save:c.archivistCampaign.lastCast.dc};
+ c=S.resolveCampaignSpell(c,secondary.id,options);
+ assert.equal(c.archivistCampaign.creatures[1].hp.current,secondary.hp.current-5);
+ assert.throws(()=>S.resolveCampaignSpell(c,secondary.id,options),/already affected/);
+ c=C.castCampaignSpell({...c,spells:[{...cure,castingClassId:campaignClasses[0].catalogId,prepared:true}]},cure.catalogId,{slot:6,reach:true,chain:true,confirmed:true});
+ c=S.resolveCampaignSpell(c,primary.id);
+ c=S.resolveCampaignSpell(c,secondary.id,{...options,save:c.archivistCampaign.lastCast.dc-4});
+ assert.equal(c.archivistCampaign.lastCast.lastResult,'Save succeeded');
 });
 
 test('one-minute power and Dominate effects expire after exactly ten rounds',()=>{
@@ -124,15 +168,15 @@ test('Psion1–20 known tiers, canonical costs, undiscounted ML caps and rest re
  for(let level=1;level<=20;level++){
   let c=build('psion',level),p=P.extendedPsionProfile(c);assert.equal(p.ppMax,psionPoints[level]+Math.floor(5*level/2));assert.equal(p.knownLimit,psionKnown[level]);
   for(let tier=1;tier<=p.maxPowerLevel;tier++){const learned=P.learnCampaignPower(c,{name:'Configured '+tier,level:tier,minutes:1,save:'wis',damage:'1d6'}),id=learned.archivistCampaign.knownPowers[0].id;const manifested=P.manifestExtendedPower(learned,id);assert.equal(manifested.powerPointsUsed,2*tier-1);assert.throws(()=>P.manifestExtendedPower(learned,id,{augmentation:level-(2*tier-1)+1}),/before/);}
-  c=P.learnCampaignPower(c,{...campaignPowers[1],level:1});c=X.manifestWithPsicrystal(c,'inertial-armor');c=C.campaignRest(c,'short');assert.equal(c.powerPointsUsed,1);c=C.campaignRest(c,'long');assert.equal(c.powerPointsUsed,0);assert.deepEqual(c.archivistCampaign.powerEffects,{});
+  c=P.learnCampaignPower(c,{...campaignPowers[1],level:1});c=X.manifestWithPsicrystal(c,'inertial-armor',{targetConfirmed:true});c=C.campaignRest(c,'short');assert.equal(c.powerPointsUsed,1);c=C.campaignRest(c,'long');assert.equal(c.powerPointsUsed,0);assert.equal(c.archivistCampaign.powerEffects['inertial-armor']?.minutes??0,Math.max(0,60*level-540));
  }
 });
 
 test('automatic Cleric cantrips, class ownership and unprepared rituals keep independent prayerbook accounting',()=>{
  for(let level=1;level<=20;level++){
   let c=C.reconcileCampaign(build('archivist',level));const limit=C.campaignProfile(c).cantrips;
-  assert.equal(c.spells.filter(s=>s.level===0).length,limit);assert.equal(limit,7);
-  assert.throws(()=>C.acquireCampaignSpell(c,{...cure,catalogId:'test:extra-cantrip',level:0}),/Cantrip limit/);
+  assert.equal(c.spells.filter(s=>s.level===0).length,limit);assert.equal(limit,9);
+  assert.throws(()=>C.acquireCampaignSpell(c,{...cure,catalogId:'test:extra-cantrip',level:0}),/source is not approved/);
   assert.equal(C.campaignProfile(c).growthUsed,0);const cantrip=C.castCampaignSpell(c,'2014:guidance');assert.equal(cantrip.archivistCampaign.lastCast.slot,0);assert(!cantrip.slotsUsed);
  }
  let c=build('archivist',1);c.spells=[{...cure,castingClassId:'2014:wizard',prepared:true}];assert.throws(()=>C.castCampaignSpell(c,cure.catalogId,{slot:1}),/not available/);
@@ -140,15 +184,14 @@ test('automatic Cleric cantrips, class ownership and unprepared rituals keep ind
  const ritual={...cure,catalogId:'test:ritual',name:'Detect Magic',ritual:true,concentration:true};c=C.acquireCampaignSpell(c,ritual);const before=structuredClone(c.slotsUsed);c=C.castCampaignSpell(c,ritual.catalogId,{ritual:true});assert.equal(c.concentration,'Detect Magic');assert.deepEqual(c.slotsUsed,before);assert(!c.spells.find(s=>s.catalogId===ritual.catalogId).prepared);
 });
 
-test('Reach plus Chain spends adjusted slots while retaining ordinary effect levels and cap approval',()=>{
+test('Reach plus Chain spends adjusted slots while retaining ordinary effect levels and the default cap',()=>{
  let c=build('archivist',20);c=C.acquireCampaignSpell(c,cure);c=C.prepareCampaignSpell(c,cure.catalogId,true);
  const reach=C.castCampaignSpell(c,cure.catalogId,{slot:3,reach:true});assert.equal(reach.slotsUsed[3],1);assert.equal(reach.archivistCampaign.lastCast.effectLevel,1);
  const chained=C.castCampaignSpell(c,'darkdonte:necrotic-cyst',{slot:7,reach:true,chain:true,confirmed:true});assert.equal(chained.slotsUsed[7],1);assert.equal(chained.archivistCampaign.lastCast.effectLevel,2);assert.equal(chained.archivistCampaign.lastCast.secondaryTargets,20);
  assert.throws(()=>C.castCampaignSpell(c,'darkdonte:necrotic-cyst',{slot:6,reach:true,chain:true,confirmed:true}),/available slot/);
  assert.throws(()=>C.castCampaignSpell(c,'darkdonte:necrotic-cyst',{slot:7,chain:true,confirmed:true}),/eligibility and range/);
  assert.throws(()=>C.castCampaignSpell({...c,feats:c.feats.filter(f=>f.name!=='Reach Spell')},cure.catalogId,{slot:3,reach:true}),/feat/);
- assert.throws(()=>C.castCampaignSpell(c,'darkdonte:necrotic-tumor',{slot:9,chain:true,confirmed:true}),/available slot/);
- c.archivistCampaign.rulings={chainCapApproved:true};const capped=C.castCampaignSpell(c,'darkdonte:necrotic-tumor',{slot:9,chain:true,confirmed:true});assert.equal(capped.archivistCampaign.lastCast.effectLevel,7);
+ const capped=C.castCampaignSpell(c,'darkdonte:necrotic-tumor',{slot:9,chain:true,confirmed:true});assert.equal(capped.archivistCampaign.lastCast.effectLevel,7);
 });
 
 test('prestige grants, daily discounts and type waivers preserve the undiscounted ML limit',()=>{

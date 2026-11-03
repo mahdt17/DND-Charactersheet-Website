@@ -33,7 +33,7 @@ try{
  const later={...migrated,level:9,classLevels:migrated.classLevels.map(r=>r.name==='Archivist'?{...r,level:8}:r)};
  assert(!C.campaignFeats(later).some(f=>f.name==='Draconic Archivist'),'migration must not keep granting future PDF feats');
  assert.deepEqual(C.reconcileCampaign(migrated),migrated,'migration is idempotent');
- let pure=build([row(p,1)]);pure.abilities.int=20;pure=P.learnCampaignPower(pure,{...D.campaignPowers[0],level:1});pure=C.useCampaignPower(pure,'mindlink');
+ let pure=build([row(p,1)]);pure.abilities.int=20;pure=P.learnCampaignPower(pure,{...D.campaignPowers[0],level:1});pure=C.useCampaignPower(pure,'mindlink',{targetConfirmed:true});
  for(let level=2;level<=20;level++){pure=A.advanceClass(pure,p,{hpGain:4});assert.equal(C.campaignProfile(pure).manifesterLevel,level);assert.equal(pure.powerPointsUsed,1);assert.equal(P.extendedPsionProfile(pure).maxPowerLevel,Math.min(9,Math.ceil(level/2)));}
  let scholar=build([row(a,1)]);for(let level=2;level<=20;level++){scholar=A.advanceClass(scholar,a,{hpGain:4});assert.equal(C.campaignProfile(scholar).maxSpellLevel,Math.min(9,Math.ceil(level/2)));}
  let herd=build([row(p,5)]);herd.abilities.int=20;herd=P.learnCampaignPower(herd,{...D.campaignPowers[0],level:1});

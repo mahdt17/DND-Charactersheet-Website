@@ -16,9 +16,9 @@ test('Psicrystal capabilities use each actual Psion level from 1 through 20',()=
   assert.equal(P.psicrystalProfile(P.activatePsicrystal(c,'legs')).speed,30);
   if(level<9)assert.throws(()=>P.activatePsicrystal(c,'flight'),/level 9/);else assert.equal(P.psicrystalProfile(P.activatePsicrystal(c,'flight')).flight,50);
   if(level<13)assert.throws(()=>P.activatePsicrystal(c,'sight'),/level 13/);else {const sight=P.activatePsicrystal(c,'sight');assert.throws(()=>P.activatePsicrystal(sight,'sight'),/used/);assert.equal(P.psicrystalProfile(sight).sightUsed,true);}
-  if(level<15)assert.throws(()=>P.manifestWithPsicrystal(c,'mindlink',{mode:'channel'}),/level 15/);else assert.equal(P.manifestWithPsicrystal(c,'mindlink',{mode:'channel'}).archivistCampaign.lastManifest.origin,'Psicrystal');
+  if(level<15)assert.throws(()=>P.manifestWithPsicrystal(c,'mindlink',{mode:'channel',targetConfirmed:true}),/level 15/);else assert.equal(P.manifestWithPsicrystal(c,'mindlink',{mode:'channel',targetConfirmed:true}).archivistCampaign.lastManifest.origin,'Psicrystal');
   if(level<3)assert.throws(()=>P.manifestWithPsicrystal(c,'touch-audit',{mode:'touch'}),/level 3/);else {const held=P.manifestWithPsicrystal(c,'touch-audit',{mode:'touch'});assert.equal(held.archivistCampaign.lastManifest.touchPending,true);assert.equal(P.deliverPsicrystalTouch(held).archivistCampaign.lastManifest.touchPending,false);}
-  const shared=P.manifestWithPsicrystal(c,'inertial-armor',{mode:'share'});assert(P.psicrystalProfile(shared).sharedPowers['inertial-armor']);assert.deepEqual(P.psicrystalProfile(P.movePsicrystal(shared,6)).sharedPowers,{});
+  const shared=P.manifestWithPsicrystal(c,'inertial-armor',{mode:'share',targetConfirmed:true});assert(P.psicrystalProfile(shared).sharedPowers['inertial-armor']);assert.deepEqual(P.psicrystalProfile(P.movePsicrystal(shared,6)).sharedPowers,{});
   assert.equal(C.campaignSkillBonus(P.movePsicrystal(c,5281),'Arcana'),0);assert.equal(C.campaignSkillBonus(P.changePsicrystalHP(c,1000),'Arcana'),0);
  }
 });
@@ -37,14 +37,14 @@ test('legacy lethal crystal damage is captured before owner HP growth',()=>{
  const saved=P.preservePsicrystalDestruction(old),grown={...saved,hp:{...saved.hp,max:40}};
  assert.equal(P.psicrystalProfile(JSON.parse(JSON.stringify(grown))).alive,false);
 });
-test('scroll projects spend an available pooled slot after Archivist-only slots run out',()=>{
+test('scroll projects remain available after Archivist and multiclass slots are exhausted',()=>{
  const wizard={name:'Wizard',catalogId:'2014:wizard',edition:'2014',hit_die:6};
  let c={...fresh(),level:2,classLevels:[row(campaignClasses[0],1),row(wizard,1)]};
  const s={catalogId:'2014:audit-cure',name:'Cure Wounds',edition:'2014',level:1,classes:['Cleric']};
- c=C.prepareCampaignSpell(C.acquireCampaignSpell(c,s),s.catalogId,true);c.slotsUsed={1:2};
+ c=C.prepareCampaignSpell(C.acquireCampaignSpell(c,s),s.catalogId,true);c.slotsUsed={1:3};
  const paid=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true});
- assert.equal(paid.slotsUsed[1],3);assert.equal(paid.currency.gp,49950);
- assert.throws(()=>W.startCampaignProject(paid,{kind:'scroll',spell:s,materialsConfirmed:true}),/slot/i);
+ assert.deepEqual(paid.slotsUsed,c.slotsUsed);assert.equal(paid.currency.gp,49975);
+ assert.equal(paid.archivistCampaign.projects[0].hours,8);
 });
 test('copper precision accepts exact copper costs and rejects fractions of copper',()=>{
  assert.deepEqual(spendCampaignGold({currency:{gp:1}},0.29).currency,{cp:1,sp:7,ep:0,gp:0,pp:0});
@@ -65,11 +65,11 @@ test('NPC incapacitating conditions prevent casts without spending slots',()=>{
   assert.deepEqual(c.archivistCampaign.creatures[0].slotsUsed,{});
  }
 });
-test('failed graft surgery applies damage to temporary HP for self and NPC recipients',()=>{
+test('graft installation requires no Medicine result and preserves existing HP',()=>{
  for(const npc of [false,true]){
   let c=fresh(),targetId='self';if(npc){c=N.addCampaignCreature(c,{name:'Recipient'});targetId=c.archivistCampaign.creatures[0].id;c=N.updateCreature(c,targetId,n=>({...n,hp:{max:22,current:22,temp:20}}));}else c.hp={max:22,current:22,temp:20};
-  c=W.startCampaignProject(c,{kind:'graft',recipeId:'chitin',targetId,materialsConfirmed:true});const job=c.archivistCampaign.projects[0];c=W.workCampaignProject(c,job.id,job.hours);c=W.finishCampaignProject(c,job.id,{medicine:0});
-  const hp=npc?c.archivistCampaign.creatures[0].hp:c.hp;assert.deepEqual(hp,{max:22,current:22,temp:10});assert.equal(c.archivistCampaign.projects[0].status,'failed');
+  c=W.startCampaignProject(c,{kind:'graft',recipeId:'chitin',targetId,materialsConfirmed:true});const job=c.archivistCampaign.projects[0];c=W.workCampaignProject(c,job.id,job.hours);c=W.finishCampaignProject(c,job.id);
+  const hp=npc?c.archivistCampaign.creatures[0].hp:c.hp;assert.deepEqual(hp,{max:22,current:22,temp:20});assert.equal(c.archivistCampaign.projects[0].status,'completed');
  }
 });
 test('incapacitated characters cannot start or work projects but may cancel paid work',()=>{
