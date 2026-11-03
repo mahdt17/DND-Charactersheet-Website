@@ -14,9 +14,10 @@ export function leoninProfile(c,abilities=effectiveAbilityScores(c)){
  return {active:true,pb,attack:pb+str,damage:`1d4${damage>=0?'+':''}${damage}`,dc:8+pb+con,used,remaining:Math.max(0,1-used),roaring:!!c.leonin?.roaring};
 }
 export function leoninResource(c){const p=leoninProfile(c);return p.active?{id:leoninRoarId,classResourceKey:leoninRoarId,raceManaged:true,className:'Leonin',name:'Daunting Roar',max:1,used:p.used,reset:'short',shortRecovery:'all',manual:false}:null;}
+import {actorActionBlock} from './subclassState.js';
 export function leoninActionBlock(c){
  if(!isLeonin(c))return 'This race source does not grant Leonin abilities.';
- if(Number(c.hp?.current)<=0)return 'You must be conscious to use this ability.';
+ if(actorActionBlock(c))return actorActionBlock(c);
  const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(v=>String(typeof v==='object'?v?.name:v).trim().toLowerCase());
  return conditions.some(v=>['incapacitated','unconscious','paralyzed','stunned','petrified','dead'].includes(v))?'You cannot use this ability while incapacitated.':'';
 }

@@ -1,5 +1,6 @@
 import {entomancerId,populationTable,entomancerSlots,entomancerFeatures,speciesFeatures,entomancerSource,entomancerSpecies,entomancerInstruments} from '../data/entomancer.js';
 import {effectiveAbilityScores} from './abilityScores.js';
+import {actorActionBlock} from './subclassState.js';
 export const populationId='2014:Entomancer:population';
 const mod=n=>Math.floor((Number(n??10)-10)/2);
 export const isEntomancerRecord=r=>r?.edition==='2014'&&(r.catalogId===entomancerId||r.id===entomancerId);
@@ -13,8 +14,7 @@ export function entomancerLevel(c){
 export function entomancerActionBlockReason(c){
  if(!entomancerLevel(c))return '';
  if(c.entomancer?.dead)return 'A dead character must be revived before acting.';
- const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).filter(n=>typeof n==='string').map(n=>n.trim().toLowerCase());
- return Number(c.hp?.current??1)<=0||conditions.some(n=>['incapacitated','unconscious','paralyzed','stunned','petrified'].includes(n))?'You cannot act while unconscious or incapacitated.':'';
+ return actorActionBlock(c);
 }
 export function entomancerSongSaves(c){
  const s=c.entomancer||{},checks=Array.isArray(s.songSaveDCs)?s.songSaveDCs:[s.songSaveDC];

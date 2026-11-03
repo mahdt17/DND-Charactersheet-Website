@@ -8,6 +8,7 @@ import {campaignSkillBonus} from './archivistCampaign.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {campaignActionBlockReason} from './campaignActivity.js';
 import {totemProfile} from './totemWarrior.js';
+import {actorActionBlock,actorBodyHP,actorDeathBlock,consciousAtZero,retainsOwnFeatures} from './subclassState.js';
 export const isLupin=c=>c?.race==='Lupin'&&c.raceDefinition?.catalogId===lupinId&&c.raceDefinition.edition==='2014'&&((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')==='2014';
 const list=value=>(Array.isArray(value)?value:String(value||'').split(/[,;\n]/)).map(x=>String(x?.name||x).replace(/^Skill: /,'').trim()).filter(Boolean);
 const pb=c=>2+Math.floor((Math.max(1,Math.min(20,Number(c.level)||1))-1)/4);
@@ -31,7 +32,7 @@ export const finishLupin=c=>isLupin(c)?reconcileLupin({...c,lupin:{...c.lupin,sk
 export function lupinActionBlock(c){
  if(!isLupin(c))return 'This character does not have the Lupin 5e conversion.';
  const conditions=list(c.conditions).map(n=>n.toLowerCase());
- return Number(c.hp?.current??1)<=0||conditions.some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified','dead'].includes(n))?'You cannot use this ability while unconscious or incapacitated.':entomancerActionBlockReason(c)||campaignActionBlockReason(c)||'';
+ return actorActionBlock(c)||entomancerActionBlockReason(c)||campaignActionBlockReason(c)||'';
 }
 const assertLupin=c=>{const blocked=lupinActionBlock(c);if(blocked)throw Error(blocked);};
 export function lupinSense(c,kind,wind='normal'){
@@ -46,10 +47,12 @@ export function lupinSense(c,kind,wind='normal'){
 }
 export function lupinOdorSave(c,ability='con'){
  if(!isLupin(c))throw Error('This character does not have the Lupin 5e conversion.');
+ if(!retainsOwnFeatures(c))throw Error('Normal racial features are unavailable while polymorphed.');
+ if(actorDeathBlock(c))throw Error(actorDeathBlock(c));
  const conditions=list(c.conditions).map(n=>n.toLowerCase());if(conditions.includes('dead')||entomancerProfile(c).level&&c.entomancer?.dead)throw Error('A dead character cannot make this saving throw.');
  const names={str:'Strength',dex:'Dexterity',con:'Constitution',int:'Intelligence',wis:'Wisdom',cha:'Charisma'};if(!names[ability])throw Error('Choose a saving throw ability.');
  const swarm=entomancerProfile(c),bonus=modifier(effectiveAbilityScores(c)[ability])+(c.saveProf?.[ability]?pb(c):0)+(swarm.song?swarm.wis:0)+(ability==='con'?(campaignModifiers(c).conSave||0):0);
- const autoFail=['str','dex'].includes(ability)&&(Number(c.hp?.current??1)<=0||conditions.some(n=>['paralyzed','petrified','stunned','unconscious'].includes(n)));
+ const autoFail=['str','dex'].includes(ability)&&(actorBodyHP(c)<=0&&!consciousAtZero(c)||conditions.some(n=>['paralyzed','petrified','stunned','unconscious'].includes(n)));
  return {expression:`1d20${signed(bonus)}`,label:`${names[ability]} saving throw · Lupin odor sensitivity`,kind:'save',disadvantage:true,autoFail,note:autoFail?`Automatically fails ${names[ability]} saves in the current condition; no roll is needed.`:''};
 }
 function hunterDamage(expression){const match=String(expression).match(/^(\d+d\d+|\d+)([+-]\d+)?$/i);if(!match)throw Error('This weapon needs a manual damage roll.');if(!match[1].includes('d'))return String(Number(match[1])+Number(match[2]||0)+1);return match[1]+signed(Number(match[2]||0)+1);}

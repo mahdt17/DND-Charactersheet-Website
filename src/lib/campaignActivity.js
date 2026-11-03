@@ -1,7 +1,9 @@
 import {campaignSourceActive} from './campaignModifiers.js';
+import {actorActionBlock,consciousAtZero} from './subclassState.js';
 
 export function campaignActionBlockReason(char){
  if(!campaignSourceActive(char))return '';
+ if(((char.ruleset==='custom'?char.mechanics:char.ruleset)||'2014')==='2014')return char.archivistCampaign?.dead||Number(char.deathSaves?.failure)>=3&&!consciousAtZero(char)?'Record a revival before this character can act.':actorActionBlock(char);
  const conditions=(Array.isArray(char.conditions)?char.conditions:String(char.conditions||'').split(',')).map(value=>String(typeof value==='object'?value?.name:value).trim().toLowerCase());
  if(Number(char.exhaustion||0)>=6||char.archivistCampaign?.dead||Number(char.deathSaves?.failure||0)>=3||conditions.includes('dead'))return 'Record a revival before this character can act.';
  if(Number(char.hp?.current??1)<=0||conditions.some(name=>['incapacitated','unconscious','paralyzed','stunned','petrified'].includes(name)))return 'You cannot act while unconscious or incapacitated.';
