@@ -43,7 +43,7 @@ try{
   for(const kind of options){await tools().getByLabel('Dark Knowledge effect').selectOption(kind);assert((await tools().locator('.class-ability-rules').innerText()).length>30,'every unlocked effect has rules');}
   await tools().getByLabel('Knowledge check result').fill('35');await tools().getByLabel('Studied creature or group').fill('Undead');await tools().getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();
   assert.equal(await reserve('Dark Knowledge').innerText(),`${dark[level-1]-1} / ${dark[level-1]}`);
-  if(level>=2){await chooseClassPower(page,'Mindlink');await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).click();assert.equal(await reserve('Power Points').innerText(),'2 / 3');}
+  if(level>=2){await chooseClassPower(page,'Mindlink');await tools().getByLabel('Willing Intelligence 3+ target is within close range').check();await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).click();assert.equal(await reserve('Power Points').innerText(),'2 / 3');}
   await openClassTools(page,'Settings');assert.equal(await tools().getByLabel(/Lore Mastery \d/).count(),lore[level-1]);
   await openClassTools(page,'Companions');if(level>=6)assert.match(await tools().innerText(),new RegExp('Maximum thrall level: '+thralls[level-6]+'\\.'));
   const book=await prayerbook();const shown=await book.locator('.slot-level').allInnerTexts();assert.equal(shown.length,slots[a].length);

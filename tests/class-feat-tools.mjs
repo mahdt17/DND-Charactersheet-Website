@@ -59,7 +59,7 @@ test('cyst spell damage and empowerment scale without an Archivist level',()=>{
 
 test('Graft Flesh projects depend on the feat, not Archivist, including completion',()=>{
  const c={...build(),feats:[feat('Graft Flesh: Silthilar')],currency:{gp:100000}};
- let working=startCampaignProject(c,{kind:'graft',recipeId:'bones',materialsConfirmed:true});
+ let working=startCampaignProject(c,{kind:'graft',recipeId:'bones',materialsConfirmed:true,prerequisitesConfirmed:true});
  const job=working.archivistCampaign.projects[0];
  assert.throws(()=>workCampaignProject({...working,feats:[]},job.id,1),/feat/i);
  working=workCampaignProject(working,job.id,job.hours);

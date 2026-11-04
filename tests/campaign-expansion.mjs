@@ -51,10 +51,10 @@ assert.throws(()=>W.finishCampaignProject(c,job.id),/completed|active/);
 const slotsBefore={...c.slotsUsed};c=W.useCampaignScroll(c,scroll.id);assert.deepEqual(c.slotsUsed,slotsBefore);assert.equal(c.inventory.at(-1).qty,0);
 assert.throws(()=>W.useCampaignScroll(c,scroll.id),/scroll/);
 const hp=c.hp.max;
-c=W.startCampaignProject(c,{kind:'graft',recipeId:'bones',targetId:'self',materialsConfirmed:true});
+c=W.startCampaignProject(c,{kind:'graft',recipeId:'bones',targetId:'self',materialsConfirmed:true,prerequisitesConfirmed:true});
 const graft=c.archivistCampaign.projects.at(-1);c=W.workCampaignProject(c,graft.id,graft.hours);c=W.finishCampaignProject(c,graft.id,{medicine:30});
 assert.equal(C.campaignProfile(c).scores.con,12);assert.equal(c.hp.max,hp+20);
-assert.throws(()=>W.startCampaignProject(c,{kind:'graft',recipeId:'bones',targetId:'self',materialsConfirmed:true}),/already/);
+assert.throws(()=>W.startCampaignProject(c,{kind:'graft',recipeId:'bones',targetId:'self',materialsConfirmed:true,prerequisitesConfirmed:true}),/already/);
 console.log('PASS paid downtime, once-only rewards, usable scrolls and installed grafts');
 let tele=C.createArchivistCampaign();
 for(let i=0;i<9;i++)tele=C.advanceArchivistCampaign(tele,{kind:'thrallherd'});
@@ -82,7 +82,7 @@ for(const kind of ['archivist','psion'])for(let level=1;level<=20;level++){
  assert.equal(p[kind],level);if(kind==='psion'){assert.equal(p.ppMax,level===1?3:psionPoints[level]+level);assert.equal(P.extendedPsionProfile(x).knownLimit,psionKnown[level]);}else assert.equal(p.darkMax,3+Math.floor(level/3));
 }
 let x=cysted(),ids=x.archivistCampaign.creatures.map(n=>n.id),baseHP=x.archivistCampaign.creatures[0].hp.current;
-x=C.castCampaignSpell(x,'darkdonte:necrotic-bloat',{slot:6,chain:true,confirmed:true});x=S.resolveCampaignSpell(x,ids[0],{damage:20});assert.throws(()=>S.resolveCampaignSpell(x,ids[1],{damage:20,secondary:true}),/save total/);x=S.resolveCampaignSpell(x,ids[1],{damage:20,save:99,secondary:true});assert.equal(x.archivistCampaign.creatures[1].hp.current,baseHP-5);
+x=C.castCampaignSpell(x,'darkdonte:necrotic-bloat',{slot:6,chain:true,confirmed:true});x=S.resolveCampaignSpell(x,ids[0],{damage:20});assert.throws(()=>S.resolveCampaignSpell(x,ids[1],{damage:20,secondary:true,distanceFromPrimary:30}),/save total/);x=S.resolveCampaignSpell(x,ids[1],{damage:20,save:99,secondary:true,distanceFromPrimary:30});assert.equal(x.archivistCampaign.creatures[1].hp.current,baseHP-5);
 x=cysted();ids=x.archivistCampaign.creatures.map(n=>n.id);x=C.castCampaignSpell(x,'darkdonte:necrotic-burst',{slot:5,confirmed:true});x=S.resolveCampaignSpell(x,ids[0],{save:0,damage:20});assert(x.archivistCampaign.creatures[0].dead);assert.equal(x.archivistCampaign.creatures.at(-1).emergesInRounds,1);x=S.advanceCampaignRound(x);assert.equal(x.archivistCampaign.creatures.at(-1).emergesInRounds,0);
 x=cysted();ids=x.archivistCampaign.creatures.map(n=>n.id);x=C.castCampaignSpell(x,'darkdonte:necrotic-eruption',{slot:6,confirmed:true});x=S.resolveCampaignSpell(x,ids[0],{save:0,damage:20});x=S.resolveCampaignSpell(x,ids[1],{save:99,damage:20,area:true,cystSave:0});assert.equal(x.archivistCampaign.creatures[1].hp.current,x.archivistCampaign.creatures[1].hp.max-10);assert(x.archivistCampaign.creatures[1].cyst);
 x=cysted();ids=x.archivistCampaign.creatures.map(n=>n.id);x=C.castCampaignSpell(x,'darkdonte:necrotic-domination',{slot:4,confirmed:true});x=S.resolveCampaignSpell(x,ids[0],{save:0});x=C.advanceCampaignTime(x,1440);assert.equal(x.archivistCampaign.creatures[0].control.minutes,0);

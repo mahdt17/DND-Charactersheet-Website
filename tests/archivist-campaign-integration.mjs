@@ -14,7 +14,7 @@ try{
  assert.deepEqual(E.characterSlots(c).slice(0,4),[0,4,3,0]);
  assert.equal(R.characterResources(c).find(r=>r.id===D.campaignPPId).max,3);
  c={...c,...R.adjustResource(c,D.campaignPPId,1)};assert.equal(c.powerPointsUsed,1);
- c=C.useCampaignPower(c,'mindlink');assert.equal(R.characterResources(c).find(r=>r.id===D.campaignPPId).used,2);
+ c=C.useCampaignPower(c,'mindlink',{targetConfirmed:true});assert.equal(R.characterResources(c).find(r=>r.id===D.campaignPPId).used,2);
  c={...c,...R.adjustResource(c,D.campaignDarkId,1)};assert.equal(c.archivistCampaign.darkUsed,1);
  c={...c,...R.restResources(c,'short')};assert.equal(c.powerPointsUsed,2);assert.equal(c.archivistCampaign.darkUsed,1);
  c={...c,...R.restResources(c,'long')};assert.equal(c.powerPointsUsed,0);assert.equal(c.archivistCampaign.darkUsed,0);

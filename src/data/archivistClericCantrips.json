@@ -1,0 +1,92 @@
+[
+  {
+    "catalogId": "wikidot5e:spell:hand-of-radiance",
+    "name": "Hand of Radiance (UA)",
+    "edition": "2014",
+    "level": 0,
+    "classes": [
+      "Cleric"
+    ],
+    "school": "Evocation cantrip",
+    "casting_time": "1 action",
+    "range": "5 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Unearthed Arcana 36 - Starter Spells",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:hand-of-radiance",
+    "concentration": false,
+    "ritual": false,
+    "description": "Each creature of your choice that you can see within 5 feet makes a Constitution save or takes 1d6 radiant damage. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+  },
+  {
+    "catalogId": "wikidot5e:spell:toll-the-dead",
+    "name": "Toll the Dead",
+    "edition": "2014",
+    "level": 0,
+    "classes": [
+      "Cleric",
+      "Warlock",
+      "Wizard"
+    ],
+    "school": "Necromancy cantrip",
+    "casting_time": "1 action",
+    "range": "60 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Xanathar's Guide to Everything",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:toll-the-dead",
+    "concentration": false,
+    "ritual": false,
+    "description": "One visible creature within 60 feet makes a Wisdom save. On a failure it takes 1d8 necrotic damage, or 1d12 if it is missing any HP. The damage becomes 2 dice at character level 5, 3 dice at 11, and 4 dice at 17."
+  },
+  {
+    "catalogId": "wikidot5e:spell:virtue",
+    "name": "Virtue (UA)",
+    "edition": "2014",
+    "level": 0,
+    "classes": [
+      "Cleric"
+    ],
+    "school": "Abjuration cantrip",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "duration": "1 round",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Unearthed Arcana 36 - Starter Spells",
+    "sourceUrl": "https://media.wizards.com/2017/dnd/downloads/UA-Starter-Spells.pdf",
+    "concentration": false,
+    "ritual": false,
+    "description": "Touch a creature with at least 1 HP. It gains 1d4 + your spellcasting modifier temporary HP, which expire when the spell ends after one round."
+  },
+  {
+    "catalogId": "wikidot5e:spell:word-of-radiance",
+    "name": "Word of Radiance",
+    "edition": "2014",
+    "level": 0,
+    "classes": [
+      "Cleric"
+    ],
+    "school": "Evocation cantrip",
+    "casting_time": "1 action",
+    "range": "5 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V",
+      "M (a holy symbol)"
+    ],
+    "sourceBook": "Xanathar's Guide to Everything",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:word-of-radiance",
+    "concentration": false,
+    "ritual": false,
+    "description": "Each creature of your choice that you can see within 5 feet makes a Constitution save or takes 1d6 radiant damage. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+  }
+]

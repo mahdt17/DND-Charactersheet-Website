@@ -22,6 +22,8 @@ try{
  await page.getByRole('button',{name:'Roll knowledge check',exact:true}).click();
  assert.equal(await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).isVisible(),true);
  assert.notEqual(await page.getByLabel('Knowledge check result').inputValue(),'');
+ assert(await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Advance to next turn'}).click();
  await page.getByLabel('Knowledge check result').fill('0');await page.getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();
  assert.equal(await reserve.innerText(),'2 / 4');assert.match(await page.getByRole('status').filter({hasText:'tactics against Undead scouts'}).innerText(),/failed/);
  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Complete short rest'}).click();assert.equal(await reserve.innerText(),'2 / 4');

@@ -33,7 +33,7 @@ try{
  assert.equal(await page.getByRole('button',{name:'Telepath powers',exact:true}).isVisible(),false);
  await tool('Thrallherd').click();assert.equal(await page.getByLabel('Follower name or group',{exact:true}).inputValue(),'Keep this draft');
  await tool('Graft Flesh: Silthilar').click();assert.equal(await page.locator('.class-owner-panel:visible').getByLabel('Campaign project type',{exact:true}).inputValue(),'graft');
- const paid=startCampaignProject(build('Project source removed',[row('Cleric',5)],[feat('Graft Flesh: Silthilar')]),{kind:'graft',recipeId:'bones',materialsConfirmed:true});
+ const paid=startCampaignProject(build('Project source removed',[row('Cleric',5)],[feat('Graft Flesh: Silthilar')]),{kind:'graft',recipeId:'bones',materialsConfirmed:true,prerequisitesConfirmed:true});
  await load({...paid,feats:[]});assert.equal(await tool('Graft Flesh: Silthilar').count(),0);assert.equal(await tool('Project history').count(),1,'paid jobs remain accessible after source removal');await tool('Project history').click();
  await page.getByRole('button',{name:'Cancel Silthilar Bones',exact:true}).click();assert.match(await page.locator('.class-owner-panel:visible').innerText(),/cancelled/);
  await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);

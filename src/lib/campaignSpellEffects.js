@@ -1,29 +1,51 @@
-import {campaignProfile,campaignFeats,campaignCystSpells,castCampaignSpell} from './archivistCampaign.js';
+import {campaignProfile,hasConversionFeat,castCampaignSpell} from './archivistCampaign.js';
 import {necroticRules} from '../data/campaignExpansion.js';
 import {updateCreature,whole,creatureProfile,castCreatureSpell,creatureTemplate,damageCreature as damage} from './campaignCreatures.js';
-import {campaignModifiers} from './campaignModifiers.js';
 import {tickCampaign} from './campaignTime.js';
 export const spellRule=(c,id)=>({...necroticRules[id.replace('darkdonte:','')],...c.archivistCampaign?.rulings?.spellRules?.[id.replace('darkdonte:','')]});
 const activeControl=n=>n.control&&(n.control.minutes===null||n.control.minutes>0);
-export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,secondary=false,area=false,cystSave,blocked=false,intRoll,chaRoll,language='Common',order='Reasonable suggestion'}={}){
+export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,damaging=false,secondary=false,distanceFromPrimary,area=false,cystSave,blocked=false,intRoll,chaRoll,language='Common',order='Reasonable suggestion'}={}){
  const p=campaignProfile(c),state=c.archivistCampaign||{},cast={...state.lastCast},rule=cast?.rule||spellRule(c,cast?.spellId||'');
- if(!cast?.id||!rule.effect)throw Error('Cast a campaign effect first.');
+ const ordinaryChain=cast.chain&&!rule.effect;
+ if(!cast.id||!rule.effect&&!ordinaryChain)throw Error('Cast a campaign effect first.');
  if(cast.resolved?.includes(targetId))throw Error('This cast already affected that target.');
- if(secondary&&(!cast.chain||!cast.resolved?.length||cast.resolved.length>cast.secondaryTargets))throw Error('No secondary Chain targets remaining.');
+ if(secondary&&(!cast.chain||!cast.resolved?.length||(cast.secondaryResolved??cast.resolved.length-1)>=cast.secondaryTargets))throw Error('No secondary Chain targets remaining.');
+ if(secondary&&(!Number.isFinite(distanceFromPrimary)||distanceFromPrimary<0||distanceFromPrimary>30))throw Error('Each Chain target must be within 30 feet of the primary target.');
  if(area&&(!cast.erupted||rule.effect!=='eruption'))throw Error('No primary eruption to resolve.');
  if(!secondary&&!area&&cast.resolved?.length)throw Error('Primary target already resolved.');
  if(secondary&&area)throw Error('Choose Chain or eruption splash.');
- let next=c,result='Applied',dc=cast.dc-(secondary&&!rule.damageCap?4:0),effectiveSave=save;
+ const chainDamage=secondary&&(rule.damageCap||ordinaryChain&&Number.isFinite(cast.primaryDamage));
+ let next=c,result='Applied',dc=cast.dc-(secondary&&!chainDamage?4:0),effectiveSave=save;
  const n=targetId==='self'?null:state.creatures?.find(n=>n.id===targetId);
- if(!['sense','empower'].includes(rule.effect)&&!n)throw Error('Choose a recorded creature.');
+ if(!['sense','empower'].includes(rule.effect)&&!n&&!(ordinaryChain&&!secondary&&targetId==='self'))throw Error('Choose a recorded creature.');
  if(n&&(n.dead||n.soulDestroyed))throw Error('Choose a living target.');
  if(n?.cyst&&cast.spellId.startsWith('darkdonte:necrotic-')&&rule.save&&!area&&!(secondary&&rule.damageCap))effectiveSave=Number(save)-2;
  if(rule.requiresCyst&&!area&&!n?.cyst)throw Error('Target must bear a necrotic cyst.');
- if((rule.save||area||secondary&&rule.damageCap)&&!Number.isFinite(save))throw Error('Enter the target save total.');
- const passed=!!(rule.save||area||secondary&&rule.damageCap)&&effectiveSave>=dc;
+ const needsSave=rule.save||area||secondary;
+ if(needsSave&&!Number.isFinite(save))throw Error('Enter the target save total.');
+ const passed=!!needsSave&&effectiveSave>=dc;
  let amount=0;
- if(rule.damageCap){whole(rolledDamage,'Damage',0,Math.min(cast.casterLevel??p.archivist,rule.damageCap)*6);amount=rolledDamage;if(secondary||area&&passed)amount=Math.floor(amount/2);if(secondary&&passed)amount=Math.floor(amount/2);}
+ if(rule.damageCap){
+  const damage=secondary&&cast.primaryDamage!=null?cast.primaryDamage:rolledDamage;
+  whole(damage,'Damage',0,Math.min(cast.casterLevel??p.archivist,rule.damageCap)*6);
+  amount=damage;
+  if(secondary||area&&passed)amount=Math.floor(amount/2);
+  if(secondary&&passed)amount=Math.floor(amount/2);
+  if(!secondary&&!area)cast.primaryDamage=blocked?0:amount;
+ }
+ if(ordinaryChain&&!secondary){
+  if(damaging)cast.primaryDamage=blocked?0:whole(rolledDamage,'Primary damage');
+  cast.secondaryDC=damaging?cast.dc:cast.dc-4;
+  result='Primary effect recorded';
+ }
  if(blocked){result='Blocked: no effect';
+ }else if(secondary&&!chainDamage&&!rule.save&&passed){result='Save succeeded';
+ }else if(ordinaryChain&&secondary){
+  if(chainDamage){
+   const reducedDamage=Math.floor(cast.primaryDamage/(passed?4:2));
+   next=updateCreature(c,targetId,n=>damage(n,reducedDamage));
+   result=`${reducedDamage} damage`;
+  }else result='Resolve the secondary effect at the table';
  }else if(rule.effect==='empower'){
   if(targetId!=='self')throw Error('Empowerment affects the caster.');
   const temp=Number(rule.tempHP??100);whole(temp,'Temporary HP');
@@ -51,19 +73,38 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,second
   result=lethal?'Target killed':`${amount} necrotic damage`;
   if(lethal&&rule.effect==='eruption')cast.erupted=true;
  }
- return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...cast,resolved:[...(cast.resolved||[]),targetId],lastResult:result}}};
+ return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...cast,secondaryResolved:(cast.secondaryResolved??Math.max(0,(cast.resolved?.length||0)-1))+(secondary?1:0),resolved:[...(cast.resolved||[]),targetId],lastResult:result}}};
 }
 export function refuseCampaignOrder(c,id,order,save){
  if(!String(order||'').trim()||!Number.isFinite(save))throw Error('Enter the specific order and save total.');
  return updateCreature(c,id,n=>{if(!activeControl(n)||n.control.spellId!=='darkdonte:monstrous-thrall')throw Error('Permanent Monstrous Thrall control required.');const key=order.trim().toLowerCase(),known=n.control.refusedOrders.includes(key),success=save-(known?0:4)>=n.control.dc;return {...n,control:{...n.control,lastOrder:{order,success,penalty:known?0:4},refusedOrders:success?[...new Set([...n.control.refusedOrders,key])]:n.control.refusedOrders}};});
 }
 export function removeCampaignCyst(c,id,check){if(!Number.isFinite(check))throw Error('Enter the Medicine result.');let next=updateCreature(c,id,n=>{if(!n.cyst)throw Error('No cyst present.');if(check>=Number(c.archivistCampaign?.rulings?.surgeryDC??20))return {...n,cyst:null,control:n.control?.spellId?.startsWith('darkdonte:necrotic')?null:n.control};return c.archivistCampaign?.rulings?.surgeryFatal===false?damage(n,10):{...n,dead:true,hp:{...n.hp,current:0,temp:0}};});return tickCampaign(next,60);}
-export function advanceCampaignRound(c){let next=tickCampaign(c,0.1);const state=next.archivistCampaign,m=campaignModifiers(next);if(next.hp.current>0&&m.healing)next={...next,hp:{...next.hp,current:Math.min(next.hp.max,next.hp.current+m.healing)}};return {...next,archivistCampaign:{...state,sensing:state.sensing?.minutes>0?{...state.sensing,stage:Math.min(3,state.sensing.stage+1)}:state.sensing,creatures:(state.creatures||[]).map(n=>({...n,reactionUsed:false,hp:{...n.hp,current:n.dead?0:n.hp.current>0?Math.min(n.hp.max,n.hp.current+creatureProfile(n).modifiers.healing):0}}))}};}
-export function castCooperativeSpell(c,id,options,participants=[]){
- if(!participants.length)return castCampaignSpell(c,id,options);
- if(!campaignFeats(c).some(f=>f.name==='Cooperative Spell')||!options.formationConfirmed)throw Error('Cooperative feat and confirmed formation/Ready timing required.');
- if(new Set(participants.map(x=>x.creatureId)).size!==participants.length)throw Error('Duplicate cooperator.');
- let next=c,dc=castCampaignSpell(c,id,options).archivistCampaign.lastCast.dc;
- for(const entry of participants){const n=next.archivistCampaign?.creatures?.find(n=>n.id===entry.creatureId),s=n?.spells?.find(s=>s.id===entry.spellId);const source=[...c.spells||[],...campaignCystSpells(c)].find(s=>s.catalogId===id);if(!n?.cooperative||n.reactionUsed||s?.name!==source?.name)throw Error('Each cooperator needs the feat, same prepared spell and unused reaction.');next=castCreatureSpell(next,n.id,s.id,entry.slot);next=updateCreature(next,n.id,n=>({...n,reactionUsed:true}));dc=Math.max(dc,creatureProfile(n).dc);}
- next=castCampaignSpell(next,id,options);const combinedDC=dc+participants.length+1;return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...next.archivistCampaign.lastCast,dc:combinedDC,secondaryDC:next.archivistCampaign.lastCast.chain?combinedDC-4:null,cooperators:participants.map(p=>p.creatureId)}}};
+export function advanceCampaignRound(c){
+ const next=tickCampaign(c,0.1),state=next.archivistCampaign;
+ return {...next,archivistCampaign:{
+  ...state,sensing:state.sensing?.minutes>0?{...state.sensing,stage:Math.min(3,state.sensing.stage+1)}:state.sensing,
+ }};
+}
+export function applyCooperativeSpell(c,options,participants){
+ if(!participants.length)return c;
+ if(!hasConversionFeat(c,'Cooperative Spell'))throw Error('The lead caster needs Cooperative Spell.');
+ if(!options.formationConfirmed)throw Error(participants.length===1?'Confirm that the two casters are adjacent.':'Confirm that every caster is adjacent to at least two other participants.');
+ const cooperators=participants.map(x=>x.creatureId);
+ if(new Set(cooperators).size!==participants.length)throw Error('Duplicate cooperator.');
+ const cast=c.archivistCampaign.lastCast;
+ if(!cast.slot)throw Error('Cooperative Spell requires the lead caster to spend a spell slot.');
+ let next=c,dc=cast.dc;
+ for(const entry of participants){
+  const n=next.archivistCampaign.creatures?.find(n=>n.id===entry.creatureId);
+  const spell=n?.spells?.find(s=>s.id===entry.spellId);
+  if(!n?.cooperative||spell?.name!==cast.name)throw Error('Each cooperator needs the feat and the same prepared spell.');
+  next=castCreatureSpell(next,n.id,spell.id,entry.slot,{asCooperator:true});
+  dc=Math.max(dc,creatureProfile(n).dc);
+ }
+ dc+=participants.length+1;
+ return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...cast,dc,secondaryDC:cast.chain?dc-(cast.rule?.damageCap?0:4):null,cooperators}}};
+}
+export function castCooperativeSpell(c,id,options={},participants=[]){
+ return applyCooperativeSpell(castCampaignSpell(c,id,options),options,participants);
 }

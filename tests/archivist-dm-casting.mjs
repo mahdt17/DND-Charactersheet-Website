@@ -14,7 +14,9 @@ test('starting prayerbook and live preparation use distinct historical and curre
  let c=C.reconcileCampaign(make());let p=C.campaignProfile(c);
  const cantrips=spells.filter(s=>s.level===0&&s.classes.some(x=>x.name==='Cleric'));
  assert.equal(p.startingAllowance,6);assert.equal(p.growthAllowance,6);assert.equal(p.preparedLimit,4);
- assert.equal(c.spells.filter(s=>s.level===0).length,cantrips.length);
+ assert.equal(c.spells.filter(s=>s.level===0).length,cantrips.length+2);
+ assert.ok(c.spells.some(s=>s.name==='Toll the Dead'));
+ assert.ok(c.spells.some(s=>s.name==='Word of Radiance'));
  assert.equal(C.reconcileCampaign(c).spells.length,c.spells.length);
  c={...c,abilities:{...c.abilities,int:18}};p=C.campaignProfile(c);
  assert.equal(p.startingAllowance,6,'starting allotment is historical');assert.equal(p.preparedLimit,5,'preparation follows current Int');
@@ -94,9 +96,9 @@ test('standard material components distinguish focus, reusable costly objects an
  cast=C.castCampaignSpell(c,identify.catalogId,{ritual:true,componentsConfirmed:true,componentItemId:'pearl'});assert.equal(cast.inventory[1].qty,1,'reusable pearl is retained');assert.equal(cast.currency.gp,999);assert(!cast.slotsUsed);
  assert.throws(()=>C.castCampaignSpell(c,revive.catalogId,{slot:3,componentsConfirmed:true,componentItemId:'absent'}),/inventory|component/i);
 });
-test('Archivist Scribe Scroll uses the DM rates and own-book backups cost one hour and ten gold per level',()=>{
+test('Archivist Scribe Scroll uses Xanathar rates and own-book backups cost one hour and ten gold per level',()=>{
  const s={...spell('Known prayer',2),castingClassId:campaignIds.archivist,prepared:true};let c={...make(3),spells:[s],currency:{gp:500}};
- const scribing=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true});assert.equal(scribing.archivistCampaign.projects[0].cost,100);assert.equal(scribing.archivistCampaign.projects[0].hours,4);
+ const scribing=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true});assert.equal(scribing.archivistCampaign.projects[0].cost,250);assert.equal(scribing.archivistCampaign.projects[0].hours,24);
  c=W.startCampaignProject(c,{kind:'backup',spell:s,materialsConfirmed:true});const j=c.archivistCampaign.projects[0];assert.equal(j.cost,20);assert.equal(j.hours,2);c=W.workCampaignProject(c,j.id,2);c=W.finishCampaignProject(c,j.id);assert(c.inventory.some(i=>i.prayerbookBackup?.some(x=>x.catalogId===s.catalogId)));assert.equal(c.spells.length,1,'backup does not add a second learned spell');
 });
 test('copying from another book has the normal rate without consuming its source or requiring a scroll check',()=>{
@@ -118,6 +120,6 @@ test('scribing pays required spell materials once, and activation requires no se
  const s={...spell('Revivify',3),components:['V','S','M'],material:'Diamonds worth 300 gp, which the spell consumes.',castingClassId:campaignIds.archivist,prepared:true,campaignAcquisition:'outside'};
  let c={...make(5),currency:{gp:500},inventory:[{id:'diamonds',name:'300 gp diamonds',qty:1}],spells:[s]};
  assert.throws(()=>W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true}),/component|material/i);assert.equal(c.currency.gp,500);assert.equal(c.inventory[0].qty,1);assert(!c.slotsUsed);
- c=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true,componentsConfirmed:true,componentItemId:'diamonds'});assert.equal(c.inventory[0].qty,0);assert.equal(c.currency.gp,350);assert.equal(c.slotsUsed[3],1);
- let j=c.archivistCampaign.projects[0];c=W.workCampaignProject(c,j.id,6);c=W.finishCampaignProject(c,j.id);const scroll=c.inventory.find(i=>i.campaignScroll);c=W.useCampaignScroll(c,scroll.id);assert.equal(c.inventory.find(i=>i.id==='diamonds').qty,0);assert.equal(c.currency.gp,350);assert.equal(c.slotsUsed[3],1);assert.equal(c.inventory.find(i=>i.id===scroll.id).qty,0);
+ c=W.startCampaignProject(c,{kind:'scroll',spell:s,materialsConfirmed:true,componentsConfirmed:true,componentItemId:'diamonds'});assert.equal(c.inventory[0].qty,0);assert.equal(c.currency.gp,0);assert(!c.slotsUsed);
+ let j=c.archivistCampaign.projects[0];c=W.workCampaignProject(c,j.id,40);c=W.finishCampaignProject(c,j.id);const scroll=c.inventory.find(i=>i.campaignScroll);c=W.useCampaignScroll(c,scroll.id);assert.equal(c.inventory.find(i=>i.id==='diamonds').qty,0);assert.equal(c.currency.gp,0);assert(!c.slotsUsed);assert.equal(c.inventory.find(i=>i.id===scroll.id).qty,0);
 });

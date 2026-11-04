@@ -1,6 +1,6 @@
 import {conversionSlotPool} from './conversionSlots.js';
 import {archivistFeatureEnabled} from './archivistFeatures.js';
-import {clericCantrips,prayerbookAllowance,reconcilePrayerbook,migratePrayerbookOwnership} from './archivistPrayerbook.js';
+import {archivistCantripCatalog,prayerbookAllowance,reconcilePrayerbook,migratePrayerbookOwnership} from './archivistPrayerbook.js';
 import {supplyArchivistComponents} from './archivistComponents.js';
 import {conversionFeatOwned,conversionFeatActive,conversionStateActive} from './conversionFeatures.js';
 import {conversionFeatSlots,conversionFeatCaster} from './conversionFeatCasting.js';
@@ -30,10 +30,10 @@ export function campaignProfile(c){
  const manifesterLevel=Math.min(20,psion+Math.min(8,Math.max(0,thrallherd-1)));
  const score=total+mod(scores.cha)+thrallherd,roster=thrallherd?followerTable[Math.max(1,Math.min(25,score))]:null;
  return {...classLevels,active,classActive,total,characterLevel,pb,scores,manifesterLevel,int:mod(scores.int),dc:8+pb+mod(scores.int),slots,maxSpellLevel,
-  cantrips:archivist?clericCantrips.length:0,preparedLimit:archivist?count(r.preparedLimit??Math.max(1,characterLevel+mod(scores.int))):0,
+  cantrips:archivist?archivistCantripCatalog(c).length:0,preparedLimit:archivist?count(r.preparedLimit??Math.max(1,characterLevel+mod(scores.int))):0,
   ...book,recoveryBudget:archivist&&archivistFeatureEnabled(c,'Arcane Recovery')?Math.ceil(archivist/2):0,recoveryUsed:!!state.arcaneRecoveryUsed,
   ppMax:psion?count(r.ppMax??(manifesterLevel===1&&(legacyPreset(c)||r.levelOnePPMax!=null)?Number(r.levelOnePPMax??3):psionPoints[manifesterLevel]+Math.max(0,Math.floor(mod(scores.int)*manifesterLevel/2)))):0,ppUsed:count(c.powerPointsUsed),
-  darkMax:archivist&&archivistFeatureEnabled(c,'Dark Knowledge')?3+Math.floor(archivist/3):0,darkUsed:count(state.darkUsed),score,thrallLevel:roster?Math.min(total-1,roster.thrall):null,believers:roster?.believers||null,
+  darkMax:archivist&&archivistFeatureEnabled(c,'Dark Knowledge')?Math.min(9,3+Math.floor(archivist/3)):0,darkUsed:count(state.darkUsed),score,thrallLevel:roster?Math.min(total-1,roster.thrall):null,believers:roster?.believers||null,
   psicrystalBonus:hasConversionFeat(c,'Psicrystal Affinity')&&psion&&!state.psicrystal?.destroyed&&(!Number.isFinite(state.psicrystal?.maxHP)||Number(state.psicrystal?.damage||0)<state.psicrystal.maxHP)&&state.psicrystalNearby!==false&&Number(state.psicrystal?.distance||0)<=5280&&Number(state.psicrystal?.damage||0)<Number(r.crystalHP??Math.max(1,Math.floor((c.hp?.max||1)/2)))?3:0,rulings:r};
 }
 // Old saves encoded choices implicitly. Read them until the one-time migration runs.
@@ -76,7 +76,7 @@ export function acquireCampaignSpell(c,s,{channel='auto',source='',confirmed=fal
  if(s.edition!=='2014'||!Number.isInteger(s.level)||s.level<0||s.level>p.maxSpellLevel)throw Error('Choose a 2014 spell at an available class spell level.');
  if((c.spells||[]).some(x=>key(x)===key(s)&&x.castingClassId===campaignIds.archivist))throw Error('Already recorded in the prayerbook.');
  const cleric=(s.classes||[]).some(n=>(n.name||n)==='Cleric');
- if(s.level===0){if(!cleric)throw Error('Choose a Cleric cantrip.');if((c.spells||[]).filter(x=>x.castingClassId===campaignIds.archivist&&x.level===0).length>=p.cantrips)throw Error('Cantrip limit reached.');channel='cantrip';}
+ if(s.level===0){if(!cleric)throw Error('Choose a Cleric cantrip.');if(!archivistCantripCatalog(c).some(x=>x.name.toLowerCase()===s.name.toLowerCase()))throw Error('This Cleric cantrip source is not approved.');channel='cantrip';}
  else if(channel==='auto'||channel==='growth'||channel==='starting'){
   if(!cleric)throw Error('Free growth requires a Cleric-list spell.');if(!p.growthRemaining)throw Error('No free prayerbook additions remain.');
   if(channel==='auto')channel=s.level===1&&p.startingRemaining?'starting':'growth';
@@ -93,13 +93,48 @@ export function prepareCampaignSpell(c,id,value){
  if(value&&spell.level>0&&!spell.prepared&&(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist&&s.level>0&&s.prepared).length>=p.preparedLimit)throw Error('Preparation limit reached.');
  return {...c,spells:c.spells.map(s=>s===spell?{...s,prepared:!!value}:s)};
 }
-export function useCampaignPower(c,id,{augmentation=0,discount=false}={}){assertCampaignCanAct(c);const p=campaignProfile(c),power=selectedBasePowers(c).find(x=>x.id===id);if(!p.psion||!power)throw Error('Power unavailable.');if(augmentation!==0)throw Error('Additional augmentation is not configured for this base power.');if(discount)throw Error('No daily discount for this power.');if(p.scores.int<11)throw Error('Insufficient Intelligence for this power.');if(p.ppUsed+power.cost>p.ppMax)throw Error('Not enough power points.');const duration=Number(p.rulings[id+'Minutes']??(id==='mindlink'?10:60));return {...c,powerPointsUsed:p.ppUsed+power.cost,archivistCampaign:{...c.archivistCampaign,psicrystal:{...c.archivistCampaign?.psicrystal,pendingTouch:null},powerEffects:{...c.archivistCampaign?.powerEffects,[id]:{minutes:duration}},lastPower:id,lastManifest:{id:crypto.randomUUID(),power:{...power,level:1,minutes:duration,save:id==='attraction'?'wis':''},cost:power.cost,dc:p.dc,resolved:[]}}};}
-export const knowledgeKinds={tactics:1,puissance:5,foe:8,'dread-secret':11,foreknowledge:14};
-export function useDarkKnowledge(c,kind,{check,target}={}){
+export function useCampaignPower(c,id,{augmentation=0,discount=false,targetConfirmed=false}={}){
  assertCampaignCanAct(c);
- const p=campaignProfile(c);if(!Object.hasOwn(knowledgeKinds,kind)||p.archivist<knowledgeKinds[kind])throw Error('This Dark Knowledge effect requires a higher Archivist level.');if(p.darkUsed>=p.darkMax)throw Error('No Dark Knowledge uses remain.');if(check==null||String(check).trim()===''||!Number.isFinite(Number(check))||!String(target||'').trim())throw Error('Enter a check result and target.');
- const dc=Number(p.rulings.knowledgeDC??15),bonus=Number(check)<dc?0:Math.min(3,1+Math.floor((Number(check)-dc)/10));
- return {...c,archivistCampaign:{...c.archivistCampaign,darkUsed:p.darkUsed+1,knowledgeEffect:{kind,target,check:Number(check),dc,bonus,rounds:kind==='dread-secret'?1:10}}};
+ const p=campaignProfile(c), power=selectedBasePowers(c).find(x=>x.id===id);
+ if(!p.psion||!power)throw Error('Power unavailable.');
+ const armor=id==='inertial-armor', link=id==='mindlink';
+ if(!Number.isInteger(augmentation)||augmentation<0||(armor?augmentation%2!==0:augmentation!==0))throw Error('Inertial Armor augmentation requires two additional PP per +1 armor.');
+ if(discount)throw Error('No daily discount for this power.');
+ if(p.scores.int<11)throw Error('Insufficient Intelligence for this power.');
+ const cost=power.cost+augmentation;
+ if(cost>p.manifesterLevel)throw Error('Power point cost exceeds your manifester level.');
+ if(p.ppUsed+cost>p.ppMax)throw Error('Not enough power points.');
+ if((armor||link)&&!targetConfirmed)throw Error(armor?'Confirm you are being targeted before the attack roll and can use your reaction.':'Confirm a willing, eligible Mindlink target in range.');
+ const state=c.archivistCampaign||{}, turn=Number(state.clockMinutes||0);
+ if(armor&&state.inertialArmorReactionTurn===turn)throw Error('Inertial Armor already used your reaction this turn.');
+ const minutes=(link?10:60)*p.manifesterLevel;
+ return {...c,powerPointsUsed:p.ppUsed+cost,archivistCampaign:{
+  ...state,
+  psicrystal:{...state.psicrystal,pendingTouch:null},
+  ...(armor?{inertialArmorReactionTurn:turn}:{}),
+  powerEffects:{...state.powerEffects,[id]:{minutes,...(armor?{armorBonus:4+augmentation/2}:{})}},
+  lastPower:id,
+  lastManifest:{id:crypto.randomUUID(),power:{...power,level:1,minutes,save:id==='attraction'?'wis':''},cost,dc:p.dc,resolved:[],lastResult:link?'Willing Mindlink target linked.':armor?'Armor bonus active for the triggering attack.':undefined}
+ }};
+}
+export const knowledgeKinds={tactics:1,puissance:5,foe:8,'dread-secret':11,foreknowledge:14};
+export function activeDarkKnowledge(c){
+ const state=c.archivistCampaign||{};
+ return (state.knowledgeEffects||[state.knowledgeEffect]).filter(e=>e?.bonus>0&&e.rounds>0);
+}
+export function useDarkKnowledge(c,kind,{check,target,distance=0}={}){
+ assertCampaignCanAct(c);
+ const p=campaignProfile(c), state=c.archivistCampaign||{}, turn=Number(state.clockMinutes||0);
+ if(!Object.hasOwn(knowledgeKinds,kind)||p.archivist<knowledgeKinds[kind])throw Error('This Dark Knowledge effect requires a higher Archivist level.');
+ if(p.darkUsed>=p.darkMax)throw Error('No Dark Knowledge uses remain.');
+ if(state.darkKnowledgeTurn===turn)throw Error('Dark Knowledge can be used once per turn.');
+ if(check==null||String(check).trim()===''||!Number.isFinite(Number(check))||!String(target||'').trim())throw Error('Enter a check result and target.');
+ if(!Number.isFinite(distance)||distance<0||distance>60)throw Error('The studied target must be within 60 feet.');
+ const dc=15, bonus=Number(check)<dc?0:Math.min(3,1+Math.floor((Number(check)-dc)/10));
+ const effect={kind,target:String(target).trim(),check:Number(check),dc,bonus,rounds:bonus?(kind==='dread-secret'?1:10):0};
+ const active=activeDarkKnowledge(c);
+ const identical=e=>e.kind===kind&&e.target.trim().toLowerCase()===effect.target.toLowerCase();
+ return {...c,archivistCampaign:{...state,darkUsed:p.darkUsed+1,darkKnowledgeTurn:turn,knowledgeEffect:effect,knowledgeEffects:bonus?[...active.filter(e=>!identical(e)),effect]:active}};
 }
 export function campaignSkillBonus(c,name){const p=campaignProfile(c);if(!p.active)return 0;const choices=c.archivistCampaign?.loreSkills||[],limit=archivistFeatureEnabled(c,'Lore Mastery')?[2,7,13,17].filter(n=>p.archivist>=n).length:0;return (name==='Perception'?campaignModifiers(c).perception:name==='Acrobatics'?campaignModifiers(c).acrobatics:0)+(name==='Arcana'?p.psicrystalBonus:0)+(['Perception','Investigation'].includes(name)&&p.psicrystalBonus&&c.archivistCampaign?.psicrystal?.distance===0?Number(p.rulings.crystalAlertnessBonus??2):0)+choices.slice(0,limit).filter(s=>s===name).length*2;}
 export function advanceCampaignTime(c,minutes){if(!Number.isInteger(minutes)||minutes<0)throw Error('Enter whole nonnegative minutes.');return tickCampaign(c,minutes);}
@@ -111,12 +146,23 @@ export function recoverArchivistSlots(c,selection){
  if(!spent)throw Error('Select at least one expended spell slot.');if(spent>p.recoveryBudget)throw Error('Arcane Recovery budget exceeded.');
  return {...c,slotsUsed:{...c.slotsUsed,...Object.fromEntries(entries.map(([level,n])=>[level,count(c.slotsUsed?.[level])-n]))},archivistCampaign:{...c.archivistCampaign,arcaneRecoveryUsed:true}};
 }
+export function minimumMetamagicSlot(level,{reach=false,chain=false}={},{archivist=0,rulings={}}={}){
+ const adjusted=Number(level)+(reach?2:0)+(chain?3:0);
+ return archivist>0||rulings.chainCapApproved===true?Math.min(9,adjusted):adjusted;
+}
+export function chainTargetLimit(profile,casterLevel){
+ return Math.min(20,profile.archivist?Math.max(profile.archivist,count(profile.rulings.approvedEffectiveCasterLevel)):casterLevel);
+}
+export function chainRangeEligible(range,reach){
+ const value=String(range||'').trim().toLowerCase();
+ return !/^(self|personal)\b/.test(value)&&(value!=='touch'||reach);
+}
 export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=false,chain=false,confirmed=false,componentsConfirmed=false,componentItemId='',fromScroll=false}={}){
  assertCampaignCanAct(c);
  if(!['standard','pact'].includes(pool))throw Error('Choose a valid spell slot pool.');
  const p=campaignProfile(c),spell=[...(c.spells||[]).filter(s=>s.castingClassId===campaignIds.archivist),...campaignCystSpells(c)].find(s=>key(s)===id);
  if(!spell||!spell.campaignCyst&&(!p.archivist||spell.level>p.maxSpellLevel))throw Error('This spell is not available to the Archivist or selected feat.');
- const caster=spell.campaignCyst?conversionFeatCaster(c):{level:p.archivist,ability:'int'},pools=spell.campaignCyst?conversionFeatSlots(c):Array.isArray(c.slotOverride)?{standard:c.slotOverride,pact:Array(10).fill(0)}:conversionSlotPool(c)||{standard:p.slots,pact:Array(10).fill(0)};
+ const caster=spell.campaignCyst?conversionFeatCaster(c):{id:campaignIds.archivist,level:p.archivist,ability:'int'},pools=spell.campaignCyst?conversionFeatSlots(c):Array.isArray(c.slotOverride)?{standard:c.slotOverride,pact:Array(10).fill(0)}:conversionSlotPool(c)||{standard:p.slots,pact:Array(10).fill(0)};
  if(!caster)throw Error('Choose an available spellcasting class for this feat.');
  const slots=pools?.[pool]||[],usedKey=pool==='pact'?'pactSlotsUsed':'slotsUsed',used=c[usedKey]||{},dc=8+p.pb+mod(p.scores[caster.ability]),casterLevel=spell.campaignCyst?p.total:caster.level;
  if(spell.campaignCyst&&c.archivistCampaign?.empowerment?.rounds>0&&spell.name!=='Necrotic Empowerment')throw Error('Necrotic Empowerment blocks other Mother Cyst spells.');
@@ -125,14 +171,14 @@ export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=
  if(spell.level&&!spell.campaignCyst&&!spell.prepared)throw Error('Prepare this prayerbook spell first.');
  const feats=campaignFeats(c).map(f=>f.name);
  if(reach&&(!feats.includes('Reach Spell')||String(spell.range).toLowerCase()!=='touch'))throw Error('Reach requires the feat and a Touch spell.');
- if(chain&&(!feats.includes('Chain Spell')||!confirmed||String(spell.range).toLowerCase()==='touch'&&!reach))throw Error('Confirm single-target Chain eligibility and range.');
- let minimum=spell.level+(reach?2:0)+(chain?3:0);
- if(minimum>9&&p.rulings.chainCapApproved===true)minimum=9;
- if(minimum&&(!Number.isInteger(slot)||slot<minimum||!slots[slot]||count(used[slot])>=slots[slot]))throw Error('Choose an available slot that covers the adjusted spell level.');
+ if(chain&&(!feats.includes('Chain Spell')||!confirmed||!chainRangeEligible(spell.range,reach)))throw Error('Confirm single-target Chain eligibility and range.');
+ const minimum=minimumMetamagicSlot(spell.level,{reach,chain},p);
+ const spendSlot=minimum>0&&!fromScroll;
+ if(spendSlot&&(!Number.isInteger(slot)||slot<minimum||slot>9||!slots[slot]||count(used[slot])>=slots[slot]))throw Error('Choose an available slot that covers the adjusted spell level.');
  const ruleId=id.replace('darkdonte:',''),rule={...necroticRules[ruleId],...p.rulings.spellRules?.[ruleId]};
  const supplied=supplyArchivistComponents(c,spell,{componentsConfirmed,componentItemId,fromScroll});
  const paid=rule.cost&&!fromScroll?spendCampaignGold(supplied,Number(rule.cost)):supplied;
- return {...paid,...(spell.concentration?{concentration:spell.name}:{}),...(minimum?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...c.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,casterLevel,castingAbility:caster.ability,effectLevel:minimum?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):0,slot:minimum?slot:0,pool,dc,reach,chain,secondaryTargets:chain?Math.min(20,caster.level):0,secondaryDC:chain?dc-4:null}}};
+ return {...paid,...(spell.concentration?{concentration:spell.name}:{}),...(spendSlot?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...paid.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,casterLevel,castingAbility:caster.ability,effectLevel:spendSlot?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):spell.level,slot:spendSlot?slot:0,pool,dc,reach,chain,secondaryTargets:chain?chainTargetLimit(p,caster.level):0,secondaryDC:chain?dc-(rule.damageCap?0:4):null}}};
 }
 export function addCampaignFollower(c,{name,kind='believers',level=1,quantity=1,notes=''}={}){
  const p=campaignProfile(c),list=c.archivistCampaign?.followers||[];
