@@ -92,7 +92,7 @@ export function subclassRollTraits(c,{kind='check',name='',concentration=false,d
 // Explicit, narrowly scoped states. Other source prose remains table-resolved.
 const numericToggles=[
  {recordId:id('sorcerer','stone-sorcery-ua'),feature:'stones-durability',stateKey:'stone-skin',label:"Stone’s Durability: stone skin active",duration:'Action to activate; ends when dismissed or incapacitated'},
- {recordId:id('ranger','gloom-stalker'),feature:'dread-ambusher',stateKey:'dread-ambusher-first-turn',label:'Dread Ambusher: this is my first combat turn',duration:'Until next turn; at most 1 round',remainingSeconds:6,expires:'start-next-turn'},
+ {recordId:id('ranger','gloom-stalker'),feature:'dread-ambusher',stateKey:'dread-ambusher-first-turn',label:'Dread Ambusher: this is my first combat turn',duration:'Until the end of your first combat turn',remainingSeconds:6,expires:'end-turn'},
 ];
 export function subclassNumericToggles(c){if(((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')!=='2014')return [];return numericToggles.flatMap(t=>expandedSubclassRows(c).filter(p=>p.record.id===t.recordId&&expandedFeatureUnlocked(p,{featureId:`${t.recordId}:${t.feature}`,level:p.record.features.find(f=>f.id===`${t.recordId}:${t.feature}`)?.level??99})).map(p=>({...t,subclassRecordId:t.recordId,sourceClassId:p.row.catalogId,sourceFeatureId:`${t.recordId}:${t.feature}`,active:sourceSubclassEffects(c,{recordId:t.recordId,ownerId:p.row.catalogId,stateKey:t.stateKey}).length>0})));}
 export function setSubclassNumericToggle(c,key,active){

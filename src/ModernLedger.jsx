@@ -293,7 +293,8 @@ function useOwnerCombatActions({char,patch,roll,abilities}) {
     if(blocked)return;patch(current=>afterBladesingerAttack(current,{hands:weapon.hands}));
     const result=roll(`1d20${signed(weapon.attack)}`,`${weapon.name} · attack`,{kind:'attack',weaponAttack:true});
     if(result&&weapon.entomancerStrike)patch(current=>applyEntomancerAction(current,'consume-strike'));
-    if(result)weaponDamage(weapon,!is35(char)&&result.total-result.bonus>=(weapon.criticalThreshold||20));
+    if(result){const critical=!is35(char)&&result.total-result.bonus>=(weapon.criticalThreshold||20);weaponDamage(weapon,critical);if(weapon.extraWeaponDice)roll(critical?criticalDice(weapon.extraWeaponDice):weapon.extraWeaponDice,weapon.name+' · bonus weapon damage if hit',{kind:'damage',ignoreCharacterEffects:true});}
+    return result;
   }
   return {subclassNumbers,styledUnarmed,damageNotice,weaponDamage,totem,rageDamage,blocked,swarm,unarmedExtra,echoOwnerSaveBonus,echoOwnerSave,unarmedAttack,attack};
 }
