@@ -23,13 +23,26 @@ try{
  await page.getByRole('tab',{name:'Spells',exact:true}).click();await page.getByRole('region',{name:'Archivist spells',exact:true}).waitFor();
  await page.getByRole('tab',{name:'Actions',exact:true}).click();assert.equal(await tools().isVisible(),false);await page.getByRole('button',{name:'Open Class tools',exact:true}).click();await openClassTools(page);
  assert.equal(await tools().getByLabel('Studied creature or group').inputValue(),'Undead scouts');assert.equal(await tools().getByLabel('Knowledge check result').inputValue(),'25');await tools().getByRole('button',{name:'Use Dark Knowledge',exact:true}).click();assert.equal(await count('Dark Knowledge').innerText(),'3 / 4');
- await chooseClassPower(page,'Mindlink');assert.equal(await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).count(),1);await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).click();assert.equal(await count('Power Points').innerText(),'2 / 3');assert.match(await tools().innerText(),/Mindlink.*1 PP spent/s);assert.match(await tools().innerText(),/10 minutes remaining/);
+ await chooseClassPower(page,'Mindlink');assert.equal(await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).count(),1);await tools().getByLabel('Willing Intelligence 3+ target is within close range').check();await tools().getByRole('button',{name:'Manifest Mindlink',exact:true}).click();assert.equal(await count('Power Points').innerText(),'2 / 3');assert.match(await tools().innerText(),/Mindlink.*1 PP spent/s);assert.match(await tools().innerText(),/10 minutes remaining/);assert.equal(await tools().getByLabel('Psionic target save total').count(),0);
  await tools().getByRole('button',{name:'Short rest · Hit Dice',exact:true}).click();await page.getByRole('button',{name:'Complete short rest',exact:true}).click();assert.equal(await count('Power Points').innerText(),'2 / 3');
  await tools().getByRole('button',{name:'Long rest · restore resources',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();assert.equal(await count('Power Points').innerText(),'3 / 3');await owner('Archivist');assert.equal(await count('Dark Knowledge').innerText(),'4 / 4');
  await openClassTools(page,'Projects');assert.equal(await tools().getByLabel('Project work hours').inputValue(),'12');
  await page.setViewportSize({width:390,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await openClassTools(page);await tools().screenshot({path:'test-results/class-tools-mobile.png'});
  await page.setViewportSize({width:1440,height:1100});await tools().screenshot({path:'test-results/class-tools-desktop.png'});
  await load({...base,name:'Independent Telepath tools',className:'Psion (Telepath)',classDefinition:campaignClasses[1],classLevels:[{catalogId:campaignClasses[1].catalogId,name:campaignClasses[1].name,edition:'2014',definition:campaignClasses[1],level:1}],level:1});assert.equal(await tools().getByRole('heading',{name:'Dark Knowledge',exact:true}).count(),0);assert.equal(await tools().getByLabel('Studied creature or group').count(),0);assert.equal(await count('Power Points').innerText(),'3 / 3');
- await load({...base,name:'Knowledge ruling tools',archivistCampaign:{...base.archivistCampaign,rulings:{...base.archivistCampaign?.rulings,knowledgeDC:20}}});assert.match(await tools().locator('.class-ability-rules').innerText(),/DC 20;.*at 30,.*at 40/);
+ await load({...base,name:'Knowledge ruling tools',archivistCampaign:{...base.archivistCampaign,rulings:{...base.archivistCampaign?.rulings,knowledgeDC:20}}});assert.match(await tools().locator('.class-ability-rules').innerText(),/DC 15;.*at 25,.*at 35/);
+ await load({...base,name:'Psicrystal revival',hp:{...base.hp,current:0},deathSaves:{failure:3,success:0},inventory:[{id:'ring',name:'Ring of Spell Storing',qty:1}]});
+ await owner('Psicrystal Affinity');
+ await tools().getByText('Sage Psicrystal',{exact:true}).click();
+ await tools().getByText('Psicrystal Ring of Spell Storing',{exact:true}).click();
+ await tools().getByLabel('Available ring').selectOption('ring');
+ await tools().getByRole('button',{name:'Assign ring to Psicrystal'}).click();
+ await tools().getByLabel('A caster has cast this spell into the ring, spending the appropriate resources').check();
+ await tools().getByRole('button',{name:'Record stored spell'}).click();
+ await tools().getByLabel('Minutes since death when casting completes').fill('0.5');
+ await tools().getByLabel('The Psicrystal can reach the body and all spell requirements are met').check();
+ await tools().getByRole('button',{name:'Record Psicrystal revival'}).click();
+ await tools().getByText(/Stored levels: 0 \/ 5/).waitFor();
+ assert.match(await page.locator('.hp-value').innerText(),/^1\s*\//);
  assert.deepEqual(errors,[]);console.log('PASS owner-specific Class tools, canonical spending, rules, retained drafts, prayerbook, rests, pure Telepath and phone layout');
 }finally{await browser.close();await server.close();}

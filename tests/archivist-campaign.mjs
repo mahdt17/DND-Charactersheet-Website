@@ -11,7 +11,7 @@ assert.equal(C.campaignProfile(c).maxSpellLevel,2);assert.equal(C.campaignProfil
 assert.equal(C.campaignProfile({...c,ruleset:'3.5'}).active,false);
 assert.equal(C.campaignProfile({...c,classLevels:[{name:'Archivist',level:4,edition:'3.5',definition:{name:'Archivist',catalogId:'dndtools:classes/archivist-74',edition:'3.5'}}]}).active,false);
 assert.throws(()=>C.useCampaignPower({...c,powerPointsUsed:3},'mindlink'),/points/i);
-c=C.useCampaignPower(c,'mindlink');assert.equal(c.powerPointsUsed,1);
+c=C.useCampaignPower(c,'mindlink',{targetConfirmed:true});assert.equal(c.powerPointsUsed,1);
 for(let level=6;level<=20;level++){
  c=C.advanceArchivistCampaign(c);
  const p=C.campaignProfile(c);

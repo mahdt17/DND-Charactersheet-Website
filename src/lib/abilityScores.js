@@ -12,10 +12,10 @@ function calculate(c,key,bonuses,effects){
  return {base,bonus,featBonus,effectBonus,total,modifier:Math.floor((total-10)/2)};
 }
 // The popup and all existing sheet consumers share this calculation.
-export function effectiveAbilityScores(c){const bonuses=recordedAbilityBonuses(c),effects=campaignModifiers(c).abilities;return Object.fromEntries(keys.map(key=>[key,calculate(c,key,bonuses,effects).total]));}
+export function effectiveAbilityScores(c){const bonuses=recordedAbilityBonuses(c),effects=campaignModifiers(c,bonuses).abilities;return Object.fromEntries(keys.map(key=>[key,calculate(c,key,bonuses,effects).total]));}
 export function abilityScoreBreakdown(c,key){
  if(!keys.includes(key))throw new Error('Choose an ability score.');
- const result=calculate(c,key,recordedAbilityBonuses(c),campaignModifiers(c).abilities),edition=(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
+ const bonuses=recordedAbilityBonuses(c),result=calculate(c,key,bonuses,campaignModifiers(c,bonuses).abilities),edition=(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
  const featSources=[];let remaining=result.featBonus;
  for(const feat of c.feats||[]){const state=featMagicState(feat,c);if(state.valid&&state.profile?.abilityIncrease&&state.ability===key&&feat.magicChoices?.applyAbilityIncrease!==false){const bonus=Math.min(1,remaining);featSources.push({name:feat.name,bonus,capped:bonus===0});remaining-=bonus;}}
  const origin=edition==='2024'?(c.background||'Background'):([c.race,c.subrace].filter(Boolean).join(' · ')||'Species');

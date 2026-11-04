@@ -15,7 +15,7 @@ c=createArchivistCampaign();for(let i=0;i<14;i++)c=advanceArchivistCampaign(c,{k
 assert.equal(psicrystalProfile(c).level,15);assert.equal(psicrystalProfile(c).powerResistance,20);
 c=activatePsicrystal(c,'sight');assert.throws(()=>activatePsicrystal(c,'sight'),/used/);
 c=campaignRest(c,'long');c=activatePsicrystal(c,'sight');
-c=movePsicrystal(c,0);c=manifestWithPsicrystal(c,'inertial-armor',{mode:'share'});assert(psicrystalProfile(c).sharedPowers['inertial-armor']);
+c=movePsicrystal(c,0);c=manifestWithPsicrystal(c,'inertial-armor',{mode:'share',targetConfirmed:true});assert(psicrystalProfile(c).sharedPowers['inertial-armor']);
 c=movePsicrystal(c,6);assert.deepEqual(psicrystalProfile(c).sharedPowers,{});
 c=movePsicrystal(c,0);c=learnCampaignPower(c,{name:'Test Touch',level:1,range:'Touch',minutes:1});
 const id=c.archivistCampaign.knownPowers[0].id;

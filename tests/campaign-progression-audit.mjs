@@ -16,12 +16,12 @@ for(let n=1;n<=20;n++){
  assert.equal(p.archivist,n);assert.equal(p.psion,0);assert.equal(p.total,n);assert.equal(p.pb,2+Math.floor((n-1)/4));
  assert.deepEqual(p.slots,[0,...Array.from({length:9},(_,i)=>table[`spell_slots_level_${i+1}`]||0)]);
  assert.equal(p.maxSpellLevel,Math.min(9,Math.ceil(n/2)));assert.equal(p.darkMax,3+Math.floor(n/3));
- assert.equal(p.preparedLimit,n+5);assert.equal(p.cantrips,7);assert.equal(p.growthAllowance,8+2*(n-1));
+ assert.equal(p.preparedLimit,n+5);assert.equal(p.cantrips,9);assert.equal(p.growthAllowance,8+2*(n-1));
  assert.deepEqual(C.campaignFeats(c),[]);
  for(const [kind,gate] of Object.entries(C.knowledgeKinds)){
   if(n<gate){assert.throws(()=>C.useDarkKnowledge(c,kind,{target:'Undead',check:35}),/level/);continue;}
   for(const [check,tier] of [[14,0],[15,1],[24,1],[25,2],[34,2],[35,3]]){
-   const used=C.useDarkKnowledge(c,kind,{target:'Undead',check});assert.equal(used.archivistCampaign.darkUsed,1);assert.equal(used.archivistCampaign.knowledgeEffect.bonus,tier);assert.equal(used.archivistCampaign.knowledgeEffect.rounds,kind==='dread-secret'?1:10);
+   const used=C.useDarkKnowledge(c,kind,{target:'Undead',check});assert.equal(used.archivistCampaign.darkUsed,1);assert.equal(used.archivistCampaign.knowledgeEffect.bonus,tier);assert.equal(used.archivistCampaign.knowledgeEffect.rounds,tier?(kind==='dread-secret'?1:10):0);
   }
  }
  assert.throws(()=>C.useDarkKnowledge(c,'tactics',{check:15}),/target/);assert.throws(()=>C.useDarkKnowledge(c,'tactics',{target:'Undead'}),/check/);

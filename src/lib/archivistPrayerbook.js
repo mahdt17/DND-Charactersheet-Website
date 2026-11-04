@@ -1,7 +1,12 @@
+import referenceCantrips from '../data/archivistClericCantrips.json' with {type:'json'};
 import spells from '../data/spells.json' with {type:'json'};
 import {campaignIds} from '../data/archivistCampaign.js';
 const count=n=>Math.max(0,Math.floor(Number(n)||0));
 export const clericCantrips=spells.filter(s=>s.level===0&&s.classes.some(x=>(x.name||x)==='Cleric')).map(s=>({...s,edition:'2014',catalogId:'2014:'+s.index,classes:s.classes.map(x=>x.name||x),school:s.school?.name||s.school,description:s.desc?.join('\n\n')||'',castingClassId:campaignIds.archivist,campaignAcquisition:'cantrip',prepared:true}));
+export function archivistCantripCatalog(c){
+ const published=referenceCantrips.filter(s=>!s.sourceBook.startsWith('Unearthed Arcana')||c.archivistCampaign?.approvedUACantrips);
+ return [...clericCantrips,...published.map(s=>({...s,castingClassId:campaignIds.archivist,campaignAcquisition:'cantrip',prepared:true}))].sort((a,b)=>a.name.localeCompare(b.name));
+}
 export function migratePrayerbookOwnership(c){
  const primary=c.classLevels?.[0]?.definition?.catalogId||c.classLevels?.[0]?.catalogId||c.classDefinition?.catalogId;
  if(primary!==campaignIds.archivist)return c;
@@ -27,6 +32,6 @@ export function prayerbookAllowance(c,level,intModifier){
 export function reconcilePrayerbook(c,p){
  if(!p.archivist)return c;
  const spells=[...(c.spells||[])];
- for(const s of clericCantrips)if(!spells.some(x=>x.castingClassId===campaignIds.archivist&&(x.catalogId===s.catalogId||x.name===s.name)))spells.push({...s,id:crypto.randomUUID()});
+ for(const s of archivistCantripCatalog(c))if(!spells.some(x=>x.castingClassId===campaignIds.archivist&&(x.catalogId===s.catalogId||x.name?.toLowerCase()===s.name.toLowerCase())))spells.push({...s,id:crypto.randomUUID()});
  return {...c,spells,archivistCampaign:{...c.archivistCampaign,startingIntBonus:c.archivistCampaign?.startingIntBonus??Math.max(0,p.int),startingSpent:p.startingUsed,growthSpent:p.growthUsed,growthByLevel:p.growthByLevel}};
 }
