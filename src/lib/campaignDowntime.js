@@ -58,7 +58,10 @@ export function startCampaignProject(c,{kind,spell,recipeId,targetId='self',sour
 function project(c,id){const job=c.archivistCampaign?.projects?.find(p=>p.id===id);if(!job||job.status!=='active')throw Error('Project is not active or already completed.');return job;}
 function requireProjectSource(c,j){if(j.kind==='graft'&&!hasConversionFeat(c,'Graft Flesh: Silthilar'))throw Error('Graft Flesh feat required for this project.');if(j.kind==='scroll'&&!archivistFeatureEnabled(c,'Scribe Scroll'))throw Error('Scribe Scroll is disabled by your DM.');if(j.kind!=='graft'&&!campaignProfile(c).archivist)throw Error('Archivist required for this project.');}
 const setJob=(c,id,values)=>({...c,archivistCampaign:{...c.archivistCampaign,projects:c.archivistCampaign.projects.map(j=>j.id===id?{...j,...values}:j)}});
-export function workCampaignProject(c,id,hours){assertCampaignCanAct(c);const j=project(c,id);requireProjectSource(c,j);whole(hours,'Work hours',1,j.hours-j.worked);return setJob(advanceCampaignTime(c,hours*60),id,{worked:j.worked+hours});}
+export function workCampaignProject(c,id,hours){assertCampaignCanAct(c);const j=project(c,id);requireProjectSource(c,j);if(!Number.isFinite(hours)||hours<=0||hours>j.hours-j.worked)throw Error('Work hours must be positive and within the remaining project hours.');return setJob(advanceCampaignTime(c,hours*60),id,{worked:j.worked+hours});}
+export function setCampaignProjectHours(c,id,hours){const j=project(c,id);if(typeof hours!=='number'||!Number.isFinite(hours)||hours<0||hours>j.hours)throw Error(`Completed hours must be between 0 and ${j.hours}.`);return setJob(c,id,{worked:hours});}
+const graftRecipientDead=n=>n?.dead||n?.soulDestroyed||(Array.isArray(n?.conditions)?n.conditions:String(n?.conditions||'').split(',')).some(x=>String(x?.name??x).trim().toLowerCase()==='dead');
+export function canTriggerSilthilarHeart(c,id,damage){const state=c.archivistCampaign||{},n=id==='self'?c:recipient(c,id),mods=id==='self'?campaignModifiers(c):graftModifiers(n?.grafts),used=id==='self'?state.heartUsedAt:n?.heartUsedAt,now=Number(state.clockMinutes||0);if(!n||!mods.heart||graftRecipientDead(n)||id==='self'&&(state.dead||c.entomancer?.dead||c.deathSaves?.failure>=3)||used!=null&&now-used<1440)return false;const hp=Number(n.hp?.current||0),effective=Math.max(0,damage-Number(n.hp?.temp||0));return hp>0&&effective>=hp&&effective-hp<Number(n.hp.max||0);}
 export function finishCampaignProject(c,id,{arcana}={}){
  const j=project(c,id);if(j.worked<j.hours)throw Error('Complete the project work first.');let next=c;
  requireProjectSource(c,j);
@@ -94,4 +97,19 @@ export function useCampaignScroll(c,id){
  const cast=castCampaignSpell({...c,spells:book},spellId,{slot:level,confirmed:true,fromScroll:true});
  return {...cast,spells:original,slotsUsed:c.slotsUsed,inventory:c.inventory.map(i=>i.id===id?{...i,qty:i.qty-1}:i),archivistCampaign:{...cast.archivistCampaign,lastCast:{...cast.archivistCampaign.lastCast,scroll:true}}};
 }
-export function triggerSilthilarHeart(c,id,healing){whole(healing,'4d8+20 healing',24,52);const state=c.archivistCampaign||{},now=Number(state.clockMinutes||0),n=id==='self'?{...c,heartUsedAt:state.heartUsedAt}:recipient(c,id),mods=id==='self'?campaignModifiers(c):graftModifiers(n?.grafts);if(!mods.heart||!n||n.dead||n.soulDestroyed||id==='self'&&(c.deathSaves?.failure>=3||c.archivistCampaign?.dead)||n.hp.current!==0||n.heartUsedAt!=null&&now-n.heartUsedAt<1440)throw Error('Heart requires a living recipient at 0 HP and 24 hours since its last use.');return id==='self'?{...c,hp:{...c.hp,current:Math.min(c.hp.max,healing)},deathSaves:{success:0,failure:0},archivistCampaign:{...state,heartUsedAt:now}}:updateCreature(c,id,n=>({...n,hp:{...n.hp,current:Math.min(n.hp.max,healing)},heartUsedAt:now}));}
+export function triggerSilthilarHeart(c,id,healing){whole(healing,'4d8+20 healing',24,52);const state=c.archivistCampaign||{},now=Number(state.clockMinutes||0),n=id==='self'?{...c,heartUsedAt:state.heartUsedAt}:recipient(c,id),mods=id==='self'?campaignModifiers(c):graftModifiers(n?.grafts);if(!mods.heart||!n||graftRecipientDead(n)||id==='self'&&(c.deathSaves?.failure>=3||c.archivistCampaign?.dead)||n.hp.current!==0||n.heartUsedAt!=null&&now-n.heartUsedAt<1440)throw Error('Heart requires a living recipient at 0 HP and 24 hours since its last use.');return id==='self'?{...c,concentration:null,hp:{...c.hp,current:Math.min(c.hp.max,healing)},deathSaves:{success:0,failure:0},archivistCampaign:{...state,heartUsedAt:now}}:updateCreature(c,id,n=>({...n,hp:{...n.hp,current:Math.min(n.hp.max,healing)},heartUsedAt:now}));}
+
+// Observe completed HP updates, so damage from spells and other sheet tools also triggers the graft.
+export function observeSilthilarHearts(before,after,roll){
+ let next=after;
+ for(const id of ['self',...(after.archivistCampaign?.creatures||[]).map(n=>n.id)]){
+  const old=id==='self'?before:before.archivistCampaign?.creatures?.find(n=>n.id===id),current=id==='self'?next:next.archivistCampaign?.creatures?.find(n=>n.id===id);
+  if(!old?.hp||current?.hp?.current!==0||!canTriggerSilthilarHeart(before,id,old.hp.current+Number(old.hp.temp||0)))continue;
+  const conditions=Array.isArray(current.conditions)?current.conditions:String(current.conditions||'').split(',');
+  if(current.dead||current.soulDestroyed||current.killedOutright||conditions.some(x=>String(x?.name??x).trim().toLowerCase()==='dead')||id==='self'&&(next.archivistCampaign?.dead||next.entomancer?.dead||current.deathSaves?.failure>=3))continue;
+  const result=roll('4d8+20',(id==='self'?'':current.name+' ')+'Silthilar Heart',{ignoreCharacterEffects:true});
+  if(result)next=triggerSilthilarHeart(next,id,result.total);
+ }
+ const {killedOutright,...saved}=next;
+ return saved;
+}
