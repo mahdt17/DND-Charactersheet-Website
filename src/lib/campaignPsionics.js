@@ -1,3 +1,4 @@
+import {psicrystalProfile} from './campaignPsicrystal.js';
 import {campaignProfile,legacyPreset,useCampaignPower} from './archivistCampaign.js';
 import {assertCampaignCanAct} from './campaignActivity.js';
 import {campaignPowers} from '../data/archivistCampaign.js';
@@ -34,4 +35,20 @@ export function attractionInteractionBonus(c,targetId,{relevant=false}={}){
  const target=c.archivistCampaign?.creatures?.find(n=>n.id===targetId);
  if(!target||target.dead||target.soulDestroyed)return 0;
  return (target.conditions||[]).some(e=>e.name==='Attracted'&&e.rounds>0&&e.attractionCaster===c.id&&e.interactionBonus===4)?4:0;
+}
+
+export function manifestationOptions(c,power){
+ const p=extendedPsionProfile(c);
+ const crystal=psicrystalProfile(c),distance=crystal.distance,near=crystal.alive&&crystal.nearby;
+ const modes=[{id:'normal',label:'Normal'}];
+ if(near&&distance<=5&&['Self','Personal'].includes(power?.range))modes.push({id:'share',label:'Share with Psicrystal within 5 feet'});
+ if(near&&distance===0&&p.psion>=3&&power?.range==='Touch')modes.push({id:'touch',label:'Hold touch power through Psicrystal'});
+ if(near&&p.psion>=15)modes.push({id:'channel',label:'Channel through Psicrystal'});
+ const discountGate=power?.id==='psionic-charm'?3:power?.id==='psionic-dominate'?5:Infinity;
+ const maxAdditional=Math.max(0,Math.min(p.manifesterLevel,p.ppMax-p.ppUsed)-Number(power?.cost||1));
+ return {modes,discount:p.thrallherd>=discountGate,
+  discountUsed:!!c.archivistCampaign?.thrallDiscounts?.[power?.id],
+  targetTypes:power?.id==='psionic-dominate',
+  augmentation:power?.id==='inertial-armor'?Math.floor(maxAdditional/2)*2:0,
+  typeWaiver:power?.id==='psionic-dominate'?(p.thrallherd>=9?4:p.thrallherd>=7?2:0):0};
 }

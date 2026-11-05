@@ -2,7 +2,7 @@ import {conversionSlotPool} from './conversionSlots.js';
 import {archivistFeatureEnabled} from './archivistFeatures.js';
 import {archivistCantripCatalog,prayerbookAllowance,reconcilePrayerbook,migratePrayerbookOwnership} from './archivistPrayerbook.js';
 import {supplyArchivistComponents} from './archivistComponents.js';
-import {conversionFeatOwned,conversionFeatActive,conversionStateActive} from './conversionFeatures.js';
+import {conversionFeatOwned,conversionFeatActive,conversionStateActive,refreshConversionFeatDescriptions} from './conversionFeatures.js';
 import {conversionFeatSlots,conversionFeatCaster} from './conversionFeatCasting.js';
 import {campaignScores,campaignModifiers} from './campaignModifiers.js';
 import {tickCampaign} from './campaignTime.js';
@@ -57,7 +57,7 @@ export function createArchivistCampaign(name='Darkdonte'){
  return {id:crypto.randomUUID(),name,ruleset:'2014',mechanics:'2014',race:'Variant Human',className:'Archivist',classDefinition:campaignClasses[0],classLevels,level:5,hitDie:'d6',abilities:{str:10,dex:10,con:10,int:15,wis:13,cha:16},abilityBonuses:{},hp:{current:22,max:22,temp:0},ac:10,autoArmor:true,speed:30,saveProf:{con:true,wis:true},skillProf:{Arcana:true,Religion:true},inventory:[],spells:[],actions:[],resources:[],feats:[],powerPointsUsed:0,languages:'Common, Infernal',archivistCampaign:{preset:true,psicrystalNearby:true,growthSpent:0,darkUsed:0,rulings:{},followers:[],notes:''}};
 }
 export function advanceArchivistCampaign(c,{hpGain,kind:chosenKind}={}){
- c=preservePsicrystalDestruction(c);
+ c=refreshConversionFeatDescriptions(preservePsicrystalDestruction(c));
  const p=campaignProfile(c);if(!p.active)throw Error('No campaign classes.');if(p.total>=20)throw Error('The campaign build ends at character level 20.');
  const all=rows(c),kind=chosenKind||(p.archivist===1&&!p.psion?'psion':p.total>=5&&!p.thrallherd?'thrallherd':'archivist');
  if(!['archivist','psion','thrallherd'].includes(kind)||p[kind]>=(kind==='thrallherd'?10:20))throw Error('Class level limit reached.');
@@ -189,7 +189,7 @@ export function addCampaignFollower(c,{name,kind='believers',level=1,quantity=1,
  return {...c,archivistCampaign:{...c.archivistCampaign,followers:[...list,{id:crypto.randomUUID(),name:name.trim(),kind,level,quantity,notes,arrivalHours:24}]}};
 }
 export function reconcileCampaign(c){
- c=preservePsicrystalDestruction(c);
+ c=refreshConversionFeatDescriptions(preservePsicrystalDestruction(c));
  if(legacyPreset(c)){
   const before=campaignProfile(c),state=c.archivistCampaign||{};
   const granted=[...campaignFeats(c).map(f=>({...f,...(f.name==='Psicrystal Affinity'?{conversionBonusSlot:'psion:1'}:{}),...(f.name==='Chain Spell'?{conversionBonusSlot:'archivist:10'}:{})})),

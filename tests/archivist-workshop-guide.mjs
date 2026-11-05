@@ -91,3 +91,24 @@ test('paid legacy scroll and graft projects retain their stored hours and resour
  assert.equal(c.inventory[0].campaignScroll.spell.catalogId,spell.catalogId);
  assert.equal(graftModifiers(c.archivistCampaign.grafts).ac,2);
 });
+
+test('setting completed hours preserves paid project snapshot across reload',()=>{
+ let c=fresh(); c.archivistCampaign.projects=[{id:'paid',kind:'graft',name:'Saved graft',recipe:{id:'chitin',ac:2},cost:2000,hours:40,worked:3,status:'active',targetId:'self'}];
+ c=W.setCampaignProjectHours(c,'paid',25); c=JSON.parse(JSON.stringify(c));
+ assert.equal(c.archivistCampaign.projects[0].worked,25); assert.equal(c.archivistCampaign.projects[0].cost,2000); assert.equal(c.archivistCampaign.projects[0].recipe.ac,2);
+ assert.throws(()=>W.setCampaignProjectHours(c,'paid',41),/hours/i);
+});
+test('heart eligibility requires a living transition to zero without outright death and respects cooldown',()=>{
+ let c=fresh(); c.archivistCampaign.grafts=[{recipeId:'heart'}]; c.hp={current:10,max:40,temp:0};
+ assert.equal(W.canTriggerSilthilarHeart(c,'self',10),true);
+ assert.equal(W.canTriggerSilthilarHeart(c,'self',50),false);
+ assert.equal(W.canTriggerSilthilarHeart({...c,deathSaves:{failure:3}},'self',10),false);
+ c={...c,archivistCampaign:{...c.archivistCampaign,heartUsedAt:0,clockMinutes:1439}};
+ assert.equal(W.canTriggerSilthilarHeart(c,'self',10),false);
+ assert.equal(W.canTriggerSilthilarHeart({...c,archivistCampaign:{...c.archivistCampaign,clockMinutes:1440}},'self',10),true);
+});
+
+test('fractional recorded work can finish its remaining fraction through Work',()=>{
+ let c=fresh();c.archivistCampaign.projects=[{id:'fraction',kind:'graft',name:'Saved graft',recipe:{id:'chitin',ac:2},cost:2000,hours:40,worked:3,status:'active',targetId:'self'}];
+ c=W.setCampaignProjectHours(c,'fraction',39.5);c=W.workCampaignProject(c,'fraction',0.5);assert.equal(c.archivistCampaign.projects[0].worked,40);assert.equal(c.archivistCampaign.clockMinutes,30);
+});
