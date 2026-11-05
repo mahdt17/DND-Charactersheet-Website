@@ -22,5 +22,5 @@ export function tickCampaign(c,minutes){
   powerEffects:Object.fromEntries(Object.entries(state.powerEffects||{}).map(([k,v])=>[k,{...v,minutes:remaining(v.minutes,minutes)}]).filter(([,v])=>v.minutes>0)),
   knowledgeEffects:(state.knowledgeEffects||[state.knowledgeEffect]).filter(e=>e?.bonus>0).map(e=>({...e,rounds:remaining(e.rounds,rounds)})).filter(e=>e.rounds>0),
   knowledgeEffect:state.knowledgeEffect?{...state.knowledgeEffect,rounds:remaining(state.knowledgeEffect.rounds,rounds)}:null,
-  followers:(state.followers||[]).map(f=>({...f,arrivalHours:remaining(Number(f.arrivalHours||0)*60,minutes)/60})),creatures:(state.creatures||[]).map(creature)}};
+  followers:(state.followers||[]).map(f=>({...f,arrivalHours:remaining(Number(f.arrivalHours||0)*60,minutes)/60})),partyCasters:(state.partyCasters||[]).map(n=>turns>0?{...n,reactionUsed:false}:n),creatures:(state.creatures||[]).map(creature)}};
 }

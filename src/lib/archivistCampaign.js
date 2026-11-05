@@ -1,3 +1,4 @@
+import {previousManifestHistory} from './manifestHistory.js';
 import {conversionSlotPool} from './conversionSlots.js';
 import {archivistFeatureEnabled} from './archivistFeatures.js';
 import {archivistCantripCatalog,prayerbookAllowance,reconcilePrayerbook,migratePrayerbookOwnership} from './archivistPrayerbook.js';
@@ -109,7 +110,7 @@ export function useCampaignPower(c,id,{augmentation=0,discount=false,targetConfi
  if(armor&&state.inertialArmorReactionTurn===turn)throw Error('Inertial Armor already used your reaction this turn.');
  const minutes=(link?10:60)*p.manifesterLevel;
  return {...c,powerPointsUsed:p.ppUsed+cost,archivistCampaign:{
-  ...state,
+  ...state,manifestHistory:previousManifestHistory(state),
   psicrystal:{...state.psicrystal,pendingTouch:null},
   ...(armor?{inertialArmorReactionTurn:turn}:{}),
   powerEffects:{...state.powerEffects,[id]:{minutes,...(armor?{armorBonus:4+augmentation/2}:{})}},
