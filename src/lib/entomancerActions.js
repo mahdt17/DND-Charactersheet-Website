@@ -54,11 +54,16 @@ export function observeEntomancerHP(before,after){
  next.effects.bugArmor={...a,left:a.replaced?a.left:Math.max(0,a.left-Math.max(0,delta)),replaced:a.replaced||delta<0};
  return {...after,entomancer:next};
 }
-export function entomancerDamage(c,amount,{type='',magical=false,vulnerable=false,deadMan=false}={}){
- amount=integer(amount);const p=entomancerProfile(c);if(!p.level)return c;
+export function entomancerDamageAmount(c,amount,{type='',magical=false,vulnerable=false}={}){
+ amount=integer(amount);const p=entomancerProfile(c);
  let n=amount;if(!magical&&['bludgeoning','piercing','slashing'].includes(type))n=Math.max(0,n-p.physicalReduction);
  const resistant=totemDamageResistance(c,type)||p.resistances.includes(type)||p.nonmagicalSlashing&&!magical&&type==='slashing'||p.allResistance&&!!type&&!vulnerable;
  if(resistant)n=Math.floor(n/2);if(vulnerable)n*=2;
+ return {amount:n,resistant};
+}
+export function entomancerDamage(c,amount,{type='',magical=false,vulnerable=false,deadMan=false}={}){
+ const p=entomancerProfile(c);if(!p.level)return c;
+ const {amount:n,resistant}=entomancerDamageAmount(c,amount,{type,magical,vulnerable});
  const absorbed=Math.min(c.hp.temp||0,n),hp={...c.hp,temp:(c.hp.temp||0)-absorbed,current:Math.max(0,c.hp.current-(n-absorbed))};
  let next=observeEntomancerHP(c,{...c,hp});next={...next,entomancer:state(next)};
  if(p.song&&hp.current>0&&n>0)next.entomancer.songSaveDCs.push(Math.max(10,Math.floor(n/2)));
