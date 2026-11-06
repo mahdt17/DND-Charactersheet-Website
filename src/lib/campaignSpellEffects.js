@@ -73,7 +73,8 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,damagi
    result=`${reducedDamage} damage`;
   }else result='Resolve the secondary effect at the table';
  }else if(tableTarget){
-  result=chainDamage?`${amount} necrotic damage; apply to ${queued.name} at the table`:passed?'Save succeeded':'Apply the spell effect at the table';
+  const lethal=['burst','eruption','termination'].includes(rule.effect)&&!passed&&!secondary&&!area;
+  result=lethal?`Target killed; apply death and free cyst consequences to ${queued.name} at the table`:rule.effect==='cyst'&&!passed?`Cyst implanted; apply to ${queued.name} at the table`:rule.damageCap?`${amount} necrotic damage; apply to ${queued.name} at the table`:chainDamage?`${amount} damage; apply to ${queued.name} at the table`:passed?'Save succeeded':'Apply the spell effect to '+queued.name+' at the table';
  }else if(rule.effect==='empower'){
   if(targetId!=='self')throw Error('Empowerment affects the caster.');
   const temp=Number(rule.tempHP??100);whole(temp,'Temporary HP');
@@ -92,7 +93,7 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,damagi
   if(!passed)next=updateCreature(c,targetId,n=>({...n,cyst:{caster:c.id,castId:cast.id}}));result=passed?'Save succeeded':'Cyst implanted';
  }else if(rule.effect==='control'){
   const tumor=cast.spellId==='darkdonte:necrotic-tumor';
-  if(!passed||tumor)next=updateCreature(c,targetId,n=>({...n,control:{spellId:cast.spellId,caster:c.id,dc,minutes:passed?Number(rule.suggestionMinutes??1440):rule.minutes??null,suggestion:passed?order:null,refusedOrders:[]}}));result=passed?(tumor?'Suggestion only':'Save succeeded'):'Control established';
+  if(!passed||tumor)next=updateCreature(c,targetId,n=>({...n,control:{spellId:cast.spellId,castId:cast.id,caster:c.id,dc,minutes:passed?Number(rule.suggestionMinutes??1440):rule.minutes??null,suggestion:passed?order:null,refusedOrders:[]}}));result=passed?(tumor?'Suggestion only':'Save succeeded'):'Control established';
  }else if(rule.damageCap){
   const lethal=['burst','eruption','termination'].includes(rule.effect)&&!passed&&!secondary&&!area;
   next=updateCreature(c,targetId,n=>lethal?{...n,dead:true,soulDestroyed:rule.effect==='termination',hp:{...n.hp,current:0,temp:0}}:damage(n,amount));
