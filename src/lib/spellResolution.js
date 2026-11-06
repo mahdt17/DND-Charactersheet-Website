@@ -14,6 +14,7 @@ const integer=(v,label)=>{number(v,label);if(!Number.isInteger(v)||v<0)throw Err
 const creature=(c,id)=>id==='self'?c:c.archivistCampaign?.creatures?.find(n=>n.id===id);
 const normalizeAbility=value=>{const key=String(value||'').toLowerCase().slice(0,3);return abilities.includes(key)?key:'';};
 const saveBasisKeys=['targetId','ability','modifier','adjustment','cystAdjustment','dc','mode'];
+export const saveBasisSnapshot=plan=>Object.fromEntries(saveBasisKeys.map(key=>[key,plan[key]]));
 export const saveBasisMatches=(plan,proof)=>!!proof&&saveBasisKeys.every(key=>same(plan?.[key],proof[key]));
 export function spellSaveMetadata(cast){
  const s=cast.spell||{},r=cast.rule||{},damage=Array.isArray(s.damage)?s.damage:s.damage?[s.damage]:[];
@@ -99,7 +100,7 @@ export function resolveSpellTarget(c,castId,targetId,input={}){
  }
  let proof={...plan,faces:[],total:null,passed:null,method:input.blocked?'blocked':'manual'};
  if(plan.needsSave&&!input.blocked){
-  if(previous&&(previous.ability!==plan.ability||previous.dc!==plan.dc)&&!input.rolled&&!input.freshSaveConfirmed)throw Error('The save ability or DC changed. Roll again or explicitly enter a fresh manual save total.');
+  if(previous&&!input.recordOnly&&!saveBasisMatches(plan,previous)&&!input.rolled&&!saveBasisMatches(plan,input.freshSaveBasis))throw Error('The save basis changed. Roll again or explicitly enter a fresh manual save total.');
   if(input.rolled){if(!saveBasisMatches(plan,input.rolled))throw Error('Save inputs changed; roll again or enter a manual total.');proof=saveResult(plan,{rolls:input.rolled.faces});}
   else{const total=number(input.save,'the target save total')+plan.cystAdjustment;proof={...proof,total,passed:total>=plan.dc};}
  }
@@ -136,7 +137,8 @@ export function resolveSpellTarget(c,castId,targetId,input={}){
  }
  if(!plan.secondary&&!input.area&&cast.chain){if(meta.damaging||input.damaging||rule.damageCap)cast.primaryDamage=input.blocked?0:amount;else delete cast.primaryDamage;}
  const appliedJournal=input.recordOnly?null:journal(previous?undoForJournal(c,previous,input.recordOnly):c,next,targetId);
- const record={...proof,castId,targetId,name:plan.name,damage:amount,condition,blocked:!!input.blocked,instruction:input.recordOnly?'Record-only correction; statistics unchanged. Manually reconcile the previous effect and '+(instruction||'apply the corrected spell outcome at the table'):instruction,recordOnly:!!input.recordOnly,journal:appliedJournal,input:clone({...input,correct:undefined,recordOnly:undefined}),needsCorrection:false,revisions:[...(previous?.revisions||[]),...(previous?[{...previous,revisions:undefined}]:[])],recordedAt:new Date().toISOString()};
+ const manualInstruction=previous?'Record-only correction; statistics unchanged. Manually reconcile the previous effect and '+(instruction||'apply the corrected spell outcome at the table'):'Record-only resolution; statistics unchanged. '+(instruction||'Apply this spell outcome at the table');
+ const record={...proof,castId,targetId,name:plan.name,damage:amount,condition,blocked:!!input.blocked,instruction:input.recordOnly?manualInstruction:instruction,recordOnly:!!input.recordOnly,journal:appliedJournal,input:clone({...input,correct:undefined,recordOnly:undefined}),needsCorrection:false,revisions:[...(previous?.revisions||[]),...(previous?[{...previous,revisions:undefined}]:[])],recordedAt:new Date().toISOString()};
  const changedPrimary=previous&&!plan.secondary&&cast.chain&&original.primaryDamage!==cast.primaryDamage;
  const saveDrafts={...original.saveDrafts};delete saveDrafts[targetId];
  cast={...cast,saveDrafts,results:previous?(original.results||[]).map(r=>r.targetId===targetId?record:changedPrimary&&r.secondary?{...r,needsCorrection:true}:r):[...(original.results||[]),record],resolved:[...new Set([...(original.resolved||[]),targetId])],secondaryResolved:(original.secondaryResolved||0)+(!previous&&plan.secondary?1:0),lastResult:record.instruction,targets:cast.targets?.map(t=>t.targetId===targetId?{...t,status:'resolved',result:record.instruction}:t)};

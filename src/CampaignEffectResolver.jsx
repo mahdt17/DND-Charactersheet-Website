@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {B,F,Num,Target,sign} from './CampaignControls';
 import {spellRule} from './lib/campaignSpellEffects';
-import {findSpellCast,replaceSpellCast,spellSaveMetadata,targetSavePlan,recordTargetSaveRoll,clearTargetSaveRoll,reconcileSaveDrafts,saveBasisMatches,resolveSpellTarget,supportedConditions} from './lib/spellResolution';
+import {findSpellCast,replaceSpellCast,spellSaveMetadata,targetSavePlan,recordTargetSaveRoll,clearTargetSaveRoll,reconcileSaveDrafts,saveBasisMatches,saveBasisSnapshot,resolveSpellTarget,supportedConditions} from './lib/spellResolution';
 import ChainTargetList from './ChainTargetList';
 
 function Proof({result}){
@@ -21,10 +21,12 @@ function TargetResolution({char,cast,patch,roll}){
  const id=name.trim()?'table:'+name.trim().toLowerCase():target,meta=spellSaveMetadata(cast),rule=cast.rule||{},plan=targetSavePlan(char,cast.id,id,{...input,name}),previous=cast.results?.find(r=>r.targetId===id),queued=cast.targets?.find(t=>t.targetId===id);
  const activeRolled=saveBasisMatches(plan,rolled)?rolled:null,pending=Object.entries(cast.saveDrafts||{}).filter(([draftId,draft])=>{try{return saveBasisMatches(targetSavePlan(char,cast.id,draftId,draft.input),draft.proof);}catch{return false;}});
  useEffect(()=>{if(reconcileSaveDrafts(char,cast.id)!==char)patch(current=>reconcileSaveDrafts(current,cast.id));},[char,cast.id]);
- const change=(key,value)=>{setInput(old=>({...old,[key]:value,...(key==='condition'?{rounds:old.rounds??1}:{}),...(key==='save'?{freshSaveConfirmed:true}:{}),...(key==='damage'?{damageProof:undefined}:{})}));if(['modifier','adjustment','cystConfirmed','mode','ability','save','area'].includes(key)){setRolled(null);patch(current=>clearTargetSaveRoll(current,cast.id,id));}};
+ const staleManual=correct&&previous&&!saveBasisMatches(plan,previous)&&!saveBasisMatches(plan,input.freshSaveBasis)&&!activeRolled;
+ useEffect(()=>{if(staleManual&&(input.save!==''&&input.save!=null||input.freshSaveBasis||rolled)){setInput(old=>({...old,save:'',freshSaveBasis:undefined,freshSaveConfirmed:undefined,...(previous.ability!==plan.ability?{modifier:undefined}:{})}));setRolled(null);}},[staleManual,input.save,input.freshSaveBasis,rolled,previous,plan.ability]);
+ const change=(key,value)=>{setInput(old=>({...old,[key]:value,...(key==='condition'?{rounds:old.rounds??1}:{}),...(key==='save'?{freshSaveBasis:saveBasisSnapshot(plan),freshSaveConfirmed:undefined}:['modifier','adjustment','cystConfirmed','mode','ability','area'].includes(key)?{freshSaveBasis:undefined}:{}),...(key==='damage'?{damageProof:undefined}:{})}));if(['modifier','adjustment','cystConfirmed','mode','ability','save','area'].includes(key)){setRolled(null);patch(current=>clearTargetSaveRoll(current,cast.id,id));}};
  const choose=id=>{const draft=cast.saveDrafts?.[id];setTarget(id);setName(id.startsWith('table:')?draft?.input.name||id.slice(6):'');setInput(draft?.input||initial());setRolled(draft?.proof||null);setCorrect(false);setError('');};
  const run=fn=>{try{fn();setError('');}catch(e){setError(e.message);}};
- const reopen=r=>{const basis=targetSavePlan(char,cast.id,r.targetId,r.input||{}),fresh=saveBasisMatches(basis,r);setTarget(r.targetId);setName('');setInput(fresh?{...r.input,save:r.total==null?'':r.total-r.cystAdjustment}:{...r.input,modifier:undefined,save:'',freshSaveConfirmed:false});setRolled(fresh&&r.method==='rolled'?r:null);setCorrect(true);setError('');};
+ const reopen=r=>{const basis=targetSavePlan(char,cast.id,r.targetId,r.input||{}),fresh=saveBasisMatches(basis,r);setTarget(r.targetId);setName('');setInput(fresh?{...r.input,save:r.total==null?'':r.total-r.cystAdjustment,freshSaveBasis:undefined,freshSaveConfirmed:undefined}:{...r.input,modifier:undefined,save:'',freshSaveBasis:undefined,freshSaveConfirmed:undefined});setRolled(fresh&&r.method==='rolled'?r:null);setCorrect(true);setError('');};
  const view={...char,archivistCampaign:{...char.archivistCampaign,lastCast:cast}};
  const legacyOrdinary=!cast.spell&&!rule.effect,damaging=meta.damaging||input.damaging||plan.chainDamage;
  const manualLabel=plan.chainDamage?'Target Dexterity save total':`Target ${plan.ability.toUpperCase()} save total (before cyst penalty)`;
@@ -46,7 +48,7 @@ function TargetResolution({char,cast,patch,roll}){
  <p>Automatic Necrotic Cyst adjustment: {sign(plan.cystAdjustment)}. Do not include it in the modifier, additional adjustment or manual total.</p>
  <F label="Target save mode"><select value={input.mode||'normal'} onChange={e=>change('mode',e.target.value)}><option value="normal">Normal</option><option value="advantage">Target advantage</option><option value="disadvantage">Target disadvantage</option></select></F>
  <B disabled={!id||!plan.ability||previous&&!correct} onClick={()=>run(()=>{const next=recordTargetSaveRoll(char,cast.id,id,{...input,name},roll),draft=findSpellCast(next,cast.id).saveDrafts?.[id];if(draft){patch(next);setRolled(draft.proof);}})}>Roll Save</B>
- <Num label={manualLabel} value={input.save??''} min={-999} onChange={v=>change('save',v)}/><p>Manual total includes the target modifier and additional adjustments; cyst is applied separately.</p>
+ <Num label={manualLabel} value={staleManual?'':input.save??''} min={-999} onChange={v=>change('save',v)}/><p>Manual total includes the target modifier and additional adjustments; cyst is applied separately.</p>
  {activeRolled&&<p aria-label="Visible save result" role="status"><Proof result={activeRolled}/></p>}
  </>}
  {!meta.damaging&&!rule.effect&&!plan.secondary&&<label><input type="checkbox" checked={!!input.damaging} onChange={e=>change('damaging',e.target.checked)}/>This spell deals damage</label>}
