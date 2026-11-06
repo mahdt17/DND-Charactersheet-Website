@@ -1,3 +1,4 @@
+import {recordSpellCast} from './spellCastHistory.js';
 import {previousManifestHistory} from './manifestHistory.js';
 import {conversionSlotPool} from './conversionSlots.js';
 import {archivistFeatureEnabled} from './archivistFeatures.js';
@@ -168,7 +169,7 @@ export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=
  const slots=pools?.[pool]||[],usedKey=pool==='pact'?'pactSlotsUsed':'slotsUsed',used=c[usedKey]||{},dc=8+p.pb+mod(p.scores[caster.ability]),casterLevel=spell.campaignCyst?p.total:caster.level;
  if(spell.campaignCyst&&c.archivistCampaign?.empowerment?.rounds>0&&spell.name!=='Necrotic Empowerment')throw Error('Necrotic Empowerment blocks other Mother Cyst spells.');
  if(spell.campaignCyst&&!confirmed)throw Error('Confirm the campaign spell effects with your DM before casting.');
- if(ritual){if(!spell.ritual||spell.campaignCyst||reach||chain)throw Error('Only a recorded ritual can be cast without a slot.');const supplied=supplyArchivistComponents(c,spell,{componentsConfirmed,componentItemId,fromScroll});return {...supplied,...(spell.concentration?{concentration:spell.name}:{}),archivistCampaign:{...c.archivistCampaign,lastCast:{name:spell.name,spellId:id,ritual:true}}};}
+ if(ritual){if(!spell.ritual||spell.campaignCyst||reach||chain)throw Error('Only a recorded ritual can be cast without a slot.');const supplied=supplyArchivistComponents(c,spell,{componentsConfirmed,componentItemId,fromScroll});return recordSpellCast({...supplied,...(spell.concentration?{concentration:spell.name}:{})},spell,{name:spell.name,spellId:id,ritual:true,dc,casterLevel,characterLevel:c.level,effectLevel:spell.level});}
  if(spell.level&&!spell.campaignCyst&&!spell.prepared)throw Error('Prepare this prayerbook spell first.');
  const feats=campaignFeats(c).map(f=>f.name);
  if(reach&&(!feats.includes('Reach Spell')||String(spell.range).toLowerCase()!=='touch'))throw Error('Reach requires the feat and a Touch spell.');
@@ -179,7 +180,8 @@ export function castCampaignSpell(c,id,{slot,pool='standard',ritual=false,reach=
  const ruleId=id.replace('darkdonte:',''),rule={...necroticRules[ruleId],...p.rulings.spellRules?.[ruleId]};
  const supplied=supplyArchivistComponents(c,spell,{componentsConfirmed,componentItemId,fromScroll});
  const paid=rule.cost&&!fromScroll?spendCampaignGold(supplied,Number(rule.cost)):supplied;
- return {...paid,...(spell.concentration?{concentration:spell.name}:{}),...(spendSlot?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...paid.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,casterLevel,castingAbility:caster.ability,effectLevel:spendSlot?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):spell.level,slot:spendSlot?slot:0,pool,dc,reach,chain,secondaryTargets:chain?chainTargetLimit(p,caster.level):0,secondaryDC:chain?dc-(rule.damageCap?0:4):null}}};
+ const next={...paid,...(spell.concentration?{concentration:spell.name}:{}),...(spendSlot?{[usedKey]:{...used,[slot]:count(used[slot])+1}}:{}),archivistCampaign:{...paid.archivistCampaign,lastCast:{id:crypto.randomUUID(),resolved:[],rule,name:spell.name,spellId:id,casterLevel,castingAbility:caster.ability,effectLevel:spendSlot?Math.max(spell.level,slot-(reach?2:0)-(chain?3:0)):spell.level,slot:spendSlot?slot:0,pool,dc,reach,chain,secondaryTargets:chain?chainTargetLimit(p,caster.level):0,secondaryDC:chain?dc-(rule.damageCap?0:4):null}}};
+ return recordSpellCast({...next,archivistCampaign:{...next.archivistCampaign,lastCast:c.archivistCampaign?.lastCast}},spell,{...next.archivistCampaign.lastCast,characterLevel:c.level});
 }
 export function addCampaignFollower(c,{name,kind='believers',level=1,quantity=1,notes=''}={}){
  const p=campaignProfile(c),list=c.archivistCampaign?.followers||[];
