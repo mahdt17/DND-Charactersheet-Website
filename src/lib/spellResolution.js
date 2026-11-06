@@ -13,6 +13,8 @@ const number=(v,label)=>{if(!Number.isFinite(v))throw Error('Enter '+label+'.');
 const integer=(v,label)=>{number(v,label);if(!Number.isInteger(v)||v<0)throw Error(label+' must be a nonnegative whole number.');return v;};
 const creature=(c,id)=>id==='self'?c:c.archivistCampaign?.creatures?.find(n=>n.id===id);
 const normalizeAbility=value=>{const key=String(value||'').toLowerCase().slice(0,3);return abilities.includes(key)?key:'';};
+const saveBasisKeys=['targetId','ability','modifier','adjustment','cystAdjustment','dc','mode'];
+export const saveBasisMatches=(plan,proof)=>!!proof&&saveBasisKeys.every(key=>same(plan?.[key],proof[key]));
 export function spellSaveMetadata(cast){
  const s=cast.spell||{},r=cast.rule||{},damage=Array.isArray(s.damage)?s.damage:s.damage?[s.damage]:[];
  const pick=(map,level)=>map?.[Object.keys(map||{}).map(Number).filter(n=>n<=level).sort((a,b)=>b-a)[0]];
@@ -49,6 +51,14 @@ export function clearTargetSaveRoll(c,castId,targetId){
  const cast=findSpellCast(c,castId);if(!cast?.saveDrafts?.[targetId])return c;
  const saveDrafts={...cast.saveDrafts};delete saveDrafts[targetId];return replaceSpellCast(c,{...cast,saveDrafts});
 }
+export function reconcileSaveDrafts(c,castId){
+ const cast=findSpellCast(c,castId);if(!cast?.saveDrafts)return c;
+ let changed=false;const saveDrafts={};for(const [targetId,draft] of Object.entries(cast.saveDrafts)){
+  let valid=false;try{valid=saveBasisMatches(targetSavePlan(c,castId,targetId,draft.input),draft.proof);}catch{}
+  if(valid)saveDrafts[targetId]=draft;else changed=true;
+ }
+ return changed?replaceSpellCast(c,{...cast,saveDrafts}):c;
+}
 // Only fields this resolution changed are journaled. Identity lookup avoids array-index rollback.
 function fieldChanges(before,after,path=[],out=[]){
  for(const k of new Set([...Object.keys(before||{}),...Object.keys(after||{})])){
@@ -63,10 +73,11 @@ function journal(before,after,targetId){
  const a=creature(before,targetId),b=creature(after,targetId),changes=a&&b?fieldChanges(targetId==='self'?{hp:a.hp,conditions:a.conditions,dead:a.dead,concentration:a.concentration}:{...a},targetId==='self'?{hp:b.hp,conditions:b.conditions,dead:b.dead,concentration:b.concentration}:{...b}):[];
  const globals=fieldChanges({empowerment:before.archivistCampaign?.empowerment,sensing:before.archivistCampaign?.sensing},{empowerment:after.archivistCampaign?.empowerment,sensing:after.archivistCampaign?.sensing});
  const beforeIds=(before.archivistCampaign?.creatures||[]).map(n=>n.id),spawned=(after.archivistCampaign?.creatures||[]).some(n=>!beforeIds.includes(n.id));
- return {targetId,changes,globals,manualOnly:spawned};
+ const selfZeroHP=targetId==='self'&&Number(before.hp?.current)>0&&Number(after.hp?.current)===0;
+ return {targetId,changes,globals,manualOnly:spawned||selfZeroHP};
 }
 function undo(c,entry){
- if(!entry)return c;if(entry.manualOnly)throw Error('Correction conflict: spawned or lethal side effects require record-only correction and manual application.');
+ if(!entry)return c;if(entry.manualOnly)throw Error('Correction conflict: spawned or zero-HP side effects require record-only correction and manual application.');
  const n=creature(c,entry.targetId);
  for(const change of entry.changes)if(!n||!same(at(n,change.path),change.after))throw Error('Correction conflict: target '+change.path.join('.')+' changed. Use record-only correction and reconcile at the table.');
  for(const change of entry.globals)if(!same(at(c.archivistCampaign,change.path),change.after))throw Error('Correction conflict: campaign effect changed. Use record-only correction.');
@@ -88,14 +99,16 @@ export function resolveSpellTarget(c,castId,targetId,input={}){
  }
  let proof={...plan,faces:[],total:null,passed:null,method:input.blocked?'blocked':'manual'};
  if(plan.needsSave&&!input.blocked){
-  if(input.rolled){if(!same(Object.fromEntries(['targetId','ability','modifier','adjustment','cystAdjustment','dc','mode'].map(k=>[k,plan[k]])),Object.fromEntries(['targetId','ability','modifier','adjustment','cystAdjustment','dc','mode'].map(k=>[k,input.rolled[k]]))))throw Error('Save inputs changed; roll again or enter a manual total.');proof=saveResult(plan,{rolls:input.rolled.faces});}
+  if(previous&&(previous.ability!==plan.ability||previous.dc!==plan.dc)&&!input.rolled&&!input.freshSaveConfirmed)throw Error('The save ability or DC changed. Roll again or explicitly enter a fresh manual save total.');
+  if(input.rolled){if(!saveBasisMatches(plan,input.rolled))throw Error('Save inputs changed; roll again or enter a manual total.');proof=saveResult(plan,{rolls:input.rolled.faces});}
   else{const total=number(input.save,'the target save total')+plan.cystAdjustment;proof={...proof,total,passed:total>=plan.dc};}
  }
  let amount=null,instruction='',condition=null;
  if(input.blocked)instruction='Blocked: no effect';
  else if(rule.effect&&!input.recordOnly){
+  if((cast.spell?.concentration||rule.concentration)&&(next.concentration!==cast.name||next.archivistCampaign?.concentrationCastId!==cast.id))throw Error('The source cast is no longer the active concentration; use record-only manual resolution.');
   // Legacy campaign rules remain authoritative; pass a total before their own cyst adjustment.
-  const prepared={...cast,resolved:(cast.resolved||[]).filter(id=>id!==targetId),secondaryResolved:Math.max(0,(cast.secondaryResolved||0)-(previous&&plan.secondary?1:0)),targets:[...(cast.targets||[]).map(t=>t.targetId===targetId?{...t,status:'queued'}:t),...(!queued&&targetId.startsWith('table:')?[{targetId,name:plan.name,status:'queued'}]:[])]};
+  const prepared={...cast,resolved:previous&&!plan.secondary&&!input.area?[]:(cast.resolved||[]).filter(id=>id!==targetId),secondaryResolved:Math.max(0,(cast.secondaryResolved||0)-(previous&&plan.secondary?1:0)),targets:[...(cast.targets||[]).map(t=>t.targetId===targetId?{...t,status:'queued'}:t),...(!queued&&targetId.startsWith('table:')?[{targetId,name:plan.name,status:'queued'}]:[])]};
   const live=next.archivistCampaign?.lastCast;
   const withCast={...next,archivistCampaign:{...next.archivistCampaign,lastCast:prepared}};
   const target=creature(next,targetId),legacyPenalty=target?.cyst&&String(cast.spellId).startsWith('darkdonte:necrotic-')&&rule.save&&!input.area&&!plan.chainDamage?-2:0;
