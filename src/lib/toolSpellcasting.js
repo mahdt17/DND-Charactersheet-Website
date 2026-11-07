@@ -1,3 +1,4 @@
+import {recordSpellCast} from './spellCastHistory.js';
 import {campaignCystSpells,campaignProfile,hasConversionFeat,minimumMetamagicSlot,chainTargetLimit,chainRangeEligible} from './archivistCampaign.js';
 import {applyCooperativeSpell,castCooperativeSpell} from './campaignSpellEffects.js';
 import {conversionFeatCaster} from './conversionFeatCasting.js';
@@ -28,5 +29,5 @@ export function castToolSpell(c,id,options={},participants=[]){
  if(minimum&&(!Number.isInteger(slot)||slot<minimum))throw Error('Choose a slot covering the adjusted spell level.');
  const next={...c,...(minimum?spendSpellSlot(c,spell,slot,pool):{})},dc=8+p.pb+modifier;
  const cast={...next,...(spell.concentration?{concentration:spell.name}:{}),archivistCampaign:{...next.archivistCampaign,lastCast:{id:crypto.randomUUID(),name:spell.name,spellId:id,rule:{},resolved:[],slot:minimum?slot:0,pool,dc,castingAbility:ability,casterLevel:row.level,effectLevel:minimum?Math.max(Number(spell.level),slot-(reach?2:0)-(chain?3:0)):0,reach,chain,secondaryTargets:chain?chainTargetLimit(p,row.level):0,secondaryDC:chain?dc-4:null,cooperators:[]}}};
- return applyCooperativeSpell(cast,options,participants);
+ return applyCooperativeSpell(recordSpellCast({...cast,archivistCampaign:{...cast.archivistCampaign,lastCast:c.archivistCampaign?.lastCast}},spell,{...cast.archivistCampaign.lastCast,characterLevel:c.level,edition:model.mechanics||model.ruleset}),options,participants);
 }

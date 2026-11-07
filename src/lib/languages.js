@@ -8,7 +8,7 @@ import {shadarKaiRace} from './shadarKai.js';
 import {isAasimar} from './aasimar.js';
 import {aasimarRace} from '../data/aasimar.js';
 import {isEladrin} from './eladrin.js';
-import races from '../data/races.json';
+import races from '../data/races.json' with {type:'json'};
 
 export const standard14=['Common','Dwarvish','Elvish','Giant','Gnomish','Goblin','Halfling','Orc'];
 export const exotic14=['Abyssal','Celestial','Draconic','Deep Speech','Infernal','Primordial','Sylvan','Undercommon'];

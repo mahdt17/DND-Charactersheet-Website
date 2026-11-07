@@ -5,6 +5,7 @@ import {styleSpellAttackBonus} from './lib/fightingStyles';
 import SpellEffects from './SpellEffects';
 import {castEffectPatch,needsEffectRecipient,healingSpell,temporaryHpSpell} from './lib/spellEffects';
 import {conditionEffects} from './lib/play';
+import {recordSpellCast} from './lib/spellCastHistory';
 import {campaignActionBlockReason} from './lib/campaignActivity';
 import CampaignSpells from './CampaignSpells';
 import FeatMetamagic from './FeatMetamagic';
@@ -127,14 +128,15 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
     try{for(const d of dice){if(!/^\d+$/.test(d.expression)){rollDice(d.expression,'normal',()=>0);if(!is35(classModel)&&(plan.attack||attack)&&d.critical!==false&&/damage/i.test(d.label))rollDice(criticalDice(d.expression),'normal',()=>0);}}}catch(error){setCastError(error.message);return;}
     try {
     const spend=quick?spendQuickRitual(char,cast):needsSlot&&!ritual?spendActiveSlot(castingSpell,slot,slotPool):{};
-    const rolled=[];
+    const rolled=[],damageRolls=[];
     if(!ritual)for(let i=0;i<(plan.attack||attack?plan.count:1);i++){
       const hit=plan.attack||attack?roll(`1d20${signed(is35(classModel)?(Number(char.bab)||0)+modifier(effectiveAbilities(char)[/ranged/i.test(cast.attack_type||cast.description||'')?'dex':'str']):pb+mod+styleSpellAttackBonus(char,cast))}`,`${cast.name} · attack ${i+1}`,{kind:'attack'}):null;
-      for(const d of dice){if(i>0&&d.oncePerCast)continue;if(/^\d+$/.test(d.expression)){rolled.push({label:d.label,total:Number(d.expression)});continue;}const result=roll(!is35(classModel)&&hit&&hit.total-hit.bonus===20&&d.critical!==false&&/damage/i.test(d.label)?criticalDice(d.expression):d.expression,`${cast.name} · ${d.label}`,{kind:'damage'});rolled.push({label:d.label,total:result?.total});}
+      for(const d of dice){if(i>0&&d.oncePerCast)continue;if(/^\d+$/.test(d.expression)){rolled.push({label:d.label,total:Number(d.expression)});if(/damage/i.test(d.label))damageRolls.push({total:Number(d.expression),rolls:[],label:d.label});continue;}const result=roll(!is35(classModel)&&hit&&hit.total-hit.bonus===20&&d.critical!==false&&/damage/i.test(d.label)?criticalDice(d.expression):d.expression,`${cast.name} · ${d.label}`,{kind:'damage'});rolled.push({label:d.label,total:result?.total});if(result&&/damage/i.test(d.label))damageRolls.push(result);}
     }
     const effectPatch=castEffectPatch({...char,...(is35(classModel)?{mechanics:'3.5'}:{})},cast,{recipient,rolls:rolled,plan,slotLevel:slot,maxHP:conditionEffects(char).maxHP});
     const spellBase=dailySpend?.spells||char.spells;
-    patch({...(entomancerProfile(char).song&&entomancerProfile(char).level<14&&/^(?:1 )?action$/i.test(cast.casting_time||'')?{entomancer:{...char.entomancer,song:false}}:{}),...specialSpend,...(dailySpend?{resources:dailySpend.resources,dailySpellLike35:dailySpend.dailySpellLike35}:{}),...spend,...(is35(classModel)&&cast.concentration?{concentration:cast.name}:{}),...effectPatch,spells:spellBase.map(s=>s.id===cast.id?{...s,rollFormula:formula,rollAttack:attack}:s)});
+    const castChanges={...(entomancerProfile(char).song&&entomancerProfile(char).level<14&&/^(?:1 )?action$/i.test(cast.casting_time||'')?{entomancer:{...char.entomancer,song:false}}:{}),...specialSpend,...(dailySpend?{resources:dailySpend.resources,dailySpellLike35:dailySpend.dailySpellLike35}:{}),...spend,...(is35(classModel)&&cast.concentration?{concentration:cast.name}:{}),...effectPatch,spells:spellBase.map(s=>s.id===cast.id?{...s,rollFormula:formula,rollAttack:attack}:s)};
+    patch(recordSpellCast({...char,...castChanges},cast,{dc:8+pb+mod,castingAbility:ability,casterLevel:active.level,characterLevel:char.level,effectLevel:ritual||quick?cast.level:slot,slot:needsSlot&&!ritual&&!quick?slot:0,pool:slotPool,ritual,edition:mechanics(classModel),damageRolls,plan}));
     }catch(error){setCastError(error.message);return;}
     if(cast.dailySpellLikeGrant){setCastNotice(cast.name+' used as an Arcane Dilettante spell-like ability; 1 Inspiration spent.');setCast(null);return;}
     setCastNotice(cast.isManeuver?`${cast.name} used.`:`${cast.name} cast${quick?' using Quick Ritual':ritual?' as a ritual':needsSlot?` using a level ${slot}${slotPool==='pact'?' Pact Magic':''} slot`:''}.${cast.concentration?' Concentration started.':''}`);setCast(null);

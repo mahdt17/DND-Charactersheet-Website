@@ -73,7 +73,8 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,damagi
    result=`${reducedDamage} damage`;
   }else result='Resolve the secondary effect at the table';
  }else if(tableTarget){
-  result=chainDamage?`${amount} necrotic damage; apply to ${queued.name} at the table`:passed?'Save succeeded':'Apply the spell effect at the table';
+  const lethal=['burst','eruption','termination'].includes(rule.effect)&&!passed&&!secondary&&!area;
+  result=lethal?`Target killed; apply death and free cyst consequences to ${queued.name} at the table`:rule.effect==='cyst'&&!passed?`Cyst implanted; apply to ${queued.name} at the table`:rule.damageCap?`${amount} necrotic damage; apply to ${queued.name} at the table`:chainDamage?`${amount} damage; apply to ${queued.name} at the table`:passed?'Save succeeded':'Apply the spell effect to '+queued.name+' at the table';
  }else if(rule.effect==='empower'){
   if(targetId!=='self')throw Error('Empowerment affects the caster.');
   const temp=Number(rule.tempHP??100);whole(temp,'Temporary HP');
@@ -92,7 +93,7 @@ export function resolveCampaignSpell(c,targetId,{save,damage:rolledDamage,damagi
   if(!passed)next=updateCreature(c,targetId,n=>({...n,cyst:{caster:c.id,castId:cast.id}}));result=passed?'Save succeeded':'Cyst implanted';
  }else if(rule.effect==='control'){
   const tumor=cast.spellId==='darkdonte:necrotic-tumor';
-  if(!passed||tumor)next=updateCreature(c,targetId,n=>({...n,control:{spellId:cast.spellId,caster:c.id,dc,minutes:passed?Number(rule.suggestionMinutes??1440):rule.minutes??null,suggestion:passed?order:null,refusedOrders:[]}}));result=passed?(tumor?'Suggestion only':'Save succeeded'):'Control established';
+  if(!passed||tumor)next=updateCreature(c,targetId,n=>({...n,control:{spellId:cast.spellId,castId:cast.id,caster:c.id,dc,minutes:passed?Number(rule.suggestionMinutes??1440):rule.minutes??null,suggestion:passed?order:null,refusedOrders:[]}}));result=passed?(tumor?'Suggestion only':'Save succeeded'):'Control established';
  }else if(rule.damageCap){
   const lethal=['burst','eruption','termination'].includes(rule.effect)&&!passed&&!secondary&&!area;
   next=updateCreature(c,targetId,n=>lethal?{...n,dead:true,soulDestroyed:rule.effect==='termination',hp:{...n.hp,current:0,temp:0}}:damage(n,amount));
@@ -114,34 +115,41 @@ export function advanceCampaignRound(c){
   ...state,sensing:state.sensing?.minutes>0?{...state.sensing,stage:Math.min(3,state.sensing.stage+1)}:state.sensing,
  }};
 }
+export function savePartyCaster(c,{id,name,baseDC,slot,available,reactionAvailable,featConfirmed,spellName,spellLevel}){
+ name=String(name||'').trim();if(!name||name.length>100)throw Error('Enter the ally name.');
+ whole(baseDC,'Base spell save DC',1,99);whole(slot,'Ally slot level',1,9);whole(available,'Available ally slots',0,99);whole(spellLevel,'Ally spell level',0,9);
+ if(!String(spellName||'').trim()||slot<Math.max(1,spellLevel))throw Error('Choose an appropriate slot for the same spell.');
+ const members=c.archivistCampaign?.partyCasters||[],old=members.find(n=>n.id===id);
+ if(id&&!old)throw Error('Party caster no longer exists.');
+ if(name.toLowerCase()===String(c.name||'').toLowerCase()||members.some(n=>n.id!==id&&n.name.toLowerCase()===name.toLowerCase()))throw Error('That ally is already recorded.');
+ const member={...old,id:old?.id||'party:'+crypto.randomUUID(),name,baseDC,cooperative:!!featConfirmed,spell:{name:spellName,level:spellLevel,prepared:true},reactionUsed:!reactionAvailable,slots:{...old?.slots,[slot]:available},slotsUsed:{...old?.slotsUsed,[slot]:0},selectedSlot:slot};
+ return {...c,archivistCampaign:{...c.archivistCampaign,partyCasters:old?members.map(n=>n.id===id?member:n):[...members,member]}};
+}
+const cooperativeMember=(c,entry)=>entry.partyId?c.archivistCampaign?.partyCasters?.find(n=>n.id===entry.partyId):c.archivistCampaign?.creatures?.find(n=>n.id===entry.creatureId);
+const memberDC=(n,entry)=>entry.partyId?n.baseDC:creatureProfile(n).dc;
 export function applyCooperativeSpell(c,options,participants){
  if(!participants.length)return c;
  if(!hasConversionFeat(c,'Cooperative Spell'))throw Error('The lead caster needs Cooperative Spell.');
- const preview=cooperativePreview(c,c.archivistCampaign.lastCast.name,c.archivistCampaign.lastCast.dc,participants,options);
+ const cast=c.archivistCampaign.lastCast,preview=cooperativePreview(c,cast.name,cast.dc,participants,options);
  if(preview.error)throw Error(preview.error);
- const cooperators=participants.map(x=>x.creatureId);
- if(new Set(cooperators).size!==participants.length)throw Error('Duplicate cooperator.');
- const cast=c.archivistCampaign.lastCast;
  if(!cast.slot)throw Error('Cooperative Spell requires the lead caster to spend a spell slot.');
- let next=c,dc=cast.dc;
+ let next=c;
  for(const entry of participants){
-  const n=next.archivistCampaign.creatures?.find(n=>n.id===entry.creatureId);
-  const spell=n?.spells?.find(s=>s.id===entry.spellId);
-  if(!n?.cooperative||spell?.name!==cast.name)throw Error('Each cooperator needs the feat and the same prepared spell.');
-  next=castCreatureSpell(next,n.id,spell.id,entry.slot,{asCooperator:true});
-  dc=Math.max(dc,creatureProfile(n).dc);
+  if(entry.partyId){next={...next,archivistCampaign:{...next.archivistCampaign,partyCasters:next.archivistCampaign.partyCasters.map(n=>n.id===entry.partyId?{...n,reactionUsed:true,slotsUsed:{...n.slotsUsed,[entry.slot]:Number(n.slotsUsed?.[entry.slot]||0)+1}}:n)}};}
+  else next=castCreatureSpell(next,entry.creatureId,entry.spellId,entry.slot,{asCooperator:true});
  }
- dc+=participants.length+1;
- return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...cast,dc,secondaryDC:cast.chain?dc-(cast.rule?.damageCap?0:4):null,cooperators,cooperativeParticipants:participants.map(entry=>({...entry,baseDC:creatureProfile(c.archivistCampaign.creatures.find(n=>n.id===entry.creatureId)).dc})),cooperativeAdjacency:options.adjacency||[],effectCount:1}}};
+ const records=participants.map(entry=>{const n=cooperativeMember(c,entry);return {...entry,name:n.name,baseDC:memberDC(n,entry),slotSpent:true,reactionSpent:true};});
+ return {...next,archivistCampaign:{...next.archivistCampaign,lastCast:{...cast,dc:preview.dc,secondaryDC:cast.chain?preview.dc-(cast.rule?.damageCap?0:4):null,cooperators:participants.map(x=>x.partyId||x.creatureId),cooperativeParticipants:records,cooperativeAdjacency:options.adjacency||[],effectCount:1}}};
 }
 export function cooperativePreview(c,spellName,baseDC,participants=[],options={}){
  let highestDC=baseDC,error='';
- const ids=['lead',...participants.map(p=>p.creatureId)];
+ const ids=['lead',...participants.map(p=>p.partyId||p.creatureId)],names=new Set([String(c.name||'').toLowerCase()]);
  if(new Set(ids).size!==ids.length)error='Duplicate cooperator.';
  for(const entry of participants){
-  const n=c.archivistCampaign?.creatures?.find(n=>n.id===entry.creatureId),s=n?.spells?.find(s=>s.id===entry.spellId);
-  if(n)highestDC=Math.max(highestDC,creatureProfile(n).dc);
+  const n=cooperativeMember(c,entry),s=entry.partyId?n?.spell:n?.spells?.find(s=>s.id===entry.spellId);
+  if(n){highestDC=Math.max(highestDC,memberDC(n,entry));const name=n.name.trim().toLowerCase();if(names.has(name))error='Duplicate cooperator.';names.add(name);}
   if(!n?.cooperative||!s?.prepared||s.name!==spellName)error='Each cooperator needs Cooperative Spell and the same prepared spell.';
+  else if(n.dead||n.soulDestroyed||n.hp?.current<=0)error=`${n.name} must be able to cooperate.`;
   else if(n.reactionUsed)error=`${n.name} needs an unused reaction.`;
   else if(!Number.isInteger(entry.slot)||entry.slot<Math.max(1,s.level)||!n.slots?.[entry.slot]||Number(n.slotsUsed?.[entry.slot]||0)>=n.slots[entry.slot])error=`${n.name} needs an available appropriate spell slot.`;
  }
@@ -155,6 +163,4 @@ export function cooperativePreview(c,spellName,baseDC,participants=[],options={}
  }
  return {highestDC,dc:highestDC+(participants.length?participants.length+1:0),error};
 }
-export function castCooperativeSpell(c,id,options={},participants=[]){
- return applyCooperativeSpell(castCampaignSpell(c,id,options),options,participants);
-}
+export function castCooperativeSpell(c,id,options={},participants=[]){return applyCooperativeSpell(castCampaignSpell(c,id,options),options,participants);}

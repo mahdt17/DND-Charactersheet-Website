@@ -116,9 +116,9 @@
     },
     "spells/reincarnate-2862": {
       "name": "Reincarnate",
-      "sourceSha256": "7b22f06966d7dffbfbd8322aec7c519d0ce46aa3448c812a7ea7ef76d1d514df",
+      "sourceSha256": "e46c44f1295546804aad464d7ecb875486412ccd2b880dd63e0891572a86f32e",
       "effectSummary": "Brings back a willing creature dead no more than one week in a newly created young-adult body, provided some original remains exist; physical ills are repaired and body condition otherwise does not matter. The new body forms over 1 hour. The subject retains class abilities, feats, skills, class, BAB, base saves, and hit points, but remove its old racial physical adjustments and apply the new body's Str/Dex/Con modifiers. It loses one level/HD; a 1st-level subject instead loses 2 Con permanently, failing if that would reduce Con to 0 or less. Humanoid d% forms are: 01 bugbear +4/+2/+2; 02–13 dwarf +0/+0/+2; 14–25 elf +0/+2/-2; 26 gnoll +4/+0/+2; 27–38 gnome -2/+0/+2; 39–42 goblin -2/+2/+0; 43–52 half-elf +0/+0/+0; 53–62 half-orc +2/+0/+0; 63–74 halfling -2/+2/+0; 75–89 human +0/+0/+0; 90–93 kobold -4/+2/-2; 94 lizardfolk +2/+0/+2; 95–98 orc +4/+0/+0; 99 troglodyte +0/-2/+4; 100 other, DM choice. Nonhumanoids use a same-type table or DM-chosen form. The new form grants associated movement, natural armor/attacks, extraordinary abilities, and similar racial traits but not its language automatically. Undead, constructs, elementals, outsiders, creatures killed by death effects, and creatures dead of old age cannot be returned. Wish or Miracle can restore the original form. Material component: rare oils/unguents worth at least 1,000 gp.",
-      "notes": "3.5 SRD effect and full reincarnation table independently verified.",
+      "notes": "Current primary text and table fingerprints reviewed; the primary page omits the 99/100 outcomes and new-form rules and misstates Orc Constitution. Preserve the full independently verified 3.5 SRD summary and table.",
       "provenance": [
         {
           "url": "https://new.dndtools.org/spells/reincarnate-2862",
@@ -126,8 +126,125 @@
         },
         {
           "url": "https://www.d20srd.org/srd/spells/reincarnate.htm",
-          "role": "3.5 SRD table cross-check"
+          "role": "3.5 SRD complete reincarnation table, Orc Constitution, new-form abilities and original-form restoration cross-check"
         }
+      ],
+      "tablesSha256": "82123c5dc720b7a3c4bd06f3ff422c80256b7688bb1871bd3d2648fe5fa9569c",
+      "replacementTables": [
+        [
+          [
+            "d%",
+            "Incarnation",
+            "Str",
+            "Dex",
+            "Con"
+          ],
+          [
+            "01",
+            "Bugbear",
+            "+4",
+            "+2",
+            "+2"
+          ],
+          [
+            "02-13",
+            "Dwarf",
+            "+0",
+            "+0",
+            "+2"
+          ],
+          [
+            "14-25",
+            "Elf",
+            "+0",
+            "+2",
+            "-2"
+          ],
+          [
+            "26",
+            "Gnoll",
+            "+4",
+            "+0",
+            "+2"
+          ],
+          [
+            "27-38",
+            "Gnome",
+            "-2",
+            "+0",
+            "+2"
+          ],
+          [
+            "39-42",
+            "Goblin",
+            "-2",
+            "+2",
+            "+0"
+          ],
+          [
+            "43-52",
+            "Half-elf",
+            "+0",
+            "+0",
+            "+0"
+          ],
+          [
+            "53-62",
+            "Half-orc",
+            "+2",
+            "+0",
+            "+0"
+          ],
+          [
+            "63-74",
+            "Halfling",
+            "-2",
+            "+2",
+            "+0"
+          ],
+          [
+            "75-89",
+            "Human",
+            "+0",
+            "+0",
+            "+0"
+          ],
+          [
+            "90-93",
+            "Kobold",
+            "-4",
+            "+2",
+            "-2"
+          ],
+          [
+            "94",
+            "Lizardfolk",
+            "+2",
+            "+0",
+            "+2"
+          ],
+          [
+            "95-98",
+            "Orc",
+            "+4",
+            "+0",
+            "+0"
+          ],
+          [
+            "99",
+            "Troglodyte",
+            "+0",
+            "-2",
+            "+4"
+          ],
+          [
+            "100",
+            "Other",
+            "?",
+            "?",
+            "?"
+          ]
+        ]
       ]
     },
     "spells/repair-minor-damage-3425": {

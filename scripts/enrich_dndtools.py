@@ -1281,6 +1281,9 @@ def apply_reviewed_spell_effect_summary(entry: dict, details: dict, effect_sourc
         result["effectReviewMismatch"]=True
         return result
     expected_tables=clean(review.get("tablesSha256",""))
+    replacement_tables=review.get("replacementTables")
+    if replacement_tables and not expected_tables:
+        raise ValueError("Reviewed table replacement requires a source table digest")
     if expected_tables:
         actual_tables=spell_tables_digest(details.get("tables") or [])
         if expected_tables!=actual_tables:
@@ -1295,6 +1298,9 @@ def apply_reviewed_spell_effect_summary(entry: dict, details: dict, effect_sourc
         result["effectSummary"]=summary
         result["effectReviewVerified"]=True
         result["effectReviewProvenance"]=review.get("provenance",[])
+        if replacement_tables:
+            result["tables"]=replacement_tables
+            result["effectReviewTableReplacement"]=True
         result.pop("effectNeedsSummary",None)
         result.pop("effectSourceLength",None)
     return result
@@ -2716,6 +2722,41 @@ def self_test():
     s=parse_spell(p,{"name":"Reference Effect"})
     assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    # A reviewed table repair is allowed only for the exact reviewed source.
+    fixture_id="spells/reviewed-table-fixture"
+    source="A source page with an independently verified incomplete table."
+    source_tables=[[["d%","Form"],["95-100","Orc"]]]
+    repaired_tables=[[["d%","Form"],["95-98","Orc"],["99","Troglodyte"],["100","Other"]]]
+    reviews=spell_effect_summaries()
+    reviews[fixture_id]={"name":"Reviewed Table","sourceSha256":spell_effect_digest(source),
+        "tables":repaired_tables,"effectSummary":"Verified full reincarnation outcomes.","provenance":[]}
+    fixture={"id":fixture_id,"name":"Reviewed Table"}
+    details={"effectNeedsSummary":True,"tables":source_tables}
+    try:
+        legacy=apply_reviewed_spell_effect_summary(fixture,details,source)
+        assert legacy["tables"]==source_tables and not legacy.get("effectReviewTableReplacement")
+        reviews[fixture_id]["tablesSha256"]=spell_tables_digest(source_tables)
+        legacy=apply_reviewed_spell_effect_summary(fixture,details,source)
+        assert legacy["tables"]==source_tables and not legacy.get("effectReviewTableReplacement")
+        reviews[fixture_id]["replacementTables"]=repaired_tables
+        fixed=apply_reviewed_spell_effect_summary(fixture,details,source)
+        assert fixed["tables"]==repaired_tables, "Reviewed source table repair was not applied"
+        assert fixed.get("effectReviewTableReplacement") and fixed.get("effectReviewVerified")
+        assert details["tables"]==source_tables
+        changed_text=apply_reviewed_spell_effect_summary(fixture,details,source+" Changed.")
+        assert changed_text.get("effectReviewMismatch") and changed_text["tables"]==source_tables
+        changed_table=apply_reviewed_spell_effect_summary(fixture,{**details,"tables":[]},source)
+        assert changed_table.get("effectReviewTableMismatch") and changed_table["tables"]==[]
+        del reviews[fixture_id]["tablesSha256"]
+        try:
+            apply_reviewed_spell_effect_summary(fixture,details,source)
+        except ValueError as exc:
+            assert "table digest" in str(exc)
+        else:
+            raise AssertionError("An unguarded reviewed table replacement was accepted")
+    finally:
+        reviews.pop(fixture_id,None)
 
     savage_enlarge_rebuilt_html = """
     <h1>Improved Enlarge</h1><p>Savage Species (SS), p. 67</p>

@@ -1,3 +1,4 @@
+import {previousManifestHistory} from './manifestHistory.js';
 import {psicrystalProfile} from './campaignPsicrystal.js';
 import {campaignProfile,legacyPreset,useCampaignPower} from './archivistCampaign.js';
 import {assertCampaignCanAct} from './campaignActivity.js';
@@ -18,16 +19,16 @@ export function manifestExtendedPower(c,id,{augmentation=0,discount=false,target
  if(power.cost+augmentation+typeCost>p.manifesterLevel)throw Error('Augmented power exceeds manifester level before the daily discount.');
  const cost=Math.max(1,power.cost+augmentation+typeCost-(discount?p.thrallherd:0));
  if(cost>p.manifesterLevel)throw Error('Power point cost exceeds manifester level.');if(p.ppUsed+cost>p.ppMax)throw Error('Not enough power points.');
- return {...c,powerPointsUsed:p.ppUsed+cost,archivistCampaign:{...c.archivistCampaign,psicrystal:{...c.archivistCampaign?.psicrystal,pendingTouch:null},thrallDiscounts:{...c.archivistCampaign?.thrallDiscounts,...(discount?{[id]:true}:{})},lastManifest:{id:crypto.randomUUID(),power,cost,augmentation,targetType,dc:p.dc,resolved:[]},powerEffects:{...c.archivistCampaign?.powerEffects,...(power.minutes>0?{[id]:{minutes:power.minutes}}:{})}}};
+ return {...c,powerPointsUsed:p.ppUsed+cost,archivistCampaign:{...c.archivistCampaign,psicrystal:{...c.archivistCampaign?.psicrystal,pendingTouch:null},thrallDiscounts:{...c.archivistCampaign?.thrallDiscounts,...(discount?{[id]:true}:{})},manifestHistory:previousManifestHistory(c.archivistCampaign),lastManifest:{id:crypto.randomUUID(),power,cost,augmentation,targetType,dc:p.dc,resolved:[]},powerEffects:{...c.archivistCampaign?.powerEffects,...(power.minutes>0?{[id]:{minutes:power.minutes}}:{})}}};
 }
-export function resolveExtendedPower(c,targetId,{save,damage=0}={}){
- const cast=c.archivistCampaign?.lastManifest;if(cast?.touchPending)throw Error('Deliver the Psicrystal touch first.');if(!cast||cast.resolved.length>=1)throw Error('Manifest a power first; this manifestation has one target.');
+export function resolveExtendedPower(c,targetId,{save,damage=0,manifestId}={}){
+ const state=c.archivistCampaign||{},cast=manifestId?previousManifestHistory(state).find(m=>m.id===manifestId):state.lastManifest;if(cast?.touchPending)throw Error('Deliver the Psicrystal touch first.');if(!cast||cast.resolved.length>=1)throw Error('Manifest a power first; this manifestation has one target.');
  const n=c.archivistCampaign?.creatures?.find(n=>n.id===targetId);if(!n||n.dead||n.soulDestroyed)throw Error('Living creature required.');
  if(['psionic-charm','psionic-dominate'].includes(cast.power.id)&&n.type!==cast.targetType)throw Error('Creature type differs from the paid augmentation.');
  if(['mindlink','inertial-armor'].includes(cast.power.id))throw Error('This power has no save resolution.');
  if(cast.power.save&&!Number.isFinite(save))throw Error('Enter the save total.');if(cast.power.damage)whole(damage,'Damage');const passed=!!cast.power.save&&save>=cast.dc;
  let next=updateCreature(c,targetId,n=>{if(passed)return n;if(cast.power.id==='psionic-dominate')return {...n,control:{spellId:cast.power.id,caster:c.id,dc:cast.dc,minutes:cast.power.minutes,refusedOrders:[]}};if(['psionic-charm','attraction'].includes(cast.power.id))return {...n,conditions:[...(n.conditions||[]),{name:cast.power.id==='attraction'?'Attracted':'Charmed',rounds:cast.power.minutes*10,...(cast.power.id==='attraction'?{attractionCaster:c.id,interactionBonus:4}:{})}]};if(cast.power.damage)return damageCreature(n,damage);return {...n,notes:(n.notes||'')+`\n${cast.power.name}: ${cast.power.description||'Resolve the configured effect.'}`};});
- return {...next,archivistCampaign:{...next.archivistCampaign,lastManifest:{...cast,resolved:[...cast.resolved,targetId],lastResult:passed?'Save succeeded':'Effect applied'}}};
+ return {...next,archivistCampaign:{...next.archivistCampaign,...(cast.id===state.lastManifest?.id?{lastManifest:{...cast,resolved:[...cast.resolved,targetId],lastResult:passed?'Save succeeded':'Effect applied'}}:{manifestHistory:(state.manifestHistory||[]).map(m=>m.id===cast.id?{...cast,resolved:[...cast.resolved,targetId],lastResult:passed?'Save succeeded':'Effect applied'}:m)})}};
 }
 
 export function attractionInteractionBonus(c,targetId,{relevant=false}={}){
@@ -52,3 +53,5 @@ export function manifestationOptions(c,power){
   augmentation:power?.id==='inertial-armor'?Math.floor(maxAdditional/2)*2:0,
   typeWaiver:power?.id==='psionic-dominate'?(p.thrallherd>=9?4:p.thrallherd>=7?2:0):0};
 }
+
+export function selectedPowerManifest(c,id){return previousManifestHistory(c.archivistCampaign).find(m=>m.power?.id===id)||null;}
