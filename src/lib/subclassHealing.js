@@ -1,5 +1,5 @@
+import {typedOwnDamageAmount,ownFormOverflowAdjuster} from './subclassOwnForm.js';
 import {enhancedBondPlan} from './subclassEnhancedBond.js';
-import {drakeResistsDamage,historyWhimResists,warEchoesVulnerable} from './subclassState.js';
 import {loreholdHealerActive} from './subclassState.js';
 import {damageActiveBody} from './subclassState.js';
 import {subclassRoll} from './subclassFormulas.js';
@@ -44,7 +44,7 @@ export function useHealingFeature(c,key,{n=1,result,recipient='self',triggered=f
 }
 export function consumeBastion(c,{n,result,rawDamage,triggered=false,resistant=false,damageType=''}={}){
  const state=sourceSubclassEffects(c,{stateKey:'bastion-of-law'})[0];if(!state)throw Error('Create a Bastion of Law ward first.');if(!triggered)throw Error('Confirm the warded creature takes damage and spends its reaction.');if(state.recipient==='self')assertAct(c);
- if(!Number.isInteger(n)||n<1||n>state.dice)throw Error('Choose available ward dice.');const reduction=validRoll(result,{min:n,max:n*8});if(!Number.isInteger(rawDamage)||rawDamage<0)throw Error('Enter raw damage before the ward and resistance.');const remaining=Math.max(0,rawDamage-reduction),damage=((resistant||state.recipient==='self'&&(drakeResistsDamage(c,damageType)||historyWhimResists(c,damageType)))?Math.floor(remaining/2):remaining)*(state.recipient==='self'&&warEchoesVulnerable(c,damageType)?2:1),temp=Math.min(c.hp.temp||0,damage);
+ if(!Number.isInteger(n)||n<1||n>state.dice)throw Error('Choose available ward dice.');const reduction=validRoll(result,{min:n,max:n*8});if(!Number.isInteger(rawDamage)||rawDamage<0)throw Error('Enter raw damage before the ward and resistance.');const remaining=Math.max(0,rawDamage-reduction),damage=state.recipient==='self'?typedOwnDamageAmount(c,remaining,{type:damageType,resistant}):(resistant?Math.floor(remaining/2):remaining),temp=Math.min(c.hp.temp||0,damage);
  const effects=(c.activeEffects||[]).flatMap(e=>e.id!==state.id?[e]:state.dice>n?[{...e,dice:state.dice-n}]:[]);
- return {reduction,remaining,patch:{activeEffects:effects,...(state.recipient==='self'?(damageActiveBody({...c,activeEffects:effects},damage)||{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(damage-temp))}}):{})}};
+ return {reduction,remaining,patch:{activeEffects:effects,...(state.recipient==='self'?(damageActiveBody({...c,activeEffects:effects},damage,{adjustOverflow:ownFormOverflowAdjuster(c,damageType)})||{hp:{...c.hp,temp:Number(c.hp.temp||0)-temp,current:Math.max(0,c.hp.current-(damage-temp))}}):{})}};
 }
