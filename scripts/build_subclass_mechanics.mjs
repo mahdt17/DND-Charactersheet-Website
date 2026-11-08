@@ -175,6 +175,6 @@ else{
  const folder=resolve(process.argv[at+1]);
  const facts=['a','b'].flatMap(s=>JSON.parse(readFileSync(resolve(folder,`mechanics-audit-${s}.json`),'utf8')));
  const records=catalog.map(record=>{const data=facts.find(f=>f.recordId===record.id);if(!data)throw Error(`Missing ${record.id}`);return compile(data,record);});
- validate(records);writeFileSync(target,JSON.stringify(records,null,2)+'\n');
- console.log(`Built ${records.length} mechanics records; ${records.reduce((n,r)=>n+r.passives.length,0)} typed passives`);
+ validate(records);if(process.argv.includes('--verify')){if(readFileSync(target,'utf8')!==JSON.stringify(records,null,2)+'\n')throw Error('Generated mechanics differ');console.log('PASS generated mechanics match');}else writeFileSync(target,JSON.stringify(records,null,2)+'\n');
+ console.log(`${process.argv.includes('--verify')?'Verified':'Built'} ${records.length} mechanics records; ${records.reduce((n,r)=>n+r.passives.length,0)} typed passives`);
 }

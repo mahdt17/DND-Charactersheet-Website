@@ -8,7 +8,6 @@ import {createHash} from 'node:crypto';
 const target=new URL('../src/data/expandedSubclasses.json',import.meta.url);
 const manifestPath=new URL('../src/data/subclassManifest2014.json',import.meta.url);
 const spellCatalogPath=new URL('../src/data/subclassSpellCatalog.json',import.meta.url);
-const coveragePath=new URL('../docs/subclass-coverage.md',import.meta.url);
 const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const plain=s=>s.replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/\\([\[\]*_])/g,'$1').replace(/\*\*|__|(?<!\w)_(?=\w)|(?<=\w)_(?!\w)/g,'').replace(/<br\s*\/?>/g,'; ').trim();
 const sourceLevel=(body,entry)=>{
@@ -153,9 +152,7 @@ if(process.argv.includes('--check')){
  monk.disciplineOptions=[...disciplines.matchAll(/^### ([^\n]+)\n([\s\S]*?)(?=^### |$(?![\s\S]))/gm)].map(m=>({name:plain(m[1]),description:plain(m[2]),level:Number(m[2].match(/Prerequisite: (\d+)(?:st|nd|rd|th)/)?.[1]||3),kiCost:Number(m[2].match(/spend (\d+) ki points?/i)?.[1]||0),...(m[2].match(/to cast \[([^\]]+)\]/)?{spellName:m[2].match(/to cast \[([^\]]+)\]/)[1]}:{})}));
  validate(records,manifest);
  const metadata=buildSpellMetadata(records,folder);
+ if(process.argv.includes('--verify')){for(const [path,value] of [[target,records],[manifestPath,manifest],[spellCatalogPath,metadata]])if(readFileSync(path,'utf8')!==JSON.stringify(value,null,2)+'\n')throw Error(`Generated data differs: ${path}`);console.log('PASS generated source data matches');process.exit(0);}
  writeFileSync(target,JSON.stringify(records,null,2)+'\n');writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');writeFileSync(spellCatalogPath,JSON.stringify(metadata,null,2)+'\n');
- const intro=readFileSync(coveragePath,'utf8').split('| Class |')[0];
- const rows=records.map(r=>`| ${r.class.name} | ${r.name} | ${r.playtest?'UA playtest':/Plane Shift|Amonkhet/.test(r.sourceBook)?'Digital supplement':'Published'} | ${[...new Set(r.features.map(f=>f.level))].sort((a,b)=>a-b).join(', ')} | [${r.sourceBook}](${r.sourceUrl}) |`);
- writeFileSync(coveragePath,intro+'| Class | Subclass | Material | Feature levels | Source |\n| --- | --- | --- | --- | --- |\n'+rows.join('\n')+'\n');
  console.log(`Built ${records.length} subclasses, ${records.reduce((n,r)=>n+r.features.length,0)} features`);
 }
