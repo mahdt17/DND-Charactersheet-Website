@@ -1,3 +1,3 @@
 const timing={'source-trigger':'When its trigger occurs','after-failure':'After a failed roll','bonus-action':'Bonus action','action':'Action','reaction':'Reaction','passive':'Passive'};
 export function subclassTimingLabel(value){return (Array.isArray(value)?value:[value]).filter(Boolean).map(x=>timing[x]||String(x).replaceAll('-',' ')).join(' / ');}
-export function subclassValueLabel(row){const kind=String(row.kind||'').replaceAll('-',' '),value=row.value;if(value==null||typeof value==='object')return kind;const display=String(value).replace(/^[^:]+:/,'');return `${kind}: ${display}`;}
+export function subclassValueLabel(row){const kind=String(row.kind||'').replaceAll('-',' '),value=row.value;if(value==null||typeof value==='object'&&!Array.isArray(value))return kind;const display=(Array.isArray(value)?value.join(', '):String(value)).replace(/^[^:]+:/,'');return `${kind}: ${display}`;}

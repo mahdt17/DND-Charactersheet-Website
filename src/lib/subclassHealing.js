@@ -1,3 +1,4 @@
+import {applyPotentSpellcasting} from './subclassCantripDamage.js';
 import {typedOwnDamageAmount,ownFormOverflowAdjuster} from './subclassOwnForm.js';
 import {enhancedBondPlan} from './subclassEnhancedBond.js';
 import {loreholdHealerActive,retainsOwnFeatures,actorBodyHP} from './subclassState.js';
@@ -9,7 +10,7 @@ import {sourceSubclassEffects} from './subclassState.js';
 const immediate=s=>!!s?.heal_at_slot_level&&!['false life','aid','goodberry','healing spirit','aura of vitality','vampiric touch','enervation'].includes(String(s.name).toLowerCase());
 const domain=(c,name,feature)=>retainsOwnFeatures(c)&&expandedSubclassRows(c).find(p=>p.record.features.some(f=>(p.record.id===`2014:subclass:cleric:${name}`||f.inheritedRecordId===`2014:subclass:cleric:${name}`)&&f.name===feature&&expandedFeatureUnlocked(p,f)));
 export function healingFeaturePlan(c,spell,plan,{slotLevel=spell.level,recipient,targetAtZero=false}={}){
- plan=enhancedBondPlan(c,spell,plan);
+ plan=enhancedBondPlan(c,spell,applyPotentSpellcasting(c,spell,plan));
  if(!immediate(spell)||slotLevel<1)return plan;const life=domain(c,'life','Disciple of Life'),grave=domain(c,'grave','Circle of Mortality'),bonus=life?2+slotLevel:0,maximize=!!domain(c,'life','Supreme Healing')||!!grave&&(recipient==='self'?actorBodyHP(c)===0:recipient==='other'&&targetAtZero);
  return {...plan,rolls:plan.rolls.map(r=>{if(!/healing/i.test(r.label))return r;let expression=r.expression;if(maximize){const terms=expression.replace(/(\d+)d(\d+)/gi,(_,n,d)=>String(Number(n)*Number(d))).match(/[+-]?\d+/g);if(!terms||!/^[\d+\-]+$/.test(expression.replace(/(\d+)d(\d+)/gi,'1')))throw Error('Use a supported healing expression.');expression=String(terms.reduce((n,v)=>n+Number(v),0));}if(bonus&&!r.enhancedBond)expression=/^\d+$/.test(expression)?String(Number(expression)+bonus):subclassRoll(`${expression}+${bonus}`);if(!r.enhancedBond&&recipient==='self'&&loreholdHealerActive(c)){const m=expression.match(/^(.*?)([+-]\d+)?$/);expression=/^\d+$/.test(expression)?`1d8+${expression}`:`${m[1]}+1d8${m[2]||''}`;}return {...r,expression};}),notes:[plan.notes,bonus?`Disciple of Life adds ${bonus} healing.`:'',maximize?'Healing dice use their maximum result.':''].filter(Boolean).join(' ')};
 }

@@ -1,3 +1,5 @@
+import {isPotentSpellcasting} from './subclassCantripDamage.js';
+import {subclassPassiveDefenseSupported} from './subclassPassiveDefenses.js';
 import {ravenKillerAdvantage} from './subclassSentinelRaven.js';
 import {loreholdOwnerHPBonus,loreholdSageAura,loreholdSageLessons} from './subclassLorehold.js';
 import {retainsOwnFeatures,historyWhimActive} from './subclassState.js';
@@ -62,6 +64,8 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
     else if(kind==='skill-advantage'){source.status='automated';source.applied=song.singing;if(song.singing)result.skillAdvantages.push('Acrobatics');}
    }
    // Training and style adapters already own these effects; don't duplicate them.
+   if(isPotentSpellcasting(record,passive)){source.status='automated';source.applied=true;}
+   if(subclassPassiveDefenseSupported(record,passive.feature,kind)){source.status='automated';source.applied=true;}
    if(['expertise'].includes(kind))source.status='training';
    if(record===id('bard','swords')&&['dueling-damage-bonus','offhand-ability-damage'].includes(kind))source.status='attack-context';
    result.rows.push(source);
