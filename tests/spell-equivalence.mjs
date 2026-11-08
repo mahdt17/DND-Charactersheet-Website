@@ -13,3 +13,5 @@ test('a different class owner does not select its saved representative for Wizar
 test('same named spells from distinct editions keep separate identities',()=>{assert.notEqual(ordinarySpellIdentity({name:'Mage Armor',edition:'2014',catalogId:'2014:mage-armor'}),ordinarySpellIdentity({name:'Mage Armor',edition:'2024',catalogId:'2024:mage-armor'}));});
 
 test('Wizard optional-list Absorb Elements remains eligible',()=>{assert.equal(permittedSpells(wizard).filter(s=>s.name==='Absorb Elements').length,1);});
+
+test('canonical representative retains its equivalent linked source provenance',()=>{const mage=permittedSpells(wizard).find(s=>s.name==='Mage Armor');assert.equal(mage.sourceUrl,'https://dnd5e.wikidot.com/spell:mage-armor');assert(mage.equivalentSources.some(x=>x.catalogId==='wikidot5e:spell:mage-armor'&&x.url===mage.sourceUrl));});

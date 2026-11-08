@@ -9,6 +9,6 @@ export function ordinarySpellIdentity(s){
 }
 export function eligibleSpellRepresentatives(spells,owned=[]){
  const map=new Map(),ownedKeys=new Set(owned.filter(s=>!s.classSpellGrant&&!s.featSpellGrant&&!s.featGrantId).map(key));
- for(const s of spells){const id=ordinarySpellIdentity(s),prior=map.get(id);if(!prior||ownedKeys.has(key(s))&&!ownedKeys.has(key(prior)))map.set(id,s);}
+ for(const s of spells){const id=ordinarySpellIdentity(s),prior=map.get(id);if(!prior){map.set(id,s);continue;}const chosen=ownedKeys.has(key(s))&&!ownedKeys.has(key(prior))?s:prior,other=chosen===s?prior:s,links=[...(chosen.equivalentSources||[]),...(other.equivalentSources||[]),...(chosen.sourceUrl?[{catalogId:key(chosen),url:chosen.sourceUrl}]:[]),...(other.sourceUrl?[{catalogId:key(other),url:other.sourceUrl}]:[])],unique=[...new Map(links.map(x=>[`${x.catalogId}|${x.url}`,x])).values()];map.set(id,{...chosen,...(!chosen.sourceUrl&&other.sourceUrl?{sourceUrl:other.sourceUrl}:{}),...(unique.length?{equivalentSources:unique}:{})});}
  return [...map.values()];
 }
