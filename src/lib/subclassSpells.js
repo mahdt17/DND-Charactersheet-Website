@@ -60,7 +60,7 @@ export function subclassSpellGrants(c){
 }
 export function subclassSpellAccess(c,spell){
  if((spell.edition||'2014')!==(c.classDefinition?.edition||c.ruleset||'2014'))return null;
- return subclassSpellGrants(c).find(g=>norm(g.name)===norm(spell.name))||null;
+ return subclassSpellGrants(c).find(g=>norm(g.name)===norm(spell.name)&&!(g.inheritedRecordId&&!spell.classSpellGrant&&(spell.castingClassId||(spell.id&&(c.spells||[]).some(s=>s.id===spell.id&&!s.classSpellGrant)))))||null;
 }
 const catalog={2014:[...spells14,...extraSpells,...choiceSpells],2024:modern.spells};
 export function reconcileSubclassSpells(c){
@@ -70,7 +70,7 @@ export function reconcileSubclassSpells(c){
   for(const grant of subclassSpellGrants(model).filter(g=>g.alwaysPrepared||['known','spellbook'].includes(g.acquisition))){
    const data=catalog[row.edition]?.find(s=>norm(s.name)===norm(grant.name));
    if(!data)continue;
-   if(spells.some(s=>(s.castingClassId||rows[0].catalogId)===row.catalogId&&(s.edition||'2014')===row.edition&&norm(s.name)===norm(data.name)))continue;
+   if(!grant.inheritedRecordId&&spells.some(s=>(s.castingClassId||rows[0].catalogId)===row.catalogId&&(s.edition||'2014')===row.edition&&norm(s.name)===norm(data.name)))continue;
    const id=`subclass-spell:${row.catalogId}:${grant.subclassRecordId||'legacy'}:${data.index||data.catalogId}`,previous=(c.spells||[]).find(s=>s.classSpellGrant&&(s.id===id||!s.subclassRecordId&&(s.castingClassId||rows[0]?.catalogId)===row.catalogId&&norm(s.name)===norm(data.name)));
    spells.push({...data,...(previous?.rollFormula!=null?{rollFormula:previous.rollFormula}:{}),...(previous?.rollAttack!=null?{rollAttack:previous.rollAttack}:{}),edition:row.edition,catalogId:data.catalogId||`${row.edition}:${data.index}`,id,castingClassId:row.catalogId,classSpellGrant:true,...(grant.temporarySubclassSpell?{temporarySubclassSpell:true,sourceEffectId:grant.sourceEffectId}:{}),expandedSubclassManaged:!!grant.expandedSubclassManaged,subclassRecordId:grant.subclassRecordId,sourceAbility:grant.ability,acquisition:grant.acquisition,bonusKnown:!!grant.bonusKnown,prepared:grant.acquisition==='spellbook'?!!previous?.prepared:true,source:grant.source,description:data.description||data.desc?.join('\n\n')||'',school:typeof data.school==='object'?data.school.name:data.school});
   }

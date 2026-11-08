@@ -34,7 +34,7 @@ export function subclassNumericProfile(c,abilities=effectiveAbilityScores(c)){
   for(const passive of p.mechanics?.passives||[]){
    if(!expandedFeatureUnlocked(p,passive))continue;
    const source={...passive,sourceClassId:p.row.catalogId,subclassRecordId:p.record.id,sourceBook:p.record.sourceBook,sourceUrl:p.record.sourceUrl,status:'reference',applied:false};
-   const record=p.record.id,condition=passive.condition||'',kind=passive.kind;
+   const record=passive.inheritedRecordId||p.record.id,condition=passive.condition||'',kind=passive.kind;
    const state=sourceSubclassEffects(c,{recordId:record,ownerId:p.row.catalogId,featureId:passive.featureId});
    const value=()=>subclassValue(passive.value,context);
    const apply=(field,amount)=>{result[field]+=amount;source.status='automated';source.applied=true;source.computedValue=amount;};

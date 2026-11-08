@@ -1,19 +1,19 @@
 import {typedOwnDamageAmount,ownFormOverflowAdjuster} from './subclassOwnForm.js';
 import {enhancedBondPlan} from './subclassEnhancedBond.js';
-import {loreholdHealerActive} from './subclassState.js';
+import {loreholdHealerActive,retainsOwnFeatures,actorBodyHP} from './subclassState.js';
 import {damageActiveBody} from './subclassState.js';
 import {subclassRoll} from './subclassFormulas.js';
-import {expandedSubclassRows} from './expandedSubclasses.js';
+import {expandedSubclassRows,expandedFeatureUnlocked} from './expandedSubclasses.js';
 import {sourceFeature,assertAct,assertZeroHPTrigger,spendFeature,tempHP,healHP,featureState,putState,validRoll} from './subclassActionUtils.js';
 import {sourceSubclassEffects} from './subclassState.js';
 const immediate=s=>!!s?.heal_at_slot_level&&!['false life','aid','goodberry','healing spirit','aura of vitality','vampiric touch','enervation'].includes(String(s.name).toLowerCase());
-const domain=(c,name)=>expandedSubclassRows(c).find(p=>p.record.id===`2014:subclass:cleric:${name}`);
+const domain=(c,name,feature)=>retainsOwnFeatures(c)&&expandedSubclassRows(c).find(p=>p.record.features.some(f=>(p.record.id===`2014:subclass:cleric:${name}`||f.inheritedRecordId===`2014:subclass:cleric:${name}`)&&f.name===feature&&expandedFeatureUnlocked(p,f)));
 export function healingFeaturePlan(c,spell,plan,{slotLevel=spell.level,recipient,targetAtZero=false}={}){
  plan=enhancedBondPlan(c,spell,plan);
- if(!immediate(spell)||slotLevel<1)return plan;const life=domain(c,'life'),grave=domain(c,'grave'),bonus=life?2+slotLevel:0,maximize=life?.row.level>=17||!!grave&&(recipient==='self'?c.hp.current===0:recipient==='other'&&targetAtZero);
+ if(!immediate(spell)||slotLevel<1)return plan;const life=domain(c,'life','Disciple of Life'),grave=domain(c,'grave','Circle of Mortality'),bonus=life?2+slotLevel:0,maximize=!!domain(c,'life','Supreme Healing')||!!grave&&(recipient==='self'?actorBodyHP(c)===0:recipient==='other'&&targetAtZero);
  return {...plan,rolls:plan.rolls.map(r=>{if(!/healing/i.test(r.label))return r;let expression=r.expression;if(maximize){const terms=expression.replace(/(\d+)d(\d+)/gi,(_,n,d)=>String(Number(n)*Number(d))).match(/[+-]?\d+/g);if(!terms||!/^[\d+\-]+$/.test(expression.replace(/(\d+)d(\d+)/gi,'1')))throw Error('Use a supported healing expression.');expression=String(terms.reduce((n,v)=>n+Number(v),0));}if(bonus&&!r.enhancedBond)expression=/^\d+$/.test(expression)?String(Number(expression)+bonus):subclassRoll(`${expression}+${bonus}`);if(!r.enhancedBond&&recipient==='self'&&loreholdHealerActive(c)){const m=expression.match(/^(.*?)([+-]\d+)?$/);expression=/^\d+$/.test(expression)?`1d8+${expression}`:`${m[1]}+1d8${m[2]||''}`;}return {...r,expression};}),notes:[plan.notes,bonus?`Disciple of Life adds ${bonus} healing.`:'',maximize?'Healing dice use their maximum result.':''].filter(Boolean).join(' ')};
 }
-export function blessedHealerPatch(c,spell,{recipient,slotLevel,maxHP}={}){const life=domain(c,'life');return immediate(spell)&&slotLevel>=1&&recipient==='other'&&life?.row.level>=6?healHP(c,2+slotLevel,maxHP):{};}
+export function blessedHealerPatch(c,spell,{recipient,slotLevel,maxHP}={}){const life=domain(c,'life','Blessed Healer');return immediate(spell)&&slotLevel>=1&&recipient==='other'&&life?healHP(c,2+slotLevel,maxHP):{};}
 const defs=[
  {key:'fighting-spirit',records:['fighter:samurai'],feature:'fighting-spirit',resource:'fighting-spirit'},
  {key:'survivor',records:['fighter:champion'],feature:'survivor',trigger:'Start of your turn, conscious, below half your maximum HP'},
