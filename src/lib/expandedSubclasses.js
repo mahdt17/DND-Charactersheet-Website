@@ -121,7 +121,7 @@ export function useExpandedSubclassAction(c,id,{eligible=false}={}){const action
 }
 export function expandedSubclassSpellGrants(c){return expandedSubclassRows(c).flatMap(p=>{
  const ability=({Artificer:'int',Bard:'cha',Cleric:'wis',Druid:'wis',Paladin:'cha',Ranger:'wis',Sorcerer:'cha',Warlock:'cha',Wizard:'int',Monk:'wis',Barbarian:'wis',Fighter:'int',Rogue:'int'})[p.row.name];
- const grants=(p.record.spellGrants||[]).filter(g=>(!g.condition||p.state[g.condition]?.includes('yes'))&&g.classLevel<=p.row.level&&(!g.choiceKey||(p.state[g.choiceKey]||[]).some(n=>norm(n)===norm(g.choice)))&&(!g.requiresFeatureSelection||expandedSelectedFeatures(p).includes(g.feature)));
+ const grants=(p.record.spellGrants||[]).filter(g=>(!g.unlessKnown||!(c.allCharacterSpells||c.spells||[]).some(s=>norm(s.name)===norm(g.name)&&!(s.classSpellGrant&&s.castingClassId===p.row.catalogId&&s.subclassRecordId===p.record.id)))&&(!g.condition||p.state[g.condition]?.includes('yes'))&&g.classLevel<=p.row.level&&(!g.choiceKey||(p.state[g.choiceKey]||[]).some(n=>norm(n)===norm(g.choice)))&&(!g.requiresFeatureSelection||expandedSelectedFeatures(p).includes(g.feature)));
  if(p.record.flexibleFeatureSelection&&expandedSelectedFeatures(p).includes('Inky Shroud'))grants.push({name:'Darkness',classLevel:6,acquisition:'known'});
  if(p.record.id==='2014:subclass:druid:land')grants.length=0;// Existing terrain adapter owns its table.
  for(const q of p.mechanics?.choices||[]){if(q.scope!=='advancement'||!expandedFeatureUnlocked(p,q))continue;const selected=p.state[q.key]||[];

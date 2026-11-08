@@ -51,3 +51,24 @@ test('Arcana domain choice retains a Wizard-known cantrip as a separate casting 
  const c=make('Arcana',6);c.spells=[{name:'Fire Bolt',id:'ordinary-fire',castingClassId:'2014:wizard',edition:'2014'}];
  const g=expandedSubclassChoicePlan(c,null,{},{}).groups.find(g=>g.choiceKey==='domain:expanded-cleric-arcana:wizard-cantrips');assert(g);assert(g.options.includes('Fire Bolt'));
 });
+
+test('Theurgy inherits domain bonus cantrips but not domain spell tables',()=>{
+ for(const [name,cantrip] of [['Grave','Spare the Dying'],['Light','Light'],['City (UA)','On/Off']]){const c=make(name,6),grants=expandedSubclassSpellGrants(c);const spell=grants.find(g=>g.name===cantrip);assert(spell,`${name} ${cantrip}`);assert.equal(spell.ability,'wis');assert.equal(spell.sourceClassId,'2014:wizard');assert(!grants.some(g=>g.acquisition==='prepared'));}
+ assert(!expandedSubclassSpellGrants({...make('Grave',5)}).some(g=>g.name==='Spare the Dying'));
+});
+import {activateMoonForm} from '../src/lib/subclassOwnForm.js';
+test('Grave healing tests the active Moon body rather than stored normal HP',()=>{
+ let c=make('Grave',6);c.level=8;c.classLevels=[{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:6,subclass:'Theurgy (UA)'},{catalogId:'2014:druid',name:'Druid',edition:'2014',level:2,subclass:'Moon'}];c={...c,...activateMoonForm(c,'brown-bear',{seen:true,equipmentResolved:true})};c.hp={...c.hp,current:0};assert.equal(healingFeaturePlan(c,spell,plan,{recipient:'self'}).rolls[0].expression,'1d8+4');const id=c.activeEffects.find(e=>e.stateKey==='moon-wild-shape').id;c.hp.current=10;c.profileState[id].hp.current=0;assert.equal(healingFeaturePlan(c,spell,plan,{recipient:'self'}).rolls[0].expression,'12');
+});
+
+test('Light bonus cantrip respects already known spells and source removal',()=>{
+ const c=make('Light',6);c.spells=[{id:'known-light',name:'Light',edition:'2014',castingClassId:'2014:wizard'}];assert(!expandedSubclassSpellGrants(c).some(g=>g.name==='Light'));c.spells=[];assert(reconcileSubclassSpells(c).some(s=>s.name==='Light'));c.expandedSubclassChoices['2014:wizard']['2014:subclass:wizard:theurgy-ua']['divine-domain']=['Grave'];assert(!reconcileSubclassSpells(c).some(s=>s.name==='Light'));
+});
+
+test('Life Cleric plus Theurgy Life applies the shared healing benefit only once',()=>{
+ const c=make('Life',10);c.level=16;c.classLevels=[{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:10,subclass:'Theurgy (UA)'},{catalogId:'2014:cleric',name:'Cleric',edition:'2014',level:6,subclass:'Life'}];assert.equal(healingFeaturePlan(c,spell,plan,{recipient:'self'}).rolls[0].expression,'1d8+7');assert.equal(blessedHealerPatch(c,spell,{recipient:'other',slotLevel:1,maxHP:50}).hp.current,13);assert.equal(characterResources(c).filter(r=>r.id==='2014:channel-divinity').length,1);assert.equal(characterResources(c).filter(r=>r.name==='Channel Arcana').length,1);
+});
+
+test('Light inherited cantrip does not duplicate an actual Cleric bonus source',()=>{const c=make('Light',6);c.level=7;c.classLevels=[{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:6,subclass:'Theurgy (UA)'},{catalogId:'2014:cleric',name:'Cleric',edition:'2014',level:1,subclass:'Light'}];c.spells=[{id:'cleric-light',name:'Light',edition:'2014',classSpellGrant:true,castingClassId:'2014:cleric',subclassRecordId:'2014:subclass:cleric:light'}];assert(!expandedSubclassSpellGrants(c).some(g=>g.sourceClassId==='2014:wizard'&&g.name==='Light'));});
+
+test('Light multiclass reconciliation is stable from an empty spell list',()=>{const c=make('Light',6);c.level=7;c.classLevels=[{catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:6,subclass:'Theurgy (UA)'},{catalogId:'2014:cleric',name:'Cleric',edition:'2014',level:1,subclass:'Light'}];const first=reconcileSubclassSpells(c);assert.equal(first.filter(s=>s.name==='Light').length,1);assert.equal(first.find(s=>s.name==='Light').castingClassId,'2014:cleric');assert.deepEqual(reconcileSubclassSpells({...c,spells:first}),first);});

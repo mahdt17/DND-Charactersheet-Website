@@ -65,8 +65,9 @@ export function subclassSpellAccess(c,spell){
 const catalog={2014:[...spells14,...extraSpells,...choiceSpells],2024:modern.spells};
 export function reconcileSubclassSpells(c){
  const rows=characterClasses(c),spells=(c.spells||[]).filter(s=>!s.classSpellGrant);
+ const declared=rows.flatMap(row=>subclassSpellGrants(classCharacter(c,row)).filter(g=>g.acquisition==='known').map(g=>({...g,classSpellGrant:true,castingClassId:row.catalogId})));
  for(const row of rows){
-   const model=classCharacter(c,row);
+   const model={...classCharacter(c,row),allCharacterSpells:[...(c.spells||[]),...declared]};
   for(const grant of subclassSpellGrants(model).filter(g=>g.alwaysPrepared||['known','spellbook'].includes(g.acquisition))){
    const data=catalog[row.edition]?.find(s=>norm(s.name)===norm(grant.name));
    if(!data)continue;
