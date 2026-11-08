@@ -1,3 +1,4 @@
+import {eligibleSpellRepresentatives} from './spellIdentity.js';
 import {expandedSubclassFeatures} from './expandedSubclasses.js';
 import extraSubclassSpells from '../data/subclassSpellCatalog.json' with {type:'json'};
 import subclassChoiceSpells from '../data/subclassChoiceSpellCatalog.json' with {type:'json'};
@@ -86,8 +87,10 @@ export function spellAccess(c,s){
  return spellAccessForClass({...c,activeCastingClassId:c.activeCastingClassId||rows[0]?.catalogId,castingAbility:castingKey(c)},s,{maxLevel:slots.reduce((m,n,i)=>n?i:m,-1),cantrips:counts.cantrips,legacyProfile:is35(c)?legacySlotProfile(c):null});
 }
 export function permittedSpells(c,homebrew=[]){
- return [...new Map(catalogSpells(c.ruleset||'2014',homebrew).map(s=>[keyOf(s),s])).values()]
+ const eligible=[...new Map(catalogSpells(c.ruleset||'2014',homebrew).map(s=>[keyOf(s),s])).values()]
   .flatMap(s=>{const access=spellAccess(c,s);return access.allowed?[{...s,level:access.level}]:[];});
+ const owner=c.activeCastingClassId||characterClasses(c)[0]?.catalogId;
+ return eligibleSpellRepresentatives(eligible,(c.spells||[]).filter(s=>!s.castingClassId||s.castingClassId===owner));
 }
 function splitFeatureList(value=''){
  const out=[];let start=0,depth=0;

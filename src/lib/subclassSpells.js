@@ -60,7 +60,7 @@ export function subclassSpellGrants(c){
 }
 export function subclassSpellAccess(c,spell){
  if((spell.edition||'2014')!==(c.classDefinition?.edition||c.ruleset||'2014'))return null;
- return subclassSpellGrants(c).find(g=>norm(g.name)===norm(spell.name)&&!(g.inheritedRecordId&&!spell.classSpellGrant&&(spell.castingClassId||(spell.id&&(c.spells||[]).some(s=>s.id===spell.id&&!s.classSpellGrant)))))||null;
+ return subclassSpellGrants(c).find(g=>norm(g.name)===norm(spell.name)&&!(g.inheritedRecordId&&!spell.classSpellGrant))||null;
 }
 const catalog={2014:[...spells14,...extraSpells,...choiceSpells],2024:modern.spells};
 export function reconcileSubclassSpells(c){
