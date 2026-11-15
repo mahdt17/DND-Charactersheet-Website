@@ -1,3 +1,4 @@
+import {forgeBlessingBonus} from './subclassForge.js';
 import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile,weaponSubclassDamageDice,weaponSubclassDamageType,monkMartialArtsAvailable} from './subclassEquipment.js';
 import {rageProfile} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
@@ -96,7 +97,7 @@ export function armorFor(char, abilities) {
   const naturalBonus=Number(campaign.rulings.naturalArmorBonus);
   const natural=campaign.active&&Number.isFinite(naturalBonus)?Math.max(0,naturalBonus):0;
   const spellArmor=effectArmor(char,abilities,{armored:armor.length>0,shield});
-  if(armor.length){const e=armor[0];return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(e.armor_class.base,10+inertial)+natural+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities)+spellArmor.bonus+fightingStyleProfile(char,abilities).ac+subclass.acBonus);}
+  if(armor.length){const e=armor[0],item=(char.inventory||[]).find(i=>i.equipped&&i.equipmentIndex===e.index),forgeArmor=forgeBlessingBonus(char,item);return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(e.armor_class.base,10+inertial)+natural+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities)+spellArmor.bonus+fightingStyleProfile(char,abilities).ac+subclass.acBonus+forgeArmor);}
   const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
@@ -115,7 +116,8 @@ export function sheetArmorFor(char,abilities){
  if(char.autoArmor&&char.ruleset!=='3.5'&&char.mechanics!=='3.5')return armorFor(char,abilities);
  const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
  const effects=effectArmor(char,abilities,{armored:worn.some(e=>e.armor_class&&e.index!=='shield'),shield:worn.some(e=>e.index==='shield')});
- return Math.max(effects.minimum,Number(char.ac||0)+effects.bonus+fightingStyleProfile(char,abilities).ac+subclassNumericProfile(char,abilities).acBonus);
+ const forgeArmor=Math.max(0,...(char.inventory||[]).filter(i=>i.equipped&&equipment.find(e=>e.index===i.equipmentIndex)?.armor_class&&i.equipmentIndex!=='shield').map(i=>forgeBlessingBonus(char,i)));
+ return Math.max(effects.minimum,Number(char.ac||0)+effects.bonus+fightingStyleProfile(char,abilities).ac+subclassNumericProfile(char,abilities).acBonus+forgeArmor);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
