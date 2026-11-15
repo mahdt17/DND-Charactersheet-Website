@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function SpellPicker({ title, spells, selected, limit, onToggle }) {
+export default function SpellPicker({ title, spells, selected, limit, onToggle, spellKey = s => s.name }) {
   const [query, setQuery] = useState('');
   const [school, setSchool] = useState('all');
   const [level, setLevel] = useState('all');
@@ -14,16 +14,15 @@ export default function SpellPicker({ title, spells, selected, limit, onToggle }
     (school === 'all' || s.school === school) &&
     (level === 'all' || s.level === Number(level)) &&
     (kind === 'all' || kind === 'ritual' && s.ritual || kind === 'concentration' && s.concentration) &&
-    (!selectedOnly || selected.includes(s.name))
+    (!selectedOnly || selected.includes(spellKey(s)))
   );
   const pages = Math.max(1, Math.ceil(filtered.length / 12));
   const currentPage = Math.min(page, pages - 1);
   const change = setter => e => { setter(e.target.value); setPage(0); };
   return <section className="creation-section spell-picker" aria-label={title}>
     <div className="creation-section-title">{title} <span aria-live="polite">{selected.length} / {limit} selected</span></div>
-    {selected.length > 0 && <div className="spell-picker-selected">{selected.map(name =>
-      <button type="button" className="skill-pill is-selected" key={name} aria-label={`Remove ${name}`} onClick={() => onToggle(name)}>{name} ×</button>
-    )}</div>}
+    {selected.length > 0 && <div className="spell-picker-selected">{selected.map(value => { const name = spells.find(s => spellKey(s) === value)?.name || value; return <button type="button" className="skill-pill is-selected" key={value} aria-label={`Remove ${name}`} onClick={() => onToggle(value)}>{name} ×</button>
+    })}</div>}
     <div className="spell-picker-filters">
       <label className="creation-field"><span>Search spells</span><input value={query} onChange={change(setQuery)} placeholder="Spell name…" /></label>
       <label className="creation-field"><span>School</span><select value={school} onChange={change(setSchool)}><option value="all">All schools</option>{schools.map(s => <option key={s}>{s}</option>)}</select></label>
@@ -33,10 +32,11 @@ export default function SpellPicker({ title, spells, selected, limit, onToggle }
     <label className="spell-picker-toggle"><input type="checkbox" checked={selectedOnly} onChange={e => { setSelectedOnly(e.target.checked); setPage(0); }} /> Show selected only</label>
     <p className="creation-helper" aria-live="polite">{filtered.length} matching spells. Open Details to read a spell.</p>
     <div className="spell-picker-list">{filtered.slice(currentPage*12, currentPage*12+12).map(s => {
-      const chosen = selected.includes(s.name);
-      return <article className={`spell-picker-row ${chosen ? 'is-selected' : ''}`} key={s.index || s.name}>
-        <div><strong>{s.name}</strong><p>{s.level === 0 ? 'Cantrip' : `Level ${s.level}`} · {s.school}{s.ritual ? ' · Ritual' : ''}{s.concentration ? ' · Concentration' : ''}</p></div>
-        <button type="button" className="creation-secondary" aria-label={`${chosen ? 'Remove' : 'Select'} ${s.name}`} aria-pressed={chosen} disabled={!chosen && selected.length >= limit} onClick={() => onToggle(s.name)}>{chosen ? 'Remove' : 'Select'}</button>
+      const chosen = selected.includes(spellKey(s));
+      const sourceLabel = spells.filter(x=>x.name===s.name).length>1 ? ` · ${s.sourceBook||s.source||s.catalogId||s.index}` : '';
+      return <article className={`spell-picker-row ${chosen ? 'is-selected' : ''}`} key={spellKey(s)}>
+        <div><strong>{s.name}{sourceLabel}</strong><p>{s.level === 0 ? 'Cantrip' : `Level ${s.level}`} · {s.school}{s.ritual ? ' · Ritual' : ''}{s.concentration ? ' · Concentration' : ''}</p></div>
+        <button type="button" className="creation-secondary" aria-label={`${chosen ? 'Remove' : 'Select'} ${s.name}${sourceLabel}`} aria-pressed={chosen} disabled={!chosen && selected.length >= limit} onClick={() => onToggle(spellKey(s))}>{chosen ? 'Remove' : 'Select'}</button>
         <details><summary>Details</summary><p>{s.casting_time} {s.range ? `· Range: ${s.range}` : ''}</p><p className="preserve-lines">{s.description}</p>{s.higher_level?.length > 0 && <p>{s.higher_level.join('\n\n')}</p>}</details>
       </article>;
     })}</div>
