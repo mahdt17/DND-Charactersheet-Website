@@ -949,8 +949,8 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   };
   const spellKey=s=>s.catalogId||s.index||s.name;
   const accessModel={...char,level:targetLevel,subclass,abilities:abilityChanges(),spells:[...(char.spells||[]),...newSpells.map(id=>SPELL_DATA.find(s=>spellKey(s)===id)).filter(Boolean)]};
-  const selectable=eligibleSpellRepresentatives(SPELL_DATA.filter(s=>{const access=spellAccess(accessModel,s);return access.allowed&&!access.alwaysPrepared&&!access.bonusKnown;}),(char.spells||[]).filter(s=>!s.castingClassId||s.castingClassId===`2014:${char.className.toLowerCase()}`));
-  const ownedIdentities=new Set((char.spells||[]).filter(s=>!s.castingClassId||s.castingClassId===`2014:${char.className.toLowerCase()}`).filter(s=>!s.classSpellGrant&&!s.featSpellGrant&&!s.featGrantId).map(s=>ordinarySpellIdentity(resolveSpell(s,char))));
+  const selectable=eligibleSpellRepresentatives(SPELL_DATA.filter(s=>{const access=spellAccess(accessModel,s);return access.allowed&&!access.alwaysPrepared&&!access.bonusKnown;}),(char.spells||[]));
+  const ownedIdentities=new Set((char.spells||[]).filter(s=>!s.classSpellGrant&&!s.featSpellGrant&&!s.featGrantId).map(s=>ordinarySpellIdentity(resolveSpell(s,char))));
   const spellCandidates = selectable.filter(s=>s.level>0);
   const cantripCandidates = selectable.filter(s=>s.level===0);
   const normalPrepared=preparedSpells.filter(name=>spellCandidates.some(s=>s.name===name));
