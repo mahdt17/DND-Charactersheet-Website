@@ -1,5 +1,6 @@
 import {expandedSubclassRows,expandedFeatureUnlocked} from './expandedSubclasses.js';
-import {retainsOwnFeatures} from './subclassState.js';
+import {retainsOwnFeatures,equippedForActiveBody} from './subclassState.js';
+import equipment from '../data/equipment.json' with {type:'json'};
 // Reviewed unconditional own-body damage defenses. Conditional defenses have
 // separate source-specific controls and must not be inferred from prose.
 const rules=[
@@ -29,13 +30,21 @@ const rules=[
  ['fighter:psi-knight-ua','Psi-Enhanced Metabolism','resistance',['poison','psychic']],
 ];
 export function subclassPassiveDefenseSupported(recordId,feature,kind){return rules.some(([source,name,effect])=>recordId===`2014:subclass:${source}`&&name===feature&&effect===kind);}
-export function subclassPassiveDamageDefense(c,type){
+export function subclassPassiveDamageDefense(c,type,{attack=false,magical=false}={}){
  if(!type||!retainsOwnFeatures(c))return {resistant:false,immune:false};
  const damage=String(type).toLowerCase(),result={resistant:false,immune:false};
  for(const p of expandedSubclassRows(c))for(const [source,feature,kind,types] of rules){
   if(!types.includes(damage))continue;
   const f=p.record.features.find(f=>(f.inheritedRecordId||p.record.id)===`2014:subclass:${source}`&&f.name===feature&&expandedFeatureUnlocked(p,f));
   if(f)result[kind==='immunity'?'immune':'resistant']=true;
+ }
+ if(attack&&!magical&&['bludgeoning','piercing','slashing'].includes(damage)){
+  for(const p of expandedSubclassRows(c)){
+   const f=p.record.features.find(f=>['2014:subclass:cleric:war','2014:subclass:cleric:strength'].includes(f.inheritedRecordId||p.record.id)&&f.name==='Avatar of Battle'&&expandedFeatureUnlocked(p,f));
+   const forge=p.record.features.find(f=>(f.inheritedRecordId||p.record.id)==='2014:subclass:cleric:forge'&&f.name==='Saint of Forge and Fire'&&expandedFeatureUnlocked(p,f));
+   const heavy=(c.inventory||[]).some(i=>i.equipped&&equippedForActiveBody(c,i)&&equipment.find(e=>e.index===i.equipmentIndex)?.armor_category==='Heavy');
+   if(f||forge&&heavy)result.resistant=true;
+  }
  }
  return result;
 }
