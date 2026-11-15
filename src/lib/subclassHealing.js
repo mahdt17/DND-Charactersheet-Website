@@ -1,3 +1,4 @@
+import {martialArtsDie} from './subclassTriggered.js';
 import {applyPotentSpellcasting} from './subclassCantripDamage.js';
 import {typedOwnDamageAmount,ownFormOverflowAdjuster} from './subclassOwnForm.js';
 import {enhancedBondPlan} from './subclassEnhancedBond.js';
@@ -16,6 +17,7 @@ export function healingFeaturePlan(c,spell,plan,{slotLevel=spell.level,recipient
 }
 export function blessedHealerPatch(c,spell,{recipient,slotLevel,maxHP}={}){const life=domain(c,'life','Blessed Healer')||domain(c,'protection-ua','Blessed Healer');return immediate(spell)&&slotLevel>=1&&recipient==='other'&&life?healHP(c,2+slotLevel,maxHP):{};}
 const defs=[
+ {key:'mercy-healing',records:['monk:mercy','monk:mercy-ua'],feature:'hands-of-healing',resource:'2014:Monk:points',roll:p=>subclassRoll(`1d${martialArtsDie(p.row.level)}+${p.context.wis}`),trigger:'Touch a creature as an action, or replace an eligible Flurry of Blows strike.'},
  {key:'fighting-spirit',records:['fighter:samurai'],feature:'fighting-spirit',resource:'fighting-spirit'},
  {key:'survivor',records:['fighter:champion'],feature:'survivor',trigger:'Start of your turn, conscious, below half your maximum HP'},
  {key:'dark-ones-blessing',records:['warlock:fiend'],feature:'dark-ones-blessing',trigger:'You reduced a hostile creature to 0 HP'},
@@ -29,10 +31,11 @@ const defs=[
  {key:'healing-hands',records:['monk:tranquility-ua'],feature:'healing-hands',resource:'healing-hands',points:true,trigger:'Action or replace one Flurry of Blows strike; touch a creature other than undead/construct. Spend points for healing, or5points per poison/disease cured.'},
 ];
 export function healingFeatures(c){return defs.flatMap(d=>{try{const p=sourceFeature(c,d.records,d.feature),max=d.key==='healing-light'?Math.max(1,p.context.cha):d.key==='balm'?Math.floor(p.row.level/2):5;return [{...d,p,max,roll:d.roll?.(p),expression:d.variable?`1d${d.die}`:null}];}catch{return [];}});}
-export function useHealingFeature(c,key,{n=1,result,recipient='self',triggered=false,maxHP,replaceTemp=false,targetType,removePoison=false}={}){
+export function useHealingFeature(c,key,{n=1,result,recipient='self',triggered=false,maxHP,replaceTemp=false,targetType,removePoison=false,flurry=false}={}){
  const d=healingFeatures(c).find(d=>d.key===key);if(!d)throw Error('This healing feature is not available.');if(d.zeroTrigger&&c.hp.current===0)assertZeroHPTrigger(c,{passive:true});else assertAct(c);const p=d.p;
  if((d.trigger||d.variable)&&!triggered)throw Error('Confirm the source trigger, range and requirements first.');if(d.variable&&(!Number.isInteger(n)||n<1||n>d.max))throw Error(`Choose 1 through ${d.max} dice.`);
  if(d.points){if(['undead','construct'].includes(targetType))throw Error('Healing Hands cannot affect undead or constructs.');if(!Number.isInteger(n)||n<1||n>p.row.level*10||removePoison&&n%5)throw Error('Choose available healing points; curing poison/disease costs5each.');if(!['self','other'].includes(recipient))throw Error('Choose Self or Other.');const spend=spendFeature(c,p,d.resource,n);return {...spend,...(recipient==='self'?(removePoison?{conditions:(c.conditions||[]).filter(v=>String(v).toLowerCase()!=='poisoned')}:healHP(c,n,maxHP)):{}),subclassLastResult:{feature:'Healing Hands',instructions:removePoison?`Cure ${n/5} confirmed poison/disease effects; resolve diseases at the table.`:`Restore ${n} HP to the confirmed recipient.`}};}
+ if(key==='mercy-healing'){if(!['self','other'].includes(recipient))throw Error('Choose Self or Other.');const amount=Math.max(0,validRoll(result,{min:-Infinity})),spend=flurry?{}:spendFeature(c,p,d.resource,1);return {...spend,...(recipient==='self'?healHP(c,amount,maxHP):{}),subclassLastResult:{feature:'Hands of Healing',total:amount,instructions:recipient==='other'?'Apply healing to the touched creature at the table.':'Healing applied to your active body.'}};}
  if(d.variable&&!['self','other'].includes(recipient))throw Error('Choose Self or Other.');const amount=d.variable&&d.die?validRoll(result,{min:n,max:n*d.die}):0,spend=spendFeature(c,p,d.resource,d.variable?n:1);
  if(d.roll)validRoll(result);
  if(key==='searing-vengeance'){if(c.hp.current!==0)throw Error('Searing Vengeance replaces a death save at 0 HP.');return {...spend,...healHP(c,Math.floor(maxHP/2),maxHP),subclassLastResult:{feature:d.feature,total:result.total,instructions:`Chosen creatures within30ft take ${result.total} radiant damage and are blinded until end of turn. You can stand if you choose.`}};}
