@@ -59,7 +59,21 @@ try {
  const fiend=row('Warlock','2014',4);fiend.subclass='Fiend';
  const warlockSpells=spells14.filter(s=>['Eldritch Blast','Mage Hand','Minor Illusion','Armor of Agathys','Charm Person','Comprehend Languages','Hellish Rebuke','Hex'].includes(s.name)).map(s=>({...s,id:s.index,edition:'2014',castingClassId:fiend.catalogId}));
  await importChar({...make('2014',[fiend]),name:'Fiend spell choices',spells:warlockSpells});await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices'}).click();await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
- const newKnown=page.getByRole('region',{name:'New spells',exact:true});await newKnown.getByLabel('Search spells',{exact:true}).fill('Fireball');await newKnown.getByRole('button',{name:'Select Fireball',exact:true}).waitFor();await page.getByRole('button',{name:'Cancel',exact:true}).click();await page.getByRole('button',{name:'Cancel',exact:true}).click();
+ const newKnown=page.getByRole('region',{name:'New spells',exact:true});await newKnown.getByLabel('Search spells',{exact:true}).fill('Fireball');await newKnown.getByRole('button',{name:'Select Fireball',exact:true}).click();
+ for(const name of ['Invisibility','Suggestion']){await newKnown.getByLabel('Search spells',{exact:true}).fill(name);await newKnown.getByRole('button',{name:'Select '+name,exact:true}).click();}
+ assert.match(await newKnown.innerText(),/3\s*\/\s*3 selected/);
+ await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
+ await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:'Warlock 5'}).waitFor();
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();
+ assert.equal(await page.locator('.spell-item').filter({hasText:'Fireball'}).count(),1);
+ await page.waitForTimeout(600);
+ const persisted=await page.evaluate(async()=>{const index=JSON.parse((await window.storage.get('char-index')).value),row=index.find(c=>c.name==='Fiend spell choices');return JSON.parse((await window.storage.get('char-detail:'+row.id)).value);});
+ const fireballs=persisted.spells.filter(s=>s.name==='Fireball');
+ assert.equal(fireballs.length,1);
+ assert.match(fireballs[0].catalogId,/^(2014:|wikidot5e:spell:)fireball$/);
+ assert.equal(fireballs[0].castingClassId,persisted.classLevels[0].catalogId);
+ console.log('PASS actual Fiend level-up saves one sourced Fireball with the correct class owner');
  const land=row('Druid','2024',3);land.subclass='Circle of the Land';
  await importChar({...make('2024',[land]),name:'Circle spells',subclass:'Circle of the Land'});
  await page.getByLabel('Circle of the Land terrain').selectOption('arid');assert.equal(await page.locator('.spell-item').count(),3);assert.equal(await page.locator('.spell-item').filter({hasText:'Fire Bolt'}).count(),1);
