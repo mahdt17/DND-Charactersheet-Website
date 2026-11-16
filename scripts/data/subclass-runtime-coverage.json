@@ -8111,10 +8111,8 @@
   },
   "2014:subclass:wizard:evocation:empowered-evocation": {
     "level": 10,
-    "unverifiedNumeric": [
-      "spell-damage-bonus (One damage roll of wizard evocation spell)"
-    ],
-    "gap": "Intelligence bonus to eligible owned Wizard evocation spell damage requires integration."
+    "claim": "An eligible Wizard evocation cast uses Intelligence (minimum +1) for exactly one damage roll. The cast dialog lets the player choose the roll for multiple rays; other damage rolls and the slot cost are unchanged.",
+    "test": "subclass-cantrip-damage; browser-subclass-cantrip-damage"
   },
   "2014:subclass:wizard:evocation:evocation-savant": {
     "level": 2

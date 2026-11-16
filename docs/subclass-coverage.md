@@ -6239,8 +6239,9 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:evocation)
 
 ### Level 10 · Empowered Evocation
 
-- Numeric effects awaiting verification · spell-damage-bonus (One damage roll of wizard evocation spell)
-- Open sheet gap · Intelligence bonus to eligible owned Wizard evocation spell damage requires integration.
+An eligible Wizard evocation cast uses Intelligence (minimum +1) for exactly one damage roll. The cast dialog lets the player choose the roll for multiple rays; other damage rolls and the slot cost are unchanged.
+
+- Verification · subclass-cantrip-damage; browser-subclass-cantrip-damage
 
 ### Level 14 · Overchannel
 
