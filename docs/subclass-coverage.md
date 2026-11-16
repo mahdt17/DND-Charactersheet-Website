@@ -883,9 +883,11 @@ The action spends the source Channel pool and shows the resolved owner-level dam
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Improved Reaper
 
@@ -929,9 +931,11 @@ Own fire resistance and the heavy armor AC bonus route through the damage/AC mod
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Saint of Forge and Fire
 
@@ -1063,9 +1067,11 @@ A qualifying leveled spell that heals another creature also heals the caster for
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Supreme Healing
 
@@ -1151,10 +1157,12 @@ The incoming damage control can apply the confirmed reaction once to own acid, c
 
 ### Level 8 · Divine Strike
 
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
 - Choice controls · Divine Strike (activation)
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Master of Nature
 
@@ -1191,9 +1199,11 @@ Source spell progression · level 1 prepared: Command, Heroism · level 3 prepar
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Order's Wrath
 
@@ -1275,9 +1285,11 @@ The action tracks Channel spend on confirmation.
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Stormborn
 
@@ -1315,9 +1327,11 @@ The action tracks Channel expenditure.
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Improved Duplicity
 
@@ -1369,9 +1383,11 @@ The action exposes Channel spend and source roll inputs.
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Twilight Shroud
 
@@ -1415,9 +1431,11 @@ The action tracks Channel spend.
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Avatar of Battle
 
@@ -1459,9 +1477,11 @@ The action tracks Channel expenditure and presents the pool based on actual Cler
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Supreme Healing
 
@@ -1497,9 +1517,11 @@ Source spell progression · level 1 prepared: Divine Favor, Shield of Faith · l
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Avatar of Battle
 
@@ -1582,9 +1604,11 @@ Source spell progression · level 1 prepared: Searing Smite, Thunderous Smite ·
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Blaze of Glory
 
@@ -1670,9 +1694,11 @@ The cantrip is granted through subclass spell reconciliation. Light checks for a
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Express Transit
 
@@ -1709,9 +1735,11 @@ Healing integration applies this benefit once alongside equivalent Life features
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Indomitable Defense
 
@@ -1761,9 +1789,11 @@ The action exposes Channel spend and source roll inputs.
 
 ### Level 8 · Divine Strike
 
-- Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
-- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
+The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state.
+
+- Dedicated plans · DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus.
+- Table fact · Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.
+- Open sheet gap · The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.
 
 ### Level 17 · Midnight Shroud
 

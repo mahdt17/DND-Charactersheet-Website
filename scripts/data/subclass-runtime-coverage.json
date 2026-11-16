@@ -1328,11 +1328,12 @@
   },
   "2014:subclass:cleric:city-ua:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:city-ua:express-transit": {
     "level": 17,
@@ -1371,11 +1372,12 @@
   },
   "2014:subclass:cleric:death:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:death:improved-reaper": {
     "level": 17,
@@ -1483,11 +1485,12 @@
   },
   "2014:subclass:cleric:forge:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:forge:saint-of-forge-and-fire": {
     "level": 17,
@@ -1638,11 +1641,12 @@
   },
   "2014:subclass:cleric:life:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:life:supreme-healing": {
     "level": 17,
@@ -1735,11 +1739,12 @@
     "choices": [
       "Divine Strike (activation)"
     ],
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:nature:master-of-nature": {
     "level": 17,
@@ -1764,11 +1769,12 @@
   },
   "2014:subclass:cleric:order:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:order:embodiment-of-the-law": {
     "level": 6,
@@ -1857,11 +1863,12 @@
   },
   "2014:subclass:cleric:protection-ua:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:protection-ua:indomitable-defense": {
     "level": 17,
@@ -1904,11 +1911,12 @@
   },
   "2014:subclass:cleric:solidarity:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:solidarity:solidaritys-action": {
     "level": 1,
@@ -1956,11 +1964,12 @@
   },
   "2014:subclass:cleric:strength:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:tempest:bonus-proficiencies": {
     "level": 1,
@@ -1979,11 +1988,12 @@
   },
   "2014:subclass:cleric:tempest:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:tempest:stormborn": {
     "level": 17,
@@ -2035,11 +2045,12 @@
   },
   "2014:subclass:cleric:trickery:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:trickery:improved-duplicity": {
     "level": 17,
@@ -2071,11 +2082,12 @@
   },
   "2014:subclass:cleric:twilight-ua:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:twilight-ua:eyes-of-night": {
     "level": 1,
@@ -2135,11 +2147,12 @@
   },
   "2014:subclass:cleric:twilight:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:twilight:eyes-of-night": {
     "level": 1,
@@ -2250,11 +2263,12 @@
   },
   "2014:subclass:cleric:war:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:war:war-priest": {
     "level": 1,
@@ -2292,11 +2306,12 @@
   },
   "2014:subclass:cleric:zeal:divine-strike": {
     "level": 8,
-    "unverifiedNumeric": [
-      "extra-weapon-damage (Once on each own turn when weapon attack hits)"
+    "gap": "The dedicated flow supports equipped weapon attacks; unarmed strikes and beast-form natural attacks are not linked. A standard attack made outside this flow cannot subsequently trigger this control.",
+    "table": "Confirm the attack is on your turn, target hit or miss, and apply the visible damage to that target.",
+    "dedicated": [
+      "DivineStrikeTools links a real equipped weapon attack to a hit decision and source-owned once-per-own-turn bonus."
     ],
-    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
-    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
+    "claim": "The dedicated attack rolls the selected actual weapon, followed by an optional visible 1d8 or Cleric 14 2d8 bonus, doubled on critical, with the source-specific type; Nature chooses cold, fire, or lightning. Miss or decline does not spend the turn use. End/start turn and reload preserve appropriate state."
   },
   "2014:subclass:cleric:zeal:priest-of-zeal": {
     "level": 1,
