@@ -28,12 +28,12 @@ Owner Intelligence always-prepared spells at listed Artificer levels outside pre
 
 ### Level 3 · Experimental Elixir
 
-SubclassTableTools purchases selected brews with a real standard/Pact slot or uses long-rest-scaled pool plus visible d6. Drinking consumes one persisted brew. Self healing, walking +10, AC +1, visible Boldness d4 attacks/saves and flight display have consumers. Long rest clears brews.
+SubclassTableTools purchases selected brews with a real standard/Pact slot or uses long-rest-scaled pool plus visible d6. Drinking consumes one persisted brew. Self healing, walking +10, AC +1, visible Boldness d4 attacks/saves and flight display have consumers. Long rest clears brews. Healing and reagent dice accept negative Intelligence; displayed applied healing is at least zero and reagent temporary HP at least one.
 
 - Choice controls · paid-elixir-effect (activation)
 - Counters · Experimental Elixir; 1 uses at probe level; long reset verified
 - Table fact · Confirm tools/flask/rest or action and intended drinker. Other recipient effects use visible rolls.
-- Open sheet gap · Alter Self mode is instruction only and its own Transformation timer is 3600 seconds instead of the printed 600. The self healing/temp formulas interpolate a literal plus and need low-Int bounds checked.
+- Open sheet gap · Alter Self mode is instruction only and its own Transformation timer is 3600 seconds instead of the printed 600.
 
 ### Level 5 · Alchemical Savant
 
@@ -43,13 +43,13 @@ SubclassTableTools purchases selected brews with a real standard/Pact slot or us
 
 ### Level 9 · Restorative Reagents
 
-Drinking a brew at Artificer 9+ adds a separate visible 2d6+Int result and grants self temporary HP. Separate Lesser Restoration generic spend.
+Drinking a brew at Artificer 9+ adds a separate visible 2d6+Int result and grants self temporary HP. Separate Lesser Restoration generic spend. Reagent rolls accept negative Intelligence and report/apply a minimum of one temporary HP.
 
 - Counters · Restorative Reagents; 3 uses at probe level; long reset verified
 - Generic action model · Restorative Reagents: spends 1 from expanded:2014:artificer:2014:subclass:artificer:alchemist:resource:lesser-restoration
 - Numeric effects awaiting verification · temporary-hit-points (Whenever creature drinks your elixir.)
 - Table fact · Confirm brew recipient/action and supplies focus.
-- Open sheet gap · Lesser Restoration use does not cast or clear a qualifying self condition. Minimum 1 temp HP and signed modifier need checking at negative Intelligence.
+- Open sheet gap · Lesser Restoration use does not cast or clear a qualifying self condition.
 
 ### Level 15 · Chemical Mastery
 

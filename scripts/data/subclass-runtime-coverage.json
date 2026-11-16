@@ -38,9 +38,9 @@
     "resources": [
       "Experimental Elixir; 1 uses at probe level; long reset verified"
     ],
-    "claim": "SubclassTableTools purchases selected brews with a real standard/Pact slot or uses long-rest-scaled pool plus visible d6. Drinking consumes one persisted brew. Self healing, walking +10, AC +1, visible Boldness d4 attacks/saves and flight display have consumers. Long rest clears brews.",
+    "claim": "SubclassTableTools purchases selected brews with a real standard/Pact slot or uses long-rest-scaled pool plus visible d6. Drinking consumes one persisted brew. Self healing, walking +10, AC +1, visible Boldness d4 attacks/saves and flight display have consumers. Long rest clears brews. Healing and reagent dice accept negative Intelligence; displayed applied healing is at least zero and reagent temporary HP at least one.",
     "table": "Confirm tools/flask/rest or action and intended drinker. Other recipient effects use visible rolls.",
-    "gap": "Alter Self mode is instruction only and its own Transformation timer is 3600 seconds instead of the printed 600. The self healing/temp formulas interpolate a literal plus and need low-Int bounds checked."
+    "gap": "Alter Self mode is instruction only and its own Transformation timer is 3600 seconds instead of the printed 600."
   },
   "2014:subclass:artificer:alchemist:restorative-reagents": {
     "level": 9,
@@ -53,9 +53,9 @@
     "actions": [
       "Restorative Reagents: spends 1 from expanded:2014:artificer:2014:subclass:artificer:alchemist:resource:lesser-restoration"
     ],
-    "claim": "Drinking a brew at Artificer 9+ adds a separate visible 2d6+Int result and grants self temporary HP. Separate Lesser Restoration generic spend.",
+    "claim": "Drinking a brew at Artificer 9+ adds a separate visible 2d6+Int result and grants self temporary HP. Separate Lesser Restoration generic spend. Reagent rolls accept negative Intelligence and report/apply a minimum of one temporary HP.",
     "table": "Confirm brew recipient/action and supplies focus.",
-    "gap": "Lesser Restoration use does not cast or clear a qualifying self condition. Minimum 1 temp HP and signed modifier need checking at negative Intelligence."
+    "gap": "Lesser Restoration use does not cast or clear a qualifying self condition."
   },
   "2014:subclass:artificer:alchemist:tool-proficiency": {
     "level": 3,
