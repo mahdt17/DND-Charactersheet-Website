@@ -25,4 +25,3 @@ test('Giant Spider Web preserves its structured recharge rule',()=>{
  const web=profiles.localCreatureProfile('giant-spider').attacks.find(a=>a.name==='Web');
  assert.deepEqual(web.usage,{type:'recharge on roll',dice:'1d6',min_value:5});
 });
-
