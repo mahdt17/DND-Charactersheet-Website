@@ -36,10 +36,12 @@ async function importCharacter(className, level, subclass, edition='2014') {
   await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
 }
 
-async function checkPicker(className, eligible, excluded) {
+async function checkPicker(className, eligible, excluded, expectedValue) {
   await page.locator('.sheet-heading').getByRole('button',{name:'Edit',exact:true}).click();
   const modal = page.getByRole('dialog',{name:'Edit character',exact:true});
-  const options = await modal.getByLabel(className + ' subclass source',{exact:true}).innerText();
+  const picker = modal.getByLabel(className + ' subclass source',{exact:true});
+  const options = await picker.innerText();
+  if (expectedValue) assert.equal(await picker.inputValue(), expectedValue);
   for (const name of eligible) assert.match(options, new RegExp(name,'i'));
   for (const name of excluded) assert.doesNotMatch(options, new RegExp(name,'i'));
   await modal.getByRole('button',{name:'Done',exact:true}).click();
@@ -68,8 +70,8 @@ try {
   await page.getByRole('tab',{name:'Actions',exact:true}).click();
   assert.equal(await page.getByRole('button',{name:'Trigger Strength Before Death'}).count(),0);
 
-  await importCharacter('Cleric',1,'Life');
-  await checkPicker('Cleric',['Life'],['Twilight','Light','Arcana']);
+  await importCharacter('Cleric',1,'Life Domain');
+  await checkPicker('Cleric',['Life'],['Twilight','Light','Arcana'],'life');
 
   await importCharacter('Wizard',3,'Evoker','2024');
   await checkPicker('Wizard',['Evoker'],['Bladesinging','Theurgy']);

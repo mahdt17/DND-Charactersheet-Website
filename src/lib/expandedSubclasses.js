@@ -73,6 +73,7 @@ export function expandedSubclassChoicePlan(c,previous=null,picks={},context={}){
   const {row,record}=profile;state[row.catalogId]||={};state[row.catalogId][record.id]||={};profile.state=state[row.catalogId][record.id];
   const definitions=[...(profile.mechanics?.choices||[])];if(record.flexibleFeatureSelection&&!definitions.some(q=>q.key==='later-subclass-feature'))definitions.unshift({key:'later-subclass-feature',feature:'Later subclass feature',level:record.entryLevel,kind:'feature',scope:'advancement',count:1,options:record.features.filter(f=>f.level>record.entryLevel).map(f=>f.name)});
   for(const original of definitions){
+   if(context.usesBaseLoreChoice && record.id==='2014:subclass:bard:lore' && original.key==='bonus-skills')continue;
    if(original.key==='hex-weapon'&&['2014:subclass:warlock:hexblade','2014:subclass:warlock:hexblade-ua'].includes(record.id))continue;
    if(['2014:subclass:fighter:champion','2014:subclass:fighter:brute-ua'].includes(record.id)&&original.key==='additional-fighting-style')continue;
    const flexible=original.key==='later-subclass-feature'&&record.flexibleFeatureSelection;
@@ -99,7 +100,10 @@ export function reconcileExpandedSubclasses(c){
  const add=(p,kind,name,key)=>{if(!kind||!name)return;if(kind==='saves')name=saveKey(name);const meta={expandedSubclassManaged:true,sourceClassId:p.row.catalogId,sourceClassName:p.row.name,subclassRecordId:p.record.id,sourceFeatureId:key};
   if(kind==='languages'){if(!languages.some(n=>norm(n)===norm(name))){languages.push(name);languageGrants.push({...meta,id:`expanded-language:${p.row.catalogId}:${key}:${norm(name)}`,name});}return;}
   const map={skills:skillProf,expertise,saves:saveProf}[kind];if(map){previous[kind]||={};if(!(name in previous[kind]))previous[kind][name]=!!base[{skills:'skillProf',expertise:'expertise',saves:'saveProf'}[kind]]?.[name];map[name]=true;if(kind==='expertise'){previous.skills||={};if(!(name in previous.skills))previous.skills[name]=!!base.skillProf[name];skillProf[name]=true;}}
-  trainingGrants.push({...meta,classId:`expanded-training:${p.row.catalogId}:${key}:${norm(name)}`,className:p.row.name,edition:'2014',proficiencies:[{kind:kind==='expertise'?'skills':kind,name,index:norm(name)}]});
+  const slug=norm(name);
+  const armorCategory=kind==='armor'&&['light','medium','heavy'].includes(slug);
+  const proficiency={kind:kind==='expertise'?'skills':kind,name:armorCategory?`${slug[0].toUpperCase()}${slug.slice(1)} armor`:name,index:armorCategory?`${slug}-armor`:slug};
+  trainingGrants.push({...meta,classId:`expanded-training:${p.row.catalogId}:${key}:${slug}`,className:p.row.name,edition:'2014',proficiencies:[proficiency]});
  };
  for(const p of expandedSubclassRows(c)){state[p.row.catalogId]={[p.record.id]:p.state};if(specialized.has(p.mechanics?.adapter))continue;
   for(const t of p.mechanics?.training||[])if(expandedFeatureUnlocked(p,t)&&whenChoice(base,p,t)&&t.kind!=='source-training')for(const name of list(t.value??t.values))add(p,trainingKind(t.kind),name,t.featureId||t.feature);

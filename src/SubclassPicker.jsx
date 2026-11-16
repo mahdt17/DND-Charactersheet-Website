@@ -1,5 +1,5 @@
 import React from 'react';
-import {availableSubclasses, findExpandedSubclass, subclassLabel, legacySubclassName, subclassNameKey} from './lib/expandedSubclassCatalog';
+import {availableSubclasses, findExpandedSubclass, subclassLabel, legacySubclassName, subclassNameKey, canonicalSubclassNameKey} from './lib/expandedSubclassCatalog';
 import {legacySubclasses2014} from './lib/rules';
 
 export default function SubclassPicker({className, edition='2014', value='', onChange, id='subclasses', fallback=[]}) {
@@ -9,7 +9,8 @@ export default function SubclassPicker({className, edition='2014', value='', onC
     .filter(option => option.class?.name === className)
     .filter(option => !expanded.some(item => item.id === findExpandedSubclass(className, option.name)?.id));
   const options = [...expanded, ...legacy];
-  const matchedLegacy = legacy.find(option => subclassNameKey(legacySubclassName(option)) === subclassNameKey(value));
+  const nameKey = name => edition === '2014' ? canonicalSubclassNameKey(className, name) : subclassNameKey(name);
+  const matchedLegacy = legacy.find(option => nameKey(legacySubclassName(option)) === nameKey(value));
   const selected = record?.id || matchedLegacy?.id || matchedLegacy?.index || '';
   const choose = event => {
     const option = options.find(item => (item.id || item.index) === event.target.value);
