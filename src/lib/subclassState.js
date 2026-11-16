@@ -66,7 +66,7 @@ export function actorActionBlock(c,{allowZeroHP=false}={}){
  if(pendingWildSheep(c))return polymorphSheepEffect(c)?'Normal features and actions are unavailable while polymorphed.':'Choose the DM-confirmed sheep profile before acting.';
  if(typedPlantIncapacitated(c))return 'You are incapacitated while transformed into a potted plant.';
  if(names(c).some(n=>['incapacitated','unconscious','stunned','paralyzed','petrified'].includes(n)))return 'You cannot act while incapacitated.';
- return !allowZeroHP&&actorBodyHP(c)<=0&&!consciousAtZero(c)?'You must be conscious to use this ability.':'';
+ return !allowZeroHP&&actorBodyHP(c)<=0&&!consciousAtZero(c)?'You cannot use this ability while unconscious.':'';
 }
 export function finishSubclassEffects(c,effects){
  const was=(c.activeEffects||[]).some(e=>e.stateKey==='rage-beyond-death');
