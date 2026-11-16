@@ -1072,9 +1072,11 @@ Source spell progression · level 1 prepared: Animal Friendship, Speak with Anim
 
 ### Level 6 · Dampen Elements
 
+The incoming damage control can apply the confirmed reaction once to own acid, cold, fire, lightning or thunder damage, including inherited Theurgy; the checkbox resets after use.
+
 - Generic action model · Dampen Elements: source rules or unverified dedicated path (You/creature within30 ft takes acid/cold/fire/lightning/thunder)
-- Table fact · Confirm damage type, range and use of the reaction. Resolve another creature’s damage externally.
-- Open sheet gap · A qualified self reaction does not route into incoming damage resistance.
+- Table fact · Confirm reaction availability and range; apply resistance for another creature at the table. Ward and Bastion damage controls do not yet offer this reaction.
+- Verification · subclass-passive-defenses; browser-subclass-passive-defenses
 
 ### Level 8 · Divine Strike
 

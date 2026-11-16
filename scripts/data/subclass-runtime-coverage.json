@@ -1631,8 +1631,9 @@
     "actions": [
       "Dampen Elements: source rules or unverified dedicated path (You/creature within30 ft takes acid/cold/fire/lightning/thunder)"
     ],
-    "gap": "A qualified self reaction does not route into incoming damage resistance.",
-    "table": "Confirm damage type, range and use of the reaction. Resolve another creature’s damage externally."
+    "table": "Confirm reaction availability and range; apply resistance for another creature at the table. Ward and Bastion damage controls do not yet offer this reaction.",
+    "claim": "The incoming damage control can apply the confirmed reaction once to own acid, cold, fire, lightning or thunder damage, including inherited Theurgy; the checkbox resets after use.",
+    "test": "subclass-passive-defenses; browser-subclass-passive-defenses"
   },
   "2014:subclass:cleric:nature:divine-strike": {
     "level": 8,

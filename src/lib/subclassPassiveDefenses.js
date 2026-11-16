@@ -1,5 +1,5 @@
 import {expandedSubclassRows,expandedFeatureUnlocked} from './expandedSubclasses.js';
-import {retainsOwnFeatures,equippedForActiveBody} from './subclassState.js';
+import {retainsOwnFeatures,equippedForActiveBody,actorActionBlock} from './subclassState.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 // Reviewed unconditional own-body damage defenses. Conditional defenses have
 // separate source-specific controls and must not be inferred from prose.
@@ -47,4 +47,9 @@ export function subclassPassiveDamageDefense(c,type,{attack=false,magical=false}
   }
  }
  return result;
+}
+
+export function dampenElementsAvailable(c,type){
+ if(!['acid','cold','fire','lightning','thunder'].includes(String(type).toLowerCase())||!retainsOwnFeatures(c)||actorActionBlock(c))return false;
+ return expandedSubclassRows(c).some(p=>p.record.features.some(f=>(f.inheritedRecordId||p.record.id)==='2014:subclass:cleric:nature'&&f.name==='Dampen Elements'&&expandedFeatureUnlocked(p,f)));
 }
