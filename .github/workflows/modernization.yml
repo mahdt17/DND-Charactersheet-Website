@@ -204,6 +204,9 @@ jobs:
       - name: Run production loading browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-loading.mjs
+      - name: Verify the live subclass release scope
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-priority-subclass-release.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
