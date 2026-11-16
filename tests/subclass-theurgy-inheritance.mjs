@@ -83,3 +83,17 @@ test('Wholeness respects the current HP maximum and active Moon body',()=>{let c
 import {healingFeatures,useHealingFeature} from '../src/lib/subclassHealing.js';
 test('Mercy healing uses the Monk die and Wisdom and spends ki once unless replacing Flurry',()=>{let c={...make('Life',6),className:'Monk',subclass:'Mercy',classDefinition:{name:'Monk',index:'monk',edition:'2014'},expandedSubclassChoices:{},resources:[{id:'2014:Monk:points',classResourceKey:'2014:Monk:points',used:0,max:6}],hp:{current:10,max:50,temp:0}};const d=healingFeatures(c).find(d=>d.key==='mercy-healing');assert.equal(d.roll,'1d6+1');let r=useHealingFeature(c,'mercy-healing',{result:{total:5},recipient:'self',triggered:true,maxHP:50});assert.equal(r.hp.current,15);assert.equal(r.resources.find(r=>r.id==='2014:Monk:points').used,1);r=useHealingFeature(c,'mercy-healing',{result:{total:5},recipient:'self',triggered:true,flurry:true,maxHP:50});assert.equal(r.hp.current,15);assert(!r.resources);});
 test('Mercy UA uses its own level and handles low Wisdom',()=>{const c={...make('Life',3),className:'Monk',subclass:'Mercy (UA)',classDefinition:{name:'Monk',index:'monk',edition:'2014'},expandedSubclassChoices:{},abilities:{str:10,dex:10,con:10,int:10,wis:6,cha:10},resources:[{id:'2014:Monk:points',classResourceKey:'2014:Monk:points',used:0,max:3}]};const d=healingFeatures(c).find(d=>d.key==='mercy-healing');assert.equal(d.roll,'1d4-2');const r=useHealingFeature(c,'mercy-healing',{result:{total:-1},recipient:'self',triggered:true,maxHP:50});assert.equal(r.hp.current,10);});
+
+test('Rage prevents starting Invoke Duplicity without spending Channel Arcana',()=>{
+ const c=make('Trickery',2);
+ c.classLevels=[
+   {catalogId:'2014:wizard',name:'Wizard',edition:'2014',level:2,subclass:'Theurgy (UA)'},
+   {catalogId:'2014:barbarian',name:'Barbarian',edition:'2014',level:1}
+ ];
+ c.level=3;
+ c.activeEffects=[{id:'rage',baseClassId:'2014:Barbarian:rage',stateKey:'rage',remainingSeconds:60}];
+ const action=expandedSubclassActions(c).find(a=>a.key.endsWith('channel-divinity-invoke-duplicity'));
+ assert(action);
+ assert.throws(()=>useExpandedSubclassAction(c,action.id,{eligible:true}),/concentrate.*raging/i);
+ assert.equal(characterResources(c).find(r=>r.id===action.resourceId).used,0);
+});
