@@ -8244,10 +8244,9 @@
   },
   "2014:subclass:wizard:abjuration:spell-resistance": {
     "level": 14,
-    "unverifiedNumeric": [
-      "save-advantage",
-      "resistance"
-    ]
+    "claim": "At Wizard 14, own incoming typed spell damage is resisted and a confirmed saving throw against a spell has advantage; this applies to Moon form and automatic Wild Magic Fireball, with replacement Polymorph suppression.",
+    "table": "Confirm spell origin and the applicable saving throw; Ward and Bastion damage controls do not yet offer spell-origin confirmation.",
+    "test": "subclass-passive-defenses; subclass-typed-damage-final; browser-subclass-spell-resistance"
   },
   "2014:subclass:wizard:artificer-ua:infuse-potions": {
     "level": 2

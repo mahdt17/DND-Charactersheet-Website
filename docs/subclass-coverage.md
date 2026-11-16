@@ -6386,8 +6386,10 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:abjuration
 
 ### Level 14 · Spell Resistance
 
-- Numeric effects awaiting verification · save-advantage · resistance
-- Remaining source effects need verification.
+At Wizard 14, own incoming typed spell damage is resisted and a confirmed saving throw against a spell has advantage; this applies to Moon form and automatic Wild Magic Fireball, with replacement Polymorph suppression.
+
+- Table fact · Confirm spell origin and the applicable saving throw; Ward and Bastion damage controls do not yet offer spell-origin confirmation.
+- Verification · subclass-passive-defenses; subclass-typed-damage-final; browser-subclass-spell-resistance
 
 ## Wizard — Bladesinging
 

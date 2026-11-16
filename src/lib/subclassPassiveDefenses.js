@@ -30,9 +30,9 @@ const rules=[
  ['fighter:psi-knight-ua','Psi-Enhanced Metabolism','resistance',['poison','psychic']],
 ];
 export function subclassPassiveDefenseSupported(recordId,feature,kind){return rules.some(([source,name,effect])=>recordId===`2014:subclass:${source}`&&name===feature&&effect===kind);}
-export function subclassPassiveDamageDefense(c,type,{attack=false,magical=false}={}){
+export function subclassPassiveDamageDefense(c,type,{attack=false,magical=false,spellDamage=false}={}){
  if(!type||!retainsOwnFeatures(c))return {resistant:false,immune:false};
- const damage=String(type).toLowerCase(),result={resistant:false,immune:false};
+ const damage=String(type).toLowerCase(),result={resistant:spellDamage&&spellResistanceAvailable(c),immune:false};
  for(const p of expandedSubclassRows(c))for(const [source,feature,kind,types] of rules){
   if(!types.includes(damage))continue;
   const f=p.record.features.find(f=>(f.inheritedRecordId||p.record.id)===`2014:subclass:${source}`&&f.name===feature&&expandedFeatureUnlocked(p,f));
@@ -52,4 +52,8 @@ export function subclassPassiveDamageDefense(c,type,{attack=false,magical=false}
 export function dampenElementsAvailable(c,type){
  if(!['acid','cold','fire','lightning','thunder'].includes(String(type).toLowerCase())||!retainsOwnFeatures(c)||actorActionBlock(c))return false;
  return expandedSubclassRows(c).some(p=>p.record.features.some(f=>(f.inheritedRecordId||p.record.id)==='2014:subclass:cleric:nature'&&f.name==='Dampen Elements'&&expandedFeatureUnlocked(p,f)));
+}
+
+export function spellResistanceAvailable(c){
+ return retainsOwnFeatures(c)&&expandedSubclassRows(c).some(p=>p.record.id==='2014:subclass:wizard:abjuration'&&p.record.features.some(f=>f.name==='Spell Resistance'&&expandedFeatureUnlocked(p,f)));
 }
