@@ -8268,8 +8268,11 @@ Entry level 3 · [Player's Handbook](https://dnd5e.wikidot.com/barbarian:berserk
 
 ### Level 6 · Mindless Rage
 
-- Numeric effects awaiting verification · condition-immunity (Raging; existing effect suspended)
-- Remaining source effects need verification.
+While an eligible Berserker Rage remains active, stored Charmed and Frightened conditions are suspended in condition callers and visibly marked; new condition additions are blocked. Stored conditions return when Rage ends.
+
+- Table fact · Confirm fear-source visibility, charm relationships and expiration at the table. The sheet records condition names rather than separate source instances.
+- Open sheet gap · The existing base Rage entry control rejects heavy armor; Rage entered before heavy armor is equipped still retains Mindless Rage.
+- Verification · subclass-mindless-rage; browser-subclass-mindless-rage
 
 ### Level 10 · Intimidating Presence
 

@@ -479,9 +479,10 @@
   },
   "2014:subclass:barbarian:berserker:mindless-rage": {
     "level": 6,
-    "unverifiedNumeric": [
-      "condition-immunity (Raging; existing effect suspended)"
-    ]
+    "claim": "While an eligible Berserker Rage remains active, stored Charmed and Frightened conditions are suspended in condition callers and visibly marked; new condition additions are blocked. Stored conditions return when Rage ends.",
+    "table": "Confirm fear-source visibility, charm relationships and expiration at the table. The sheet records condition names rather than separate source instances.",
+    "gap": "The existing base Rage entry control rejects heavy armor; Rage entered before heavy armor is equipped still retains Mindless Rage.",
+    "test": "subclass-mindless-rage; browser-subclass-mindless-rage"
   },
   "2014:subclass:barbarian:berserker:retaliation": {
     "level": 14

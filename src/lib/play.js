@@ -1,5 +1,5 @@
 import {subclassSpellModifiers} from './subclassSpellModifiers.js';
-import {featureCastingBlock} from './rage2014.js';
+import {featureCastingBlock,mindlessRageActive} from './rage2014.js';
 import {subclassNumericProfile,subclassNormalBodyHPBonus} from './subclassNumerics.js';
 import {actorActionBlock,echoAvatarActive} from './subclassState.js';
 import {assertCampaignCanAct} from './campaignActivity.js';
@@ -9,7 +9,7 @@ import { mechanics, is35, spellSlotPools } from './editions.js';
 import {companionMasterEffects35} from './companions35.js';
 import {classEffectMovementBonus35} from './classEffects35.js';
 import {totemProfile,totemCastingBlockReason} from './totemWarrior.js';
-export const conditionNames=c=>Array.isArray(c.conditions)?c.conditions.filter(x=>typeof x==='string').map(x=>x.trim()).filter(Boolean):String(c.conditions||'').split(',').map(s=>s.trim()).filter(Boolean);
+export const conditionNames=c=>{const names=Array.isArray(c.conditions)?c.conditions.filter(x=>typeof x==='string').map(x=>x.trim()).filter(Boolean):String(c.conditions||'').split(',').map(s=>s.trim()).filter(Boolean);return mindlessRageActive(c)?names.filter(n=>!['charmed','frightened'].includes(n.toLowerCase())):names;};
 export const exhaustionLevel=c=>Math.max(0,Math.min(6,Math.floor(Number(c.exhaustion??(conditionNames(c).some(n=>n.toLowerCase()==='exhaustion')?1:0))||0)));
 export function conditionEffects(c){const e=exhaustionLevel(c),names=[...conditionNames(c),...(echoAvatarActive(c)?['Blinded','Deafened']:[])].map(n=>n[0].toUpperCase()+n.slice(1).toLowerCase()),modern=mechanics(c)==='2024',companion=companionMasterEffects35(c),baseMaxHP=Math.max(1,(Number(c?.hp?.max)||1)+(Number(companion.hpBonus)||0)+subclassNormalBodyHPBonus(c)),baseSpeed=Math.max(0,((Number(c?.speed)||0)+campaignModifiers(c).speed+(is35(c)?classEffectMovementBonus35(c,'land'):0)+totemProfile(c).movementBonus+subclassNumericProfile(c).speedBonus)*entomancerProfile(c).speedMultiplier);
  return {exhaustion:e,penalty:modern?-2*e:0,checkDisadvantage:!is35(c)&&((!modern&&e>=1)||names.includes('Poisoned')),attackDisadvantage:!is35(c)&&((!modern&&e>=3)||['Poisoned','Blinded','Prone','Restrained'].some(n=>names.includes(n))),saveDisadvantage:!is35(c)&&!modern&&e>=3,speed:['Grappled','Restrained','Paralyzed','Stunned','Unconscious','Petrified'].some(n=>names.includes(n))?0:modern?Math.max(0,baseSpeed-5*e):!is35(c)&&e>=5?0:!is35(c)&&e>=2?Math.floor(baseSpeed/2):baseSpeed,maxHP:!is35(c)&&!modern&&e>=4?Math.max(1,Math.floor(baseMaxHP/2)):baseMaxHP,dead:!is35(c)&&e>=6};}
