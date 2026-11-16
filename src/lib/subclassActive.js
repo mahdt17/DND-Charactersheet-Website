@@ -1,7 +1,7 @@
 import {resourceEvent} from './subclassQuantities.js';
 import {rageProfile,rageId} from './rage2014.js';
 import {sourceFeature,spendFeature,assertAct,featureState,putState,tempHP,validRoll} from './subclassActionUtils.js';
-import {sourceSubclassEffects,finishSubclassEffects} from './subclassState.js';
+import {sourceSubclassEffects,finishSubclassEffects,retainsOwnFeatures,actorIncapacitated} from './subclassState.js';
 import {availableSlots} from './play.js';
 import {subclassTableProfiles,applySubclassTable,tableOutcome} from './subclassTables.js';
 export {rageProfile};
@@ -58,6 +58,7 @@ export function activeFormProfile(c){
  if(states.some(e=>e.stateKey==='spirit-projection')){result.resistances.push('bludgeoning','piercing','slashing');result.flyingSpeed=Math.max(result.flyingSpeed,Number(c.speed)||30);}
  if(states.some(e=>e.stateKey==='wild-surge:71'))result.resistances.push('acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder');
  if(states.some(e=>e.stateKey==='shadow-form')){result.resistances.push('acid','bludgeoning','cold','fire','lightning','necrotic','piercing','poison','psychic','slashing','thunder');if(states.some(e=>e.stateKey==='shadow-form'&&e.subclassRecordId.endsWith(':shadow-ua')))result.resistances.push('radiant');}
+ if(retainsOwnFeatures(c)&&!actorIncapacitated(c)&&states.some(e=>e.stateKey==='writhing-tide')){result.flyingSpeed=Math.max(result.flyingSpeed,10);result.hover=true;}
  if(states.some(e=>e.stateKey==='rune-hill'))result.resistances.push('bludgeoning','piercing','slashing');if(states.some(e=>e.stateKey==='ghost-walk'))result.flyingSpeed=Math.max(result.flyingSpeed,10);
  return result;
 }

@@ -3684,10 +3684,12 @@ Source spell progression · level 3 known: Faerie Fire, Mage Hand · level 5 kno
 
 ### Level 7 · Writhing Tide
 
+A confirmed bonus action spends one owning Ranger use and tracks one minute of 10-foot flight with hover, ending on incapacity or expiry. Replacement Polymorph suppresses the benefit.
+
 - Counters · Writhing Tide; 6 uses at probe level; long reset
 - Generic action model · Writhing Tide: spends 1 from expanded:2014:ranger:2014:subclass:ranger:swarmkeeper:resource:writhing-tide (Beginning at 7th level, you can condense part of your swarm into a focused mass that lifts you up. As a bonus action, you gain a flying speed of 10 feet and can hover. This effect lasts for 1 minute or until you are incapacitated. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)
-- Numeric effects awaiting verification · fly-speed (Writhing Tide active1minute; hover)
-- Remaining source effects need verification.
+- Table fact · Confirm the bonus action and physical flight position.
+- Verification · subclass-swarmkeeper-final; browser-subclass-swarmkeeper-final
 
 ### Level 11 · Mighty Swarm
 
