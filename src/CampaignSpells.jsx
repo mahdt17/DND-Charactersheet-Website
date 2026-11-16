@@ -53,7 +53,7 @@ export default function CampaignSpells({char,patch,roll,show,homebrew=[],mode='b
   if(success)setCast(null);
  }
  if(cyst?!spells.length:!p.archivist)return null;
- return <section aria-label={cyst?'Mother Cyst spells':'Archivist spells'}><SpellEffects char={char} patch={patch}/>
+ return <section aria-label={cyst?'Mother Cyst spells':'Archivist spells'}><SpellEffects char={char} patch={patch} roll={roll}/>
   <div className="l-section-head"><h2>{cyst?'Mother Cyst spells':'Spellbook'}</h2>{!cyst&&<div className="l-toolbar"><B onClick={()=>setScribe(true)}>Scribe scrolls & projects</B><B onClick={()=>{setManage(true);setError('');}}>Manage spells</B></div>}</div>
   <p className="l-muted">{cyst?'Granted by Mother Cyst · always available within your character level · uses your existing spell slots.':`INT · Save DC ${p.dc} · Spell attack +${p.pb+p.int} · Prepared ${book.filter(s=>s.level>0&&s.prepared).length} / ${p.preparedLimit} (${p.rulings.preparedLimit!=null?'manual override':`character level ${p.characterLevel} + INT ${p.int}`})`}</p>
   <div className="slot-grid">{['standard','pact'].flatMap(kind=>(pools?.[kind]||[]).map((n,i)=>i>0&&n>0?<div key={kind+i} className="slot-level"><strong>{kind==='pact'?'Pact Magic · ':''}Level {i}</strong><span>{Math.max(0,n-Number(char[kind==='pact'?'pactSlotsUsed':'slotsUsed']?.[i]||0))} / {n} slots</span></div>:null))}</div>

@@ -3116,11 +3116,10 @@ Source reaction use instructions.
 
 ### Level 15 · Protective Spirit
 
-Source rules.
+At Paladin 15, below half current-body maximum and not incapacitated, heals 1d6 plus half own Paladin level (rounded down), capped at the body maximum. Moon retains the feature; replacement Polymorph suppresses it.
 
-- Numeric effects awaiting verification · self-healing (End turn in combat below halfHP and not incapacitated)
-- Table fact · Confirm combat end-of-turn timing.
-- Open sheet gap · No own 1d6+half Paladin capped healing below half max.
+- Dedicated plans · Combat-confirmed own End turn rolls visible healing and applies it to the current body once; marker clears at next own turn.
+- Table fact · Confirm that this is the end of your own turn in combat. Advancing elapsed time alone does not trigger healing.
 
 ### Level 20 · Emissary of Redemption
 
@@ -3380,11 +3379,10 @@ Source reaction use instructions.
 
 ### Level 15 · Protective Spirit
 
-Source rules.
+At Paladin 15, below half current-body maximum and not incapacitated, heals 1d6 plus half own Paladin level (rounded down), capped at the body maximum. Moon retains the feature; replacement Polymorph suppresses it.
 
-- Numeric effects awaiting verification · self-healing (End turn in combat below halfHP and not incapacitated)
-- Table fact · Confirm combat end-of-turn timing.
-- Open sheet gap · No own 1d6+half Paladin capped healing below half max.
+- Dedicated plans · Combat-confirmed own End turn rolls visible healing and applies it to the current body once; marker clears at next own turn.
+- Table fact · Confirm that this is the end of your own turn in combat. Advancing elapsed time alone does not trigger healing.
 
 ### Level 20 · Emissary of Redemption
 

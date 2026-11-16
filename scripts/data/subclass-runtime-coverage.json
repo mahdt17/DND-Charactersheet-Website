@@ -4735,12 +4735,11 @@
   },
   "2014:subclass:paladin:redemption-ua:protective-spirit": {
     "level": 15,
-    "unverifiedNumeric": [
-      "self-healing (End turn in combat below halfHP and not incapacitated)"
-    ],
-    "claim": "Source rules.",
-    "table": "Confirm combat end-of-turn timing.",
-    "gap": "No own 1d6+half Paladin capped healing below half max."
+    "claim": "At Paladin 15, below half current-body maximum and not incapacitated, heals 1d6 plus half own Paladin level (rounded down), capped at the body maximum. Moon retains the feature; replacement Polymorph suppresses it.",
+    "table": "Confirm that this is the end of your own turn in combat. Advancing elapsed time alone does not trigger healing.",
+    "dedicated": [
+      "Combat-confirmed own End turn rolls visible healing and applies it to the current body once; marker clears at next own turn."
+    ]
   },
   "2014:subclass:paladin:redemption-ua:redemption-spells": {
     "level": 3,
@@ -4797,12 +4796,11 @@
   },
   "2014:subclass:paladin:redemption:protective-spirit": {
     "level": 15,
-    "unverifiedNumeric": [
-      "self-healing (End turn in combat below halfHP and not incapacitated)"
-    ],
-    "claim": "Source rules.",
-    "table": "Confirm combat end-of-turn timing.",
-    "gap": "No own 1d6+half Paladin capped healing below half max."
+    "claim": "At Paladin 15, below half current-body maximum and not incapacitated, heals 1d6 plus half own Paladin level (rounded down), capped at the body maximum. Moon retains the feature; replacement Polymorph suppresses it.",
+    "table": "Confirm that this is the end of your own turn in combat. Advancing elapsed time alone does not trigger healing.",
+    "dedicated": [
+      "Combat-confirmed own End turn rolls visible healing and applies it to the current body once; marker clears at next own turn."
+    ]
   },
   "2014:subclass:paladin:redemption:tenets-of-redemption": {
     "level": 3,
