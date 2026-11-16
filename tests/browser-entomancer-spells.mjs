@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {test,before,after} from 'node:test';
+import {ordinarySpellIdentity} from '../src/lib/spellIdentity.js';
 import {readFileSync} from 'node:fs';
 import {createServer} from 'vite';
 import {chromium} from 'playwright';
@@ -92,8 +93,8 @@ test('Entomancer has every published Druid spell through level 5, including opti
  for(const row of publishedList){
   const candidate=catalog.find(s=>s.name.toLowerCase()===row.name.toLowerCase()&&s.level===row.level);
   assert(candidate,'catalog contains '+row.name);
-  if(row.level>5){assert(!available.some(s=>s.catalogId===candidate.catalogId),row.name+' exceeds class progression');continue;}
-  const option=available.find(s=>s.catalogId===candidate.catalogId);
+  if(row.level>5){assert(!available.some(s=>ordinarySpellIdentity(s)===ordinarySpellIdentity(candidate)),row.name+' exceeds class progression');continue;}
+  const option=available.find(s=>ordinarySpellIdentity(s)===ordinarySpellIdentity(candidate));
   assert(option,row.name+' must be available');
   assert.doesNotThrow(()=>prepareEntomancerSpells({...character,spells:[]},entomancerClass.catalogId,[option]),row.name+' must be preparable');
   assert(editions.resolveSpell(option,base).description.length>70,row.name+' has rules');
@@ -113,7 +114,7 @@ test('Entomancer has every published Druid spell through level 5, including opti
   const choices=editions.permittedSpells({...character,level},catalog);
   for(const row of publishedList){
    const entry=catalog.find(s=>s.name.toLowerCase()===row.name.toLowerCase()&&s.level===row.level);
-   assert.equal(choices.some(s=>s.catalogId===entry.catalogId),row.level<=highestSpellLevel[level-1],`Entomancer level ${level}: ${row.name}`);
+   assert.equal(choices.some(s=>ordinarySpellIdentity(s)===ordinarySpellIdentity(entry)),row.level<=highestSpellLevel[level-1],`Entomancer level ${level}: ${row.name}`);
   }
  }
  const level2={...character,level:2,spells:[]};
@@ -204,7 +205,7 @@ test('level-up wizard restricts a saved unrestricted Entomancer advancing to lev
  assert.match(await limits.innerText(),/3 level 1 spell slots/);
  assert.match(await limits.innerText(),/4 prepared spells/);
  await picker.getByLabel('Search spells',{exact:true}).fill('Goodberry');
- await picker.getByRole('button',{name:/^Select Goodberry \(5e · SRD 5.1/}).click();
+ await picker.getByRole('button',{name:'Select Goodberry (5e)',exact:true}).click();
  await next();await page.getByRole('button',{name:'Apply level up',exact:true}).click();
  await page.locator('.sheet-heading').filter({hasText:'Entomancer 3'}).waitFor();
  await page.getByRole('tab',{name:'Spells',exact:true}).click();
