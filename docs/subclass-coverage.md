@@ -815,15 +815,19 @@ Source spell progression · level 1 prepared: Detect Magic, Magic Missile · lev
 
 ### Level 1 · Arcane Initiate
 
+Training grants Arcana and eligible chosen Wizard cantrips are owned spell sources. Theurgy inheritance uses the printed Cleric spellcasting ability for these grants.
+
 - Choice controls · Arcane Initiate (advancement)
 - Training grants · Arcana
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance; browser-theurgy-inheritance
 
 ### Level 2 · Channel Divinity: Arcane Abjuration
 
+The action tracks the appropriate Channel pool.
+
 - Generic action model · Channel Divinity: Arcane Abjuration: spends 1 from 2014:channel-divinity
 - Numeric effects awaiting verification · banish-max-cr (Target fails save and not native plane;banish1m no concentration)
-- Remaining source effects need verification.
+- Table fact · Confirm creature type, visibility, range and saving throw. Extraplanar origin and challenge rating affect dismissal.
 
 ### Level 6 · Spell Breaker
 
@@ -832,13 +836,17 @@ Source spell progression · level 1 prepared: Detect Magic, Magic Missile · lev
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Arcane Mastery
 
+The choice plan offers eligible high-level Wizard spells with source-grant tracking and always-prepared access.
+
 - Choice controls · Arcane Mastery (advancement)
-- Remaining source effects need verification.
+- Table fact · Choose one source spell in each specified level.
 
 ## Cleric — Death
 
@@ -853,30 +861,37 @@ Source spell progression · level 1 prepared: False Life, Ray of Sickness · lev
 
 ### Level 1 · Reaper
 
+The source cantrip selection is handled by the subclass choice system.
+
 - Choice controls · Reaper (advancement)
 - Numeric effects awaiting verification · necromancy-cantrip-targets (Normally single creature;both in range and within5ft each other)
-- Remaining source effects need verification.
+- Table fact · Confirm target eligibility and adjacency.
+- Open sheet gap · The cast does not expose the qualifying two-target adjacency option.
 
 ### Level 2 · Channel Divinity: Touch of Death
 
+The action spends the source Channel pool and shows the resolved owner-level damage contribution.
+
 - Generic action model · Channel Divinity: Touch of Death: spends 1 from 2014:channel-divinity; separate roll 9
 - Numeric effects awaiting verification · extra-damage (Melee attack hit; necrotic; spend CD)
-- Remaining source effects need verification.
+- Table fact · Confirm a melee attack hit and apply added necrotic damage to that target.
 
 ### Level 6 · Inescapable Destruction
 
 - Numeric effects awaiting verification · ignore-resistance (Cleric spells and Channel Divinity)
-- Remaining source effects need verification.
+- Open sheet gap · Resistant target resolution does not use the domain’s qualifying necrotic damage bypass.
 
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Improved Reaper
 
 - Numeric effects awaiting verification · necromancy-spell-targets (Spell level1..5 normally one creature;both in range and within5ft;consumed materials for each)
-- Remaining source effects need verification.
+- Table fact · Confirm the two targets and their required proximity.
+- Open sheet gap · The extra-target option for qualifying necromancy spells and material restrictions are not enforced for this cast.
 
 ## Cleric — Forge
 
@@ -900,18 +915,23 @@ Forge tools bind one owned armor or weapon to a persistent +1 AC or attack/damag
 
 ### Level 2 · Channel Divinity: Artisan's Blessing
 
+The action spends a Channel use.
+
 - Generic action model · Channel Divinity: Artisan's Blessing: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Table fact · Confirm the hour, materials, metal component, value limit and eligible item before adding the item.
 
 ### Level 6 · Soul of the Forge
 
+Own fire resistance and the heavy armor AC bonus route through the damage/AC models at the qualifying native or inherited level.
+
 - Recognized numeric routes · armor-class-bonus (Wearing heavy armor) · resistance
-- Remaining source effects need verification.
+- Verification · subclass-passive-defenses; subclass-theurgy-inheritance
 
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Saint of Forge and Fire
 
@@ -929,8 +949,10 @@ Source spell progression · level 1 known: Spare the Dying · level 1 prepared: 
 
 ### Level 1 · Circle of Mortality
 
+Healing dice are maximized for a recipient at 0 HP, using actual active-body HP for Self. Spare the Dying is a source spell grant.
+
 - Numeric effects awaiting verification · healing-dice (Healing spell targets creature at0HP)
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance; spell-effects
 
 ### Level 1 · Eyes of the Grave
 
@@ -940,24 +962,31 @@ Source spell progression · level 1 known: Spare the Dying · level 1 prepared: 
 
 ### Level 2 · Channel Divinity: Path to the Grave
 
+The action spends a Channel use.
+
 - Generic action model · Channel Divinity: Path to the Grave: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Table fact · Confirm a visible target in range and apply vulnerability to the next hit inside the timing limit.
 
 ### Level 6 · Sentinel at Death's Door
 
+The action tracks Wisdom-based uses and long-rest reset.
+
 - Counters · expanded:2014:cleric:2014:subclass:cleric:grave:resource:sentinel; 3 uses at probe level; long reset verified
 - Generic action model · Sentinel at Death's Door: spends 1 from expanded:2014:cleric:2014:subclass:cleric:grave:resource:sentinel
-- Remaining source effects need verification.
+- Table fact · Confirm the eligible incoming critical, vision, range and reaction; resolve it as a normal hit.
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Keeper of Souls
 
 - Generic action model · Keeper of Souls: source rules or unverified dedicated path (Not incapacitated; visible enemy dies within30 ft)
-- Remaining source effects need verification.
+- Table fact · Confirm the qualifying creature death and target in range, and use the creature’s number of Hit Dice.
+- Open sheet gap · The generic action does not apply the chosen own healing or enforce the once-per-round use.
 
 ## Cleric — Knowledge
 
@@ -972,19 +1001,25 @@ Source spell progression · level 1 prepared: Command, Identify · level 3 prepa
 
 ### Level 2 · Channel Divinity: Knowledge of the Ages
 
+The action spends the Channel pool and exposes the associated skill or tool selection when eligible.
+
 - Choice controls · Channel Divinity: Knowledge of the Ages (activation)
 - Generic action model · Channel Divinity: Knowledge of the Ages: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Open sheet gap · Verify the proficiency expiry in actual sheet rolls; the chosen option alone does not prove a timed proficiency.
 
 ### Level 6 · Channel Divinity: Read Thoughts
 
+The action spends the relevant Channel pool.
+
 - Generic action model · Channel Divinity: Read Thoughts: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Table fact · Confirm visible target, sufficient range, saving throw and mental effects; optional Suggestion ends the reading.
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Visions of the Past
 
@@ -1005,29 +1040,39 @@ Source spell progression · level 1 prepared: Bless, Cure Wounds · level 3 prep
 
 ### Level 1 · Disciple of Life
 
+Qualifying immediate healing adds 2 plus slot level without changing the selected recipient.
+
 - Numeric effects awaiting verification · healing-bonus (Spell >=1 restoring HP)
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance; spell-effects
 
 ### Level 2 · Channel Divinity: Preserve Life
 
+The action tracks Channel expenditure and presents the pool based on actual Cleric level.
+
 - Generic action model · Channel Divinity: Preserve Life: spends 1 from 2014:channel-divinity; separate roll 10
 - Numeric effects awaiting verification · healing-pool (Divide among chosen within30 ft; max half target maxHP; excludes undead/constructs)
-- Remaining source effects need verification.
+- Table fact · Choose eligible creatures in range and split healing up to half each creature’s maximum HP.
+- Open sheet gap · The sheet does not allocate or apply a share of the pool to Self.
 
 ### Level 6 · Blessed Healer
 
+A qualifying leveled spell that heals another creature also heals the caster for 2 plus the slot level.
+
 - Numeric effects awaiting verification · self-healing (Spell >=1 restores HP to another)
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance; spell-effects
 
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Supreme Healing
 
+Healing spell dice use their maximums; qualifying named healing effects do not stack with the same benefit from another owner.
+
 - Numeric effects awaiting verification · healing-dice (Spell healing dice)
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance; spell-effects
 
 ## Cleric — Light
 
@@ -1037,30 +1082,38 @@ Source spell progression · level 1 known: Light · level 1 prepared: Burning Ha
 
 ### Level 1 · Bonus Cantrip
 
+The cantrip is granted through subclass spell reconciliation. Light checks for an existing independent copy.
+
 - Spell grants · Light
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance
 
 ### Level 1 · Warding Flare
 
+The action tracks source-owned long-rest uses using Wisdom.
+
 - Counters · expanded:2014:cleric:2014:subclass:cleric:light:resource:warding-flare; 3 uses at probe level; long reset verified
 - Generic action model · Warding Flare: spends 1 from expanded:2014:cleric:2014:subclass:cleric:light:resource:warding-flare
-- Remaining source effects need verification.
+- Table fact · Apply disadvantage to the eligible enemy attack before its outcome. Confirm visibility, range and the target’s susceptibility to blindness.
 
 ### Level 2 · Channel Divinity: Radiance of the Dawn
 
+The action spends Channel and offers its individual damage expression.
+
 - Generic action model · Channel Divinity: Radiance of the Dawn: spends 1 from 2014:channel-divinity; separate roll 2d10+2
 - Numeric effects awaiting verification · damage (Hostiles30 ft; CON save half; total cover excludes; dispel magical darkness30 ft)
-- Remaining source effects need verification.
+- Table fact · Identify eligible creatures with required range and cover, resolve each Constitution save, and handle magical darkness.
 
 ### Level 6 · Improved Flare
 
 - Numeric effects awaiting verification · warding-flare-protect-others (Visible attacker30ft attacks creature other than you)
-- Remaining source effects need verification.
+- Table fact · The same Flare reaction can affect an enemy attack on another creature. Confirm visibility, range and susceptibility before the outcome.
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Corona of Light
 
@@ -1100,7 +1153,8 @@ The incoming damage control can apply the confirmed reaction once to own acid, c
 
 - Choice controls · Divine Strike (activation)
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Master of Nature
 
@@ -1138,7 +1192,8 @@ Source spell progression · level 1 prepared: Command, Heroism · level 3 prepar
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Order's Wrath
 
@@ -1158,9 +1213,12 @@ Source spell progression · level 1 prepared: Heroism, Sanctuary · level 3 prep
 
 ### Level 1 · Emboldening Bond
 
+The action tracks the specified pool where the source defines uses.
+
 - Counters · expanded:2014:cleric:2014:subclass:cleric:peace:resource:emboldening-bond; 2 uses at probe level; long reset verified
 - Generic action model · Emboldening Bond: spends 1 from expanded:2014:cleric:2014:subclass:cleric:peace:resource:emboldening-bond
-- Remaining source effects need verification.
+- Table fact · Confirm eligible willing creatures and sufficient proximity to another bonded creature.
+- Open sheet gap · The owned sheet does not carry a timed bond or offer its conditional d4 on applicable own rolls.
 
 ### Level 2 · Channel Divinity: Balm of Peace
 
@@ -1170,12 +1228,15 @@ Source spell progression · level 1 prepared: Heroism, Sanctuary · level 3 prep
 ### Level 6 · Protective Bond
 
 - Generic action model · Protective Bond: source rules or unverified dedicated path (Two bonded creatures within30 (60 at17), one about to take damage)
-- Remaining source effects need verification.
+- Table fact · Confirm the bonded participants, damage recipient, distance, reaction and legal destination before redirecting damage.
+- Open sheet gap · Damage transfer into the owner’s sheet does not have a dedicated reaction and typed damage flow.
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Expansive Bond
 
@@ -1202,8 +1263,10 @@ Source spell progression · level 1 prepared: Fog Cloud, Thunderwave · level 3 
 
 ### Level 2 · Channel Divinity: Destructive Wrath
 
+The action tracks Channel spend on confirmation.
+
 - Generic action model · Channel Divinity: Destructive Wrath: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Open sheet gap · No confirmed hook maximizes the eligible own lightning or thunder roll.
 
 ### Level 6 · Thunderous Strike
 
@@ -1213,12 +1276,14 @@ Source spell progression · level 1 prepared: Fog Cloud, Thunderwave · level 3 
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Stormborn
 
 - Numeric effects awaiting verification · flying-speed (Not underground or indoors)
-- Remaining source effects need verification.
+- Table fact · Confirm that the character is outdoors and aboveground.
+- Open sheet gap · The sheet does not show the feature flying speed based on current walking speed.
 
 ## Cleric — Trickery
 
@@ -1241,18 +1306,25 @@ Channel spend, source-owned concentrated duplicate, duration and source cleanup.
 
 ### Level 6 · Channel Divinity: Cloak of Shadows
 
+The action tracks Channel expenditure.
+
 - Generic action model · Channel Divinity: Cloak of Shadows: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Table fact · Confirm which creatures can detect the character.
+- Open sheet gap · The owner’s Invisible condition and the feature’s turn, attack and spell end conditions are not projected into saved state.
 
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Improved Duplicity
 
+An eligible Invoke Duplicity activation allows four duplicates while the single concentration state persists.
+
 - Numeric effects awaiting verification · duplicate-count (Invoke Duplicity;move any number30ft sameBA,range120)
-- Remaining source effects need verification.
+- Table fact · Place, move and identify recipients of the illusions using the source timing and distance.
+- Verification · subclass-theurgy-inheritance
 
 ## Cleric — Twilight
 
@@ -1270,18 +1342,23 @@ Source spell progression · level 1 prepared: Faerie Fire, Sleep · level 3 prep
 - Counters · expanded:2014:cleric:2014:subclass:cleric:twilight:resource:share-night; 1 uses at probe level; long reset verified
 - Generic action model · Eyes of Night: spends 1 from expanded:2014:cleric:2014:subclass:cleric:twilight:resource:share-night
 - Numeric effects awaiting verification · darkvision
-- Remaining source effects need verification.
+- Table fact · Sharing vision needs selected willing allies in range.
+- Open sheet gap · Verify the source-specific fixed range in the owner’s actual senses display; a feature listing or sharing-use counter alone does not change vision.
 
 ### Level 1 · Vigilant Blessing
 
 - Generic action model · Vigilant Blessing: source rules or unverified dedicated path
-- Remaining source effects need verification.
+- Table fact · Confirm a touched recipient and their next initiative roll.
+- Open sheet gap · The action does not arm or consume the owner initiative advantage as a source-owned state.
 
 ### Level 2 · Channel Divinity: Twilight Sanctuary
 
+The action exposes Channel spend and source roll inputs.
+
 - Generic action model · Channel Divinity: Twilight Sanctuary: spends 1 from 2014:channel-divinity; separate roll 1d6+2
 - Numeric effects awaiting verification · temporary-hit-points (End turn in30-ft dim sphere1m; can instead end charm/fear effect)
-- Remaining source effects need verification.
+- Table fact · Confirm which creature ends a turn inside the sphere and chooses temporary HP or the condition removal.
+- Open sheet gap · The sheet does not track the sphere or offer its recurring own temporary HP and charmed/frightened cleanup.
 
 ### Level 6 · Steps of Night
 
@@ -1292,7 +1369,8 @@ Source spell progression · level 1 prepared: Faerie Fire, Sleep · level 3 prep
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Twilight Shroud
 
@@ -1312,24 +1390,33 @@ Source spell progression · level 1 prepared: Divine Favor, Shield of Faith · l
 
 ### Level 1 · War Priest
 
+Confirmation spends the source-owned long-rest pool.
+
 - Counters · expanded:2014:cleric:2014:subclass:cleric:war:resource:war-priest; 3 uses at probe level; long reset verified
 - Generic action model · War Priest: spends 1 from expanded:2014:cleric:2014:subclass:cleric:war:resource:war-priest
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying action and choose the weapon attack.
+- Open sheet gap · The bonus attack is not linked to the normal weapon roll callback.
 
 ### Level 2 · Channel Divinity: Guided Strike
 
+The action tracks Channel spend.
+
 - Generic action model · Channel Divinity: Guided Strike: spends 1 from 2014:channel-divinity; separate roll 10
-- Remaining source effects need verification.
+- Table fact · Confirm the attack roll before the outcome.
+- Open sheet gap · The +10 does not update a selected own attack result.
 
 ### Level 6 · Channel Divinity: War God's Blessing
 
+The action tracks Channel spend.
+
 - Generic action model · Channel Divinity: War God's Blessing: spends 1 from 2014:channel-divinity; separate roll 10
-- Remaining source effects need verification.
+- Table fact · Identify the ally in range and apply +10 to the eligible attack before it resolves.
 
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Avatar of Battle
 
@@ -1357,9 +1444,12 @@ Source spell progression · level 1 prepared: Bless, Guiding Bolt · level 3 pre
 
 ### Level 2 · Channel Divinity: Preserve Life
 
+The action tracks Channel expenditure and presents the pool based on actual Cleric level.
+
 - Generic action model · Channel Divinity: Preserve Life: spends 1 from 2014:channel-divinity; separate roll 10
 - Numeric effects awaiting verification · healing-pool (Divide among chosen within30 ft; max half target maxHP; excludes undead/constructs)
-- Remaining source effects need verification.
+- Table fact · Choose eligible creatures in range and split healing up to half each creature’s maximum HP.
+- Open sheet gap · The sheet does not allocate or apply a share of the pool to Self.
 
 ### Level 6 · Channel Divinity: Oketra's Blessing
 
@@ -1369,7 +1459,8 @@ Source spell progression · level 1 prepared: Bless, Guiding Bolt · level 3 pre
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Supreme Healing
 
@@ -1406,7 +1497,8 @@ Source spell progression · level 1 prepared: Divine Favor, Shield of Faith · l
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Avatar of Battle
 
@@ -1423,9 +1515,11 @@ Source spell progression · level 1 prepared: Bane, Disguise Self · level 3 pre
 
 ### Level 1 · Warding Flare
 
+The action tracks source-owned long-rest uses using Wisdom.
+
 - Counters · expanded:2014:cleric:2014:subclass:cleric:ambition:resource:warding-flare; 3 uses at probe level; long reset verified
 - Generic action model · Warding Flare: spends 1 from expanded:2014:cleric:2014:subclass:cleric:ambition:resource:warding-flare
-- Remaining source effects need verification.
+- Table fact · Apply disadvantage to the eligible enemy attack before its outcome. Confirm visibility, range and the target’s susceptibility to blindness.
 
 ### Level 2 · Channel Divinity: Invoke Duplicity
 
@@ -1437,18 +1531,26 @@ Channel spend, source-owned concentrated duplicate, duration and source cleanup.
 
 ### Level 6 · Channel Divinity: Cloak of Shadows
 
+The action tracks Channel expenditure.
+
 - Generic action model · Channel Divinity: Cloak of Shadows: spends 1 from 2014:channel-divinity
-- Remaining source effects need verification.
+- Table fact · Confirm which creatures can detect the character.
+- Open sheet gap · The owner’s Invisible condition and the feature’s turn, attack and spell end conditions are not projected into saved state.
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Improved Duplicity
 
+An eligible Invoke Duplicity activation allows four duplicates while the single concentration state persists.
+
 - Numeric effects awaiting verification · duplicate-count (Invoke Duplicity;move any number30ft sameBA,range120)
-- Remaining source effects need verification.
+- Table fact · Place, move and identify recipients of the illusions using the source timing and distance.
+- Verification · subclass-theurgy-inheritance
 
 ## Cleric — Zeal
 
@@ -1480,7 +1582,8 @@ Source spell progression · level 1 prepared: Searing Smite, Thunderous Smite ·
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Blaze of Glory
 
@@ -1519,8 +1622,10 @@ Source spell progression · level 1 prepared: Dissonant Whispers, Heroism · lev
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Visions of the Future
 
@@ -1536,8 +1641,10 @@ Source spell progression · level 1 known: On/Off · level 1 prepared: Comprehen
 
 ### Level 1 · Bonus Cantrip
 
+The cantrip is granted through subclass spell reconciliation. Light checks for an existing independent copy.
+
 - Spell grants · On/Off
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance
 
 ### Level 1 · Bonus Proficiencies
 
@@ -1563,7 +1670,8 @@ Source spell progression · level 1 known: On/Off · level 1 prepared: Comprehen
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Express Transit
 
@@ -1601,7 +1709,8 @@ Healing integration applies this benefit once alongside equivalent Life features
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Indomitable Defense
 
@@ -1625,18 +1734,23 @@ Source spell progression · level 1 prepared: Faerie Fire, Sleep · level 3 prep
 - Counters · expanded:2014:cleric:2014:subclass:cleric:twilight-ua:resource:share-night; 3 uses at probe level; long reset verified
 - Generic action model · Eyes of Night: spends 1 from expanded:2014:cleric:2014:subclass:cleric:twilight-ua:resource:share-night
 - Numeric effects awaiting verification · darkvision
-- Remaining source effects need verification.
+- Table fact · Sharing vision needs selected willing allies in range.
+- Open sheet gap · Verify the source-specific fixed range in the owner’s actual senses display; a feature listing or sharing-use counter alone does not change vision.
 
 ### Level 1 · Vigilant Blessing
 
 - Generic action model · Vigilant Blessing: source rules or unverified dedicated path
-- Remaining source effects need verification.
+- Table fact · Confirm a touched recipient and their next initiative roll.
+- Open sheet gap · The action does not arm or consume the owner initiative advantage as a source-owned state.
 
 ### Level 2 · Channel Divinity: Twilight Sanctuary
 
+The action exposes Channel spend and source roll inputs.
+
 - Generic action model · Channel Divinity: Twilight Sanctuary: spends 1 from 2014:channel-divinity; separate roll 1d8
 - Numeric effects awaiting verification · temporary-hit-points (End turn in30-ft dim sphere1m; can instead end charm/fear effect)
-- Remaining source effects need verification.
+- Table fact · Confirm which creature ends a turn inside the sphere and chooses temporary HP or the condition removal.
+- Open sheet gap · The sheet does not track the sphere or offer its recurring own temporary HP and charmed/frightened cleanup.
 
 ### Level 6 · Steps of the Brave
 
@@ -1647,7 +1761,8 @@ Source spell progression · level 1 prepared: Faerie Fire, Sleep · level 3 prep
 ### Level 8 · Divine Strike
 
 - Numeric effects awaiting verification · extra-weapon-damage (Once on each own turn when weapon attack hits)
-- Remaining source effects need verification.
+- Table fact · Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling.
+- Open sheet gap · The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.
 
 ### Level 17 · Midnight Shroud
 
@@ -1662,9 +1777,12 @@ Source spell progression · level 1 prepared: Heroism, Shield of Faith · level 
 
 ### Level 1 · Emboldening Bond
 
+The action tracks the specified pool where the source defines uses.
+
 - Counters · expanded:2014:cleric:2014:subclass:cleric:unity-ua:resource:emboldening-bond; 1 uses at probe level; long reset verified
 - Generic action model · Emboldening Bond: spends 1 from expanded:2014:cleric:2014:subclass:cleric:unity-ua:resource:emboldening-bond
-- Remaining source effects need verification.
+- Table fact · Confirm eligible willing creatures and sufficient proximity to another bonded creature.
+- Open sheet gap · The owned sheet does not carry a timed bond or offer its conditional d4 on applicable own rolls.
 
 ### Level 2 · Channel Divinity: Shared Burden
 
@@ -1674,12 +1792,15 @@ Source spell progression · level 1 prepared: Heroism, Shield of Faith · level 
 ### Level 6 · Protective Bond
 
 - Generic action model · Protective Bond: source rules or unverified dedicated path
-- Remaining source effects need verification.
+- Table fact · Confirm the bonded participants, damage recipient, distance, reaction and legal destination before redirecting damage.
+- Open sheet gap · Damage transfer into the owner’s sheet does not have a dedicated reaction and typed damage flow.
 
 ### Level 8 · Potent Spellcasting
 
+Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.
+
 - Recognized numeric routes · cantrip-damage-bonus (Cleric cantrip damage)
-- Remaining source effects need verification.
+- Verification · subclass-cantrip-damage
 
 ### Level 17 · Enduring Unity
 
@@ -6365,24 +6486,30 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:abjuration
 
 ### Level 2 · Abjuration Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Arcane Ward
 
+A qualifying leveled abjuration cast creates or recharges the ward, with its own maximum and long-rest reset. Damage through its panel resolves the ward and owner remainder.
+
 - Counters · expanded:2014:wizard:2014:subclass:wizard:abjuration:resource:arcane-ward-hp; 7 uses at probe level; none reset · expanded:2014:wizard:2014:subclass:wizard:abjuration:resource:arcane-ward-create; 1 uses at probe level; long reset verified
 - Generic action model · Create Arcane Ward: spends 1 from expanded:2014:wizard:2014:subclass:wizard:abjuration:resource:arcane-ward-create (Cast abjuration spell>=1; create ward maxHP2*level+int, lasting to long-rest end.)
-- Remaining source effects need verification.
+- Verification · subclass-active; browser-subclass-active
 
 ### Level 6 · Projected Ward
 
+The ward tool permits confirmed projection at the required Wizard level and subtracts its spent HP.
+
 - Generic action model · Projected Ward: source rules or unverified dedicated path (Visible creature within30ft takes damage; ward absorbs that damage. Cost is actual HP absorbed up to remaining wardHP; excess damages target normally.)
-- Remaining source effects need verification.
+- Table fact · Confirm visible target, range, triggering damage and reaction. Apply remainder to that creature.
+- Verification · subclass-active; browser-subclass-active
 
 ### Level 10 · Improved Abjuration
 
 - Generic action model · Improved Abjuration: source rules or unverified dedicated path (Beginning at 10th level, when you cast an abjuration spell that requires you to make an ability check as a part of casting that spell (as in Counterspell and Dispel Magic), you add your proficiency bonus to that ability check.)
 - Numeric effects awaiting verification · abjuration-check-bonus (Abjuration spell requiring ability check, e.g. Counterspell/Dispel Magic)
-- Remaining source effects need verification.
+- Open sheet gap · Dispel Magic and Counterspell ability check rolls do not have a dedicated proficiency bonus route.
 
 ### Level 14 · Spell Resistance
 
@@ -6397,9 +6524,11 @@ Entry level 2 · [Sword Coast Adventurer's Guide; Tasha's Cauldron of Everything
 
 ### Level 2 · Training in War and Song
 
+The choice plan collects eligible weapon training and source reconciliation grants Performance.
+
 - Choice controls · Training in War and Song (advancement)
 - Training grants · light · Performance
-- Remaining source effects need verification.
+- Verification · bladesinging; browser-subclass-numerics
 
 ### Level 2 · Bladesong
 
@@ -6411,8 +6540,11 @@ Bladesinging tools track proficiency-based uses, duration and rest; own AC, move
 
 ### Level 6 · Extra Attack
 
+The sheet exposes the Wizard’s eligible two-attack cadence and source cantrip substitution.
+
 - Recognized numeric routes · attack-count (Attack action; may replace one attack with a cantrip)
-- Remaining source effects need verification.
+- Table fact · Choose the attack order and use the ordinary spell and weapon controls.
+- Verification · browser-subclass-numerics
 
 ### Level 10 · Song of Defense
 
@@ -6466,7 +6598,8 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:conjuratio
 
 ### Level 2 · Conjuration Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Minor Conjuration
 
@@ -6495,7 +6628,8 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:divination
 
 ### Level 2 · Divination Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Portent
 
@@ -6530,7 +6664,8 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:enchantmen
 
 ### Level 2 · Enchantment Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Hypnotic Gaze
 
@@ -6558,7 +6693,8 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:evocation)
 
 ### Level 2 · Evocation Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Sculpt Spells
 
@@ -6616,7 +6752,8 @@ Source spell progression · level 2 known: Minor Illusion
 
 ### Level 2 · Illusion Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Improved Minor Illusion
 
@@ -6647,7 +6784,8 @@ Source spell progression · level 6 spellbook: Animate Dead
 
 ### Level 2 · Necromancy Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Grim Harvest
 
@@ -6656,9 +6794,12 @@ Source spell progression · level 6 spellbook: Animate Dead
 
 ### Level 6 · Undead Thralls
 
+A dedicated Animate Dead companion panel binds actual creature stats and source-owned enhancements.
+
 - Generic action model · Undead Thralls: source rules or unverified dedicated path (At 6th level, you add the Animate Dead spell to your spellbook if it is not there already. When you cast Animate Dead, you can target one additional corpse or pile of bones, creating another zombie or skeleton, as appropriate. Whenever you create an undead using a necromancy spell, it has additional benefits:)
 - Numeric effects awaiting verification · undead-hp-max-bonus (Undead created by necromancy spell) · undead-weapon-damage-bonus (Undead created by necromancy spell)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible corpse, creation and command circumstances.
+- Verification · necromancy-companions; browser-necromancy-sheet
 
 ### Level 10 · Inured to Undeath
 
@@ -6710,7 +6851,8 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/wizard:transmutat
 
 ### Level 2 · Transmutation Savant
 
-- Remaining source effects need verification.
+- Table fact · Confirm school and that this is copying a spell into the spellbook.
+- Open sheet gap · The corresponding Wizard copying cost and duration discount has no dedicated application.
 
 ### Level 2 · Minor Alchemy
 
@@ -6742,24 +6884,33 @@ Entry level 2 · [Xanathar's Guide to Everything](https://dnd5e.wikidot.com/wiza
 
 ### Level 2 · Arcane Deflection
 
+Triggered Defense controls record a qualifying +2 AC or +4 save response and enforce the cantrip-only lock until the end of the next turn.
+
 - Generic action model · Arcane Deflection: source rules or unverified dedicated path (Hit by attack OR fail saving throw: +2AC against that attack OR +4 to that save. Until next turn end can cast only cantrips.)
-- Remaining source effects need verification.
+- Table fact · Confirm the triggering hit or failed save and apply the response to that roll.
+- Verification · subclass-active; browser-subclass-active
 
 ### Level 2 · Tactical Wit
 
+The own initiative calculation adds Intelligence through the subclass numeric profile.
+
 - Recognized numeric routes · initiative
-- Remaining source effects need verification.
+- Verification · subclass-numerics
 
 ### Level 6 · Power Surge
 
+A source-owned quantity tracks qualifying events, expenditure and short/long-rest recovery.
+
 - Counters · expanded:2014:wizard:2014:subclass:wizard:war-magic:resource:power-surges; 3 uses at probe level; none reset
 - Generic action model · Power Surge: source rules or unverified dedicated path (You can store a maximum number of power surges equal to your Intelligence modifier (minimum of one). Whenever you finish a long rest, your number of power surges resets to one. Whenever you successfully end a spell with Dispel Magic or Counterspell, you gain one power surge, as you steal magic from the spell you foiled. If you end a short rest with no power surges, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to that target. The extra damage equals half your wizard level.)
-- Remaining source effects need verification.
+- Table fact · Confirm the dispel/counter event or the target damaged by the Wizard spell.
 
 ### Level 10 · Durable Magic
 
+The AC and save models add +2 during concentration.
+
 - Recognized numeric routes · ac-bonus (Concentrating on spell) · save-bonus (Concentrating on spell)
-- Remaining source effects need verification.
+- Verification · subclass-numerics; browser-subclass-numerics
 
 ### Level 14 · Deflecting Shroud
 
@@ -7261,9 +7412,11 @@ Entry level 2 · [Unearthed Arcana 33 - Wizard Revisited](https://dnd5e.wikidot.
 
 ### Level 2 · Channel Arcana
 
+The owner Wizard has a short/long-rest pool at class level 2 with increases at 6 and 18; inherited Channel save DC uses that Wizard’s casting ability.
+
 - Counters · expanded:2014:wizard:2014:subclass:wizard:theurgy-ua:resource:channel-arcana; 1 uses at probe level; short reset verified
 - Generic action model · Channel Arcana: spends 1 from expanded:2014:wizard:2014:subclass:wizard:theurgy-ua:resource:channel-arcana (When you use your Channel Arcana, you choose which effect to create. You must then finish a short or long rest to use your Channel Arcana again. Some Channel Arcana effects require saving throws. When you use such an effect, the save DC equals your wizard spell save DC. Beginning at 6th level, you can use your Channel Arcana twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses. If you gain additional Channel Divinity options from your domain, you can employ them by using your Channel Arcana feature.)
-- Remaining source effects need verification.
+- Verification · subclass-theurgy-inheritance
 
 ### Level 2 · Channel Arcana: Divine Arcana
 
@@ -7272,15 +7425,22 @@ Entry level 2 · [Unearthed Arcana 33 - Wizard Revisited](https://dnd5e.wikidot.
 
 ### Level 6 · Arcane Acolyte
 
-- Remaining source effects need verification.
+Wizard level 6 projects domain level 1 features, excluding weapon/armor training, and preserves owned inherited cantrips and Wisdom-based source calculations.
+
+- Open sheet gap · Individual active inherited features still have separate coverage notes.
+- Verification · subclass-theurgy-inheritance
 
 ### Level 10 · Arcane Priest
 
-- Remaining source effects need verification.
+Wizard level 10 projects domain level 6 feature availability and additional Channel actions; see per-domain consumers.
+
+- Verification · subclass-theurgy-inheritance
 
 ### Level 14 · Arcane High Priest
 
-- Remaining source effects need verification.
+Wizard level 14 projects domain level 17 feature availability; see per-domain consumers for applied behavior.
+
+- Verification · subclass-theurgy-inheritance
 
 ## Fighter — Arcane Archer
 

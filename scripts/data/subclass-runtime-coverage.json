@@ -1211,7 +1211,10 @@
     "level": 6,
     "actions": [
       "Channel Divinity: Cloak of Shadows: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action tracks Channel expenditure.",
+    "gap": "The owner’s Invisible condition and the feature’s turn, attack and spell end conditions are not projected into saved state.",
+    "table": "Confirm which creatures can detect the character."
   },
   "2014:subclass:cleric:ambition:channel-divinity-invoke-duplicity": {
     "level": 2,
@@ -1226,13 +1229,18 @@
     "level": 17,
     "unverifiedNumeric": [
       "duplicate-count (Invoke Duplicity;move any number30ft sameBA,range120)"
-    ]
+    ],
+    "claim": "An eligible Invoke Duplicity activation allows four duplicates while the single concentration state persists.",
+    "table": "Place, move and identify recipients of the illusions using the source timing and distance.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:cleric:ambition:potent-spellcasting": {
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:ambition:warding-flare": {
     "level": 1,
@@ -1241,7 +1249,9 @@
     ],
     "actions": [
       "Warding Flare: spends 1 from expanded:2014:cleric:2014:subclass:cleric:ambition:resource:warding-flare"
-    ]
+    ],
+    "claim": "The action tracks source-owned long-rest uses using Wisdom.",
+    "table": "Apply disadvantage to the eligible enemy attack before its outcome. Confirm visibility, range and the target’s susceptibility to blindness."
   },
   "2014:subclass:cleric:arcana:arcane-initiate": {
     "level": 1,
@@ -1250,13 +1260,17 @@
     ],
     "training": [
       "Arcana"
-    ]
+    ],
+    "claim": "Training grants Arcana and eligible chosen Wizard cantrips are owned spell sources. Theurgy inheritance uses the printed Cleric spellcasting ability for these grants.",
+    "test": "subclass-theurgy-inheritance; browser-theurgy-inheritance"
   },
   "2014:subclass:cleric:arcana:arcane-mastery": {
     "level": 17,
     "choices": [
       "Arcane Mastery (advancement)"
-    ]
+    ],
+    "claim": "The choice plan offers eligible high-level Wizard spells with source-grant tracking and always-prepared access.",
+    "table": "Choose one source spell in each specified level."
   },
   "2014:subclass:cleric:arcana:channel-divinity-arcane-abjuration": {
     "level": 2,
@@ -1265,13 +1279,17 @@
     ],
     "actions": [
       "Channel Divinity: Arcane Abjuration: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action tracks the appropriate Channel pool.",
+    "table": "Confirm creature type, visibility, range and saving throw. Extraplanar origin and challenge rating affect dismissal."
   },
   "2014:subclass:cleric:arcana:potent-spellcasting": {
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:arcana:spell-breaker": {
     "level": 6,
@@ -1290,7 +1308,9 @@
     "level": 1,
     "spells": [
       "On/Off"
-    ]
+    ],
+    "claim": "The cantrip is granted through subclass spell reconciliation. Light checks for an existing independent copy.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:cleric:city-ua:bonus-proficiencies": {
     "level": 1,
@@ -1309,7 +1329,9 @@
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:city-ua:express-transit": {
     "level": 17,
@@ -1342,25 +1364,32 @@
     ],
     "actions": [
       "Channel Divinity: Touch of Death: spends 1 from 2014:channel-divinity; separate roll 9"
-    ]
+    ],
+    "claim": "The action spends the source Channel pool and shows the resolved owner-level damage contribution.",
+    "table": "Confirm a melee attack hit and apply added necrotic damage to that target."
   },
   "2014:subclass:cleric:death:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:death:improved-reaper": {
     "level": 17,
     "unverifiedNumeric": [
       "necromancy-spell-targets (Spell level1..5 normally one creature;both in range and within5ft;consumed materials for each)"
-    ]
+    ],
+    "gap": "The extra-target option for qualifying necromancy spells and material restrictions are not enforced for this cast.",
+    "table": "Confirm the two targets and their required proximity."
   },
   "2014:subclass:cleric:death:inescapable-destruction": {
     "level": 6,
     "unverifiedNumeric": [
       "ignore-resistance (Cleric spells and Channel Divinity)"
-    ]
+    ],
+    "gap": "Resistant target resolution does not use the domain’s qualifying necrotic damage bypass."
   },
   "2014:subclass:cleric:death:reaper": {
     "level": 1,
@@ -1369,7 +1398,10 @@
     ],
     "unverifiedNumeric": [
       "necromancy-cantrip-targets (Normally single creature;both in range and within5ft each other)"
-    ]
+    ],
+    "claim": "The source cantrip selection is handled by the subclass choice system.",
+    "gap": "The cast does not expose the qualifying two-target adjacency option.",
+    "table": "Confirm target eligibility and adjacency."
   },
   "2014:subclass:cleric:fate-ua:channel-divinity-strands-of-fate": {
     "level": 2,
@@ -1399,7 +1431,9 @@
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:fate-ua:ties-that-bind": {
     "level": 1,
@@ -1442,13 +1476,17 @@
     "level": 2,
     "actions": [
       "Channel Divinity: Artisan's Blessing: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action spends a Channel use.",
+    "table": "Confirm the hour, materials, metal component, value limit and eligible item before adding the item."
   },
   "2014:subclass:cleric:forge:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:forge:saint-of-forge-and-fire": {
     "level": 17,
@@ -1465,19 +1503,25 @@
     "numeric": [
       "armor-class-bonus (Wearing heavy armor)",
       "resistance"
-    ]
+    ],
+    "claim": "Own fire resistance and the heavy armor AC bonus route through the damage/AC models at the qualifying native or inherited level.",
+    "test": "subclass-passive-defenses; subclass-theurgy-inheritance"
   },
   "2014:subclass:cleric:grave:channel-divinity-path-to-the-grave": {
     "level": 2,
     "actions": [
       "Channel Divinity: Path to the Grave: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action spends a Channel use.",
+    "table": "Confirm a visible target in range and apply vulnerability to the next hit inside the timing limit."
   },
   "2014:subclass:cleric:grave:circle-of-mortality": {
     "level": 1,
     "unverifiedNumeric": [
       "healing-dice (Healing spell targets creature at0HP)"
-    ]
+    ],
+    "claim": "Healing dice are maximized for a recipient at 0 HP, using actual active-body HP for Self. Spare the Dying is a source spell grant.",
+    "test": "subclass-theurgy-inheritance; spell-effects"
   },
   "2014:subclass:cleric:grave:eyes-of-the-grave": {
     "level": 1,
@@ -1492,13 +1536,17 @@
     "level": 17,
     "actions": [
       "Keeper of Souls: source rules or unverified dedicated path (Not incapacitated; visible enemy dies within30 ft)"
-    ]
+    ],
+    "table": "Confirm the qualifying creature death and target in range, and use the creature’s number of Hit Dice.",
+    "gap": "The generic action does not apply the chosen own healing or enforce the once-per-round use."
   },
   "2014:subclass:cleric:grave:potent-spellcasting": {
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:grave:sentinel-at-deaths-door": {
     "level": 6,
@@ -1507,7 +1555,9 @@
     ],
     "actions": [
       "Sentinel at Death's Door: spends 1 from expanded:2014:cleric:2014:subclass:cleric:grave:resource:sentinel"
-    ]
+    ],
+    "claim": "The action tracks Wisdom-based uses and long-rest reset.",
+    "table": "Confirm the eligible incoming critical, vision, range and reaction; resolve it as a normal hit."
   },
   "2014:subclass:cleric:knowledge:blessings-of-knowledge": {
     "level": 1,
@@ -1522,19 +1572,25 @@
     ],
     "actions": [
       "Channel Divinity: Knowledge of the Ages: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action spends the Channel pool and exposes the associated skill or tool selection when eligible.",
+    "gap": "Verify the proficiency expiry in actual sheet rolls; the chosen option alone does not prove a timed proficiency."
   },
   "2014:subclass:cleric:knowledge:channel-divinity-read-thoughts": {
     "level": 6,
     "actions": [
       "Channel Divinity: Read Thoughts: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action spends the relevant Channel pool.",
+    "table": "Confirm visible target, sufficient range, saving throw and mental effects; optional Suggestion ends the reading."
   },
   "2014:subclass:cleric:knowledge:potent-spellcasting": {
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:knowledge:visions-of-the-past": {
     "level": 17,
@@ -1549,7 +1605,9 @@
     "level": 6,
     "unverifiedNumeric": [
       "self-healing (Spell >=1 restores HP to another)"
-    ]
+    ],
+    "claim": "A qualifying leveled spell that heals another creature also heals the caster for 2 plus the slot level.",
+    "test": "subclass-theurgy-inheritance; spell-effects"
   },
   "2014:subclass:cleric:life:bonus-proficiency": {
     "level": 1,
@@ -1564,31 +1622,42 @@
     ],
     "actions": [
       "Channel Divinity: Preserve Life: spends 1 from 2014:channel-divinity; separate roll 10"
-    ]
+    ],
+    "claim": "The action tracks Channel expenditure and presents the pool based on actual Cleric level.",
+    "table": "Choose eligible creatures in range and split healing up to half each creature’s maximum HP.",
+    "gap": "The sheet does not allocate or apply a share of the pool to Self."
   },
   "2014:subclass:cleric:life:disciple-of-life": {
     "level": 1,
     "unverifiedNumeric": [
       "healing-bonus (Spell >=1 restoring HP)"
-    ]
+    ],
+    "claim": "Qualifying immediate healing adds 2 plus slot level without changing the selected recipient.",
+    "test": "subclass-theurgy-inheritance; spell-effects"
   },
   "2014:subclass:cleric:life:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:life:supreme-healing": {
     "level": 17,
     "unverifiedNumeric": [
       "healing-dice (Spell healing dice)"
-    ]
+    ],
+    "claim": "Healing spell dice use their maximums; qualifying named healing effects do not stack with the same benefit from another owner.",
+    "test": "subclass-theurgy-inheritance; spell-effects"
   },
   "2014:subclass:cleric:light:bonus-cantrip": {
     "level": 1,
     "spells": [
       "Light"
-    ]
+    ],
+    "claim": "The cantrip is granted through subclass spell reconciliation. Light checks for an existing independent copy.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:cleric:light:channel-divinity-radiance-of-the-dawn": {
     "level": 2,
@@ -1597,7 +1666,9 @@
     ],
     "actions": [
       "Channel Divinity: Radiance of the Dawn: spends 1 from 2014:channel-divinity; separate roll 2d10+2"
-    ]
+    ],
+    "claim": "The action spends Channel and offers its individual damage expression.",
+    "table": "Identify eligible creatures with required range and cover, resolve each Constitution save, and handle magical darkness."
   },
   "2014:subclass:cleric:light:corona-of-light": {
     "level": 17,
@@ -1609,13 +1680,16 @@
     "level": 6,
     "unverifiedNumeric": [
       "warding-flare-protect-others (Visible attacker30ft attacks creature other than you)"
-    ]
+    ],
+    "table": "The same Flare reaction can affect an enemy attack on another creature. Confirm visibility, range and susceptibility before the outcome."
   },
   "2014:subclass:cleric:light:potent-spellcasting": {
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:light:warding-flare": {
     "level": 1,
@@ -1624,7 +1698,9 @@
     ],
     "actions": [
       "Warding Flare: spends 1 from expanded:2014:cleric:2014:subclass:cleric:light:resource:warding-flare"
-    ]
+    ],
+    "claim": "The action tracks source-owned long-rest uses using Wisdom.",
+    "table": "Apply disadvantage to the eligible enemy attack before its outcome. Confirm visibility, range and the target’s susceptibility to blindness."
   },
   "2014:subclass:cleric:nature:acolyte-of-nature": {
     "level": 1,
@@ -1660,7 +1736,9 @@
     ],
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:nature:master-of-nature": {
     "level": 17,
@@ -1687,7 +1765,9 @@
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:order:embodiment-of-the-law": {
     "level": 6,
@@ -1723,7 +1803,10 @@
     ],
     "actions": [
       "Emboldening Bond: spends 1 from expanded:2014:cleric:2014:subclass:cleric:peace:resource:emboldening-bond"
-    ]
+    ],
+    "claim": "The action tracks the specified pool where the source defines uses.",
+    "table": "Confirm eligible willing creatures and sufficient proximity to another bonded creature.",
+    "gap": "The owned sheet does not carry a timed bond or offer its conditional d4 on applicable own rolls."
   },
   "2014:subclass:cleric:peace:expansive-bond": {
     "level": 17,
@@ -1742,13 +1825,17 @@
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:peace:protective-bond": {
     "level": 6,
     "actions": [
       "Protective Bond: source rules or unverified dedicated path (Two bonded creatures within30 (60 at17), one about to take damage)"
-    ]
+    ],
+    "table": "Confirm the bonded participants, damage recipient, distance, reaction and legal destination before redirecting damage.",
+    "gap": "Damage transfer into the owner’s sheet does not have a dedicated reaction and typed damage flow."
   },
   "2014:subclass:cleric:protection-ua:blessed-healer": {
     "level": 6,
@@ -1771,7 +1858,9 @@
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:protection-ua:indomitable-defense": {
     "level": 17,
@@ -1807,13 +1896,18 @@
     ],
     "actions": [
       "Channel Divinity: Preserve Life: spends 1 from 2014:channel-divinity; separate roll 10"
-    ]
+    ],
+    "claim": "The action tracks Channel expenditure and presents the pool based on actual Cleric level.",
+    "table": "Choose eligible creatures in range and split healing up to half each creature’s maximum HP.",
+    "gap": "The sheet does not allocate or apply a share of the pool to Self."
   },
   "2014:subclass:cleric:solidarity:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:solidarity:solidaritys-action": {
     "level": 1,
@@ -1863,7 +1957,9 @@
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:tempest:bonus-proficiencies": {
     "level": 1,
@@ -1876,19 +1972,25 @@
     "level": 2,
     "actions": [
       "Channel Divinity: Destructive Wrath: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action tracks Channel spend on confirmation.",
+    "gap": "No confirmed hook maximizes the eligible own lightning or thunder roll."
   },
   "2014:subclass:cleric:tempest:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:tempest:stormborn": {
     "level": 17,
     "unverifiedNumeric": [
       "flying-speed (Not underground or indoors)"
-    ]
+    ],
+    "gap": "The sheet does not show the feature flying speed based on current walking speed.",
+    "table": "Confirm that the character is outdoors and aboveground."
   },
   "2014:subclass:cleric:tempest:thunderous-strike": {
     "level": 6,
@@ -1918,7 +2020,10 @@
     "level": 6,
     "actions": [
       "Channel Divinity: Cloak of Shadows: spends 1 from 2014:channel-divinity"
-    ]
+    ],
+    "claim": "The action tracks Channel expenditure.",
+    "gap": "The owner’s Invisible condition and the feature’s turn, attack and spell end conditions are not projected into saved state.",
+    "table": "Confirm which creatures can detect the character."
   },
   "2014:subclass:cleric:trickery:channel-divinity-invoke-duplicity": {
     "level": 2,
@@ -1933,13 +2038,18 @@
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:trickery:improved-duplicity": {
     "level": 17,
     "unverifiedNumeric": [
       "duplicate-count (Invoke Duplicity;move any number30ft sameBA,range120)"
-    ]
+    ],
+    "claim": "An eligible Invoke Duplicity activation allows four duplicates while the single concentration state persists.",
+    "table": "Place, move and identify recipients of the illusions using the source timing and distance.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:cleric:twilight-ua:bonus-proficiencies": {
     "level": 1,
@@ -1955,13 +2065,18 @@
     ],
     "actions": [
       "Channel Divinity: Twilight Sanctuary: spends 1 from 2014:channel-divinity; separate roll 1d8"
-    ]
+    ],
+    "claim": "The action exposes Channel spend and source roll inputs.",
+    "table": "Confirm which creature ends a turn inside the sphere and chooses temporary HP or the condition removal.",
+    "gap": "The sheet does not track the sphere or offer its recurring own temporary HP and charmed/frightened cleanup."
   },
   "2014:subclass:cleric:twilight-ua:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:twilight-ua:eyes-of-night": {
     "level": 1,
@@ -1973,7 +2088,9 @@
     ],
     "actions": [
       "Eyes of Night: spends 1 from expanded:2014:cleric:2014:subclass:cleric:twilight-ua:resource:share-night"
-    ]
+    ],
+    "table": "Sharing vision needs selected willing allies in range.",
+    "gap": "Verify the source-specific fixed range in the owner’s actual senses display; a feature listing or sharing-use counter alone does not change vision."
   },
   "2014:subclass:cleric:twilight-ua:midnight-shroud": {
     "level": 17,
@@ -1994,7 +2111,9 @@
     "level": 1,
     "actions": [
       "Vigilant Blessing: source rules or unverified dedicated path"
-    ]
+    ],
+    "table": "Confirm a touched recipient and their next initiative roll.",
+    "gap": "The action does not arm or consume the owner initiative advantage as a source-owned state."
   },
   "2014:subclass:cleric:twilight:bonus-proficiencies": {
     "level": 1,
@@ -2010,13 +2129,18 @@
     ],
     "actions": [
       "Channel Divinity: Twilight Sanctuary: spends 1 from 2014:channel-divinity; separate roll 1d6+2"
-    ]
+    ],
+    "claim": "The action exposes Channel spend and source roll inputs.",
+    "table": "Confirm which creature ends a turn inside the sphere and chooses temporary HP or the condition removal.",
+    "gap": "The sheet does not track the sphere or offer its recurring own temporary HP and charmed/frightened cleanup."
   },
   "2014:subclass:cleric:twilight:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:twilight:eyes-of-night": {
     "level": 1,
@@ -2028,7 +2152,9 @@
     ],
     "actions": [
       "Eyes of Night: spends 1 from expanded:2014:cleric:2014:subclass:cleric:twilight:resource:share-night"
-    ]
+    ],
+    "table": "Sharing vision needs selected willing allies in range.",
+    "gap": "Verify the source-specific fixed range in the owner’s actual senses display; a feature listing or sharing-use counter alone does not change vision."
   },
   "2014:subclass:cleric:twilight:steps-of-night": {
     "level": 6,
@@ -2049,7 +2175,9 @@
     "level": 1,
     "actions": [
       "Vigilant Blessing: source rules or unverified dedicated path"
-    ]
+    ],
+    "table": "Confirm a touched recipient and their next initiative roll.",
+    "gap": "The action does not arm or consume the owner initiative advantage as a source-owned state."
   },
   "2014:subclass:cleric:unity-ua:channel-divinity-shared-burden": {
     "level": 2,
@@ -2064,7 +2192,10 @@
     ],
     "actions": [
       "Emboldening Bond: spends 1 from expanded:2014:cleric:2014:subclass:cleric:unity-ua:resource:emboldening-bond"
-    ]
+    ],
+    "claim": "The action tracks the specified pool where the source defines uses.",
+    "table": "Confirm eligible willing creatures and sufficient proximity to another bonded creature.",
+    "gap": "The owned sheet does not carry a timed bond or offer its conditional d4 on applicable own rolls."
   },
   "2014:subclass:cleric:unity-ua:enduring-unity": {
     "level": 17,
@@ -2076,13 +2207,17 @@
     "level": 8,
     "numeric": [
       "cantrip-damage-bonus (Cleric cantrip damage)"
-    ]
+    ],
+    "claim": "Cleric cantrip damage includes Wisdom for the exact supported source domain when owned by the qualifying Cleric.",
+    "test": "subclass-cantrip-damage"
   },
   "2014:subclass:cleric:unity-ua:protective-bond": {
     "level": 6,
     "actions": [
       "Protective Bond: source rules or unverified dedicated path"
-    ]
+    ],
+    "table": "Confirm the bonded participants, damage recipient, distance, reaction and legal destination before redirecting damage.",
+    "gap": "Damage transfer into the owner’s sheet does not have a dedicated reaction and typed damage flow."
   },
   "2014:subclass:cleric:war:avatar-of-battle": {
     "level": 17,
@@ -2101,19 +2236,26 @@
     "level": 2,
     "actions": [
       "Channel Divinity: Guided Strike: spends 1 from 2014:channel-divinity; separate roll 10"
-    ]
+    ],
+    "claim": "The action tracks Channel spend.",
+    "gap": "The +10 does not update a selected own attack result.",
+    "table": "Confirm the attack roll before the outcome."
   },
   "2014:subclass:cleric:war:channel-divinity-war-gods-blessing": {
     "level": 6,
     "actions": [
       "Channel Divinity: War God's Blessing: spends 1 from 2014:channel-divinity; separate roll 10"
-    ]
+    ],
+    "claim": "The action tracks Channel spend.",
+    "table": "Identify the ally in range and apply +10 to the eligible attack before it resolves."
   },
   "2014:subclass:cleric:war:divine-strike": {
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:war:war-priest": {
     "level": 1,
@@ -2122,7 +2264,10 @@
     ],
     "actions": [
       "War Priest: spends 1 from expanded:2014:cleric:2014:subclass:cleric:war:resource:war-priest"
-    ]
+    ],
+    "claim": "Confirmation spends the source-owned long-rest pool.",
+    "table": "Confirm a qualifying action and choose the weapon attack.",
+    "gap": "The bonus attack is not linked to the normal weapon roll callback."
   },
   "2014:subclass:cleric:zeal:blaze-of-glory": {
     "level": 17,
@@ -2150,7 +2295,9 @@
     "level": 8,
     "unverifiedNumeric": [
       "extra-weapon-damage (Once on each own turn when weapon attack hits)"
-    ]
+    ],
+    "gap": "The Cleric weapon attack does not add the feature damage die to the first eligible hit each turn.",
+    "table": "Confirm a qualifying hit during the owner’s turn. Source rules specify the damage type and die scaling."
   },
   "2014:subclass:cleric:zeal:priest-of-zeal": {
     "level": 1,
@@ -8215,7 +8362,9 @@
     "table": "Confirm age, sustenance, breathing and rest."
   },
   "2014:subclass:wizard:abjuration:abjuration-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:abjuration:arcane-ward": {
     "level": 2,
@@ -8225,7 +8374,9 @@
     ],
     "actions": [
       "Create Arcane Ward: spends 1 from expanded:2014:wizard:2014:subclass:wizard:abjuration:resource:arcane-ward-create (Cast abjuration spell>=1; create ward maxHP2*level+int, lasting to long-rest end.)"
-    ]
+    ],
+    "claim": "A qualifying leveled abjuration cast creates or recharges the ward, with its own maximum and long-rest reset. Damage through its panel resolves the ward and owner remainder.",
+    "test": "subclass-active; browser-subclass-active"
   },
   "2014:subclass:wizard:abjuration:improved-abjuration": {
     "level": 10,
@@ -8234,13 +8385,17 @@
     ],
     "actions": [
       "Improved Abjuration: source rules or unverified dedicated path (Beginning at 10th level, when you cast an abjuration spell that requires you to make an ability check as a part of casting that spell (as in Counterspell and Dispel Magic), you add your proficiency bonus to that ability check.)"
-    ]
+    ],
+    "gap": "Dispel Magic and Counterspell ability check rolls do not have a dedicated proficiency bonus route."
   },
   "2014:subclass:wizard:abjuration:projected-ward": {
     "level": 6,
     "actions": [
       "Projected Ward: source rules or unverified dedicated path (Visible creature within30ft takes damage; ward absorbs that damage. Cost is actual HP absorbed up to remaining wardHP; excess damages target normally.)"
-    ]
+    ],
+    "claim": "The ward tool permits confirmed projection at the required Wizard level and subtracts its spent HP.",
+    "table": "Confirm visible target, range, triggering damage and reaction. Apply remainder to that creature.",
+    "test": "subclass-active; browser-subclass-active"
   },
   "2014:subclass:wizard:abjuration:spell-resistance": {
     "level": 14,
@@ -8279,7 +8434,10 @@
     "level": 6,
     "numeric": [
       "attack-count (Attack action; may replace one attack with a cantrip)"
-    ]
+    ],
+    "claim": "The sheet exposes the Wizard’s eligible two-attack cadence and source cantrip substitution.",
+    "table": "Choose the attack order and use the ordinary spell and weapon controls.",
+    "test": "browser-subclass-numerics"
   },
   "2014:subclass:wizard:bladesinging:song-of-defense": {
     "level": 10,
@@ -8303,7 +8461,9 @@
     "training": [
       "light",
       "Performance"
-    ]
+    ],
+    "claim": "The choice plan collects eligible weapon training and source reconciliation grants Performance.",
+    "test": "bladesinging; browser-subclass-numerics"
   },
   "2014:subclass:wizard:chronurgy:arcane-abeyance": {
     "level": 10,
@@ -8354,7 +8514,9 @@
     ]
   },
   "2014:subclass:wizard:conjuration:conjuration-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:conjuration:durable-summons": {
     "level": 14,
@@ -8375,7 +8537,9 @@
     ]
   },
   "2014:subclass:wizard:divination:divination-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:divination:expert-divination": {
     "level": 6,
@@ -8419,7 +8583,9 @@
     ]
   },
   "2014:subclass:wizard:enchantment:enchantment-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:enchantment:hypnotic-gaze": {
     "level": 2,
@@ -8445,7 +8611,9 @@
     "test": "subclass-cantrip-damage; browser-subclass-cantrip-damage"
   },
   "2014:subclass:wizard:evocation:evocation-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:evocation:overchannel": {
     "level": 14,
@@ -8500,7 +8668,9 @@
     ]
   },
   "2014:subclass:wizard:illusion:illusion-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:illusion:illusory-reality": {
     "level": 14,
@@ -8750,7 +8920,9 @@
     ]
   },
   "2014:subclass:wizard:necromancy:necromancy-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:necromancy:undead-thralls": {
     "level": 6,
@@ -8760,7 +8932,10 @@
     ],
     "actions": [
       "Undead Thralls: source rules or unverified dedicated path (At 6th level, you add the Animate Dead spell to your spellbook if it is not there already. When you cast Animate Dead, you can target one additional corpse or pile of bones, creating another zombie or skeleton, as appropriate. Whenever you create an undead using a necromancy spell, it has additional benefits:)"
-    ]
+    ],
+    "claim": "A dedicated Animate Dead companion panel binds actual creature stats and source-owned enhancements.",
+    "table": "Confirm eligible corpse, creation and command circumstances.",
+    "test": "necromancy-companions; browser-necromancy-sheet"
   },
   "2014:subclass:wizard:onomancy-ua:bonus-proficiencies": {
     "level": 2,
@@ -9018,10 +9193,15 @@
     "level": 2
   },
   "2014:subclass:wizard:theurgy-ua:arcane-acolyte": {
-    "level": 6
+    "level": 6,
+    "claim": "Wizard level 6 projects domain level 1 features, excluding weapon/armor training, and preserves owned inherited cantrips and Wisdom-based source calculations.",
+    "gap": "Individual active inherited features still have separate coverage notes.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:wizard:theurgy-ua:arcane-high-priest": {
-    "level": 14
+    "level": 14,
+    "claim": "Wizard level 14 projects domain level 17 feature availability; see per-domain consumers for applied behavior.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:wizard:theurgy-ua:arcane-initiate": {
     "level": 2,
@@ -9030,7 +9210,9 @@
     ]
   },
   "2014:subclass:wizard:theurgy-ua:arcane-priest": {
-    "level": 10
+    "level": 10,
+    "claim": "Wizard level 10 projects domain level 6 feature availability and additional Channel actions; see per-domain consumers.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:wizard:theurgy-ua:channel-arcana": {
     "level": 2,
@@ -9039,7 +9221,9 @@
     ],
     "actions": [
       "Channel Arcana: spends 1 from expanded:2014:wizard:2014:subclass:wizard:theurgy-ua:resource:channel-arcana (When you use your Channel Arcana, you choose which effect to create. You must then finish a short or long rest to use your Channel Arcana again. Some Channel Arcana effects require saving throws. When you use such an effect, the save DC equals your wizard spell save DC. Beginning at 6th level, you can use your Channel Arcana twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses. If you gain additional Channel Divinity options from your domain, you can employ them by using your Channel Arcana feature.)"
-    ]
+    ],
+    "claim": "The owner Wizard has a short/long-rest pool at class level 2 with increases at 6 and 18; inherited Channel save DC uses that Wizard’s casting ability.",
+    "test": "subclass-theurgy-inheritance"
   },
   "2014:subclass:wizard:theurgy-ua:channel-arcana-divine-arcana": {
     "level": 2,
@@ -9084,7 +9268,9 @@
     ]
   },
   "2014:subclass:wizard:transmutation:transmutation-savant": {
-    "level": 2
+    "level": 2,
+    "gap": "The corresponding Wizard copying cost and duration discount has no dedicated application.",
+    "table": "Confirm school and that this is copying a spell into the spellbook."
   },
   "2014:subclass:wizard:transmutation:transmuters-stone": {
     "level": 6,
@@ -9099,7 +9285,10 @@
     "level": 2,
     "actions": [
       "Arcane Deflection: source rules or unverified dedicated path (Hit by attack OR fail saving throw: +2AC against that attack OR +4 to that save. Until next turn end can cast only cantrips.)"
-    ]
+    ],
+    "claim": "Triggered Defense controls record a qualifying +2 AC or +4 save response and enforce the cantrip-only lock until the end of the next turn.",
+    "table": "Confirm the triggering hit or failed save and apply the response to that roll.",
+    "test": "subclass-active; browser-subclass-active"
   },
   "2014:subclass:wizard:war-magic:deflecting-shroud": {
     "level": 14,
@@ -9115,7 +9304,9 @@
     "numeric": [
       "ac-bonus (Concentrating on spell)",
       "save-bonus (Concentrating on spell)"
-    ]
+    ],
+    "claim": "The AC and save models add +2 during concentration.",
+    "test": "subclass-numerics; browser-subclass-numerics"
   },
   "2014:subclass:wizard:war-magic:power-surge": {
     "level": 6,
@@ -9124,12 +9315,16 @@
     ],
     "actions": [
       "Power Surge: source rules or unverified dedicated path (You can store a maximum number of power surges equal to your Intelligence modifier (minimum of one). Whenever you finish a long rest, your number of power surges resets to one. Whenever you successfully end a spell with Dispel Magic or Counterspell, you gain one power surge, as you steal magic from the spell you foiled. If you end a short rest with no power surges, you gain one power surge. Once per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to that target. The extra damage equals half your wizard level.)"
-    ]
+    ],
+    "claim": "A source-owned quantity tracks qualifying events, expenditure and short/long-rest recovery.",
+    "table": "Confirm the dispel/counter event or the target damaged by the Wizard spell."
   },
   "2014:subclass:wizard:war-magic:tactical-wit": {
     "level": 2,
     "numeric": [
       "initiative"
-    ]
+    ],
+    "claim": "The own initiative calculation adds Intelligence through the subclass numeric profile.",
+    "test": "subclass-numerics"
   }
 }
