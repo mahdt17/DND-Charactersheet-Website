@@ -1,0 +1,1928 @@
+[
+  {
+    "className": "Artificer",
+    "label": "Alchemist",
+    "slug": "artificer:alchemist",
+    "sourceBook": "Tasha's Cauldron of Everything; Eberron: Rising from the Last War",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/artificer:alchemist",
+    "entryLevel": 3
+  },
+  {
+    "className": "Artificer",
+    "label": "Armorer",
+    "slug": "artificer:armorer",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/artificer:armorer",
+    "entryLevel": 3
+  },
+  {
+    "className": "Artificer",
+    "label": "Artillerist",
+    "slug": "artificer:artillerist",
+    "sourceBook": "Tasha's Cauldron of Everything; Eberron: Rising from the Last War",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/artificer:artillerist",
+    "entryLevel": 3
+  },
+  {
+    "className": "Artificer",
+    "label": "Battle Smith",
+    "slug": "artificer:battle-smith",
+    "sourceBook": "Tasha's Cauldron of Everything; Eberron: Rising from the Last War",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/artificer:battle-smith",
+    "entryLevel": 3
+  },
+  {
+    "className": "Artificer",
+    "label": "Archivist",
+    "slug": "artificer:archivist-ua",
+    "sourceBook": "Unearthed Arcana 58 - Artificer",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/artificer:archivist-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Artificer",
+    "label": "Armorer",
+    "slug": "artificer:armorer-ua",
+    "sourceBook": "Unearthed Arcana 69 - Subclasses, Part 3",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/artificer:armorer-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Creation",
+    "slug": "bard:creation",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:creation",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Eloquence",
+    "slug": "bard:eloquence",
+    "sourceBook": "Mythic Odysseys of Theros; Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:eloquence",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Glamour",
+    "slug": "bard:glamour",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:glamour",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Lore",
+    "slug": "bard:lore",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:lore",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Spirits",
+    "slug": "bard:spirits",
+    "sourceBook": "Van Richten's Guide to Ravenloft",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:spirits",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Swords",
+    "slug": "bard:swords",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:swords",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Valor",
+    "slug": "bard:valor",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:valor",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Whispers",
+    "slug": "bard:whispers",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:whispers",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Mage of Lorehold",
+    "slug": "bard:mage-of-lorehold-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:mage-of-lorehold-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Mage of Silverquill",
+    "slug": "bard:mage-of-silverquill-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:mage-of-silverquill-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Creation",
+    "slug": "bard:creation-ua",
+    "sourceBook": "Unearthed Arcana 68 - Subclasses, Part 2",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:creation-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Spirits",
+    "slug": "bard:spirits-ua",
+    "sourceBook": "Unearthed Arcana 74 - Subclasses, Part 4",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:spirits-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Bard",
+    "label": "Satire",
+    "slug": "bard:satire-ua",
+    "sourceBook": "Unearthed Arcana 12 - Kits of Old",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/bard:satire-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Cleric",
+    "label": "Arcana",
+    "slug": "cleric:arcana",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:arcana",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Death",
+    "slug": "cleric:death",
+    "sourceBook": "Dungeon Master's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:death",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Forge",
+    "slug": "cleric:forge",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:forge",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Grave",
+    "slug": "cleric:grave",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:grave",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Knowledge",
+    "slug": "cleric:knowledge",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:knowledge",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Life",
+    "slug": "cleric:life",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:life",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Light",
+    "slug": "cleric:light",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:light",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Nature",
+    "slug": "cleric:nature",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:nature",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Order",
+    "slug": "cleric:order",
+    "sourceBook": "Guildmaster's Guide to Ravnica; Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:order",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Peace",
+    "slug": "cleric:peace",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:peace",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Tempest",
+    "slug": "cleric:tempest",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:tempest",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Trickery",
+    "slug": "cleric:trickery",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:trickery",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Twilight",
+    "slug": "cleric:twilight",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:twilight",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "War",
+    "slug": "cleric:war",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:war",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Solidarity",
+    "slug": "cleric:solidarity",
+    "sourceBook": "Amonkhet",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:solidarity",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Strength",
+    "slug": "cleric:strength",
+    "sourceBook": "Amonkhet",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:strength",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Ambition",
+    "slug": "cleric:ambition",
+    "sourceBook": "Amonkhet",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:ambition",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Zeal",
+    "slug": "cleric:zeal",
+    "sourceBook": "Amonkhet",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:zeal",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Fate",
+    "slug": "cleric:fate-ua",
+    "sourceBook": "Unearthed Arcana 85 - Wonders of the Multiverse",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:fate-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "City",
+    "slug": "cleric:city-ua",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:city-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Protection",
+    "slug": "cleric:protection-ua",
+    "sourceBook": "Unearthed Arcana 22 - Cleric",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:protection-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Twilight",
+    "slug": "cleric:twilight-ua",
+    "sourceBook": "Unearthed Arcana 63 - Cleric, Druid, Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:twilight-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Cleric",
+    "label": "Unity",
+    "slug": "cleric:unity-ua",
+    "sourceBook": "Unearthed Arcana 68 - Subclasses, Part 2",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/cleric:unity-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Druid",
+    "label": "Dreams",
+    "slug": "druid:dreams",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:dreams",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Land",
+    "slug": "druid:land",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:land",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Moon",
+    "slug": "druid:moon",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:moon",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Shepherd",
+    "slug": "druid:shepherd",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:shepherd",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Spores",
+    "slug": "druid:spores",
+    "sourceBook": "Guildmaster's Guide to Ravnica; Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:spores",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Stars",
+    "slug": "druid:stars",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:stars",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Wildfire",
+    "slug": "druid:wildfire",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:wildfire",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Primeval",
+    "slug": "druid:primeval-ua",
+    "sourceBook": "Unearthed Arcana 83 - Giant Options",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:primeval-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Mage of Prismari",
+    "slug": "multisubclass:mage-of-prismari-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-prismari-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Mage of Witherbloom",
+    "slug": "multisubclass:mage-of-witherbloom-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-witherbloom-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Stars",
+    "slug": "druid:stars-ua",
+    "sourceBook": "Unearthed Arcana 69 - Subclasses, Part 3",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:stars-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Twilight",
+    "slug": "druid:twilight-ua",
+    "sourceBook": "Unearthed Arcana 22 - Druid",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:twilight-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Druid",
+    "label": "Wildfire",
+    "slug": "druid:wildlife-ua",
+    "sourceBook": "Unearthed Arcana 63 - Cleric, Druid, Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/druid:wildlife-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Monk",
+    "label": "Astral Self",
+    "slug": "monk:astral-self",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:astral-self",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Ascendant Dragon",
+    "slug": "monk:ascendant-dragon",
+    "sourceBook": "Fizban's Treasury of Dragons",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:ascendant-dragon",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Drunken Master",
+    "slug": "monk:drunken-master",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:drunken-master",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Four Elements",
+    "slug": "monk:four-elements",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:four-elements",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Kensei",
+    "slug": "monk:kensei",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:kensei",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Long Death",
+    "slug": "monk:long-death",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:long-death",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Mercy",
+    "slug": "monk:mercy",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:mercy",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Open Hand",
+    "slug": "monk:open-hand",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:open-hand",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Shadow",
+    "slug": "monk:shadow",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:shadow",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Sun Soul",
+    "slug": "monk:sun-soul",
+    "sourceBook": "Sword Coast Adventurer's Guide; Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:sun-soul",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Ascendant Dragon",
+    "slug": "monk:ascendant-dragon-ua",
+    "sourceBook": "Unearthed Arcana 75 - Subclasses, Part 5",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:ascendant-dragon-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Astral Self",
+    "slug": "monk:astral-self-ua",
+    "sourceBook": "Unearthed Arcana 60 - Barbarian and Monk",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:astral-self-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Kensei",
+    "slug": "monk:kensei-ua",
+    "sourceBook": "Source: Unearthed Arcana 24 - Monk",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:kensei-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Mercy",
+    "slug": "monk:mercy-ua",
+    "sourceBook": "Unearthed Arcana 67 - Subclasses, Part 1",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:mercy-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Monk",
+    "label": "Tranquility",
+    "slug": "monk:tranquility-ua",
+    "sourceBook": "Unearthed Arcana 24 - Monk",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/monk:tranquility-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Ancients",
+    "slug": "paladin:ancients",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:ancients",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Conquest",
+    "slug": "paladin:conquest",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:conquest",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Crown",
+    "slug": "paladin:crown",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:crown",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Devotion",
+    "slug": "paladin:devotion",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:devotion",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Glory",
+    "slug": "paladin:glory",
+    "sourceBook": "Mythic Odysseys of Theros; Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:glory",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Redemption",
+    "slug": "paladin:redemption",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:redemption",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Vengeance",
+    "slug": "paladin:vengeance",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:vengeance",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Watchers",
+    "slug": "paladin:watchers",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:watchers",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Oathbreaker",
+    "slug": "paladin:oathbreaker",
+    "sourceBook": "Dungeon Master’s Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:oathbreaker",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Treachery",
+    "slug": "paladin:treachery-ua",
+    "sourceBook": "Unearthed Arcana 26 - Paladin",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:treachery-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Redemption",
+    "slug": "paladin:redemption-ua",
+    "sourceBook": "Unearthed Arcana 35 - A Trio of Subclasses",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:redemption-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Watchers",
+    "slug": "paladin:watchers-ua",
+    "sourceBook": "Unearthed Arcana 67 - Subclasses, Part 1",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:watchers-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Paladin",
+    "label": "Heroism",
+    "slug": "paladin:heroism-ua",
+    "sourceBook": "Unearthed Arcana 62 - Bard and Paladin",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/paladin:heroism-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Beast Master",
+    "slug": "ranger:beast-master",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:beast-master",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Fey Wanderer",
+    "slug": "ranger:fey-wanderer",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:fey-wanderer",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Gloom Stalker",
+    "slug": "ranger:gloom-stalker",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:gloom-stalker",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Horizon Walker",
+    "slug": "ranger:horizon-walker",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:horizon-walker",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Hunter",
+    "slug": "ranger:hunter",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:hunter",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Monster Slayer",
+    "slug": "ranger:monster-slayer",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:monster-slayer",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Swarmkeeper",
+    "slug": "ranger:swarmkeeper",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:swarmkeeper",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Drakewarden",
+    "slug": "ranger:drakewarden",
+    "sourceBook": "Fizban's Treasury of Dragons",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:drakewarden",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Drakewarden (UA)",
+    "slug": "ranger:drakewarden-ua",
+    "sourceBook": "Unearthed Arcana 75 - Subclasses, Part 5",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:drakewarden-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Deep Stalker",
+    "slug": "ranger:deep-stalker-ua",
+    "sourceBook": "Unearthed Arcana 10 - Light, Dark, Underdark!",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:deep-stalker-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Fey Wanderer",
+    "slug": "ranger:fey-wanderer-ua",
+    "sourceBook": "Unearthed Arcana 69 - Subclasses, Part 3",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:fey-wanderer-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Monster Slayer",
+    "slug": "ranger:monster-slayer-ua",
+    "sourceBook": "Unearthed Arcana 35 - A Trio of Subclasses",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:monster-slayer-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Primeval Guardian",
+    "slug": "ranger:primeval-guardian-ua",
+    "sourceBook": "Unearthed Arcana 27 - Ranger & Rogue",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:primeval-guardian-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Ranger",
+    "label": "Swarmkeeper",
+    "slug": "ranger:swarmkeeper-ua",
+    "sourceBook": "Unearthed Arcana 64 - Fighter, Ranger, Rogue",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/ranger:swarmkeeper-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Arcane Trickster",
+    "slug": "rogue:arcane-trickster",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:arcane-trickster",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Assassin",
+    "slug": "rogue:assassin",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:assassin",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Inquisitive",
+    "slug": "rogue:inquisitive",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:inquisitive",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Mastermind",
+    "slug": "rogue:mastermind",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:mastermind",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Phantom",
+    "slug": "rogue:phantom",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:phantom",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Scout",
+    "slug": "rogue:scout",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:scout",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Soulknife",
+    "slug": "rogue:soulknife",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:soulknife",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Swashbuckler",
+    "slug": "rogue:swashbuckler",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:swashbuckler",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Thief",
+    "slug": "rogue:thief",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:thief",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Phantom",
+    "slug": "rogue:phantom-ua",
+    "sourceBook": "Unearthed Arcana 72 - Subclasses Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:phantom-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Revived",
+    "slug": "rogue:revived-ua",
+    "sourceBook": "Unearthed Arcana 64 - Fighter, Ranger, Rogue",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:revived-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Soulknife (2019)",
+    "slug": "rogue:soulknife-ua",
+    "sourceBook": "Unearthed Arcana 66 - Fighter, Rogue, Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:soulknife-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Rogue",
+    "label": "Soulknife (2020)",
+    "slug": "rogue:soulknife-revisited-ua",
+    "sourceBook": "Unearthed Arcana 71 - Psionic Options Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/rogue:soulknife-revisited-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Aberrant Mind",
+    "slug": "sorcerer:aberrant-mind",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:aberrant-mind",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Clockwork Soul",
+    "slug": "sorcerer:clockwork-soul",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:clockwork-soul",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Draconic Bloodline",
+    "slug": "sorcerer:draconic-bloodline",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:draconic-bloodline",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Divine Soul",
+    "slug": "sorcerer:divine-soul",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:divine-soul",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Lunar Sorcery",
+    "slug": "sorcerer:lunar-sorcery",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:lunar-sorcery",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Shadow Magic",
+    "slug": "sorcerer:shadow-magic",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:shadow-magic",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Storm Sorcery",
+    "slug": "sorcerer:storm-sorcery",
+    "sourceBook": "Sword Coast Adventurer's Guide; Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:storm-sorcery",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Wild Magic",
+    "slug": "sorcerer:wild-magic",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:wild-magic",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Pyromancy",
+    "slug": "sorcerer:pyromancy",
+    "sourceBook": "Plane Shift: Kaladesh",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:pyromancy",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Lunar Magic",
+    "slug": "sorcerer:lunar-magic-ua",
+    "sourceBook": "Unearthed Arcana 81 - Heroes of Krynn",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:lunar-magic-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Aberrant Mind",
+    "slug": "sorcerer:aberrant-mind-ua",
+    "sourceBook": "Unearthed Arcana 61 - Sorcerer and Warlock",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:aberrant-mind-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Clockwork Soul",
+    "slug": "sorcerer:clockwork-soul-ua",
+    "sourceBook": "Unearthed Arcana 68 - Subclasses, Part 2",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:clockwork-soul-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Favored Soul (2015)",
+    "slug": "sorcerer:favored-soul-ua",
+    "sourceBook": "Unearthed Arcana 3 - Modifying Classes",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:favored-soul-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Favored Soul (2017)",
+    "slug": "sorcerer:favored-soul-revisited-ua",
+    "sourceBook": "Unearthed Arcana 28 - Sorcerer",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:favored-soul-revisited-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Giant Soul",
+    "slug": "sorcerer:giant-soul-ua",
+    "sourceBook": "Unearthed Arcana 50 - Giant Soul",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:giant-soul-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Mage of Prismari",
+    "slug": "multisubclass:mage-of-prismari-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-prismari-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Mage of Quandrix",
+    "slug": "multisubclass:mage-of-quandrix-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-quandrix-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Phoenix Sorcery",
+    "slug": "sorcerer:phoenix-sorcery-ua",
+    "sourceBook": "Unearthed Arcana 28 - Sorcerer",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:phoenix-sorcery-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Psionic Soul",
+    "slug": "sorcerer:psionic-soul-ua",
+    "sourceBook": "Unearthed Arcana 71 - Psionic Options Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:psionic-soul-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Sea Sorcery",
+    "slug": "sorcerer:sea-sorcery-ua",
+    "sourceBook": "Unearthed Arcana 28 - Sorcerer",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:sea-sorcery-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Shadow",
+    "slug": "sorcerer:shadow-ua",
+    "sourceBook": "Unearthed Arcana 10 - Light, Dark, Underdark!",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:shadow-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Sorcerer",
+    "label": "Stone Sorcery",
+    "slug": "sorcerer:stone-sorcery-ua",
+    "sourceBook": "Unearthed Arcana 28 - Sorcerer",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/sorcerer:stone-sorcery-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Archfey",
+    "slug": "warlock:archfey",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:archfey",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Celestial",
+    "slug": "warlock:celestial",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:celestial",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Fathomless",
+    "slug": "warlock:fathomless",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:fathomless",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Fiend",
+    "slug": "warlock:fiend",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:fiend",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Genie",
+    "slug": "warlock:the-genie",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:the-genie",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Great Old One",
+    "slug": "warlock:great-old-one",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:great-old-one",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Hexblade",
+    "slug": "warlock:hexblade",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:hexblade",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Undead",
+    "slug": "warlock:undead",
+    "sourceBook": "Van Richten's Guide to Ravenloft",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:undead",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Undying",
+    "slug": "warlock:undying",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:undying",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Mage of Lorehold",
+    "slug": "multisubclass:mage-of-lorehold-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-lorehold-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Mage of Silverquill",
+    "slug": "multisubclass:mage-of-silverquill-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-silverquill-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Mage of Witherbloom",
+    "slug": "multisubclass:mage-of-witherbloom-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-witherbloom-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Celestial",
+    "slug": "warlock:celestial-ua",
+    "sourceBook": "Unearthed Arcana 40 - Revised Class Options",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:celestial-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Genie",
+    "slug": "warlock:genie-ua",
+    "sourceBook": "Unearthed Arcana 72 - Subclasses Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:genie-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Ghost in the Machine",
+    "slug": "warlock:ghost-in-the-machine-ua",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:ghost-in-the-machine-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Hexblade",
+    "slug": "warlock:hexblade-ua",
+    "sourceBook": "Unearthed Arcana 29 - Warlock and Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:hexblade-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Lurker in the Deep",
+    "slug": "warlock:lurker-in-the-deep-ua",
+    "sourceBook": "Unearthed Arcana 61 - Sorcerer and Warlock",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:lurker-in-the-deep-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Noble Genie",
+    "slug": "warlock:noble-genie-ua",
+    "sourceBook": "Unearthed Arcana 67 - Subclasses, Part 1",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:noble-genie-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Raven Queen",
+    "slug": "warlock:raven-queen-ua",
+    "sourceBook": "Unearthed Arcana 29 - Warlock and Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:raven-queen-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Seeker",
+    "slug": "warlock:seeker-ua",
+    "sourceBook": "Unearthed Arcana 16 - The Faithful",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:seeker-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Undead",
+    "slug": "warlock:undead-ua",
+    "sourceBook": "Unearthed Arcana 74 - Subclasses, Part 4",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:undead-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Warlock",
+    "label": "Undying Light",
+    "slug": "warlock:undying-light-ua",
+    "sourceBook": "Unearthed Arcana 10 - Light, Dark, Underdark!",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/warlock:undying-light-ua",
+    "entryLevel": 1
+  },
+  {
+    "className": "Wizard",
+    "label": "Abjuration",
+    "slug": "wizard:abjuration",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:abjuration",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Bladesinging",
+    "slug": "wizard:bladesinging",
+    "sourceBook": "Sword Coast Adventurer's Guide; Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:bladesinging",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Chronurgy",
+    "slug": "wizard:chronurgy",
+    "sourceBook": "Explorer's Guide to Wildemount",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:chronurgy",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Conjuration",
+    "slug": "wizard:conjuration",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:conjuration",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Divination",
+    "slug": "wizard:divination",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:divination",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Enchantment",
+    "slug": "wizard:enchantment",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:enchantment",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Evocation",
+    "slug": "wizard:evocation",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:evocation",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Graviturgy",
+    "slug": "wizard:graviturgy",
+    "sourceBook": "Explorer's Guide to Wildemount",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:graviturgy",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Illusion",
+    "slug": "wizard:illusion",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:illusion",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Necromancy",
+    "slug": "wizard:necromancy",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:necromancy",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Order of Scribes",
+    "slug": "wizard:order-of-scribes",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:order-of-scribes",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Transmutation",
+    "slug": "wizard:transmutation",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:transmutation",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "War Magic",
+    "slug": "wizard:war-magic",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:war-magic",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Runecrafter",
+    "slug": "wizard:runecrafter-ua",
+    "sourceBook": "Unearthed Arcana 83 - Giant Options",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:runecrafter-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Artificer",
+    "slug": "wizard:artificer-ua",
+    "sourceBook": "Unearthed Arcana 1 - Eberron",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:artificer-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Invention",
+    "slug": "wizard:invention-ua",
+    "sourceBook": "Unearthed Arcana 46 - Three Subclasses",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:invention-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Lore Mastery",
+    "slug": "wizard:lore-mastery-ua",
+    "sourceBook": "Unearthed Arcana 29 - Warlock and Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:lore-mastery-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Mage of Lorehold",
+    "slug": "multisubclass:mage-of-lorehold-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-lorehold-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Mage of Prismari",
+    "slug": "multisubclass:mage-of-prismari-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-prismari-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Mage of Quandrix",
+    "slug": "multisubclass:mage-of-quandrix-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-quandrix-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Mage of Silverquill",
+    "slug": "multisubclass:mage-of-silverquill-ua",
+    "sourceBook": "Unearthed Arcana 79 - Mages of Strixhaven",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/multisubclass:mage-of-silverquill-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Onomancy",
+    "slug": "wizard:onomancy-ua",
+    "sourceBook": "Unearthed Arcana 63 - Cleric, Druid, Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:onomancy-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Order of Scribes",
+    "slug": "wizard:order-of-scribes-ua",
+    "sourceBook": "Unearthed Arcana 72 - Subclasses Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:order-of-scribes-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Psionics",
+    "slug": "wizard:psionics-ua",
+    "sourceBook": "Unearthed Arcana 66 - Fighter, Rogue, Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:psionics-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Technomancy",
+    "slug": "wizard:technomancy-ua",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:technomancy-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Wizard",
+    "label": "Theurgy",
+    "slug": "wizard:theurgy-ua",
+    "sourceBook": "Unearthed Arcana 33 - Wizard Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/wizard:theurgy-ua",
+    "entryLevel": 2
+  },
+  {
+    "className": "Fighter",
+    "label": "Arcane Archer",
+    "slug": "fighter:arcane-archer",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:arcane-archer",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Banneret",
+    "slug": "fighter:banneret",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:banneret",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Battle Master",
+    "slug": "fighter:battle-master",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:battle-master",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Cavalier",
+    "slug": "fighter:cavalier",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:cavalier",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Champion",
+    "slug": "fighter:champion",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:champion",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Echo Knight",
+    "slug": "fighter:echo-knight",
+    "sourceBook": "Explorer's Guide to Wildemount",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:echo-knight",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Eldritch Knight",
+    "slug": "fighter:eldritch-knight",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:eldritch-knight",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Psi Warrior",
+    "slug": "fighter:psi-warrior",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:psi-warrior",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Rune Knight",
+    "slug": "fighter:rune-knight",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:rune-knight",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Samurai",
+    "slug": "fighter:samurai",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:samurai",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Arcane Archer (2016)",
+    "slug": "fighter:arcane-archer-ua",
+    "sourceBook": "Unearthed Arcana 23 - Fighter",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:arcane-archer-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Arcane Archer (2017)",
+    "slug": "fighter:arcane-archer-revised-ua",
+    "sourceBook": "Unearthed Arcana 39 - Revised Subclasses",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:arcane-archer-revised-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Brute",
+    "slug": "fighter:brute-ua",
+    "sourceBook": "Unearthed Arcana 46 - Three Subclasses",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:brute-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Cavalier",
+    "slug": "fighter:cavalier-ua",
+    "sourceBook": "Unearthed Arcana 40 - Revised Class Options",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:cavalier-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Knight",
+    "slug": "fighter:knight-ua",
+    "sourceBook": "Unearthed Arcana 23 - Fighter",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:knight-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Monster Hunter",
+    "slug": "fighter:monster-hunter-ua",
+    "sourceBook": "Unearthed Arcana 13 - Gothic Heroes",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:monster-hunter-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Psi Knight",
+    "slug": "fighter:psi-knight-ua",
+    "sourceBook": "Unearthed Arcana 71 - Psionic Options Revisited",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:psi-knight-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Psychic Warrior",
+    "slug": "fighter:psychic-warrior-ua",
+    "sourceBook": "Unearthed Arcana 66 - Fighter, Rogue, Wizard",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:psychic-warrior-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Rune Knight",
+    "slug": "fighter:rune-knight-ua",
+    "sourceBook": "Unearthed Arcana 64 - Fighter, Ranger, Rogue",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:rune-knight-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Samurai",
+    "slug": "fighter:samurai-ua",
+    "sourceBook": "Unearthed Arcana 23 - Fighter",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:samurai-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Scout",
+    "slug": "fighter:scout-ua",
+    "sourceBook": "Unearthed Arcana 12 - Kits of Old",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:scout-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Fighter",
+    "label": "Sharpshooter",
+    "slug": "fighter:sharpshooter-ua",
+    "sourceBook": "Unearthed Arcana 23 - Fighter",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/fighter:sharpshooter-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Ancestral Guardian",
+    "slug": "barbarian:ancestral-guardian",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:ancestral-guardian",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Battlerager",
+    "slug": "barbarian:battlerager",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:battlerager",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Beast",
+    "slug": "barbarian:beast",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:beast",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Berserker",
+    "slug": "barbarian:berserker",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:berserker",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Giant",
+    "slug": "barbarian:giant",
+    "sourceBook": "Bigby Presents: Glory of the Giants",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:giant",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Storm Herald",
+    "slug": "barbarian:storm-herald",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:storm-herald",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Totem Warrior",
+    "slug": "barbarian:totem-warrior",
+    "sourceBook": "Player's Handbook",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:totem-warrior",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Wild Magic",
+    "slug": "barbarian:wild-magic",
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:wild-magic",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Zealot",
+    "slug": "barbarian:zealot",
+    "sourceBook": "Xanathar's Guide to Everything",
+    "playtest": false,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:zealot",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Beast",
+    "slug": "barbarian:beast-ua",
+    "sourceBook": "Unearthed Arcana 67 - Subclasses, Part 1",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:beast-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Giant",
+    "slug": "barbarian:giant-ua",
+    "sourceBook": "Unearthed Arcana 83 - Giant Options",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:giant-ua",
+    "entryLevel": 3
+  },
+  {
+    "className": "Barbarian",
+    "label": "Wild Soul",
+    "slug": "barbarian:wild-soul-ua",
+    "sourceBook": "Unearthed Arcana 60 - Barbarian and Monk",
+    "playtest": true,
+    "sourceUrl": "https://dnd5e.wikidot.com/barbarian:wild-soul-ua",
+    "entryLevel": 3
+  }
+]

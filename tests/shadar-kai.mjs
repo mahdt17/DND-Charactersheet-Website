@@ -26,7 +26,7 @@ test('actions enforce exact source/edition, consciousness, incapacity and canoni
  assert(api);for(const version of ['mtf','motm']){
   const c=make(version,5),id=api.blessingResource(c).id;assert.equal(api.shadarKaiProfile({...c,ruleset:'custom',mechanics:'2014'}).active,true);
   for(const change of [{race:'Human'},{raceDefinition:null},{raceDefinition:{...c.raceDefinition,catalogId:'homebrew:shadar-kai'}},{ruleset:'2024'},{ruleset:'3.5'},{ruleset:'custom',mechanics:'2024'}]){assert.equal(api.shadarKaiProfile({...c,...change}).active,false);assert.throws(()=>api.useBlessing({...c,...change}),/grant/i);}
-  for(const conditions of [['Stunned'],[{name:'Unconscious'}],'Paralyzed','Dead'])assert.throws(()=>api.useBlessing({...c,conditions}),/incapacitated/i);
+  for(const conditions of [['Stunned'],[{name:'Unconscious'}],'Paralyzed','Dead'])assert.throws(()=>api.useBlessing({...c,conditions}),conditions==='Dead'?/dead|revived/i:/incapacitated/i);
   assert.throws(()=>api.useBlessing({...c,hp:{current:0,max:10}}),/conscious/i);
   const altered={...c,resources:[{id,max:99,used:6,manual:true,reset:'short'}]};assert.equal(resources.characterResources(altered).find(r=>r.id===id).max,version==='mtf'?1:3);assert.throws(()=>api.useBlessing(altered),/remaining/i);
  }

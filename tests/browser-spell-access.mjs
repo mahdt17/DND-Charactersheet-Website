@@ -13,19 +13,14 @@ const definition=(name,edition)=>({...((edition==='3.5'?legacy:edition==='2024'?
 const row=(name,edition,level)=>({name,level,edition,catalogId:`${edition}:${name}`,definition:{...definition(name,edition),catalogId:`${edition}:${name}`}});
 const make=(edition,rows)=>({name:`Access ${edition}`,ruleset:edition,mechanics:edition,className:rows[0].name,classDefinition:rows[0].definition,classLevels:rows,level:rows.reduce((n,r)=>n+r.level,0),race:'Human',abilities:{str:16,dex:16,con:16,int:18,wis:18,cha:18},hp:{current:20,max:20,temp:0},spells:[],inventory:[],actions:[],feats:[],notes:''});
 const importChar=async c=>{await page.locator('input[type=file]').setInputFiles({name:'character.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();await page.getByRole('tab',{name:'Spells',exact:true}).click();};
-const closeManager=async edition=>edition==='2014'?page.getByRole('button',{name:'Close dialog',exact:true}).click():page.getByRole('button',{name:'Done',exact:true}).click();
+const closeManager=async()=>page.getByRole('button',{name:'Done',exact:true}).click();
 const picker=edition=>page.getByRole('region',{name:edition==='3.5'?'Available class spells':'Prepared class spells',exact:true});
 try {
  await page.goto('http://127.0.0.1:5184');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character'}).click();
  for(const edition of ['2014','2024','3.5']){
   await importChar(make(edition,[row('Cleric',edition,3)]));await page.getByRole('button',{name:'Manage spells',exact:true}).click();
-  if(edition==='2014'){
-   await page.getByLabel('Find a class spell').fill('Magic Missile');assert.equal(await page.locator('.catalog-list').getByRole('button',{name:/^Add Magic Missile/}).count(),0);
-   await page.getByLabel('Find a class spell').fill('Bless');await page.locator('.catalog-list').getByRole('button',{name:/^Add Bless /}).first().waitFor();
-  } else {
-   await picker(edition).getByLabel('Search spells',{exact:true}).fill('Magic Missile');assert.equal(await picker(edition).getByRole('button',{name:/^Select Magic Missile/}).count(),0);
-   await picker(edition).getByLabel('Search spells',{exact:true}).fill('Bless');await picker(edition).getByRole('button',{name:/^Select Bless /}).first().waitFor();
-  }
+  await picker(edition).getByLabel('Search spells',{exact:true}).fill('Magic Missile');assert.equal(await picker(edition).getByRole('button',{name:/^Select Magic Missile/}).count(),0);
+  await picker(edition).getByLabel('Search spells',{exact:true}).fill('Bless');await picker(edition).getByRole('button',{name:/^Select Bless /}).first().waitFor();
   await closeManager(edition);
  }
  const bad={...spells14.find(s=>s.name==='Magic Missile'),id:'bad-spell',edition:'2014',prepared:true,castingClassId:'2014:Cleric'};
@@ -56,7 +51,7 @@ try {
  await importChar({...make('2014',[life]),name:'Domain spells'});
  assert.equal(await page.locator('.spell-item').count(),4);assert.equal(await page.locator('.spell-item').getByRole('button',{name:'Prepare',exact:true}).count(),0);
  await page.locator('.spell-item').filter({hasText:'Bless'}).getByRole('button',{name:'Cast',exact:true}).click();await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();
- assert.match(await page.getByRole('button',{name:'Level 1 slot 1, used',exact:true}).getAttribute('class'),/used/);
+ assert.match(await page.getByRole('button',{name:'Level 1 slot 1',exact:true}).getAttribute('class'),/used/);
  await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices'}).click();
  await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
  const normalPrepared=page.getByRole('region',{name:'Prepared spells',exact:true});assert.match(await normalPrepared.innerText(),/0 \/ 8 selected/);
@@ -64,7 +59,21 @@ try {
  const fiend=row('Warlock','2014',4);fiend.subclass='Fiend';
  const warlockSpells=spells14.filter(s=>['Eldritch Blast','Mage Hand','Minor Illusion','Armor of Agathys','Charm Person','Comprehend Languages','Hellish Rebuke','Hex'].includes(s.name)).map(s=>({...s,id:s.index,edition:'2014',castingClassId:fiend.catalogId}));
  await importChar({...make('2014',[fiend]),name:'Fiend spell choices',spells:warlockSpells});await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices'}).click();await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
- const newKnown=page.getByRole('region',{name:'New spells',exact:true});await newKnown.getByLabel('Search spells',{exact:true}).fill('Fireball');await newKnown.getByRole('button',{name:'Select Fireball',exact:true}).waitFor();await page.getByRole('button',{name:'Cancel',exact:true}).click();await page.getByRole('button',{name:'Cancel',exact:true}).click();
+ const newKnown=page.getByRole('region',{name:'New spells',exact:true});await newKnown.getByLabel('Search spells',{exact:true}).fill('Fireball');await newKnown.getByRole('button',{name:'Select Fireball',exact:true}).click();
+ for(const name of ['Invisibility','Suggestion']){await newKnown.getByLabel('Search spells',{exact:true}).fill(name);await newKnown.getByRole('button',{name:'Select '+name,exact:true}).click();}
+ assert.match(await newKnown.innerText(),/3\s*\/\s*3 selected/);
+ await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
+ await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:'Warlock 5'}).waitFor();
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();
+ assert.equal(await page.locator('.spell-item').filter({hasText:'Fireball'}).count(),1);
+ await page.waitForTimeout(600);
+ const persisted=await page.evaluate(async()=>{const index=JSON.parse((await window.storage.get('char-index')).value),row=index.find(c=>c.name==='Fiend spell choices');return JSON.parse((await window.storage.get('char-detail:'+row.id)).value);});
+ const fireballs=persisted.spells.filter(s=>s.name==='Fireball');
+ assert.equal(fireballs.length,1);
+ assert.match(fireballs[0].catalogId,/^(2014:|wikidot5e:spell:)fireball$/);
+ assert.equal(fireballs[0].castingClassId,persisted.classLevels[0].catalogId);
+ console.log('PASS actual Fiend level-up saves one sourced Fireball with the correct class owner');
  const land=row('Druid','2024',3);land.subclass='Circle of the Land';
  await importChar({...make('2024',[land]),name:'Circle spells',subclass:'Circle of the Land'});
  await page.getByLabel('Circle of the Land terrain').selectOption('arid');assert.equal(await page.locator('.spell-item').count(),3);assert.equal(await page.locator('.spell-item').filter({hasText:'Fire Bolt'}).count(),1);

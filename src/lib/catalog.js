@@ -6,7 +6,7 @@ import classReviewedMartialOverrides35 from '../data/class-reviewed-overrides-35
 import classSourceCorrections35 from '../data/class-source-corrections35.json' with {type:'json'};
 import {reviewedWave35Override} from './reviewedClassWave35.js';
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
-import {refreshEntomancerSpell} from './entomancerSpellDetails.js';
+import {refreshEntomancerSpell,normalizeSpellLists5e} from './entomancerSpellDetails.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
 export const isBoilerplate = value => /logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators/i.test(String(value || ''));
 function freeze(value) {
@@ -41,8 +41,17 @@ export function normalizeCatalogRecord(row, source, category) {
   const verified=Boolean(reviewedClassOverride?.verified)||(row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length);
   const normalized=normalizeContentEntry({...clean,sourceId:row.id,id:catalogId,catalogId,index:row.id,category:contentType(category),edition:source==='dndtools'?'3.5':'2014',source:clean.source||(source==='dndtools'?'DnD Tools':'D&D 5e Wikidot'),sourceUrl:clean.sourceUrl||clean.url||row.sourceUrl||row.url,description,referenceOnly:!verified,integrityIssues,
     tables:clean.progression?.length&&Array.isArray(clean.progression[0])&&!Array.isArray(clean.progression[0][0])?[clean.progression]:clean.tables||[]});
+  if(source==='wikidot5e'&&category==='classes'&&row.id==='wikidot5e:artificer'){
+    normalized.spellcastingAbility='int';
+    normalized.saving_throws=[{index:'con',name:'Constitution'},{index:'int',name:'Intelligence'}];
+    normalized.proficiency_choices=[{choose:2,type:'proficiencies',from:{options:['Arcana','History','Investigation','Medicine','Nature','Perception','Sleight of Hand'].map(name=>({item:{index:`skill-${name.toLowerCase().replaceAll(' ','-')}`,name:`Skill: ${name}`}}))}}];
+  }
   if(integrityIssues.length) normalized.completeness={...normalized.completeness,complete:false,missing:[...normalized.completeness.missing,'effectIntegrity']};
-  if(normalized.category==='spell') normalized.classes=(row.classes||[]).map(x=>typeof x==='string'?x:x.name);
+  if(normalized.category==='spell'){
+    const labels=(row.classes||[]).map(x=>typeof x==='string'?x:x.name);
+    normalized.classes=source==='wikidot5e'?normalizeSpellLists5e({...normalized,sourceClassLists:labels,classes:labels}).classes:labels;
+    if(source==='wikidot5e')normalized.sourceClassLists=labels;
+  }
   return freeze(normalized);
 }
 export function createCatalogService({fetcher=globalThis.fetch,baseUrl='/'}={}) {

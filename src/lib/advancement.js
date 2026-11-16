@@ -4,6 +4,7 @@ import {isEladrin} from './eladrin.js';
 import {campaignKind,campaignProfile,selectedBasePowers} from './archivistCampaign.js';
 import {preservePsicrystalDestruction} from './campaignPsicrystal.js';
 import {normalizeEdition} from './content.js';
+import {subclassHitPointBonus} from './subclassHitPoints.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
 import {applyFeatAbilityIncrease} from './featMagic.js';
@@ -217,7 +218,8 @@ export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,s
   const classLevels=old?rows.map(r=>r.catalogId===key?row:r):[...rows,row];
   const gain=Math.trunc(Number(hpGain));if(!Number.isFinite(gain))throw Error('HP gain must be a finite number.');
   const max=Math.max(1,c.hp.max+gain);
-  const next={...c,...applyMulticlassTraining(c,record,trainingChoices),classLevels,level:classLevels.reduce((n,r)=>n+r.level,0),hp:{...c.hp,max,current:Math.min(max,Math.max(0,c.hp.current+gain))},prerequisiteConfirmations:{...c.prerequisiteConfirmations,...confirmations}};
+  const beforeBonus=subclassHitPointBonus(c,rows),afterBonus=subclassHitPointBonus(c,classLevels);
+  const next={...c,...applyMulticlassTraining(c,record,trainingChoices),classLevels,level:classLevels.reduce((n,r)=>n+r.level,0),hp:{...c.hp,max,current:Math.min(max+afterBonus,Math.max(0,c.hp.current+gain+afterBonus-beforeBonus))},prerequisiteConfirmations:{...c.prerequisiteConfirmations,...confirmations}};
   // Preserve already assigned expenditure when gaining a die or a new class.
   // Ambiguous old multiclass totals remain for explicit review in the rest UI.
   if((c.ruleset==='custom'?c.mechanics:c.ruleset)!=='3.5'&&(rows.length===1||c.hitDiceUsedByClass))Object.assign(next,setSpentHitDice(c,{}));

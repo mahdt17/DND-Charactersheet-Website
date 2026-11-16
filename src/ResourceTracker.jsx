@@ -6,7 +6,7 @@ import {adjustResource,characterResources,classResourceDefinitions,resourceMatch
 const initial={name:'',max:1,reset:'long',shortRecovery:1,unlimited:false};
 export default function ResourceTracker({char,patch,abilities,hidePopulation=false,hideCampaign=false,campaignOnly=false,compact=false,onlyIds}) {
   const [draft,setDraft]=useState(null),[error,setError]=useState(''),[notice,setNotice]=useState(''),[amounts,setAmounts]=useState({});
-  const resources=characterResources(char,abilities),visible=r=>(!onlyIds||onlyIds.includes(r.id))&&(!hidePopulation||r.id!==populationId)&&(!hideCampaign||!r.campaignManaged)&&(!campaignOnly||r.campaignManaged),visibleResources=resources.filter(visible),definitions=classResourceDefinitions(char,abilities).filter(visible);
+  const resources=characterResources(char,abilities),visible=r=>!r.specialManaged&&(!onlyIds||onlyIds.includes(r.id))&&(!hidePopulation||r.id!==populationId)&&(!hideCampaign||!r.campaignManaged)&&(!campaignOnly||r.campaignManaged),visibleResources=resources.filter(visible),definitions=classResourceDefinitions(char,abilities).filter(visible);
   const candidates=r=>definitions.filter(d=>resourceMatches(r,d)&&!resources.some(x=>x.id!==r.id&&x.classResourceKey===d.classResourceKey));
   function edit(r) {setError('');setDraft(r?{...r,reset:r.shortRecovery&&r.shortRecovery!=='all'?'partial':r.reset,shortRecovery:Number(r.shortRecovery)||1}:{...initial});}
   function save(e) {

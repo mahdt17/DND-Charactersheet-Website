@@ -1,0 +1,7 @@
+# Audited subclass snapshots and exact generator outputs are byte-stable.
+/scripts/data/subclasses2014/** -text whitespace=cr-at-eol
+/src/data/expandedSubclasses.json -text
+/src/data/subclassManifest2014.json -text
+/src/data/subclassSpellCatalog.json -text
+/src/data/subclassMechanics2014.json -text
+/src/data/subclassChoiceSpellCatalog.json -text

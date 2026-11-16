@@ -1,15 +1,23 @@
+import {forgeBlessingBonus} from './subclassForge.js';
+import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile,weaponSubclassDamageDice,weaponSubclassDamageType,monkMartialArtsAvailable} from './subclassEquipment.js';
+import {rageProfile} from './rage2014.js';
+import {subclassNumericProfile} from './subclassNumerics.js';
+import {availableSubclasses,findExpandedSubclass,legacySubclassName} from './expandedSubclassCatalog.js';
+import {fightingStyleProfile,styleWeaponModifiers} from './fightingStyles.js';
 import {totemProfile} from './totemWarrior.js';
+import {effectArmor} from './spellEffects.js';
 import {totemSubclassRecords} from '../data/totemWarrior.js';
 import {fighterSubclassRecords} from '../data/fighterSubclasses.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {campaignProfile} from './archivistCampaign.js';
-import levels from '../data/levels.json';
-import spells from '../data/spells.json';
-import classes from '../data/classes.json';
-import features from '../data/features.json';
-import subclasses14 from '../data/subclasses.json';
-const subclasses=[...subclasses14,...fighterSubclassRecords,...totemSubclassRecords];
-import equipment from '../data/equipment.json';
+import levels from '../data/levels.json' with {type:'json'};
+import {spellCatalog} from './coreSpellCatalog.js';
+import classes from '../data/classes.json' with {type:'json'};
+import features from '../data/features.json' with {type:'json'};
+import subclasses14 from '../data/subclasses.json' with {type:'json'};
+export const legacySubclasses2014=[...subclasses14,...fighterSubclassRecords,...totemSubclassRecords];
+const subclasses=[...legacySubclasses2014,...availableSubclasses().filter(r=>!legacySubclasses2014.some(old=>findExpandedSubclass(old.class.name,old.name)?.id===r.id)).map(r=>({...r,name:legacySubclassName(r)}))];
+import equipment from '../data/equipment.json' with {type:'json'};
 import {hasWeaponTraining,startingProficiencies} from './training.js';
 import {entomancerArmor,entomancerProfile} from './entomancer.js';
 
@@ -18,7 +26,7 @@ export const castingAbility = { Bard:'cha', Cleric:'wis', Druid:'wis', Paladin:'
 export const modifier = score => Math.floor((Number(score) - 10) / 2);
 export const signed = value => value >= 0 ? `+${value}` : `${value}`;
 export const spellLevel = spell => spell.level === 'Cantrip' ? 0 : parseInt(spell.level, 10) || 0;
-export const spellCatalog = spells.map(s => ({ ...s, description:s.desc.join('\n\n'), school:s.school.name, classes:s.classes.map(c=>c.name) }));
+export {spellCatalog};
 export function classLevel(name, level) {
   return levels.find(l=>l.class.name===name && l.level===Number(level) && !l.subclass) || {};
 }
@@ -43,6 +51,12 @@ export function grantedClassFeatures(char) {
   return [...new Map(base.flatMap(l=>(l.features||[]).map(f=>[f.index,{...f,...features.find(x=>x.index===f.index),level:l.level}]))).values()];
 }
 export function rollDice(expression, mode='normal', random=Math.random) {
+  const mixed=String(expression).replace(/\s/g,'');
+  if(/^\d{1,2}d\d{1,3}(?:\+\d{1,2}d\d{1,3})+(?:[+-]\d{1,3})?$/i.test(mixed)){
+    const dice=mixed.match(/\d+d\d+/gi);if(dice.reduce((n,e)=>n+Number(e.split(/d/i)[0]),0)>50)throw Error('Use at most50 dice.');
+    const groups=dice.map(e=>rollDice(e,'normal',random)),rolls=groups.flatMap(r=>r.rolls),bonus=Number(mixed.match(/([+-]\d+)$/)?.[1]||0);
+    return {id:crypto.randomUUID(),expression,rolls,groups,bonus,total:rolls.reduce((n,v)=>n+v,0)+bonus,mode:'normal',time:new Date().toISOString()};
+  }
   const match=String(expression).replace(/\s/g,'').match(/^(\d{1,2})d(\d{1,3})(dl1)?([+-]\d{1,3})?$/i);
   if(!match) throw new Error('Use a dice expression such as 1d20+5, 2d6+3 or 4d6dl1.');
   const [,quantity,sides,dropLowest,bonus='0']=match;
@@ -72,6 +86,7 @@ function legacyClassLevel(char,sourceId,fallbackName=''){
   return 0;
 }
 export function armorFor(char, abilities) {
+  const subclass=subclassNumericProfile(char,abilities);
   const dex=modifier(abilities.dex),con=modifier(abilities.con),wis=modifier(abilities.wis);
   const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
   const shield=worn.some(e=>e.index==='shield');
@@ -81,7 +96,8 @@ export function armorFor(char, abilities) {
   const inertial=campaign.psion&&force?.minutes>0?Number(force.armorBonus??4):0;
   const naturalBonus=Number(campaign.rulings.naturalArmorBonus);
   const natural=campaign.active&&Number.isFinite(naturalBonus)?Math.max(0,naturalBonus):0;
-  if(armor.length){const e=armor[0];return entomancerArmor(char,Math.max(e.armor_class.base,10+inertial)+natural+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities);}
+  const spellArmor=effectArmor(char,abilities,{armored:armor.length>0,shield});
+  if(armor.length){const e=armor[0],item=(char.inventory||[]).find(i=>i.equipped&&i.equipmentIndex===e.index),forgeArmor=forgeBlessingBonus(char,item);return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(e.armor_class.base,10+inertial)+natural+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0)+campaignModifiers(char).ac,e.armor_category,abilities)+spellArmor.bonus+fightingStyleProfile(char,abilities).ac+subclass.acBonus+forgeArmor);}
   const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
@@ -94,7 +110,14 @@ export function armorFor(char, abilities) {
     return 10+dex+(shield?2:0);
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
-  return entomancerArmor(char,base+inertial+natural+(shield?2:0)+campaignModifiers(char).ac,'',abilities);
+  return Math.max(spellArmor.minimum,entomancerArmor(char,Math.max(base,...spellArmor.bases,...subclass.acBases)+inertial+natural+(shield?2:0)+campaignModifiers(char).ac,'',abilities)+spellArmor.bonus+fightingStyleProfile(char,abilities).ac+subclass.acBonus);
+}
+export function sheetArmorFor(char,abilities){
+ if(char.autoArmor&&char.ruleset!=='3.5'&&char.mechanics!=='3.5')return armorFor(char,abilities);
+ const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
+ const effects=effectArmor(char,abilities,{armored:worn.some(e=>e.armor_class&&e.index!=='shield'),shield:worn.some(e=>e.index==='shield')});
+ const forgeArmor=Math.max(0,...(char.inventory||[]).filter(i=>i.equipped&&equipment.find(e=>e.index===i.equipmentIndex)?.armor_class&&i.equipmentIndex!=='shield').map(i=>forgeBlessingBonus(char,i)));
+ return Math.max(effects.minimum,Number(char.ac||0)+effects.bonus+fightingStyleProfile(char,abilities).ac+subclassNumericProfile(char,abilities).acBonus+forgeArmor);
 }
 export function weaponAttacks(char, abilities) {
   const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
@@ -102,11 +125,13 @@ export function weaponAttacks(char, abilities) {
     const data=equipment.find(e=>e.index===i.equipmentIndex);
     if(!data?.damage?.damage_dice)return null;
     const dex=modifier(abilities.dex),str=modifier(abilities.str);
-    const finesse=data.properties?.some(p=>p.index==='finesse');
-    const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str;
+    const style=styleWeaponModifiers(char,i,data),finesse=data.properties?.some(p=>p.index==='finesse');
+    const alternate=weaponSubclassAbility(char,i),ability=alternate?modifier(abilities[alternate]):finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str,damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
     const trained=hasWeaponTraining(char,data,proficiencies);
-    const totem=totemProfile(char,abilities),rage=totem.activeRage&&!totem.heavyArmor&&data.weapon_range==='Melee'&&(!finesse||str>=dex)?totem.rageDamage:0;
-    const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&data.weapon_range==='Melee'?2:0;
-    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,entomancerStrike:!!strike,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike,damage:`${data.damage.damage_dice}${signed(ability+strike+rage)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&(!alternate||alternate==='str')&&(!finesse||str>=dex)?rp.damage:0;
+    const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
+    const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei&&(kensei.record.playtest||monkMartialArtsAvailable(char))?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;
+    const subclass=subclassNumericProfile(char,abilities),victory=style.melee&&!style.two?subclass.meleeWeaponDamageBonus:0;
+    return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,damageType:weaponSubclassDamageType(char,i)||data.damage.damage_type.name,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${weaponSubclassDamageDice(char,i)}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${weaponSubclassDamageType(char,i)||data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

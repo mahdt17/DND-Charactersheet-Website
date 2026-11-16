@@ -6,8 +6,8 @@ assert.equal(campaignActionBlockReason(char),'');
 assert.doesNotThrow(()=>assertCampaignCanAct(char));
 for(const state of [{hp:{current:0,max:22}},{deathSaves:{failure:3}},{archivistCampaign:{dead:true}},{exhaustion:6},...['Dead','Unconscious','Incapacitated','Paralyzed','Stunned','Petrified'].map(name=>({conditions:[name]})),{conditions:[{name:'Stunned',rounds:2}]},{conditions:'Poisoned, unconscious'}]){
  const blocked={...char,...state};
- assert.match(campaignActionBlockReason(blocked),/cannot act|reviv/i);
- assert.throws(()=>assertCampaignCanAct(blocked),/cannot act|reviv/i);
+ assert.match(campaignActionBlockReason(blocked),/cannot act|reviv|conscious/i);
+ assert.throws(()=>assertCampaignCanAct(blocked),/cannot act|reviv|conscious/i);
 }
 for(const name of ['Poisoned','Blinded','Prone','Frightened'])assert.doesNotThrow(()=>assertCampaignCanAct({...char,conditions:[name]}));
 assert.equal(campaignActionBlockReason({...char,ruleset:'3.5',hp:{current:0}}),'','this guard does not change original 3.5 rules');

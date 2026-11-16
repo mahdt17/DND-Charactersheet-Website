@@ -1,0 +1,2841 @@
+[
+  {
+    "id": "wikidot5e:spell:ray-of-sickness",
+    "name": "Ray of Sickness",
+    "url": "https://dnd5e.wikidot.com/spell:ray-of-sickness",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:ray-of-sickness",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "necromancy",
+    "casting_time": "1 action",
+    "range": "60 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Sorcerer",
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:252a6e424c8119cfa23b14cfa84566a7234269867909a8e99c6bb82926b386c8",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:ray-of-sickness",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:ray-of-sickness",
+        "sha256": "sha256:941bbd282b5b49ce327ec3dd2cead25657009f82875396f425247d03f0b26315",
+        "retrievedAt": "2026-09-23T22:12:38Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Make a ranged spell attack against one creature within 60 feet. On a hit it takes 2d8 poison damage and makes a Constitution save; on a failure it is poisoned until the end of your next turn. Each slot level above 1st adds 1d8 damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Ray of Sickness is a D&D 5e level 1 spell in necromancy. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:38Z"
+    },
+    "catalogId": "wikidot5e:spell:ray-of-sickness",
+    "index": "wikidot5e:spell:ray-of-sickness",
+    "description": "Make a ranged spell attack against one creature within 60 feet. On a hit it takes 2d8 poison damage and makes a Constitution save; on a failure it is poisoned until the end of your next turn. Each slot level above 1st adds 1d8 damage."
+  },
+  {
+    "id": "wikidot5e:spell:melfs-acid-arrow",
+    "name": "Melf's Acid Arrow",
+    "url": "https://dnd5e.wikidot.com/spell:melfs-acid-arrow",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:melfs-acid-arrow",
+    "referenceOnly": false,
+    "level": 2,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V, S",
+      "M (powdered rhubarb leaf and an adder’s stomach)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:caaacb5b0d7b75d8f72f6112410c280ac3ccbf04dfd0762019fa87709d877908",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:melfs-acid-arrow",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:melfs-acid-arrow",
+        "sha256": "sha256:161f3b192dc3411616ffd94eadd34c9dc325cddd91db205f1ea0cee655b82b72",
+        "retrievedAt": "2026-09-23T22:13:02Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Make a ranged spell attack against one target within 90 feet. On a hit it takes 4d4 acid damage immediately and 2d4 at the end of its next turn. On a miss it takes half the initial damage and no delayed damage. Each slot level above 2nd adds 1d4 to both the initial and delayed damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Melf's Acid Arrow is a D&D 5e level 2 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:02Z"
+    },
+    "catalogId": "wikidot5e:spell:melfs-acid-arrow",
+    "index": "wikidot5e:spell:melfs-acid-arrow",
+    "description": "Make a ranged spell attack against one target within 90 feet. On a hit it takes 4d4 acid damage immediately and 2d4 at the end of its next turn. On a miss it takes half the initial damage and no delayed damage. Each slot level above 2nd adds 1d4 to both the initial and delayed damage."
+  },
+  {
+    "id": "wikidot5e:spell:aura-of-vitality",
+    "name": "Aura of Vitality",
+    "url": "https://dnd5e.wikidot.com/spell:aura-of-vitality",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:aura-of-vitality",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "Self (30-foot radius)",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Cleric (Optional)",
+      "Druid (Optional)",
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:e3dd6ce38855e5fdef1e0964f6702a0725e7d7f44f3e83c445459446ef41c92b",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:aura-of-vitality",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:aura-of-vitality",
+        "sha256": "sha256:ab5047888f83beec112c4b76e3470ce0e90d6d77ebbb9349b3ca9e16bbb75a05",
+        "retrievedAt": "2026-09-23T22:13:16Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effect": "Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain 2d6 hit points.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Aura of Vitality is a D&D 5e level 3 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:16Z"
+    },
+    "catalogId": "wikidot5e:spell:aura-of-vitality",
+    "index": "wikidot5e:spell:aura-of-vitality",
+    "description": "Aura of Vitality is a D&D 5e level 3 spell in evocation. Source: Player's Handbook."
+  },
+  {
+    "id": "wikidot5e:spell:conjure-barrage",
+    "name": "Conjure Barrage",
+    "url": "https://dnd5e.wikidot.com/spell:conjure-barrage",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:conjure-barrage",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "Self (60-foot cone)",
+    "duration": "Instantaneous",
+    "components": [
+      "V, S",
+      "M (one piece of ammunition or a thrown weapon)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Ranger"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:e6d0f7242b9e01996741bc00d7af990adcb41195e87237821cd12e7cf956fbde",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:conjure-barrage",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:conjure-barrage",
+        "sha256": "sha256:64ea60b4f494669b884c0755f2e05a3ff48e9ddb211a1e6991a8d923d0ed595e",
+        "retrievedAt": "2026-09-23T22:13:18Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Using one nonmagical piece of ammunition or a nonmagical thrown weapon, create a 60-foot cone of duplicates. Each creature in the cone makes a Dexterity save, taking 3d8 damage on a failure or half on a success. The damage type matches the ammunition or weapon used as the component.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Conjure Barrage is a D&D 5e level 3 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:18Z"
+    },
+    "catalogId": "wikidot5e:spell:conjure-barrage",
+    "index": "wikidot5e:spell:conjure-barrage",
+    "description": "Using one nonmagical piece of ammunition or a nonmagical thrown weapon, create a 60-foot cone of duplicates. Each creature in the cone makes a Dexterity save, taking 3d8 damage on a failure or half on a success. The damage type matches the ammunition or weapon used as the component."
+  },
+  {
+    "id": "wikidot5e:spell:aura-of-purity",
+    "name": "Aura of Purity",
+    "url": "https://dnd5e.wikidot.com/spell:aura-of-purity",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:aura-of-purity",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "abjuration",
+    "casting_time": "1 action",
+    "range": "Self (30-foot radius)",
+    "duration": "Concentration, up to 10 minutes",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Cleric (Optional)",
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:b2838384da8a363c055d77205be9201de2f232306aa4d04a10c94a1dd93af176",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:aura-of-purity",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:aura-of-purity",
+        "sha256": "sha256:6641370eecccf4fba5080059ae825852b11bf05d98266ebc985c5cf6d58047db",
+        "retrievedAt": "2026-09-23T22:13:42Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "A 30-foot-radius aura moves with you. Each nonhostile creature in it, including you, cannot become diseased, has resistance to poison damage, and has advantage on saving throws against effects that would blind, charm, deafen, frighten, paralyze, poison, or stun it.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Aura of Purity is a D&D 5e level 4 spell in abjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:42Z"
+    },
+    "catalogId": "wikidot5e:spell:aura-of-purity",
+    "index": "wikidot5e:spell:aura-of-purity",
+    "description": "A 30-foot-radius aura moves with you. Each nonhostile creature in it, including you, cannot become diseased, has resistance to poison damage, and has advantage on saving throws against effects that would blind, charm, deafen, frighten, paralyze, poison, or stun it."
+  },
+  {
+    "id": "wikidot5e:spell:banishing-smite",
+    "name": "Banishing Smite",
+    "url": "https://dnd5e.wikidot.com/spell:banishing-smite",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:banishing-smite",
+    "referenceOnly": false,
+    "level": 5,
+    "school": "abjuration",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:8256a06f74209ddc9a77d5cc7fb8d027f521d1bc72c5c392bc6419356aac0e3e",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:banishing-smite",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:banishing-smite",
+        "sha256": "sha256:b43d470c564dbe1b84ba129bd08c778822e7de353150e05cd507e467985673f5",
+        "retrievedAt": "2026-09-23T22:14:02Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The next weapon attack you hit with before the spell ends deals an extra 5d10 force damage. If that attack leaves the target at 50 HP or fewer, it is banished. A creature native to another plane returns to its home plane. A creature native to the current plane instead goes to a harmless demiplane where it is incapacitated; when the spell ends it returns to its former space or the nearest unoccupied space if necessary.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Banishing Smite is a D&D 5e level 5 spell in abjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:14:02Z"
+    },
+    "catalogId": "wikidot5e:spell:banishing-smite",
+    "index": "wikidot5e:spell:banishing-smite",
+    "description": "The next weapon attack you hit with before the spell ends deals an extra 5d10 force damage. If that attack leaves the target at 50 HP or fewer, it is banished. A creature native to another plane returns to its home plane. A creature native to the current plane instead goes to a harmless demiplane where it is incapacitated; when the spell ends it returns to its former space or the nearest unoccupied space if necessary."
+  },
+  {
+    "id": "wikidot5e:spell:dissonant-whispers",
+    "name": "Dissonant Whispers",
+    "url": "https://dnd5e.wikidot.com/spell:dissonant-whispers",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:dissonant-whispers",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "enchantment",
+    "casting_time": "1 action",
+    "range": "60 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:f90f64f7aa8cf616f929ecf40cda21119197b7f6c9b17d3aeaf2cf31193d84a8",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:dissonant-whispers",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:dissonant-whispers",
+        "sha256": "sha256:9c874508509de76e4ae350d818660545039359d6a1e85f40b38a0bfb1071edb8",
+        "retrievedAt": "2026-09-23T22:12:26Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "One creature in range that can hear you makes a Wisdom save. On a failure it takes 3d6 psychic damage and, if its reaction is available, must immediately use it to move as far as its speed permits away from you without entering obviously dangerous ground. On a success it takes half damage and need not move. A deafened creature automatically succeeds. Each slot level above 1st adds 1d6 damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Dissonant Whispers is a D&D 5e level 1 spell in enchantment. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:26Z"
+    },
+    "catalogId": "wikidot5e:spell:dissonant-whispers",
+    "index": "wikidot5e:spell:dissonant-whispers",
+    "description": "One creature in range that can hear you makes a Wisdom save. On a failure it takes 3d6 psychic damage and, if its reaction is available, must immediately use it to move as far as its speed permits away from you without entering obviously dangerous ground. On a success it takes half damage and need not move. A deafened creature automatically succeeds. Each slot level above 1st adds 1d6 damage."
+  },
+  {
+    "id": "wikidot5e:spell:destructive-wave",
+    "name": "Destructive Wave",
+    "url": "https://dnd5e.wikidot.com/spell:destructive-wave",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:destructive-wave",
+    "referenceOnly": false,
+    "level": 5,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "Self (30-foot radius)",
+    "duration": "Instantaneous",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:e1fc721081e82eca01383396b5d356e21152d7731f34a0ca81f5bf3a6b439f71",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:destructive-wave",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:destructive-wave",
+        "sha256": "sha256:03e21bdd19855a63306b99e198090b8bb757898c268a2297f1f86d550837942e",
+        "retrievedAt": "2026-09-23T22:14:07Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Each creature you choose within 30 feet makes a Constitution save. On a failure it takes 5d6 thunder damage plus 5d6 radiant or necrotic damage, chosen by you, and is knocked prone. On a success it takes half the damage and is not knocked prone.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Destructive Wave is a D&D 5e level 5 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:14:07Z"
+    },
+    "catalogId": "wikidot5e:spell:destructive-wave",
+    "index": "wikidot5e:spell:destructive-wave",
+    "description": "Each creature you choose within 30 feet makes a Constitution save. On a failure it takes 5d6 thunder damage plus 5d6 radiant or necrotic damage, chosen by you, and is knocked prone. On a success it takes half the damage and is not knocked prone."
+  },
+  {
+    "id": "wikidot5e:spell:nystuls-magic-aura",
+    "name": "Nystul's Magic Aura",
+    "url": "https://dnd5e.wikidot.com/spell:nystuls-magic-aura",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:nystuls-magic-aura",
+    "referenceOnly": false,
+    "level": 2,
+    "school": "illusion",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "duration": "24 hours",
+    "components": [
+      "V, S",
+      "M (a small square of silk)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:f28d1662662aa8bf7f8c99185b315ab85f491bf6d36f06799190751b64eb8077",
+      "blockCount": 4,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:nystuls-magic-aura",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:nystuls-magic-aura",
+        "sha256": "sha256:a429a759f5ad07f3eae737eed9d428860ed751b2fdda1fba7a9ec01143b0e29b",
+        "retrievedAt": "2026-09-23T22:13:05Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "For 24 hours, make a willing creature or unattended object give false information to divination and detection magic. Choose either or both effects. False Aura can make a nonmagical object seem magical, a magical object seem nonmagical, or make its aura appear to belong to a chosen school; you can make this false aura apparent to anyone handling the object. Mask makes the target count as a chosen creature type or alignment to spells and magical effects that detect or react to those traits. Recasting with the same effect on the same target every day for 30 days makes that effect last until dispelled.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Nystul's Magic Aura is a D&D 5e level 2 spell in illusion. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:05Z"
+    },
+    "catalogId": "wikidot5e:spell:nystuls-magic-aura",
+    "index": "wikidot5e:spell:nystuls-magic-aura",
+    "description": "For 24 hours, make a willing creature or unattended object give false information to divination and detection magic. Choose either or both effects. False Aura can make a nonmagical object seem magical, a magical object seem nonmagical, or make its aura appear to belong to a chosen school; you can make this false aura apparent to anyone handling the object. Mask makes the target count as a chosen creature type or alignment to spells and magical effects that detect or react to those traits. Recasting with the same effect on the same target every day for 30 days makes that effect last until dispelled."
+  },
+  {
+    "id": "wikidot5e:spell:leomunds-secret-chest",
+    "name": "Leomund's Secret Chest",
+    "url": "https://dnd5e.wikidot.com/spell:leomunds-secret-chest",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:leomunds-secret-chest",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "duration": "Instantaneous",
+    "components": [
+      "V, S",
+      "M (an exquisite chest, 3 feet by 2 feet by 2 feet, constructed from rare materials worth at least 5,000 gp, and a Tiny replica made from the same materials worth at least 50 gp)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Artificer",
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:932926723d4e4ddff5283e2a60ced8aba0842f9bc992770633615695adea204c",
+      "blockCount": 3,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:leomunds-secret-chest",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:leomunds-secret-chest",
+        "sha256": "sha256:47f1d7273beb8a08068720b6ce6542b08976695e9848d59025e3d42171964b05",
+        "retrievedAt": "2026-09-23T22:13:53Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Send the spell's large chest and up to 12 cubic feet of nonliving contents to the Ethereal Plane while retaining its miniature replica. While it remains there, you can use an action while touching the replica to recall it to an unoccupied ground space within 5 feet; touching both chest and replica lets you send it back as an action. After 60 days, there is a cumulative 5% chance each day that the effect ends. It also ends if you cast this spell again, destroy the replica, or dismiss it as an action. If the effect ends while the large chest is on the Ethereal Plane, the chest is irretrievably lost.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Leomund's Secret Chest is a D&D 5e level 4 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:53Z"
+    },
+    "catalogId": "wikidot5e:spell:leomunds-secret-chest",
+    "index": "wikidot5e:spell:leomunds-secret-chest",
+    "description": "Send the spell's large chest and up to 12 cubic feet of nonliving contents to the Ethereal Plane while retaining its miniature replica. While it remains there, you can use an action while touching the replica to recall it to an unoccupied ground space within 5 feet; touching both chest and replica lets you send it back as an action. After 60 days, there is a cumulative 5% chance each day that the effect ends. It also ends if you cast this spell again, destroy the replica, or dismiss it as an action. If the effect ends while the large chest is on the Ethereal Plane, the chest is irretrievably lost."
+  },
+  {
+    "id": "wikidot5e:spell:searing-smite",
+    "name": "Searing Smite",
+    "url": "https://dnd5e.wikidot.com/spell:searing-smite",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:searing-smite",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "evocation",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin",
+      "Ranger (Optional)"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:ee4ccf8de01582fca7f9b5c18a1e39f51462600f9ce85601616f76c513e63b06",
+      "blockCount": 3,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:searing-smite",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:searing-smite",
+        "sha256": "sha256:cdf215952efeae41de1c285c9dc5035c63123c2da74dce54b4ca3eeceac6ded5",
+        "retrievedAt": "2026-09-23T22:12:39Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The next melee weapon hit you make before the spell ends deals an extra 1d6 fire damage and ignites the target. At the start of each of its turns, the burning target makes a Constitution save; on a failure it takes 1d6 fire damage, and on a success the spell ends. The target or a creature within 5 feet can use an action to extinguish the flames, and other effects such as immersion in water can also end them. Each slot level above 1st adds 1d6 to the initial extra damage only.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Searing Smite is a D&D 5e level 1 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:39Z"
+    },
+    "catalogId": "wikidot5e:spell:searing-smite",
+    "index": "wikidot5e:spell:searing-smite",
+    "description": "The next melee weapon hit you make before the spell ends deals an extra 1d6 fire damage and ignites the target. At the start of each of its turns, the burning target makes a Constitution save; on a failure it takes 1d6 fire damage, and on a success the spell ends. The target or a creature within 5 feet can use an action to extinguish the flames, and other effects such as immersion in water can also end them. Each slot level above 1st adds 1d6 to the initial extra damage only."
+  },
+  {
+    "id": "wikidot5e:spell:elemental-weapon",
+    "name": "Elemental Weapon",
+    "url": "https://dnd5e.wikidot.com/spell:elemental-weapon",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:elemental-weapon",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "transmutation",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "duration": "Concentration, up to 1 hour",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Artificer",
+      "Druid (Optional)",
+      "Paladin",
+      "Ranger (Optional)"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:6ad5e261064d6fe5624c7f54411b319b848aed56d45de0882fb06b24bf79a7a8",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:elemental-weapon",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:elemental-weapon",
+        "sha256": "sha256:43bc9854b44145ab9d80f312c349182a4beb6faf4250a422fca8c20ad2169d1c",
+        "retrievedAt": "2026-09-23T22:13:20Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Touch one nonmagical weapon and choose acid, cold, fire, lightning, or thunder. For the duration it becomes magical, gains +1 to attack rolls, and deals an extra 1d4 damage of the chosen type on a hit. With a 5th- or 6th-level slot the attack bonus becomes +2 and extra damage 2d4; with a 7th-level-or-higher slot they become +3 and 3d4.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Elemental Weapon is a D&D 5e level 3 spell in transmutation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:20Z"
+    },
+    "catalogId": "wikidot5e:spell:elemental-weapon",
+    "index": "wikidot5e:spell:elemental-weapon",
+    "description": "Touch one nonmagical weapon and choose acid, cold, fire, lightning, or thunder. For the duration it becomes magical, gains +1 to attack rolls, and deals an extra 1d4 damage of the chosen type on a hit. With a 5th- or 6th-level slot the attack bonus becomes +2 and extra damage 2d4; with a 7th-level-or-higher slot they become +3 and 3d4."
+  },
+  {
+    "id": "wikidot5e:spell:grasping-vine",
+    "name": "Grasping Vine",
+    "url": "https://dnd5e.wikidot.com/spell:grasping-vine",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:grasping-vine",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 bonus action",
+    "range": "30 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Druid",
+      "Ranger"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:c8658a03fa7b5a8c9c270cd12639c8966c0b0b1ace3dca8005177d7ab8e5c26c",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:grasping-vine",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:grasping-vine",
+        "sha256": "sha256:d69cfc93913ba7df95756b9698a5c9c1354fcc2ab7031a0f57eab0539f68092f",
+        "retrievedAt": "2026-09-23T22:13:51Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Conjure a vine in a visible unoccupied ground space within 30 feet. When cast, and as a bonus action on each later turn, choose a visible creature within 30 feet of the vine; it makes a Dexterity save or is pulled 20 feet directly toward the vine.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Grasping Vine is a D&D 5e level 4 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:51Z"
+    },
+    "catalogId": "wikidot5e:spell:grasping-vine",
+    "index": "wikidot5e:spell:grasping-vine",
+    "description": "Conjure a vine in a visible unoccupied ground space within 30 feet. When cast, and as a bonus action on each later turn, choose a visible creature within 30 feet of the vine; it makes a Dexterity save or is pulled 20 feet directly toward the vine."
+  },
+  {
+    "id": "wikidot5e:spell:otilukes-resilient-sphere",
+    "name": "Otiluke's Resilient Sphere",
+    "url": "https://dnd5e.wikidot.com/spell:otilukes-resilient-sphere",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:otilukes-resilient-sphere",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "30 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V, S",
+      "M (a hemispherical piece of clear crystal and a matching hemispherical piece of gum arabic)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Artificer",
+      "Wizard"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:f9267ff7884f9398218d2906496efb76d62b5415ecb36444233928e6e2b452ed",
+      "blockCount": 4,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:otilukes-resilient-sphere",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:otilukes-resilient-sphere",
+        "sha256": "sha256:3604e945354937d5f09d6a6aded84fad1cc2ba0cb506bdae55c1e2e18a5b081e",
+        "retrievedAt": "2026-09-23T22:13:54Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Enclose a Large-or-smaller creature or object within 30 feet in a weightless, indestructible force sphere for up to 1 minute. An unwilling creature can make a Dexterity save to avoid it. Nothing physical, energetic, or magical can pass through the barrier in either direction, though the enclosed creature can breathe. Nothing inside can harm the outside or be harmed from outside. An enclosed creature can use an action to roll the sphere at up to half its speed, and other creatures can pick it up and move it. Disintegrate destroys the sphere without harming its contents.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Otiluke's Resilient Sphere is a D&D 5e level 4 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:54Z"
+    },
+    "catalogId": "wikidot5e:spell:otilukes-resilient-sphere",
+    "index": "wikidot5e:spell:otilukes-resilient-sphere",
+    "description": "Enclose a Large-or-smaller creature or object within 30 feet in a weightless, indestructible force sphere for up to 1 minute. An unwilling creature can make a Dexterity save to avoid it. Nothing physical, energetic, or magical can pass through the barrier in either direction, though the enclosed creature can breathe. Nothing inside can harm the outside or be harmed from outside. An enclosed creature can use an action to roll the sphere at up to half its speed, and other creatures can pick it up and move it. Disintegrate destroys the sphere without harming its contents."
+  },
+  {
+    "id": "wikidot5e:spell:rarys-telepathic-bond",
+    "name": "Rary's Telepathic Bond",
+    "url": "https://dnd5e.wikidot.com/spell:rarys-telepathic-bond",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:rarys-telepathic-bond",
+    "referenceOnly": false,
+    "level": 5,
+    "school": "divination (ritual)",
+    "casting_time": "1 action",
+    "range": "30 feet",
+    "duration": "1 hour",
+    "components": [
+      "V, S",
+      "M (pieces of eggshell from two different kinds of creatures)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard (Optional)",
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": true,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:ac4e135f5f88608613ce182816d49f7eaec3cf30acb1ce53adffa439a0dd38fd",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:rarys-telepathic-bond",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:rarys-telepathic-bond",
+        "sha256": "sha256:968557bb2e3510e2149acdf4037525a71b9d409273c3d799e895a09e15d3372f",
+        "retrievedAt": "2026-09-23T22:14:15Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Telepathically link up to eight willing creatures within 30 feet for 1 hour; creatures with Intelligence 2 or lower are unaffected. Linked creatures can communicate mentally with one another over any distance regardless of shared language, but the bond cannot cross planar boundaries.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Rary's Telepathic Bond is a D&D 5e level 5 spell in divination (ritual). Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:14:15Z"
+    },
+    "catalogId": "wikidot5e:spell:rarys-telepathic-bond",
+    "index": "wikidot5e:spell:rarys-telepathic-bond",
+    "description": "Telepathically link up to eight willing creatures within 30 feet for 1 hour; creatures with Intelligence 2 or lower are unaffected. Linked creatures can communicate mentally with one another over any distance regardless of shared language, but the bond cannot cross planar boundaries."
+  },
+  {
+    "id": "wikidot5e:spell:leomunds-tiny-hut",
+    "name": "Leomund's Tiny Hut",
+    "url": "https://dnd5e.wikidot.com/spell:leomunds-tiny-hut",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:leomunds-tiny-hut",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "evocation (ritual)",
+    "casting_time": "1 minute",
+    "range": "Self (10-foot-radius hemisphere)",
+    "duration": "8 hours",
+    "components": [
+      "V, S",
+      "M (a small crystal bead)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard",
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": true,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:cac950cab5ad6236d1b3eab0f620018abdd1c567049ab7a6cbe9bb21c9599617",
+      "blockCount": 3,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:leomunds-tiny-hut",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:leomunds-tiny-hut",
+        "sha256": "sha256:439c570f825d58adc957aa69671f1812f20a489f6f17dc58970d19677e649e2a",
+        "retrievedAt": "2026-09-23T22:13:28Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Create an immobile 10-foot-radius dome around yourself for 8 hours; it ends if you leave. Up to nine other Medium-or-smaller creatures can fit, and the spell fails if a larger creature or more than nine others are inside at casting. Creatures and objects inside when cast can pass through freely; all others are blocked. Spells and magical effects cannot extend or be cast through the dome. The interior remains comfortable and dry and can be dim or dark at your command. From outside the dome is opaque in a color you choose; from inside it is transparent.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Leomund's Tiny Hut is a D&D 5e level 3 spell in evocation (ritual). Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:28Z"
+    },
+    "catalogId": "wikidot5e:spell:leomunds-tiny-hut",
+    "index": "wikidot5e:spell:leomunds-tiny-hut",
+    "description": "Create an immobile 10-foot-radius dome around yourself for 8 hours; it ends if you leave. Up to nine other Medium-or-smaller creatures can fit, and the spell fails if a larger creature or more than nine others are inside at casting. Creatures and objects inside when cast can pass through freely; all others are blocked. Spells and magical effects cannot extend or be cast through the dome. The interior remains comfortable and dry and can be dim or dark at your command. From outside the dome is opaque in a color you choose; from inside it is transparent."
+  },
+  {
+    "id": "wikidot5e:spell:aura-of-life",
+    "name": "Aura of Life",
+    "url": "https://dnd5e.wikidot.com/spell:aura-of-life",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:aura-of-life",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "abjuration",
+    "casting_time": "1 action",
+    "range": "Self (30-foot radius)",
+    "duration": "Concentration, up to 10 minutes",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Cleric (Optional)",
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:1428693416d89143ffbb7a137730d671c3453e0323ed4acc34195d9781eab0eb",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:aura-of-life",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:aura-of-life",
+        "sha256": "sha256:8b9fe8b71799bb5c0cb4b5b424e8c3d356c863fb5275588029a071f849562ead",
+        "retrievedAt": "2026-09-23T22:13:42Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "A 30-foot-radius aura moves with you. Each nonhostile creature in it, including you, has resistance to necrotic damage and cannot have its hit point maximum reduced. In addition, a nonhostile living creature that starts its turn in the aura at 0 HP regains 1 HP.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Aura of Life is a D&D 5e level 4 spell in abjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:42Z"
+    },
+    "catalogId": "wikidot5e:spell:aura-of-life",
+    "index": "wikidot5e:spell:aura-of-life",
+    "description": "A 30-foot-radius aura moves with you. Each nonhostile creature in it, including you, has resistance to necrotic damage and cannot have its hit point maximum reduced. In addition, a nonhostile living creature that starts its turn in the aura at 0 HP regains 1 HP."
+  },
+  {
+    "id": "wikidot5e:spell:circle-of-power",
+    "name": "Circle of Power",
+    "url": "https://dnd5e.wikidot.com/spell:circle-of-power",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:circle-of-power",
+    "referenceOnly": false,
+    "level": 5,
+    "school": "abjuration",
+    "casting_time": "1 action",
+    "range": "Self (30-foot radius)",
+    "duration": "Concentration, up to 10 minutes",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:da5b04609f34d6b94ebd12c57b378e5a099aac09dd744f71e8caa8f6dda9200f",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:circle-of-power",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:circle-of-power",
+        "sha256": "sha256:58ec98d3c710ff0f24e0f1b3ca14f71b6ea1f254027b08ee983c60e21bef0b30",
+        "retrievedAt": "2026-09-23T22:14:02Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "A 30-foot-radius sphere moves with you. Friendly creatures in it, including you, have advantage on saving throws against spells and other magical effects. If an affected creature succeeds on a save against a spell or magical effect that normally deals half damage on a success, it takes no damage instead.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Circle of Power is a D&D 5e level 5 spell in abjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:14:02Z"
+    },
+    "catalogId": "wikidot5e:spell:circle-of-power",
+    "index": "wikidot5e:spell:circle-of-power",
+    "description": "A 30-foot-radius sphere moves with you. Friendly creatures in it, including you, have advantage on saving throws against spells and other magical effects. If an affected creature succeeds on a save against a spell or magical effect that normally deals half damage on a success, it takes no damage instead."
+  },
+  {
+    "id": "wikidot5e:spell:crusaders-mantle",
+    "name": "Crusader's Mantle",
+    "url": "https://dnd5e.wikidot.com/spell:crusaders-mantle",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:crusaders-mantle",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:364596284cd89de4edca1423338b6ef96a5079d498c3aafafd9c0d6e5b742e61",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:crusaders-mantle",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:crusaders-mantle",
+        "sha256": "sha256:33253cddf65acac187080db48ff7e03d6aa9c93de8aa5a9c0a27422556b61a1a",
+        "retrievedAt": "2026-09-23T22:13:20Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "A 30-foot-radius aura moves with you. Until the spell ends, every nonhostile creature in the aura, including you, deals an extra 1d4 radiant damage whenever it hits with a weapon attack.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Crusader's Mantle is a D&D 5e level 3 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:20Z"
+    },
+    "catalogId": "wikidot5e:spell:crusaders-mantle",
+    "index": "wikidot5e:spell:crusaders-mantle",
+    "description": "A 30-foot-radius aura moves with you. Until the spell ends, every nonhostile creature in the aura, including you, deals an extra 1d4 radiant damage whenever it hits with a weapon attack."
+  },
+  {
+    "id": "wikidot5e:spell:thunderous-smite",
+    "name": "Thunderous Smite",
+    "url": "https://dnd5e.wikidot.com/spell:thunderous-smite",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:thunderous-smite",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "evocation",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:0d74eeda37244350b659600accbb1ef8db9288356d9abf70d73e4441ea8893d0",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:thunderous-smite",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:thunderous-smite",
+        "sha256": "sha256:ed3c82c8e453ddce3341bf2f2eca39b3d476b8e81d56082ecc46bbc94f2609f8",
+        "retrievedAt": "2026-09-23T22:12:43Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The first melee weapon hit you make before the spell ends deals an extra 2d6 thunder damage and is audible within 300 feet. If the target is a creature, it makes a Strength save or is pushed 10 feet away and knocked prone.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Thunderous Smite is a D&D 5e level 1 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:43Z"
+    },
+    "catalogId": "wikidot5e:spell:thunderous-smite",
+    "index": "wikidot5e:spell:thunderous-smite",
+    "description": "The first melee weapon hit you make before the spell ends deals an extra 2d6 thunder damage and is audible within 300 feet. If the target is a creature, it makes a Strength save or is pushed 10 feet away and knocked prone."
+  },
+  {
+    "id": "wikidot5e:spell:on-off",
+    "catalogId": "wikidot5e:spell:on-off",
+    "index": "wikidot5e:spell:on-off",
+    "name": "On/Off",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:on-off",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 0,
+    "school": "Transmutation",
+    "casting_time": "1 action",
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "Instantaneous",
+    "concentration": false,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "This cantrip allows you to activate or deactivate any electronic device within range, as long as the device has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software-based shutdown sequence to activate or deactivate cannot be affected by On/Off.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:remote-access",
+    "catalogId": "wikidot5e:spell:remote-access",
+    "index": "wikidot5e:spell:remote-access",
+    "name": "Remote Access",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:remote-access",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 1,
+    "school": "transmutation",
+    "casting_time": "1 action",
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "10 minutes",
+    "concentration": false,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "You can use any electronic device within range as if it were in your hands. This is not a telekinesis effect. Rather, this spell allows you to simulate a device's mechanical functions electronically. You are able to access only functions that a person using the device manually would be able to access. You can use remote access with only one device at a time.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:find-vehicle",
+    "catalogId": "wikidot5e:spell:find-vehicle",
+    "index": "wikidot5e:spell:find-vehicle",
+    "name": "Find Vehicle",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:find-vehicle",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 2,
+    "school": "conjuration",
+    "casting_time": "10 minutes",
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "8 hours",
+    "concentration": false,
+    "ritual": false,
+    "classes": [
+      "Paladin",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "You summon a spirit that assumes the form of a nonmilitary land vehicle of your choice, appearing in an unoccupied space within range. The vehicle has the statistics of a normal vehicle of its sort, though it is celestial, fey, or fiendish (your choice in origin). The physical characteristics of the vehicle reflect its origin to some degree. For example, a fiendish SUV might be jet black in color, with tinted windows and a sinister-looking front grille.\n\nYou have a supernatural bond with the conjured vehicle that allows you to drive beyond your normal ability. While driving the conjured vehicle, you are considered proficient with vehicles of its type, and you add double your proficiency bonus to ability checks related to driving the vehicle. While driving the vehicle, you can make any spell you cast that targets only you also target the vehicle.\n\nIf the vehicle drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss the vehicle at any time as an action, causing it to disappear.\n\nYou can't have more than one vehicle bonded by this spell at a time. As an action, you can release the vehicle from its bond at any time, causing it to disappear.\n\nAt Higher Levels._ When you cast this spell using a spell slot of 3rd level or higher, you can conjure a nonmilitary water vehicle large enough to carry six Medium creatures. When you cast this spell using a spell slot of 5th level or higher, you can conjure a nonmilitary air vehicle large enough to carry ten Medium creatures. When you cast this spell using a spell slot of 7th level or higher, you can conjure any type of vehicle, subject to the DM's approval.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:protection-from-ballistics",
+    "catalogId": "wikidot5e:spell:protection-from-ballistics",
+    "index": "wikidot5e:spell:protection-from-ballistics",
+    "name": "Protection from Ballistics",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:protection-from-ballistics",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 3,
+    "school": "abjuration",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a shell casing",
+    "duration": "Concentration, up to 10 minutes",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "This spell enchants the flesh of the target against the impact of bullets. Until the spell ends, the target has resistance to nonmagical ballistic damage.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:synchronicity",
+    "catalogId": "wikidot5e:spell:synchronicity",
+    "index": "wikidot5e:spell:synchronicity",
+    "name": "Synchronicity",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:synchronicity",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 4,
+    "school": "enchantment",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "Concentration, up to 1 hour",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "The creature you touch feels reality subtly shifted to its favor while this spell is in effect. The target isn't inconvenienced by mundane delays of any sort. Traffic lights are always green, there's always a waiting elevator, and a taxi is always around the corner. The target can run at full speed through dense crowds, and attacks of opportunity provoked by the target's movement are made with disadvantage.\n\nSynchronicity grants advantage to Dexterity (Stealth) checks, since the target always finds a handy piece of cover available. Additionally, the target has advantage on all ability checks made to drive a vehicle.\n\nIn the event that two or more creatures under the effect of synchronicity are attempting to avoid being inconvenienced by each other, the creatures engage in a contest of Charisma each time the effects of the spells would oppose each other.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:commune-with-city",
+    "catalogId": "wikidot5e:spell:commune-with-city",
+    "index": "wikidot5e:spell:commune-with-city",
+    "name": "Commune with City",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:commune-with-city",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 5,
+    "school": "divination",
+    "casting_time": "1 minute",
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "Instantaneous",
+    "concentration": false,
+    "ritual": true,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "You briefly become one with the city and gain knowledge of the surrounding area. Aboveground, this spell gives you knowledge of the area within 1 mile of you. In sewers and other underground settings, you gain knowledge of the area within 600 feet of you.\n\nYou instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area:\n\n- Terrain and bodies of water\n\n- Prevalent buildings, plants, animals, or intelligent creatures\n\n- Powerful (CR 1 or higher) celestials, fey, fiends, elementals, or undead\n\n- Influences from other planes of existence\n\n- Electrical currents, wireless signals, and active transit lines and tracks\n\nFor example, you could determine the location of powerful undead in the area, the location of major sources of electrical power or interference, and the location of any nearby parks.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:shutdown",
+    "catalogId": "wikidot5e:spell:shutdown",
+    "index": "wikidot5e:spell:shutdown",
+    "name": "Shutdown",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:shutdown",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 5,
+    "school": "transmutation",
+    "casting_time": "1 action",
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "Concentration, up to 1 minute",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "This spell shuts down all electronic devices within range that are not wielded by or under the direct control of a creature. If an electronic device within range is used by a creature, that creature must succeed on a Constitution saving throw to prevent the device from being shut down. While the spell remains active, no electronic device within range can be started or restarted.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:compelled-duel",
+    "name": "Compelled Duel",
+    "url": "https://dnd5e.wikidot.com/spell:compelled-duel",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:compelled-duel",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "enchantment",
+    "casting_time": "1 bonus action",
+    "range": "30 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:0dccd094f37d626ca8542b5f9ff63c923c2798a8d65437dc1ae540baa3af6940",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:compelled-duel",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:compelled-duel",
+        "sha256": "sha256:ad4fa914652923b4b97e25d7f8c66487b1c02aa71b4d5e2cdb21b8d724b2268f",
+        "retrievedAt": "2026-09-23T22:12:23Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "One visible creature in range makes a Wisdom save. On a failure, for the duration it has disadvantage on attacks against creatures other than you and must make a Wisdom save whenever it tries to move to a space more than 30 feet from you; a successful movement save removes that movement restriction for that turn. The spell ends if you attack another creature, cast a spell targeting another hostile creature, a creature friendly to you damages the target or casts a harmful spell on it, or you end your turn more than 30 feet from the target.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Compelled Duel is a D&D 5e level 1 spell in enchantment. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:23Z"
+    },
+    "catalogId": "wikidot5e:spell:compelled-duel",
+    "index": "wikidot5e:spell:compelled-duel",
+    "description": "One visible creature in range makes a Wisdom save. On a failure, for the duration it has disadvantage on attacks against creatures other than you and must make a Wisdom save whenever it tries to move to a space more than 30 feet from you; a successful movement save removes that movement restriction for that turn. The spell ends if you attack another creature, cast a spell targeting another hostile creature, a creature friendly to you damages the target or casts a harmful spell on it, or you end your turn more than 30 feet from the target."
+  },
+  {
+    "id": "wikidot5e:spell:ensnaring-strike",
+    "name": "Ensnaring Strike",
+    "url": "https://dnd5e.wikidot.com/spell:ensnaring-strike",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:ensnaring-strike",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "conjuration",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Ranger"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:1dd98f4c0538541096296b93de79720b6596f8466a5d4fb80702ff7e652735a8",
+      "blockCount": 3,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:ensnaring-strike",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:ensnaring-strike",
+        "sha256": "sha256:b0b3c18361b26308879fcd2156429afe94d7a3b10068c14ddf44708329281596",
+        "retrievedAt": "2026-09-23T22:12:27Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The next time you hit a creature with a weapon attack before the spell ends, thorny vines force it to make a Strength save; Large or larger creatures have advantage. On a failure it is restrained for the duration and takes 1d6 piercing damage at the start of each of its turns. The restrained creature or another creature that can touch it can use an action to make a Strength check against your spell save DC, freeing it on a success. A successful initial save causes the vines to wither immediately. Each slot level above 1st adds 1d6 to the recurring damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Ensnaring Strike is a D&D 5e level 1 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:27Z"
+    },
+    "catalogId": "wikidot5e:spell:ensnaring-strike",
+    "index": "wikidot5e:spell:ensnaring-strike",
+    "description": "The next time you hit a creature with a weapon attack before the spell ends, thorny vines force it to make a Strength save; Large or larger creatures have advantage. On a failure it is restrained for the duration and takes 1d6 piercing damage at the start of each of its turns. The restrained creature or another creature that can touch it can use an action to make a Strength check against your spell save DC, freeing it on a success. A successful initial save causes the vines to wither immediately. Each slot level above 1st adds 1d6 to the recurring damage."
+  },
+  {
+    "id": "wikidot5e:spell:armor-of-agathys",
+    "name": "Armor of Agathys",
+    "url": "https://dnd5e.wikidot.com/spell:armor-of-agathys",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:armor-of-agathys",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "abjuration",
+    "casting_time": "1 action",
+    "range": "Self",
+    "duration": "1 hour",
+    "components": [
+      "V, S",
+      "M (a cup of water)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Warlock"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:982ae04498c9f98941b4363dfc4e8c898306d59f80b4a01b67684984d2d07b69",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:armor-of-agathys",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:armor-of-agathys",
+        "sha256": "sha256:4d037f5b04654e96b7b1904bc81caa7b9bdc7ee47820ce567ed4121ce8bca6eb",
+        "retrievedAt": "2026-09-23T22:12:19Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Gain 5 temporary hit points for 1 hour. While you still have any of these temporary hit points, a creature that hits you with a melee attack takes 5 cold damage. Each slot level above 1st increases both the temporary hit points and the retaliatory cold damage by 5.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Armor of Agathys is a D&D 5e level 1 spell in abjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:19Z"
+    },
+    "catalogId": "wikidot5e:spell:armor-of-agathys",
+    "index": "wikidot5e:spell:armor-of-agathys",
+    "description": "Gain 5 temporary hit points for 1 hour. While you still have any of these temporary hit points, a creature that hits you with a melee attack takes 5 cold damage. Each slot level above 1st increases both the temporary hit points and the retaliatory cold damage by 5."
+  },
+  {
+    "id": "wikidot5e:spell:crown-of-madness",
+    "name": "Crown of Madness",
+    "url": "https://dnd5e.wikidot.com/spell:crown-of-madness",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:crown-of-madness",
+    "referenceOnly": false,
+    "level": 2,
+    "school": "enchantment",
+    "casting_time": "1 action",
+    "range": "120 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:c788365c178652c3812e8cceec30268e61aa162a8430bc89896169cae787b5da",
+      "blockCount": 3,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:crown-of-madness",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:crown-of-madness",
+        "sha256": "sha256:bea57f849f90939a8f4cc0f7c2c15a88424f373b796a73bd139cf14a0d62a0bc",
+        "retrievedAt": "2026-09-23T22:12:51Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "One visible humanoid in range makes a Wisdom save or is charmed for the duration. Before moving on each of its turns, the charmed target must use its action to make a melee attack against another creature you mentally choose; if you choose no creature or none is within reach, it can act normally. On each of your later turns you must use your action to maintain control or the spell ends. The target repeats the Wisdom save at the end of each of its turns, ending the spell on a success.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Crown of Madness is a D&D 5e level 2 spell in enchantment. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:51Z"
+    },
+    "catalogId": "wikidot5e:spell:crown-of-madness",
+    "index": "wikidot5e:spell:crown-of-madness",
+    "description": "One visible humanoid in range makes a Wisdom save or is charmed for the duration. Before moving on each of its turns, the charmed target must use its action to make a melee attack against another creature you mentally choose; if you choose no creature or none is within reach, it can act normally. On each of your later turns you must use your action to maintain control or the spell ends. The target repeats the Wisdom save at the end of each of its turns, ending the spell on a success."
+  },
+  {
+    "id": "wikidot5e:spell:chromatic-orb",
+    "name": "Chromatic Orb",
+    "url": "https://dnd5e.wikidot.com/spell:chromatic-orb",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:chromatic-orb",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V, S",
+      "M (a diamond worth at least 50 gp)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Sorcerer",
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:3ad244f6f2d2f162279482ff23f3bde86c4b04ee8aa585b637c3d25b3a61e2b2",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:chromatic-orb",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:chromatic-orb",
+        "sha256": "sha256:890937d30922576c0d45c35c2eaba4e0d8d7709204d48481a001b034a95da69a",
+        "retrievedAt": "2026-09-23T22:12:22Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Choose acid, cold, fire, lightning, poison, or thunder and make a ranged spell attack against a visible creature in range. On a hit it takes 3d8 damage of the chosen type. Each slot level above 1st adds 1d8 damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Chromatic Orb is a D&D 5e level 1 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:22Z"
+    },
+    "catalogId": "wikidot5e:spell:chromatic-orb",
+    "index": "wikidot5e:spell:chromatic-orb",
+    "description": "Choose acid, cold, fire, lightning, poison, or thunder and make a ranged spell attack against a visible creature in range. On a hit it takes 3d8 damage of the chosen type. Each slot level above 1st adds 1d8 damage."
+  },
+  {
+    "id": "wikidot5e:spell:conjure-volley",
+    "name": "Conjure Volley",
+    "url": "https://dnd5e.wikidot.com/spell:conjure-volley",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:conjure-volley",
+    "referenceOnly": false,
+    "level": 5,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "150 feet",
+    "duration": "Instantaneous",
+    "components": [
+      "V, S",
+      "M (one piece of ammunition or one thrown weapon)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Ranger"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:9827f298435cc51f15d9ac391622e07087c87e43b9b61323055f1a2043bcd282",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:conjure-volley",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:conjure-volley",
+        "sha256": "sha256:5189684e66849a6265b51c6c8744fe72173b1cb6bd5f532a2f2d6e9a077d0e89",
+        "retrievedAt": "2026-09-23T22:14:04Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Using one nonmagical piece of ammunition or a nonmagical thrown weapon, choose a point in range and create a volley filling a 40-foot-radius, 20-foot-high cylinder. Each creature in the cylinder makes a Dexterity save, taking 8d8 damage on a failure or half on a success. The damage type matches the ammunition or weapon used as the component.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Conjure Volley is a D&D 5e level 5 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:14:04Z"
+    },
+    "catalogId": "wikidot5e:spell:conjure-volley",
+    "index": "wikidot5e:spell:conjure-volley",
+    "description": "Using one nonmagical piece of ammunition or a nonmagical thrown weapon, choose a point in range and create a volley filling a 40-foot-radius, 20-foot-high cylinder. Each creature in the cylinder makes a Dexterity save, taking 8d8 damage on a failure or half on a success. The damage type matches the ammunition or weapon used as the component."
+  },
+  {
+    "id": "wikidot5e:spell:arms-of-hadar",
+    "name": "Arms of Hadar",
+    "url": "https://dnd5e.wikidot.com/spell:arms-of-hadar",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:arms-of-hadar",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "Self (10-foot radius)",
+    "duration": "Instantaneous",
+    "components": [
+      "V",
+      "S"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Warlock"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:5ffd63da5f9d2e7045b76cab5846cad3e26e067582085e5b156845698d666a37",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:arms-of-hadar",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:arms-of-hadar",
+        "sha256": "sha256:797342cc1690046a14462a9034e88387a1fffae94d9a38c6e814edf18ca18843",
+        "retrievedAt": "2026-09-23T22:12:20Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Each other creature within 10 feet of you makes a Strength save. On a failure it takes 2d6 necrotic damage and cannot take reactions until its next turn; on a success it takes half damage and suffers no reaction restriction. A slot above 1st adds 1d6 damage per slot level.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Arms of Hadar is a D&D 5e level 1 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:20Z"
+    },
+    "catalogId": "wikidot5e:spell:arms-of-hadar",
+    "index": "wikidot5e:spell:arms-of-hadar",
+    "description": "Each other creature within 10 feet of you makes a Strength save. On a failure it takes 2d6 necrotic damage and cannot take reactions until its next turn; on a success it takes half damage and suffers no reaction restriction. A slot above 1st adds 1d6 damage per slot level."
+  },
+  {
+    "id": "wikidot5e:spell:mind-sliver",
+    "name": "Mind Sliver",
+    "url": "https://dnd5e.wikidot.com/spell:mind-sliver",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:mind-sliver",
+    "referenceOnly": false,
+    "level": 0,
+    "school": "Enchantment cantrip",
+    "casting_time": "1 action",
+    "range": "60 feet",
+    "duration": "1 round",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "classes": [
+      "Sorcerer (Optional)",
+      "Warlock (Optional)",
+      "Wizard (Optional)"
+    ],
+    "concentration": false,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:29784542a8129c6af368429317f23ff060d4514ab373ac89d7158e15ba2c433a",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:mind-sliver",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:mind-sliver",
+        "sha256": "sha256:a0047a21672e4aa16e3b105d3bc070b753c7a4c61594f4195d6780babedd85f1",
+        "retrievedAt": "2026-09-23T22:12:10Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 1d6 psychic damage and subtracts 1d4 from the next saving throw it makes before the end of your next turn. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Mind Sliver is a D&D 5e cantrip in Enchantment cantrip. Source: Tasha's Cauldron of Everything.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:10Z"
+    },
+    "catalogId": "wikidot5e:spell:mind-sliver",
+    "index": "wikidot5e:spell:mind-sliver",
+    "description": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 1d6 psychic damage and subtracts 1d4 from the next saving throw it makes before the end of your next turn. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+  },
+  {
+    "id": "wikidot5e:spell:hunger-of-hadar",
+    "name": "Hunger Of Hadar",
+    "url": "https://dnd5e.wikidot.com/spell:hunger-of-hadar",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:hunger-of-hadar",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "150 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V, S",
+      "M (a pickled octopus tentacle)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Warlock"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:ff9bc5cabbd1d794a5e8702189dec074e48801acdd4b53fdf65b6b7edc8f304b",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:hunger-of-hadar",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:hunger-of-hadar",
+        "sha256": "sha256:0b80344446a564916b4f80eb1b235e4204bc4f687dee9be81b08cc105518ce3d",
+        "retrievedAt": "2026-09-23T22:13:26Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Create a 20-foot-radius sphere of magical blackness within 150 feet for up to 1 minute. No light, magical or otherwise, illuminates it; creatures fully inside are blinded, and the area is difficult terrain. A creature starting its turn there takes 2d6 cold damage. A creature ending its turn there makes a Dexterity save or takes 2d6 acid damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Hunger Of Hadar is a D&D 5e level 3 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:26Z"
+    },
+    "catalogId": "wikidot5e:spell:hunger-of-hadar",
+    "index": "wikidot5e:spell:hunger-of-hadar",
+    "description": "Create a 20-foot-radius sphere of magical blackness within 150 feet for up to 1 minute. No light, magical or otherwise, illuminates it; creatures fully inside are blinded, and the area is difficult terrain. A creature starting its turn there takes 2d6 cold damage. A creature ending its turn there makes a Dexterity save or takes 2d6 acid damage."
+  },
+  {
+    "id": "wikidot5e:spell:evards-black-tentacles",
+    "name": "Evard's Black Tentacles",
+    "url": "https://dnd5e.wikidot.com/spell:evards-black-tentacles",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:evards-black-tentacles",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V, S",
+      "M (a piece of tentacle from a giant octopus or a giant squid)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Wizard"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:362bd60c329a1374db1b3baa6faf963bf0c274648f186c73ad758f70a7d602b5",
+      "blockCount": 3,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:evards-black-tentacles",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:evards-black-tentacles",
+        "sha256": "sha256:ef4eea7d9d895a965208dfc914e9c4520d7abc73d9f4de1241fade888d0ff7ef",
+        "retrievedAt": "2026-09-23T22:13:48Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Black tentacles fill a 20-foot square of visible ground, making it difficult terrain. A creature entering the area for the first time on a turn or starting its turn there makes a Dexterity save; on a failure it takes 3d6 bludgeoning damage and is restrained until the spell ends. A creature starting its turn there while already restrained takes another 3d6 bludgeoning damage. A restrained creature can use an action for a Strength or Dexterity check against your spell save DC, freeing itself on a success.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Evard's Black Tentacles is a D&D 5e level 4 spell in conjuration. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:48Z"
+    },
+    "catalogId": "wikidot5e:spell:evards-black-tentacles",
+    "index": "wikidot5e:spell:evards-black-tentacles",
+    "description": "Black tentacles fill a 20-foot square of visible ground, making it difficult terrain. A creature entering the area for the first time on a turn or starting its turn there makes a Dexterity save; on a failure it takes 3d6 bludgeoning damage and is restrained until the spell ends. A creature starting its turn there while already restrained takes another 3d6 bludgeoning damage. A restrained creature can use an action for a Strength or Dexterity check against your spell save DC, freeing itself on a success."
+  },
+  {
+    "id": "wikidot5e:spell:summon-aberration",
+    "name": "Summon Aberration",
+    "url": "https://dnd5e.wikidot.com/spell:summon-aberration",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:summon-aberration",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "duration": "Concentration, up to 1 hour",
+    "components": [
+      "V, S",
+      "M (a pickled tentacle and an eyeball in a platinum inlaid vial worth at least 400 gp)"
+    ],
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "classes": [
+      "Warlock (Optional)",
+      "Wizard (Optional)"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:33a8f0f5e9887ea3de5dde720ebd5acf7f5feee67498ab32b82fac46609844c4",
+      "blockCount": 3,
+      "tableCount": 1,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": true,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:summon-aberration",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:summon-aberration",
+        "sha256": "sha256:df128620e34a500eae7e633d438ac20941cea22408d5b148d7b2e6c1f707b2f6",
+        "retrievedAt": "2026-09-23T22:13:58Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Summon a Medium aberrant spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Beholderkin, Slaad, or Star Spawn. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 40 + 10 per level above 4th; speed 30 ft., plus 30-foot hovering flight for Beholderkin; Str 16, Dex 10, Con 15, Int 16, Wis 10, Cha 6; immune to psychic; darkvision 60 ft.; understands your languages. Slaad regenerates 5 HP at turn start while above 0 and its claw hit is 1d10 + 3 + spell level slashing and blocks target healing until its next turn. Star Spawn has a 5-foot Whispering Aura forcing Wisdom saves at its turn start for 2d6 psychic and a Psychic Slam for 1d8 + 3 + spell level psychic. Beholderkin has a 150-foot Eye Ray for 1d8 + 3 + spell level psychic. It makes a number of attacks equal to half the spell level rounded down. Higher-level slots scale spell-level statistics.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Summon Aberration is a D&D 5e level 4 spell in conjuration. Source: Tasha's Cauldron of Everything.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:58Z"
+    },
+    "catalogId": "wikidot5e:spell:summon-aberration",
+    "index": "wikidot5e:spell:summon-aberration",
+    "description": "Summon a Medium aberrant spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Beholderkin, Slaad, or Star Spawn. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 40 + 10 per level above 4th; speed 30 ft., plus 30-foot hovering flight for Beholderkin; Str 16, Dex 10, Con 15, Int 16, Wis 10, Cha 6; immune to psychic; darkvision 60 ft.; understands your languages. Slaad regenerates 5 HP at turn start while above 0 and its claw hit is 1d10 + 3 + spell level slashing and blocks target healing until its next turn. Star Spawn has a 5-foot Whispering Aura forcing Wisdom saves at its turn start for 2d6 psychic and a Psychic Slam for 1d8 + 3 + spell level psychic. Beholderkin has a 150-foot Eye Ray for 1d8 + 3 + spell level psychic. It makes a number of attacks equal to half the spell level rounded down. Higher-level slots scale spell-level statistics."
+  },
+  {
+    "id": "wikidot5e:spell:summon-construct",
+    "name": "Summon Construct",
+    "url": "https://dnd5e.wikidot.com/spell:summon-construct",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:summon-construct",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "duration": "Concentration, up to 1 hour",
+    "components": [
+      "V, S",
+      "M (an ornate stone and metal lockbox worth at least 400 gp)"
+    ],
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "classes": [
+      "Artificer",
+      "Wizard (Optional)"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:0a0fdbca47fd802df668ec3cf0bfcbe8f94aed2275014b6cf96d172623fe7eda",
+      "blockCount": 3,
+      "tableCount": 1,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": true,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:summon-construct",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:summon-construct",
+        "sha256": "sha256:531a899c01c7c226bd7a6ed8fda70de2d3deeb38c92f0d1a857c72d6ba4408b9",
+        "retrievedAt": "2026-09-23T22:13:58Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Summon a Medium Construct Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Clay, Metal, or Stone. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 13 + spell level; HP 40 + 15 per spell level above 4th; speed 30 ft.; Str 18, Dex 10, Con 18, Int 14, Wis 11, Cha 5; poison resistance; immune to charmed, exhaustion, frightened, incapacitated, paralyzed, petrified, and poisoned; darkvision 60 ft.; understands your languages. Metal's Heated Body deals 1d10 fire to creatures that touch it or hit it with a melee attack from within 5 feet. Stone's Stony Lethargy can force a creature starting within 10 feet to make a Wisdom save or lose reactions and halve its speed until its next turn. Clay's Berserk Lashing reaction makes a Slam against a random adjacent creature when damaged, or moves half speed toward a visible enemy without provoking if none is adjacent. It makes half the spell level rounded down Slam attacks for 1d8 + 4 + spell level bludgeoning. Higher-level slots scale spell-level statistics.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Summon Construct is a D&D 5e level 4 spell in conjuration. Source: Tasha's Cauldron of Everything.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:58Z"
+    },
+    "catalogId": "wikidot5e:spell:summon-construct",
+    "index": "wikidot5e:spell:summon-construct",
+    "description": "Summon a Medium Construct Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Clay, Metal, or Stone. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 13 + spell level; HP 40 + 15 per spell level above 4th; speed 30 ft.; Str 18, Dex 10, Con 18, Int 14, Wis 11, Cha 5; poison resistance; immune to charmed, exhaustion, frightened, incapacitated, paralyzed, petrified, and poisoned; darkvision 60 ft.; understands your languages. Metal's Heated Body deals 1d10 fire to creatures that touch it or hit it with a melee attack from within 5 feet. Stone's Stony Lethargy can force a creature starting within 10 feet to make a Wisdom save or lose reactions and halve its speed until its next turn. Clay's Berserk Lashing reaction makes a Slam against a random adjacent creature when damaged, or moves half speed toward a visible enemy without provoking if none is adjacent. It makes half the spell level rounded down Slam attacks for 1d8 + 4 + spell level bludgeoning. Higher-level slots scale spell-level statistics."
+  },
+  {
+    "id": "wikidot5e:spell:wrathful-smite",
+    "name": "Wrathful Smite",
+    "url": "https://dnd5e.wikidot.com/spell:wrathful-smite",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:wrathful-smite",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "evocation",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:c47e1214f1f353c86f5f1fd1539dc4502be6b366e94cb72646de9e87a65452f6",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:wrathful-smite",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:wrathful-smite",
+        "sha256": "sha256:076c8ae202ba1b357a528228258b0854978293bcf4facbc4d29bb13dad6aa813",
+        "retrievedAt": "2026-09-23T22:12:45Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The next melee weapon hit you make before the spell ends deals an extra 1d6 psychic damage. If the target is a creature, it makes a Wisdom save or is frightened of you for up to 1 minute. As an action, the frightened creature can make a Wisdom check against your spell save DC, ending the spell on a success.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Wrathful Smite is a D&D 5e level 1 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:45Z"
+    },
+    "catalogId": "wikidot5e:spell:wrathful-smite",
+    "index": "wikidot5e:spell:wrathful-smite",
+    "description": "The next melee weapon hit you make before the spell ends deals an extra 1d6 psychic damage. If the target is a creature, it makes a Wisdom save or is frightened of you for up to 1 minute. As an action, the frightened creature can make a Wisdom check against your spell save DC, ending the spell on a success."
+  },
+  {
+    "id": "wikidot5e:spell:blinding-smite",
+    "name": "Blinding Smite",
+    "url": "https://dnd5e.wikidot.com/spell:blinding-smite",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:blinding-smite",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "evocation",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:11788f764fbb348857765cfcff87160e83a1ed0b14f6c40db24d471b96e04835",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:blinding-smite",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:blinding-smite",
+        "sha256": "sha256:450dcbafc97c0d2f51b3af6c22a6355acec1db92c188fcfd672f76be00128290",
+        "retrievedAt": "2026-09-23T22:13:17Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The next melee weapon attack you hit with during the spell deals an extra 3d8 radiant damage. The target also makes a Constitution save; on a failure it is blinded until the spell ends. A blinded target repeats the Constitution save at the end of each of its turns, ending the blindness on a success.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Blinding Smite is a D&D 5e level 3 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:17Z"
+    },
+    "catalogId": "wikidot5e:spell:blinding-smite",
+    "index": "wikidot5e:spell:blinding-smite",
+    "description": "The next melee weapon attack you hit with during the spell deals an extra 3d8 radiant damage. The target also makes a Constitution save; on a failure it is blinded until the spell ends. A blinded target repeats the Constitution save at the end of each of its turns, ending the blindness on a success."
+  },
+  {
+    "id": "wikidot5e:spell:staggering-smite",
+    "name": "Staggering Smite",
+    "url": "https://dnd5e.wikidot.com/spell:staggering-smite",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:staggering-smite",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "evocation",
+    "casting_time": "1 bonus action",
+    "range": "Self",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Paladin"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:2697b2212a6675c2dc9c9441f120b546a296ae9001e3aa646757a16595c792b3",
+      "blockCount": 1,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": false,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:staggering-smite",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:staggering-smite",
+        "sha256": "sha256:fe8ea9302487db445ca7cc4456b49dfc87d7f16937902a6d838c4d8857d08722",
+        "retrievedAt": "2026-09-23T22:13:57Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "The next melee weapon hit you make before the spell ends deals an extra 4d6 psychic damage. The target then makes a Wisdom save; on a failure it has disadvantage on attack rolls and ability checks and cannot take reactions until the end of its next turn.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Staggering Smite is a D&D 5e level 4 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:57Z"
+    },
+    "catalogId": "wikidot5e:spell:staggering-smite",
+    "index": "wikidot5e:spell:staggering-smite",
+    "description": "The next melee weapon hit you make before the spell ends deals an extra 4d6 psychic damage. The target then makes a Wisdom save; on a failure it has disadvantage on attack rolls and ability checks and cannot take reactions until the end of its next turn."
+  },
+  {
+    "id": "wikidot5e:spell:phantasmal-force",
+    "name": "Phantasmal Force",
+    "url": "https://dnd5e.wikidot.com/spell:phantasmal-force",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:phantasmal-force",
+    "referenceOnly": false,
+    "level": 2,
+    "school": "illusion",
+    "casting_time": "1 action",
+    "range": "60 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V, S",
+      "M (a bit of fleece)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard",
+      "Sorcerer",
+      "Wizard"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:ad68dbec8ae600e854dd5a423597f3e078fde6f8b9b0094fa4920670626c4c39",
+      "blockCount": 5,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:phantasmal-force",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:phantasmal-force",
+        "sha256": "sha256:d385a9b216ad454cf5cfe8bb638f5d04c4edf4aaba9d40431ffd36381446bde1",
+        "retrievedAt": "2026-09-23T22:13:05Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "One visible non-undead, non-construct creature within 60 feet makes an Intelligence save. On a failure, for up to 1 minute it alone perceives a chosen phantasmal creature, object, or phenomenon no larger than a 10-foot cube, including appropriate sound, temperature, and other sensations. It treats the phantasm as real and rationalizes contradictions. As an action it can make an Intelligence (Investigation) check against your spell save DC, ending the spell on a success. If the illusion represents a creature or hazard capable of harming it, once each round on your turn it can deal 1d6 psychic damage while the target is in or within 5 feet of the phantasm; the target perceives an appropriate damage type.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Phantasmal Force is a D&D 5e level 2 spell in illusion. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:05Z"
+    },
+    "catalogId": "wikidot5e:spell:phantasmal-force",
+    "index": "wikidot5e:spell:phantasmal-force",
+    "description": "One visible non-undead, non-construct creature within 60 feet makes an Intelligence save. On a failure, for up to 1 minute it alone perceives a chosen phantasmal creature, object, or phenomenon no larger than a 10-foot cube, including appropriate sound, temperature, and other sensations. It treats the phantasm as real and rationalizes contradictions. As an action it can make an Intelligence (Investigation) check against your spell save DC, ending the spell on a success. If the illusion represents a creature or hazard capable of harming it, once each round on your turn it can deal 1d6 psychic damage while the target is in or within 5 feet of the phantasm; the target perceives an appropriate damage type."
+  },
+  {
+    "id": "wikidot5e:spell:summon-elemental",
+    "name": "Summon Elemental",
+    "url": "https://dnd5e.wikidot.com/spell:summon-elemental",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:summon-elemental",
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "duration": "Concentration, up to 1 hour",
+    "components": [
+      "V, S",
+      "M (air, a pebble, ash, and water inside a gold-inlaid vial worth at least 400 gp)"
+    ],
+    "sourceBook": "Tasha's Cauldron of Everything",
+    "classes": [
+      "Druid (Optional)",
+      "Ranger (Optional)",
+      "Wizard (Optional)"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:aa27ffd4d957d912841a1eec40f5a9dc99ec045848c883b1de2ada9ce0d66785",
+      "blockCount": 3,
+      "tableCount": 1,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": true,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:summon-elemental",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:summon-elemental",
+        "sha256": "sha256:c8f8cc7ace974e6789b9b29a5b00149572efd33b4f7117956e9c64a3121ff78c",
+        "retrievedAt": "2026-09-23T22:13:58Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Summon a Medium Elemental Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Air, Earth, Fire, or Water. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 50 + 10 per spell level above 4th; speed 40 ft., plus burrow 40 Earth, hovering fly 40 Air, or swim 40 Water; Str 18, Dex 15, Con 17, Int 4, Wis 10, Cha 16. Water resists acid, Air resists lightning and thunder, Earth resists piercing and slashing; all are immune to poison and Fire is also immune to fire. It is immune to exhaustion, frightened, paralyzed, petrified, poisoned, and unconscious, has darkvision 60 ft., and understands your languages. Air, Fire, and Water can squeeze through 1-inch spaces. It makes half the spell level rounded down Slam attacks for 1d10 + 4 + spell level bludgeoning, or fire for Fire. Higher-level slots scale spell-level statistics.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Summon Elemental is a D&D 5e level 4 spell in conjuration. Source: Tasha's Cauldron of Everything.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:58Z"
+    },
+    "catalogId": "wikidot5e:spell:summon-elemental",
+    "index": "wikidot5e:spell:summon-elemental",
+    "description": "Summon a Medium Elemental Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Air, Earth, Fire, or Water. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 50 + 10 per spell level above 4th; speed 40 ft., plus burrow 40 Earth, hovering fly 40 Air, or swim 40 Water; Str 18, Dex 15, Con 17, Int 4, Wis 10, Cha 16. Water resists acid, Air resists lightning and thunder, Earth resists piercing and slashing; all are immune to poison and Fire is also immune to fire. It is immune to exhaustion, frightened, paralyzed, petrified, poisoned, and unconscious, has darkvision 60 ft., and understands your languages. Air, Fire, and Water can squeeze through 1-inch spaces. It makes half the spell level rounded down Slam attacks for 1d10 + 4 + spell level bludgeoning, or fire for Fire. Higher-level slots scale spell-level statistics."
+  },
+  {
+    "id": "wikidot5e:spell:bigbys-hand",
+    "name": "Bigby's Hand",
+    "url": "https://dnd5e.wikidot.com/spell:bigbys-hand",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:bigbys-hand",
+    "referenceOnly": false,
+    "level": 5,
+    "school": "evocation",
+    "casting_time": "1 action",
+    "range": "120 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V, S",
+      "M (an eggshell and a snakeskin glove)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Artificer",
+      "Sorcerer (Optional)",
+      "Wizard"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:28418a5cb4473cb7972ef4f6eef3c541e740c411de4c43c6e8b0448f4c7854b1",
+      "blockCount": 8,
+      "tableCount": 0,
+      "hasUpcasting": true,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:bigbys-hand",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:bigbys-hand",
+        "sha256": "sha256:6a12d6b15990a6bd29064734de2de685ea45def78203d2663ff030158e30e5c3",
+        "retrievedAt": "2026-09-23T22:14:02Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "Create a Large force hand in an unoccupied space in range. It is an object with AC 20, HP equal to your maximum HP, Str 26 (+8), Dex 10 (+0), does not fill its space, and ends the spell at 0 HP. On casting and as a bonus action on later turns, move it up to 60 feet and choose one effect. Clenched Fist: make a melee spell attack against a creature or object within 5 feet; a hit deals 4d8 force. Forceful Hand: contest the hand's Strength against a creature's Athletics within 5 feet, with advantage against Medium or smaller targets; on success push it up to 5 feet plus 5 times your spellcasting ability modifier, with the hand following within 5 feet. Grasping Hand: grapple a Huge or smaller creature within 5 feet using the hand's Strength, with advantage against Medium or smaller targets; while grappling, a bonus action crush deals 2d6 plus your spellcasting ability modifier bludgeoning damage. Interposing Hand: it stays between you and a chosen creature, giving you half cover; a target with Strength no greater than 26 cannot move through its space, while a stronger target can but treats that space as difficult terrain. Each slot level above 5th adds 2d8 to Clenched Fist and 2d6 to Grasping Hand damage.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Bigby's Hand is a D&D 5e level 5 spell in evocation. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:14:02Z"
+    },
+    "catalogId": "wikidot5e:spell:bigbys-hand",
+    "index": "wikidot5e:spell:bigbys-hand",
+    "description": "Create a Large force hand in an unoccupied space in range. It is an object with AC 20, HP equal to your maximum HP, Str 26 (+8), Dex 10 (+0), does not fill its space, and ends the spell at 0 HP. On casting and as a bonus action on later turns, move it up to 60 feet and choose one effect. Clenched Fist: make a melee spell attack against a creature or object within 5 feet; a hit deals 4d8 force. Forceful Hand: contest the hand's Strength against a creature's Athletics within 5 feet, with advantage against Medium or smaller targets; on success push it up to 5 feet plus 5 times your spellcasting ability modifier, with the hand following within 5 feet. Grasping Hand: grapple a Huge or smaller creature within 5 feet using the hand's Strength, with advantage against Medium or smaller targets; while grappling, a bonus action crush deals 2d6 plus your spellcasting ability modifier bludgeoning damage. Interposing Hand: it stays between you and a chosen creature, giving you half cover; a target with Strength no greater than 26 cannot move through its space, while a stronger target can but treats that space as difficult terrain. Each slot level above 5th adds 2d8 to Clenched Fist and 2d6 to Grasping Hand damage."
+  },
+  {
+    "id": "wikidot5e:spell:tashas-hideous-laughter",
+    "name": "Tasha's Hideous Laughter",
+    "url": "https://dnd5e.wikidot.com/spell:tashas-hideous-laughter",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:tashas-hideous-laughter",
+    "referenceOnly": false,
+    "level": 1,
+    "school": "enchantment",
+    "casting_time": "1 action",
+    "range": "30 feet",
+    "duration": "Concentration, up to 1 minute",
+    "components": [
+      "V, S",
+      "M (tiny tarts and a feather that is waved in the air)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard",
+      "Wizard"
+    ],
+    "concentration": true,
+    "ritual": false,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:62893e1675e1a7b15455a7d0c001d22d0ac748011b94e9a7d223d3a521413eff",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:tashas-hideous-laughter",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:tashas-hideous-laughter",
+        "sha256": "sha256:0135ea9ab5ea79ba70dc4fcef3b3824c0cb4c805ef7f86c238482c471d067a58",
+        "retrievedAt": "2026-09-23T22:12:42Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "One visible creature within 30 feet with Intelligence 5 or higher makes a Wisdom save. On a failure it falls prone, becomes incapacitated, and cannot stand for up to 1 minute. It repeats the save at the end of each turn and whenever it takes damage; a damage-triggered save has advantage. A success ends the spell.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Tasha's Hideous Laughter is a D&D 5e level 1 spell in enchantment. Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:12:42Z"
+    },
+    "catalogId": "wikidot5e:spell:tashas-hideous-laughter",
+    "index": "wikidot5e:spell:tashas-hideous-laughter",
+    "description": "One visible creature within 30 feet with Intelligence 5 or higher makes a Wisdom save. On a failure it falls prone, becomes incapacitated, and cannot stand for up to 1 minute. It repeats the save at the end of each turn and whenever it takes damage; a damage-triggered save has advantage. A success ends the spell."
+  },
+  {
+    "id": "wikidot5e:spell:feign-death",
+    "name": "Feign Death",
+    "url": "https://dnd5e.wikidot.com/spell:feign-death",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:feign-death",
+    "referenceOnly": false,
+    "level": 3,
+    "school": "necromancy (ritual)",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "duration": "1 hour",
+    "components": [
+      "V, S",
+      "M (a pinch of graveyard dirt)"
+    ],
+    "sourceBook": "Player's Handbook",
+    "classes": [
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Wizard"
+    ],
+    "concentration": false,
+    "ritual": true,
+    "sourceEvidence": {
+      "sourceDigest": "sha256:dafb3f011674eb24112e58b6c99258c9942506059cea510de88e09c4e497615b",
+      "blockCount": 2,
+      "tableCount": 0,
+      "hasUpcasting": false,
+      "hasNestedRules": true,
+      "hasTables": false,
+      "fetch": {
+        "url": "https://dnd5e.wikidot.com/spell:feign-death",
+        "finalUrl": "https://dnd5e.wikidot.com/spell:feign-death",
+        "sha256": "sha256:17aa60257acbc0033ecd31de5db5cd3cd68fb2790d9e8072d2b1d7ec22b1e3e1",
+        "retrievedAt": "2026-09-23T22:13:22Z",
+        "userAgent": "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)",
+        "cacheHit": false
+      }
+    },
+    "effectSummary": "A willing creature you touch enters a state indistinguishable from death for 1 hour or until you use an action to touch it and dismiss the spell. It appears dead to outward inspection and magic used to determine its status, is blinded and incapacitated, has speed 0, and has resistance to all damage except psychic. Diseases and poisons affecting it, or acquired during the spell, have no effect until the spell ends.",
+    "mechanicsPresence": {
+      "ruleProse": true
+    },
+    "generatedDescription": "Feign Death is a D&D 5e level 3 spell in necromancy (ritual). Source: Player's Handbook.",
+    "enrichment": {
+      "version": 1,
+      "validated": true,
+      "partial": false,
+      "missingExpected": [],
+      "structuredOnly": true,
+      "source": "D&D 5e Wikidot",
+      "fetchedAt": "2026-09-23T22:13:22Z"
+    },
+    "catalogId": "wikidot5e:spell:feign-death",
+    "index": "wikidot5e:spell:feign-death",
+    "description": "A willing creature you touch enters a state indistinguishable from death for 1 hour or until you use an action to touch it and dismiss the spell. It appears dead to outward inspection and magic used to determine its status, is blinded and incapacitated, has speed 0, and has resistance to all damage except psychic. Diseases and poisons affecting it, or acquired during the spell, have no effect until the spell ends."
+  },
+  {
+    "id": "wikidot5e:spell:infallible-relay",
+    "catalogId": "wikidot5e:spell:infallible-relay",
+    "index": "wikidot5e:spell:infallible-relay",
+    "name": "Infallible Relay",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:infallible-relay",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 1,
+    "school": "divination",
+    "casting_time": "1 minute",
+    "range": "Self",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a mobile phone",
+    "duration": "Concentration, up to 10 minutes",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "With this spell, you can target any creature with whom you have spoken previously, as long as the two of you are on the same plane of existence. When you cast the spell, the nearest functioning telephone or similar communications device within 100 feet of the target begins to ring. If there is no suitable device close enough to the target, the spell fails.\n\nThe target must make a successful Charisma saving throw or be compelled to answer your call. Once the connection is established, the call is crystal clear and cannot be dropped until the conversation has ended or the spell’s duration ends. You can end the conversation at any time, but a target must succeed on a Charisma saving throw to end the conversation.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:arcane-hacking",
+    "catalogId": "wikidot5e:spell:arcane-hacking",
+    "index": "wikidot5e:spell:arcane-hacking",
+    "name": "Arcane Hacking",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:arcane-hacking",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 2,
+    "school": "transmutation",
+    "casting_time": "1 action",
+    "range": "Self",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "hacking tools",
+    "duration": "Concentration, up to 1 hour",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "You gain advantage on all Intelligence checks using hacking tools to break software encryption or online security when using a foreign system.\n\nThis spell also allows you to break 2nd level and lower protective spells such as Arcane Lock or Glyph of Warding by making an Intelligence check using hacking tools against the spell save DC of the spell’s caster.\n\nAt Higher Levels._ When you cast this spell using a spell slot of 3rd level or higher, you can attempt to counteract a spell set to secure the foreign system if the spell’s level is equal to or less than the level of the spell slot you used.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:digital-phantom",
+    "catalogId": "wikidot5e:spell:digital-phantom",
+    "index": "wikidot5e:spell:digital-phantom",
+    "name": "Digital Phantom",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:digital-phantom",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 2,
+    "school": "abjuration",
+    "casting_time": "1 action",
+    "range": "Self",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a small piece of copper wire",
+    "duration": "Concentration, up to 1 hour",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "This spell works to actively hide your presence within a computer system. For the spell’s duration, you and any other users you choose on your local network gain a +10 bonus to Intelligence checks to avoid detection by administrators, knowbots, tracking software, and the like. Whenever you and your chosen users leave any computer system you are working in while this spell is in effect, all trace of your previous presence in that system is erased.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:haywire",
+    "catalogId": "wikidot5e:spell:haywire",
+    "index": "wikidot5e:spell:haywire",
+    "name": "Haywire",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:haywire",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 3,
+    "school": "enchantment",
+    "casting_time": "1 action",
+    "range": "90 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "Concentration, up to 1 minute",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "This spell plays havoc with electronic devices, making the use of such devices all but impossible. Each electronic device in a 10-foot-radius sphere centered on a point you choose within range is subject to random behavior while it remains within the area. A device not held by a creature is automatically affected. If an electronic device is held by a creature, that creature must succeed on a Wisdom saving throw or have the device affected by the spell.\n\nAt the start of each of your turns, roll a d6 for each affected device to determine its behavior. Except where otherwise indicated, that behavior lasts until the start of your next turn while this spell is in effect.\n\n| d6 | Effect |\n| --- | --- |\n| 1 | The device shuts down and must be restarted. Do not roll again for this device until it is restarted. |\n| 2-4 | The device does not function. |\n| 5 | The device experiences a power surge, causing an electric shock to the wielder (if any and one random creature within 5 feet of the device. Each affected creature must make a Dexterity saving throw against your spell save DC, taking 6d6 lightning damage on a failed save, or half as much damage on a successful one. |\n| 6 | The device is usable as normal. |\n\nAt Higher Levels._ When you cast this spell using a spell slot of 4th level or higher, the radius of the sphere affected by the spell increases by 5 feet for each slot level above 3rd.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:invisibility-to-cameras",
+    "catalogId": "wikidot5e:spell:invisibility-to-cameras",
+    "index": "wikidot5e:spell:invisibility-to-cameras",
+    "name": "Invisibility to Cameras",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:invisibility-to-cameras",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 3,
+    "school": "illusion",
+    "casting_time": "1 action",
+    "range": "10 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a scrap of black paper",
+    "duration": "Concentration, up to 1 minute",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "Four creatures of your choice within range become undetectable to electronic sensors and cameras for the duration of the spell. Anything a target is wearing or carrying is likewise undetectable as long as it is on the target’s person. The targets remain visible to vision.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:conjure-knowbot",
+    "catalogId": "wikidot5e:spell:conjure-knowbot",
+    "index": "wikidot5e:spell:conjure-knowbot",
+    "name": "Conjure Knowbot",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:conjure-knowbot",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 4,
+    "school": "conjuration",
+    "casting_time": "1 action",
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "duration": "10 minutes",
+    "concentration": false,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "You touch a single computerized device or computer system to conjure a knowbot—a partially sentient piece of software imprinted with vestiges of your own skills and computer abilities. For the duration of the spell, you can use a bonus action to have the knowbot execute a computer related task that would normally require an action. The knowbot makes Intelligence ability checks using your ability score and proficiency bonuses including your proficiency with hacking tools, if applicable.\n\nYou have a limited telepathic bond with the knowbot, out to a range of 500 feet from the device or system where the knowbot was conjured. If you move beyond this range, the knowbot disappears in 2d4 rounds, as if the duration of the spell had expired. Moving within range again immediately reestablishes the bond.\n\nThe knowbot is bound to the system in which it was created, and it stays there until it is dismissed or the spell’s duration expires.\n\n_At Higher Levels._ When you cast this spell using a spell slot of 5th level or higher, the spell’s duration increases to 1 hour. Additionally, your telepathic bond with the knowbot is effective out to a range of 1,000 feet, and if you leave the range of the bond, the knowbot continues performing its last directed task until the spell expires.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  },
+  {
+    "id": "wikidot5e:spell:system-backdoor",
+    "catalogId": "wikidot5e:spell:system-backdoor",
+    "index": "wikidot5e:spell:system-backdoor",
+    "name": "System Backdoor",
+    "category": "spell",
+    "edition": "2014",
+    "source": "D&D 5e Wikidot",
+    "sourceBook": "Unearthed Arcana 7 - Modern Magic",
+    "sourceUrl": "https://dnd5e.wikidot.com/spell:system-backdoor",
+    "playtest": true,
+    "referenceOnly": false,
+    "level": 4,
+    "school": "transmutation",
+    "casting_time": "1 minute",
+    "range": "Self",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "hacking tools",
+    "duration": "Concentration, up to 1 hour",
+    "concentration": true,
+    "ritual": false,
+    "classes": [
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "description": "This spell allows you to bypass system security in order to create a secure login on a foreign system. The login you create allows you administrator-level privileges in any computer system not enhanced through technomagic. The login defeats any technomagic spells of 3rd level or lower.\n\nOnce the duration of the spell expires, the login and all privileges are wiped from the system. System logs still show the activity of the user, but the user identification cannot be found or traced.\n\nAt Higher Levels._ When you cast this spell using a spell slot of 5th level or higher, you are able to bypass technomagic spells if the spell’s level is equal to or less than the level of the spell slot you used.",
+    "enrichment": {
+      "validated": true,
+      "partial": false,
+      "source": "Unearthed Arcana 7 - Modern Magic"
+    }
+  }
+]

@@ -1,13 +1,17 @@
+import {subclassSpellModifiers} from './subclassSpellModifiers.js';
+import {featureCastingBlock,mindlessRageActive} from './rage2014.js';
+import {subclassNumericProfile,subclassNormalBodyHPBonus} from './subclassNumerics.js';
+import {actorActionBlock,echoAvatarActive} from './subclassState.js';
 import {assertCampaignCanAct} from './campaignActivity.js';
 import {campaignModifiers} from './campaignModifiers.js';
 import {entomancerProfile,entomancerActionBlockReason} from './entomancer.js';
-import { mechanics, is35, spellSlotPools } from './editions';
-import {companionMasterEffects35} from './companions35';
-import {classEffectMovementBonus35} from './classEffects35';
+import { mechanics, is35, spellSlotPools } from './editions.js';
+import {companionMasterEffects35} from './companions35.js';
+import {classEffectMovementBonus35} from './classEffects35.js';
 import {totemProfile,totemCastingBlockReason} from './totemWarrior.js';
-export const conditionNames=c=>Array.isArray(c.conditions)?c.conditions.filter(x=>typeof x==='string').map(x=>x.trim()).filter(Boolean):String(c.conditions||'').split(',').map(s=>s.trim()).filter(Boolean);
+export const conditionNames=c=>{const names=Array.isArray(c.conditions)?c.conditions.filter(x=>typeof x==='string').map(x=>x.trim()).filter(Boolean):String(c.conditions||'').split(',').map(s=>s.trim()).filter(Boolean);return mindlessRageActive(c)?names.filter(n=>!['charmed','frightened'].includes(n.toLowerCase())):names;};
 export const exhaustionLevel=c=>Math.max(0,Math.min(6,Math.floor(Number(c.exhaustion??(conditionNames(c).some(n=>n.toLowerCase()==='exhaustion')?1:0))||0)));
-export function conditionEffects(c){const e=exhaustionLevel(c),names=conditionNames(c).map(n=>n[0].toUpperCase()+n.slice(1).toLowerCase()),modern=mechanics(c)==='2024',companion=companionMasterEffects35(c),baseMaxHP=Math.max(1,(Number(c?.hp?.max)||1)+(Number(companion.hpBonus)||0)),baseSpeed=Math.max(0,((Number(c?.speed)||0)+campaignModifiers(c).speed+(is35(c)?classEffectMovementBonus35(c,'land'):0)+totemProfile(c).movementBonus)*entomancerProfile(c).speedMultiplier);
+export function conditionEffects(c){const e=exhaustionLevel(c),names=[...conditionNames(c),...(echoAvatarActive(c)?['Blinded','Deafened']:[])].map(n=>n[0].toUpperCase()+n.slice(1).toLowerCase()),modern=mechanics(c)==='2024',companion=companionMasterEffects35(c),baseMaxHP=Math.max(1,(Number(c?.hp?.max)||1)+(Number(companion.hpBonus)||0)+subclassNormalBodyHPBonus(c)),baseSpeed=Math.max(0,((Number(c?.speed)||0)+campaignModifiers(c).speed+(is35(c)?classEffectMovementBonus35(c,'land'):0)+totemProfile(c).movementBonus+subclassNumericProfile(c).speedBonus)*entomancerProfile(c).speedMultiplier);
  return {exhaustion:e,penalty:modern?-2*e:0,checkDisadvantage:!is35(c)&&((!modern&&e>=1)||names.includes('Poisoned')),attackDisadvantage:!is35(c)&&((!modern&&e>=3)||['Poisoned','Blinded','Prone','Restrained'].some(n=>names.includes(n))),saveDisadvantage:!is35(c)&&!modern&&e>=3,speed:['Grappled','Restrained','Paralyzed','Stunned','Unconscious','Petrified'].some(n=>names.includes(n))?0:modern?Math.max(0,baseSpeed-5*e):!is35(c)&&e>=5?0:!is35(c)&&e>=2?Math.floor(baseSpeed/2):baseSpeed,maxHP:!is35(c)&&!modern&&e>=4?Math.max(1,Math.floor(baseMaxHP/2)):baseMaxHP,dead:!is35(c)&&e>=6};}
 export const criticalDice=s=>s.replace(/(\d+)d(\d+)/gi,(_,n,d)=>`${Number(n)*2}d${d}`);
 export function rollMode(preferred,disadvantage=false){return disadvantage?(preferred==='advantage'?'normal':'disadvantage'):preferred;}
@@ -15,13 +19,19 @@ const pick=(map,level)=>{const k=Object.keys(map||{}).map(Number).filter(n=>n<=l
 export function spellPlan(s,c,slot,mod){
  const level=Number(s.level)||0,description=s.description||s.desc?.join('\n')||'',revised=s.edition==='2024';
  const result={attack:!!s.attack_type||/ranged spell attack|melee spell attack|ranged touch attack|melee touch attack/i.test(description),rolls:[],count:1,save:s.dc?.dc_type?.name||'',notes:''};
- if(s.edition==='3.5'||s.referenceOnly){result.notes='3.5 spells scale with caster level, not slot level. Confirm damage and metamagic below.';return result;}
- if(s.rollResolution==='description'){result.attack=false;result.notes=s.rollNotes;return result;}
+ if(s.edition==='3.5'||s.referenceOnly){result.notes='3.5 spells scale with caster level, not slot level. Confirm damage and metamagic below.';return subclassSpellModifiers(c,s,result);}
+ if(s.rollResolution==='description'){result.attack=false;result.notes=s.rollNotes;return subclassSpellModifiers(c,s,result);}
  result.notes=s.rollNotes||'';
- if(s.name==='Magic Missile'){result.rolls=[{expression:`${slot+2}d4+${slot+2}`,label:'Force damage · all darts (split between targets)'}];return result;}
+ if(s.name==='Magic Missile'){result.rolls=[{expression:`${slot+2}d4+${slot+2}`,label:'Force damage · all darts (split between targets)'}];return subclassSpellModifiers(c,s,result);}
  if(s.name==='Scorching Ray')result.count=slot+1;
  if(s.name==='Eldritch Blast')result.count=1+[5,11,17].filter(n=>c.level>=n).length;
  const healing=s.heal_at_slot_level;
+ if(['False Life','Aid'].includes(s.name)){
+  const expression=healing?pick(healing,slot).replace(/\s/g,''):s.name==='False Life'?`${revised?2:1}d4+${4+Math.max(0,slot-1)*5}`:String(5+Math.max(0,slot-2)*5);
+  result.rolls.push({expression,label:s.name==='False Life'?'Temporary HP':'Maximum and current HP increase'});
+  result.notes=s.name==='False Life'?'This grants temporary HP, which do not stack. Casting keeps the higher of your existing temporary HP and this roll; your ordinary HP is not healed.':'This increases maximum and current HP for its duration. Resolve the increase, affected creatures, and later expiration at the table; it is not applied as ordinary healing.';
+  return subclassSpellModifiers(c,s,result);
+ }
  if(healing)result.rolls.push({expression:pick(healing,slot).replace(/MOD/g,String(mod)).replace(/\s/g,'').replaceAll('+-','-'),label:'Healing'});
  if(revised&&!healing&&['Cure Wounds','Healing Word','Mass Cure Wounds','Mass Healing Word'].includes(s.name)){
   const mass=s.name.startsWith('Mass'),base=mass?s.name==='Mass Cure Wounds'?5:3:1;
@@ -36,7 +46,7 @@ export function spellPlan(s,c,slot,mod){
  }
  const swarm=entomancerProfile(c);if(swarm.species==='Decomposers')for(const d of [...result.rolls]){const n=d.expression?.match(/^(\d+)d/);if(n&&/necrotic/i.test(d.label))result.rolls.push({expression:`${n[1]}d4`,label:'Half Alive · necrotic damage'});}
  if(!result.rolls.length&&!result.notes)result.notes='Resolve this spell’s effects from its description. No automatic damage or healing roll is needed.';
- return result;
+ return subclassSpellModifiers(c,s,result);
 }
 export function availableSlots(c,s){
  const level=Number(s.level)||0,{standard,pact}=spellSlotPools(c);
@@ -46,7 +56,7 @@ export function availableSlots(c,s){
 }
 export function spendSpellSlot(c,s,level,pool='standard') {
  assertCampaignCanAct(c);
- const blocked=entomancerActionBlockReason(c)||totemCastingBlockReason(c);if(blocked)throw Error(blocked);
+ const blocked=actorActionBlock(c)||entomancerActionBlockReason(c)||featureCastingBlock(c,s);if(blocked)throw Error(blocked);
  if(!availableSlots(c,s).some(x=>x.level===level&&(x.pool||'standard')===pool))throw Error('Choose an available slot for this spell.');
  const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';
  return {[key]:{...c[key],[level]:(c[key]?.[level]||0)+1}};

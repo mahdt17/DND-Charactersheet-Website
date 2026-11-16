@@ -33,6 +33,8 @@ test('Inertial Armor uses its reaction, respects ML, and only replaces the worn 
  assert.equal(psion.archivistCampaign.powerEffects['inertial-armor'].minutes,180);
  assert.equal(psion.concentration,'Guidance');
  assert.equal(armorFor(psion,psion.abilities),23);
+ const shielded={...psion,activeEffects:[{id:'spell:shield',name:'Shield',key:'shield',acBonus:5,expires:'start-next-turn'}]};
+ assert.equal(armorFor(shielded,shielded.abilities),28,'Shield adds to the merged Inertial Armor and equipment calculation');
  assert.equal(armorFor({...psion,inventory:[{equipped:true,equipmentIndex:'plate-armor'}]},psion.abilities),22);
  assert.equal(armorFor(advanceCampaignTime(psion,180),psion.abilities),19);
 });

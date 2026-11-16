@@ -1,3 +1,6 @@
+import {ownFormProfile} from './subclassOwnForm.js';
+import {damageActiveBody} from './subclassState.js';
+import {subclassNumericProfile} from './subclassNumerics.js';
 import {creatureProfile,damageCreature,updateCreature} from './campaignCreatures.js';
 import {effectiveAbilityScores} from './abilityScores.js';
 import {campaignModifiers} from './campaignModifiers.js';
@@ -26,7 +29,7 @@ export function targetSavePlan(c,castId,targetId,input={}){
  if(cast.edition&&cast.edition!=='2014')throw Error('Target automation is only available for 2014 casts.');
  const m=spellSaveMetadata(cast),queued=cast.targets?.find(t=>t.targetId===targetId),secondary=!!cast.chain&&!input.area&&!!queued?.secondary;
  const chainDamage=secondary&&(m.damaging||Number.isFinite(cast.primaryDamage)),n=creature(c,targetId),ability=input.area?'dex':chainDamage?'dex':normalizeAbility(input.ability)||m.ability;
- const selfSave=()=>{const score=effectiveAbilityScores(c)[ability],pb=2+Math.floor((Math.max(1,Number(c.level)||1)-1)/4),swarm=entomancerProfile(c);return Math.floor((score-10)/2)+(c.saveProf?.[ability]?pb:0)+(swarm.song?swarm.wis:0)+(ability==='con'?(campaignModifiers(c).conSave||0):0);};
+ const selfSave=()=>{const form=ownFormProfile(c);if(form?.polymorph)return form.saves[ability];const numeric=subclassNumericProfile(c);const score=effectiveAbilityScores(c)[ability],pb=2+Math.floor((Math.max(1,Number(c.level)||1)-1)/4),swarm=entomancerProfile(c);return (form?form.saves[ability]:Math.floor((score-10)/2)+(c.saveProf?.[ability]?pb:0))+numeric.saveBonus+(numeric.saveBonuses[ability]||0)+(swarm.song?swarm.wis:0)+(ability==='con'?(campaignModifiers(c).conSave||0):0);};
  const base=targetId==='self'&&ability?selfSave():n&&ability?creatureProfile(n).saves[ability]:0;
  const modifier=input.modifier==null||input.modifier===''?base:number(input.modifier,'target save modifier'),adjustment=input.adjustment==null||input.adjustment===''?0:number(input.adjustment,'additional save adjustment');
  const cystAdjustment=m.necromancy&&ability&&!input.area&&!chainDamage&&(n?.cyst||input.cystConfirmed)?-2:0;
@@ -75,10 +78,10 @@ function journal(before,after,targetId){
  const globals=fieldChanges({empowerment:before.archivistCampaign?.empowerment,sensing:before.archivistCampaign?.sensing},{empowerment:after.archivistCampaign?.empowerment,sensing:after.archivistCampaign?.sensing});
  const beforeIds=(before.archivistCampaign?.creatures||[]).map(n=>n.id),spawned=(after.archivistCampaign?.creatures||[]).some(n=>!beforeIds.includes(n.id));
  const selfZeroHP=targetId==='self'&&Number(before.hp?.current)>0&&Number(after.hp?.current)===0;
- return {targetId,changes,globals,manualOnly:spawned||selfZeroHP};
+ return {targetId,changes,globals,manualOnly:spawned||selfZeroHP||targetId==='self'&&!!(ownFormProfile(before)||ownFormProfile(after))};
 }
 function undo(c,entry){
- if(!entry)return c;if(entry.manualOnly)throw Error('Correction conflict: spawned or zero-HP side effects require record-only correction and manual application.');
+ if(!entry)return c;if(entry.manualOnly)throw Error('Correction conflict: own-form, spawned or zero-HP side effects require record-only correction and manual application.');
  const n=creature(c,entry.targetId);
  for(const change of entry.changes)if(!n||!same(at(n,change.path),change.after))throw Error('Correction conflict: target '+change.path.join('.')+' changed. Use record-only correction and reconcile at the table.');
  for(const change of entry.globals)if(!same(at(c.archivistCampaign,change.path),change.after))throw Error('Correction conflict: campaign effect changed. Use record-only correction.');
@@ -128,7 +131,7 @@ export function resolveSpellTarget(c,castId,targetId,input={}){
   if(!instruction)instruction=proof.passed?'Save succeeded; resolve any remaining effect at the table':'Apply the spell effect at the table';
   if(!tracked)instruction+='; apply to '+plan.name+' at the table';
   if(tracked&&!input.recordOnly){
-   const apply=n=>{let result=amount!=null?damageCreature(n,amount):n;
+   const apply=n=>{const body=amount!=null&&targetId==='self'?damageActiveBody(n,amount):null;let result=amount!=null?(body?{...n,...body}:damageCreature(n,amount)):n;
     // Self sheets still use string conditions; explicitly use table application there.
     if(condition&&targetId!=='self')result={...result,conditions:[...(result.conditions||[]),condition]};return result;};
    next=targetId==='self'?apply(next):updateCreature(next,targetId,apply);

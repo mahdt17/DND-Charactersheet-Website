@@ -1,3 +1,9 @@
+import {healingFeaturePlan} from './lib/subclassHealing';
+import {castEffectPatch,needsEffectRecipient} from './lib/spellEffects';
+import {conditionEffects} from './lib/play';
+import {actorActionBlock} from './lib/subclassState';
+import {featureCastingBlock} from './lib/rage2014';
+import {styleSpellAttackBonus} from './lib/fightingStyles';
 import {campaignActionBlockReason} from './lib/campaignActivity';
 import {entomancerActionBlockReason} from './lib/entomancer';
 import {totemCastingBlockReason} from './lib/totemWarrior';
@@ -12,24 +18,25 @@ import Dialog from './Dialog';
 import {featSpellNotes,featMagicActions} from './lib/featSpellEffects';
 
 export default function FeatSpellbook({char,patch,show,roll,featId}){
- const [cast,setCast]=useState(null),[choice,setChoice]=useState(''),[error,setError]=useState(''),[notice,setNotice]=useState('');
+ const [recipient,setRecipient]=useState(''),[cast,setCast]=useState(null),[choice,setChoice]=useState(''),[error,setError]=useState(''),[notice,setNotice]=useState('');
  const feats=(char.feats||[]).filter(f=>featMagicState(f,char).supported&&(!featId||featMagicKey(f)===featId)),spells=featMagicSpells(char).filter(s=>feats.some(f=>featMagicKey(f)===s.featGrantId));
  if(!feats.length)return null;
- const blocked=entomancerActionBlockReason(char)||campaignActionBlockReason(char)||totemCastingBlockReason(char);
+ const blocked=actorActionBlock(char)||entomancerActionBlockReason(char)||campaignActionBlockReason(char)||totemCastingBlockReason(char);
  const options=cast?featCastOptions(char,cast):[],option=options.find(o=>`${o.pool}:${o.level}`===choice)||options[0];
- const mod=cast?modifier(effectiveAbilities(char)[cast.featAbility]):0,pb=2+Math.floor((char.level-1)/4),plan=cast?spellPlan(cast,char,option?.level||cast.level,mod):null;
+ const mod=cast?modifier(effectiveAbilities(char)[cast.featAbility]):0,pb=2+Math.floor((char.level-1)/4),plan=cast?healingFeaturePlan(char,cast,spellPlan(cast,char,option?.level||cast.level,mod),{slotLevel:option?.level||cast.level,recipient}):null;
  function open(s){setCast(s);const first=featCastOptions(char,s)[0];setChoice(first?`${first.pool}:${first.level}`:'');setError('');}
  function perform(){try{
   const canonical=resolveFeatSpell(char,cast);if(!canonical)throw Error('The feat no longer grants this spell.');
-  const values=spendFeatCast(char,canonical,option||{});
-  const rolls=(plan?.rolls||[]).filter(r=>!/^\d+$/.test(r.expression));for(const r of rolls){rollDice(r.expression,'normal',()=>0);if(plan?.attack&&/damage/i.test(r.label))rollDice(criticalDice(r.expression),'normal',()=>0);}
-  for(let n=0;n<(plan?.attack?plan.count:1);n++){const hit=plan?.attack?roll(`1d20${signed(pb+mod)}`,`${cast.name} · feat spell attack`,{kind:'attack'}):null;for(const r of rolls)roll(hit&&hit.total-hit.bonus===20&&/damage/i.test(r.label)?criticalDice(r.expression):r.expression,`${cast.name} · ${r.label}`,{kind:'damage'});}
-  patch({...values,...(cast.concentration?{concentration:cast.name}:{})});setNotice(`${cast.name} cast${option.pool==='feat'?' using its feat use':option.pool==='ritual'?' as a ritual (+10 minutes)':option.pool==='cantrip'?'':` using a level ${option.level} ${option.pool==='pact'?'Pact Magic ':''}slot`}.`);setCast(null);
+  const reason=featureCastingBlock(char,canonical);if(reason)throw Error(reason);if(needsEffectRecipient(canonical,plan)&&!['self','other'].includes(recipient))throw Error('Choose Self or Other before casting.');
+  const values=spendFeatCast(char,canonical,option||{}),results=[];
+  const rolls=(plan?.rolls||[]).filter(r=>!/^\d+$/.test(r.expression));for(const r of rolls){rollDice(r.expression,'normal',()=>0);if(plan?.attack&&r.critical!==false&&/damage/i.test(r.label))rollDice(criticalDice(r.expression),'normal',()=>0);}
+  for(let n=0;n<(plan?.attack?plan.count:1);n++){const hit=plan?.attack?roll(`1d20${signed(pb+mod+styleSpellAttackBonus(char,cast))}`,`${cast.name} · feat spell attack`,{kind:'attack'}):null;if(plan?.attack&&!Number.isFinite(hit?.total))throw Error('A valid visible attack roll is required.');for(const r of plan?.rolls||[]){if(n>0&&r.oncePerCast)continue;const result=/^\d+$/.test(r.expression)?{total:Number(r.expression)}:roll(hit&&hit.total-hit.bonus===20&&r.critical!==false&&/damage/i.test(r.label)?criticalDice(r.expression):r.expression,`${cast.name} · ${r.label}`,{kind:'damage'});if(!Number.isFinite(result?.total))throw Error('A valid visible spell roll is required.');results.push({label:r.label,total:result.total});}}
+  patch({...values,...castEffectPatch(char,canonical,{recipient,rolls:results,plan,slotLevel:option?.level||canonical.level,maxHP:conditionEffects(char).maxHP})});setNotice(`${cast.name} cast${option.pool==='feat'?' using its feat use':option.pool==='ritual'?' as a ritual (+10 minutes)':option.pool==='cantrip'?'':` using a level ${option.level} ${option.pool==='pact'?'Pact Magic ':''}slot`}.`);setCast(null);
  }catch(e){setError(e.message);}}
  return <section aria-label="Feat spells"><h2>Feat spells</h2><p>Feat uses recover on a Long Rest. Class spell slots remain separate.</p>
  {blocked&&<p className="l-notice">{blocked}</p>}
  {feats.map(f=><details className="feature-detail" key={featMagicKey(f)} open={!featMagicState(f,char).valid}><summary>{f.name} · spell choices</summary><FeatMagicManager feat={f} char={char} onChange={next=>patch({feats:char.feats.map(x=>x===f?next:x)})}/></details>)}
  {featMagicActions({...char,feats},effectiveAbilities(char)).map(a=><details className="feature-detail" key={a.name}><summary>{a.name}</summary><p>{a.description}</p></details>)}{notice&&<p role="status">{notice}</p>}<div className="spell-table">{spells.map(s=>{const ability=modifier(effectiveAbilities(char)[s.featAbility]);return <div className="spell-item" key={`${s.featGrantId}:${s.catalogId}`}><button className="spell-name" onClick={()=>show(s)}><strong>{s.name}</strong><small>{s.featSource} · {s.featAbility.toUpperCase()} · DC {8+pb+ability} · Attack {signed(pb+ability)}{s.featRitualOnly?' · Ritual book':s.level>0?` · Feat use ${char.featSpellUses?.[s.featUseKey]?0:1}/1`:' · Cantrip'}</small></button><button className="l-button" disabled={!!blocked||!featCastOptions(char,s).length} onClick={()=>open(s)}>Cast feat spell</button></div>;})}</div>
- {cast&&<Dialog title={`Cast ${cast.name} from ${cast.featSource}`} onClose={()=>setCast(null)}><label className="l-field"><span>Casting resource</span><select aria-label="Casting resource" value={option?`${option.pool}:${option.level}`:''} onChange={e=>setChoice(e.target.value)}>{options.map(o=><option key={`${o.pool}:${o.level}`} value={`${o.pool}:${o.level}`}>{o.pool==='ritual'?'Ritual · 10 extra minutes, no slot':o.pool==='cantrip'?'Cantrip · no resource':o.pool==='feat'?(cast.featRitual?'Quick Ritual · shared feat use':'Feat use · 1 available'):`${o.pool==='pact'?'Pact Magic':'Spell slot'} level ${o.level} · ${o.remaining} available`}</option>)}</select></label><p>{plan?.notes?.replace(', or enter a roll below','')}</p>{cast.featNotes&&<p>{cast.featNotes}</p>}{featSpellNotes(char,cast).map(n=><p key={n}>{n}</p>)}{error&&<p role="alert">{error}</p>}<button className="l-button primary" disabled={!!blocked||!option} onClick={perform}>Cast using selected resource</button><button className="l-button" onClick={()=>setCast(null)}>Cancel casting</button></Dialog>}
+ {cast&&<Dialog title={`Cast ${cast.name} from ${cast.featSource}`} onClose={()=>setCast(null)}><label className="l-field"><span>Casting resource</span><select aria-label="Casting resource" value={option?`${option.pool}:${option.level}`:''} onChange={e=>setChoice(e.target.value)}>{options.map(o=><option key={`${o.pool}:${o.level}`} value={`${o.pool}:${o.level}`}>{o.pool==='ritual'?'Ritual · 10 extra minutes, no slot':o.pool==='cantrip'?'Cantrip · no resource':o.pool==='feat'?(cast.featRitual?'Quick Ritual · shared feat use':'Feat use · 1 available'):`${o.pool==='pact'?'Pact Magic':'Spell slot'} level ${o.level} · ${o.remaining} available`}</option>)}</select></label><label className="l-field">Spell recipient<select aria-label="Feat spell recipient" value={recipient} onChange={e=>setRecipient(e.target.value)}><option value="">Choose recipient</option><option value="self">Self</option><option value="other">Other creature</option></select></label><p>{plan?.notes?.replace(', or enter a roll below','')}</p>{cast.featNotes&&<p>{cast.featNotes}</p>}{featSpellNotes(char,cast).map(n=><p key={n}>{n}</p>)}{error&&<p role="alert">{error}</p>}<button className="l-button primary" disabled={!!blocked||!option} onClick={perform}>Cast using selected resource</button><button className="l-button" onClick={()=>setCast(null)}>Cancel casting</button></Dialog>}
  </section>;
 }

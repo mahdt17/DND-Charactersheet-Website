@@ -1,4 +1,5 @@
 import {shadarKaiRaces} from '../data/shadarKai.js';
+import {actorActionBlock} from './subclassState.js';
 import {eladrinTranceOptions,tranceEquipment} from './eladrin.js';
 const count=x=>Math.max(0,Math.floor(Number(x)||0));
 const sourceIds=shadarKaiRaces.map(r=>r.catalogId);
@@ -14,7 +15,7 @@ export function blessingResource(c){const p=shadarKaiProfile(c);return p.active?
 export const shadarKaiResourceIds=shadarKaiRaces.map(r=>`race:${r.index}:blessing`);
 export function blessingBlocked(c){
  const p=shadarKaiProfile(c);if(!p.active)return 'This race source does not grant Blessing of the Raven Queen.';
- if(Number(c.hp?.current)<=0)return 'You must be conscious to teleport.';
+ if(actorActionBlock(c))return actorActionBlock(c);
  const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(value=>String(typeof value==='object'?value?.name:value).trim().toLowerCase());
  if(conditions.some(n=>['incapacitated','unconscious','paralyzed','stunned','petrified','dead'].includes(n)))return 'You cannot teleport while incapacitated.';
  return p.remaining?'':'No Blessing uses remaining.';

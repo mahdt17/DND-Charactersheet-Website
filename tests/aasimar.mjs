@@ -69,7 +69,7 @@ test('transformations unlock at 3, share the tracker, survive save/reopen and do
 test('activation guards reject incapacitation, 0 HP and unrelated sources without changing their saved state',()=>{
  assert(api);
  for(const condition of ['Incapacitated','Unconscious','Paralyzed','Stunned','Petrified','Dead']){
-  const c={...make(3),conditions:[condition]};assert.throws(()=>api.useHealingHands(c),/incapacitated/i);assert.throws(()=>api.useAasimarTransformation(c),/incapacitated/i);
+  const c={...make(3),conditions:[condition]},reason=condition==='Dead'?/dead|revived/i:/incapacitated/i;assert.throws(()=>api.useHealingHands(c),reason);assert.throws(()=>api.useAasimarTransformation(c),reason);
  }
  assert.throws(()=>api.useHealingHands({...make(),hp:{current:0,max:10}}),/conscious/i);
  assert.throws(()=>api.useHealingHands({...make(),race:'Human'}),/Aasimar/i);

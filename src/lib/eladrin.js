@@ -3,6 +3,7 @@ import equipment from '../data/equipment.json' with {type:'json'};
 import classes from '../data/classes.json' with {type:'json'};
 import {effectiveAbilityScores} from './abilityScores.js';
 
+import {actorActionBlock} from './subclassState.js';
 export const feyStepId='race:eladrin-motm:fey-step';
 const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
 const profName=x=>norm(x).replace(/^(land|water)vehicles$/,'vehicles$1');
@@ -19,7 +20,7 @@ export function eladrinResource(c){const p=eladrinProfile(c);return p.active?{id
 export function feyStepBlocked(c){
  const p=eladrinProfile(c);if(!p.active)return 'This race does not grant this Fey Step.';
  if(!p.complete)return 'Choose your Eladrin season and Fey Step ability.';
- if(Number(c.hp?.current)<=0)return 'You must be conscious to use Fey Step.';
+ if(actorActionBlock(c))return actorActionBlock(c);
  const conditions=(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(norm);
  if(conditions.some(n=>['incapacitated','unconscious','paralyzed','stunned','petrified','dead'].includes(n)))return 'You cannot use Fey Step while incapacitated.';
  if(!p.remaining)return 'No Fey Step uses remaining.';

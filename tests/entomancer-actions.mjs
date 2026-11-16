@@ -66,5 +66,5 @@ for(const level of [10,14]){
 }
 c=A(make(18,'Orthoptera'),'harmonize');c=A(c,'serenade',{target:'Ally',distance:60,hp:1,canHear:true});assert.equal(c.entomancer.targets[0].healing,4);
 c=A(make(14,'Exo-Gotas'),'reflex-armor');assert(entomancerProfile(c).reflexArmor);c=A(c,'advance-time',{rounds:1});assert(!entomancerProfile(c).reflexArmor);
-c=A(make(18,'Exo-Gotas'),'invicta');c=entomancerDamage(c,9,{type:'fire',magical:true});assert.equal(c.hp.current,46);
+c=A(make(18,'Exo-Gotas'),'invicta');const combinedResistance=entomancerDamage(c,9,{type:'fire',magical:true,extraResistance:true});assert.equal(combinedResistance.hp.current,46);c=entomancerDamage(c,9,{type:'fire',magical:true});assert.equal(c.hp.current,46);
 c=entomancerDamage(c,9,{type:'force',magical:true,vulnerable:true});assert.equal(c.hp.current,28);

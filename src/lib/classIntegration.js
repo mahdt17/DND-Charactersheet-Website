@@ -1,3 +1,6 @@
+import {reconcileBladesinging} from './bladesinging.js';
+import {reconcileSubclassStates} from './subclassState.js';
+import {reconcileExpandedSubclasses} from './expandedSubclasses.js';
 import levels2014 from '../data/levels.json' with {type:'json'};
 import features2014 from '../data/features.json' with {type:'json'};
 import modern from '../data/srd2024.json' with {type:'json'};
@@ -943,7 +946,7 @@ function mergeDerived(existing,derived,{resource=false,feat=false}={}){
 }
 
 export function reconcileClassGrants(character){
-  character=migratePatronDeity35(character);
+  character=reconcileBladesinging(reconcileSubclassStates(reconcileExpandedSubclasses(migratePatronDeity35(character))));
   const rows=characterClasses(character),derived=rows.map(row=>derivedForRow(row,character));
   const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),training=derived.flatMap(x=>x.training||[]),classSkills35=derived.flatMap(x=>x.classSkills||[]),classSkillRules35=derived.flatMap(x=>x.classSkillRules||[]);
   let tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);

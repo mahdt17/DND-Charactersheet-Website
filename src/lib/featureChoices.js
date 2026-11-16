@@ -1,3 +1,5 @@
+import {expandedSubclassChoicePlan,findExpandedSubclass} from './expandedSubclasses.js';
+import {styleChoicePlan} from './fightingStyles.js';
 import {totemChoicePlan} from './totemWarrior.js';
 import {fighterChoicePlan} from './fighterSubclasses.js';
 import {isEntomancerRecord} from './entomancer.js';
@@ -434,9 +436,10 @@ function baseFeatureChoicePlan(c,previous=null,picks={},context={}) {
     if(previous&&edition==='2014'&&row.name==='Sorcerer'&&subclass==='draconic bloodline'&&norm(old?.subclass)!==subclass)grantLanguage('Draconic');
     if(row.name==='Bard'&&['lore','college of lore'].includes(subclass)&&row.level>=3&&(oldLevel<3||norm(old?.subclass)!==subclass)) {
       const id=`${edition}:Bard:3:lore-skills`;
-      if(!patch.featureChoices[id])grants.push({id,level:3,kind:'skills',count:3,label:'College of Lore bonus skills',className:'Bard',options:skillNames});
+      const savedExpandedLore=edition==='2014'&&c.expandedSubclassChoices?.[row.catalogId]?.['2014:subclass:bard:lore']?.['bonus-skills'];
+      if(!patch.featureChoices[id]&&!savedExpandedLore?.length)grants.push({id,level:3,kind:'skills',count:3,label:'College of Lore bonus skills',className:'Bard',options:skillNames});
     }
-    if(edition==='2014'&&row.name==='Cleric'&&['life','life domain'].includes(subclass)&&row.level>=1&&(oldLevel<1||norm(old?.subclass)!==subclass)) {
+    if(edition==='2014'&&!findExpandedSubclass(row.name,row.subclass)&&row.name==='Cleric'&&['life','life domain'].includes(subclass)&&row.level>=1&&(oldLevel<1||norm(old?.subclass)!==subclass)) {
       const classId='2014:Cleric:life-training';
       if(!patch.trainingGrants.some(g=>g.classId===classId))patch.trainingGrants.push({classId,className:'Cleric · Life Domain',edition,proficiencies:[{index:'heavy-armor',name:'Heavy armor',kind:'armor'}]});
     }
@@ -464,9 +467,13 @@ function baseFeatureChoicePlan(c,previous=null,picks={},context={}) {
   return {groups,patch,valid};
 }
 export function featureChoicePlan(c,previous=null,picks={},context={}) {
- const base=baseFeatureChoicePlan(c,previous,picks,context),fighter=fighterChoicePlan({...c,...base.patch},previous,picks);
+ const base=baseFeatureChoicePlan(c,previous,picks,context),styles=styleChoicePlan({...c,...base.patch},previous,picks),fighter=fighterChoicePlan({...c,...base.patch,...styles.patch},previous,picks);
  const totem=totemChoicePlan({...c,...base.patch,...fighter.patch},previous,picks);
- return {groups:[...base.groups,...fighter.groups,...totem.groups],patch:{...base.patch,...fighter.patch,...totem.patch},valid:base.valid&&fighter.valid&&totem.valid};
+ // This choice must precede Expertise. The expanded reconciler migrates the
+ // completed legacy choice to its source without showing a duplicate prompt.
+ const usesBaseLoreChoice=base.groups.some(group=>group.id==='2014:Bard:3:lore-skills');
+ const expanded=expandedSubclassChoicePlan({...c,...base.patch,...styles.patch,...fighter.patch,...totem.patch},previous,picks,{...context,usesBaseLoreChoice});
+ return {groups:[...base.groups,...styles.groups,...fighter.groups,...totem.groups,...expanded.groups],patch:{...base.patch,...styles.patch,...fighter.patch,...totem.patch,...expanded.patch},valid:base.valid&&styles.valid&&fighter.valid&&totem.valid&&expanded.valid};
 }
 export function applyFeatureChoices(c,previous,picks,context={}) {
   const plan=featureChoicePlan(c,previous,picks,context);

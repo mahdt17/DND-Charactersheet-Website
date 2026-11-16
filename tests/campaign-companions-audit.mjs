@@ -76,8 +76,8 @@ test('incapacitated characters cannot start or work projects but may cancel paid
  const s={catalogId:'2014:audit-copy',name:'Cure Wounds',edition:'2014',level:1,classes:['Cleric']};
  let c=W.startCampaignProject(fresh(),{kind:'copy',spell:s,source:'Temple',materialsConfirmed:true});const id=c.archivistCampaign.projects[0].id;
  c={...c,hp:{...c.hp,current:0}};
- assert.throws(()=>W.startCampaignProject(c,{kind:'copy',spell:s,source:'Temple',materialsConfirmed:true}),/incapacitated|unconscious|revival/i);
- assert.throws(()=>W.workCampaignProject(c,id,1),/incapacitated|unconscious|revival/i);
+ assert.throws(()=>W.startCampaignProject(c,{kind:'copy',spell:s,source:'Temple',materialsConfirmed:true}),/incapacitated|conscious|revival/i);
+ assert.throws(()=>W.workCampaignProject(c,id,1),/incapacitated|conscious|revival/i);
  assert.equal(W.cancelCampaignProject(c,id).archivistCampaign.projects[0].status,'cancelled');
 });
 test('shared surgery damage supports saved character condition text',()=>{
@@ -89,7 +89,7 @@ test('graft installation requires a conscious living crafter after work is compl
  c=W.startCampaignProject(c,{kind:'graft',recipeId:'chitin',targetId,materialsConfirmed:true});const job=c.archivistCampaign.projects[0];c=W.workCampaignProject(c,job.id,job.hours);
  for(const values of [{hp:{...c.hp,current:0}},{conditions:['Stunned']},{archivistCampaign:{...c.archivistCampaign,dead:true}}]){
   const blocked={...c,...values},before=structuredClone(blocked);
-  assert.throws(()=>W.finishCampaignProject(blocked,job.id,{medicine:30}),/incapacitated|unconscious|revival/i);
+  assert.throws(()=>W.finishCampaignProject(blocked,job.id,{medicine:30}),/incapacitated|conscious|revival/i);
   assert.deepEqual(blocked,before);assert.equal(W.cancelCampaignProject(blocked,job.id).archivistCampaign.projects[0].status,'cancelled');
  }
  const finished=W.finishCampaignProject(c,job.id,{medicine:30});assert.equal(finished.archivistCampaign.creatures[0].grafts.length,1);

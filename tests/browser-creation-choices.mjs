@@ -43,7 +43,7 @@ try{
  const cantrips=page.getByRole('region',{name:'Cantrips',exact:true});
  for(const name of ['Guidance','Druidcraft']){
   await cantrips.getByLabel('Search spells',{exact:true}).fill(name);
-  await cantrips.getByRole('button',{name:new RegExp(`^Select ${name} \\(5e · SRD 5.1`)}).click();
+  await cantrips.getByRole('button',{name:`Select ${name} (5e)`,exact:true}).click();
  }
  await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();
  await page.locator('.sheet-identity').filter({hasText:'Custom swarm creation'}).waitFor();
@@ -61,7 +61,7 @@ try{
   await next();
   assert(await nextDisabled(),'Supported class spell additions are required');
   const additions=page.getByRole('region',{name:'New spells',exact:true});
-  for(const name of names){await additions.getByLabel('Search spells',{exact:true}).fill(name);await additions.getByRole('button',{name:new RegExp(`^Select ${name} \\(5e · SRD 5.1`)}).click();}
+  for(const name of names){await additions.getByLabel('Search spells',{exact:true}).fill(name);await additions.getByRole('button',{name:`Select ${name} (5e)`,exact:true}).click();}
   await next();await page.getByRole('button',{name:'Apply level up'}).click();
   await page.locator('.sheet-heading').filter({hasText:`Entomancer ${level}`}).waitFor();
  }
@@ -74,7 +74,7 @@ try{
  await page.getByRole('button',{name:'Manage spells'}).click();
  assert.equal(await page.getByRole('region',{name:'Class cantrips',exact:true}).count(),1,'Custom Entomancer uses limited class spell management');
  const {allSpells}=await server.ssrLoadModule('/src/lib/editions.js');
- const imported={...await saved(),name:'Over-limit swarm',classLevels:undefined,level:1,spells:allSpells.filter(s=>s.edition==='2014'&&['Guidance','Druidcraft','Mending'].includes(s.name)).map((s,i)=>({...s,id:'excess-'+i,prepared:true}))};
+ const imported={...await saved(),name:'Over-limit swarm',classLevels:undefined,level:1,spells:['guidance','druidcraft','mending'].map(id=>allSpells.find(s=>s.catalogId===`2014:${id}`)).map((s,i)=>({...s,id:'excess-'+i,prepared:true}))};
  assert.equal(imported.spells.length,3);
  await page.locator('input[type=file]').setInputFiles({name:'excess-swarm.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(imported))});
  await page.locator('.sheet-identity').filter({hasText:'Over-limit swarm'}).waitFor();

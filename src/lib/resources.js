@@ -1,3 +1,8 @@
+import {specialRecoveryRest,featureCastingRest} from './subclassRest.js';
+import {quantityRest,quantityProfile,quantityPatch} from './subclassQuantities.js';
+import {bladesongResources,bladesongId} from './bladesinging.js';
+import {expandedSubclassResources} from './expandedSubclasses.js';
+import {styleResources,isTechniqueResource} from './fightingStyles.js';
 import {totemRageResource,totemRageId,endTotemRage} from './totemWarrior.js';
 import {fighterResources,fighterResourceIds,clearCavalierMarks} from './fighterSubclasses.js';
 import {leoninResource,leoninRoarId,isLeonin,endDauntingRoar} from './leonin.js';
@@ -18,8 +23,8 @@ const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.homebrew||r?.
 // Reviewed core class counters only. Feature effects, conversions, and initiative
 // triggers remain explicit player actions. Rules sources are in APPLICATION_INTEGRATION.
 export function classResourceDefinitions(c,abilities=c.abilities||{}) {
-  const edition=c.ruleset||'2014',rows=characterClasses(c),revised=edition==='2024';
-  const population=entomancerResource(c),fey=eladrinResource(c),shadow=blessingResource(c),lion=leoninResource(c),result=[...(totemRageResource(c)?[totemRageResource(c)]:[]),...fighterResources(c),...aasimarResources(c),...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[]),...(shadow?[shadow]:[]),...(lion?[lion]:[])];
+  const edition=(c.ruleset==='custom'?(c.mechanics||'custom'):c.ruleset)||'2014',rows=characterClasses(c),revised=edition==='2024';
+  const population=entomancerResource(c),fey=eladrinResource(c),shadow=blessingResource(c),lion=leoninResource(c),result=[...bladesongResources(c),...expandedSubclassResources(c),...(totemRageResource(c)?[totemRageResource(c)]:[]),...fighterResources(c),...styleResources(c),...aasimarResources(c),...campaignResources(c),...(population?[population]:[]),...(fey?[fey]:[]),...(shadow?[shadow]:[]),...(lion?[lion]:[])];
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return result;
   for(const row of rows) {
     const n=row.level,cls=row.name;
@@ -63,12 +68,12 @@ export function characterResources(c,abilities) {
   // Rebuild the source-owned reserve from its saved expenditure so imported IDs
   // and manual flags cannot separate tracker spending from swarm actions.
   const totemManaged=definitions.some(d=>d.totemManaged),hasNativeRage=definitions.some(d=>d.classResourceKey===totemRageId);
-  const resources=saved.filter(r=>!((r.totemManaged||r.id===totemRageId||r.classResourceKey===totemRageId)&&(totemManaged||r.totemManaged&&!hasNativeRage))&&!r.raceManaged&&!r.fighterManaged&&!fighterResourceIds.includes(r.id)&&!shadarKaiResourceIds.includes(r.id)&&![aasimarHealingId,aasimarTransformationId].includes(r.id)&&r.id!==feyStepId&&r.id!==leoninRoarId&&!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
+  const resources=saved.filter(r=>!r.bladesongManaged&&r.id!==bladesongId&&r.classResourceKey!==bladesongId&&!r.expandedSubclassManaged&&!((r.totemManaged||r.id===totemRageId||r.classResourceKey===totemRageId)&&(totemManaged||r.totemManaged&&!hasNativeRage))&&!r.raceManaged&&!r.fighterManaged&&!r.styleManaged&&!isTechniqueResource(r)&&!fighterResourceIds.includes(r.id)&&!shadarKaiResourceIds.includes(r.id)&&![aasimarHealingId,aasimarTransformationId].includes(r.id)&&r.id!==feyStepId&&r.id!==leoninRoarId&&!r.campaignManaged&&![campaignPPId,campaignDarkId].includes(r.id)&&r.classResourceKey!==populationId&&r.id!==populationId).map(r=>{
     const definition=definitions.find(d=>d.classResourceKey===r.classResourceKey);
     return {...r,...(definition&&!r.manual?definition:{}),id:r.id,used:count(r.used),...(r.totemManaged&&!definition?.totemManaged?{totemManaged:false}:{})};
   });
   for(const d of definitions) {
-    if(d.id===populationId||d.campaignManaged||d.raceManaged||d.fighterManaged||d.totemManaged){resources.push(d);continue;}
+    if(d.bladesongManaged||d.expandedSubclassManaged||d.id===populationId||d.campaignManaged||d.raceManaged||d.fighterManaged||d.styleManaged||d.totemManaged){resources.push(d);continue;}
     if(d.id!==populationId&&c.hiddenClassResources?.includes(d.classResourceKey))continue;
     // Preserve older hand-entered pools and their rules until explicitly adopted.
     if(resources.some(r=>r.classResourceKey===d.classResourceKey||(!r.classResourceKey&&resourceMatches(r,d))))continue;
@@ -89,7 +94,8 @@ export function adjustResource(c,id,amount,abilities) {
   if(r.unlimited)return {...migration,resources};
   if(amount>0&&count(r.used)+amount>count(r.max))throw Error('Not enough resource uses remaining.');
   const used=Math.max(0,count(r.used)+amount);
-  return {...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
+  if(r.quantityManaged){const p=quantityProfile(c,r.key);if(!p)throw Error('This source quantity is not available.');return {...migration,...quantityPatch(c,p,r.max-used),resources:resources.map(x=>x.id===id?{...x,used}:x)};}
+  return {...(id==='2014:Druid:wild-shape'&&amount>0?{activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='symbiotic-entity'&&!(e.stateKey==='druid-companion'&&e.kind==='wildfire-ua'))}:{}),...migration,...([sharedPowerPointsId35,campaignPPId].includes(id)?{powerPointsUsed:used}:{}),...(id===campaignDarkId?{archivistCampaign:{...c.archivistCampaign,darkUsed:used}}:{}),resources:resources.map(x=>x.id===id?{...x,used}:x)};
 }
 export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=false,eladrin,shadarKai}={},abilities) {
   if(!['short','long'].includes(rest))throw Error('Choose a short or long rest.');
@@ -104,5 +110,5 @@ export function restResources(c,rest,{meditated=false,restoreSorcery=false,fed=f
   const shadow=isShadarKai(c)?endBlessingWard({...c,...(rest==='long'?finishShadarKaiTrance(c,shadarKai):{})}):{};
   const campaign=campaignRest({...c,resources},rest);
   const entomancer=entomancerRest(campaign,rest,{fed});
-  return {...migration,...shadow,...(isLeonin(c)?endDauntingRoar(c):{}),...(c.totemWarrior?.activeRage?endTotemRage(c):{}),...(c.fighterSubclass?.cavalier?.marks?.length?clearCavalierMarks(c):{}),...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
+  return {...specialRecoveryRest(c,rest),...featureCastingRest(c,rest),...quantityRest(c,rest),...migration,...shadow,...(isLeonin(c)?endDauntingRoar(c):{}),...(c.totemWarrior?.activeRage?{totemWarrior:endTotemRage(c).totemWarrior}:{}),...(c.fighterSubclass?.cavalier?.marks?.length?clearCavalierMarks(c):{}),...(isAasimar(c)?endAasimarTransformation(c):{}),...(rest==='long'?finishEladrinTrance(c,eladrin):{}),...(campaignProfile(c).active?{archivistCampaign:campaign.archivistCampaign,powerPointsUsed:campaign.powerPointsUsed}:{}),resources:entomancer.resources,...(rest==='short'&&entomancer.hp!==c.hp?{hp:entomancer.hp}:{}),...(entomancer.entomancer?{entomancer:entomancer.entomancer}:{}),...(rest==='long'?{sorcerousRestorationUsed:false,...(normalized.powerPointsUsed!=null?{powerPointsUsed:0}:{})}:restored?{sorcerousRestorationUsed:true}:{})};
 }

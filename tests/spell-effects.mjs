@@ -1,0 +1,102 @@
+import assert from 'node:assert/strict';
+import {createServer} from 'vite';
+import fs from 'node:fs/promises';
+const server=await createServer({server:{middlewareMode:true},optimizeDeps:{noDiscovery:true,include:[]}});
+try {
+ const {armorFor,sheetArmorFor,rollDice}=await server.ssrLoadModule('/src/lib/rules.js');
+ const effects=await server.ssrLoadModule('/src/lib/spellEffects.js');
+ const scores={str:10,dex:16,con:18,int:18,wis:18,cha:10};
+ const wizard={ruleset:'2014',className:'Wizard',level:5,inventory:[],hp:{current:3,max:20,temp:2},autoArmor:true};
+ const shield={id:'spell:shield',key:'shield',name:'Shield',acBonus:5,expires:'start-next-turn'};
+ assert.equal(armorFor({...wizard,activeEffects:[shield]},scores),18,'Shield contributes +5 AC');
+ assert.equal(typeof effects.castEffectPatch,'function','Casting must produce a sheet effect patch');
+ const apply=(c,s,options={})=>({...c,...effects.castEffectPatch(c,s,options)});
+ const mage={name:'Mage Armor',level:1,range:'Touch',duration:'8 hours'},shieldSpell={name:'Shield',level:1,range:'Self'};
+ let c=apply(wizard,mage,{recipient:'self'});
+ assert.equal(armorFor(c,scores),16,'Mage Armor supplies 13+Dex');
+ assert.equal(armorFor({...c,className:'Barbarian'},scores),17,'Alternative base formulas use the strongest, never stack');
+ c=apply(c,shieldSpell);
+ assert.equal(armorFor(c,scores),21,'Shield adds to Mage Armor');
+ c=apply(c,shieldSpell);assert.equal(c.activeEffects.length,2,'Recasts replace the same named effect');
+ c=JSON.parse(JSON.stringify(c));assert.equal(armorFor(c,scores),21,'Effects survive saved-character round trips');
+ const armored={...c,inventory:[{equipmentIndex:'chain-mail',equipped:true}]};
+ assert.equal(armorFor(armored,scores),21,'Wearing armor immediately suppresses Mage Armor');
+ const equipped={...armored,...effects.reconcileEffects(armored,c)};
+ assert.equal(armorFor({...equipped,inventory:[]},scores),18,'Unequipping armor does not restore the ended Mage Armor spell');
+ assert.equal(armorFor({...c,inventory:[{equipmentIndex:'leather-armor',equipped:true}]},scores),19,'Mage Armor cannot supersede worn leather armor');
+ const donned={...c,inventory:[{equipmentIndex:'leather-armor',equipped:true}]};assert.equal(effects.reconcileEffects(donned,c).activeEffects.some(e=>e.key==='mage armor'),false,'Donning armor ends Mage Armor');
+ assert.throws(()=>apply(donned,mage,{recipient:'self'}),/armor/i,'An armored creature cannot receive Mage Armor');
+ assert.equal(armorFor({...c,ruleset:'3.5'},scores),13,'3.5 excludes 5e effects');
+ assert.equal(sheetArmorFor({...c,autoArmor:false,ac:19},scores),24,'Manual base AC retains additive effects');
+ c={...c,...effects.advanceEffectTime(c,{startTurn:true})};
+ assert.equal(armorFor(c,scores),16,'Shield ends at the start of the next turn');
+ c={...c,...effects.advanceEffectTime(c,{seconds:28799})};assert.equal(armorFor(c,scores),16);
+ c={...c,...effects.advanceEffectTime(c,{seconds:1})};assert.equal(armorFor(c,scores),13,'Mage Armor ends after 8 hours of game time');
+ c=apply(wizard,mage,{recipient:'other'});assert.equal(armorFor(c,scores),13,'Another recipient does not receive a caster AC effect');
+ assert.throws(()=>apply(wizard,mage),/recipient/i,'Touch buffs require a recipient');
+ assert.throws(()=>apply(wizard,shieldSpell,{recipient:'other'}),/self/i,'Self-range spells cannot be assigned to another creature');
+ const heal={name:'Cure Wounds',heal_at_slot_level:{1:'1d8+MOD'}};
+ assert.throws(()=>apply(wizard,heal,{recipient:'self'}),/healing.*result/i,'Missing roll prevents healing cast');
+ assert.throws(()=>apply(wizard,heal,{recipient:'none',rolls:[{label:'Healing',total:5}]}),/recipient/i);
+ c=apply(wizard,heal,{recipient:'self',rolls:[{label:'Healing',total:8}]});assert.equal(c.hp.current,11,'One existing roll heals once');assert.equal(c.hp.temp,2);
+ c=apply(wizard,heal,{recipient:'self',rolls:[{label:'Healing',total:99}]});assert.equal(c.hp.current,20,'Healing is capped');
+ c=apply(wizard,heal,{recipient:'self',maxHP:10,rolls:[{label:'Healing',total:99}]});assert.equal(c.hp.current,10,'Effective maximum HP is respected');
+ c=apply(wizard,heal,{recipient:'other',rolls:[{label:'Healing',total:8}]});assert.equal(c.hp.current,3,'Other target never heals caster');
+ assert.deepEqual(effects.castEffectPatch({...wizard,ruleset:'3.5'},heal),{},'3.5 casting is untouched');
+ const concentrating={...wizard,concentration:'Old',activeEffects:[{...shield,concentration:'Old'},{id:'other',name:'Other',acBonus:1}]};
+ c=apply(concentrating,{name:'New',concentration:true});assert.equal(c.concentration,'New');assert.deepEqual(c.activeEffects.map(x=>x.id),['other'],'New concentration cleans old owned effects');
+ c={...concentrating,...effects.reconcileEffects({...concentrating,concentration:null})};assert.deepEqual(c.activeEffects.map(x=>x.id),['other']);
+ c={...concentrating,...effects.endEffect(concentrating,'spell:shield')};assert.equal(c.concentration,null,'Ending a concentration-owned effect ends concentration');
+ const {createCatalogService}=await server.ssrLoadModule('/src/lib/catalog.js');
+ const {permittedSpells}=await server.ssrLoadModule('/src/lib/editions.js');
+ const catalog=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
+ const references=await catalog.load('2014/spells');
+ const choices=permittedSpells({...wizard,level:20},references);
+ for(const name of ['Absorb Elements','Booming Blade','Mind Sliver',"Tasha's Caustic Brew",'Augury','Enhance Ability','Speak with Dead','Divination','Gift of Alacrity','Immovable Object','Summon Fiend','Blade of Disaster'])assert(choices.some(s=>s.name===name),`Expanded Wizard list must permit ${name}`);
+ const index=JSON.parse(await fs.readFile('tests/fixtures/wizard-spell-index.json','utf8'));
+ for(const spell of index.spells)assert(choices.some(s=>s.sourceUrl===spell.url),`Full linked Wizard index missing ${spell.name}`);
+ assert.equal(typeof effects.restEffectPatch,'function','Rests must expire timed spell effects');
+ c=apply(apply(wizard,mage,{recipient:'self'}),shieldSpell);
+ c={...c,...effects.restEffectPatch(c,'short')};assert.equal(armorFor(c,scores),16);assert.equal(c.activeEffects[0].remainingSeconds,25200,'Short rest advances 1 hour');
+ c={...c,...effects.restEffectPatch(c,'long')};assert.equal(armorFor(c,scores),13,'Long rest advances 8 hours');
+ c=apply(wizard,{name:'Shield of Faith',concentration:true},{recipient:'self'});assert.equal(armorFor(c,scores),15,'Shield of Faith adds2');
+ c=apply(c,{name:'Haste',concentration:true},{recipient:'self'});assert.equal(armorFor(c,scores),15,'New concentration replaces the prior AC bonus');assert.equal(c.activeEffects.length,1);
+ c={...c,...effects.advanceEffectTime(c,{seconds:60})};assert.equal(armorFor(c,scores),13);
+ c=apply(wizard,{name:'Barkskin',concentration:true},{recipient:'self'});assert.equal(armorFor(c,scores),16,'Barkskin is a minimum final AC');
+ const revisedBark=apply({...wizard,ruleset:'2024'},{name:'Barkskin',edition:'2024'},{recipient:'self'});assert.equal(armorFor(revisedBark,scores),17,'Revised Barkskin retains its separate minimum17');
+ c=apply({...c,inventory:[{equipmentIndex:'shield',equipped:true}]},shieldSpell);assert.equal(armorFor(c,scores),20,'Barkskin floor does not add to shield bonuses');
+ assert.equal(sheetArmorFor({...c,autoArmor:false,ac:8},scores),16,'Barkskin also floors manual final AC');
+ c=apply(wizard,{name:'Haste',concentration:true},{recipient:'other'});assert.equal(armorFor(c,scores),13);assert.equal(c.concentration,'Haste','Caster still concentrates on another recipient');
+ assert.throws(()=>apply(wizard,{name:'Warding Bond'},{recipient:'self'}),/another creature/i,'A spell for another creature cannot target the caster');
+ for(const name of ['Aura of Vitality','Goodberry','Vampiric Touch']){
+  c=apply(wizard,{name,heal_at_slot_level:{1:'1d6'}},{recipient:'self',rolls:[{label:'Healing',total:8}]});assert.equal(c.hp.current,3,`${name} healing requires a later trigger`);
+ }
+ const {spellPlan}=await server.ssrLoadModule('/src/lib/play.js');
+ const {allSpells}=await server.ssrLoadModule('/src/lib/editions.js');
+ for(const [name,slot,label] of [['False Life',1,'Temporary HP'],['Aid',2,'Maximum and current HP increase']]){
+  const spell=allSpells.find(s=>s.edition==='2014'&&s.name===name),plan=spellPlan(spell,wizard,slot,4);
+  c=apply(wizard,spell,{recipient:'self',plan,rolls:[{label,total:5}]});
+  assert.equal(c.hp.current,3,`${name} must not become ordinary healing`);assert.equal(c.hp.max,20);assert.equal(c.hp.temp,name==='False Life'?5:2);
+  assert.equal(effects.healingSpell(spell,plan),false);assert.equal(plan.rolls[0].label,label);if(name==='Aid')assert.match(plan.notes,/table/i,'Unsupported HP semantics must be explicit');
+  if(name==='False Life'){
+   c=apply({...wizard,hp:{...wizard.hp,temp:12},deathSaves:{success:1,failure:2}},spell,{plan,rolls:[{label,total:5}]});assert.equal(c.hp.temp,12,'False Life never stacks with or lowers higher existing temporary HP');assert.deepEqual(c.deathSaves,{success:1,failure:2});
+   assert.throws(()=>apply(wizard,spell,{plan}),/temporary.*result/i,'A missing temporary HP roll must fail before spending');
+  }
+ }
+ const revisedFalseLife=allSpells.find(s=>s.edition==='2024'&&s.name==='False Life'),revisedTempPlan=spellPlan(revisedFalseLife,wizard,1,4);
+ assert.equal(revisedTempPlan.rolls[0]?.expression,'2d4+4','Revised False Life preserves its separate two-die formula');
+ const heal70=allSpells.find(s=>s.edition==='2014'&&s.name==='Heal');const healPlan=spellPlan(heal70,wizard,6,4);assert.equal(healPlan.rolls[0].expression,'70');
+ c=apply({...wizard,hp:{current:10,max:100}},heal70,{recipient:'self',plan:healPlan,rolls:[{label:'Healing',total:70}]});assert.equal(c.hp.current,80);
+ const {bondAncientCompanion}=await server.ssrLoadModule('/src/lib/subclassLorehold.js');
+ const {healingFeaturePlan}=await server.ssrLoadModule('/src/lib/subclassHealing.js');
+ let healer={ruleset:'2014',className:'Bard',subclass:'Mage of Lorehold (UA)',level:6,classDefinition:{name:'Bard',index:'bard',edition:'2014'},abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:16},hp:{current:5,max:30,temp:0},resources:[],activeEffects:[],inventory:[],spells:[],actions:[],expandedSubclassChoices:{'2014:bard':{'2014:subclass:bard:mage-of-lorehold-ua':{'later-subclass-feature:6':['Lessons of the Past']}}}};
+ healer={...healer,...bondAncientCompanion(healer,{kind:'Healer',confirmed:true})};
+ for(const [name,want,total] of [['Cure Wounds','1d8+1d8+3',19],['Healing Word','1d4+1d8+3',15]]){
+  const spell=allSpells.find(s=>s.edition==='2014'&&s.name===name),base=spellPlan(spell,healer,1,3),self=healingFeaturePlan(healer,spell,base,{slotLevel:1,recipient:'self'});
+  assert.equal(self.rolls[0].expression,want);const visible=rollDice(self.rolls[0].expression,'normal',()=>0.99);assert.equal(visible.total,total);
+  const healed=apply(healer,spell,{recipient:'self',plan:self,rolls:[{label:self.rolls[0].label,total:visible.total}],maxHP:36});assert.equal(healed.hp.current,11+total,'Reuse exactly the displayed base and Healer roll total');
+  const other=healingFeaturePlan(healer,spell,base,{slotLevel:1,recipient:'other'});assert.equal(other.rolls[0].expression,name==='Cure Wounds'?'1d8+3':'1d4+3');
+  assert.deepEqual(apply(healer,spell,{recipient:'other',plan:other,rolls:[{label:other.rolls[0].label,total:rollDice(other.rolls[0].expression,'normal',()=>0.99).total}],maxHP:36}).hp,healer.hp,'Other healing neither adds Healer die nor heals the caster');
+ }
+ console.log('PASS Shield/Mage Armor bases and bonuses, manual AC, recasting, equipment restrictions, persistence, game-time and turn expiry, recipient healing/caps/validation, concentration cleanup and 3.5 isolation');
+}finally{await server.close();}

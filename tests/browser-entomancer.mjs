@@ -9,7 +9,7 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.BR
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
 const choose=name=>page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:new RegExp(`^${name}$`)})}).first().click();
-const selectSpell=async(region,name)=>{await region.getByLabel('Search spells',{exact:true}).fill(name);await region.getByRole('button',{name:new RegExp(`^Select ${name} \\(5e · SRD 5.1`)}).click();};
+const selectSpell=async(region,name)=>{await region.getByLabel('Search spells',{exact:true}).fill(name);await region.getByRole('button',{name:`Select ${name} (5e)`,exact:true}).click();};
 const importChar=async c=>{await page.locator('input[type=file]').setInputFiles({name:'entomancer.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();};
 const population=()=>page.getByRole('group',{name:'Population resource'}).locator('.resource-count');
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+rows.find(r=>r.name===name).id)).value);},name);

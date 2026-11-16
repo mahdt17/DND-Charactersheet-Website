@@ -2,6 +2,8 @@ import {totemAnimals,totemBenefits,totemFeatures,totemFeatureNames,totemSourceUr
 import {effectiveAbilityScores} from './abilityScores.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 import spells from '../data/spells.json' with {type:'json'};
+import {rageProfile,rageCastingBlock} from './rage2014.js';
+import {actorActionBlock,actorBodyHP,actorDeathBlock,consciousAtZero,retainsOwnFeatures} from './subclassState.js';
 
 export const totemRageId='2014:Barbarian:rage';
 const count=n=>Math.max(0,Math.floor(Number(n)||0));
@@ -15,8 +17,8 @@ const sourceRow=(r,c)=>{
 };
 const totemRow=c=>((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')==='2014'?rows(c).find((r,i)=>sourceRow(r,c)&&['totem warrior','path of the totem warrior'].includes(norm(r.subclass??(i===0?c.subclass:'')))):null;
 const conditions=c=>(Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',')).map(n=>norm(typeof n==='object'?n?.name:n));
-const incapacitated=c=>Number(c.hp?.current??1)<=0||conditions(c).some(n=>['dead','incapacitated','unconscious','paralyzed','stunned','petrified'].includes(n));
-const rageEnded=c=>Number(c.hp?.current??1)<=0||conditions(c).some(n=>['dead','unconscious'].includes(n));
+const incapacitated=c=>!!actorActionBlock(c);
+const rageEnded=c=>!retainsOwnFeatures(c)||!!actorDeathBlock(c)||actorBodyHP(c)<=0&&!consciousAtZero(c)||conditions(c).some(n=>['dead','unconscious'].includes(n));
 export function totemActionBlockReason(c){return !totemRow(c)?'This character does not have the 2014 Totem Warrior path.':incapacitated(c)?'You cannot act while unconscious or incapacitated.':'';}
 export const totemHeavyArmor=c=>(c.inventory||[]).some(i=>i.equipped&&norm(i.armor_category||equipment.find(e=>e.index===i.equipmentIndex)?.armor_category)==='heavy');
 export function totemProfile(c,abilities,walkingSpeed){
@@ -24,7 +26,7 @@ export function totemProfile(c,abilities,walkingSpeed){
  const total=rows(c).reduce((n,r)=>n+count(r.level),0)+(c.classLevels?.length?0:count(c.otherClassLevels));
  const pb=2+Math.floor((Math.max(1,total)-1)/4),str=Math.floor((Number((abilities||effectiveAbilityScores(c)).str??10)-10)/2);
  const choice=(key,min)=>level>=min&&totemAnimals.includes(s[key])?s[key]:'';
- const spirit=choice('spirit',3),aspect=choice('aspect',6),attunement=choice('attunement',14),activeRage=level>=3&&!!s.activeRage&&!rageEnded(c),heavyArmor=totemHeavyArmor(c);
+ const spirit=choice('spirit',3),aspect=choice('aspect',6),attunement=choice('attunement',14),activeRage=level>=3&&rageProfile(c).active&&!rageEnded(c),heavyArmor=totemHeavyArmor(c);
  const movementBonus=activeRage&&spirit==='Elk'&&!heavyArmor?15:0;
  const speed=walkingSpeed==null?Math.max(0,Number(c.speed)||0)+movementBonus:Math.max(0,Number(walkingSpeed)||0);
  const max=level>=17?6:level>=12?5:level>=6?4:level>=3?3:0,unlimited=level>=20;
@@ -39,10 +41,10 @@ export function totemRageResource(c){const p=totemProfile(c);return p.level>=3?{
 export function startTotemRage(c){
  const blocked=totemActionBlockReason(c);if(blocked)throw Error(blocked);
  const p=totemProfile(c);if(p.level<3)throw Error('Reach Barbarian level 3 before using Totem Warrior.');if(p.activeRage)throw Error('Rage is already active.');if(!p.unlimited&&!p.remaining)throw Error('No Rage uses remaining.');
- return {totemWarrior:{...c.totemWarrior,activeRage:true},concentration:'',resources:[...(c.resources||[]).filter(r=>r.id!==totemRageId&&r.classResourceKey!==totemRageId),{...totemRageResource(c),used:p.unlimited?p.used:p.used+1}]};
+ return {totemWarrior:{...c.totemWarrior,activeRage:true},concentration:'',activeEffects:[...(c.activeEffects||[]).filter(e=>!e.concentration&&e.stateKey!=='rage'),{id:'barbarian:rage',name:'Rage',stateKey:'rage',baseClassId:totemRageId,remainingSeconds:60}],resources:[...(c.resources||[]).filter(r=>r.id!==totemRageId&&r.classResourceKey!==totemRageId),{...totemRageResource(c),used:p.unlimited?p.used:p.used+1}]};
 }
-export const endTotemRage=c=>({totemWarrior:{...c.totemWarrior,activeRage:false}});
-export const totemCastingBlockReason=c=>totemProfile(c).activeRage?'You cannot cast spells or rituals while raging. End Rage first.':'';
+export const endTotemRage=c=>({totemWarrior:{...c.totemWarrior,activeRage:false},activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='rage')});
+export function totemCastingBlockReason(c){return rageCastingBlock(c);}
 const damageTypes=['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','radiant','slashing','thunder'];
 export function totemDamageResistance(c,type){const p=totemProfile(c);return p.activeRage&&(p.spirit==='Bear'&&damageTypes.includes(norm(type))||!p.heavyArmor&&['bludgeoning','piercing','slashing'].includes(norm(type))); }
 const beastSense={index:'beast-sense',name:'Beast Sense',level:2,casting_time:'1 action',range:'Touch',components:['S'],duration:'Concentration, up to 1 hour',concentration:true,description:'Touch a willing beast. Spend an action to perceive through its sight and hearing; spend another action to return to your own senses. See the linked spell source for the full effect.'};
@@ -65,7 +67,7 @@ export function reconcileTotemWarrior(c){
  for(const name of wanted){if(!skillProf[name]||oldOwned.includes(name))ownedSkills.push(name);skillProf[name]=true;}
  if(wanted.length)trainingGrants.push({id:'totem-warrior:tiger-training',classId:'totem-warrior:tiger-training',sourceClassId:p.classId,className:'Barbarian · Totem Warrior',edition:'2014',totemManaged:true,proficiencies:wanted.map(name=>({kind:'skills',name,index:`skill-${norm(name).replace(/ /g,'-')}`}))});
  const grantedFeatures=[...(c.grantedFeatures||[]).filter(f=>!f.totemManaged),...totemFeatureRows(c).map(f=>({...f,id:`totem-warrior:${f.index}`,sourceType:'subclass-grant',sourceClassId:p.classId,sourceClassName:'Barbarian',edition:'2014',sourceUrl:totemSourceUrl}))];
- return {...c,totemWarrior:{...s,ownedSkills,...(!p.level||rageEnded(c)?{activeRage:false}:{})},skillProf,trainingGrants,grantedFeatures};
+ return {...c,...(p.level&&rageEnded(c)?{activeEffects:(c.activeEffects||[]).filter(e=>e.stateKey!=='rage')}:{}),totemWarrior:{...s,ownedSkills,...(!p.level||rageEnded(c)?{activeRage:false}:{})},skillProf,trainingGrants,grantedFeatures};
 }
 export function totemChoicePlan(c,previous=null,picks={}){
  const p=totemProfile(c);if(p.level<3)return {groups:[],patch:{},valid:true};

@@ -20,7 +20,7 @@ export function castToolSpell(c,id,options={},participants=[]){
  const caster=conversionFeatCaster(c),row=characterClasses(c).find(r=>r.catalogId===caster?.id),model=row&&classCharacter(c,row);
  if(!model||!spellAccess(model,spell).allowed)throw Error('This spell is not available to the selected class.');
  const p=campaignProfile(c),ability=castingKey(model),modifier=Math.floor((p.scores[ability]-10)/2),counts=spellCounts(model,p.scores[ability]);
- const regular=spellsForClass(c,row.catalogId).filter(s=>!s.auto&&!spellAccess(model,resolveSpell(s,model)).alwaysPrepared),leveled=regular.filter(s=>Number(s.level)>0);
+ const regular=spellsForClass(c,row.catalogId).filter(s=>!s.auto&&!spellAccess(model,resolveSpell(s,model)).alwaysPrepared&&!spellAccess(model,resolveSpell(s,model)).bonusKnown),leveled=regular.filter(s=>Number(s.level)>0);
  if(regular.filter(s=>Number(s.level)===0).length>counts.cantrips||counts.mode==='known'&&leveled.length>counts.known||['prepared','spellbook'].includes(counts.mode)&&leveled.filter(s=>s.prepared).length>counts.prepared)throw Error('This class exceeds its spell limit. Review spell choices and preparation first.');
  if(Number(spell.level)>0&&['prepared','spellbook'].includes(counts.mode)&&!spell.prepared&&!spell.auto)throw Error('Prepare this class spell first.');
  if(reach&&(!hasConversionFeat(c,'Reach Spell')||String(spell.range).toLowerCase()!=='touch'))throw Error('Reach requires its feat and a Touch spell.');

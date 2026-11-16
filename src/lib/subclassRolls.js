@@ -1,0 +1,3 @@
+import {validRoll} from './subclassActionUtils.js';
+export const abilityName=key=>({str:'Strength',dex:'Dexterity',con:'Constitution',int:'Intelligence',wis:'Wisdom',cha:'Charisma'})[key];
+export function rollDescriptors(descriptors,roll,label){return descriptors.map((d,i)=>{const result=/^\d+$/.test(d.expression)?{total:Number(d.expression)}:roll?.(d.expression,`${d.kind==='save'?abilityName(d.ability)+' saving throw · ':''}${label} · ${d.label||`outcome roll ${i+1}`}`,{kind:d.kind==='raw'?'damage':d.kind,ability:d.ability,ignoreCharacterEffects:d.kind==='raw'});validRoll(result,{min:d.allowNegative||d.kind==='save'||d.kind==='attack'?-Infinity:0});return {...result,...d};});}

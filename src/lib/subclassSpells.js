@@ -1,7 +1,10 @@
-import subclasses14 from '../data/subclasses.json' with {type:'json'};
+import {expandedSubclassSpellGrants} from './expandedSubclasses.js';
 import spells14 from '../data/spells.json' with {type:'json'};
+import extraSpells from '../data/subclassSpellCatalog.json' with {type:'json'};
+import choiceSpells from '../data/subclassChoiceSpellCatalog.json' with {type:'json'};
+import subclasses14 from '../data/subclasses.json' with {type:'json'};
 import modern from '../data/srd2024.json' with {type:'json'};
-import {characterClasses,contentKey} from './advancement.js';
+import {characterClasses,classCharacter,contentKey} from './advancement.js';
 import {subclassCasting} from './subclassCasting.js';
 
 // Reviewed against the 2014 Basic Rules and 2024 Free Rules class tables:
@@ -33,6 +36,8 @@ export function subclassLandOptions(c){
 }
 export function subclassSpellGrants(c){
  const edition=c.classDefinition?.edition||c.ruleset||'2014';
+ const expanded=expandedSubclassSpellGrants(c);
+ if(expanded.length&&!subclassLandOptions(c).length)return expanded;
  const casting=subclassCasting(c);
  if(casting?.fixedCantrip)return [{name:casting.fixedCantrip,classLevel:3,edition,alwaysPrepared:true,source:c.subclass}];
  if(!['2014','2024'].includes(edition)||!aliases[c.className]?.includes(norm(c.subclass)))return [];
@@ -51,23 +56,24 @@ export function subclassSpellGrants(c){
   if(c.className==='Cleric')grants.push({name:'Guardian of Faith',classLevel:7});
   if(c.className==='Druid'&&land==='underdark')grants=entries(underdark14);
  }
- return grants.filter(g=>g.classLevel<=c.level).map(g=>({...g,edition,alwaysPrepared:edition==='2024'||c.className!=='Warlock',source:`${c.subclass}${land?` (${land})`:''}`}));
+ return [...expanded,...grants.filter(g=>g.classLevel<=c.level).map(g=>({...g,edition,alwaysPrepared:edition==='2024'||c.className!=='Warlock',source:`${c.subclass}${land?` (${land})`:''}`}))];
 }
 export function subclassSpellAccess(c,spell){
  if((spell.edition||'2014')!==(c.classDefinition?.edition||c.ruleset||'2014'))return null;
- return subclassSpellGrants(c).find(g=>norm(g.name)===norm(spell.name))||null;
+ return subclassSpellGrants(c).find(g=>norm(g.name)===norm(spell.name)&&!(g.inheritedRecordId&&!spell.classSpellGrant))||null;
 }
-const catalog={2014:spells14,2024:modern.spells};
+const catalog={2014:[...spells14,...extraSpells,...choiceSpells],2024:modern.spells};
 export function reconcileSubclassSpells(c){
  const rows=characterClasses(c),spells=(c.spells||[]).filter(s=>!s.classSpellGrant);
+ const declared=rows.flatMap(row=>subclassSpellGrants(classCharacter(c,row)).filter(g=>g.acquisition==='known').map(g=>({...g,classSpellGrant:true,castingClassId:row.catalogId})));
  for(const row of rows){
-  const model={...c,className:row.name,classDefinition:row.definition,subclass:row.subclass,level:row.level,ruleset:row.edition,activeCastingClassId:row.catalogId};
-  for(const grant of subclassSpellGrants(model).filter(g=>g.alwaysPrepared)){
+   const model={...classCharacter(c,row),allCharacterSpells:[...(c.spells||[]),...declared]};
+  for(const grant of subclassSpellGrants(model).filter(g=>g.alwaysPrepared||['known','spellbook'].includes(g.acquisition))){
    const data=catalog[row.edition]?.find(s=>norm(s.name)===norm(grant.name));
    if(!data)continue;
-   if(spells.some(s=>(s.castingClassId||rows[0].catalogId)===row.catalogId&&(s.edition||'2014')===row.edition&&norm(s.name)===norm(data.name)))continue;
-   const id=`subclass-spell:${row.catalogId}:${data.index}`,previous=(c.spells||[]).find(s=>s.classSpellGrant&&s.id===id);
-   spells.push({...data,...(previous?.rollFormula!=null?{rollFormula:previous.rollFormula}:{}),...(previous?.rollAttack!=null?{rollAttack:previous.rollAttack}:{}),edition:row.edition,catalogId:`${row.edition}:${data.index}`,id,castingClassId:row.catalogId,classSpellGrant:true,prepared:true,source:grant.source,description:data.description||data.desc?.join('\n\n')||'',school:typeof data.school==='object'?data.school.name:data.school});
+   if(!grant.inheritedRecordId&&spells.some(s=>(s.castingClassId||rows[0].catalogId)===row.catalogId&&(s.edition||'2014')===row.edition&&norm(s.name)===norm(data.name)))continue;
+   const id=`subclass-spell:${row.catalogId}:${grant.subclassRecordId||'legacy'}:${data.index||data.catalogId}`,previous=(c.spells||[]).find(s=>s.classSpellGrant&&(s.id===id||!s.subclassRecordId&&(s.castingClassId||rows[0]?.catalogId)===row.catalogId&&norm(s.name)===norm(data.name)));
+   spells.push({...data,...(previous?.rollFormula!=null?{rollFormula:previous.rollFormula}:{}),...(previous?.rollAttack!=null?{rollAttack:previous.rollAttack}:{}),edition:row.edition,catalogId:data.catalogId||`${row.edition}:${data.index}`,id,castingClassId:row.catalogId,classSpellGrant:true,...(grant.temporarySubclassSpell?{temporarySubclassSpell:true,sourceEffectId:grant.sourceEffectId}:{}),expandedSubclassManaged:!!grant.expandedSubclassManaged,subclassRecordId:grant.subclassRecordId,sourceAbility:grant.ability,acquisition:grant.acquisition,bonusKnown:!!grant.bonusKnown,prepared:grant.acquisition==='spellbook'?!!previous?.prepared:true,source:grant.source,description:data.description||data.desc?.join('\n\n')||'',school:typeof data.school==='object'?data.school.name:data.school});
   }
  }
  return spells;

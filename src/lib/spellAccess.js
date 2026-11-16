@@ -1,3 +1,4 @@
+import {findExpandedSubclass} from './expandedSubclassCatalog.js';
 import {contentKey, progressionRow} from './advancement.js';
 import {classSpellLists35} from './classSpellLists35.js';
 import {subclassSpellAccess} from './subclassSpells.js';
@@ -24,14 +25,16 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   if(special)return special;
   if(legacy&&prohibitedSpell(c,spell))return deny('This Wizard cannot cast spells from a prohibited school.');
   const subclassGrant=subclassSpellAccess(c,spell);
-  if(subclassGrant&&validLevel(spell.level))return {allowed:true,level:spell.level,alwaysPrepared:subclassGrant.alwaysPrepared,reason:`Granted by ${subclassGrant.source}`};
+  if(subclassGrant&&validLevel(spell.level))return {allowed:true,level:spell.level,alwaysPrepared:subclassGrant.alwaysPrepared,bonusKnown:!!subclassGrant.bonusKnown,ability:subclassGrant.ability,acquisition:subclassGrant.acquisition,reason:`Granted by ${subclassGrant.source}`};
   const classId=c.activeCastingClassId||contentKey(c.classDefinition||{name:c.className,edition});
+  if(edition==='2014'&&findExpandedSubclass(c.className,c.subclass)?.id==='2014:subclass:wizard:theurgy-ua'&&spell.theurgyBookSpell&&spell.sourceClassId===classId&&spell.subclassRecordId==='2014:subclass:wizard:theurgy-ua')return {allowed:true,level:spell.level,ability:'int',acquisition:'spellbook',reason:'Theurgy Arcane Initiate book spell'};
   const grants=(c.spellAccessGrants||[]).filter(g=>g.classId===classId&&Number(g.classLevel||1)<=c.level&&
     (g.spellId===(spell.catalogId||`${spell.edition||'2014'}:${spell.index||spell.id||spell.name}`))&&g.source);
   if(grants.length){const level=grants[0].spellLevel??spell.level;return validLevel(level)?{allowed:true,level,reason:`Granted by ${grants[0].source}`} : deny('Set a valid level for this granted spell.');}
   const profile=legacy?classSpellLists35[c.className]:null;
   const subclass=subclassCasting(c);
   const names=new Set([c.className,...(subclass?.active?[subclass.list]:[]),...(Array.isArray(c.classDefinition?.spellLists)?c.classDefinition.spellLists:[]),...(isEntomancerRecord(c.classDefinition)?entomancerSpellLists:[]),...(profile?.lists||[])].map(norm));
+  if(edition==='2014'&&findExpandedSubclass(c.className,c.subclass)?.id==='2014:subclass:sorcerer:divine-soul')names.add('cleric');
   const memberships=(spell.classes||[]).map(norm);
   const classLevels=Object.entries(spell.classLevels||{}).filter(([name,level])=>names.has(norm(name))&&validLevel(level));
   const addedLevel=profile?.spells?.[norm(spell.name).replaceAll('’',"'")];

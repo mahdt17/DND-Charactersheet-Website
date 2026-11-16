@@ -1,3 +1,4 @@
+import {campaignOwnerDead} from './campaignActivity.js';
 import {campaignProfile,useCampaignPower,hasConversionFeat} from './archivistCampaign.js';
 import {extendedPsionProfile,manifestExtendedPower} from './campaignPsionics.js';
 import {whole} from './campaignCreatures.js';
@@ -32,14 +33,14 @@ export function loadPsicrystalRing(c,{name,level,confirmed}={}){
  return {...c,inventory:c.inventory.map(i=>i.id===ring.id?{...i,storedSpells:[...stored,{name:spell,level:n}]}:i)};
 }
 export function reviveWithPsicrystal(c,index,{minutesSinceDeath,requirementsConfirmed,castingCompleted}={}){
- const conditions=Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',').map(x=>x.trim()).filter(Boolean),dead=c.archivistCampaign?.dead||Number(c.deathSaves?.failure||0)>=3||conditions.some(x=>String(x?.name??x).toLowerCase()==='dead')||Number(c.exhaustion||0)>=6;
- if(!dead)throw Error('Confirmed death is required.');
+ const conditions=Array.isArray(c.conditions)?c.conditions:String(c.conditions||'').split(',').map(x=>x.trim()).filter(Boolean);
  if(c.archivistCampaign?.soulDestroyed||c.soulDestroyed)throw Error('The soul must be available for revival.');
+ if(!campaignOwnerDead(c))throw Error('Confirmed death is required.');
  const ring=psicrystalRing(c);if(!ring||!psicrystalProfile(c).alive)throw Error('A living Psicrystal with its assigned ring is required.');
  const spells=ring.storedSpells||[],spell=spells[index],name=String(spell?.name||'').toLowerCase();if(!spell||!(name==='revivify'&&spell.level>=3&&spell.level<=5||(name==='raise dead'||name==='reincarnate')&&spell.level===5))throw Error('Select a stored eligible revival spell.');
  const minutes=Number(minutesSinceDeath);if(minutesSinceDeath==null||minutesSinceDeath===''||!Number.isFinite(minutes)||minutes<0)throw Error('Enter time since death in minutes.');
  if(name==='revivify'&&minutes>1)throw Error('Revivify requires death within one minute.');if(name!=='revivify'&&minutes>14400)throw Error('This spell requires death within ten days.');
  if(!requirementsConfirmed)throw Error('Confirm body access and all spell requirements.');if(name!=='revivify'&&(!castingCompleted||minutes<60))throw Error('Confirm the one-hour casting is complete.');
  const next=set(c,{lastRevival:{spell:spell.name,minutesSinceDeath:minutes}});
- return {...next,hp:{...c.hp,current:1},...(Number(c.exhaustion)>0?{exhaustion:Math.max(0,Number(c.exhaustion)-1)}:{}),deathSaves:{success:0,failure:0},conditions:conditions.filter(x=>String(x?.name??x).toLowerCase()!=='dead'),inventory:c.inventory.map(i=>i.id===ring.id?{...i,storedSpells:spells.filter((_,n)=>n!==index)}:i),archivistCampaign:{...next.archivistCampaign,dead:false}};
+ return {...next,dead:false,instantDeath:false,hp:{...c.hp,current:1},...(Number(c.exhaustion)>0?{exhaustion:Math.max(0,Number(c.exhaustion)-1)}:{}),deathSaves:{success:0,failure:0},conditions:conditions.filter(x=>String(x?.name??x).toLowerCase()!=='dead'),inventory:c.inventory.map(i=>i.id===ring.id?{...i,storedSpells:spells.filter((_,n)=>n!==index)}:i),archivistCampaign:{...next.archivistCampaign,dead:false}};
 }
