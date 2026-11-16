@@ -1281,9 +1281,10 @@ The action tracks Channel spend on confirmation.
 
 ### Level 17 · Stormborn
 
-- Numeric effects awaiting verification · flying-speed (Not underground or indoors)
-- Table fact · Confirm that the character is outdoors and aboveground.
-- Open sheet gap · The sheet does not show the feature flying speed based on current walking speed.
+With the confirmed outdoor and above-ground condition, the sheet displays a flying speed equal to current walking speed, including inherited Theurgy and retained Moon form; source change removes the setting.
+
+- Table fact · Confirm whether the character is indoors or underground and update the environment control.
+- Verification · subclass-theurgy-inheritance; browser-subclass-stormborn
 
 ## Cleric — Trickery
 

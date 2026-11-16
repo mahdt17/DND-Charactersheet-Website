@@ -1986,11 +1986,9 @@
   },
   "2014:subclass:cleric:tempest:stormborn": {
     "level": 17,
-    "unverifiedNumeric": [
-      "flying-speed (Not underground or indoors)"
-    ],
-    "gap": "The sheet does not show the feature flying speed based on current walking speed.",
-    "table": "Confirm that the character is outdoors and aboveground."
+    "table": "Confirm whether the character is indoors or underground and update the environment control.",
+    "claim": "With the confirmed outdoor and above-ground condition, the sheet displays a flying speed equal to current walking speed, including inherited Theurgy and retained Moon form; source change removes the setting.",
+    "test": "subclass-theurgy-inheritance; browser-subclass-stormborn"
   },
   "2014:subclass:cleric:tempest:thunderous-strike": {
     "level": 6,
