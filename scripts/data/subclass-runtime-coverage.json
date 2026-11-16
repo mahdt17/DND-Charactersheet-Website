@@ -8,7 +8,8 @@
     "gap": "No once-per-spell Intelligence (minimum +1) consumed by spell rolls or self healing."
   },
   "2014:subclass:artificer:alchemist:alchemist-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Owner Intelligence always-prepared spells at listed Artificer levels outside preparation quota."
   },
   "2014:subclass:artificer:alchemist:chemical-mastery": {
     "level": 15,
@@ -65,7 +66,8 @@
     "table": "Establish existing tool proficiency."
   },
   "2014:subclass:artificer:archivist-ua:archivist-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Owner Intelligence always-prepared spells at printed Artificer levels outside preparation quota."
   },
   "2014:subclass:artificer:archivist-ua:artificial-mind": {
     "level": 3,
@@ -135,13 +137,15 @@
     "gap": "No armor-piece infusion or extra infused-item cap integration."
   },
   "2014:subclass:artificer:armorer-ua:armorer-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Owner Intelligence always-prepared record-specific spells at printed Artificer levels outside preparation quota."
   },
   "2014:subclass:artificer:armorer-ua:extra-attack": {
     "level": 5,
     "numeric": [
       "attack-count (Attack action on own turn)"
-    ]
+    ],
+    "claim": "Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes."
   },
   "2014:subclass:artificer:armorer-ua:perfected-armor": {
     "level": 15,
@@ -214,13 +218,15 @@
     "gap": "No armor-piece infusion or extra infused-item cap integration."
   },
   "2014:subclass:artificer:armorer:armorer-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Owner Intelligence always-prepared record-specific spells at printed Artificer levels outside preparation quota."
   },
   "2014:subclass:artificer:armorer:extra-attack": {
     "level": 5,
     "numeric": [
       "attack-count (Attack action on own turn)"
-    ]
+    ],
+    "claim": "Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes."
   },
   "2014:subclass:artificer:armorer:perfected-armor": {
     "level": 15,
@@ -255,7 +261,8 @@
     "gap": "No inventory-marked firearm or once-per-spell d8 damage roll integration."
   },
   "2014:subclass:artificer:artillerist:artillerist-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Owner Intelligence always-prepared spells at printed Artificer levels outside preparation quota."
   },
   "2014:subclass:artificer:artillerist:eldritch-cannon": {
     "level": 3,
@@ -315,13 +322,15 @@
     "table": "Confirm magical status."
   },
   "2014:subclass:artificer:battle-smith:battle-smith-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Owner Intelligence always-prepared spells at printed Artificer levels outside preparation quota."
   },
   "2014:subclass:artificer:battle-smith:extra-attack": {
     "level": 5,
     "numeric": [
       "attack-count (Attack action)"
-    ]
+    ],
+    "claim": "Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes."
   },
   "2014:subclass:artificer:battle-smith:improved-defender": {
     "level": 15,
@@ -895,7 +904,8 @@
     "table": "Confirm eligible healing target/spell damage/weapon hit and creature context."
   },
   "2014:subclass:bard:mage-of-lorehold-ua:lorehold-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Source-known grants outside quota, clipped by owning class unlocks and source conditions recorded per spell."
   },
   "2014:subclass:bard:mage-of-lorehold-ua:war-echoes": {
     "level": 10,
@@ -907,7 +917,8 @@
     "choices": [
       "cantrip (advancement)",
       "skills (advancement)"
-    ]
+    ],
+    "claim": "Two of five skill proficiencies; either Sacred Flame or Vicious Mockery bonus cantrip as available under source."
   },
   "2014:subclass:bard:mage-of-silverquill-ua:infusion-of-eloquence": {
     "level": 10,
@@ -959,7 +970,8 @@
     "training": [
       "thieves' tools",
       "Sleight of Hand"
-    ]
+    ],
+    "claim": "Source-reconciled thieves' tools, Sleight of Hand and selectable skill."
   },
   "2014:subclass:bard:satire-ua:fools-insight": {
     "level": 6,
@@ -1084,13 +1096,17 @@
     "training": [
       "medium",
       "scimitar"
-    ]
+    ],
+    "claim": "Source-reconciled medium armor and scimitar training.",
+    "gap": "Spell tools do not enforce focus hand/equipment legality.",
+    "table": "Confirm melee weapon proficiency used as Bard focus."
   },
   "2014:subclass:bard:swords:extra-attack": {
     "level": 6,
     "numeric": [
       "attack-count (Attack action)"
-    ]
+    ],
+    "claim": "Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes."
   },
   "2014:subclass:bard:swords:fighting-style": {
     "level": 3,
@@ -1128,7 +1144,8 @@
       "medium",
       "shields",
       "martial"
-    ]
+    ],
+    "claim": "Source-reconciled medium armor, shield and martial weapon training."
   },
   "2014:subclass:bard:valor:combat-inspiration": {
     "level": 3,
@@ -1142,7 +1159,8 @@
     "level": 6,
     "numeric": [
       "attack-count (Attack action)"
-    ]
+    ],
+    "claim": "Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes."
   },
   "2014:subclass:bard:whispers:mantle-of-whispers": {
     "level": 6,
@@ -2196,7 +2214,8 @@
     "level": 2,
     "choices": [
       "bonus-cantrip (advancement)"
-    ]
+    ],
+    "claim": "One Druid bonus cantrip selected during advancement and reconciled separately from ordinary known quota."
   },
   "2014:subclass:druid:land:circle-spells": {
     "level": 3,
@@ -2249,7 +2268,8 @@
     "level": 2,
     "choices": [
       "skills (advancement)"
-    ]
+    ],
+    "claim": "Source-filtered two skill choices consumed by advancement training reconciliation."
   },
   "2014:subclass:druid:mage-of-prismari-ua:favored-medium": {
     "level": 6,
@@ -2349,7 +2369,8 @@
     "gap": "No owned brew/expiry, Hit Die healing/effect state, typed spell rider, or triggered healing integrated."
   },
   "2014:subclass:druid:mage-of-witherbloom-ua:witherbloom-spells": {
-    "level": 2
+    "level": 2,
+    "claim": "Owner-specific spell advancement materialization and additional source training where declared."
   },
   "2014:subclass:druid:mage-of-witherbloom-ua:withering-vortex": {
     "level": 14,
@@ -2490,7 +2511,8 @@
     "gap": "Missing totem aura state and own bear temp HP/strength advantage; summoned creatures' max-HP/healing benefits and Faithful Summons actor support are reference."
   },
   "2014:subclass:druid:spores:circle-spells": {
-    "level": 2
+    "level": 2,
+    "claim": "Owner Wisdom always-prepared list outside preparation quota, plus any explicit known cantrip."
   },
   "2014:subclass:druid:spores:fungal-body": {
     "level": 14,
@@ -2719,7 +2741,8 @@
     "gap": "No flame state/own heal or automatic revival/half-HP restoration and dismissal."
   },
   "2014:subclass:druid:wildfire:circle-spells": {
-    "level": 2
+    "level": 2,
+    "claim": "Owner Wisdom always-prepared list outside preparation quota, plus any explicit known cantrip."
   },
   "2014:subclass:druid:wildfire:enhanced-bond": {
     "level": 6,
@@ -2748,7 +2771,8 @@
     "gap": "No flame state/own heal or automatic endurance effect/dismissal."
   },
   "2014:subclass:druid:wildlife-ua:circle-spells": {
-    "level": 2
+    "level": 2,
+    "claim": "Owner Wisdom always-prepared list outside preparation quota, plus any explicit known cantrip."
   },
   "2014:subclass:druid:wildlife-ua:enhanced-bond": {
     "level": 6,
@@ -4175,10 +4199,13 @@
     "gap": "No one-minute state, +10 start-turn self heal or action→bonus cast consumption."
   },
   "2014:subclass:paladin:ancients:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:ancients:tenets-of-the-ancients": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:ancients:undying-sentinel": {
     "level": 15,
@@ -4229,7 +4256,8 @@
     "gap": "Missing minute state for own all-damage resistance, extra attack, 19–20 melee weapon crit range."
   },
   "2014:subclass:paladin:conquest:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:conquest:scornful-rebuke": {
     "level": 15,
@@ -4240,7 +4268,9 @@
     "table": "Verify frightened creature in aura and turn start, or attack hit and paladin not incapacitated; apply psychic damage at table."
   },
   "2014:subclass:paladin:conquest:tenets-of-conquest": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:crown:channel-divinity": {
     "level": 3,
@@ -4279,10 +4309,13 @@
     "gap": "No transformation state applying self nonmagical weapon physical resistance and saving-throw advantage."
   },
   "2014:subclass:paladin:crown:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:crown:tenets-of-the-crown": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:crown:unyielding-saint": {
     "level": 15,
@@ -4328,7 +4361,8 @@
     "gap": "No timed nimbus state or contextual advantage on own saves."
   },
   "2014:subclass:paladin:devotion:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:devotion:purity-of-spirit": {
     "level": 15,
@@ -4336,7 +4370,9 @@
     "gap": "Own charmed immunity and always-on Protection from Evil and Good contextual defenses lack consumers."
   },
   "2014:subclass:paladin:devotion:tenets-of-devotion": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:glory:aura-of-alacrity": {
     "level": 7,
@@ -4386,10 +4422,13 @@
     "gap": "No minute check-advantage/miss-to-hit/save-reroll state or level-5-slot alternate cost."
   },
   "2014:subclass:paladin:glory:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:glory:tenets-of-glory": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:heroism-ua:channel-divinity": {
     "level": 3,
@@ -4437,10 +4476,13 @@
     "gap": "No own temp-HP application or once-per-turn enforcement."
   },
   "2014:subclass:paladin:heroism-ua:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:heroism-ua:tenets-of-heroism": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:oathbreaker:aura-of-hate": {
     "level": 7,
@@ -4479,7 +4521,8 @@
     "gap": "No timed state or contextual incoming attack disadvantage."
   },
   "2014:subclass:paladin:oathbreaker:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:oathbreaker:supernatural-resistance": {
     "level": 15,
@@ -4537,10 +4580,13 @@
     "gap": "No own 1d6+half Paladin capped healing below half max."
   },
   "2014:subclass:paladin:redemption-ua:redemption-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota; source variant list."
   },
   "2014:subclass:paladin:redemption-ua:tenets-of-redemption": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:redemption-ua:warrior-of-reconciliation": {
     "level": 3,
@@ -4583,7 +4629,8 @@
     "gap": "No eligible incoming resistance consumer; reflection and source exclusion require adjudication."
   },
   "2014:subclass:paladin:redemption:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:redemption:protective-spirit": {
     "level": 15,
@@ -4595,7 +4642,9 @@
     "gap": "No own 1d6+half Paladin capped healing below half max."
   },
   "2014:subclass:paladin:redemption:tenets-of-redemption": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:treachery-ua:aura-of-treachery": {
     "level": 7,
@@ -4654,10 +4703,13 @@
     "gap": "No own timed invisibility, movement/teleport or advantage damage state."
   },
   "2014:subclass:paladin:treachery-ua:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:treachery-ua:tenets-of-treachery": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:vengeance:avenging-angel": {
     "level": 20,
@@ -4686,7 +4738,8 @@
     "gap": "No named Vow target state supplying own attack advantage."
   },
   "2014:subclass:paladin:vengeance:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:vengeance:relentless-avenger": {
     "level": 7,
@@ -4707,7 +4760,9 @@
     "gap": "No Vow-linked reaction attack callback."
   },
   "2014:subclass:paladin:vengeance:tenets-of-vengeance": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:watchers-ua:aura-of-the-sentinel": {
     "level": 7,
@@ -4747,10 +4802,13 @@
     "gap": "No duration state or own special-target attack advantage/truesight integration."
   },
   "2014:subclass:paladin:watchers-ua:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:watchers-ua:tenets-of-the-watchers": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:watchers-ua:vigilant-rebuke": {
     "level": 15,
@@ -4798,10 +4856,13 @@
     "gap": "No duration state or own special-target attack advantage/truesight integration."
   },
   "2014:subclass:paladin:watchers:oath-spells": {
-    "level": 3
+    "level": 3,
+    "claim": "Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota."
   },
   "2014:subclass:paladin:watchers:tenets-of-the-watchers": {
-    "level": 3
+    "level": 3,
+    "claim": "Printed oath text.",
+    "table": "Interpret roleplay promises at the table."
   },
   "2014:subclass:paladin:watchers:vigilant-rebuke": {
     "level": 15,
@@ -6071,7 +6132,8 @@
     "level": 1,
     "numeric": [
       "hp-max-bonus"
-    ]
+    ],
+    "claim": "Owner class-level HP bonus in normal HP calc/advancement."
   },
   "2014:subclass:sorcerer:favored-soul-revisited-ua:unearthly-recovery": {
     "level": 18,
@@ -6092,7 +6154,8 @@
       "medium",
       "shields",
       "simple"
-    ]
+    ],
+    "claim": "Light armor, medium armor, shields and simple weapons consumed by training."
   },
   "2014:subclass:sorcerer:favored-soul-ua:chosen-of-the-gods": {
     "level": 1,
@@ -6118,7 +6181,8 @@
     "level": 6,
     "numeric": [
       "attack-count (Attack action)"
-    ]
+    ],
+    "claim": "Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes."
   },
   "2014:subclass:sorcerer:favored-soul-ua:power-of-the-chosen": {
     "level": 18,
@@ -6142,7 +6206,8 @@
     "level": 1,
     "numeric": [
       "hp-max-bonus"
-    ]
+    ],
+    "claim": "Owner class-level HP bonus in normal HP calc/advancement."
   },
   "2014:subclass:sorcerer:giant-soul-ua:mark-of-the-ordning": {
     "level": 1,
@@ -6333,7 +6398,8 @@
     "level": 1,
     "choices": [
       "creative-skills (advancement)"
-    ]
+    ],
+    "claim": "Source-filtered two skill choices consumed by advancement training reconciliation."
   },
   "2014:subclass:sorcerer:mage-of-prismari-ua:favored-medium": {
     "level": 6,
@@ -6402,7 +6468,8 @@
     "level": 1,
     "actions": [
       "Quandrix Spells: source rules or unverified dedicated path (You learn the cantrip Guidance and the 1st-level spell Guiding Bolt. You learn additional spells when you reach certain levels in this class, as shown on the Quandrix Spells table. Each of these spells counts as a class spell for you, but it doesn’t count against the number of spells you know. If you are a wizard, you can add these spells to your spellbook upon learning them, without expending any gold, and prepare them as normal.)"
-    ]
+    ],
+    "claim": "Source known spells at owning unlock outside normal quotas."
   },
   "2014:subclass:sorcerer:mage-of-quandrix-ua:quantum-tunneling": {
     "level": 14,
@@ -6501,7 +6568,9 @@
     "gap": "Die declared here is separate from some own effects detailed in the feature."
   },
   "2014:subclass:sorcerer:psionic-soul-ua:psionic-origin": {
-    "level": 1
+    "level": 1,
+    "claim": "Source roleplay reference.",
+    "table": "Choose origin or consult source roll."
   },
   "2014:subclass:sorcerer:psionic-soul-ua:psionic-talent": {
     "level": 1,
@@ -6646,7 +6715,9 @@
     "table": "Confirm target, placement/path, Pack Tactics and whether neighbor's spell save disadvantage applies."
   },
   "2014:subclass:sorcerer:shadow-magic:shadow-sorcerer-quirks": {
-    "level": 1
+    "level": 1,
+    "claim": "Source roleplay reference.",
+    "table": "Select or roll a quirk and roleplay it."
   },
   "2014:subclass:sorcerer:shadow-magic:shadow-walk": {
     "level": 14,
@@ -6724,7 +6795,8 @@
       "shields",
       "simple",
       "martial"
-    ]
+    ],
+    "claim": "Shields and simple/martial weapons consumed by training."
   },
   "2014:subclass:sorcerer:stone-sorcery-ua:earth-masters-aegis": {
     "level": 18,
@@ -6840,7 +6912,9 @@
     "gap": "No flight speed/costed shared flight duration state."
   },
   "2014:subclass:sorcerer:storm-sorcery:wind-speaker": {
-    "level": 1
+    "level": 1,
+    "claim": "Source language grants where reconciled (Primordial).",
+    "table": "Dialect communication across Aquan/Auran/Ignan/Terran."
   },
   "2014:subclass:sorcerer:wild-magic:bend-luck": {
     "level": 6,
@@ -6899,7 +6973,10 @@
     ],
     "actions": [
       "Beguiling Defenses: source rules or unverified dedicated path (Beginning at 10th level, your patron teaches you how to turn the mind-affecting magic of your enemies against them. You are immune to being charmed, and when another creature attempts to charm you, you can use your reaction to attempt to turn the charm back on that creature. The creature must succeed on a Wisdom saving throw against your warlock spell save DC or be charmed by you for 1 minute or until the creature takes any damage.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No own charm immunity or dedicated reaction.",
+    "table": "Confirm charm attempt and source Wisdom save/reflection."
   },
   "2014:subclass:warlock:archfey:dark-delirium": {
     "level": 14,
@@ -6908,13 +6985,17 @@
     ],
     "actions": [
       "Dark Delirium: spends 1 from expanded:2014:warlock:2014:subclass:warlock:archfey:resource:dark-delirium (Starting at 14th level, you can plunge a creature into an illusory realm. As an action, choose a creature that you can see within 60 feet of you. It must make a Wisdom saving throw against your warlock spell save DC. On a failed save, it is charmed or frightened by you (your choice) for 1 minute or until your concentration is broken (as if you are concentrating on a spell). This effect ends early if the creature takes any damage. You must finish a short or long rest before you can use this feature again.)"
-    ]
+    ],
+    "claim": "Generic use where routed.",
+    "gap": "Misty Escape lacks timed own invisibility; Dark Delirium no concentration.",
+    "table": "Confirm visibility/range, trigger, creatures and Wisdom saves."
   },
   "2014:subclass:warlock:archfey:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Archfey lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:archfey:fey-presence": {
     "level": 1,
@@ -6923,7 +7004,10 @@
     ],
     "actions": [
       "Fey Presence: spends 1 from expanded:2014:warlock:2014:subclass:warlock:archfey:resource:fey-presence (Starting at 1st level, your patron bestows upon you the ability to project the beguiling and fearsome presence of the fey. As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn.)"
-    ]
+    ],
+    "claim": "Generic use where routed.",
+    "gap": "Misty Escape lacks timed own invisibility; Dark Delirium no concentration.",
+    "table": "Confirm visibility/range, trigger, creatures and Wisdom saves."
   },
   "2014:subclass:warlock:archfey:misty-escape": {
     "level": 6,
@@ -6932,23 +7016,31 @@
     ],
     "actions": [
       "Misty Escape: spends 1 from expanded:2014:warlock:2014:subclass:warlock:archfey:resource:misty-escape (Starting at 6th level, you can vanish in a puff of mist in response to harm. When you take damage, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell.)"
-    ]
+    ],
+    "claim": "Generic use where routed.",
+    "gap": "Misty Escape lacks timed own invisibility; Dark Delirium no concentration.",
+    "table": "Confirm visibility/range, trigger, creatures and Wisdom saves."
   },
   "2014:subclass:warlock:celestial-ua:bonus-cantrips": {
-    "level": 1
+    "level": 1,
+    "claim": "Light and Sacred Flame outside ordinary known quota."
   },
   "2014:subclass:warlock:celestial-ua:celestial-resistance": {
     "level": 10,
     "unverifiedNumeric": [
       "temporary-hp (Finish short or long rest)",
       "ally-temporary-hp (Up to five visible creatures chosen at rest end)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No automatic self level+Cha temp HP on rest.",
+    "table": "Confirm rest, select eligible visible allies and apply temp HP."
   },
   "2014:subclass:warlock:celestial-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Celestial lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:celestial-ua:healing-light": {
     "level": 1,
@@ -6957,7 +7049,10 @@
     ],
     "dedicated": [
       "healing-light via executeTriggeredFeature / executeConditionalAction (Creature visible within60ft. Choose1..max(1,cha) available dice; cost is chosen dice count.)"
-    ]
+    ],
+    "claim": "Distinct source long-rest die pool.",
+    "gap": "Published-only healing handler omits variants, generic action is hidden.",
+    "table": "Confirm range and allocation."
   },
   "2014:subclass:warlock:celestial-ua:radiant-soul": {
     "level": 6,
@@ -6969,7 +7064,10 @@
     ],
     "actions": [
       "Radiant Soul: source rules or unverified dedicated path (Starting at 6th level, your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to that damage against one target of your choice.)"
-    ]
+    ],
+    "claim": "Own typed radiant resistance.",
+    "gap": "No Cha bonus to one eligible damage roll.",
+    "table": "Confirm qualifying radiant/fire spell."
   },
   "2014:subclass:warlock:celestial-ua:searing-vengeance": {
     "level": 14,
@@ -6978,23 +7076,31 @@
     ],
     "actions": [
       "Searing Vengeance: spends 1 from expanded:2014:warlock:2014:subclass:warlock:celestial-ua:resource:searing-vengeance (Starting at 14th level, the radiant energy you channel allows you to overcome grievous injuries. When you have to make a death saving throw at the start of your turn, you can instead spring back to your feet with a burst of radiant energy. You regain hit points equal to half your hit point maximum, and then you stand up, if you so choose. Each creature of your choice that is within 30 feet of you takes radiant damage equal to 2d8 + your Charisma modifier, and it is blinded until the end of the current turn.)"
-    ]
+    ],
+    "claim": "Long-rest source pool.",
+    "gap": "Published-only healingFeatures excludes variants; generic action cannot activate while at zero.",
+    "table": "Confirm zero-HP and range facts using variant."
   },
   "2014:subclass:warlock:celestial:bonus-cantrips": {
-    "level": 1
+    "level": 1,
+    "claim": "Light and Sacred Flame outside ordinary known quota."
   },
   "2014:subclass:warlock:celestial:celestial-resistance": {
     "level": 10,
     "unverifiedNumeric": [
       "temporary-hp (Finish short or long rest)",
       "ally-temporary-hp (Up to five visible creatures chosen at rest end)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No automatic self level+Cha temp HP on rest.",
+    "table": "Confirm rest, select eligible visible allies and apply temp HP."
   },
   "2014:subclass:warlock:celestial:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Celestial lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:celestial:healing-light": {
     "level": 1,
@@ -7004,7 +7110,9 @@
     "dedicated": [
       "healing-light via executeTriggeredFeature / executeConditionalAction (Creature visible within60ft. Choose1..max(1,cha) available dice; cost is chosen dice count.)",
       "healing-light via useHealingFeature"
-    ]
+    ],
+    "claim": "Dedicated 1+owner level pool; up to Cha (minimum 1) d6, visible combined roll and capped self heal.",
+    "table": "Confirm visible creature/range; other recipient HP at table."
   },
   "2014:subclass:warlock:celestial:radiant-soul": {
     "level": 6,
@@ -7016,7 +7124,10 @@
     ],
     "actions": [
       "Radiant Soul: source rules or unverified dedicated path (Starting at 6th level, your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to one radiant or fire damage roll of that spell against one of its targets.)"
-    ]
+    ],
+    "claim": "Own typed radiant resistance.",
+    "gap": "No Cha bonus to one eligible damage roll.",
+    "table": "Confirm qualifying radiant/fire spell."
   },
   "2014:subclass:warlock:celestial:searing-vengeance": {
     "level": 14,
@@ -7028,13 +7139,16 @@
     ],
     "dedicated": [
       "searing-vengeance via useHealingFeature"
-    ]
+    ],
+    "claim": "Dedicated zero-HP death-save replacement, visible 2d8+Cha, tracked long-rest spend, capped half max HP own heal.",
+    "table": "Confirm start of turn/zero HP; standing choice and external radiant damage/blinded until turn end."
   },
   "2014:subclass:warlock:fathomless:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Fathomless lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:fathomless:fathomless-plunge": {
     "level": 14,
@@ -7043,13 +7157,18 @@
     ],
     "actions": [
       "Fathomless Plunge: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fathomless:resource:fathomless-plunge (When you reach 14th level, you can magically open temporary conduits to watery destinations. As an action, you can teleport yourself and up to five other willing creatures that you can see within 30 feet of you. Amid a whirl of tentacles, you all vanish and then reappear up to 1 mile away in a body of water you've seen (pond size or larger) or within 30 feet of it, each of you appearing in an unoccupied space within 30 feet of the others.)"
-    ]
+    ],
+    "claim": "Generic source use.",
+    "table": "Confirm willing creatures, appropriate water and destination."
   },
   "2014:subclass:warlock:fathomless:gift-of-the-sea": {
     "level": 1,
     "unverifiedNumeric": [
       "swim-speed (Also breathe underwater)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "Swim speed and breathing lack sheet consumer.",
+    "table": "Determine underwater position."
   },
   "2014:subclass:warlock:fathomless:grasping-tentacles": {
     "level": 10,
@@ -7058,19 +7177,27 @@
     ],
     "actions": [
       "Grasping Tentacles: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fathomless:resource:grasping-tentacles (Starting at 10th level, you learn the spell Evard's Black Tentacles. It counts as a warlock spell for you, but it doesn't count against the number of spells you know. You can also cast it once without using a spell slot, and you regain the ability to do so when you finish a long rest. Whenever you cast this spell, your patron's magic bolsters you, granting you a number of temporary hit points equal to your warlock level. Moreover, damage can't break your concentration on this spell.)"
-    ]
+    ],
+    "claim": "Generic source use.",
+    "gap": "No dedicated free Black Tentacles with self temp HP and concentration protection.",
+    "table": "Confirm target and spell area/save."
   },
   "2014:subclass:warlock:fathomless:guardian-coil": {
     "level": 6,
     "actions": [
       "Guardian Coil: source rules or unverified dedicated path (At 6th level, your Tentacle of the Deeps can defend you and others, interposing itself between them and harm. When you or a creature you can see takes damage while within 10 feet of the tentacle, you can use your reaction to choose one of those creatures and reduce the damage to that creature by 1d8. When you reach 10th level in this class, the damage reduced by the tentacle increases to 2d8.)"
-    ]
+    ],
+    "claim": "Generic tentacle pool.",
+    "gap": "No persisted tentacle tied to movement/range/actual strike or self damage reduction.",
+    "table": "Confirm target, range, reach, tentacle position, cold hit, and damage-to-ally context."
   },
   "2014:subclass:warlock:fathomless:oceanic-soul": {
     "level": 6,
     "numeric": [
       "resistance"
-    ]
+    ],
+    "claim": "Typed cold resistance.",
+    "table": "Confirm underwater speech."
   },
   "2014:subclass:warlock:fathomless:tentacle-of-the-deep": {
     "level": 1,
@@ -7079,7 +7206,10 @@
     ],
     "actions": [
       "Tentacle of the Deep: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fathomless:resource:tentacle-summon (At 1st level, you can magically summon a spectral tentacle that strikes at your foes. As a bonus action, you create a 10-foot-long tentacle at a point you can see within 60 feet of you. The tentacle lasts for 1 minute or until you use this feature to create another tentacle. When you create the tentacle, you can make a melee spell attack against one creature within 10 feet of it. On a hit, the target takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn. When you reach 10th level in this class, the damage increases to 2d8. As a bonus action on your turn, you can move the tentacle up to 30 feet and repeat the attack. You can summon the tentacle a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)"
-    ]
+    ],
+    "claim": "Generic tentacle pool.",
+    "gap": "No persisted tentacle tied to movement/range/actual strike or self damage reduction.",
+    "table": "Confirm target, range, reach, tentacle position, cold hit, and damage-to-ally context."
   },
   "2014:subclass:warlock:fiend:dark-ones-blessing": {
     "level": 1,
@@ -7091,7 +7221,10 @@
     ],
     "dedicated": [
       "dark-ones-blessing via useHealingFeature"
-    ]
+    ],
+    "claim": "Dedicated confirmed hostile kill grants self temporary HP from level+Cha.",
+    "gap": "Minimum 1 missing at low Cha.",
+    "table": "Confirm owner reduced hostile creature to zero."
   },
   "2014:subclass:warlock:fiend:dark-ones-own-luck": {
     "level": 6,
@@ -7100,13 +7233,17 @@
     ],
     "dedicated": [
       "dark-luck via executeTriggeredFeature / executeConditionalAction (After initial roll but before effects occur.)"
-    ]
+    ],
+    "claim": "Dedicated visible d10 plus real rest spend.",
+    "gap": "Separate result does not patch original roll.",
+    "table": "Confirm eligible check/save before adjudication."
   },
   "2014:subclass:warlock:fiend:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:fiend:fiendish-resilience": {
     "level": 10,
@@ -7115,7 +7252,10 @@
     ],
     "actions": [
       "Fiendish Resilience: source rules or unverified dedicated path (Starting at 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance.)"
-    ]
+    ],
+    "claim": "Rest damage-type choice stored.",
+    "gap": "Choice does not affect incoming typed damage.",
+    "table": "Confirm chosen type and silvered/magic weapon exceptions."
   },
   "2014:subclass:warlock:fiend:hurl-through-hell": {
     "level": 14,
@@ -7124,7 +7264,10 @@
     ],
     "actions": [
       "Hurl Through Hell: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fiend:resource:hurl-through-hell (Starting at 14th level, when you hit a creature with an attack, you can use this feature to instantly transport the target through the lower planes. The creature disappears and hurtles through a nightmare landscape. At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target is not a fiend, it takes 10d10 psychic damage as it reels from its horrific experience.)"
-    ]
+    ],
+    "claim": "Generic use.",
+    "gap": "No dedicated external 10d10 output/control.",
+    "table": "Confirm attack hit, target type and return position after next turn."
   },
   "2014:subclass:warlock:genie-ua:elemental-gift": {
     "level": 6,
@@ -7137,7 +7280,10 @@
     ],
     "actions": [
       "Elemental Gift: spends 1 from expanded:2014:warlock:2014:subclass:warlock:genie-ua:resource:elemental-gift (In addition, as a bonus action, you can give yourself a flying speed of 30 feet that lasts for 10 minutes, during which you can hover. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)"
-    ]
+    ],
+    "claim": "Genie choice gates spell access; generic pools where offered.",
+    "gap": "No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.",
+    "table": "Confirm vessel item/occupants, type, placement, hit and rest timing."
   },
   "2014:subclass:warlock:genie-ua:expanded-spell-list": {
     "level": 1,
@@ -7146,7 +7292,8 @@
     ],
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Genie lets you choose from an expanded list of spells when you learn a warlock spell. The Genie Expanded Spells table shows the genie spells that are added to the warlock spell list for you, along with the spells associated in the table with your patron’s kind: dao, djinni, efreeti, or marid.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:genie-ua:genies-vessel": {
     "level": 1,
@@ -7155,25 +7302,35 @@
     ],
     "actions": [
       "Genie’s Vessel: source rules or unverified dedicated path (At 1st level, your patron gifts you a magical vessel that grants you a measure of the genie’s power. The vessel is a Tiny object, and you can use it as a spellcasting focus for your warlock spells. You decide what the object is, or you can determine what it is randomly by rolling on the Genie’s Vessel table. While you are touching the vessel, you can use it in the following ways: - Bottled Respite: As an action, you can magically vanish and enter your vessel, which remains in the space you left. The interior of the vessel is an extradimensional space in the shape of a 20-foot-radius cylinder, 20 feet high, and resembles your vessel. The interior is comfortably appointed with cushions and low tables and is a comfortable temperature. While inside, you can hear the area around your vessel as if you were in its space. You can remain inside the vessel up to a number of hours equal to twice your proficiency bonus. You exit the vessel early if you use a bonus action to leave, if you die, or if the vessel is destroyed. When you exit the vessel, you appear in the unoccupied space closest to it. Any objects left in the vessel remain there until carried out, and if the vessel is destroyed, every object stored there harmlessly appears in the unoccupied spaces closest to the vessel’s former space. Once you enter the vessel, you can’t enter again until you finish a long rest. - Genie’s Wrath: Once during each of your turns when you hit with an attack roll, you can deal extra damage to the target equal to your proficiency bonus. The type of this damage is determined by your patron: bludgeoning (dao), thunder (djinni), fire (efreeti), or cold (marid). If the vessel is destroyed or you lose it, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and the previous vessel is destroyed if it still exists. The vessel vanishes in a flare of elemental power when you die.)"
-    ]
+    ],
+    "claim": "Genie choice gates spell access; generic pools where offered.",
+    "gap": "No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.",
+    "table": "Confirm vessel item/occupants, type, placement, hit and rest timing."
   },
   "2014:subclass:warlock:genie-ua:limited-wish": {
     "level": 14,
     "resources": [
       "Limited Wish; 1 uses at probe level; none reset"
-    ]
+    ],
+    "claim": "Resource declaration.",
+    "gap": "Published-only cooldown handler excludes UA; generic Limited Wish is hidden.",
+    "table": "Confirm spell/source requirements."
   },
   "2014:subclass:warlock:genie-ua:sanctuary-vessel": {
     "level": 10,
     "actions": [
       "Sanctuary Vessel: source rules or unverified dedicated path (At 10th level, when you enter your Genie’s Vessel via the Bottled Respite feature, you can now choose up to five willing creatures that you can see within 30 feet of you, and the chosen creatures are drawn into the vessel with you. As a bonus action, you can eject any number of creatures from the vessel, and everyone is ejected if you leave or the vessel is destroyed. In addition, anyone (including you) who remains within the vessel for at least 10 minutes gains the benefit of finishing a short rest, and anyone can add your proficiency bonus to the number of hit points they regain if they spend any Hit Dice as part of a short rest there.)"
-    ]
+    ],
+    "claim": "Genie choice gates spell access; generic pools where offered.",
+    "gap": "No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.",
+    "table": "Confirm vessel item/occupants, type, placement, hit and rest timing."
   },
   "2014:subclass:warlock:ghost-in-the-machine-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Ghost in the Machine lets you choose from an expanded list of spells when you learn a warlock spell. You gain the On/Off\\* cantrip, and the following new spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:ghost-in-the-machine-ua:information-surge": {
     "level": 1,
@@ -7182,10 +7339,14 @@
     ],
     "actions": [
       "Information Surge: spends 1 from expanded:2014:warlock:2014:subclass:warlock:ghost-in-the-machine-ua:resource:information-surge (At 1st level, you gain the ability to temporarily render computerized devices inoperable. As an action, you can target a computerized device within 30 feet of you. If the targeted device is held or otherwise actively used by a living creature, that creature must make an Intelligence saving throw against your spell save DC. On a failed save, the targeted device ceases to function until the end of your next turn. If the targeted device is not held or used by a creature, the DM makes a special saving throw for the device with disadvantage and a +0 modifier. Certain shielded devices might negate the disadvantage, at the DM’s determination.)"
-    ]
+    ],
+    "claim": "Generic uses where routed.",
+    "table": "Confirm devices, connectivity/range, valid external targets/saves and resulting effects."
   },
   "2014:subclass:warlock:ghost-in-the-machine-ua:personal-encryption": {
-    "level": 10
+    "level": 10,
+    "claim": "Generic uses where routed.",
+    "table": "Confirm devices, connectivity/range, valid external targets/saves and resulting effects."
   },
   "2014:subclass:warlock:ghost-in-the-machine-ua:technovirus": {
     "level": 14,
@@ -7194,7 +7355,9 @@
     ],
     "actions": [
       "Technovirus: spends 1 from expanded:2014:warlock:2014:subclass:warlock:ghost-in-the-machine-ua:resource:technovirus (At 14th level, you gain the ability to infect a humanoid’s body with living circuitry. You can use an action to make a melee attack against a humanoid creature using your spell attack modifier. The target must make a Constitution saving throw against your spell save DC as a techno-organic virus quickly spreads through its body. On a failed save, the target takes 8d10 psychic damage, or half as much damage on a successful one. Additionally, if the target fails the saving throw, you can use an action to issue it a single command, as if you were casting the Command spell. The target makes its saving throw against your command with disadvantage. You can issue this command at any time while the target remains infected.)"
-    ]
+    ],
+    "claim": "Generic uses where routed.",
+    "table": "Confirm devices, connectivity/range, valid external targets/saves and resulting effects."
   },
   "2014:subclass:warlock:ghost-in-the-machine-ua:wire-walk": {
     "level": 6,
@@ -7203,16 +7366,23 @@
     ],
     "actions": [
       "Wire Walk: spends 1 from expanded:2014:warlock:2014:subclass:warlock:ghost-in-the-machine-ua:resource:wire-walk (Starting at 6th level, you gain the ability to travel short distances over electrical wires, data lines, or telephone cables. As a bonus action, you can touch a device or socket connected to a hardwired network and teleport along this network to another device or socket within your line of sight.)"
-    ]
+    ],
+    "claim": "Generic uses where routed.",
+    "table": "Confirm devices, connectivity/range, valid external targets/saves and resulting effects."
   },
   "2014:subclass:warlock:great-old-one:awakened-mind": {
-    "level": 1
+    "level": 1,
+    "claim": "Source rules.",
+    "table": "Confirm telepathic recipient/range/language."
   },
   "2014:subclass:warlock:great-old-one:create-thrall": {
     "level": 14,
     "actions": [
       "Create Thrall: source rules or unverified dedicated path (At 14th level, you gain the ability to infect a humanoid's mind with the alien magic of your patron. You can use your action to touch an incapacitated humanoid. That creature is then charmed by you until a Remove Curse spell is cast on it, the charmed condition is removed from it, or you use this feature again.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No persistent thrall relationship control.",
+    "table": "Confirm incapacitated humanoid touch, removal conditions and communication."
   },
   "2014:subclass:warlock:great-old-one:entropic-ward": {
     "level": 6,
@@ -7221,31 +7391,41 @@
     ],
     "actions": [
       "Entropic Ward: spends 1 from expanded:2014:warlock:2014:subclass:warlock:great-old-one:resource:entropic-ward (At 6th level, you learn to magically ward yourself against attack and to turn an enemy's failed strike into good luck for yourself. When a creature makes an attack roll against you, you can use your reaction to impose disadvantage on that roll. If the attack misses you, your next attack roll against the creature has advantage if you make it before the end of your next turn.)"
-    ]
+    ],
+    "claim": "Generic source use.",
+    "gap": "No real attack-context defender disadvantage or subsequent self advantage.",
+    "table": "Confirm triggering attack/miss and next eligible attack."
   },
   "2014:subclass:warlock:great-old-one:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Great Old One lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:great-old-one:thought-shield": {
     "level": 10,
     "numeric": [
       "resistance (Reflect same psychic damage to attacker; thoughts unreadable unless allowed)"
-    ]
+    ],
+    "claim": "Typed psychic resistance.",
+    "table": "Confirm telepathic defense and pass received damage back to external source."
   },
   "2014:subclass:warlock:hexblade-ua:armor-of-hexes": {
     "level": 10,
     "dedicated": [
       "armor-of-hexes via executeTriggeredFeature / executeConditionalAction (Your Hexblade’s Curse target hits you with attack roll; UA does not state a reaction cost.)"
-    ]
+    ],
+    "claim": "Dedicated visible d6 with confirmation/result record.",
+    "gap": "No curse state linking identity or adjudicating actual attack.",
+    "table": "Confirm cursed attacker and hit; apply miss if 4+."
   },
   "2014:subclass:warlock:hexblade-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Hexblade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:hexblade-ua:hex-warrior": {
     "level": 1,
@@ -7256,7 +7436,9 @@
     ],
     "unverifiedNumeric": [
       "weapon-ability (Proficient melee weapon lacking two-handed property; no daily chosen-weapon limit)"
-    ]
+    ],
+    "claim": "Source training, actual confirmed proficient non-two-handed weapon uses Cha, UA only melee, published can separately bind confirmed Pact weapon at own 3. Published ordinary bond clears at long rest.",
+    "table": "Confirm eligibility, touch and actual Pact property."
   },
   "2014:subclass:warlock:hexblade-ua:hexblades-curse": {
     "level": 1,
@@ -7269,37 +7451,52 @@
     ],
     "actions": [
       "Hexblade's Curse: spends 1 from expanded:2014:warlock:2014:subclass:warlock:hexblade-ua:resource:hexblade-s-curse (Starting at 1st level, you gain the ability to place a baleful curse on someone. As a bonus action, choose one creature you can see within 30 feet of you. The target is cursed for 1 minute. The curse ends early if the target dies, you die, or you are incapacitated. Until the curse ends, you gain the following benefits: - If the cursed target dies, you regain hit points equal to your warlock level + your Charisma modifier.)"
-    ]
+    ],
+    "claim": "Generic pool.",
+    "gap": "No named target state, PB damage, 19–20 crit or capped death heal.",
+    "table": "Confirm cursed creature/range/death and target damage."
   },
   "2014:subclass:warlock:hexblade-ua:master-of-hexes": {
     "level": 14,
     "actions": [
       "Master of Hexes: source rules or unverified dedicated path (Starting at 14th level, you can use your Hexblade’s Curse again without resting, but when you apply it to a new target, the curse immediately ends on the previous target.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No transfer/reapplication state.",
+    "table": "Confirm proximity, original target death, eligible replacement."
   },
   "2014:subclass:warlock:hexblade-ua:shadow-hound": {
     "level": 6,
     "dedicated": [
       "shadow-hound via executeTriggeredFeature / executeConditionalAction (Bonus action; visible target within60ft. Hound merges into shadow; no half/three-quarter cover against your attacks; know direction/distance. Ends on other plane, incapacity, or dispelling.)"
-    ]
+    ],
+    "claim": "Dedicated noncreature tracking state.",
+    "gap": "No attack-cover delta.",
+    "table": "Confirm target range/cover/position, plane, dispelling and incapacity."
   },
   "2014:subclass:warlock:hexblade:accursed-specter": {
     "level": 6,
     "resources": [
       "Accursed Specter; 1 uses at probe level; long reset verified"
-    ]
+    ],
+    "claim": "Slain humanoid bind, real long-rest cost, creation temp HP, Cha attack adjustment, own profile/conditions/rolls and persistent HP. Cleans up at zero or next long rest. C2 actual reload/rest.",
+    "table": "Confirm victim/spawn/initiative, command, sunlight and external target."
   },
   "2014:subclass:warlock:hexblade:armor-of-hexes": {
     "level": 10,
     "dedicated": [
       "armor-of-hexes via executeTriggeredFeature / executeConditionalAction (Your Hexblade’s Curse target hits you with an attack roll.)"
-    ]
+    ],
+    "claim": "Dedicated visible d6 with confirmation/result record.",
+    "gap": "No curse state linking identity or adjudicating actual attack.",
+    "table": "Confirm cursed attacker and hit; apply miss if 4+."
   },
   "2014:subclass:warlock:hexblade:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Hexblade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:hexblade:hex-warrior": {
     "level": 1,
@@ -7313,7 +7510,9 @@
     ],
     "actions": [
       "Hex Warrior: source rules or unverified dedicated path (The influence of your patron also allows you to mystically channel your will through a particular weapon. Whenever you finish a long rest, you can touch one weapon that you are proficient with and that lacks the two-handed property. When you attack with that weapon, you can use your Charisma modifier, instead of Strength or Dexterity, for the attack and damage rolls. This benefit lasts until you finish a long rest. If you later gain the Pact of the Blade feature, this benefit extends to every pact weapon you conjure with that feature, no matter the weapon's type.)"
-    ]
+    ],
+    "claim": "Source training, actual confirmed proficient non-two-handed weapon uses Cha, UA only melee, published can separately bind confirmed Pact weapon at own 3. Published ordinary bond clears at long rest.",
+    "table": "Confirm eligibility, touch and actual Pact property."
   },
   "2014:subclass:warlock:hexblade:hexblades-curse": {
     "level": 1,
@@ -7326,13 +7525,19 @@
     ],
     "actions": [
       "Hexblade's Curse: spends 1 from expanded:2014:warlock:2014:subclass:warlock:hexblade:resource:hexblade-s-curse (Starting at 1st level, you gain the ability to place a baleful curse on someone. As a bonus action, choose one creature you can see within 30 feet of you. The target is cursed for 1 minute. The curse ends early if the target dies, you die, or you are incapacitated. Until the curse ends, you gain the following benefits: - If the cursed target dies, you regain hit points equal to your warlock level + your Charisma modifier (minimum of 1 hit point).)"
-    ]
+    ],
+    "claim": "Generic pool.",
+    "gap": "No named target state, PB damage, 19–20 crit or capped death heal.",
+    "table": "Confirm cursed creature/range/death and target damage."
   },
   "2014:subclass:warlock:hexblade:master-of-hexes": {
     "level": 14,
     "actions": [
       "Master of Hexes: source rules or unverified dedicated path (Starting at 14th level, you can spread your Hexblade's Curse from a slain creature to another creature. When the creature cursed by your Hexblade's Curse dies, you can apply the curse to a different creature you can see within 30 feet of you, provided you aren't incapacitated. When you apply the curse in this way, you don't regain hit points from the death of the previously cursed creature.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No transfer/reapplication state.",
+    "table": "Confirm proximity, original target death, eligible replacement."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:devouring-maw": {
     "level": 10,
@@ -7341,13 +7546,17 @@
     ],
     "actions": [
       "Devouring Maw: spends 1 from expanded:2014:warlock:2014:subclass:warlock:lurker-in-the-deep-ua:resource:devouring-maw (Starting at 10th level, you can magically draw forth a manifestation of your patron’s insatiable hunger. As an action, choose a point you can see within 60 feet of you. For 1 minute, a translucent maw manifests in a 10-foot radius centered on that point. Each creature in that area when the maw appears must succeed on a Strength saving throw against your spell save DC or be restrained. Any creature that starts its turn in the maw’s area takes 3d6 cold or lightning damage (your choice when it takes the damage). As an action, a restrained creature can repeat the saving throw, ending the restraint on a success. At the start of your turn, if there is a creature in the maw’s area, you gain temporary hit points equal to your warlock level.)"
-    ]
+    ],
+    "claim": "Generic source pools/rolls where available.",
+    "gap": "No typed tentacle state, own damage reduction or Devouring Maw temp HP.",
+    "table": "Confirm tentacle position, external target/save and route."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Lurker in the Deep lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:fathomless-soul": {
     "level": 6,
@@ -7356,7 +7565,10 @@
     ],
     "unverifiedNumeric": [
       "swim-speed (Also breathe air/water)"
-    ]
+    ],
+    "claim": "Typed cold resistance.",
+    "gap": "Own swim speed only reference.",
+    "table": "Confirm aquatic context."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:grasp-of-the-deep": {
     "level": 1,
@@ -7365,16 +7577,24 @@
     ],
     "actions": [
       "Grasp of the Deep: spends 1 from expanded:2014:warlock:2014:subclass:warlock:lurker-in-the-deep-ua:resource:tentacle-summon (At 1st level, you gain the ability to magically summon a spectral tentacle that strikes at your foes. As a bonus action, you create a 10-foot-long tentacle at a point you can see within 60 feet of you. The tentacle lasts for 1 minute or until you use this feature to create another tentacle. When you create the tentacle, you can make a melee spell attack against a creature within 10 feet of it. On a hit, the target takes 1d8 cold or lightning damage (your choice when it takes the damage) and its speed is reduced by 10 feet until the start of your next turn. When you reach 10th level in this class, the damage dealt by the tentacle increases to 2d8. As a bonus action on your turn, you can move the tentacle up to 30 feet and repeat the attack. You can summon the tentacle a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a long rest.)"
-    ]
+    ],
+    "claim": "Generic source pools/rolls where available.",
+    "gap": "No typed tentacle state, own damage reduction or Devouring Maw temp HP.",
+    "table": "Confirm tentacle position, external target/save and route."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:guardian-grasp": {
     "level": 6,
     "actions": [
       "Guardian Grasp: source rules or unverified dedicated path (At 6th level, the tentacle you create with Grasp of the Deep can defend you and others. When you or a creature you can see takes damage while within 10 feet of the tentacle, you can use your reaction to choose one of those creatures and reduce the damage to the chosen creature by half. After doing so, the tentacle vanishes.)"
-    ]
+    ],
+    "claim": "Generic source pools/rolls where available.",
+    "gap": "No typed tentacle state, own damage reduction or Devouring Maw temp HP.",
+    "table": "Confirm tentacle position, external target/save and route."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:scion-of-the-deep": {
-    "level": 1
+    "level": 1,
+    "claim": "Source rules.",
+    "table": "Confirm underwater communication and terrain."
   },
   "2014:subclass:warlock:lurker-in-the-deep-ua:unleash-the-depths": {
     "level": 14,
@@ -7383,7 +7603,10 @@
     ],
     "actions": [
       "Unleash the Depths: spends 1 from expanded:2014:warlock:2014:subclass:warlock:lurker-in-the-deep-ua:resource:unleash-the-depths (Starting at 14th level, you gain the ability to call upon your patron for aid. As an action, you choose a point within 30 feet of you where your patron tears through reality, manifesting a measure of its thalassic grandeur. Choose one of the following effects to issue from this manifestation point. Once you use either effect, you can’t use this feature again until you finish a long rest. Fury. You can direct a barrage of spectral tentacles to issue forth and strike up to five creatures you can see within 30 feet of the manifestation point. Each target must make a Dexterity saving throw against your spell save DC. On a failed save, the creature takes 6d10 cold or lightning damage (your choice) and is knocked prone. On a successful save, it takes half as much damage and is not knocked prone. The tentacles then vanish.)"
-    ]
+    ],
+    "claim": "Generic source pools/rolls where available.",
+    "gap": "No typed tentacle state, own damage reduction or Devouring Maw temp HP.",
+    "table": "Confirm tentacle position, external target/save and route."
   },
   "2014:subclass:warlock:mage-of-lorehold-ua:ancient-companion": {
     "level": 1,
@@ -7419,7 +7642,8 @@
     "level": 1,
     "actions": [
       "Lorehold Spells: source rules or unverified dedicated path (You learn the cantrip Sacred Flame and the 1st level spell Comprehend Languages. You learn additional spells when you reach certain levels in this class, as shown on the Lorehold Spells table. Each of these spells counts as a class spell for you, but it doesn’t count against the number of spells you know. If you are a wizard, you can add these spells to your spellbook upon learning them, without expending any gold, and prepare them as normal.)"
-    ]
+    ],
+    "claim": "Source-known grants outside quota, clipped by owning class unlocks and source conditions recorded per spell."
   },
   "2014:subclass:warlock:mage-of-lorehold-ua:war-echoes": {
     "level": 10,
@@ -7434,7 +7658,8 @@
     "choices": [
       "eloquent-cantrip (advancement)",
       "eloquent-skills (advancement)"
-    ]
+    ],
+    "claim": "Two of five skill proficiencies; either Sacred Flame or Vicious Mockery bonus cantrip as available under source."
   },
   "2014:subclass:warlock:mage-of-silverquill-ua:infusion-of-eloquence": {
     "level": 10,
@@ -7525,7 +7750,8 @@
     "level": 1,
     "actions": [
       "Witherbloom Spells: source rules or unverified dedicated path (You learn the cantrip Spare the Dying and the 1st level spells Cure Wounds and Inflict Wounds. You learn additional spells when you reach certain levels in this class, as shown on the Witherbloom Spells table. Each of these spells count as a class spell for you, but it doesn’t count against the number of spells you know. If you are a druid, you always have the spells prepared, and they don’t count against the number of spells you can prepare each day.)"
-    ]
+    ],
+    "claim": "Owner-specific spell advancement materialization and additional source training where declared."
   },
   "2014:subclass:warlock:mage-of-witherbloom-ua:withering-vortex": {
     "level": 14,
@@ -7546,7 +7772,10 @@
     ],
     "actions": [
       "Collector's Call: spends 1 from expanded:2014:warlock:2014:subclass:warlock:noble-genie-ua:resource:collector-s-call (At 14th level, in exchange for extending your patron’s influence over the multiverse, you can call on more of their power. As an action, you can implore your patron for aid by making a Charisma (Persuasion) check against your warlock spell save DC. If the check succeeds, you can choose one of the following effects:)"
-    ]
+    ],
+    "claim": "Generic source choice/pools where offered.",
+    "gap": "No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.",
+    "table": "Confirm tethered creature, spell target/origin, external save/range and existence of relevant components."
   },
   "2014:subclass:warlock:noble-genie-ua:collectors-vessel": {
     "level": 1,
@@ -7555,7 +7784,10 @@
     ],
     "actions": [
       "Collector’s Vessel: spends 1 from expanded:2014:warlock:2014:subclass:warlock:noble-genie-ua:resource:collectors-vessel (If you lose your vessel, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous vessel. The vessel vanishes in a flare of elemental power when you die. As an action while you are holding the vessel, you target a willing creature you can see within 100 feet of you and create a tether of wispy elemental material that links the target to you. The tether lasts for 1 hour, until you use this feature to create another tether, until the bound target is reduced to 0 hit points, or until the target ends its turn more than 100 feet from you. While you are tethered to a creature, you gain the following benefits: - When you can cast a spell, you can deliver the spell from your space or the bound creature’s space. You can create the tether a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a long rest.)"
-    ]
+    ],
+    "claim": "Generic source choice/pools where offered.",
+    "gap": "No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.",
+    "table": "Confirm tethered creature, spell target/origin, external save/range and existence of relevant components."
   },
   "2014:subclass:warlock:noble-genie-ua:elemental-resistance": {
     "level": 6,
@@ -7564,13 +7796,17 @@
     ],
     "actions": [
       "Elemental Resistance: source rules or unverified dedicated path (Starting at 6th level, your patron grants you protection from an element. Whenever you finish a long rest, you gain resistance to acid, cold, fire, or lightning damage (your choice) until the end of your next long rest. While the tether of your Collector’s Vessel is active, the tethered creature gains resistance to the damage type you chose.)"
-    ]
+    ],
+    "claim": "Generic source choice/pools where offered.",
+    "gap": "No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.",
+    "table": "Confirm tethered creature, spell target/origin, external save/range and existence of relevant components."
   },
   "2014:subclass:warlock:noble-genie-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Noble Genie lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:noble-genie-ua:genies-entertainment": {
     "level": 10,
@@ -7579,19 +7815,26 @@
     ],
     "actions": [
       "Genie’s Entertainment: spends 1 from expanded:2014:warlock:2014:subclass:warlock:noble-genie-ua:resource:genies-entertainment (Starting at 10th level, as an action, you can attempt to send a creature you can see within 90 feet to your patron’s court. The target must succeed on a Charisma saving throw against your warlock spell save DC or be magically drawn into your vessel and teleported to your patron’s court in the Elemental Planes. While there, the target is stunned and your patron marvels at the target with amusement but brings no harm to it. The target can repeat the saving throw at the end of each of its turns, reappearing in the space it left or in the nearest unoccupied space if that space is occupied on a success. Once you use this feature, you can’t use it again until you finish a long rest. If the target remains in your patron’s court for 1 minute, the genie sends the target back at the end of its turn as if it successfully saved, and you regain the use of this feature.)"
-    ]
+    ],
+    "claim": "Generic source choice/pools where offered.",
+    "gap": "No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.",
+    "table": "Confirm tethered creature, spell target/origin, external save/range and existence of relevant components."
   },
   "2014:subclass:warlock:noble-genie-ua:protective-wish": {
     "level": 10,
     "actions": [
       "Protective Wish: source rules or unverified dedicated path (Beginning at 10th level, you’re now able to use your Collector’s Vessel to wish for protection for yourself or your tethered creature. If you or the tethered creature is hit by an attack, you can use your reaction to teleport, swapping places with the creature and switching which one of you is hit by the attack.)"
-    ]
+    ],
+    "claim": "Generic source choice/pools where offered.",
+    "gap": "No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.",
+    "table": "Confirm tethered creature, spell target/origin, external save/range and existence of relevant components."
   },
   "2014:subclass:warlock:raven-queen-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Raven Queen lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:raven-queen-ua:queens-right-hand": {
     "level": 14,
@@ -7600,7 +7843,10 @@
     ],
     "actions": [
       "Queen's Right Hand: spends 1 from expanded:2014:warlock:2014:subclass:warlock:raven-queen-ua:resource:queen-s-right-hand (Starting at 14th level, you can channel the Raven Queen’s power to slay a creature. You can cast Finger of Death. After you cast the spell with this feature, you can’t do so again until you finish a long rest.)"
-    ]
+    ],
+    "claim": "Generic source use.",
+    "gap": "No dedicated slot-free cast.",
+    "table": "Confirm Finger of Death target/save."
   },
   "2014:subclass:warlock:raven-queen-ua:ravens-shield": {
     "level": 10,
@@ -7610,25 +7856,36 @@
     "unverifiedNumeric": [
       "condition-immunity",
       "save-advantage"
-    ]
+    ],
+    "claim": "Own typed necrotic resistance.",
+    "gap": "No own frightened immunity/death-save advantage.",
+    "table": "Confirm death save."
   },
   "2014:subclass:warlock:raven-queen-ua:sentinel-raven": {
     "level": 1,
     "actions": [
       "Sentinel Raven: source rules or unverified dedicated path (Starting at 1st level, you gain the service of a spirit sent by the Raven Queen to watch over you. The spirit assumes the form and game statistics of a raven, and it always obeys your commands, which you can give telepathically while it is within 100 feet of you. While the raven is perched on your shoulder, you gain darkvision with a range of 30 feet and a bonus to your passive Wisdom (Perception) score and to Wisdom (Perception) checks. The bonus equals your Charisma modifier. While perched on your shoulder, the raven can’t be targeted by any attack or other harmful effect; only you can cast spells on it; it can’t take damage; and it is incapacitated. You can see through the raven’s eyes and hear what it hears while it is within 100 feet of you. In combat, you roll initiative for the raven and control how it acts. If it is slain by a creature, you gain advantage on all attack rolls against the killer for the next 24 hours. The raven doesn’t require sleep. While it is within 100 feet of you, it can awaken you from sleep as a bonus action. The raven vanishes when it dies, if you die, or if the two of you are separated by more than 5 miles.)"
-    ]
+    ],
+    "claim": "Separate 1 HP profile, perch invulnerability, owner Perception/passive +Cha while perched, owned rolls, source service history/perch/return/reload. Confirmed selected killer activates actual owner attack advantage. C2 true reload.",
+    "table": "Confirm killer and correct target, range/positions/5-mile separation, actual commands."
   },
   "2014:subclass:warlock:raven-queen-ua:soul-of-the-raven": {
     "level": 6,
     "actions": [
       "Soul of the Raven: source rules or unverified dedicated path (At 6th level, you gain the ability to merge with your raven spirit. As a bonus action when your raven is perched on your shoulder, your body merges with your raven’s form. While merged, you become Tiny, you replace your speed with the raven’s, and you can use your action only to Dash, Disengage, Dodge, Help, Hide, or Search. During this time, you gain the benefits of your raven being perched on your shoulder. As an action, you and the raven return to normal.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No fused own-body/stat/action state.",
+    "table": "Confirm raven within reach and fusion positions."
   },
   "2014:subclass:warlock:seeker-ua:astral-refuge": {
     "level": 6,
     "actions": [
       "Astral Refuge: source rules or unverified dedicated path (At 6th level, you gain the ability to step into an astral refuge. As an action, you disappear from the world for a brief moment and enter the Astral Plane, taking advantage of its timeless nature. While in your astral refuge, you can take two actions to cast spells that target only you. After using those two actions, you return to the space you occupied and your turn ends.)"
-    ]
+    ],
+    "claim": "Generic uses where routed.",
+    "gap": "No dedicated self-cast sequence or controlled rest integration.",
+    "table": "Confirm eligible self spells and whether approved group completes short rest."
   },
   "2014:subclass:warlock:seeker-ua:astral-sequestration": {
     "level": 14,
@@ -7637,19 +7894,25 @@
     ],
     "actions": [
       "Astral Sequestration: spends 1 from expanded:2014:warlock:2014:subclass:warlock:seeker-ua:resource:astral-sequestration (By performing a special ritual over the course of 5 minutes, you shift yourself and up to ten willing creatures you can see to the Astral Plane. You and those creatures gain the benefits of a short rest while sequestered on the Astral Plane. You then return to the spaces you all occupied when you used this ability, with no time having passed in the world.)"
-    ]
+    ],
+    "claim": "Generic uses where routed.",
+    "gap": "No dedicated self-cast sequence or controlled rest integration.",
+    "table": "Confirm eligible self spells and whether approved group completes short rest."
   },
   "2014:subclass:warlock:seeker-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Seeker lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:seeker-ua:far-wanderer": {
     "level": 10,
     "numeric": [
       "resistance (Also no breathing required)"
-    ]
+    ],
+    "claim": "Own typed fire/cold resistance.",
+    "table": "Confirm environment/breathing context."
   },
   "2014:subclass:warlock:seeker-ua:pact-boon-pact-of-the-star-chain": {
     "level": 3,
@@ -7658,7 +7921,10 @@
     ],
     "actions": [
       "Pact Boon: Pact of the Star Chain: spends 1 from expanded:2014:warlock:2014:subclass:warlock:seeker-ua:resource:star-chain-advantage (The Seeker grants you a chain forged from starlight, decorated with seven gleaming motes of brightness. While the chain is on your person, you know the augury spell and can cast it as a ritual. The spell doesn’t count against your number of spells known. Additionally, you can invoke the Seeker’s power to gain advantage on an Intelligence check while you carry this item. Once you use this ability, you cannot use it again until you complete a short or long rest. If you lose your Star Chain, you can perform a 1-hour ceremony to receive a replacement from the Seeker. The ceremony can be performed during a short or long rest, and it destroys the previous chain. The chain disappears in a flash of light when you die.)"
-    ]
+    ],
+    "claim": "Optional persisted choice where exposed.",
+    "gap": "No dedicated Augury cast or check advantage.",
+    "table": "Confirm chain possessions and qualifying Int check."
   },
   "2014:subclass:warlock:seeker-ua:shielding-aurora": {
     "level": 1,
@@ -7667,7 +7933,10 @@
     ],
     "actions": [
       "Shielding Aurora: spends 1 from expanded:2014:warlock:2014:subclass:warlock:seeker-ua:resource:shielding-aurora (Starting at 1st level, you can invoke the Seeker’s power to protect you from harm. As a bonus action, you create a whirling aurora of brilliant energy that swirls around you. Until the end of your next turn, you gain resistance to all damage, and if a hostile creature ends its turn within 10 feet of you, it takes radiant damage equal to your warlock level + your Charisma modifier.)"
-    ]
+    ],
+    "claim": "Generic use.",
+    "gap": "No one-turn own all-damage resistance state or retaliation.",
+    "table": "Confirm hostile melee attacker and damage timing."
   },
   "2014:subclass:warlock:the-genie:elemental-gift": {
     "level": 6,
@@ -7680,7 +7949,10 @@
     ],
     "actions": [
       "Elemental Gift: spends 1 from expanded:2014:warlock:2014:subclass:warlock:the-genie:resource:elemental-gift (In addition, as a bonus action, you can give yourself a flying speed of 30 feet that lasts for 10 minutes, during which you can hover. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)"
-    ]
+    ],
+    "claim": "Genie choice gates spell access; generic pools where offered.",
+    "gap": "No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.",
+    "table": "Confirm vessel item/occupants, type, placement, hit and rest timing."
   },
   "2014:subclass:warlock:the-genie:expanded-spell-list": {
     "level": 1,
@@ -7689,7 +7961,9 @@
     ],
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (At 1st level, the Genie lets you choose from an expanded list of spells when you learn a warlock spell. The Genie Expanded Spells table shows the genie spells that are added to the warlock spell list for you, along with the spells associated in the table with your patron's kind: dao, djinni, efreeti, or marid.)"
-    ]
+    ],
+    "claim": "Genie access-only by kind; level-17 Mystic Arcanum selection admits Wish and casts without slot with separate long-rest use.",
+    "table": "Confirm kind."
   },
   "2014:subclass:warlock:the-genie:genies-vessel": {
     "level": 1,
@@ -7698,7 +7972,10 @@
     ],
     "actions": [
       "Genie's Vessel: source rules or unverified dedicated path (Also at 1st level, your patron gifts you a magical vessel that grants you a measure of the genie's power. The vessel is a Tiny object, and you can use it as a spellcasting focus for your warlock spells. You decide what the object is, or you can determine what it is randomly by rolling on the Genie's Vessel table. While you are touching the vessel, you can use it in the following ways: - Bottled Respite: As an action, you can magically vanish and enter your vessel, which remains in the space you left. The interior of the vessel is an extradimensional space in the shape of a 20-foot-radius cylinder, 20 feet high, and resembles your vessel. The interior is appointed with cushions and low tables and is a comfortable temperature. While inside, you can hear the area around your vessel as if you were in its space. You can remain inside the vessel up to a number of hours equal to twice your proficiency bonus. You exit the vessel early if you use a bonus action to leave, if you die, or if the vessel is destroyed. When you exit the vessel, you appear in the unoccupied space closest to it. Any objects left in the vessel remain there until carried out, and if the vessel is destroyed, every object stored there harmlessly appears in the unoccupied spaces closest to the vessel's former space. Once you enter the vessel, you can't enter again until you finish a long rest. - Genie's Wrath: Once during each of your turns when you hit with an attack roll, you can deal extra damage to the target equal to your proficiency bonus. The type of this damage is determined by your patron: bludgeoning (dao), thunder (djinni), fire (efreeti), or cold (marid). If the vessel is destroyed or you lose it, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and the previous vessel is destroyed if it still exists. The vessel vanishes in a flare of elemental power when you die.)"
-    ]
+    ],
+    "claim": "Genie choice gates spell access; generic pools where offered.",
+    "gap": "No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.",
+    "table": "Confirm vessel item/occupants, type, placement, hit and rest timing."
   },
   "2014:subclass:warlock:the-genie:limited-wish": {
     "level": 14,
@@ -7707,19 +7984,26 @@
     ],
     "dedicated": [
       "limited-wish via useCooldownFeature"
-    ]
+    ],
+    "claim": "Dedicated level<=6 action spell selection, visible supported effects, self effect by shared spell handler, d4 long-rest cooldown.",
+    "gap": "Validate attack-spell callbacks; cooldown control rolls spell plan effects without ordinary per-attack resolution.",
+    "table": "Confirm external target/save, spell effect choice and timing."
   },
   "2014:subclass:warlock:the-genie:sanctuary-vessel": {
     "level": 10,
     "actions": [
       "Sanctuary Vessel: source rules or unverified dedicated path (At 10th level, when you enter your Genie's Vessel via the Bottled Respite feature, you can now choose up to five willing creatures that you can see within 30 feet of you, and the chosen creatures are drawn into the vessel with you. As a bonus action, you can eject any number of creatures from the vessel, and everyone is ejected if you leave or die or if the vessel is destroyed. In addition, anyone (including you) who remains within the vessel for at least 10 minutes gains the benefit of finishing a short rest, and anyone can add your proficiency bonus to the number of hit points they regain if they spend any Hit Dice as part of a short rest there.)"
-    ]
+    ],
+    "claim": "Genie choice gates spell access; generic pools where offered.",
+    "gap": "No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.",
+    "table": "Confirm vessel item/occupants, type, placement, hit and rest timing."
   },
   "2014:subclass:warlock:undead-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (At 1st level, the Undead lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:undead-ua:form-of-dread": {
     "level": 1,
@@ -7732,13 +8016,19 @@
     ],
     "dedicated": [
       "form-of-dread via activateSubclassForm"
-    ]
+    ],
+    "claim": "Actual use, visible d10+owner level temp HP and minute state.",
+    "gap": "Frightened immunity exists on active profile; verify actual condition-input enforcement. Missing per-turn hit trigger.",
+    "table": "Confirm eligible hit and target Wisdom save."
   },
   "2014:subclass:warlock:undead-ua:grave-touched": {
     "level": 6,
     "actions": [
       "Grave Touched: source rules or unverified dedicated path (In addition, when you hit a creature with an attack and roll damage against the creature, you can replace the damage type with necrotic damage. While you are using your Form of Dread, you can roll one additional damage die when determining the necrotic damage the target takes.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No own damage type conversion, extra die or once-turn guard.",
+    "table": "Confirm eligible damage and Dread state."
   },
   "2014:subclass:warlock:undead-ua:mortal-husk": {
     "level": 10,
@@ -7750,7 +8040,9 @@
     ],
     "dedicated": [
       "mortal-husk via useCooldownFeature"
-    ]
+    ],
+    "claim": "Typed necrotic defense, 1HP/exhaustion and source d4 cooldown via dedicated zero-HP handler.",
+    "table": "Confirm UA death trigger and creatures within range."
   },
   "2014:subclass:warlock:undead-ua:spirit-projection": {
     "level": 14,
@@ -7760,13 +8052,17 @@
     "dedicated": [
       "projection-heal via executeTriggeredFeature / executeConditionalAction (Projection and Form of Dread active; once on your turn after necrotic damage. Enter actual necrotic damage dealt; regain half.)",
       "spirit-projection via activateSubclassForm"
-    ]
+    ],
+    "claim": "Concentration/one hour, actual use and typed physical resistance/flight. Valid Projection+Dread enables once-turn own capped heal from half actual necrotic damage dealt.",
+    "gap": "No body damage mirroring/inside-object scaling or spell component exception.",
+    "table": "Confirm actual damage, body position and movement."
   },
   "2014:subclass:warlock:undead:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (At 1st level, the Undead lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:undead:form-of-dread": {
     "level": 1,
@@ -7779,13 +8075,19 @@
     ],
     "dedicated": [
       "form-of-dread via activateSubclassForm"
-    ]
+    ],
+    "claim": "Actual use, visible d10+owner level temp HP and minute state.",
+    "gap": "Frightened immunity exists on active profile; verify actual condition-input enforcement. Missing per-turn hit trigger.",
+    "table": "Confirm eligible hit and target Wisdom save."
   },
   "2014:subclass:warlock:undead:grave-touched": {
     "level": 6,
     "actions": [
       "Grave Touched: source rules or unverified dedicated path (In addition, once during each of your turns, when you hit a creature with an attack and roll damage against the creature, you can replace the damage type with necrotic damage. While you are using your Form of Dread, you can roll one additional damage die when determining the necrotic damage the target takes.)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No own damage type conversion, extra die or once-turn guard.",
+    "table": "Confirm eligible damage and Dread state."
   },
   "2014:subclass:warlock:undead:necrotic-husk": {
     "level": 10,
@@ -7797,7 +8099,9 @@
     ],
     "dedicated": [
       "necrotic-husk via useCooldownFeature"
-    ]
+    ],
+    "claim": "Typed necrotic defense becomes immunity during Dread, dedicated zero-HP 1 HP/exhaustion and visible effect/cooldown.",
+    "table": "Confirm source trigger and chosen creatures/range, apply external damage."
   },
   "2014:subclass:warlock:undead:spirit-projection": {
     "level": 14,
@@ -7807,13 +8111,17 @@
     "dedicated": [
       "projection-heal via executeTriggeredFeature / executeConditionalAction (Projection and Form of Dread active; once on your turn after necrotic damage. Enter actual necrotic damage dealt; regain half.)",
       "spirit-projection via activateSubclassForm"
-    ]
+    ],
+    "claim": "Concentration/one hour, actual use and typed physical resistance/flight. Valid Projection+Dread enables once-turn own capped heal from half actual necrotic damage dealt.",
+    "gap": "No body damage mirroring/inside-object scaling or spell component exception.",
+    "table": "Confirm actual damage, body position and movement."
   },
   "2014:subclass:warlock:undying-light-ua:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Undying Light lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:undying-light-ua:healing-light": {
     "level": 14,
@@ -7822,14 +8130,20 @@
     ],
     "dedicated": [
       "healing-light via executeTriggeredFeature / executeConditionalAction (Touch a creature; spend1–5 available dice. Cost is chosen dice count.)"
-    ]
+    ],
+    "claim": "Distinct source long-rest die pool.",
+    "gap": "Published-only healing handler omits variants, generic action is hidden.",
+    "table": "Confirm range and allocation."
   },
   "2014:subclass:warlock:undying-light-ua:radiant-resistance": {
     "level": 10,
     "unverifiedNumeric": [
       "temporary-hp (Short or long rest end)",
       "ally-temporary-hp (Up to five visible chosen creatures at rest end)"
-    ]
+    ],
+    "claim": "Source rules.",
+    "gap": "No own post-rest temporary HP.",
+    "table": "Confirm rest and eligible allies."
   },
   "2014:subclass:warlock:undying-light-ua:radiant-soul": {
     "level": 1,
@@ -7841,7 +8155,10 @@
     ],
     "actions": [
       "Radiant Soul: source rules or unverified dedicated path (Starting at 1st level, your link to the Positive Plane allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant damage or fire damage, you add your Charisma modifier to that damage. Additionally, you know the Light and Sacred Flame cantrips and can cast them at will. They don't count against your number of cantrips known.)"
-    ]
+    ],
+    "claim": "Own typed radiant resistance.",
+    "gap": "No Cha bonus to one eligible damage roll.",
+    "table": "Confirm qualifying radiant/fire spell."
   },
   "2014:subclass:warlock:undying-light-ua:searing-vengeance": {
     "level": 6,
@@ -7850,10 +8167,16 @@
     ],
     "actions": [
       "Searing Vengeance: spends 1 from expanded:2014:warlock:2014:subclass:warlock:undying-light-ua:resource:searing-vengeance (Starting at 6th level, the radiant energy you channel allows you to overcome grievous injuries. When you would make a death saving throw, you can instead spring back to your feet with a burst of radiant energy. You immediately stand up (if you so choose), and you regain hit points equal to half your hit point maximum. All hostile creatures within 30 feet of you take 10 + your Charisma modifier radiant damage and are blinded until the end of your turn.)"
-    ]
+    ],
+    "claim": "Long-rest source pool.",
+    "gap": "Published-only healingFeatures excludes variants; generic action cannot activate while at zero.",
+    "table": "Confirm zero-HP and range facts using variant."
   },
   "2014:subclass:warlock:undying:among-the-dead": {
-    "level": 1
+    "level": 1,
+    "claim": "Source-known Spare the Dying.",
+    "gap": "No disease save advantage in actual own roll.",
+    "table": "Confirm undead attacker, save, timeline and immunity to further interactions."
   },
   "2014:subclass:warlock:undying:defy-death": {
     "level": 6,
@@ -7863,13 +8186,16 @@
     "dedicated": [
       "defy-death via executeTriggeredFeature / executeConditionalAction (Succeed death saving throw OR stabilize creature with Spare the Dying.)",
       "defy-death via useHealingFeature"
-    ]
+    ],
+    "claim": "Dedicated visible capped self heal and true source use; Defy has zero-HP allowance.",
+    "table": "Confirm successful death save, or another stabilized by Spare the Dying; eligible limb placed for reattachment."
   },
   "2014:subclass:warlock:undying:expanded-spell-list": {
     "level": 1,
     "actions": [
       "Expanded Spell List: source rules or unverified dedicated path (The Undying lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)"
-    ]
+    ],
+    "claim": "Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices."
   },
   "2014:subclass:warlock:undying:indestructible-life": {
     "level": 14,
@@ -7879,10 +8205,14 @@
     "dedicated": [
       "indestructible-life via executeTriggeredFeature / executeConditionalAction (Can reattach severed body part when using feature.)",
       "indestructible-life via useHealingFeature"
-    ]
+    ],
+    "claim": "Dedicated visible capped self heal and true source use; Defy has zero-HP allowance.",
+    "table": "Confirm successful death save, or another stabilized by Spare the Dying; eligible limb placed for reattachment."
   },
   "2014:subclass:warlock:undying:undying-nature": {
-    "level": 10
+    "level": 10,
+    "claim": "Source rules.",
+    "table": "Confirm age, sustenance, breathing and rest."
   },
   "2014:subclass:wizard:abjuration:abjuration-savant": {
     "level": 2

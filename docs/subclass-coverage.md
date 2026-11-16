@@ -23,7 +23,8 @@ Fixed tool and alternate artisan tool choice on existing duplicate training via 
 
 ### Level 3 · Alchemist Spells
 
-- Remaining source effects need verification.
+Owner Intelligence always-prepared spells at listed Artificer levels outside preparation quota.
+
 
 ### Level 3 · Experimental Elixir
 
@@ -76,7 +77,8 @@ Heavy armor and smith's tools training. Duplicate-tool choice uses source condit
 
 ### Level 3 · Armorer Spells
 
-- Remaining source effects need verification.
+Owner Intelligence always-prepared record-specific spells at printed Artificer levels outside preparation quota.
+
 
 ### Level 3 · Arcane Armor
 
@@ -99,8 +101,9 @@ Bound worn model gates real Guardian defensive-field temp HP patch and Infiltrat
 
 ### Level 5 · Extra Attack
 
+Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes.
+
 - Recognized numeric routes · attack-count (Attack action on own turn)
-- Remaining source effects need verification.
 
 ### Level 9 · Armor Modifications
 
@@ -133,7 +136,8 @@ Fixed tool and alternate artisan tool choice on existing duplicate training via 
 
 ### Level 3 · Artillerist Spells
 
-- Remaining source effects need verification.
+Owner Intelligence always-prepared spells at printed Artificer levels outside preparation quota.
+
 
 ### Level 3 · Eldritch Cannon
 
@@ -178,7 +182,8 @@ Fixed tool and alternate artisan tool choice on existing duplicate training via 
 
 ### Level 3 · Battle Smith Spells
 
-- Remaining source effects need verification.
+Owner Intelligence always-prepared spells at printed Artificer levels outside preparation quota.
+
 
 ### Level 3 · Battle Ready
 
@@ -196,8 +201,9 @@ SteelDefenderTools has owner-level HP/Hit Dice and independent conditions and ro
 
 ### Level 5 · Extra Attack
 
+Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes.
+
 - Recognized numeric routes · attack-count (Attack action)
-- Remaining source effects need verification.
 
 ### Level 9 · Arcane Jolt
 
@@ -232,7 +238,8 @@ Source tool grants/conditional substitutes, as shown by reconciled training.
 
 ### Level 3 · Archivist Spells
 
-- Remaining source effects need verification.
+Owner Intelligence always-prepared spells at printed Artificer levels outside preparation quota.
+
 
 ### Level 3 · Artificial Mind
 
@@ -272,7 +279,8 @@ Fixed tool and alternate artisan tool choice on existing duplicate training via 
 
 ### Level 3 · Armorer Spells
 
-- Remaining source effects need verification.
+Owner Intelligence always-prepared record-specific spells at printed Artificer levels outside preparation quota.
+
 
 ### Level 3 · Power Armor
 
@@ -294,8 +302,9 @@ Bound worn model gates real Guardian defensive-field temp HP patch and Infiltrat
 
 ### Level 5 · Extra Attack
 
+Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes.
+
 - Recognized numeric routes · attack-count (Attack action on own turn)
-- Remaining source effects need verification.
 
 ### Level 9 · Armor Modifications
 
@@ -505,8 +514,11 @@ Entry level 3 · [Xanathar's Guide to Everything](https://dnd5e.wikidot.com/bard
 
 ### Level 3 · Bonus Proficiencies
 
+Source-reconciled medium armor and scimitar training.
+
 - Training grants · medium · scimitar
-- Remaining source effects need verification.
+- Table fact · Confirm melee weapon proficiency used as Bard focus.
+- Open sheet gap · Spell tools do not enforce focus hand/equipment legality.
 
 ### Level 3 · Fighting Style
 
@@ -527,8 +539,9 @@ Generic Inspiration cost for recorded flourishes.
 
 ### Level 6 · Extra Attack
 
+Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes.
+
 - Recognized numeric routes · attack-count (Attack action)
-- Remaining source effects need verification.
 
 ### Level 14 · Master's Flourish
 
@@ -544,8 +557,9 @@ Entry level 3 · [Player's Handbook](https://dnd5e.wikidot.com/bard:valor)
 
 ### Level 3 · Bonus Proficiencies
 
+Source-reconciled medium armor, shield and martial weapon training.
+
 - Training grants · medium · shields · martial
-- Remaining source effects need verification.
 
 ### Level 3 · Combat Inspiration
 
@@ -556,8 +570,9 @@ Source reference.
 
 ### Level 6 · Extra Attack
 
+Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes.
+
 - Recognized numeric routes · attack-count (Attack action)
-- Remaining source effects need verification.
 
 ### Level 14 · Battle Magic
 
@@ -614,7 +629,8 @@ Source spell progression · level 3 known: Sacred Flame, Comprehend Languages, K
 
 ### Level 3 · Lorehold Spells
 
-- Remaining source effects need verification.
+Source-known grants outside quota, clipped by owning class unlocks and source conditions recorded per spell.
+
 
 ### Level 3 · Ancient Companion
 
@@ -650,8 +666,9 @@ Entry level 3 · [Unearthed Arcana 79 - Mages of Strixhaven](https://dnd5e.wikid
 
 ### Level 3 · Eloquent Apprentice
 
+Two of five skill proficiencies; either Sacred Flame or Vicious Mockery bonus cantrip as available under source.
+
 - Choice controls · cantrip (advancement) · skills (advancement)
-- Remaining source effects need verification.
 
 ### Level 3 · Silvery Barbs
 
@@ -760,9 +777,10 @@ Entry level 3 · [Unearthed Arcana 12 - Kits of Old](https://dnd5e.wikidot.com/b
 
 ### Level 3 · Bonus Proficiencies
 
+Source-reconciled thieves' tools, Sleight of Hand and selectable skill.
+
 - Choice controls · bonus-skills (advancement)
 - Training grants · thieves' tools · Sleight of Hand
-- Remaining source effects need verification.
 
 ### Level 3 · Tumbling Fool
 
@@ -1710,8 +1728,9 @@ Entry level 2 · [Player's Handbook](https://dnd5e.wikidot.com/druid:land)
 
 ### Level 2 · Bonus Cantrip
 
+One Druid bonus cantrip selected during advancement and reconciled separately from ordinary known quota.
+
 - Choice controls · bonus-cantrip (advancement)
-- Remaining source effects need verification.
 
 ### Level 2 · Natural Recovery
 
@@ -1841,7 +1860,8 @@ Source spell progression · level 2 known: Chill Touch · level 3 prepared: Blin
 
 ### Level 2 · Circle Spells
 
-- Remaining source effects need verification.
+Owner Wisdom always-prepared list outside preparation quota, plus any explicit known cantrip.
+
 
 ### Level 2 · Halo of Spores
 
@@ -1931,7 +1951,8 @@ Source spell progression · level 2 prepared: Burning Hands, Cure Wounds · leve
 
 ### Level 2 · Circle Spells
 
-- Remaining source effects need verification.
+Owner Wisdom always-prepared list outside preparation quota, plus any explicit known cantrip.
+
 
 ### Level 2 · Summon Wildfire Spirit
 
@@ -2012,8 +2033,9 @@ Entry level 2 · [Unearthed Arcana 79 - Mages of Strixhaven](https://dnd5e.wikid
 
 ### Level 2 · Creative Skills
 
+Source-filtered two skill choices consumed by advancement training reconciliation.
+
 - Choice controls · skills (advancement)
-- Remaining source effects need verification.
 
 ### Level 2 · Kinetic Artistry
 
@@ -2059,7 +2081,8 @@ Source spell progression · level 2 known: Spare the Dying · level 2 prepared: 
 
 ### Level 2 · Witherbloom Spells
 
-- Remaining source effects need verification.
+Owner-specific spell advancement materialization and additional source training where declared.
+
 
 ### Level 2 · Essence Tap
 
@@ -2192,7 +2215,8 @@ Source spell progression · level 2 known: Fire Bolt · level 3 prepared: Locate
 
 ### Level 2 · Circle Spells
 
-- Remaining source effects need verification.
+Owner Wisdom always-prepared list outside preparation quota, plus any explicit known cantrip.
+
 
 ### Level 2 · Summon Wildfire
 
@@ -2664,11 +2688,14 @@ Source spell progression · level 3 prepared: Ensnaring Strike, Speak with Anima
 
 ### Level 3 · Tenets of the Ancients
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2710,11 +2737,14 @@ Source spell progression · level 3 prepared: Armor of Agathys, Command · level
 
 ### Level 3 · Tenets of Conquest
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2756,11 +2786,14 @@ Source spell progression · level 3 prepared: Command, Compelled Duel · level 5
 
 ### Level 3 · Tenets of the Crown
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2802,11 +2835,14 @@ Source spell progression · level 3 prepared: Protection from Evil and Good, San
 
 ### Level 3 · Tenets of Devotion
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2845,11 +2881,14 @@ Source spell progression · level 3 prepared: Guiding Bolt, Heroism · level 5 p
 
 ### Level 3 · Tenets Of Glory
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2893,11 +2932,14 @@ Source spell progression · level 3 prepared: Sanctuary, Sleep · level 5 prepar
 
 ### Level 3 · Tenets of Redemption
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2940,11 +2982,14 @@ Source spell progression · level 3 prepared: Bane, Hunter's Mark · level 5 pre
 
 ### Level 3 · Tenets of Vengeance
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -2988,11 +3033,14 @@ Source spell progression · level 3 prepared: Alarm, Detect Magic · level 5 pre
 
 ### Level 3 · Tenets of the Watchers
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -3035,7 +3083,8 @@ Source spell progression · level 3 prepared: Hellish Rebuke, Inflict Wounds · 
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -3079,11 +3128,14 @@ Source spell progression · level 3 prepared: Charm Person, Expeditious Retreat 
 
 ### Level 3 · Tenets of Treachery
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -3131,11 +3183,14 @@ Source spell progression · level 3 prepared: Shield, Sleep · level 5 prepared:
 
 ### Level 3 · Tenets of Redemption
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Redemption Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota; source variant list.
+
 
 ### Level 3 · Armor of Peace
 
@@ -3191,11 +3246,14 @@ Source spell progression · level 3 prepared: Alarm, Chromatic Orb · level 5 pr
 
 ### Level 3 · Tenets of the Watchers
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -3238,11 +3296,14 @@ Source spell progression · level 3 prepared: Expeditious Retreat, Guiding Bolt 
 
 ### Level 3 · Tenets of Heroism
 
-- Remaining source effects need verification.
+Printed oath text.
+
+- Table fact · Interpret roleplay promises at the table.
 
 ### Level 3 · Oath Spells
 
-- Remaining source effects need verification.
+Prepared spell access added at owning Paladin 3/5/9/13/17, outside ordinary quota.
+
 
 ### Level 3 · Channel Divinity
 
@@ -4389,7 +4450,9 @@ Source spell progression · level 3 known: Darkness
 
 ### Level 1 · Shadow Sorcerer Quirks
 
-- Remaining source effects need verification.
+Source roleplay reference.
+
+- Table fact · Select or roll a quirk and roleplay it.
 
 ### Level 1 · Eyes of the Dark
 
@@ -4433,7 +4496,9 @@ Entry level 1 · [Sword Coast Adventurer's Guide; Xanathar's Guide to Everything
 
 ### Level 1 · Wind Speaker
 
-- Remaining source effects need verification.
+Source language grants where reconciled (Primordial).
+
+- Table fact · Dialect communication across Aquan/Auran/Ignan/Terran.
 
 ### Level 1 · Tempestuous Magic
 
@@ -4760,13 +4825,15 @@ Selected domain supplies level-banded bonus-known spells without Cleric class id
 
 ### Level 1 · Bonus Proficiencies
 
+Light armor, medium armor, shields and simple weapons consumed by training.
+
 - Training grants · light · medium · shields · simple
-- Remaining source effects need verification.
 
 ### Level 6 · Extra Attack
 
+Own feature sets Attack action count to 2 at owning unlock level; takes maximum across qualifying classes.
+
 - Recognized numeric routes · attack-count (Attack action)
-- Remaining source effects need verification.
 
 ### Level 14 · Divine Wings
 
@@ -4797,8 +4864,9 @@ Ordinary Cleric spell access for target Sorcerer choice and source alignment-kno
 
 ### Level 1 · Supernatural Resilience
 
+Owner class-level HP bonus in normal HP calc/advancement.
+
 - Recognized numeric routes · hp-max-bonus
-- Remaining source effects need verification.
 
 ### Level 1 · Favored by the Gods
 
@@ -4837,8 +4905,9 @@ Entry level 1 · [Unearthed Arcana 50 - Giant Soul](https://dnd5e.wikidot.com/so
 
 ### Level 1 · Jotun Resilience
 
+Owner class-level HP bonus in normal HP calc/advancement.
+
 - Recognized numeric routes · hp-max-bonus
-- Remaining source effects need verification.
 
 ### Level 1 · Mark of the Ordning
 
@@ -4880,8 +4949,9 @@ Entry level 1 · [Unearthed Arcana 79 - Mages of Strixhaven](https://dnd5e.wikid
 
 ### Level 1 · Creative Skills
 
+Source-filtered two skill choices consumed by advancement training reconciliation.
+
 - Choice controls · creative-skills (advancement)
-- Remaining source effects need verification.
 
 ### Level 1 · Kinetic Artistry
 
@@ -4926,8 +4996,9 @@ Source spell progression · level 1 known: Guidance, Guiding Bolt · level 3 kno
 
 ### Level 1 · Quandrix Spells
 
+Source known spells at owning unlock outside normal quotas.
+
 - Generic action model · Quandrix Spells: source rules or unverified dedicated path (You learn the cantrip Guidance and the 1st-level spell Guiding Bolt. You learn additional spells when you reach certain levels in this class, as shown on the Quandrix Spells table. Each of these spells counts as a class spell for you, but it doesn’t count against the number of spells you know. If you are a wizard, you can add these spells to your spellbook upon learning them, without expending any gold, and prepare them as normal.)
-- Remaining source effects need verification.
 
 ### Level 1 · Functions of Probability
 
@@ -5014,7 +5085,9 @@ Entry level 1 · [Unearthed Arcana 71 - Psionic Options Revisited](https://dnd5e
 
 ### Level 1 · Psionic Origin
 
-- Remaining source effects need verification.
+Source roleplay reference.
+
+- Table fact · Choose origin or consult source roll.
 
 ### Level 1 · Psionic Talent
 
@@ -5152,8 +5225,9 @@ Source spell progression · level 1 expanded: Compelled Duel, Searing Smite, Thu
 
 ### Level 1 · Bonus Proficiencies
 
+Shields and simple/martial weapons consumed by training.
+
 - Training grants · shields · simple · martial
-- Remaining source effects need verification.
 
 ### Level 1 · Metal Magic
 
@@ -5203,32 +5277,45 @@ Source spell progression · level 1 expanded: Faerie Fire, Sleep · level 3 expa
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Archfey lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Fey Presence
 
+Generic use where routed.
+
 - Counters · Fey Presence; 1 uses at probe level; short reset verified
 - Generic action model · Fey Presence: spends 1 from expanded:2014:warlock:2014:subclass:warlock:archfey:resource:fey-presence (Starting at 1st level, your patron bestows upon you the ability to project the beguiling and fearsome presence of the fey. As an action, you can cause each creature in a 10-foot cube originating from you to make a Wisdom saving throw against your warlock spell save DC. The creatures that fail their saving throws are all charmed or frightened by you (your choice) until the end of your next turn.)
-- Remaining source effects need verification.
+- Table fact · Confirm visibility/range, trigger, creatures and Wisdom saves.
+- Open sheet gap · Misty Escape lacks timed own invisibility; Dark Delirium no concentration.
 
 ### Level 6 · Misty Escape
 
+Generic use where routed.
+
 - Counters · Misty Escape; 1 uses at probe level; short reset verified
 - Generic action model · Misty Escape: spends 1 from expanded:2014:warlock:2014:subclass:warlock:archfey:resource:misty-escape (Starting at 6th level, you can vanish in a puff of mist in response to harm. When you take damage, you can use your reaction to turn invisible and teleport up to 60 feet to an unoccupied space you can see. You remain invisible until the start of your next turn or until you attack or cast a spell.)
-- Remaining source effects need verification.
+- Table fact · Confirm visibility/range, trigger, creatures and Wisdom saves.
+- Open sheet gap · Misty Escape lacks timed own invisibility; Dark Delirium no concentration.
 
 ### Level 10 · Beguiling Defenses
 
+Source rules.
+
 - Generic action model · Beguiling Defenses: source rules or unverified dedicated path (Beginning at 10th level, your patron teaches you how to turn the mind-affecting magic of your enemies against them. You are immune to being charmed, and when another creature attempts to charm you, you can use your reaction to attempt to turn the charm back on that creature. The creature must succeed on a Wisdom saving throw against your warlock spell save DC or be charmed by you for 1 minute or until the creature takes any damage.)
 - Numeric effects awaiting verification · condition-immunity
-- Remaining source effects need verification.
+- Table fact · Confirm charm attempt and source Wisdom save/reflection.
+- Open sheet gap · No own charm immunity or dedicated reaction.
 
 ### Level 14 · Dark Delirium
 
+Generic use where routed.
+
 - Counters · Dark Delirium; 1 uses at probe level; short reset verified
 - Generic action model · Dark Delirium: spends 1 from expanded:2014:warlock:2014:subclass:warlock:archfey:resource:dark-delirium (Starting at 14th level, you can plunge a creature into an illusory realm. As an action, choose a creature that you can see within 60 feet of you. It must make a Wisdom saving throw against your warlock spell save DC. On a failed save, it is charmed or frightened by you (your choice) for 1 minute or until your concentration is broken (as if you are concentrating on a spell). This effect ends early if the creature takes any damage. You must finish a short or long rest before you can use this feature again.)
-- Remaining source effects need verification.
+- Table fact · Confirm visibility/range, trigger, creatures and Wisdom saves.
+- Open sheet gap · Misty Escape lacks timed own invisibility; Dark Delirium no concentration.
 
 ## Warlock — Celestial
 
@@ -5238,37 +5325,49 @@ Source spell progression · level 1 known: Light, Sacred Flame · level 1 expand
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Celestial lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Bonus Cantrips
 
-- Remaining source effects need verification.
+Light and Sacred Flame outside ordinary known quota.
+
 
 ### Level 1 · Healing Light
 
+Dedicated 1+owner level pool; up to Cha (minimum 1) d6, visible combined roll and capped self heal.
+
 - Counters · Healing Light; 2 uses at probe level; long reset verified
 - Dedicated plans · healing-light via executeTriggeredFeature / executeConditionalAction (Creature visible within60ft. Choose1..max(1,cha) available dice; cost is chosen dice count.) · healing-light via useHealingFeature
-- Remaining source effects need verification.
+- Table fact · Confirm visible creature/range; other recipient HP at table.
 
 ### Level 6 · Radiant Soul
+
+Own typed radiant resistance.
 
 - Generic action model · Radiant Soul: source rules or unverified dedicated path (Starting at 6th level, your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to one radiant or fire damage roll of that spell against one of its targets.)
 - Recognized numeric routes · resistance
 - Numeric effects awaiting verification · spell-damage-bonus (One target; radiant/fire spell; published adds to one radiant/fire damage roll)
-- Remaining source effects need verification.
+- Table fact · Confirm qualifying radiant/fire spell.
+- Open sheet gap · No Cha bonus to one eligible damage roll.
 
 ### Level 10 · Celestial Resistance
 
+Source rules.
+
 - Numeric effects awaiting verification · temporary-hp (Finish short or long rest) · ally-temporary-hp (Up to five visible creatures chosen at rest end)
-- Remaining source effects need verification.
+- Table fact · Confirm rest, select eligible visible allies and apply temp HP.
+- Open sheet gap · No automatic self level+Cha temp HP on rest.
 
 ### Level 14 · Searing Vengeance
+
+Dedicated zero-HP death-save replacement, visible 2d8+Cha, tracked long-rest spend, capped half max HP own heal.
 
 - Counters · Searing Vengeance; 1 uses at probe level; long reset verified
 - Generic action model · Searing Vengeance: spends 1 from expanded:2014:warlock:2014:subclass:warlock:celestial:resource:searing-vengeance (Starting at 14th level, the radiant energy you channel allows you to resist death. When you have to make a death saving throw at the start of your turn, you can instead spring back to your feet with a burst of radiant energy. You regain hit points equal to half your hit point maximum, and then you stand up if you so choose. Each creature of your choice that is within 30 feet of you takes radiant damage equal to 2d8 + your Charisma modifier, and is blinded until the end of the current turn.)
 - Dedicated plans · searing-vengeance via useHealingFeature
-- Remaining source effects need verification.
+- Table fact · Confirm start of turn/zero HP; standing choice and external radiant damage/blinded until turn end.
 
 ## Warlock — Fathomless
 
@@ -5278,41 +5377,58 @@ Source spell progression · level 1 expanded: Create or Destroy Water, Thunderwa
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Fathomless lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Tentacle of the Deep
 
+Generic tentacle pool.
+
 - Counters · Tentacle of the Deep; 2 uses at probe level; long reset verified
 - Generic action model · Tentacle of the Deep: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fathomless:resource:tentacle-summon (At 1st level, you can magically summon a spectral tentacle that strikes at your foes. As a bonus action, you create a 10-foot-long tentacle at a point you can see within 60 feet of you. The tentacle lasts for 1 minute or until you use this feature to create another tentacle. When you create the tentacle, you can make a melee spell attack against one creature within 10 feet of it. On a hit, the target takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn. When you reach 10th level in this class, the damage increases to 2d8. As a bonus action on your turn, you can move the tentacle up to 30 feet and repeat the attack. You can summon the tentacle a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)
-- Remaining source effects need verification.
+- Table fact · Confirm target, range, reach, tentacle position, cold hit, and damage-to-ally context.
+- Open sheet gap · No persisted tentacle tied to movement/range/actual strike or self damage reduction.
 
 ### Level 1 · Gift of the Sea
 
+Source rules.
+
 - Numeric effects awaiting verification · swim-speed (Also breathe underwater)
-- Remaining source effects need verification.
+- Table fact · Determine underwater position.
+- Open sheet gap · Swim speed and breathing lack sheet consumer.
 
 ### Level 6 · Oceanic Soul
 
+Typed cold resistance.
+
 - Recognized numeric routes · resistance
-- Remaining source effects need verification.
+- Table fact · Confirm underwater speech.
 
 ### Level 6 · Guardian Coil
 
+Generic tentacle pool.
+
 - Generic action model · Guardian Coil: source rules or unverified dedicated path (At 6th level, your Tentacle of the Deeps can defend you and others, interposing itself between them and harm. When you or a creature you can see takes damage while within 10 feet of the tentacle, you can use your reaction to choose one of those creatures and reduce the damage to that creature by 1d8. When you reach 10th level in this class, the damage reduced by the tentacle increases to 2d8.)
-- Remaining source effects need verification.
+- Table fact · Confirm target, range, reach, tentacle position, cold hit, and damage-to-ally context.
+- Open sheet gap · No persisted tentacle tied to movement/range/actual strike or self damage reduction.
 
 ### Level 10 · Grasping Tentacles
 
+Generic source use.
+
 - Counters · Grasping Tentacles; 1 uses at probe level; long reset verified
 - Generic action model · Grasping Tentacles: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fathomless:resource:grasping-tentacles (Starting at 10th level, you learn the spell Evard's Black Tentacles. It counts as a warlock spell for you, but it doesn't count against the number of spells you know. You can also cast it once without using a spell slot, and you regain the ability to do so when you finish a long rest. Whenever you cast this spell, your patron's magic bolsters you, granting you a number of temporary hit points equal to your warlock level. Moreover, damage can't break your concentration on this spell.)
-- Remaining source effects need verification.
+- Table fact · Confirm target and spell area/save.
+- Open sheet gap · No dedicated free Black Tentacles with self temp HP and concentration protection.
 
 ### Level 14 · Fathomless Plunge
 
+Generic source use.
+
 - Counters · Fathomless Plunge; 1 uses at probe level; short reset verified
 - Generic action model · Fathomless Plunge: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fathomless:resource:fathomless-plunge (When you reach 14th level, you can magically open temporary conduits to watery destinations. As an action, you can teleport yourself and up to five other willing creatures that you can see within 30 feet of you. Amid a whirl of tentacles, you all vanish and then reappear up to 1 mile away in a body of water you've seen (pond size or larger) or within 30 feet of it, each of you appearing in an unoccupied space within 30 feet of the others.)
-- Remaining source effects need verification.
+- Table fact · Confirm willing creatures, appropriate water and destination.
 
 ## Warlock — Fiend
 
@@ -5322,33 +5438,46 @@ Source spell progression · level 1 expanded: Burning Hands, Command · level 3 
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Dark One's Blessing
+
+Dedicated confirmed hostile kill grants self temporary HP from level+Cha.
 
 - Generic action model · Dark One's Blessing: source rules or unverified dedicated path (Starting at 1st level, when you reduce a hostile creature to 0 hit points, you gain temporary hit points equal to your Charisma modifier + your warlock level (minimum of 1).)
 - Dedicated plans · dark-ones-blessing via useHealingFeature
 - Numeric effects awaiting verification · temporary-hp (Reduce hostile creature to0hp; minimum1 in source)
-- Remaining source effects need verification.
+- Table fact · Confirm owner reduced hostile creature to zero.
+- Open sheet gap · Minimum 1 missing at low Cha.
 
 ### Level 6 · Dark One's Own Luck
 
+Dedicated visible d10 plus real rest spend.
+
 - Counters · Dark One's Own Luck; 1 uses at probe level; short reset verified
 - Dedicated plans · dark-luck via executeTriggeredFeature / executeConditionalAction (After initial roll but before effects occur.)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible check/save before adjudication.
+- Open sheet gap · Separate result does not patch original roll.
 
 ### Level 10 · Fiendish Resilience
 
+Rest damage-type choice stored.
+
 - Choice controls · fiend-resistance (rest)
 - Generic action model · Fiendish Resilience: source rules or unverified dedicated path (Starting at 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance.)
-- Remaining source effects need verification.
+- Table fact · Confirm chosen type and silvered/magic weapon exceptions.
+- Open sheet gap · Choice does not affect incoming typed damage.
 
 ### Level 14 · Hurl Through Hell
 
+Generic use.
+
 - Counters · Hurl Through Hell; 1 uses at probe level; long reset verified
 - Generic action model · Hurl Through Hell: spends 1 from expanded:2014:warlock:2014:subclass:warlock:fiend:resource:hurl-through-hell (Starting at 14th level, when you hit a creature with an attack, you can use this feature to instantly transport the target through the lower planes. The creature disappears and hurtles through a nightmare landscape. At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target is not a fiend, it takes 10d10 psychic damage as it reels from its horrific experience.)
-- Remaining source effects need verification.
+- Table fact · Confirm attack hit, target type and return position after next turn.
+- Open sheet gap · No dedicated external 10d10 output/control.
 
 ## Warlock — Genie
 
@@ -5358,33 +5487,47 @@ Source spell progression · level 1 expanded: Detect Evil and Good, Sanctuary, T
 
 ### Level 1 · Expanded Spell List
 
+Genie access-only by kind; level-17 Mystic Arcanum selection admits Wish and casts without slot with separate long-rest use.
+
 - Choice controls · genie-kind (advancement)
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (At 1st level, the Genie lets you choose from an expanded list of spells when you learn a warlock spell. The Genie Expanded Spells table shows the genie spells that are added to the warlock spell list for you, along with the spells associated in the table with your patron's kind: dao, djinni, efreeti, or marid.)
-- Remaining source effects need verification.
+- Table fact · Confirm kind.
 
 ### Level 1 · Genie's Vessel
 
+Genie choice gates spell access; generic pools where offered.
+
 - Counters · Genie's Vessel; 1 uses at probe level; long reset verified
 - Generic action model · Genie's Vessel: source rules or unverified dedicated path (Also at 1st level, your patron gifts you a magical vessel that grants you a measure of the genie's power. The vessel is a Tiny object, and you can use it as a spellcasting focus for your warlock spells. You decide what the object is, or you can determine what it is randomly by rolling on the Genie's Vessel table. While you are touching the vessel, you can use it in the following ways: - Bottled Respite: As an action, you can magically vanish and enter your vessel, which remains in the space you left. The interior of the vessel is an extradimensional space in the shape of a 20-foot-radius cylinder, 20 feet high, and resembles your vessel. The interior is appointed with cushions and low tables and is a comfortable temperature. While inside, you can hear the area around your vessel as if you were in its space. You can remain inside the vessel up to a number of hours equal to twice your proficiency bonus. You exit the vessel early if you use a bonus action to leave, if you die, or if the vessel is destroyed. When you exit the vessel, you appear in the unoccupied space closest to it. Any objects left in the vessel remain there until carried out, and if the vessel is destroyed, every object stored there harmlessly appears in the unoccupied spaces closest to the vessel's former space. Once you enter the vessel, you can't enter again until you finish a long rest. - Genie's Wrath: Once during each of your turns when you hit with an attack roll, you can deal extra damage to the target equal to your proficiency bonus. The type of this damage is determined by your patron: bludgeoning (dao), thunder (djinni), fire (efreeti), or cold (marid). If the vessel is destroyed or you lose it, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and the previous vessel is destroyed if it still exists. The vessel vanishes in a flare of elemental power when you die.)
-- Remaining source effects need verification.
+- Table fact · Confirm vessel item/occupants, type, placement, hit and rest timing.
+- Open sheet gap · No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.
 
 ### Level 6 · Elemental Gift
+
+Genie choice gates spell access; generic pools where offered.
 
 - Counters · Elemental Gift; 3 uses at probe level; long reset verified
 - Generic action model · Elemental Gift: spends 1 from expanded:2014:warlock:2014:subclass:warlock:the-genie:resource:elemental-gift (In addition, as a bonus action, you can give yourself a flying speed of 30 feet that lasts for 10 minutes, during which you can hover. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)
 - Numeric effects awaiting verification · resistance (Dao:bludgeoning; Djinni:thunder; Efreeti:fire; Marid:cold) · fly-speed (Elemental Gift active 10 minutes; hover)
-- Remaining source effects need verification.
+- Table fact · Confirm vessel item/occupants, type, placement, hit and rest timing.
+- Open sheet gap · No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.
 
 ### Level 10 · Sanctuary Vessel
 
+Genie choice gates spell access; generic pools where offered.
+
 - Generic action model · Sanctuary Vessel: source rules or unverified dedicated path (At 10th level, when you enter your Genie's Vessel via the Bottled Respite feature, you can now choose up to five willing creatures that you can see within 30 feet of you, and the chosen creatures are drawn into the vessel with you. As a bonus action, you can eject any number of creatures from the vessel, and everyone is ejected if you leave or die or if the vessel is destroyed. In addition, anyone (including you) who remains within the vessel for at least 10 minutes gains the benefit of finishing a short rest, and anyone can add your proficiency bonus to the number of hit points they regain if they spend any Hit Dice as part of a short rest there.)
-- Remaining source effects need verification.
+- Table fact · Confirm vessel item/occupants, type, placement, hit and rest timing.
+- Open sheet gap · No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.
 
 ### Level 14 · Limited Wish
 
+Dedicated level<=6 action spell selection, visible supported effects, self effect by shared spell handler, d4 long-rest cooldown.
+
 - Counters · Limited Wish; 1 uses at probe level; none reset
 - Dedicated plans · limited-wish via useCooldownFeature
-- Remaining source effects need verification.
+- Table fact · Confirm external target/save, spell effect choice and timing.
+- Open sheet gap · Validate attack-spell callbacks; cooldown control rolls spell plan effects without ordinary per-attack resolution.
 
 ## Warlock — Great Old One
 
@@ -5394,28 +5537,39 @@ Source spell progression · level 1 expanded: Dissonant Whispers, Tasha's Hideou
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Great Old One lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Awakened Mind
 
-- Remaining source effects need verification.
+Source rules.
+
+- Table fact · Confirm telepathic recipient/range/language.
 
 ### Level 6 · Entropic Ward
 
+Generic source use.
+
 - Counters · Entropic Ward; 1 uses at probe level; short reset verified
 - Generic action model · Entropic Ward: spends 1 from expanded:2014:warlock:2014:subclass:warlock:great-old-one:resource:entropic-ward (At 6th level, you learn to magically ward yourself against attack and to turn an enemy's failed strike into good luck for yourself. When a creature makes an attack roll against you, you can use your reaction to impose disadvantage on that roll. If the attack misses you, your next attack roll against the creature has advantage if you make it before the end of your next turn.)
-- Remaining source effects need verification.
+- Table fact · Confirm triggering attack/miss and next eligible attack.
+- Open sheet gap · No real attack-context defender disadvantage or subsequent self advantage.
 
 ### Level 10 · Thought Shield
 
+Typed psychic resistance.
+
 - Recognized numeric routes · resistance (Reflect same psychic damage to attacker; thoughts unreadable unless allowed)
-- Remaining source effects need verification.
+- Table fact · Confirm telepathic defense and pass received damage back to external source.
 
 ### Level 14 · Create Thrall
 
+Source rules.
+
 - Generic action model · Create Thrall: source rules or unverified dedicated path (At 14th level, you gain the ability to infect a humanoid's mind with the alien magic of your patron. You can use your action to touch an incapacitated humanoid. That creature is then charmed by you until a Remove Curse spell is cast on it, the charmed condition is removed from it, or you use this feature again.)
-- Remaining source effects need verification.
+- Table fact · Confirm incapacitated humanoid touch, removal conditions and communication.
+- Open sheet gap · No persistent thrall relationship control.
 
 ## Warlock — Hexblade
 
@@ -5425,37 +5579,51 @@ Source spell progression · level 1 expanded: Shield, Wrathful Smite · level 3 
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Hexblade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Hexblade's Curse
+
+Generic pool.
 
 - Counters · Hexblade's Curse; 1 uses at probe level; short reset verified
 - Generic action model · Hexblade's Curse: spends 1 from expanded:2014:warlock:2014:subclass:warlock:hexblade:resource:hexblade-s-curse (Starting at 1st level, you gain the ability to place a baleful curse on someone. As a bonus action, choose one creature you can see within 30 feet of you. The target is cursed for 1 minute. The curse ends early if the target dies, you die, or you are incapacitated. Until the curse ends, you gain the following benefits: - If the cursed target dies, you regain hit points equal to your warlock level + your Charisma modifier (minimum of 1 hit point).)
 - Numeric effects awaiting verification · damage-bonus (Damage rolls against currently cursed target) · critical-range (Attack rolls against currently cursed target)
-- Remaining source effects need verification.
+- Table fact · Confirm cursed creature/range/death and target damage.
+- Open sheet gap · No named target state, PB damage, 19–20 crit or capped death heal.
 
 ### Level 1 · Hex Warrior
+
+Source training, actual confirmed proficient non-two-handed weapon uses Cha, UA only melee, published can separately bind confirmed Pact weapon at own 3. Published ordinary bond clears at long rest.
 
 - Training grants · medium · shields · martial
 - Generic action model · Hex Warrior: source rules or unverified dedicated path (The influence of your patron also allows you to mystically channel your will through a particular weapon. Whenever you finish a long rest, you can touch one weapon that you are proficient with and that lacks the two-handed property. When you attack with that weapon, you can use your Charisma modifier, instead of Strength or Dexterity, for the attack and damage rolls. This benefit lasts until you finish a long rest. If you later gain the Pact of the Blade feature, this benefit extends to every pact weapon you conjure with that feature, no matter the weapon's type.)
 - Numeric effects awaiting verification · weapon-ability (Chosen eligible weapon; extends to pact weapon per published text)
-- Remaining source effects need verification.
+- Table fact · Confirm eligibility, touch and actual Pact property.
 
 ### Level 6 · Accursed Specter
 
+Slain humanoid bind, real long-rest cost, creation temp HP, Cha attack adjustment, own profile/conditions/rolls and persistent HP. Cleans up at zero or next long rest. C2 actual reload/rest.
+
 - Counters · Accursed Specter; 1 uses at probe level; long reset verified
-- Remaining source effects need verification.
+- Table fact · Confirm victim/spawn/initiative, command, sunlight and external target.
 
 ### Level 10 · Armor of Hexes
 
+Dedicated visible d6 with confirmation/result record.
+
 - Dedicated plans · armor-of-hexes via executeTriggeredFeature / executeConditionalAction (Your Hexblade’s Curse target hits you with an attack roll.)
-- Remaining source effects need verification.
+- Table fact · Confirm cursed attacker and hit; apply miss if 4+.
+- Open sheet gap · No curse state linking identity or adjudicating actual attack.
 
 ### Level 14 · Master of Hexes
 
+Source rules.
+
 - Generic action model · Master of Hexes: source rules or unverified dedicated path (Starting at 14th level, you can spread your Hexblade's Curse from a slain creature to another creature. When the creature cursed by your Hexblade's Curse dies, you can apply the curse to a different creature you can see within 30 feet of you, provided you aren't incapacitated. When you apply the curse in this way, you don't regain hit points from the death of the previously cursed creature.)
-- Remaining source effects need verification.
+- Table fact · Confirm proximity, original target death, eligible replacement.
+- Open sheet gap · No transfer/reapplication state.
 
 ## Warlock — Undead
 
@@ -5465,33 +5633,45 @@ Source spell progression · level 1 expanded: Bane, False Life · level 3 expand
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (At 1st level, the Undead lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Form of Dread
+
+Actual use, visible d10+owner level temp HP and minute state.
 
 - Counters · Form of Dread; 2 uses at probe level; long reset verified
 - Dedicated plans · form-of-dread via activateSubclassForm
 - Numeric effects awaiting verification · temporary-hp (On transformation) · condition-immunity (Form of Dread active)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible hit and target Wisdom save.
+- Open sheet gap · Frightened immunity exists on active profile; verify actual condition-input enforcement. Missing per-turn hit trigger.
 
 ### Level 6 · Grave Touched
 
+Source rules.
+
 - Generic action model · Grave Touched: source rules or unverified dedicated path (In addition, once during each of your turns, when you hit a creature with an attack and roll damage against the creature, you can replace the damage type with necrotic damage. While you are using your Form of Dread, you can roll one additional damage die when determining the necrotic damage the target takes.)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible damage and Dread state.
+- Open sheet gap · No own damage type conversion, extra die or once-turn guard.
 
 ### Level 10 · Necrotic Husk
+
+Typed necrotic defense becomes immunity during Dread, dedicated zero-HP 1 HP/exhaustion and visible effect/cooldown.
 
 - Counters · Necrotic Husk; 1 uses at probe level; none reset
 - Dedicated plans · necrotic-husk via useCooldownFeature
 - Numeric effects awaiting verification · resistance (Immunity while Form of Dread active)
-- Remaining source effects need verification.
+- Table fact · Confirm source trigger and chosen creatures/range, apply external damage.
 
 ### Level 14 · Spirit Projection
 
+Concentration/one hour, actual use and typed physical resistance/flight. Valid Projection+Dread enables once-turn own capped heal from half actual necrotic damage dealt.
+
 - Counters · Spirit Projection; 1 uses at probe level; long reset verified
 - Dedicated plans · projection-heal via executeTriggeredFeature / executeConditionalAction (Projection and Form of Dread active; once on your turn after necrotic damage. Enter actual necrotic damage dealt; regain half.) · spirit-projection via activateSubclassForm
-- Remaining source effects need verification.
+- Table fact · Confirm actual damage, body position and movement.
+- Open sheet gap · No body damage mirroring/inside-object scaling or spell component exception.
 
 ## Warlock — Undying
 
@@ -5501,28 +5681,38 @@ Source spell progression · level 1 known: Spare the Dying · level 1 expanded: 
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Undying lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Among the Dead
 
-- Remaining source effects need verification.
+Source-known Spare the Dying.
+
+- Table fact · Confirm undead attacker, save, timeline and immunity to further interactions.
+- Open sheet gap · No disease save advantage in actual own roll.
 
 ### Level 6 · Defy Death
 
+Dedicated visible capped self heal and true source use; Defy has zero-HP allowance.
+
 - Counters · Defy Death; 1 uses at probe level; long reset verified
 - Dedicated plans · defy-death via executeTriggeredFeature / executeConditionalAction (Succeed death saving throw OR stabilize creature with Spare the Dying.) · defy-death via useHealingFeature
-- Remaining source effects need verification.
+- Table fact · Confirm successful death save, or another stabilized by Spare the Dying; eligible limb placed for reattachment.
 
 ### Level 10 · Undying Nature
 
-- Remaining source effects need verification.
+Source rules.
+
+- Table fact · Confirm age, sustenance, breathing and rest.
 
 ### Level 14 · Indestructible Life
 
+Dedicated visible capped self heal and true source use; Defy has zero-HP allowance.
+
 - Counters · Indestructible Life; 1 uses at probe level; short reset verified
 - Dedicated plans · indestructible-life via executeTriggeredFeature / executeConditionalAction (Can reattach severed body part when using feature.) · indestructible-life via useHealingFeature
-- Remaining source effects need verification.
+- Table fact · Confirm successful death save, or another stabilized by Spare the Dying; eligible limb placed for reattachment.
 
 ## Warlock — Mage of Lorehold (UA)
 
@@ -5532,8 +5722,9 @@ Source spell progression · level 1 known: Sacred Flame, Comprehend Languages ·
 
 ### Level 1 · Lorehold Spells
 
+Source-known grants outside quota, clipped by owning class unlocks and source conditions recorded per spell.
+
 - Generic action model · Lorehold Spells: source rules or unverified dedicated path (You learn the cantrip Sacred Flame and the 1st level spell Comprehend Languages. You learn additional spells when you reach certain levels in this class, as shown on the Lorehold Spells table. Each of these spells counts as a class spell for you, but it doesn’t count against the number of spells you know. If you are a wizard, you can add these spells to your spellbook upon learning them, without expending any gold, and prepare them as normal.)
-- Remaining source effects need verification.
 
 ### Level 1 · Ancient Companion
 
@@ -5570,8 +5761,9 @@ Entry level 1 · [Unearthed Arcana 79 - Mages of Strixhaven](https://dnd5e.wikid
 
 ### Level 1 · Eloquent Apprentice
 
+Two of five skill proficiencies; either Sacred Flame or Vicious Mockery bonus cantrip as available under source.
+
 - Choice controls · eloquent-cantrip (advancement) · eloquent-skills (advancement)
-- Remaining source effects need verification.
 
 ### Level 1 · Silvery Barbs
 
@@ -5616,8 +5808,9 @@ Source spell progression · level 1 known: Spare the Dying, Cure Wounds, Inflict
 
 ### Level 1 · Witherbloom Spells
 
+Owner-specific spell advancement materialization and additional source training where declared.
+
 - Generic action model · Witherbloom Spells: source rules or unverified dedicated path (You learn the cantrip Spare the Dying and the 1st level spells Cure Wounds and Inflict Wounds. You learn additional spells when you reach certain levels in this class, as shown on the Witherbloom Spells table. Each of these spells count as a class spell for you, but it doesn’t count against the number of spells you know. If you are a druid, you always have the spells prepared, and they don’t count against the number of spells you can prepare each day.)
-- Remaining source effects need verification.
 
 ### Level 1 · Essence Tap
 
@@ -5664,36 +5857,50 @@ Source spell progression · level 1 known: Light, Sacred Flame · level 1 expand
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Celestial lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Bonus Cantrips
 
-- Remaining source effects need verification.
+Light and Sacred Flame outside ordinary known quota.
+
 
 ### Level 1 · Healing Light
 
+Distinct source long-rest die pool.
+
 - Counters · Healing Light; 2 uses at probe level; long reset verified
 - Dedicated plans · healing-light via executeTriggeredFeature / executeConditionalAction (Creature visible within60ft. Choose1..max(1,cha) available dice; cost is chosen dice count.)
-- Remaining source effects need verification.
+- Table fact · Confirm range and allocation.
+- Open sheet gap · Published-only healing handler omits variants, generic action is hidden.
 
 ### Level 6 · Radiant Soul
+
+Own typed radiant resistance.
 
 - Generic action model · Radiant Soul: source rules or unverified dedicated path (Starting at 6th level, your link to the Celestial allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant or fire damage, you add your Charisma modifier to that damage against one target of your choice.)
 - Recognized numeric routes · resistance
 - Numeric effects awaiting verification · spell-damage-bonus (One target; radiant/fire spell; published adds to one radiant/fire damage roll)
-- Remaining source effects need verification.
+- Table fact · Confirm qualifying radiant/fire spell.
+- Open sheet gap · No Cha bonus to one eligible damage roll.
 
 ### Level 10 · Celestial Resistance
 
+Source rules.
+
 - Numeric effects awaiting verification · temporary-hp (Finish short or long rest) · ally-temporary-hp (Up to five visible creatures chosen at rest end)
-- Remaining source effects need verification.
+- Table fact · Confirm rest, select eligible visible allies and apply temp HP.
+- Open sheet gap · No automatic self level+Cha temp HP on rest.
 
 ### Level 14 · Searing Vengeance
 
+Long-rest source pool.
+
 - Counters · Searing Vengeance; 1 uses at probe level; long reset verified
 - Generic action model · Searing Vengeance: spends 1 from expanded:2014:warlock:2014:subclass:warlock:celestial-ua:resource:searing-vengeance (Starting at 14th level, the radiant energy you channel allows you to overcome grievous injuries. When you have to make a death saving throw at the start of your turn, you can instead spring back to your feet with a burst of radiant energy. You regain hit points equal to half your hit point maximum, and then you stand up, if you so choose. Each creature of your choice that is within 30 feet of you takes radiant damage equal to 2d8 + your Charisma modifier, and it is blinded until the end of the current turn.)
-- Remaining source effects need verification.
+- Table fact · Confirm zero-HP and range facts using variant.
+- Open sheet gap · Published-only healingFeatures excludes variants; generic action cannot activate while at zero.
 
 ## Warlock — Genie (UA)
 
@@ -5703,32 +5910,45 @@ Source spell progression · level 1 expanded: Detect Evil and Good, Sanctuary, T
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Choice controls · genie-kind (advancement)
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Genie lets you choose from an expanded list of spells when you learn a warlock spell. The Genie Expanded Spells table shows the genie spells that are added to the warlock spell list for you, along with the spells associated in the table with your patron’s kind: dao, djinni, efreeti, or marid.)
-- Remaining source effects need verification.
 
 ### Level 1 · Genie’s Vessel
 
+Genie choice gates spell access; generic pools where offered.
+
 - Counters · Genie’s Vessel; 1 uses at probe level; long reset verified
 - Generic action model · Genie’s Vessel: source rules or unverified dedicated path (At 1st level, your patron gifts you a magical vessel that grants you a measure of the genie’s power. The vessel is a Tiny object, and you can use it as a spellcasting focus for your warlock spells. You decide what the object is, or you can determine what it is randomly by rolling on the Genie’s Vessel table. While you are touching the vessel, you can use it in the following ways: - Bottled Respite: As an action, you can magically vanish and enter your vessel, which remains in the space you left. The interior of the vessel is an extradimensional space in the shape of a 20-foot-radius cylinder, 20 feet high, and resembles your vessel. The interior is comfortably appointed with cushions and low tables and is a comfortable temperature. While inside, you can hear the area around your vessel as if you were in its space. You can remain inside the vessel up to a number of hours equal to twice your proficiency bonus. You exit the vessel early if you use a bonus action to leave, if you die, or if the vessel is destroyed. When you exit the vessel, you appear in the unoccupied space closest to it. Any objects left in the vessel remain there until carried out, and if the vessel is destroyed, every object stored there harmlessly appears in the unoccupied spaces closest to the vessel’s former space. Once you enter the vessel, you can’t enter again until you finish a long rest. - Genie’s Wrath: Once during each of your turns when you hit with an attack roll, you can deal extra damage to the target equal to your proficiency bonus. The type of this damage is determined by your patron: bludgeoning (dao), thunder (djinni), fire (efreeti), or cold (marid). If the vessel is destroyed or you lose it, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and the previous vessel is destroyed if it still exists. The vessel vanishes in a flare of elemental power when you die.)
-- Remaining source effects need verification.
+- Table fact · Confirm vessel item/occupants, type, placement, hit and rest timing.
+- Open sheet gap · No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.
 
 ### Level 6 · Elemental Gift
+
+Genie choice gates spell access; generic pools where offered.
 
 - Counters · Elemental Gift; 3 uses at probe level; long reset verified
 - Generic action model · Elemental Gift: spends 1 from expanded:2014:warlock:2014:subclass:warlock:genie-ua:resource:elemental-gift (In addition, as a bonus action, you can give yourself a flying speed of 30 feet that lasts for 10 minutes, during which you can hover. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.)
 - Numeric effects awaiting verification · resistance (Dao:bludgeoning; Djinni:thunder; Efreeti:fire; Marid:cold) · fly-speed (Elemental Gift active 10 minutes; hover)
-- Remaining source effects need verification.
+- Table fact · Confirm vessel item/occupants, type, placement, hit and rest timing.
+- Open sheet gap · No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.
 
 ### Level 10 · Sanctuary Vessel
 
+Genie choice gates spell access; generic pools where offered.
+
 - Generic action model · Sanctuary Vessel: source rules or unverified dedicated path (At 10th level, when you enter your Genie’s Vessel via the Bottled Respite feature, you can now choose up to five willing creatures that you can see within 30 feet of you, and the chosen creatures are drawn into the vessel with you. As a bonus action, you can eject any number of creatures from the vessel, and everyone is ejected if you leave or the vessel is destroyed. In addition, anyone (including you) who remains within the vessel for at least 10 minutes gains the benefit of finishing a short rest, and anyone can add your proficiency bonus to the number of hit points they regain if they spend any Hit Dice as part of a short rest there.)
-- Remaining source effects need verification.
+- Table fact · Confirm vessel item/occupants, type, placement, hit and rest timing.
+- Open sheet gap · No owned vessel state/PB damage rider, flight/resistance or Sanctuary rest-healing bonus.
 
 ### Level 14 · Limited Wish
 
+Resource declaration.
+
 - Counters · Limited Wish; 1 uses at probe level; none reset
-- Remaining source effects need verification.
+- Table fact · Confirm spell/source requirements.
+- Open sheet gap · Published-only cooldown handler excludes UA; generic Limited Wish is hidden.
 
 ## Warlock — Ghost in the Machine (UA)
 
@@ -5738,30 +5958,39 @@ Source spell progression · level 1 known: On/Off · level 1 expanded: Infallibl
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Ghost in the Machine lets you choose from an expanded list of spells when you learn a warlock spell. You gain the On/Off\* cantrip, and the following new spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Information Surge
 
+Generic uses where routed.
+
 - Counters · Information Surge; 1 uses at probe level; short reset verified
 - Generic action model · Information Surge: spends 1 from expanded:2014:warlock:2014:subclass:warlock:ghost-in-the-machine-ua:resource:information-surge (At 1st level, you gain the ability to temporarily render computerized devices inoperable. As an action, you can target a computerized device within 30 feet of you. If the targeted device is held or otherwise actively used by a living creature, that creature must make an Intelligence saving throw against your spell save DC. On a failed save, the targeted device ceases to function until the end of your next turn. If the targeted device is not held or used by a creature, the DM makes a special saving throw for the device with disadvantage and a +0 modifier. Certain shielded devices might negate the disadvantage, at the DM’s determination.)
-- Remaining source effects need verification.
+- Table fact · Confirm devices, connectivity/range, valid external targets/saves and resulting effects.
 
 ### Level 6 · Wire Walk
 
+Generic uses where routed.
+
 - Counters · Wire Walk; 1 uses at probe level; short reset verified
 - Generic action model · Wire Walk: spends 1 from expanded:2014:warlock:2014:subclass:warlock:ghost-in-the-machine-ua:resource:wire-walk (Starting at 6th level, you gain the ability to travel short distances over electrical wires, data lines, or telephone cables. As a bonus action, you can touch a device or socket connected to a hardwired network and teleport along this network to another device or socket within your line of sight.)
-- Remaining source effects need verification.
+- Table fact · Confirm devices, connectivity/range, valid external targets/saves and resulting effects.
 
 ### Level 10 · Personal Encryption
 
-- Remaining source effects need verification.
+Generic uses where routed.
+
+- Table fact · Confirm devices, connectivity/range, valid external targets/saves and resulting effects.
 
 ### Level 14 · Technovirus
 
+Generic uses where routed.
+
 - Counters · Technovirus; 1 uses at probe level; long reset verified
 - Generic action model · Technovirus: spends 1 from expanded:2014:warlock:2014:subclass:warlock:ghost-in-the-machine-ua:resource:technovirus (At 14th level, you gain the ability to infect a humanoid’s body with living circuitry. You can use an action to make a melee attack against a humanoid creature using your spell attack modifier. The target must make a Constitution saving throw against your spell save DC as a techno-organic virus quickly spreads through its body. On a failed save, the target takes 8d10 psychic damage, or half as much damage on a successful one. Additionally, if the target fails the saving throw, you can use an action to issue it a single command, as if you were casting the Command spell. The target makes its saving throw against your command with disadvantage. You can issue this command at any time while the target remains infected.)
-- Remaining source effects need verification.
+- Table fact · Confirm devices, connectivity/range, valid external targets/saves and resulting effects.
 
 ## Warlock — Hexblade (UA)
 
@@ -5771,36 +6000,51 @@ Source spell progression · level 1 expanded: Shield, Wrathful Smite · level 3 
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Hexblade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Hex Warrior
 
+Source training, actual confirmed proficient non-two-handed weapon uses Cha, UA only melee, published can separately bind confirmed Pact weapon at own 3. Published ordinary bond clears at long rest.
+
 - Training grants · medium · shields · martial
 - Numeric effects awaiting verification · weapon-ability (Proficient melee weapon lacking two-handed property; no daily chosen-weapon limit)
-- Remaining source effects need verification.
+- Table fact · Confirm eligibility, touch and actual Pact property.
 
 ### Level 1 · Hexblade's Curse
+
+Generic pool.
 
 - Counters · Hexblade's Curse; 1 uses at probe level; short reset verified
 - Generic action model · Hexblade's Curse: spends 1 from expanded:2014:warlock:2014:subclass:warlock:hexblade-ua:resource:hexblade-s-curse (Starting at 1st level, you gain the ability to place a baleful curse on someone. As a bonus action, choose one creature you can see within 30 feet of you. The target is cursed for 1 minute. The curse ends early if the target dies, you die, or you are incapacitated. Until the curse ends, you gain the following benefits: - If the cursed target dies, you regain hit points equal to your warlock level + your Charisma modifier.)
 - Numeric effects awaiting verification · damage-bonus (Damage rolls against currently cursed target) · critical-range (Attack rolls against currently cursed target)
-- Remaining source effects need verification.
+- Table fact · Confirm cursed creature/range/death and target damage.
+- Open sheet gap · No named target state, PB damage, 19–20 crit or capped death heal.
 
 ### Level 6 · Shadow Hound
 
+Dedicated noncreature tracking state.
+
 - Dedicated plans · shadow-hound via executeTriggeredFeature / executeConditionalAction (Bonus action; visible target within60ft. Hound merges into shadow; no half/three-quarter cover against your attacks; know direction/distance. Ends on other plane, incapacity, or dispelling.)
-- Remaining source effects need verification.
+- Table fact · Confirm target range/cover/position, plane, dispelling and incapacity.
+- Open sheet gap · No attack-cover delta.
 
 ### Level 10 · Armor of Hexes
 
+Dedicated visible d6 with confirmation/result record.
+
 - Dedicated plans · armor-of-hexes via executeTriggeredFeature / executeConditionalAction (Your Hexblade’s Curse target hits you with attack roll; UA does not state a reaction cost.)
-- Remaining source effects need verification.
+- Table fact · Confirm cursed attacker and hit; apply miss if 4+.
+- Open sheet gap · No curse state linking identity or adjudicating actual attack.
 
 ### Level 14 · Master of Hexes
 
+Source rules.
+
 - Generic action model · Master of Hexes: source rules or unverified dedicated path (Starting at 14th level, you can use your Hexblade’s Curse again without resting, but when you apply it to a new target, the curse immediately ends on the previous target.)
-- Remaining source effects need verification.
+- Table fact · Confirm proximity, original target death, eligible replacement.
+- Open sheet gap · No transfer/reapplication state.
 
 ## Warlock — Lurker in the Deep (UA)
 
@@ -5810,41 +6054,59 @@ Source spell progression · level 1 expanded: Create or Destroy Water, Thunderwa
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Lurker in the Deep lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Grasp of the Deep
 
+Generic source pools/rolls where available.
+
 - Counters · Grasp of the Deep; 3 uses at probe level; long reset verified
 - Generic action model · Grasp of the Deep: spends 1 from expanded:2014:warlock:2014:subclass:warlock:lurker-in-the-deep-ua:resource:tentacle-summon (At 1st level, you gain the ability to magically summon a spectral tentacle that strikes at your foes. As a bonus action, you create a 10-foot-long tentacle at a point you can see within 60 feet of you. The tentacle lasts for 1 minute or until you use this feature to create another tentacle. When you create the tentacle, you can make a melee spell attack against a creature within 10 feet of it. On a hit, the target takes 1d8 cold or lightning damage (your choice when it takes the damage) and its speed is reduced by 10 feet until the start of your next turn. When you reach 10th level in this class, the damage dealt by the tentacle increases to 2d8. As a bonus action on your turn, you can move the tentacle up to 30 feet and repeat the attack. You can summon the tentacle a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a long rest.)
-- Remaining source effects need verification.
+- Table fact · Confirm tentacle position, external target/save and route.
+- Open sheet gap · No typed tentacle state, own damage reduction or Devouring Maw temp HP.
 
 ### Level 1 · Scion of the Deep
 
-- Remaining source effects need verification.
+Source rules.
+
+- Table fact · Confirm underwater communication and terrain.
 
 ### Level 6 · Fathomless Soul
 
+Typed cold resistance.
+
 - Recognized numeric routes · resistance
 - Numeric effects awaiting verification · swim-speed (Also breathe air/water)
-- Remaining source effects need verification.
+- Table fact · Confirm aquatic context.
+- Open sheet gap · Own swim speed only reference.
 
 ### Level 6 · Guardian Grasp
 
+Generic source pools/rolls where available.
+
 - Generic action model · Guardian Grasp: source rules or unverified dedicated path (At 6th level, the tentacle you create with Grasp of the Deep can defend you and others. When you or a creature you can see takes damage while within 10 feet of the tentacle, you can use your reaction to choose one of those creatures and reduce the damage to the chosen creature by half. After doing so, the tentacle vanishes.)
-- Remaining source effects need verification.
+- Table fact · Confirm tentacle position, external target/save and route.
+- Open sheet gap · No typed tentacle state, own damage reduction or Devouring Maw temp HP.
 
 ### Level 10 · Devouring Maw
 
+Generic source pools/rolls where available.
+
 - Counters · Devouring Maw; 1 uses at probe level; short reset verified
 - Generic action model · Devouring Maw: spends 1 from expanded:2014:warlock:2014:subclass:warlock:lurker-in-the-deep-ua:resource:devouring-maw (Starting at 10th level, you can magically draw forth a manifestation of your patron’s insatiable hunger. As an action, choose a point you can see within 60 feet of you. For 1 minute, a translucent maw manifests in a 10-foot radius centered on that point. Each creature in that area when the maw appears must succeed on a Strength saving throw against your spell save DC or be restrained. Any creature that starts its turn in the maw’s area takes 3d6 cold or lightning damage (your choice when it takes the damage). As an action, a restrained creature can repeat the saving throw, ending the restraint on a success. At the start of your turn, if there is a creature in the maw’s area, you gain temporary hit points equal to your warlock level.)
-- Remaining source effects need verification.
+- Table fact · Confirm tentacle position, external target/save and route.
+- Open sheet gap · No typed tentacle state, own damage reduction or Devouring Maw temp HP.
 
 ### Level 14 · Unleash the Depths
 
+Generic source pools/rolls where available.
+
 - Counters · Unleash the Depths; 1 uses at probe level; long reset verified
 - Generic action model · Unleash the Depths: spends 1 from expanded:2014:warlock:2014:subclass:warlock:lurker-in-the-deep-ua:resource:unleash-the-depths (Starting at 14th level, you gain the ability to call upon your patron for aid. As an action, you choose a point within 30 feet of you where your patron tears through reality, manifesting a measure of its thalassic grandeur. Choose one of the following effects to issue from this manifestation point. Once you use either effect, you can’t use this feature again until you finish a long rest. Fury. You can direct a barrage of spectral tentacles to issue forth and strike up to five creatures you can see within 30 feet of the manifestation point. Each target must make a Dexterity saving throw against your spell save DC. On a failed save, the creature takes 6d10 cold or lightning damage (your choice) and is knocked prone. On a successful save, it takes half as much damage and is not knocked prone. The tentacles then vanish.)
-- Remaining source effects need verification.
+- Table fact · Confirm tentacle position, external target/save and route.
+- Open sheet gap · No typed tentacle state, own damage reduction or Devouring Maw temp HP.
 
 ## Warlock — Noble Genie (UA)
 
@@ -5854,37 +6116,53 @@ Source spell progression · level 1 expanded: Fog Cloud, Sleep · level 3 expand
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Noble Genie lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Collector’s Vessel
 
+Generic source choice/pools where offered.
+
 - Counters · Collector’s Vessel; 3 uses at probe level; long reset verified
 - Generic action model · Collector’s Vessel: spends 1 from expanded:2014:warlock:2014:subclass:warlock:noble-genie-ua:resource:collectors-vessel (If you lose your vessel, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous vessel. The vessel vanishes in a flare of elemental power when you die. As an action while you are holding the vessel, you target a willing creature you can see within 100 feet of you and create a tether of wispy elemental material that links the target to you. The tether lasts for 1 hour, until you use this feature to create another tether, until the bound target is reduced to 0 hit points, or until the target ends its turn more than 100 feet from you. While you are tethered to a creature, you gain the following benefits: - When you can cast a spell, you can deliver the spell from your space or the bound creature’s space. You can create the tether a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a long rest.)
-- Remaining source effects need verification.
+- Table fact · Confirm tethered creature, spell target/origin, external save/range and existence of relevant components.
+- Open sheet gap · No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.
 
 ### Level 6 · Elemental Resistance
 
+Generic source choice/pools where offered.
+
 - Choice controls · elemental-resistance (rest)
 - Generic action model · Elemental Resistance: source rules or unverified dedicated path (Starting at 6th level, your patron grants you protection from an element. Whenever you finish a long rest, you gain resistance to acid, cold, fire, or lightning damage (your choice) until the end of your next long rest. While the tether of your Collector’s Vessel is active, the tethered creature gains resistance to the damage type you chose.)
-- Remaining source effects need verification.
+- Table fact · Confirm tethered creature, spell target/origin, external save/range and existence of relevant components.
+- Open sheet gap · No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.
 
 ### Level 10 · Protective Wish
 
+Generic source choice/pools where offered.
+
 - Generic action model · Protective Wish: source rules or unverified dedicated path (Beginning at 10th level, you’re now able to use your Collector’s Vessel to wish for protection for yourself or your tethered creature. If you or the tethered creature is hit by an attack, you can use your reaction to teleport, swapping places with the creature and switching which one of you is hit by the attack.)
-- Remaining source effects need verification.
+- Table fact · Confirm tethered creature, spell target/origin, external save/range and existence of relevant components.
+- Open sheet gap · No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.
 
 ### Level 10 · Genie’s Entertainment
 
+Generic source choice/pools where offered.
+
 - Counters · Genie’s Entertainment; 1 uses at probe level; long reset verified
 - Generic action model · Genie’s Entertainment: spends 1 from expanded:2014:warlock:2014:subclass:warlock:noble-genie-ua:resource:genies-entertainment (Starting at 10th level, as an action, you can attempt to send a creature you can see within 90 feet to your patron’s court. The target must succeed on a Charisma saving throw against your warlock spell save DC or be magically drawn into your vessel and teleported to your patron’s court in the Elemental Planes. While there, the target is stunned and your patron marvels at the target with amusement but brings no harm to it. The target can repeat the saving throw at the end of each of its turns, reappearing in the space it left or in the nearest unoccupied space if that space is occupied on a success. Once you use this feature, you can’t use it again until you finish a long rest. If the target remains in your patron’s court for 1 minute, the genie sends the target back at the end of its turn as if it successfully saved, and you regain the use of this feature.)
-- Remaining source effects need verification.
+- Table fact · Confirm tethered creature, spell target/origin, external save/range and existence of relevant components.
+- Open sheet gap · No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.
 
 ### Level 14 · Collector's Call
 
+Generic source choice/pools where offered.
+
 - Counters · Collector's Call; 1 uses at probe level; long reset verified
 - Generic action model · Collector's Call: spends 1 from expanded:2014:warlock:2014:subclass:warlock:noble-genie-ua:resource:collector-s-call (At 14th level, in exchange for extending your patron’s influence over the multiverse, you can call on more of their power. As an action, you can implore your patron for aid by making a Charisma (Persuasion) check against your warlock spell save DC. If the check succeeds, you can choose one of the following effects:)
-- Remaining source effects need verification.
+- Table fact · Confirm tethered creature, spell target/origin, external save/range and existence of relevant components.
+- Open sheet gap · No stored tether lifecycle, own chosen typed resistance/protective damage or alternative self healing.
 
 ## Warlock — Raven Queen (UA)
 
@@ -5894,30 +6172,42 @@ Source spell progression · level 1 expanded: False Life, Sanctuary · level 3 e
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Raven Queen lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Sentinel Raven
 
+Separate 1 HP profile, perch invulnerability, owner Perception/passive +Cha while perched, owned rolls, source service history/perch/return/reload. Confirmed selected killer activates actual owner attack advantage. C2 true reload.
+
 - Generic action model · Sentinel Raven: source rules or unverified dedicated path (Starting at 1st level, you gain the service of a spirit sent by the Raven Queen to watch over you. The spirit assumes the form and game statistics of a raven, and it always obeys your commands, which you can give telepathically while it is within 100 feet of you. While the raven is perched on your shoulder, you gain darkvision with a range of 30 feet and a bonus to your passive Wisdom (Perception) score and to Wisdom (Perception) checks. The bonus equals your Charisma modifier. While perched on your shoulder, the raven can’t be targeted by any attack or other harmful effect; only you can cast spells on it; it can’t take damage; and it is incapacitated. You can see through the raven’s eyes and hear what it hears while it is within 100 feet of you. In combat, you roll initiative for the raven and control how it acts. If it is slain by a creature, you gain advantage on all attack rolls against the killer for the next 24 hours. The raven doesn’t require sleep. While it is within 100 feet of you, it can awaken you from sleep as a bonus action. The raven vanishes when it dies, if you die, or if the two of you are separated by more than 5 miles.)
-- Remaining source effects need verification.
+- Table fact · Confirm killer and correct target, range/positions/5-mile separation, actual commands.
 
 ### Level 6 · Soul of the Raven
 
+Source rules.
+
 - Generic action model · Soul of the Raven: source rules or unverified dedicated path (At 6th level, you gain the ability to merge with your raven spirit. As a bonus action when your raven is perched on your shoulder, your body merges with your raven’s form. While merged, you become Tiny, you replace your speed with the raven’s, and you can use your action only to Dash, Disengage, Dodge, Help, Hide, or Search. During this time, you gain the benefits of your raven being perched on your shoulder. As an action, you and the raven return to normal.)
-- Remaining source effects need verification.
+- Table fact · Confirm raven within reach and fusion positions.
+- Open sheet gap · No fused own-body/stat/action state.
 
 ### Level 10 · Raven's Shield
 
+Own typed necrotic resistance.
+
 - Recognized numeric routes · resistance
 - Numeric effects awaiting verification · condition-immunity · save-advantage
-- Remaining source effects need verification.
+- Table fact · Confirm death save.
+- Open sheet gap · No own frightened immunity/death-save advantage.
 
 ### Level 14 · Queen's Right Hand
 
+Generic source use.
+
 - Counters · Queen's Right Hand; 1 uses at probe level; long reset verified
 - Generic action model · Queen's Right Hand: spends 1 from expanded:2014:warlock:2014:subclass:warlock:raven-queen-ua:resource:queen-s-right-hand (Starting at 14th level, you can channel the Raven Queen’s power to slay a creature. You can cast Finger of Death. After you cast the spell with this feature, you can’t do so again until you finish a long rest.)
-- Remaining source effects need verification.
+- Table fact · Confirm Finger of Death target/save.
+- Open sheet gap · No dedicated slot-free cast.
 
 ## Warlock — Seeker (UA)
 
@@ -5927,36 +6217,51 @@ Source spell progression · level 1 expanded: Feather Fall, Jump · level 3 expa
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Seeker lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Shielding Aurora
 
+Generic use.
+
 - Counters · Shielding Aurora; 1 uses at probe level; short reset verified
 - Generic action model · Shielding Aurora: spends 1 from expanded:2014:warlock:2014:subclass:warlock:seeker-ua:resource:shielding-aurora (Starting at 1st level, you can invoke the Seeker’s power to protect you from harm. As a bonus action, you create a whirling aurora of brilliant energy that swirls around you. Until the end of your next turn, you gain resistance to all damage, and if a hostile creature ends its turn within 10 feet of you, it takes radiant damage equal to your warlock level + your Charisma modifier.)
-- Remaining source effects need verification.
+- Table fact · Confirm hostile melee attacker and damage timing.
+- Open sheet gap · No one-turn own all-damage resistance state or retaliation.
 
 ### Level 3 · Pact Boon: Pact of the Star Chain
 
+Optional persisted choice where exposed.
+
 - Counters · Pact Boon: Pact of the Star Chain; 1 uses at probe level; short reset verified
 - Generic action model · Pact Boon: Pact of the Star Chain: spends 1 from expanded:2014:warlock:2014:subclass:warlock:seeker-ua:resource:star-chain-advantage (The Seeker grants you a chain forged from starlight, decorated with seven gleaming motes of brightness. While the chain is on your person, you know the augury spell and can cast it as a ritual. The spell doesn’t count against your number of spells known. Additionally, you can invoke the Seeker’s power to gain advantage on an Intelligence check while you carry this item. Once you use this ability, you cannot use it again until you complete a short or long rest. If you lose your Star Chain, you can perform a 1-hour ceremony to receive a replacement from the Seeker. The ceremony can be performed during a short or long rest, and it destroys the previous chain. The chain disappears in a flash of light when you die.)
-- Remaining source effects need verification.
+- Table fact · Confirm chain possessions and qualifying Int check.
+- Open sheet gap · No dedicated Augury cast or check advantage.
 
 ### Level 6 · Astral Refuge
 
+Generic uses where routed.
+
 - Generic action model · Astral Refuge: source rules or unverified dedicated path (At 6th level, you gain the ability to step into an astral refuge. As an action, you disappear from the world for a brief moment and enter the Astral Plane, taking advantage of its timeless nature. While in your astral refuge, you can take two actions to cast spells that target only you. After using those two actions, you return to the space you occupied and your turn ends.)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible self spells and whether approved group completes short rest.
+- Open sheet gap · No dedicated self-cast sequence or controlled rest integration.
 
 ### Level 10 · Far Wanderer
 
+Own typed fire/cold resistance.
+
 - Recognized numeric routes · resistance (Also no breathing required)
-- Remaining source effects need verification.
+- Table fact · Confirm environment/breathing context.
 
 ### Level 14 · Astral Sequestration
 
+Generic uses where routed.
+
 - Counters · Astral Sequestration; 1 uses at probe level; long reset verified
 - Generic action model · Astral Sequestration: spends 1 from expanded:2014:warlock:2014:subclass:warlock:seeker-ua:resource:astral-sequestration (By performing a special ritual over the course of 5 minutes, you shift yourself and up to ten willing creatures you can see to the Astral Plane. You and those creatures gain the benefits of a short rest while sequestered on the Astral Plane. You then return to the spaces you all occupied when you used this ability, with no time having passed in the world.)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible self spells and whether approved group completes short rest.
+- Open sheet gap · No dedicated self-cast sequence or controlled rest integration.
 
 ## Warlock — Undead (UA)
 
@@ -5966,33 +6271,45 @@ Source spell progression · level 1 expanded: Bane, False Life · level 3 expand
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (At 1st level, the Undead lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Form of Dread
+
+Actual use, visible d10+owner level temp HP and minute state.
 
 - Counters · Form of Dread; 2 uses at probe level; long reset verified
 - Dedicated plans · form-of-dread via activateSubclassForm
 - Numeric effects awaiting verification · temporary-hp (On transformation) · condition-immunity (Form of Dread active)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible hit and target Wisdom save.
+- Open sheet gap · Frightened immunity exists on active profile; verify actual condition-input enforcement. Missing per-turn hit trigger.
 
 ### Level 6 · Grave Touched
 
+Source rules.
+
 - Generic action model · Grave Touched: source rules or unverified dedicated path (In addition, when you hit a creature with an attack and roll damage against the creature, you can replace the damage type with necrotic damage. While you are using your Form of Dread, you can roll one additional damage die when determining the necrotic damage the target takes.)
-- Remaining source effects need verification.
+- Table fact · Confirm eligible damage and Dread state.
+- Open sheet gap · No own damage type conversion, extra die or once-turn guard.
 
 ### Level 10 · Mortal Husk
+
+Typed necrotic defense, 1HP/exhaustion and source d4 cooldown via dedicated zero-HP handler.
 
 - Counters · Mortal Husk; 1 uses at probe level; none reset
 - Dedicated plans · mortal-husk via useCooldownFeature
 - Numeric effects awaiting verification · resistance (Immunity while Form of Dread active)
-- Remaining source effects need verification.
+- Table fact · Confirm UA death trigger and creatures within range.
 
 ### Level 14 · Spirit Projection
 
+Concentration/one hour, actual use and typed physical resistance/flight. Valid Projection+Dread enables once-turn own capped heal from half actual necrotic damage dealt.
+
 - Counters · Spirit Projection; 1 uses at probe level; long reset verified
 - Dedicated plans · projection-heal via executeTriggeredFeature / executeConditionalAction (Projection and Form of Dread active; once on your turn after necrotic damage. Enter actual necrotic damage dealt; regain half.) · spirit-projection via activateSubclassForm
-- Remaining source effects need verification.
+- Table fact · Confirm actual damage, body position and movement.
+- Open sheet gap · No body damage mirroring/inside-object scaling or spell component exception.
 
 ## Warlock — Undying Light (UA)
 
@@ -6002,32 +6319,45 @@ Source spell progression · level 1 known: Light, Sacred Flame · level 1 expand
 
 ### Level 1 · Expanded Spell List
 
+Source spell choices unlocked at owning Warlock milestones as access candidates. These grants use ordinary spells-known choices.
+
 - Generic action model · Expanded Spell List: source rules or unverified dedicated path (The Undying Light lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.)
-- Remaining source effects need verification.
 
 ### Level 1 · Radiant Soul
+
+Own typed radiant resistance.
 
 - Generic action model · Radiant Soul: source rules or unverified dedicated path (Starting at 1st level, your link to the Positive Plane allows you to serve as a conduit for radiant energy. You have resistance to radiant damage, and when you cast a spell that deals radiant damage or fire damage, you add your Charisma modifier to that damage. Additionally, you know the Light and Sacred Flame cantrips and can cast them at will. They don't count against your number of cantrips known.)
 - Recognized numeric routes · resistance
 - Numeric effects awaiting verification · spell-damage-bonus (Cast spell dealing radiant/fire)
-- Remaining source effects need verification.
+- Table fact · Confirm qualifying radiant/fire spell.
+- Open sheet gap · No Cha bonus to one eligible damage roll.
 
 ### Level 6 · Searing Vengeance
 
+Long-rest source pool.
+
 - Counters · Searing Vengeance; 1 uses at probe level; long reset verified
 - Generic action model · Searing Vengeance: spends 1 from expanded:2014:warlock:2014:subclass:warlock:undying-light-ua:resource:searing-vengeance (Starting at 6th level, the radiant energy you channel allows you to overcome grievous injuries. When you would make a death saving throw, you can instead spring back to your feet with a burst of radiant energy. You immediately stand up (if you so choose), and you regain hit points equal to half your hit point maximum. All hostile creatures within 30 feet of you take 10 + your Charisma modifier radiant damage and are blinded until the end of your turn.)
-- Remaining source effects need verification.
+- Table fact · Confirm zero-HP and range facts using variant.
+- Open sheet gap · Published-only healingFeatures excludes variants; generic action cannot activate while at zero.
 
 ### Level 10 · Radiant Resistance
 
+Source rules.
+
 - Numeric effects awaiting verification · temporary-hp (Short or long rest end) · ally-temporary-hp (Up to five visible chosen creatures at rest end)
-- Remaining source effects need verification.
+- Table fact · Confirm rest and eligible allies.
+- Open sheet gap · No own post-rest temporary HP.
 
 ### Level 14 · Healing Light
 
+Distinct source long-rest die pool.
+
 - Counters · Healing Light; 15 uses at probe level; long reset verified
 - Dedicated plans · healing-light via executeTriggeredFeature / executeConditionalAction (Touch a creature; spend1–5 available dice. Cost is chosen dice count.)
-- Remaining source effects need verification.
+- Table fact · Confirm range and allocation.
+- Open sheet gap · Published-only healing handler omits variants, generic action is hidden.
 
 ## Wizard — Abjuration
 
