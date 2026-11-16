@@ -6513,7 +6513,7 @@ The ward tool permits confirmed projection at the required Wizard level and subt
 
 ### Level 14 · Spell Resistance
 
-At Wizard 14, own incoming typed spell damage is resisted and a confirmed saving throw against a spell has advantage; this applies to Moon form and automatic Wild Magic Fireball, with replacement Polymorph suppression.
+At Wizard 14, confirmed raw spell damage is resisted and a confirmed saving throw against a spell has advantage. Spell context resets after damage; Moon retains the feature and replacement Polymorph applies it only to restored-body overflow.
 
 - Table fact · Confirm spell origin and the applicable saving throw; Ward and Bastion damage controls do not yet offer spell-origin confirmation.
 - Verification · subclass-passive-defenses; subclass-typed-damage-final; browser-subclass-spell-resistance

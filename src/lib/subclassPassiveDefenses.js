@@ -1,5 +1,5 @@
 import {expandedSubclassRows,expandedFeatureUnlocked} from './expandedSubclasses.js';
-import {retainsOwnFeatures,equippedForActiveBody,actorActionBlock} from './subclassState.js';
+import {retainsOwnFeatures,equippedForActiveBody,actorActionBlock,polymorphSheepEffect} from './subclassState.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 // Reviewed unconditional own-body damage defenses. Conditional defenses have
 // separate source-specific controls and must not be inferred from prose.
@@ -31,7 +31,7 @@ const rules=[
 ];
 export function subclassPassiveDefenseSupported(recordId,feature,kind){return rules.some(([source,name,effect])=>recordId===`2014:subclass:${source}`&&name===feature&&effect===kind);}
 export function subclassPassiveDamageDefense(c,type,{attack=false,magical=false,spellDamage=false}={}){
- if(!type||!retainsOwnFeatures(c))return {resistant:false,immune:false};
+ if((!type&&!spellDamage)||!retainsOwnFeatures(c))return {resistant:false,immune:false};
  const damage=String(type).toLowerCase(),result={resistant:spellDamage&&spellResistanceAvailable(c),immune:false};
  for(const p of expandedSubclassRows(c))for(const [source,feature,kind,types] of rules){
   if(!types.includes(damage))continue;
@@ -56,4 +56,8 @@ export function dampenElementsAvailable(c,type){
 
 export function spellResistanceAvailable(c){
  return retainsOwnFeatures(c)&&expandedSubclassRows(c).some(p=>p.record.id==='2014:subclass:wizard:abjuration'&&p.record.features.some(f=>f.name==='Spell Resistance'&&expandedFeatureUnlocked(p,f)));
+}
+
+export function spellResistanceAvailableAfterForm(c){
+ const form=polymorphSheepEffect(c);return !!form&&spellResistanceAvailable({...c,activeEffects:(c.activeEffects||[]).filter(e=>e.id!==form.id)});
 }
