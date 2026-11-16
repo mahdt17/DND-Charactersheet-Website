@@ -2120,11 +2120,12 @@
   },
   "2014:subclass:cleric:twilight-ua:vigilant-blessing": {
     "level": 1,
-    "actions": [
-      "Vigilant Blessing: source rules or unverified dedicated path"
+    "table": "Confirm action and touch. Another creature rolls initiative at the table; the sheet does not track or modify that creature.",
+    "dedicated": [
+      "Vigilant Blessing can target self or another touched creature; self state feeds and is consumed by the next actual initiative roll."
     ],
-    "table": "Confirm a touched recipient and their next initiative roll.",
-    "gap": "The action does not arm or consume the owner initiative advantage as a source-owned state."
+    "claim": "Confirmed self blessing grants initiative advantage once, survives reload, and is replaced when the same owner blesses another creature. Theurgy gains the level 1 domain feature at Wizard 6.",
+    "gap": "Replacement Polymorph suppresses the source-owned benefit and does not consume it on a replacement-body initiative roll; the interaction requires source-rules review."
   },
   "2014:subclass:cleric:twilight:bonus-proficiencies": {
     "level": 1,
@@ -2185,11 +2186,12 @@
   },
   "2014:subclass:cleric:twilight:vigilant-blessing": {
     "level": 1,
-    "actions": [
-      "Vigilant Blessing: source rules or unverified dedicated path"
+    "table": "Confirm action and touch. Another creature rolls initiative at the table; the sheet does not track or modify that creature.",
+    "dedicated": [
+      "Vigilant Blessing can target self or another touched creature; self state feeds and is consumed by the next actual initiative roll."
     ],
-    "table": "Confirm a touched recipient and their next initiative roll.",
-    "gap": "The action does not arm or consume the owner initiative advantage as a source-owned state."
+    "claim": "Confirmed self blessing grants initiative advantage once, survives reload, and is replaced when the same owner blesses another creature. Theurgy gains the level 1 domain feature at Wizard 6.",
+    "gap": "Replacement Polymorph suppresses the source-owned benefit and does not consume it on a replacement-body initiative roll; the interaction requires source-rules review."
   },
   "2014:subclass:cleric:unity-ua:channel-divinity-shared-burden": {
     "level": 2,

@@ -1362,9 +1362,11 @@ Source spell progression · level 1 prepared: Faerie Fire, Sleep · level 3 prep
 
 ### Level 1 · Vigilant Blessing
 
-- Generic action model · Vigilant Blessing: source rules or unverified dedicated path
-- Table fact · Confirm a touched recipient and their next initiative roll.
-- Open sheet gap · The action does not arm or consume the owner initiative advantage as a source-owned state.
+Confirmed self blessing grants initiative advantage once, survives reload, and is replaced when the same owner blesses another creature. Theurgy gains the level 1 domain feature at Wizard 6.
+
+- Dedicated plans · Vigilant Blessing can target self or another touched creature; self state feeds and is consumed by the next actual initiative roll.
+- Table fact · Confirm action and touch. Another creature rolls initiative at the table; the sheet does not track or modify that creature.
+- Open sheet gap · Replacement Polymorph suppresses the source-owned benefit and does not consume it on a replacement-body initiative roll; the interaction requires source-rules review.
 
 ### Level 2 · Channel Divinity: Twilight Sanctuary
 
@@ -1768,9 +1770,11 @@ Source spell progression · level 1 prepared: Faerie Fire, Sleep · level 3 prep
 
 ### Level 1 · Vigilant Blessing
 
-- Generic action model · Vigilant Blessing: source rules or unverified dedicated path
-- Table fact · Confirm a touched recipient and their next initiative roll.
-- Open sheet gap · The action does not arm or consume the owner initiative advantage as a source-owned state.
+Confirmed self blessing grants initiative advantage once, survives reload, and is replaced when the same owner blesses another creature. Theurgy gains the level 1 domain feature at Wizard 6.
+
+- Dedicated plans · Vigilant Blessing can target self or another touched creature; self state feeds and is consumed by the next actual initiative roll.
+- Table fact · Confirm action and touch. Another creature rolls initiative at the table; the sheet does not track or modify that creature.
+- Open sheet gap · Replacement Polymorph suppresses the source-owned benefit and does not consume it on a replacement-body initiative roll; the interaction requires source-rules review.
 
 ### Level 2 · Channel Divinity: Twilight Sanctuary
 

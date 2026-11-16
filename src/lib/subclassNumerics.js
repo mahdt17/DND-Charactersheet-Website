@@ -1,3 +1,4 @@
+import {vigilantBlessingActive} from './vigilantBlessing.js';
 import {isPotentSpellcasting} from './subclassCantripDamage.js';
 import {subclassPassiveDefenseSupported} from './subclassPassiveDefenses.js';
 import {ravenKillerAdvantage} from './subclassSentinelRaven.js';
@@ -90,7 +91,7 @@ export function subclassRollTraits(c,{kind='check',name='',concentration=false,d
  const p=subclassNumericProfile(c);
  name=name.replace(/ check$/i,'');
  const active=activeFormProfile(c),strength=/^(Strength|Athletics)\b/i.test(name),con=/^Constitution\b/i.test(name),dragon=active.star==='Dragon'&&(kind==='save'&&(concentration||/concentration/i.test(name))||kind==='check'&&['Intelligence','Wisdom','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival'].includes(name));
- return {bonusDice:[...(['attack','save'].includes(kind)&&active.states.some(e=>e.stateKey==='elixir-boldness')?['1d4']:[]),...(kind==='save'&&damageEffect&&historyWhimActive(c,'Luck')?['1d6']:[])],minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:kind==='attack'&&ravenKillerAdvantage(c)||strength&&active.strengthAdvantage||kind==='save'&&(con&&p.saveAdvantages.includes('con')||/^Death\b/i.test(name)&&p.saveAdvantages.includes('death'))||kind==='check'&&(name==='Initiative'?p.initiativeAdvantage:p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
+ return {bonusDice:[...(['attack','save'].includes(kind)&&active.states.some(e=>e.stateKey==='elixir-boldness')?['1d4']:[]),...(kind==='save'&&damageEffect&&historyWhimActive(c,'Luck')?['1d6']:[])],minimumD20:dragon?10:0,bonus:kind==='save'?p.saveBonus+(concentration?p.concentrationBonus:0)+(strength?p.saveBonuses.str||0:con?p.saveBonuses.con||0:0):p.skillBonuses[name]||0,advantage:kind==='attack'&&ravenKillerAdvantage(c)||strength&&active.strengthAdvantage||kind==='save'&&(con&&p.saveAdvantages.includes('con')||/^Death\b/i.test(name)&&p.saveAdvantages.includes('death'))||kind==='check'&&(name==='Initiative'?(p.initiativeAdvantage||vigilantBlessingActive(c)):p.skillAdvantages.includes(name)),sources:p.rows.filter(r=>r.applied)};
 }
 
 // Explicit, narrowly scoped states. Other source prose remains table-resolved.
