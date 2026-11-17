@@ -1,5 +1,6 @@
 import spells14 from '../data/spells.json' with {type:'json'};
 import modern from '../data/srd2024.json' with {type:'json'};
+import {elvenAccuracyAbility,isElvenAccuracyFeat} from './featAbilityIncrease.js';
 
 const norm=s=>String(s?.name||s||'').trim().toLowerCase().replaceAll('’',"'");
 export const featMagicKey=f=>f.id||f.catalogId||`${f.edition||'2014'}:${f.index||f.name}`;
@@ -46,7 +47,16 @@ export function featMagicState(f,c={}){
 }
 export function featMagicSpells(c){return (c.feats||[]).flatMap(f=>featMagicState(f,c).spells);}
 export function resolveFeatSpell(c,s){return featMagicSpells(c).find(x=>x.featGrantId===s.featGrantId&&x.catalogId===s.catalogId)||null;}
-export function featAbilityIncrease(c,key){return (c.feats||[]).reduce((n,f)=>{const state=featMagicState(f,c);return n+(state.valid&&state.profile?.abilityIncrease&&state.ability===key&&f.magicChoices?.applyAbilityIncrease!==false?1:0);},0);}
+export function featAbilityIncreaseSources(c,key){
+ const feats=c.feats||[];
+ const elvenIndex=feats.findIndex(feat=>isElvenAccuracyFeat(feat,c)&&elvenAccuracyAbility(feat)&&feat.abilityChoices?.applyAbilityIncrease!==false);
+ return feats.filter((feat,index)=>{
+  if(isElvenAccuracyFeat(feat,c))return index===elvenIndex&&elvenAccuracyAbility(feat)===key;
+  const state=featMagicState(feat,c);
+  return state.valid&&state.profile?.abilityIncrease&&state.ability===key&&feat.magicChoices?.applyAbilityIncrease!==false;
+ });
+}
+export function featAbilityIncrease(c,key){return featAbilityIncreaseSources(c,key).length;}
 export function applyFeatAbilityIncrease(c,key,base){return base+Math.max(0,Math.min(featAbilityIncrease(c,key),20-base));}
 export function featSpellUsesSlots(c,s){
  if(s.featSlotCasting)return true;

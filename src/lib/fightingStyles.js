@@ -1,7 +1,7 @@
 import {rageProfile} from './rage2014.js';
 import {bladesongProfile} from './bladesinging.js';
 import {actorActionBlock,healActiveBody,equippedForActiveBody} from './subclassState.js';
-import {fightingStyleGrants} from './fightingStyleGrants.js';
+import {fightingStyleGrants,ownedFightingStyle,rangerFightingStyles,rangerFightingStyleSource,styleLabel} from './fightingStyleGrants.js';
 import {totemProfile} from './totemWarrior.js';
 import {totalLevel} from './advancement.js';
 import {effectiveAbilityScores} from './abilityScores.js';
@@ -15,26 +15,42 @@ const conditionNames=c=>(Array.isArray(c.conditions)?c.conditions:String(c.condi
 const count=n=>Math.max(0,Math.floor(Number(n)||0));
 const mod=n=>Math.floor((Number(n??10)-10)/2);
 const signed=n=>n>=0?`+${n}`:String(n);
-const label=s=>`${s.name} (${s.source})`;
-const findStyle=value=>fightingStyles.find(s=>[s.id,s.name,label(s)].includes(typeof value==='object'?value?.id:value));
 export function fightingStyleProfile(c,abilities=effectiveAbilityScores(c)){
- const {active,row,fighterRow,max,styles}=fightingStyleGrants(c);
+ const {active,row,fighterRow,rangerRow,max,styles}=fightingStyleGrants(c);
  if(!active)return {active:false,styles:[],ac:0};
  const has=id=>styles.some(s=>s.id===id),worn=(c.inventory||[]).filter(i=>equippedForActiveBody(c,i)).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean),armored=worn.some(e=>e.armor_class&&e.index!=='shield'),shield=worn.some(e=>e.index==='shield'),heavy=worn.some(e=>e.armor_category==='Heavy'),mariner=has('mariner')&&!shield&&!heavy,pb=2+Math.floor((totalLevel(c)-1)/4);
- return {active:true,row,fighterRow,level:row.level,pb,styles,has,armored,shield,heavy,mariner,ac:(has('defense')&&armored?1:0)+(mariner?1:0),max,dc:8+pb+mod(abilities[c.fightingStyles?.dcAbility==='dex'?'dex':'str'])};
+ return {active:true,row,fighterRow,rangerRow,level:row.level,pb,styles,has,armored,shield,heavy,mariner,ac:(has('defense')&&armored?1:0)+(mariner?1:0),max,dc:8+pb+mod(abilities[c.fightingStyles?.dcAbility==='dex'?'dex':'str'])};
 }
 export function styleChoicePlan(c,previous=null,picks={}, {configure=false}={}){
- const p=fightingStyleProfile(c);if(!p.fighterRow)return {groups:[],patch:{},valid:true};
- const state={...c.fightingStyles},groups=[],selected=Array.from({length:p.max},(_,i)=>p.styles.find(s=>s.sourceClassLevel===(i?10:1))),before=previous?fightingStyleProfile(previous):null;let valid=true;
- for(let i=0;i<p.max;i++){
-  const level=i?10:1,id=`2014:Fighter:fighting-style:${level}`,required=configure||Object.hasOwn(picks,id)||!selected[i]&&(p.level===1||p.max===2||previous&&!before?.active||i===1);
-  if(!required)continue;
-  const options=fightingStyles.filter(s=>!p.styles.some(other=>other.sourceClassName!=='Fighter'&&other.id===s.id)&&!selected.some((other,n)=>n!==i&&other?.id===s.id)).map(label),values=picks[id]||(selected[i]?[label(selected[i])]:[]),okay=values.length===1&&options.includes(values[0]);
-  groups.push({id,className:'Fighter',level,kind:'source-choice',choiceKind:'option',label:i?'Additional Fighting Style':'Fighting Style',required:1,options,selected:values,valid:okay,sourceText:'Choose one style. You cannot choose the same Fighting Style twice. PHB: Player’s Handbook; TCE: Tasha’s Cauldron of Everything; UA: Unearthed Arcana playtest.',sourceUrl:'https://dnd5e.wikidot.com/fighter'});valid&&=okay;
-  if(okay)selected[i]=findStyle(values[0]);
- }
- state.choices=selected.flatMap((s,i)=>s?[{...s,sourceClassId:p.row.catalogId,sourceClassName:'Fighter',sourceClassLevel:i?10:1,edition:'2014'}]:[]);
- if(selected.some(s=>s?.id==='superior-technique')){
+ const {fighterRow,rangerRow,max,styles}=fightingStyleGrants(c);
+ if(!fighterRow&&!rangerRow)return {groups:[],patch:{},valid:true};
+ const state={...c.fightingStyles},groups=[],before=previous?fightingStyleGrants(previous):null;
+ const slots=[
+  ...(fighterRow?[{row:fighterRow,level:1,list:fightingStyles},...(max===2?[{row:fighterRow,level:10,list:fightingStyles}]:[])]:[]),
+  ...(rangerRow?[{row:rangerRow,level:2,list:rangerFightingStyles}]:[]),
+ ].map(slot=>{
+  const {row,level,list}=slot,id=`2014:${row.name}:fighting-style:${level}`;
+  const saved=styles.find(s=>s.sourceClassId===row.catalogId&&s.sourceClassName===row.name&&s.sourceClassLevel===level);
+  const values=picks[id]??(saved?[styleLabel(saved)]:[]);
+  const selected=Array.isArray(values)?values:[];
+  const proposed=selected.length===1?list.find(s=>styleLabel(s)===selected[0]):null;
+  return {...slot,id,saved,selected,proposed};
+ });
+ const bardStyles=new Set(styles.filter(style=>style.sourceClassName==='Bard').map(style=>style.id));
+ let valid=true;
+ const savedChoices=slots.flatMap(slot=>{
+  const {row,level,list,id,saved,selected,proposed}=slot,ranger=row.name==='Ranger';
+  const newlyGranted=ranger?(!previous||!before?.rangerRow):(row.level===1||max===2||(previous&&!before?.fighterRow));
+  if(!configure&&!Object.hasOwn(picks,id)&&(saved||!newlyGranted))return saved?[saved]:[];
+  const options=list.filter(s=>!bardStyles.has(s.id)&&!slots.some(other=>other!==slot&&other.proposed?.id===s.id)).map(styleLabel);
+  const okay=!!proposed&&options.includes(selected[0]);
+  groups.push({id,className:row.name,level,kind:'source-choice',choiceKind:'option',label:level===10?'Additional Fighting Style':'Fighting Style',required:1,options,selected,valid:okay,sourceText:ranger?'Choose one Player’s Handbook style. You cannot choose the same Fighting Style twice.':'Choose one style. You cannot choose the same Fighting Style twice. PHB: Player’s Handbook; TCE: Tasha’s Cauldron of Everything; UA: Unearthed Arcana playtest.',sourceUrl:ranger?rangerFightingStyleSource:'https://dnd5e.wikidot.com/fighter'});
+  valid&&=okay;
+  return okay?[ownedFightingStyle(proposed,row,level)]:saved?[saved]:[];
+ });
+ const otherChoices=(state.choices||[]).filter(choice=>choice?.sourceClassName==='Ranger'?!rangerRow:!fighterRow);
+ state.choices=[...otherChoices,...savedChoices];
+ if(savedChoices.some(s=>s.id==='superior-technique')){
   const id='2014:Fighter:superior-technique:maneuver',existing=battleMasterManeuvers.find(m=>m.id===state.maneuver),values=picks[id]||(existing?[existing.name]:[]),okay=values.length===1&&battleMasterManeuvers.some(m=>m.name===values[0]);
   if(configure||!existing||Object.hasOwn(picks,id))groups.push({id,className:'Fighter',level:1,kind:'source-choice',choiceKind:'option',label:'Superior Technique maneuver',required:1,options:battleMasterManeuvers.map(m=>m.name),selected:values,valid:okay,sourceText:'Learn one maneuver and gain one separate d6 superiority die per short or long rest. This never replaces Battle Master training or dice.'});
   valid&&=okay;if(okay)state.maneuver=battleMasterManeuvers.find(m=>m.name===values[0]).id;
