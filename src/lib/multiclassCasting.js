@@ -1,3 +1,4 @@
+import {isArcaneArcher} from './arcaneArcher.js';
 import {conversionSlotPool} from './conversionSlots.js';
 import {characterClasses} from './advancement.js';
 import {isEntomancerRecord} from './entomancer.js';
@@ -14,11 +15,12 @@ export const slotArray=slots=>Array.from({length:10},(_,i)=>Math.max(0,Math.min(
 // The caller supplies edition-specific class tables. Prestige/unsupported
 // spellcasting is deliberately left for an explicit personal slot override.
 export function multiclassPools(c,singleSlots) {
-  const rows=characterClasses(c),edition=spellRulesEdition(c);
+  const edition=spellRulesEdition(c);
+  const rows=characterClasses(c).filter(row=>edition!=='2014'||row.edition!=='2014'||!isArcaneArcher(row.definition));
   const manual=reason=>({standard:empty(),pact:empty(),mode:'manual',reason});
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition))return manual('Set slots from your table’s rules for this edition or cross-edition combination.');
   if(rows.some(r=>!usesClassSpellRules({ruleset:edition,className:r.name,classDefinition:r.definition})))return manual('This class combination needs source-based slot configuration.');
-  const converted=conversionSlotPool({...c,ruleset:edition},singleSlots);if(converted)return converted;
+  const converted=conversionSlotPool({...c,ruleset:edition,classLevels:rows},singleSlots);if(converted)return converted;
   if(rows.some(r=>r.definition?.prestige||!isEntomancerRecord(r.definition)&&(r.definition?.source==='Homebrew'||(!fullCasters.has(r.name)&&!halfCasters.has(r.name)&&!nonCasters.has(r.name)&&r.name!=='Warlock'&&!(edition==='2014'&&r.name==='Artificer')))))
     return manual('This class combination needs source-based slot configuration.');
   const model=r=>({className:r.name,classDefinition:r.definition,subclass:r.subclass,level:r.level,ruleset:edition});

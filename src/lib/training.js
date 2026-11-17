@@ -1,3 +1,4 @@
+import {isArcaneArcher} from './arcaneArcher.js';
 import {shadowScholarTraining} from './shadowScholar.js';
 import {shadarKaiTraining} from './shadarKai.js';
 import {eladrinTraining} from './eladrin.js';
@@ -17,7 +18,7 @@ const revised={...legacy,Barbarian:['shields','martial-weapons'],Druid:['light-a
 const normalize=s=>String(s||'').toLowerCase().replace(/[’']/g,'').trim();
 const slug=s=>normalize(s).replace(/\s+/g,'-');
 const editionOf=c=>c.ruleset||'2014';
-const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&(r?.prestige||r?.stats?.prestige||r?.homebrew||r?.source==='Homebrew');
+const unsupported=r=>!campaignKind(r)&&!isEntomancerRecord(r)&&!isArcaneArcher(r)&&(r?.prestige||r?.stats?.prestige||r?.homebrew||r?.source==='Homebrew');
 const entry=index=>({index,name:labels[index],kind:index==='thieves-tools'?'tools':index.includes('armor')||index==='shields'?'armor':'weapons'});
 const kindFor=p=>p.index?.startsWith('skill-')?'skills':p.index?.includes('armor')||p.index==='shields'?'armor':p.index?.includes('tool')||instruments.some(n=>normalize(n)===normalize(p.name))?'tools':'weapons';
 const sourceEntry=p=>({index:p.index,name:String(p.name||'').replace(/^Skill: /,'').replace(/^Tool: /,''),kind:kindFor(p)});
