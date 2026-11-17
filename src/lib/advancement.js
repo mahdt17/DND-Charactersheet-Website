@@ -1,3 +1,4 @@
+import {arcaneArcherRequirements,isArcaneArcher} from './arcaneArcher.js';
 import {isVariantHuman} from '../data/variantHuman.js';
 import {isShadarKai} from './shadarKai.js';
 import {isEladrin} from './eladrin.js';
@@ -156,6 +157,7 @@ function evaluateOne(p,c,scope={}) {
   return null;
 }
 export function requirements(record,c,confirmations={}, {multiclass=false,subject=record?.featSubject,equipment=[]}={}) {
+  if(isArcaneArcher(record))return arcaneArcherRequirements(c,characterClasses(c),confirmations);
   const prerequisites=record?.prerequisites;
   let source=Array.isArray(prerequisites)?[...prerequisites]:prerequisites&&typeof prerequisites==='object'
     ?prerequisites.kind||prerequisites.type||prerequisites.ability_score?[prerequisites]:Object.entries(prerequisites).map(([kind,value])=>kind==='minimum_level'

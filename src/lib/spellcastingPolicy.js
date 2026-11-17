@@ -1,3 +1,4 @@
+import {isArcaneArcher} from './arcaneArcher.js';
 import {entomancerId} from '../data/entomancer.js';
 import {campaignIds} from '../data/archivistCampaign.js';
 
@@ -9,7 +10,7 @@ export function usesClassSpellRules(c){
  const edition=spellRulesEdition(c),definition=c.classDefinition||{};
  if(!['2014','2024'].includes(edition)||(definition.edition&&definition.edition!==edition))return false;
  const id=definition.catalogId||definition.id;
- if(edition==='2014'&&(id===entomancerId||Object.values(campaignIds).includes(id)))return true;
+ if(edition==='2014'&&(id===entomancerId||isArcaneArcher(definition)||Object.values(campaignIds).includes(id)))return true;
  if(definition.homebrew||definition.source==='Homebrew')return false;
  return core.has(c.className)||(edition==='2014'&&c.className==='Artificer');
 }

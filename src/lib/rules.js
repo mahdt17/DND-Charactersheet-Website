@@ -1,3 +1,4 @@
+import {isMagicalArrowAttack} from './arcaneArcher.js';
 import {forgeBlessingBonus} from './subclassForge.js';
 import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile,weaponSubclassDamageDice,weaponSubclassDamageType,monkMartialArtsAvailable} from './subclassEquipment.js';
 import {rageProfile} from './rage2014.js';
@@ -132,6 +133,6 @@ export function weaponAttacks(char, abilities) {
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
     const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei&&(kensei.record.playtest||monkMartialArtsAvailable(char))?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;
     const subclass=subclassNumericProfile(char,abilities),victory=style.melee&&!style.two?subclass.meleeWeaponDamageBonus:0;
-    return {id:i.id,name:i.name,hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,damageType:weaponSubclassDamageType(char,i)||data.damage.damage_type.name,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${weaponSubclassDamageDice(char,i)}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''} · ${weaponSubclassDamageType(char,i)||data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    return {id:i.id,name:i.name,magical:isMagicalArrowAttack(char,i),hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,damageType:weaponSubclassDamageType(char,i)||data.damage.damage_type.name,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${weaponSubclassDamageDice(char,i)}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''}${isMagicalArrowAttack(char,i)?' · magical arrows':''} · ${weaponSubclassDamageType(char,i)||data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

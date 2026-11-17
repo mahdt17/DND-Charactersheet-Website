@@ -1,3 +1,4 @@
+import {arcaneArcherFeatures,isArcaneArcher} from './arcaneArcher.js';
 import {eligibleSpellRepresentatives} from './spellIdentity.js';
 import {expandedSubclassFeatures} from './expandedSubclasses.js';
 import extraSubclassSpells from '../data/subclassSpellCatalog.json' with {type:'json'};
@@ -135,6 +136,7 @@ function legacyClassFeatures(record,level){
  return [...grouped.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
 }
 export function classFeatures(c){if(characterClasses(c).length===1&&campaignKind(c.classDefinition))return campaignFeatureRows(c);if(characterClasses(c).length>1)return characterClasses(c).flatMap(row=>{const model=classCharacter(c,row);return (classFeatures(model)||grantedClassFeatures(model)).map(f=>({...f,index:row.catalogId+':'+f.index,className:row.name,featureName:f.featureName||f.name,name:row.name+' · '+f.name}));});if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){const record=classRecord(c);const features=legacyClassFeatures(record,c.level);if(features.length)return features;return [{index:'class-reference',name:c.className+' progression',featureName:c.className+' progression',level:c.level,desc:[classRecord(c)?.description||'No structured class features are available for this source entry yet.'],sourceUrl:record?.sourceUrl||record?.url||''}];}
+ if(isArcaneArcher(c.classDefinition))return arcaneArcherFeatures(c);
  const totem=totemFeatureRows(c);if(totem.length)return [...grantedClassFeatures(c),...totem];
  const martial=fighterFeatureRows(c);if(martial.length)return [...grantedClassFeatures(c),...martial];
  if(entomancerProfile(c).level)return entomancerFeatureRows(c);
