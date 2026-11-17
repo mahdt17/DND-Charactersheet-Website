@@ -42,6 +42,7 @@ jobs:
       - run: node tests/casting.mjs
       - run: node tests/editions.mjs
       - run: node tests/arcane-archer-2014.mjs
+      - run: node tests/shadow-archer-attacks.mjs
       - run: npm run test:content
       - run: python scripts/enrich_dndtools.py --self-test
       - run: python tests/class-source-isolation.py
@@ -127,6 +128,9 @@ jobs:
       - name: Run 2014 Arcane Archer browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-arcane-archer-2014.mjs
+      - name: Run Shadow Archer combat browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-shadow-archer-automation.mjs
       - name: Run edition browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-editions.mjs

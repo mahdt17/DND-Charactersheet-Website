@@ -29,3 +29,18 @@ assert(qualified(requirements({prerequisites:{kind:'ability',ability:'Dexterity'
 const array={prerequisites:[{kind:'ability',ability:'Dexterity',minimum:13}],prerequisite_options:grappler.prerequisite_options};
 requirements(array,c);requirements(array,c);assert.equal(array.prerequisites.length,1);
 console.log('PASS feat eligibility: total level, alternate abilities, bonuses, edition, duplicates, source integrity, explicit manual review and immutable prerequisites');
+
+const elvenAccuracy=JSON.parse(fs.readFileSync('public/catalogs/wikidot5e/feats.json')).find(f=>f.name==='Elven Accuracy');
+const accuracyWithChoice={...elvenAccuracy,abilityChoices:{ability:'int'}};
+const elfContext={...c,ruleset:'2014',race:'Elf'};
+for(const provenance of ['2014:shadar-kai-mtf','2014:shadar-kai-motm']){
+ const shadarKai={...elfContext,race:'Shadar-kai',raceDefinition:{edition:'2014',catalogId:provenance}};
+ assert.equal(requirements(elvenAccuracy,shadarKai)[0].status,'met');
+ assert(validFeatSelection(accuracyWithChoice,shadarKai));
+}
+assert(validFeatSelection(accuracyWithChoice,elfContext));
+assert(validFeatSelection(accuracyWithChoice,{...elfContext,race:'Half-Elf'}));
+assert.equal(requirements(elvenAccuracy,{...elfContext,race:'Human'})[0].status,'unmet');
+assert(!validFeatSelection(elvenAccuracy,elfContext));
+assert(!validFeatSelection({...elvenAccuracy,abilityChoices:{ability:'str'}},elfContext));
+assert(!validFeatSelection(accuracyWithChoice,{...elfContext,feats:[{name:'Elven Accuracy',level:4}]}));

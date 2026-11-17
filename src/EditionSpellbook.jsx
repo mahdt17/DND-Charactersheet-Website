@@ -144,7 +144,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[],casti
     const spend=quick?spendQuickRitual(char,cast):needsSlot&&!ritual?spendActiveSlot(castingSpell,slot,slotPool):{};
     const rolled=[],damageRolls=[];
     if(!ritual)for(let i=0;i<(spellAttack?plan.count:1);i++){
-      const hit=spellAttack?roll(`1d20${signed(is35(classModel)?(Number(char.bab)||0)+modifier(effectiveAbilities(char)[/ranged/i.test(cast.attack_type||cast.description||'')?'dex':'str']):pb+mod+styleSpellAttackBonus(char,cast))}`,`${cast.name} · attack ${i+1}`,{kind:'attack'}):null;
+      const hit=spellAttack?roll(`1d20${signed(is35(classModel)?(Number(char.bab)||0)+modifier(effectiveAbilities(char)[/ranged/i.test(cast.attack_type||cast.description||'')?'dex':'str']):pb+mod+styleSpellAttackBonus(char,cast))}`,`${cast.name} · attack ${i+1}`,{kind:'attack',ability}):null;
       for (const damage of dice) {
         if (i > 0 && damage.oncePerCast) continue;
         const receivesBonus = i === Math.min(empoweredRoll, plan.count) - 1;

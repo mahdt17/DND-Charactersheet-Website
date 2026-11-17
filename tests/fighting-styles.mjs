@@ -30,3 +30,47 @@ test('a thrown second two-weapon attack suppresses positive ability damage indep
 test('only currently eligible source-owned style grants apply, with a bounded metadata-free legacy migration',()=>{const grant=(id,level,extra={})=>({id,sourceClassId:'2014:fighter',sourceClassName:'Fighter',sourceClassLevel:level,edition:'2014',...extra}),c={...make([],10),subclass:'Champion',fightingStyles:{choices:[grant('defense',1),grant('mariner',10)]}};assert.equal(rules.armorFor(c,c.abilities),13);assert.equal(rules.armorFor({...c,subclass:'Battle Master'},c.abilities),12,'Subclass edits immediately disable the Champion-only grant');for(const [level,subclass,choice] of [[9,'Champion',grant('mariner',10)],[10,'Battle Master',grant('mariner',10)],[1,'',grant('mariner',1,{edition:'2024',sourceClassId:'2024:fighter'})],[1,'',grant('mariner',1,{sourceClassId:'foreign-fighter'})],[1,'',grant('mariner',1,{sourceClassName:'Ranger'})],[1,'',grant('mariner',2)]]){const imported={...make([],level),subclass,fightingStyles:{choices:[choice]}};assert.equal(api.fightingStyleProfile(imported).styles.length,0,JSON.stringify(choice));}const definitionOwner={...make(),classLevels:[{name:'Fighter',edition:'2014',level:1,definition:{name:'Fighter',catalogId:'wikidot5e:fighter'}}],fightingStyles:{choices:[grant('mariner',1)]}};assert.equal(api.fightingStyleProfile(definitionOwner).styles.length,0,'Use the class definition owner when an imported row omits its catalog ID');definitionOwner.fightingStyles.choices[0].sourceClassId='wikidot5e:fighter';assert.equal(api.fightingStyleProfile(definitionOwner).styles.length,1);const legacy=make(['archery','defense']);const roster=api.fightingStyleProfile(legacy).styles;assert.equal(roster.length,1);assert.equal(roster[0].sourceClassId,'2014:fighter');assert.equal(roster[0].sourceClassLevel,1);assert.equal(roster[0].edition,'2014');const master={...make([],10),subclass:'Battle Master',fightingStyles:{choices:[grant('defense',1),grant('superior-technique',10)],maneuver:'precision-attack'},fighterSubclass:{battleMaster:{maneuvers:['trip-attack','parry','rally'],tool:'Smith’s tools'}}};assert(!bm.fighterProfile(master).availableManeuvers.some(m=>m.id==='precision-attack'));assert.throws(()=>bm.spendManeuver(master,'precision-attack'));});
 
 test('alternate imported Technique IDs share canonical expenditure, spending and cleanup',()=>{const pool={id:'imported-technique',classResourceKey:api.techniqueId,name:'Superior Technique d6',max:1,used:0,reset:'short'},c={...make(['superior-technique']),fightingStyles:{...make(['superior-technique']).fightingStyles,maneuver:'trip-attack'},resources:[pool]};const spent={...c,...api.spendTechnique(c,'trip-attack')};assert.equal(api.styleResources(spent)[0].used,1);assert.equal(spent.resources.filter(r=>r.id===api.techniqueId||r.classResourceKey===api.techniqueId).length,1);assert.throws(()=>api.spendTechnique(spent,'trip-attack'),/remaining/);const normalized=res.characterResources(spent);assert.equal(normalized.filter(r=>r.id===api.techniqueId||r.classResourceKey===api.techniqueId).length,1);assert.equal(normalized.find(r=>r.id===api.techniqueId).used,1);const duplicates={...c,resources:[pool,{...pool,id:api.techniqueId,used:1}]};assert.equal(api.styleResources(duplicates)[0].used,1,'Old imported zero must not override an already-spent canonical die');assert.equal(res.characterResources({...c,fightingStyles:{choices:[]}}).filter(r=>r.id===api.techniqueId||r.classResourceKey===api.techniqueId).length,0);assert.equal(res.restResources(spent,'short').resources.find(r=>r.id===api.techniqueId).used,0);});
+
+const ranger=(level=2)=>({...make(),className:'Ranger',classDefinition:{name:'Ranger',index:'ranger',edition:'2014'},level});
+const rangerStyleId='2014:Ranger:fighting-style:2';
+const fighterStyleId='2014:Fighter:fighting-style:1';
+test('2014 Rangers choose one PHB fighting style at Ranger 2',()=>{
+  const c=ranger(),before=ranger(1);
+  assert.equal(api.styleChoicePlan(before).groups.length,0);
+  const plan=choices.featureChoicePlan(c,before);
+  assert.equal(plan.valid,false);
+  assert.deepEqual(plan.groups.find(g=>g.id===rangerStyleId)?.options,['Archery (PHB)','Defense (PHB)','Dueling (PHB)','Two-Weapon Fighting (PHB)']);
+  assert.equal(api.styleChoicePlan(c,before,{[rangerStyleId]:['Protection (PHB)']}).valid,false);
+  const existing=ranger(5),configure=api.styleChoicePlan(existing,null,{}, {configure:true});
+  assert.equal(configure.groups[0]?.id,rangerStyleId);
+  assert.equal(configure.valid,false);
+  assert.equal(api.fightingStyleProfile({...c,ruleset:'2024'}).active,false);
+});
+
+test('Fighter Archery and Ranger Defense apply together without duplicating styles',()=>{
+  const c={...make(['archery'],3),classLevels:[{name:'Fighter',catalogId:'2014:fighter',edition:'2014',level:1},{name:'Ranger',catalogId:'2014:ranger',edition:'2014',level:2}],inventory:[gear('leather-armor'),gear('longbow')]};
+  assert.equal(api.styleChoicePlan(c,null,{[rangerStyleId]:['Archery (PHB)']}).valid,false);
+  const saved=choices.applyFeatureChoices(c,null,{[rangerStyleId]:['Defense (PHB)']});
+  const reloaded=JSON.parse(JSON.stringify(saved));
+  assert.deepEqual(api.fightingStyleProfile(reloaded).styles.map(s=>[s.id,s.sourceClassId,s.sourceClassLevel]),[['archery','2014:fighter',1],['defense','2014:ranger',2]]);
+  assert.equal(rules.armorFor(reloaded,c.abilities),14);
+  assert.equal(rules.weaponAttacks(reloaded,c.abilities)[0].attack,6);
+  assert.equal(rules.armorFor({...reloaded,inventory:[gear('shield')]},c.abilities),14);
+  assert.equal(rules.armorFor({...reloaded,classLevels:[c.classLevels[0],{...c.classLevels[1],level:1}]},c.abilities),13);
+  assert.equal(api.styleChoicePlan(reloaded,null,{[fighterStyleId]:['Defense (PHB)']}).valid,false);
+  const simultaneous=api.styleChoicePlan({...c,fightingStyles:{choices:[]}},null,{[fighterStyleId]:['Defense (PHB)'],[rangerStyleId]:['Defense (PHB)']});
+  assert.equal(simultaneous.valid,false);
+  const afterSwap=api.styleChoicePlan(reloaded,null,{[fighterStyleId]:['Defense (PHB)'],[rangerStyleId]:['Archery (PHB)']});
+  assert.equal(afterSwap.valid,true);
+});
+
+test('Ranger Defense requires a Ranger-owned level 2 grant and equipped body armor',()=>{
+  const c={...ranger(),inventory:[gear('leather-armor')],fightingStyles:{choices:[{id:'defense'}]}};
+  assert.equal(rules.armorFor(c,c.abilities),13);
+  const saved=choices.applyFeatureChoices(c,null,{[rangerStyleId]:['Defense (PHB)']});
+  assert.equal(rules.armorFor(saved,c.abilities),14);
+  assert.equal(rules.armorFor({...saved,inventory:[{...gear('leather-armor'),equipped:false}]},c.abilities),12);
+  assert.equal(api.secondWindBlock(saved),'2014 Fighter levels are required.');
+  const legacyFighter={...saved,classLevels:[{name:'Fighter',edition:'2014',level:1}, {name:'Ranger',edition:'2014',catalogId:'2014:ranger',level:2}]};
+  assert.deepEqual(api.fightingStyleProfile(legacyFighter).styles.map(s=>s.sourceClassName),['Fighter']);
+});

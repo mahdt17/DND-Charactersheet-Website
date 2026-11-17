@@ -1,9 +1,6 @@
 import assert from 'node:assert/strict';
-import {before,after,test} from 'node:test';
-import {createServer} from 'vite';
-let server,api;
-before(async()=>{server=await createServer({server:{middlewareMode:true},optimizeDeps:{noDiscovery:true,include:[]}});api=await server.ssrLoadModule('/src/lib/abilityScores.js');});
-after(async()=>server?.close());
+import {test} from 'node:test';
+import * as api from '../src/lib/abilityScores.js';
 const make=()=>({ruleset:'2014',race:'Human',level:1,abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},feats:[]});
 test('each total and modifier breaks down the same sources actually used by the sheet',()=>{assert.equal(typeof api.abilityScoreBreakdown,'function');for(const key of ['str','dex','con','int','wis','cha']){const c=make(),d=api.abilityScoreBreakdown(c,key);assert.equal(d.base,c.abilities[key]);assert.equal(d.bonus,1);assert.equal(d.total,d.base+d.bonus+d.featBonus+d.effectBonus);assert.equal(d.total,api.effectiveAbilityScores(c)[key]);assert.equal(d.modifier,Math.floor((d.total-10)/2));}assert.equal(api.abilityScoreBreakdown({...make(),abilityBonuses:{}},'cha').modifier,-1);});
 test('explicit optional Human and 2024 background bonuses replace racial fallback rather than stacking',()=>{assert(api.abilityScoreBreakdown);for(const c of [{...make(),race:'Variant Human',abilityBonuses:{int:1,cha:1}},{...make(),ruleset:'2024',background:'Sage',abilityBonuses:{int:2,wis:1}}]){const d=api.abilityScoreBreakdown(c,'int');assert.equal(d.bonus,c.abilityBonuses.int);assert.equal(d.total,12+c.abilityBonuses.int);}assert.match(api.abilityScoreBreakdown({...make(),ruleset:'2024',background:'Sage',abilityBonuses:{int:2}},'int').bonusSource,/Sage/);});
@@ -11,3 +8,26 @@ test('ancestry, supported feat increases and active effects are included once, w
 test('editing one base/bonus preserves other abilities and all unedited fallback bonuses',()=>{assert.equal(typeof api.abilityScoreEdit,'function');const c=make(),patch=api.abilityScoreEdit(c,'str',{base:'16',bonus:'2'});assert.equal(c.abilities.str,15);assert.equal(patch.abilities.str,16);assert.equal(patch.abilities.dex,14);assert.deepEqual(patch.abilityBonuses,{str:2,dex:1,con:1,int:1,wis:1,cha:1});const d=api.abilityScoreBreakdown({...c,...patch},'str');assert.equal(d.total,18);assert.equal(d.modifier,4);const unchangedBonus=api.abilityScoreEdit(c,'str',{base:'16',bonus:'1'});assert(!Object.hasOwn(unchangedBonus,'abilityBonuses'));});
 test('score edits reject blank, fractional and non-finite values and allow negative recorded bonuses',()=>{assert(api.abilityScoreEdit);for(const base of ['', ' ', 'NaN','Infinity','12.5','-1','100'])assert.throws(()=>api.abilityScoreEdit(make(),'str',{base,bonus:1}));for(const bonus of ['', 'NaN','1.5','-100','100'])assert.throws(()=>api.abilityScoreEdit(make(),'str',{base:15,bonus}));assert.throws(()=>api.abilityScoreEdit(make(),'invalid',{base:15,bonus:1}));const patch=api.abilityScoreEdit(make(),'str',{base:15,bonus:-2});assert.equal(api.abilityScoreBreakdown({...make(),...patch},'str').total,13);});
 test('saved bonus labels acknowledge manual adjustments instead of asserting a canonical species grant',()=>{const c=make(),patch=api.abilityScoreEdit(c,'str',{base:15,bonus:5}),d=api.abilityScoreBreakdown({...c,...patch},'str');assert.equal(d.bonus,5);assert.match(d.bonusSource,/manual adjustments/i);assert.match(d.bonusSource,/Human/);assert.match(api.abilityScoreBreakdown(c,'str').bonusSource,/catalog/i);});
+
+test('Elven Accuracy contributes a named +1 without editing saved base or ancestry',()=>{
+ const feat={name:'Elven Accuracy',edition:'2014',abilityChoices:{ability:'int'}};
+ const c={...make(),race:'Shadar-kai',abilities:{...make().abilities,int:17},abilityBonuses:{int:1},feats:[feat]};
+ const d=api.abilityScoreBreakdown(c,'int');
+ assert.deepEqual([d.base,d.bonus,d.featBonus,d.total],[17,1,1,19]);
+ assert.deepEqual(d.featSources,[{name:'Elven Accuracy',bonus:1,capped:false}]);
+ assert.equal(api.effectiveAbilityScores(c).int,19);
+ assert.equal(api.abilityScoreBreakdown({...c,ruleset:'2024'},'int').featBonus,0);
+ assert.equal(api.abilityScoreBreakdown({...c,feats:[feat,feat]},'int').total,19);
+ assert.equal(c.abilities.int,17);
+ for(const ability of ['dex','int','wis','cha']){
+  assert.equal(api.abilityScoreBreakdown({...c,feats:[{...feat,abilityChoices:{ability}}]},ability).featBonus,1);
+ }
+ assert.equal(api.abilityScoreBreakdown({...c,abilities:{int:18}},'int').total,20);
+ const capped=api.abilityScoreBreakdown({...c,abilities:{int:19}},'int');
+ assert.equal(capped.total,20);
+ assert.deepEqual(capped.featSources,[{name:'Elven Accuracy',bonus:0,capped:true}]);
+ assert.equal(api.abilityScoreBreakdown({...c,abilities:{int:20}},'int').total,21);
+ assert.equal(api.abilityScoreBreakdown({...c,feats:[{...feat,abilityChoices:{ability:'int',applyAbilityIncrease:false}}]},'int').total,18);
+ assert.equal(api.abilityScoreBreakdown({...c,feats:[{...feat,abilityChoices:{ability:'str'}}]},'str').featBonus,0);
+ assert.equal(api.abilityScoreBreakdown({...c,feats:[{...feat,abilityChoices:undefined}]},'int').total,18);
+});

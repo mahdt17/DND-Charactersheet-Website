@@ -68,6 +68,12 @@ export function rollDice(expression, mode='normal', random=Math.random) {
     const droppedIndex=rolls.indexOf(Math.min(...rolls)),kept=rolls.filter((_,index)=>index!==droppedIndex),dropped=[rolls[droppedIndex]];
     return {id:crypto.randomUUID(),expression,rolls,kept,dropped,droppedIndices:[droppedIndex],bonus:+bonus,total:kept.reduce((a,b)=>a+b,0)+(+bonus),mode,time:new Date().toISOString()};
   }
+  if(+quantity===1&&+sides===20&&mode==='elven-accuracy'){
+    rolls.push(Math.floor(random()*20)+1,Math.floor(random()*20)+1);
+    const highest=Math.max(...rolls),keptIndex=rolls.indexOf(highest);
+    const droppedIndices=rolls.flatMap((_,index)=>index===keptIndex?[]:[index]);
+    return {id:crypto.randomUUID(),expression,rolls,kept:[highest],dropped:droppedIndices.map(index=>rolls[index]),droppedIndices,bonus:+bonus,total:highest+(+bonus),mode,time:new Date().toISOString()};
+  }
   if(+quantity===1 && +sides===20 && mode!=='normal') rolls.push(Math.floor(random()*20)+1);
   const subtotal=rolls.length===2 && +quantity===1 ? (mode==='advantage'?Math.max(...rolls):Math.min(...rolls)) : rolls.reduce((a,b)=>a+b,0);
   return {id:crypto.randomUUID(),expression,rolls,bonus:+bonus,total:subtotal+(+bonus),mode,time:new Date().toISOString()};
@@ -127,12 +133,14 @@ export function weaponAttacks(char, abilities) {
     if(!data?.damage?.damage_dice)return null;
     const dex=modifier(abilities.dex),str=modifier(abilities.str);
     const style=styleWeaponModifiers(char,i,data),finesse=data.properties?.some(p=>p.index==='finesse');
-    const alternate=weaponSubclassAbility(char,i),ability=alternate?modifier(abilities[alternate]):finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str,damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
+    const alternate=weaponSubclassAbility(char,i),rangedWeapon=data.weapon_range==='Ranged';
+    const attackAbility=alternate||(finesse?(dex>=str?'dex':'str'):rangedWeapon?'dex':'str');
+    const ability=modifier(abilities[attackAbility]),damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
     const trained=hasWeaponTraining(char,data,proficiencies);
     const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&(!alternate||alternate==='str')&&(!finesse||str>=dex)?rp.damage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
     const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei&&(kensei.record.playtest||monkMartialArtsAvailable(char))?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;
     const subclass=subclassNumericProfile(char,abilities),victory=style.melee&&!style.two?subclass.meleeWeaponDamageBonus:0;
-    return {id:i.id,name:i.name,magical:isMagicalArrowAttack(char,i),hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,damageType:weaponSubclassDamageType(char,i)||data.damage.damage_type.name,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${weaponSubclassDamageDice(char,i)}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''}${isMagicalArrowAttack(char,i)?' · magical arrows':''} · ${weaponSubclassDamageType(char,i)||data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    return {id:i.id,name:i.name,attackAbility,rangedWeapon,magical:isMagicalArrowAttack(char,i),hands:style.two?2:1,criticalThreshold:subclass.criticalThreshold,equipmentIndex:data.index,damageType:weaponSubclassDamageType(char,i)||data.damage.damage_type.name,trained,entomancerStrike:!!strike,greatWeaponFighting:style.greatWeaponFighting,attack:ability+(trained?2+Math.floor((char.level-1)/4):0)+strike+style.attack+weaponBonus,damage:`${weaponDice}${weaponSubclassDamageDice(char,i)}${signed(damageAbility+strike+rage+style.damage+victory+weaponBonus)}`,description:`${style.thrown?'Ranged thrown':data.weapon_range}${style.offhand?' · second attack':''}${isMagicalArrowAttack(char,i)?' · magical arrows':''} · ${weaponSubclassDamageType(char,i)||data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

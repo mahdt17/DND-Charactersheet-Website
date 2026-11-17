@@ -39,11 +39,12 @@ export function arcaneArcherRequirements(c,rows,confirmations={}) {
       const grant=featMagicState(feat,{...c,ruleset:'2014'});
       return grant.profile?.edition==='2014'&&arcaneSources.has(grant.list)&&grant.spells.some(spell=>spell.level===1);
     });
-  const rangerStyle=rows.some(row=>row.edition==='2014'&&row.name==='Ranger'&&row.level>=2&&!row.definition?.homebrew);
+  const styles=fightingStyleGrants(c).styles;
+  const rangerStyle=!styles.some(style=>style.sourceClassName==='Ranger')&&rows.some(row=>row.edition==='2014'&&row.name==='Ranger'&&row.level>=2&&!row.definition?.homebrew);
   return [
     ['edition','Use 2014 5e rules',uses2014(c)],
     ['ancestry','Elf or half-elf (including Shadar-kai)',elf],
-    ['archery','Archery Fighting Style',fightingStyleGrants(c).styles.some(style=>style.id==='archery')],
+    ['archery','Archery Fighting Style',styles.some(style=>style.id==='archery')],
     ['bow','Proficiency with a shortbow or longbow',bow],
     ['sharpshooter','2014 Sharpshooter feat',(c.feats||[]).some(feat=>feat.name==='Sharpshooter'&&(feat.edition||'2014')==='2014')],
     ['spellcasting','Ability to cast a 1st-level arcane spell',spellcasting],

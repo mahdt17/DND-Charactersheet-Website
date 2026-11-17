@@ -1,6 +1,6 @@
 import {sourceSubclassEffects} from './subclassState.js';
 import races from '../data/races.json' with {type:'json'};
-import {applyFeatAbilityIncrease,featMagicState} from './featMagic.js';
+import {applyFeatAbilityIncrease,featAbilityIncreaseSources} from './featMagic.js';
 import {campaignModifiers} from './campaignModifiers.js';
 
 const keys=['str','dex','con','int','wis','cha'];
@@ -18,7 +18,11 @@ export function abilityScoreBreakdown(c,key){
  if(!keys.includes(key))throw new Error('Choose an ability score.');
  const bonuses=recordedAbilityBonuses(c),result=calculate(c,key,bonuses,campaignModifiers(c,bonuses).abilities),edition=(c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014';
  const featSources=[];let remaining=result.featBonus;
- for(const feat of c.feats||[]){const state=featMagicState(feat,c);if(state.valid&&state.profile?.abilityIncrease&&state.ability===key&&feat.magicChoices?.applyAbilityIncrease!==false){const bonus=Math.min(1,remaining);featSources.push({name:feat.name,bonus,capped:bonus===0});remaining-=bonus;}}
+ for(const feat of featAbilityIncreaseSources(c,key)){
+  const bonus=Math.min(1,remaining);
+  featSources.push({name:feat.name,bonus,capped:bonus===0});
+  remaining-=bonus;
+ }
  const origin=edition==='2024'?(c.background||'Background'):([c.race,c.subrace].filter(Boolean).join(' · ')||'Species');
  return {...result,featSources,bonusSource:c.abilityBonuses?`${origin} · ${edition==='2024'?'background':'species'} or manual adjustments`:`${origin} · catalog and ancestry bonus`};
 }

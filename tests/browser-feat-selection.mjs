@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
+import {shadarKaiRaces} from '../src/data/shadarKai.js';
 const server=await createServer({server:{host:'127.0.0.1',port:5181}});await server.listen();
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage',...(process.platform==='win32'?[]:['--no-zygote','--single-process']),'--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -9,9 +10,10 @@ const srd=JSON.parse(await fs.readFile('src/data/classes.json','utf8')),revised=
 const existing={id:'retained',name:'Existing table feat',description:'Keep these personal notes',source:'Homebrew',level:1};
 const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+rows.find(r=>r.name===name).id)).value);},name);
-async function start(edition,{weak=false}={}) {
+async function start(edition,{weak=false,shadarKai=false}={}) {
  const definitions=edition==='2014'?srd:revised.classes,row=(name,level)=>({name,level,edition,catalogId:`${edition}:${name}`,subclass:name==='Fighter'?'Champion':'',definition:{...definitions.find(c=>c.name===name),edition}});
  const c={name:`Feat ${edition} ${weak?'blocked':'ready'}`,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',3).definition,classLevels:[row('Fighter',3),row('Barbarian',1)],subclass:'Champion',race:'Human',level:4,hitDie:'d10',abilities:{str:weak?12:14,dex:12,con:14,int:12,wis:12,cha:12},abilityBonuses:{},hp:{current:30,max:30,temp:7},spells:[],inventory:[],actions:[],feats:[existing],notes:''};
+ if(shadarKai)Object.assign(c,{name:'Elven Accuracy Shadar-kai',race:'Shadar-kai',raceDefinition:shadarKaiRaces[1],abilities:{...c.abilities,int:17},abilityBonuses:{int:1}});
  await page.locator('input[type=file]').setInputFiles({name:'character.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();
  await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('checkbox',{name:/I reviewed the class/}).check();await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
  if(edition==='2014'){await next();await page.getByRole('button',{name:/Take a feat/}).click();}else await page.getByLabel('Ability improvement',{exact:true}).selectOption('feat');
@@ -38,5 +40,39 @@ try {
   await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:c.name}).getByRole('button',{name:'Open character'}).click();await page.getByRole('tab',{name:'Feats',exact:true}).click();assert.match(await page.locator('.ledger-main').innerText(),/Grappler/);
   console.log(`PASS ${edition} blocked prerequisites, custom review, single feat, replacement, unsaved/back review, preserved existing feats, source metadata and total acquisition level`);
  }
+ const c=await start('2014',{shadarKai:true});
+ await page.getByLabel('Search feats').fill('Elven Accuracy');
+ const accuracy=page.locator('[data-catalog-id="wikidot5e:feat:elven-accuracy"]');
+ await accuracy.locator('summary').click();
+ assert.match(await accuracy.innerText(),/Met/);
+ await accuracy.getByRole('button',{name:'Add feat',exact:true}).click();
+ const ability=page.getByLabel('Elven Accuracy ability',{exact:true});
+ await ability.waitFor();
+ assert.deepEqual(await ability.locator('option').allTextContents(),['Choose an ability','Dexterity','Intelligence','Wisdom','Charisma']);
+ assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+ await ability.selectOption('int');
+ await next();
+ await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:'LEVEL 5'}).waitFor();
+ const result=await saved(c.name);
+ assert.equal(result.feats.find(f=>f.name==='Elven Accuracy').abilityChoices.ability,'int');
+ assert.equal(result.abilities.int,17);
+ assert.equal(result.abilityBonuses.int,1);
+
+ const breakdown=async()=>{
+  await page.getByRole('button',{name:'Intelligence score breakdown',exact:true}).click();
+  return page.getByRole('dialog',{name:'Intelligence ability score',exact:true});
+ };
+ let dialog=await breakdown();
+ assert.equal(await dialog.getByRole('row',{name:/Elven Accuracy/}).locator('td').innerText(),'+1');
+ assert.equal(await dialog.getByRole('row',{name:/^Total score /}).locator('td').innerText(),'19');
+ await dialog.getByRole('button',{name:'Close dialog',exact:true}).click();
+ await page.getByRole('tab',{name:'Feats',exact:true}).click();
+ await page.locator('details.feature-detail').filter({has:page.locator('summary').filter({hasText:'Elven Accuracy'})}).locator('summary').click();
+ await page.getByRole('checkbox',{name:/Apply the feat’s \+1/}).uncheck();
+ dialog=await breakdown();
+ assert.equal(await dialog.getByRole('row',{name:/^Total score /}).locator('td').innerText(),'18');
+ await dialog.getByRole('button',{name:'Close dialog',exact:true}).click();
  assert.deepEqual(errors,[]);
+ console.log('PASS Shadar-kai Elven Accuracy selection, saved ability, named +1 in breakdown and already-included option');
 } catch(e){await page.screenshot({path:'test-results/feat-level-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}

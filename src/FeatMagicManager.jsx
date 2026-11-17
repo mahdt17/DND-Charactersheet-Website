@@ -1,11 +1,14 @@
 import React,{useState} from 'react';
 import FeatMagicChoices from './FeatMagicChoices';
+import FeatAbilityChoices from './FeatAbilityChoices';
+import {isElvenAccuracyFeat} from './lib/featAbilityIncrease';
 import {featMagicState,changeFeatChoices} from './lib/featMagic';
 import Dialog from './Dialog';
 import CopyFeatRitual from './CopyFeatRitual';
 
 export default function FeatMagicManager({feat,char,onChange}){
  const [draft,setDraft]=useState(null),[correction,setCorrection]=useState(false),[reason,setReason]=useState(''),[error,setError]=useState('');
+ if(isElvenAccuracyFeat(feat,char))return <FeatAbilityChoices feat={feat} char={char} onChange={onChange}/>;
  const state=featMagicState(feat,char);if(!state.supported)return null;
  const select=next=>{const s=featMagicState(next,char);onChange(s.valid&&s.complete?changeFeatChoices(char,feat,next):next);};
  if(!state.valid)return <FeatMagicChoices feat={feat} char={char} onChange={select}/>;

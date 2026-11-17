@@ -9,6 +9,7 @@ import {subclassHitPointBonus} from './subclassHitPoints.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
 import {applyFeatAbilityIncrease} from './featMagic.js';
+import {isElvenAccuracyFeat} from './featAbilityIncrease.js';
 import {evaluatePrerequisite35,ownsPrerequisiteFeat35,prerequisiteDescription35} from './prerequisites35.js';
 import {evaluateCastingPrerequisite35,lowerCastingPrerequisite35,castingTextSafe35} from './castingPrerequisites35.js';
 import legacyCore from '../data/srd35.json' with {type:'json'};
@@ -164,6 +165,10 @@ export function requirements(record,c,confirmations={}, {multiclass=false,subjec
       ?{kind:'level',minimum:value,text:`Character level ${value} or higher`}
       :{kind,text:kind==='feature_named'?`Requires the ${value} feature`:JSON.stringify({[kind]:value})})
     :prerequisites?[{kind:'text',text:String(prerequisites)}]:[];
+  if(isElvenAccuracyFeat(record,c)){
+    source=source.filter(p=>!/^elf or half-elf\.?$/i.test(String(p?.text||p).trim()));
+    source.unshift({kind:'any',text:'Elf or Half-Elf',label:'Prerequisite',requirements:[{kind:'race',text:'Elf'},{kind:'race',text:'Half-Elf'},{kind:'race',text:'Shadar-kai'}]});
+  }
   if(record?.prerequisite_options)source.push({kind:'ability_choice',text:record.prerequisite_options.desc||'Review the prerequisite choices in the source.',options:record.prerequisite_options});
   source=source.filter(p=>multiclass||p?.kind!=='multiclass');
   if(record?.minBab)source=[{kind:'base_attack_bonus',text:record.minBab,label:'Base attack bonus'},...source];
