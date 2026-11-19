@@ -1,42 +1,51 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {Plus,LogIn,Trash2} from 'lucide-react';
-import SharedCharacterSheet from './SharedCharacterSheet';
+import './sharedCampaigns.css';
 import {invitePattern,watchRoster} from './lib/sharedCampaigns';
 
 const memberKey=m=>JSON.stringify([m.user_id,m.character_id]);
-function PartyRoster({campaign,api,onDelete}) {
-  const [rows,setRows]=useState(null),[selected,setSelected]=useState(''),[detail,setDetail]=useState(null);
-  const [error,setError]=useState(''),[sheetError,setSheetError]=useState(''),[retry,setRetry]=useState(0);
+export function LiveCampaignSheet({campaign,member,api,back,renderSheet}){
+  const [record,setRecord]=useState(null),[error,setError]=useState(''),[retry,setRetry]=useState(0);
+  useEffect(()=>{
+    let active=true,version=0,lastStamp;
+    const stop=watchRoster(api,campaign.id,async rows=>{
+      const current=rows.find(row=>memberKey(row)===memberKey(member));
+      if(!current){version++;setRecord(null);back();return;}
+      if(lastStamp===current.sheet.updated_at)return;
+      lastStamp=current.sheet.updated_at;
+      const request=++version;
+      try{
+        const next=await api.sheet(campaign.id,current);
+        if(!active||request!==version)return;
+        if(!next){setRecord(null);back();return;}
+        setRecord(next);setError('');
+      }catch(e){if(active&&request===version){lastStamp=undefined;setRecord(null);setError(e.message);}}
+    },message=>{version++;lastStamp=undefined;setRecord(null);setError(message);});
+    return ()=>{active=false;stop();};
+  },[api,campaign.id,member,back,retry]);
+  if(record)return renderSheet(record.data);
+  return <><button className="l-button" onClick={back}>Back to party roster</button>{error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry sheet</button></p>:<p role="status">Loading character sheet.</p>}</>;
+}
+
+function PartyRoster({campaign,api,onDelete,onOpen}){
+  const [rows,setRows]=useState(null),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const [copied,setCopied]=useState(false);
   useEffect(()=>watchRoster(api,campaign.id,list=>{
     setError('');setRows(list.slice().sort((a,b)=>a.sheet.name.localeCompare(b.sheet.name)));
-    setSelected(old=>list.some(m=>memberKey(m)===old)?old:'');
-  },message=>{setRows(null);setDetail(null);setError(message);}),[api,campaign.id,retry]);
-  const member=rows?.find(m=>memberKey(m)===selected);
-  const stamp=member?.sheet.updated_at;
-  useEffect(()=>{
-    let active=true;setSheetError('');
-    if(!member){setDetail(null);return;}
-    api.sheet(campaign.id,member).then(record=>{
-      if(active)setDetail(record?{key:selected,...record}:null);
-    }).catch(e=>{if(active){setDetail(null);setSheetError(e.message);}});
-    return ()=>{active=false;};
-  },[api,campaign.id,selected,stamp,retry]);
-  return <section aria-label="DM campaign roster" className="l-panel"><div className="l-section-head"><h2>{campaign.name}</h2><button className="l-button party-danger" onClick={onDelete}><Trash2 size={16}/>Delete campaign</button></div>
+  },message=>{setRows(null);setError(message);}),[api,campaign.id,retry]);
+  return <section aria-label="DM campaign roster" className="l-panel">
+    <div className="l-section-head"><h2>{campaign.name}</h2><button className="l-button party-danger" onClick={onDelete}><Trash2 size={16}/>Delete campaign</button></div>
     <label className="l-field"><span>Campaign invite code</span><input value={campaign.id} readOnly onFocus={e=>e.target.select()}/></label>
     <button className="l-button" onClick={async()=>{try{await navigator.clipboard.writeText(campaign.id);setCopied(true);}catch{setCopied(false);}}}>{copied?'Code copied':'Copy invite code'}</button>
     <h3>Live party roster</h3>
-    {error?<p role="alert">Could not load the party. {error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry</button></p>:
-      !rows?<p role="status">Loading party…</p>:!rows.length?<p>Give players the invite code. Their characters appear here when they share a sheet.</p>:
-      <div>{rows.map(m=><button key={memberKey(m)} className="l-button" aria-pressed={selected===memberKey(m)} onClick={()=>setSelected(memberKey(m))}>{m.sheet.name} · Level {m.sheet.level} {m.sheet.class_name}</button>)}</div>}
-    {member&&<><p>Last saved {new Date(detail?.key===selected?detail.updated_at:stamp).toLocaleString()}</p>
-      {sheetError?<p role="alert">{sheetError} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry sheet</button></p>:
-        detail?.key===selected?<SharedCharacterSheet key={selected} char={detail.data}/>:<p role="status">Updating sheet…</p>}</>}
+    {error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry</button></p>:
+      !rows?<p role="status">Loading party.</p>:!rows.length?<p>Give players the invite code. Their characters appear here when they share a sheet.</p>:
+      <div className="party-campaign-list">{rows.map(m=><button key={memberKey(m)} className="l-button" onClick={()=>onOpen({campaign,member:m})}>{m.sheet.name} · Level {m.sheet.level} {m.sheet.class_name}</button>)}</div>}
   </section>;
 }
 
-export default function SharedCampaigns({api,characters,initialCharacterId}) {
-  const [list,setList]=useState({hosted:[],assigned:[]}),[host,setHost]=useState('');
+export default function SharedCampaigns({api,characters,initialCharacterId,initialHost,onOpen}) {
+  const [list,setList]=useState({hosted:[],assigned:[]}),[host,setHost]=useState(initialHost||'');
   const [mode,setMode]=useState(initialCharacterId?'join':''),[name,setName]=useState(''),[code,setCode]=useState('');
   const [characterId,setCharacterId]=useState(initialCharacterId||characters[0]?.id||'');
   const [busy,setBusy]=useState(false),[error,setError]=useState(''),[notice,setNotice]=useState('');
@@ -83,6 +92,6 @@ export default function SharedCampaigns({api,characters,initialCharacterId}) {
       <p>This ends sharing for everyone in this campaign. Each player keeps their character sheet.</p>
       <div className="party-hub-actions"><button className="l-button party-danger" disabled={busy} onClick={()=>perform(async()=>{await api.removeCampaign(campaign.id);setHost('');setMode('');setNotice('Campaign deleted.');})}>Confirm deletion</button>
       <button className="l-button" autoFocus disabled={busy} onClick={()=>open('')}>Cancel</button></div></section>}
-    {campaign&&<PartyRoster key={campaign.id} campaign={campaign} api={api} onDelete={()=>open('delete')}/>}
+    {campaign&&<PartyRoster key={campaign.id} campaign={campaign} api={api} onOpen={onOpen} onDelete={()=>open('delete')}/>}
   </section>;
 }

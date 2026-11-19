@@ -17,7 +17,7 @@ export default function CharacterInventory({char,patch,show,follower=false}){
   <p className="l-muted">Carried weight: {inventory.reduce((sum,item)=>sum+(Number(item.weight)||0)*(Number(item.qty)||0),0).toFixed(1)} lb. · {follower?'Mark equipped gear here. Adjust this creature’s armor and attack statistics in Manage.':'Equipped armor updates AC; equipped weapons appear in Actions. Magic bonuses and conditional effects need manual adjustments.'}</p>
   {inventory.map(item=><div className="inventory-row" key={item.id}>
    <input type="checkbox" aria-label={`Equip ${item.name}`} checked={!!item.equipped} onChange={e=>patch({...(!follower?{autoArmor:true}:{}),inventory:inventory.map(x=>x.id===item.id?{...x,equipped:e.target.checked}:x)})}/>
-   <button type="button" onClick={()=>show(item.canonical?{...item.canonical,...item}:equipment.find(e=>e.index===item.equipmentIndex)||item)}>{item.name}</button>
+   <button data-sheet-view type="button" onClick={()=>show(item.canonical?{...item.canonical,...item}:equipment.find(e=>e.index===item.equipmentIndex)||item)}>{item.name}</button>
    <input aria-label={`${item.name} quantity`} type="number" min="0" max="999" value={item.qty??1} onChange={e=>patch({inventory:inventory.map(x=>x.id===item.id?{...x,qty:Math.max(0,Math.min(999,Number(e.target.value)||0))}:x)})}/>
    <input aria-label={`${item.name} notes`} placeholder="Item notes" value={item.notes||''} onChange={e=>patch({inventory:inventory.map(x=>x.id===item.id?{...x,notes:e.target.value}:x)})}/>
    <Button icon={X} aria-label={`Remove ${item.name}`} onClick={()=>patch({inventory:inventory.filter(x=>x.id!==item.id)})}/>
