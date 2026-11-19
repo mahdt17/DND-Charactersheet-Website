@@ -918,7 +918,8 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   const currentChosen = (char.spells || []).filter((s) => !s.auto&&!spellAccess(char,resolveSpell(s,char)).alwaysPrepared&&!spellAccess(char,resolveSpell(s,char)).bonusKnown).map((s) => s.name);
   const knownTarget = counts?.known ?? counts?.prepared ?? 0;
   const currentKnown = currentChosen.filter((name) => SPELL_DATA.some((s) => s.name === name && s.level > 0)).length;
-  const spellGain = counts?.mode === "known" || counts?.mode === "spellbook" ? Math.max(0, knownTarget - currentKnown) : 0;
+  const trackInstituteBook = char.className==='Wizard' && (char.instituteSpellAwards || char.affiliations?.some(g=>g.training?.bookAwards));
+  const spellGain = trackInstituteBook ? (char.instituteSpellAwards?.[targetLevel] ? 0 : targetLevel===1 ? 6 : 2) : counts?.mode === "known" || counts?.mode === "spellbook" ? Math.max(0, knownTarget - currentKnown) : 0;
   const spellStep = spellcasting && (cantripGain > 0 || spellGain > 0 || counts?.mode === "prepared") ? 2 : -1;
   const totalSteps = (hasASI || needsSubclass ? 1 : 0) + (spellStep >= 0 ? 1 : 0) + 2;
 

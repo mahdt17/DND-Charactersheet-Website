@@ -1,3 +1,4 @@
+import {checkAffiliationFlow} from './shadow-archer-affiliation-flow.mjs';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createServer} from 'vite';
@@ -98,6 +99,8 @@ try{
   assert.equal(rollCount(spellAttack),3);
   assert.match(spellAttack,/1d20\+9.*Elven Accuracy/s);
   assert.doesNotMatch(spellAttack,/Sharpshooter/);
+  await closeDice();
+  await checkAffiliationFlow(page);
   assert.deepEqual(errors,[]);
   console.log('PASS sheet feat bonus, Ranger Defense AC, Sharpshooter bow attack/damage, Elven Accuracy advantage for weapon and spell attacks, and canceled advantage');
 } finally {
