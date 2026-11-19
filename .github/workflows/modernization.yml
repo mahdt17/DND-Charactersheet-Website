@@ -95,22 +95,26 @@ jobs:
       - run: node tests/feat-selection.mjs
       - run: node tests/presentation.mjs
       - run: node tests/dice-physics.mjs
+      - name: Validate published 3.5 catalogs
+        run: |
+          python tests/published_catalogs35.py
+          python scripts/check_published_catalogs35.py
       - name: Run targeted live spell regressions
         if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
         run: >-
           python scripts/preflight_35_spell_regressions.py
           --ids-file test-results/changed-spell-regressions.txt
       - name: Run full 3.5 class regressions
-        if: steps.scope.outputs.mode == 'full'
+        if: steps.scope.outputs.mode == 'full' && steps.scope.outputs.live35 == 'true'
         run: python scripts/preflight_35_class_regressions.py
       - name: Run full 3.5 feat regressions
-        if: steps.scope.outputs.mode == 'full'
+        if: steps.scope.outputs.mode == 'full' && steps.scope.outputs.live35 == 'true'
         run: python scripts/preflight_35_feat_regressions.py
       - name: Run full 3.5 spell regressions
-        if: steps.scope.outputs.mode == 'full'
+        if: steps.scope.outputs.mode == 'full' && steps.scope.outputs.live35 == 'true'
         run: python scripts/preflight_35_spell_regressions.py
       - name: Run full 3.5 item regressions
-        if: steps.scope.outputs.mode == 'full'
+        if: steps.scope.outputs.mode == 'full' && steps.scope.outputs.live35 == 'true'
         run: python scripts/preflight_35_item_regressions.py
       - name: Run full 5e item regressions
         if: steps.scope.outputs.mode == 'full'
