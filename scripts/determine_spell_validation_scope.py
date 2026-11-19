@@ -10,6 +10,7 @@ validation.
 from __future__ import annotations
 
 import argparse
+from fnmatch import fnmatchcase
 import json
 import os
 import subprocess
@@ -21,6 +22,21 @@ LIGHT_EXACT = {
     "scripts/spell_regression_cases.json",
 }
 LIGHT_BATCH_PREFIX = "scripts/spell_effect_summaries_35_batches/"
+
+
+# Live DnD Tools checks cover changes to the source inputs or their verification.
+LIVE_35_PATHS = (
+    "public/catalogs/dndtools/*", "public/catalogs/enrichment-release-audit.json",
+    "scripts/*dndtools*.py", "scripts/*_35.json", "scripts/*_35_batches/*",
+    "scripts/preflight_35_*.py", "scripts/preflight_enrichment.py",
+    "scripts/audit_enrichment_output.py", "scripts/merge_enrichment_audits.py",
+    "scripts/class_regression_cases.json", "scripts/feat_regression_cases.json",
+    "scripts/spell_regression_cases.json", "scripts/item_regression_cases.json",
+)
+
+
+def needs_live_35(path: str) -> bool:
+    return any(fnmatchcase(path, pattern) for pattern in LIVE_35_PATHS)
 
 
 def git(*args: str) -> str:
@@ -39,7 +55,7 @@ def load_regressions_at(revision: str) -> list[str]:
 
 
 def classify_changes(before: str, after: str, milestone_size: int) -> dict:
-    status_lines = git("diff", "--name-status", before, after).splitlines()
+    status_lines = git("diff", "--no-renames", "--name-status", before, after).splitlines()
     changes = []
     full_reasons = []
     for line in status_lines:
@@ -79,6 +95,7 @@ def classify_changes(before: str, after: str, milestone_size: int) -> dict:
     mode = "full" if full_reasons else "targeted"
     return {
         "mode": mode,
+        "live35": any(needs_live_35(change["path"]) for change in changes),
         "before": before,
         "after": after,
         "milestoneSize": milestone_size,
@@ -92,6 +109,7 @@ def classify_changes(before: str, after: str, milestone_size: int) -> dict:
 
 def write_github_output(report: dict, path: Path) -> None:
     with path.open("a", encoding="utf-8") as handle:
+        handle.write(f"live35={str(report['live35']).lower()}\n")
         handle.write(f"mode={report['mode']}\n")
         handle.write(
             "added_count=" + str(len(report["addedRegressionIds"])) + "\n"
