@@ -50,6 +50,7 @@ import {createShadowArcher,shadowArcherRoadmap} from '../src/lib/shadowArcherPla
 import {advanceClass,eligibleClass} from '../src/lib/advancement.js';
 import {restSpellSlots} from '../src/lib/multiclassCasting.js';
 import {effectiveAbilityScores} from '../src/lib/abilityScores.js';
+import {featureChoicePlan} from '../src/lib/featureChoices.js';
 import {multiclassTrainingPlan} from '../src/lib/training.js';
 import classes from '../src/data/classes.json' with {type:'json'};
 
@@ -61,6 +62,8 @@ test('the proposal advances through every class choice and casting milestone fro
   assert.equal(start.spells.filter(s=>s.level>0).length,12);
   assert.equal(start.spells.filter(s=>s.level>0&&s.prepared).length,8);
   assert.equal(start.shadarKai.trance.length,2);
+  assert.equal(start.skillProf.Performance,true);
+  assert.deepEqual(featureChoicePlan(start).groups,[]);
   assert.deepEqual(effectiveAbilityScores(start),{str:10,dex:20,con:15,int:18,wis:15,cha:13});
   const tiers=[3,3,4,4,4,4,4,4,4,5,6,6,7,7,8,9];
   const slots=[3,3,4,4,4,5,5,5,5,5,7,7,8,8,9,9];

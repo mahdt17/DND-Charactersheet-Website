@@ -3,6 +3,7 @@ import equipment from '../data/equipment.json' with {type:'json'};
 import {shadarKaiRaces} from '../data/shadarKai.js';
 import {finishShadarKaiTrance,reconcileShadarKai} from './shadarKai.js';
 import {finishShadowScholar,shadowScholarEquipment} from './shadowScholar.js';
+import {featureChoicePlan,applyFeatureChoices} from './featureChoices.js';
 import {catalogSpells} from './editions.js';
 
 export const shadowArcherRoadmap=[
@@ -42,6 +43,10 @@ export function createShadowArcher(name,level) {
     fightingStyles:{choices:['Archery']},inventory,spells,currency:{gp:10},resources:[],actions:[],conditions:[],
     feats:level===1?[]:[{id:crypto.randomUUID(),name:'Sharpshooter',edition:'2014',level:5,catalogId:'wikidot5e:feat:sharpshooter'}]};
   c=finishShadowScholar(reconcileShadarKai(c));
+  if(level===5) {
+    const training=featureChoicePlan(c).groups.find(group=>group.choiceKey==='bladesinger-weapon');
+    c=applyFeatureChoices(c,null,{[training.id]:'Rapier'});
+  }
   return {...c,...finishShadarKaiTrance(c,{trance:['poisoners-kit','herbalism-kit']}),
     inventory:[...inventory,...shadowScholarEquipment(c).filter(item=>!item.money).map(item=>({...item,id:crypto.randomUUID()}))]};
 }
