@@ -23,6 +23,9 @@ export function campaignService(client,userId) {
     start(name) {
       return result(campaigns().insert({name:name.trim()}).select(fields).single());
     },
+    removeCampaign(id) {
+      return result(campaigns().delete().eq('id',id).eq('dm_id',userId).select('id').single());
+    },
     assign(code,characterId) {
       return result(sheets().insert({campaign_id:code.trim(),character_id:characterId}));
     },

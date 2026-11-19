@@ -27,12 +27,12 @@ const button=(page,name)=>page.getByRole('button',{name,exact:true});
 try {
   const dm=await login('dm'),player=await login('player');
   await button(dm,'Campaigns').click();
-  await button(dm,'Start a DM campaign').click();
-  await dm.getByLabel('DM campaign name').fill('The Violet Archive');
-  await button(dm,'Create shared campaign').click();
+  await button(dm,'Create campaign').click();
+  await dm.getByLabel('Campaign name',{exact:true}).fill('The Violet Archive');
+  await button(dm,'Create as DM').click();
   const invite=await dm.getByLabel('Campaign invite code').inputValue();
   const sheet={id:'hero',name:'Arden',level:1,ruleset:'2014',className:'Fighter',race:'Elf',
-    abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},hp:{max:11,current:11,temp:0},ac:15,notes:'First expedition'};
+    abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},hp:{max:11,current:11,temp:0},ac:15,notes:'First expedition',actions:[{id:'test-action',name:'Shield Bash',description:'Bash with your shield.'}],inventory:[{id:'test-pack',name:'Survey kit',qty:2}]};
   await player.locator('input[type=file]').setInputFiles({name:'hero.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(sheet))});
   await player.locator('.sheet-identity').filter({hasText:'Arden'}).waitFor();
   await player.getByRole('tab',{name:'Notes',exact:true}).click();
@@ -42,6 +42,12 @@ try {
   await player.getByText('Sheet shared with your DM.',{exact:true}).waitFor();
   await dm.getByRole('button',{name:/Arden · Level 1 Fighter/}).click();
   const viewer=dm.getByRole('article',{name:'Live character sheet'});
+  await viewer.getByRole('tab',{name:'Actions'}).waitFor();
+  await viewer.getByText('Shield Bash',{exact:true}).waitFor();
+  assert.equal(await viewer.locator('details').count(),0);
+  await viewer.getByRole('tab',{name:'Inventory'}).click();
+  await viewer.getByText('Survey kit',{exact:true}).waitFor();
+  await viewer.getByRole('tab',{name:'Notes'}).click();
   await viewer.getByText(/First expedition/).waitFor();
   await player.getByRole('navigation').getByRole('button',{name:/Characters/i}).first().click();
   if(await player.getByRole('button',{name:'Open character',exact:true}).count())await button(player,'Open character').click();
@@ -54,8 +60,24 @@ try {
   await dm.getByText(/Their characters appear here/).waitFor();
   assert.equal(await dm.getByRole('article',{name:'Live character sheet'}).count(),0);
   await dm.reload();await button(dm,'Campaigns').click();
-  await dm.getByLabel('Campaign to view as DM').selectOption({label:'The Violet Archive'});
+  await button(dm,'The Violet Archive').click();
   await dm.getByText(/Their characters appear here/).waitFor();
-  console.log('PASS two signed-in accounts, DM campaign creation, player assignment, live saved-sheet edit, unsharing and reload');
+  await button(player,'Join campaign').click();
+  await player.getByLabel('Invite code from your DM').fill(invite);
+  await button(player,'Join and share sheet').click();
+  await player.getByText('Sheet shared with your DM.',{exact:true}).waitFor();
+  assert.equal(await button(player,'Delete campaign').count(),0);
+  await button(dm,'Delete campaign').click();
+  await button(dm,'Cancel').click();
+  await dm.getByRole('button',{name:/Arden.*Level 1 Fighter/}).waitFor();
+  await button(dm,'Delete campaign').click();
+  await button(dm,'Confirm deletion').click();
+  await dm.getByText('Campaign deleted.',{exact:true}).waitFor();
+  await player.reload();await button(player,'Campaigns').click();
+  assert.equal(await player.getByText('The Violet Archive',{exact:true}).count(),0);
+  await player.getByRole('navigation').getByRole('button',{name:/Characters/i}).first().click();
+  await button(player,'Open character').click();
+  await player.locator('.sheet-identity').filter({hasText:'Arden'}).waitFor();
+  console.log('PASS shared sheet navigation, live save, join, leave, owner deletion and character preservation');
 } finally {await browser.close();}
 
