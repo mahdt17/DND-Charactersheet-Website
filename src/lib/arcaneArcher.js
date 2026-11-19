@@ -1,3 +1,4 @@
+import {supportsInstitute} from './instituteAccess.js';
 import classes from '../data/classes.json' with {type:'json'};
 import equipment from '../data/equipment.json' with {type:'json'};
 import {featMagicState} from './featMagic.js';
@@ -43,7 +44,7 @@ export function arcaneArcherRequirements(c,rows,confirmations={}) {
   const rangerStyle=!styles.some(style=>style.sourceClassName==='Ranger')&&rows.some(row=>row.edition==='2014'&&row.name==='Ranger'&&row.level>=2&&!row.definition?.homebrew);
   return [
     ['edition','Use 2014 5e rules',uses2014(c)],
-    ...(c.shadowArcherPlan ? [['training','Converted entry score of 6 (Fighter + Ranger + half Wizard levels)', rows.reduce((n,r)=>n+(r.edition!=='2014'?0:['Fighter','Ranger'].includes(r.name)?r.level:r.name==='Wizard'?Math.floor(r.level/2):0),0)>=6]] : []),
+    ...(supportsInstitute(c)&&c.shadowArcherPlan ? [['training','Converted entry score of 6 (Fighter + Ranger + half Wizard levels)', rows.reduce((n,r)=>n+(r.edition!=='2014'?0:['Fighter','Ranger'].includes(r.name)?r.level:r.name==='Wizard'?Math.floor(r.level/2):0),0)>=6]] : []),
     ['ancestry','Elf or half-elf (including Shadar-kai)',elf],
     ['archery','Archery Fighting Style',styles.some(style=>style.id==='archery')],
     ['bow','Proficiency with a shortbow or longbow',bow],

@@ -8,6 +8,8 @@ import {catalogSpells} from '../src/lib/editions.js';
 
 const startingSpells=['Mage Hand','Minor Illusion','Ray of Frost','Prestidigitation','Shield','Absorb Elements','Mage Armor','Find Familiar','Feather Fall','Detect Magic','Magic Missile','Identify','Web','Misty Step','Invisibility','Mirror Image'];
 const prepared=new Set(['Shield','Absorb Elements','Mage Armor','Feather Fall','Magic Missile','Web','Misty Step','Mirror Image']);
+export const finralFixture={id:'test-granted-sheet',instituteAccess:true};
+
 export function createShadowArcher(name,level) {
   if(![1,5].includes(level)||name.trim().length<2)throw Error('Choose a name and a level 1 or 5 start.');
   const classLevels=(level===1?[['Fighter',1]]:[['Fighter',1],['Wizard',4]]).map(([name,level])=>{
@@ -25,7 +27,7 @@ export function createShadowArcher(name,level) {
     return {...s,id:crypto.randomUUID(),castingClassId:classLevels[1].catalogId,prepared:s.level===0||prepared.has(name)};
   });
   const hp=level===1?12:36;
-  let c={id:crypto.randomUUID(),name:name.trim(),level,ruleset:'2014',mechanics:'2014',shadowArcherPlan:true,
+  let c={...finralFixture,name:name.trim(),level,ruleset:'2014',mechanics:'2014',shadowArcherPlan:true,
     race:'Shadar-kai',raceDefinition:shadarKaiRaces.find(r=>r.version==='motm'),background:'Shadow Scholar',
     className:'Fighter',classDefinition:classLevels[0].definition,classLevels,hitDie:'d10',speed:30,autoArmor:true,ac:16,
     hp:{max:hp,current:hp,temp:0},abilities:{str:10,dex:18,con:15,int:17,wis:15,cha:13},abilityBonuses:{dex:2,int:1},

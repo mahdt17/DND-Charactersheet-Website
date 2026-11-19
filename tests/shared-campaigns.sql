@@ -36,4 +36,20 @@ select set_config('request.jwt.claim.sub','a9702011-13de-4bf7-88d3-b46278accf01'
 do $$ begin
  if exists(select from public.characters) then raise exception 'DM retained access after unsharing'; end if;
 end $$;
+-- Copies, ordinary player saves and upserts must respect the separate sheet grant.
+reset role;
+update public.characters set institute_access=true where id='same-id' and user_id='a9702011-13de-4bf7-88d3-b46278accf02';
+set local role authenticated;
+select set_config('request.jwt.claim.sub','a9702011-13de-4bf7-88d3-b46278accf03',true);
+insert into public.characters(user_id,id,institute_access) values(auth.uid(),'new-id',true);
+update public.characters set institute_access=true where user_id=auth.uid();
+do $$ begin
+ if exists(select from public.characters where user_id=auth.uid() and institute_access) then raise exception 'Player granted institute access'; end if;
+end $$;
+select set_config('request.jwt.claim.sub','a9702011-13de-4bf7-88d3-b46278accf02',true);
+insert into public.characters(user_id,id,name) values(auth.uid(),'same-id','Renamed hero')
+ on conflict(user_id,id) do update set name=excluded.name;
+do $$ begin
+ if not exists(select from public.characters where user_id=auth.uid() and id='same-id' and institute_access) then raise exception 'Owner save lost grant'; end if;
+end $$;
 rollback;

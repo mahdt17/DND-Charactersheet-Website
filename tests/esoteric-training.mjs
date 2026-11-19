@@ -9,7 +9,7 @@ function sheet(levels, fame=0, approval=0, ascended=false) {
   const classLevels=Object.entries(levels).map(([name,level])=>({name,level,edition:'2014',catalogId:'2014:'+name,definition:name==='Archer'?arcaneArcherClass:{name,edition:'2014'}}));
   const level=classLevels.reduce((n,row)=>n+row.level,0);
   const training={...createInstitute(4).training,approvedFame:approval,ascensionQuest:ascended?'Lost elven archive':'',bookAwards:true,rangerKnown:true,events:[{id:'quest',kind:'quest',level:5,amount:fame}]};
-  return {ruleset:'2014',level,className:'Fighter',classLevels,affiliations:[{training}],spells:[]};
+  return {...finralFixture,ruleset:'2014',level,className:'Fighter',classLevels,affiliations:[{training}],spells:[]};
 }
 test('actual level gates, replacement rewards and distinct spell and slot ceilings',()=>{
   const c=sheet({Fighter:1,Wizard:4},45,45,true);
@@ -26,6 +26,21 @@ test('actual level gates, replacement rewards and distinct spell and slot ceilin
     assert.equal(model.level,13);
   }
 });
+test('copied or previously enrolled sheets receive no institute benefits',async ()=>{
+  const {sheetWithInstituteAccess,supportsInstitute}=await import('../src/lib/instituteAccess.js');
+  const {arcaneArcherRequirements}=await import('../src/lib/arcaneArcher.js');
+  const original={...sheet({Fighter:1,Wizard:4},5,5),name:'Finral Strim',shadowArcherPlan:true};
+  const otherOwner=sheetWithInstituteAccess({data:original,institute_access:false});
+  assert.equal(supportsInstitute({...original,name:'Renamed'}),true);
+  assert.equal(supportsInstitute({...original,ruleset:'2024'}),false);
+  for(const copy of [otherOwner,sheetWithInstituteAccess({data:{...original,id:'new-sheet'}})]){
+    assert.equal(supportsInstitute(copy),false);
+    assert.equal(trainingStatus(copy).wizardBonus,0);
+    assert.deepEqual(studyLevels(copy,4),[]);
+    assert.equal(arcaneArcherRequirements(copy,copy.classLevels).some(r=>r.id.endsWith(':training')),false);
+  }
+});
+
 test('education consumes failed attempts, rejects repeats and respects enrollment',()=>{
   let g=createInstitute(5);
   const attempt=(level,id,total)=>recordFame(g,level,{id,kind:'education',subject:'Arcana',total});
@@ -46,7 +61,7 @@ test('each effective Wizard level grants its two study picks only once',()=>{
   assert.throws(()=>claimStudy(next,c.classLevels[1],5,picks));
 });
 
-import {createShadowArcher} from './shadow-archer-fixture.mjs';
+import {createShadowArcher,finralFixture} from './shadow-archer-fixture.mjs';
 import {shadowArcherRoadmap} from '../src/lib/shadowArcherPlan.js';
 import {advanceClass,eligibleClass} from '../src/lib/advancement.js';
 import {restSpellSlots} from '../src/lib/multiclassCasting.js';
