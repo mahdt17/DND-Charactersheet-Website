@@ -52,10 +52,10 @@ try {
   await dm.getByRole('dialog').waitFor();
   await dm.getByRole('button',{name:'Close dialog'}).click();
   await viewer.getByRole('tab',{name:'Actions',exact:true}).click();
-  await viewer.getByText('Shield Bash',{exact:true}).waitFor();
+  await viewer.getByRole('tabpanel').getByText('Shield Bash',{exact:true}).waitFor();
   assert.equal(await viewer.getByText('All saved sheet fields',{exact:true}).count(),0);
   await viewer.getByRole('tab',{name:'Inventory'}).click();
-  await viewer.getByText('Survey kit',{exact:true}).waitFor();
+  await viewer.getByRole('tabpanel').getByText('Survey kit',{exact:true}).waitFor();
   await viewer.getByRole('tab',{name:'Notes'}).click();
   const dmNotes=viewer.getByLabel('Backstory, personality, bonds, and session notes');
   assert.equal(await dmNotes.inputValue(),'First expedition');

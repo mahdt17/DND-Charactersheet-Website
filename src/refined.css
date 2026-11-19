@@ -21,7 +21,7 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
 .ledger-app[data-backgrounds="on"] .ledger-workspace {
   background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 42%,transparent),var(--bg) 840px),url('./assets/citadel-dusk.webp') center top/auto 980px no-repeat;
 }
-.ledger-app[data-backgrounds="on"][data-sheet="closed"] .ledger-workspace { background:var(--bg); }
+.ledger-app[data-backgrounds="on"][data-sheet="closed"] .ledger-workspace:not(:has(.party-player-sheet)) { background:var(--bg); }
 
 /* Horizontal site navigation on desktop; a focusable drawer on small screens. */
 .ledger-nav { color:#c9c9c5; background:#15171b; border:0; border-bottom:3px solid #a13b32; box-shadow:0 3px 18px #0003; }
