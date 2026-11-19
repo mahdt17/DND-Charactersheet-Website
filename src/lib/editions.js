@@ -1,3 +1,4 @@
+import {castingLevel,trainingStatus} from './esotericTraining.js';
 import {arcaneArcherFeatures,isArcaneArcher} from './arcaneArcher.js';
 import {eligibleSpellRepresentatives} from './spellIdentity.js';
 import {expandedSubclassFeatures} from './expandedSubclasses.js';
@@ -59,7 +60,7 @@ function singleClassSlots(c){
  if(c.className==='Artificer'&&mechanics(c)==='2014')return slotArray(spellSlotProgression(classRecord(c),c.level)?.slots);
  if(!usesClassSpellRules(c))return slotArray(spellSlotProgression(classRecord(c),c.level)?.slots);
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return [0,...Array.from({length:9},(_,i)=>p[`spell_slots_level_${i+1}`]||0)];}
- return [0,...slotsFor(c.className,c.level)];}
+ return [0,...slotsFor(c.className,castingLevel(c))];}
 export function spellSlotPools(c){
  const legacyProfile=is35(c)?legacySlotProfile(c):null;
  const sourceProfile=!usesClassSpellRules(c)?legacyProfile||spellSlotProgression(classRecord(c),c.level):null;
@@ -73,7 +74,10 @@ export function spellCounts(c,score=10){if(campaignKind(c.classDefinition)){cons
  const subclass=subclassCasting(c);if(subclass)return subclass;
  if(c.className==='Artificer'&&mechanics(c)==='2014'){const row=progressionRow(classRecord(c),c.level);return {cantrips:Number(row['Cantrips Known'])||0,known:null,prepared:Math.max(1,Math.floor(c.level/2)+modifier(score)),mode:'prepared'};}
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return {cantrips:p.cantrips_known||0,known:c.className==='Wizard'?6+2*(c.level-1):p.prepared_spells||0,prepared:p.prepared_spells||0,mode:c.className==='Wizard'?'spellbook':'prepared'};}
- return countsFor(c.className,c.level,score);}
+ const actual=countsFor(c.className,c.level,score),level=castingLevel(c);
+ if(level===c.level)return actual;
+ const trained=countsFor(c.className,level,score),{training}=trainingStatus(c);
+ return {...trained,cantrips:actual.cantrips,known:c.className==='Wizard'&&training.bookAwards||c.className==='Ranger'&&training.rangerKnown?trained.known:actual.known};}
 export function spellAccess(c,s){
  if(s.featGrantId){const granted=resolveFeatSpell(c,s);return granted?{allowed:true,level:granted.level,alwaysPrepared:true,ability:granted.featAbility}:{allowed:false,level:s.level,reason:'This feat no longer grants the spell.'};}
  const rows=characterClasses(c);

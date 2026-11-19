@@ -1,0 +1,45 @@
+name: Shared campaign live view
+on:
+  pull_request:
+    paths:
+      - 'src/SharedCampaigns.jsx'
+      - 'src/lib/sharedCampaigns.js'
+      - 'supabase/shared_campaigns.sql'
+      - 'tests/*shared-campaigns*'
+      - '.github/workflows/shared-campaigns.yml'
+permissions:
+  contents: read
+jobs:
+  live-roster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - name: Start isolated campaign backend
+        run: |
+          supabase init
+          supabase start -x studio,imgproxy,storage-api,edge-runtime,logflare,vector,supavisor > /dev/null
+      - name: Check access policies and play two accounts
+        env:
+          CAMPAIGN_TEST_URL: http://127.0.0.1:4173/DND-Charactersheet-Website/
+        run: |
+          eval "$(supabase status -o env)"
+          export VITE_SUPABASE_URL="$API_URL"
+          export VITE_SUPABASE_PUBLISHABLE_KEY="$ANON_KEY"
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/schema.sql -f supabase/shared_campaigns.sql -f tests/shared-campaigns.sql
+          npm run build
+          npx playwright install --with-deps chromium
+          npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &
+          for attempt in {1..40}; do
+            if curl -fsS "$CAMPAIGN_TEST_URL" >/dev/null; then break; fi
+            sleep 1
+          done
+          node tests/browser-shared-campaigns.mjs

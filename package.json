@@ -38,7 +38,7 @@
     "test:browser:aasimar": "node tests/browser-aasimar.mjs",
     "test:browser:eladrin": "node tests/browser-eladrin.mjs",
     "test:browser:entomancer-resources": "node tests/browser-entomancer-resources.mjs",
-    "test:spell-progression": "node tests/spell-progression-matrix.mjs && node tests/legacy-spell-progression-matrix.mjs && node tests/legacy-spell-ability.mjs && node tests/spell-access.mjs && node tests/multiclass-casting.mjs",
+    "test:spell-progression": "node tests/spell-progression-matrix.mjs && node tests/legacy-spell-progression-matrix.mjs && node tests/legacy-spell-ability.mjs && node tests/spell-access.mjs && node tests/multiclass-casting.mjs && node tests/esoteric-training.mjs",
     "test:class-feat-tools": "node tests/class-feat-tools.mjs && node tests/class-feat-casting.mjs",
     "test:campaign-audit": "node tests/campaign-activity.mjs && node tests/campaign-followers-audit.mjs && node tests/campaign-progression-audit.mjs && node tests/campaign-spells-audit.mjs && node tests/campaign-companions-audit.mjs && node tests/campaign-roster-matrix.mjs",
     "test:lupin": "node tests/lupin.mjs",

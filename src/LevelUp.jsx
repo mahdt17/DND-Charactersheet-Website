@@ -1,3 +1,4 @@
+import {shadowArcherRoadmap} from './lib/shadowArcherPlan';
 import {isArcaneArcher} from './lib/arcaneArcher';
 import {preservePsicrystalDestruction} from './lib/campaignPsicrystal';
 import {campaignKind} from './lib/archivistCampaign';
@@ -66,7 +67,7 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
     if(plan.groups.length){setPending(next);setFeaturePicks({});setFeatureFeatOverrides({});}else onFinish(applyFeatureChoices(next,char,{},featureContext));
   }
   if(proceed&&candidate) {
-    const draft={...char,classLevels:undefined,className:candidate.name,classDefinition:candidate,subclass:row?.subclass||'',level:row?.level||0,castingAbility:row?.castingAbility||(row?.catalogId===rows[0]?.catalogId?char.castingAbility:undefined),hitDie:`d${candidate.hit_die||8}`,ruleset:char.ruleset==='custom'?'custom':candidate.edition,
+    const draft={...char,otherClassLevels:char.level-(row?.level||0),classLevels:undefined,className:candidate.name,classDefinition:candidate,subclass:row?.subclass||'',level:row?.level||0,castingAbility:row?.castingAbility||(row?.catalogId===rows[0]?.catalogId?char.castingAbility:undefined),hitDie:`d${candidate.hit_die||8}`,ruleset:char.ruleset==='custom'?'custom':candidate.edition,
       spells:spellsForClass(char,contentKey(candidate))};
     const existingSpells=new Set(draft.spells);
     const done=next=>finish({...next,spells:[...(char.spells||[]).filter(s=>!existingSpells.has(s)),...next.spells.map(s=>({...s,castingClassId:contentKey(candidate)}))]});
@@ -75,6 +76,7 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
   }
   return <Dialog title="Choose how to level up" wide onClose={onCancel}>
     <p>Character level {char.level} → {char.level+1}</p><p>{rows.map(r=>`${r.name} ${r.level}`).join(' · ')}</p>
+    {char.shadowArcherPlan&&shadowArcherRoadmap[char.level]&&<p className="l-notice">Shadow Archer plan · level {char.level+1}: {shadowArcherRoadmap[char.level].join(' — ')}. Use Affiliations to record education checks after saving this level.</p>}
     <label className="l-field"><span>Advancement path</span><select value={flow} onChange={e=>changeFlow(e.target.value)}><option value="existing">Continue existing class</option><option value="normal">Add another class</option><option value="prestige">Enter qualifying prestige class</option></select></label>
     {flow!=='existing'&&<label className="l-field"><span>Search level-up classes</span><input value={query} onChange={e=>setQuery(e.target.value)}/></label>}
     {catalog.loading&&<p role="status">Loading class catalog…</p>}{catalog.error&&<p role="alert">{catalog.error}<button className="l-button" onClick={catalog.retry}>Retry catalog</button></p>}
