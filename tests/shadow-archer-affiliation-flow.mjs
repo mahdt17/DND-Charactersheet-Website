@@ -19,7 +19,7 @@ export async function checkAffiliationFlow(page) {
   assert.equal(await button('Credit prior training').isDisabled(),true);
   await page.getByLabel('Highest rank approved by your DM').selectOption('5');
   await page.getByLabel('DM approves two spellbook additions').check();
-  await page.getByText('Choose two spellbook additions Â· effective Wizard 5',{exact:true}).click();
+  await page.getByText('Choose two spellbook additions · effective Wizard 5',{exact:true}).click();
   for(const name of ['Fireball','Counterspell']){
     await page.getByLabel('Search spells').fill(name);
     await page.getByRole('button',{name:new RegExp('^Select '+name+' [(]')}).first().click();
@@ -38,8 +38,8 @@ export async function checkAffiliationFlow(page) {
   await page.locator('.sheet-identity').filter({hasText:/LEVEL 6/i}).waitFor();
   await tab('Affiliations');
   await page.getByRole('heading',{name:'Silver Quill'}).waitFor();
-  await page.getByText('Choose two spellbook additions Â· effective Wizard 6',{exact:true}).waitFor();
-  assert.equal(await page.getByText('Choose two spellbook additions Â· effective Wizard 5',{exact:true}).count(),0);
+  await page.getByText('Choose two spellbook additions · effective Wizard 6',{exact:true}).waitFor();
+  assert.equal(await page.getByText('Choose two spellbook additions · effective Wizard 5',{exact:true}).count(),0);
   await page.getByLabel('Check total including modifiers').fill('16');
   await button('Record education check').click();
   await page.getByText('6 Fame',{exact:true}).waitFor();
