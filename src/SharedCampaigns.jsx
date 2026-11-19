@@ -83,6 +83,6 @@ export default function SharedCampaigns({api,characters,initialCharacterId}) {
       <p>This ends sharing for everyone in this campaign. Each player keeps their character sheet.</p>
       <div className="party-hub-actions"><button className="l-button party-danger" disabled={busy} onClick={()=>perform(async()=>{await api.removeCampaign(campaign.id);setHost('');setMode('');setNotice('Campaign deleted.');})}>Confirm deletion</button>
       <button className="l-button" autoFocus disabled={busy} onClick={()=>open('')}>Cancel</button></div></section>}
-    {campaign&&mode!=='delete'&&<PartyRoster key={campaign.id} campaign={campaign} api={api} onDelete={()=>open('delete')}/>}
+    {campaign&&<PartyRoster key={campaign.id} campaign={campaign} api={api} onDelete={()=>open('delete')}/>}
   </section>;
 }

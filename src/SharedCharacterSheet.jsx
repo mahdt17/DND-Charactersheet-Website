@@ -34,7 +34,7 @@ function Attacks({char,abilities,form}){
   const weapons=is35(char)?[]:weaponAttacks({...char,inventory:equipment||[]},abilities);
   return <><h3>Weapon attacks</h3>{weapons.length?<table className="party-table"><thead><tr><th>Weapon</th><th>To hit</th><th>Damage</th></tr></thead><tbody>{weapons.map(w=><tr key={w.id}><th scope="row">{w.name}</th><td>{signed(w.attack)}</td><td>{line(w.damage,w.damageType)}</td></tr>)}</tbody></table>:<p className="l-muted">No weapon attacks listed.</p>}
     <h3>Actions</h3><Entries rows={char.actions} empty="No actions recorded." render={r=>({meta:line(r.actionType||r.type,r.damage,r.damageType),body:description(r)})}/>
-    {!!char.resources?.length&&<><h3>Resources</h3><Entries rows={char.resources} render={r=>({meta:line(r.max!=null?Math.max(0,r.max-(r.used||0))+' / '+r.max+' remaining':'',r.recharge||r.reset),body:description(r)})}/></>}</>;
+    {!!char.resources?.length&&<><h3>Resources</h3><Entries rows={char.resources} render={r=>({meta:line(r.unlimited?'Unlimited':r.max!=null?Math.max(0,r.max-(r.used||0))+' / '+r.max+' remaining':'',r.recharge||r.reset),body:description(r)})}/></>}</>;
 }
 function Spellbook({char}){
   const pools=spellSlotPools(char);
@@ -64,7 +64,11 @@ function SheetContent({section,char,abilities,form}){
     case 'Feats':case 'Traits':return <><h3>{section}</h3><Entries rows={char[section.toLowerCase()]} empty={'No '+section.toLowerCase()+' recorded.'} render={standard}/></>;
     case 'Affiliations':return <><h3>Affiliations</h3><Entries rows={char.affiliations} empty="No affiliations recorded." render={r=>{
       const institute=r.training&&supportsInstitute(char)?trainingStatus(char):null;
-      return {meta:line(r.type,r.rank,institute?.rank?.name,institute?institute.fame+' Fame':''),body:[r.contact&&'Contact · '+r.contact,r.notes,institute?.training.ascensionQuest].filter(Boolean).join('\n')};
+      return {meta:line(r.type,r.rank,institute?.rank?.name,institute?institute.fame+' Fame':''),body:[institute&&line(institute.wizardBonus?'Wizard casting +'+institute.wizardBonus:'',institute.rangerBonus?'Ranger casting +'+institute.rangerBonus:''),
+        institute?.training.bookAwards&&'Spellbook study approved',institute?.training.rangerKnown&&'Ranger spells known approved',
+        ...(institute?.training?.events||[]).map(e=>line('Level '+e.level,e.note||e.subject||e.kind,'+'+e.amount+' Fame')),
+        ...Object.entries(institute?char.instituteSpellAwards||{}:{}).map(([level,spells])=>'Wizard '+level+' study: '+words(spells).split('\n').join(', ')),
+        r.contact&&'Contact · '+r.contact,r.notes,institute?.training.ascensionQuest].filter(Boolean).join('\n')};
     }}/></>;
     case 'Companions':return <><h3>Companions</h3><Entries rows={char.companions} empty="No companions recorded." render={r=>({meta:line(r.relationshipType,r.species,r.hp&&r.hp.current+' / '+r.hp.max+' HP'),body:description(r)})}/></>;
     case 'Notes':return <><h3>Notes</h3><p className="preserve-lines">{char.notes||'No notes recorded.'}</p></>;
