@@ -103,6 +103,11 @@ try{
   await checkAffiliationFlow(page);
   assert.deepEqual(errors,[]);
   console.log('PASS sheet feat bonus, Ranger Defense AC, Sharpshooter bow attack/damage, Elven Accuracy advantage for weapon and spell attacks, and canceled advantage');
+ } catch(error) {
+  console.error('Page errors',errors);
+  console.error('Active dialog', (await page.getByRole('dialog').allTextContents()).join(' ').slice(-2000));
+  console.error('Alerts',await page.getByRole('alert').allTextContents());
+  throw error;
 } finally {
   await browser.close();
   await server?.close();
