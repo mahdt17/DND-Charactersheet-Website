@@ -87,7 +87,7 @@ export async function checkAffiliationFlow(page) {
   const wish=page.locator('.spell-item').filter({has:page.getByText('Wish',{exact:true})});
   await button('Prepare',wish).click();
   await button('Cast',wish).click();
-  await button('Cast',page.getByRole('dialog',{name:'Cast Wish'})).click();
+  await button('Cast & spend slot',page.getByRole('dialog',{name:'Cast Wish'})).click();
   assert.match(await button('Level 9 slot 1').getAttribute('class'),/used/);
 
 }
