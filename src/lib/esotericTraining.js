@@ -1,3 +1,4 @@
+import {supportsInstitute} from './instituteAccess.js';
 import {ordinarySpellIdentity} from './spellIdentity.js';
 
 export const ranks = [
@@ -13,14 +14,14 @@ export const assignments = {1:'Minor assignment',2:'Research project',3:'Dangero
 export const subjects = ['Arcana','History','Investigation','Nature','Religion'];
 export const educationDC = level => 16 + Math.floor((level-5)/4);
 export const characterLevel = c => Math.min(20, Number(c.level||0) + Number(c.otherClassLevels||0));
-export const supportsInstitute = c => ((c.ruleset==='custom'?c.mechanics:c.ruleset)||'2014')==='2014';
+
 export function createInstitute(level) {
   return {id:crypto.randomUUID(),name:'Arcane Institute',type:'Institute',training:{joinedLevel:level,events:[],approvedFame:null}};
 }
 export function trainingStatus(c) {
-  const training=c.affiliations?.find(g=>g.training)?.training;
+  const training=supportsInstitute(c)?c.affiliations?.find(g=>g.training)?.training:undefined;
   const fame=(training?.events||[]).reduce((sum,e)=>sum+(Number(e.amount)||0),0);
-  const eligible=training && supportsInstitute(c)?ranks.filter(r=>r.level<=characterLevel(c)&&r.fame<=fame):[];
+  const eligible=training?ranks.filter(r=>r.level<=characterLevel(c)&&r.fame<=fame):[];
   const rank=training?.approvedFame!=null?eligible.filter(r=>r.fame<=training.approvedFame).at(-1):null;
   const ascended=rank?.fame===45 && Boolean(training.ascensionQuest?.trim());
   return {fame,eligible,rank,training,ascended,wizardBonus:ascended?4:rank?.wizard||0,rangerBonus:ascended?0:rank?.ranger||0};

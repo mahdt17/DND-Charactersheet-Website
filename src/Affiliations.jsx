@@ -2,8 +2,9 @@ import React,{useState} from 'react';
 import {characterClasses,classCharacter} from './lib/advancement';
 import {permittedSpells,spellSlotPools,keyOf} from './lib/editions';
 import {ordinarySpellIdentity} from './lib/spellIdentity';
-import {ranks,assignments,subjects,educationDC,supportsInstitute,trainingStatus,createInstitute,recordFame,castingLevel,studyLevels,claimStudy} from './lib/esotericTraining';
+import {ranks,assignments,subjects,educationDC,trainingStatus,createInstitute,recordFame,castingLevel,studyLevels,claimStudy} from './lib/esotericTraining';
 import {shadowArcherRoadmap} from './lib/shadowArcherPlan';
+import {supportsInstitute} from './lib/instituteAccess.js';
 import SpellPicker from './EditionSpellPicker';
 
 function Field({label,children}) {
@@ -80,7 +81,12 @@ function Institute({char,guild,save,patch}) {
 }
 
 export default function Affiliations({char,patch}) {
-  const list=char.affiliations||[];
+  const list=char.affiliations||[],allowed=supportsInstitute(char);
+  const [deleting,setDeleting]=useState(null);
+  function remove(id){
+    patch(current=>({affiliations:(current.affiliations||[]).filter(g=>g.id!==id)}));
+    setDeleting(null);
+  }
   const [name,setName]=useState(''),[type,setType]=useState('Guild');
   const save=guild=>patch({affiliations:list.map(g=>g.id===guild.id?guild:g)});
   function add(){
@@ -88,16 +94,21 @@ export default function Affiliations({char,patch}) {
     patch({affiliations:[...list,guild]});setName('');
   }
   return <section aria-label="Character affiliations"><h2>Affiliations</h2>
-    {supportsInstitute(char)&&<><label className="l-check"><input type="checkbox" checked={!!char.shadowArcherPlan} onChange={e=>patch({shadowArcherPlan:e.target.checked})}/>Use the Shadow Archer roadmap and converted prestige entry score</label>{char.shadowArcherPlan&&<Roadmap char={char}/>}</>}
+    {allowed&&<><label className="l-check"><input type="checkbox" checked={!!char.shadowArcherPlan} onChange={e=>patch({shadowArcherPlan:e.target.checked})}/>Use the Shadow Archer roadmap and converted prestige entry score</label>{char.shadowArcherPlan&&<Roadmap char={char}/>}</>}
     {list.map(g=><article className="l-panel" key={g.id}><h3>{g.name}</h3>
-      <details><summary>{g.type} membership details</summary>
+      {deleting===g.id?<div role="group" aria-label={'Confirm deletion of '+g.name}>
+        <p>Delete {g.name} from this sheet?{g.training?' This clears its Fame, rank and active training benefits.':''}</p>
+        <button className="l-button" onClick={()=>remove(g.id)}>Confirm deletion</button>
+        <button className="l-button" onClick={()=>setDeleting(null)}>Cancel</button>
+      </div>:<button className="l-button" aria-label={'Delete affiliation: '+g.name} onClick={()=>setDeleting(g.id)}>Delete affiliation</button>}
+      {g.training&&!allowed?<p>Inactive institute membership</p>:<details><summary>{g.type} membership details</summary>
         <Field label="Organization name"><input value={g.name} onChange={e=>save({...g,name:e.target.value})}/></Field>
         {!g.training&&<Field label="Rank or title"><input value={g.rank||''} onChange={e=>save({...g,rank:e.target.value})}/></Field>}
         <Field label="Contact or mentor"><input value={g.contact||''} onChange={e=>save({...g,contact:e.target.value})}/></Field>
         <Field label="Location, duties, dues and benefits"><textarea value={g.notes||''} onChange={e=>save({...g,notes:e.target.value})}/></Field>
-        {!g.training&&<button className="l-button" onClick={()=>patch({affiliations:list.filter(x=>x.id!==g.id)})}>Remove membership</button>}</details>
-      {g.training&&supportsInstitute(char)&&<Institute char={char} guild={g} save={save} patch={patch}/>}</article>)}
-    {supportsInstitute(char)&&!list.some(g=>g.training)&&<button className="l-button" onClick={()=>patch({affiliations:[...list,createInstitute(char.level)]})}>Join an arcane institute</button>}
+      </details>}
+      {g.training&&allowed&&<Institute char={char} guild={g} save={save} patch={patch}/>}</article>)}
+    {allowed&&!list.some(g=>g.training)&&<button className="l-button" onClick={()=>patch({affiliations:[...list,createInstitute(char.level)]})}>Join an arcane institute</button>}
     <details><summary>Add another affiliation</summary>
       <Field label="Guild or institution name"><input value={name} onChange={e=>setName(e.target.value)}/></Field>
       <Field label="Organization type"><select value={type} onChange={e=>setType(e.target.value)}>{['Guild','Institute','Academy','Order','Faction','Other'].map(s=><option key={s}>{s}</option>)}</select></Field>

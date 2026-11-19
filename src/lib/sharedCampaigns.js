@@ -1,3 +1,5 @@
+import {sheetWithInstituteAccess} from './instituteAccess.js';
+
 const fields='id,name';
 export const invitePattern=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 async function result(query) {
@@ -31,9 +33,10 @@ export function campaignService(client,userId) {
       return result(sheets().select('user_id,character_id,sheet:characters!inner(name,race,class_name,level,updated_at)').eq('campaign_id',id));
     },
     async sheet(id,member) {
-      const row=await result(sheets().select('sheet:characters!inner(data,updated_at)').eq('campaign_id',id)
+      const row=await result(sheets().select('sheet:characters!inner(data,institute_access,updated_at)').eq('campaign_id',id)
         .eq('user_id',member.user_id).eq('character_id',member.character_id).maybeSingle());
-      return row?.sheet??null;
+      if(!row?.sheet)return null;
+      return {updated_at:row.sheet.updated_at,data:sheetWithInstituteAccess(row.sheet)};
     },
     subscribe(id,refresh) {
       const channel=client.channel('dm-campaign-'+id)

@@ -20,6 +20,15 @@ function grandmaster() {
   return {...c,affiliations:[{...guild,training:{...guild.training,approvedFame:45,bookAwards:true}}]};
 }
 
+// Supply an already-loaded owner sheet through the demo adapter in this browser test.
+// Ordinary JSON imports go through the real import path and always get a new sheet ID.
+async function openGrantedFixture(page,character) {
+  await page.evaluate(c=>sessionStorage.setItem('granted-test-sheet',JSON.stringify(c)),character);
+  await page.reload();
+  await page.getByRole('button',{name:/Explore the demo/}).click();
+  await page.locator('.character-card').filter({hasText:character.name}).getByRole('button',{name:'Open character'}).click();
+}
+
 export async function checkAffiliationFlow(page) {
   const button=(name,scope=page)=>scope.getByRole('button',{name,exact:true});
   const tab=name=>page.getByRole('tab',{name,exact:true}).click();
@@ -28,9 +37,38 @@ export async function checkAffiliationFlow(page) {
   assert.equal(await page.getByText('Use the Shadow Archer build',{exact:true}).count(),0);
   assert.equal(await page.getByRole('button',{name:/Create level .* Shadow Archer/}).count(),0);
   await button('Cancel',page.locator('.creation-footer')).click();
-  await page.locator('input[type=file]').setInputFiles({name:'archer.json',mimeType:'application/json',
-    buffer:Buffer.from(JSON.stringify(createShadowArcher('Institute archer',5)))});
-  await page.locator('.sheet-identity').filter({hasText:'Institute archer'}).waitFor();
+  const copy={...createShadowArcher('Finral Strim',5),affiliations:[createInstitute(5)]};
+  await page.locator('input[type=file]').setInputFiles({name:'copy.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(copy))});
+  await page.locator('.sheet-identity').filter({hasText:copy.name}).waitFor();
+  await tab('Affiliations');
+  assert.equal(await button('Join an arcane institute').count(),0);
+  assert.equal(await page.getByRole('checkbox',{name:/Use the Shadow Archer roadmap/}).count(),0);
+  assert.equal(await page.getByRole('region',{name:'Esoteric training'}).count(),0);
+  await button('Delete affiliation: Arcane Institute').click();
+  await button('Confirm deletion').click();
+  await page.getByText('Add another affiliation',{exact:true}).click();
+  await page.getByLabel('Guild or institution name').fill('Cartographers');
+  await button('Add membership').click();
+  await button('Delete affiliation: Cartographers').click();
+  await button('Cancel').click();
+  await button('Delete affiliation: Cartographers').click();
+  await button('Confirm deletion').click();
+  await button('All characters').click();
+  await page.locator('.character-card').filter({hasText:copy.name}).getByRole('button',{name:'Open character'}).click();
+  await tab('Affiliations');
+  assert.equal(await page.getByRole('heading',{name:'Cartographers'}).count(),0);
+
+  await page.addInitScript(()=>{
+    const seed=sessionStorage.getItem('granted-test-sheet');
+    if(!seed)return;
+    const sheet=JSON.parse(seed);
+    let adapter;
+    Object.defineProperty(window,'storage',{configurable:true,get:()=>adapter,set:value=>{
+      if(adapter!==value && value?.set)void value.set('char-detail:'+sheet.id,seed);
+      adapter=value;
+    }});
+  });
+  await openGrantedFixture(page,createShadowArcher('Institute archer',5));
   await tab('Affiliations');
   await page.getByText('Add another affiliation',{exact:true}).click();
   await page.getByLabel('Guild or institution name').fill('Silver Quill');
@@ -70,10 +108,11 @@ export async function checkAffiliationFlow(page) {
   await tab('Affiliations');
   await page.getByText('6 Fame',{exact:true}).waitFor();
   await page.getByRole('heading',{name:'Silver Quill'}).waitFor();
-  await button('All characters').click();
-  const end=grandmaster();
-  await page.locator('input[type=file]').setInputFiles({name:'grandmaster.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(end))});
-  await page.locator('.sheet-identity').filter({hasText:end.name}).waitFor();
+  await button('Delete affiliation: Arcane Institute').click();
+  await button('Confirm deletion').click();
+  await button('Join an arcane institute').waitFor();
+  await page.getByRole('heading',{name:'Silver Quill'}).waitFor();
+  await openGrantedFixture(page,grandmaster());
   await tab('Affiliations');
   const finalAward=page.locator('details').filter({has:page.locator('summary').filter({hasText:/effective Wizard 17$/})});
   assert.equal(await finalAward.count(),0);

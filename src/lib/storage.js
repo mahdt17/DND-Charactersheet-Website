@@ -1,3 +1,5 @@
+import {sheetWithInstituteAccess} from './instituteAccess.js';
+
 export function createCloudStorage(supabase, userId) {
   if (!supabase || !userId) {
     throw new Error("Cloud storage requires an authenticated user.");
@@ -31,14 +33,14 @@ export function createCloudStorage(supabase, userId) {
 
         const { data, error } = await supabase
           .from("characters")
-          .select("data")
+          .select("data,institute_access")
           .eq("user_id", userId)
           .eq("id", id)
           .maybeSingle();
 
         if (error) throw error;
 
-        return data ? { value: JSON.stringify(data.data) } : null;
+        return data ? { value: JSON.stringify(sheetWithInstituteAccess(data)) } : null;
       }
 
       return null;
@@ -49,7 +51,7 @@ export function createCloudStorage(supabase, userId) {
 
       if (key.startsWith("char-detail:")) {
         const id = key.slice("char-detail:".length);
-        const character = JSON.parse(value);
+        const {instituteAccess, ...character} = JSON.parse(value);
 
         const row = {
           id,
