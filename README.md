@@ -48,7 +48,9 @@ The existing GitHub Actions deployment publishes `main` using the repository’s
 
 ## Storage and reliability
 
-The existing `characters` JSONB schema and RLS policies remain unchanged. A reserved per-user row, `id = ledger-workspace`, stores private campaigns, encounters and homebrew and is excluded from the character index. The `user_id,id` composite conflict target is explicit. No new database migration is needed.
+For a new database, apply `supabase/schema.sql` followed by `supabase/shared_campaigns.sql`. An existing installation only needs the latter once. Private notebooks, encounters and homebrew stay in the per-user `ledger-workspace` row.
+
+Signed-in DMs can open **Campaigns → Start a DM campaign** and give players its invite code. Players select their own characters under **Share a character with your DM**. Each character belongs to one shared campaign at a time. The DM can read all saved sheet fields. Saves, assignments and removals update the open roster through Supabase Realtime, with a refresh on reconnect, tab focus and a ten-second fallback. Players can withdraw access from the same panel.
 
 Character and workspace edits are debounced per record, with serialized writes per record. Failed writes remain pending and can be retried. The app warns before leaving with unsaved changes and flushes before sign-out or wizard completion. Loading failures are reported instead of replacing the character list with an empty list. Multiple browser tabs are not conflict-merged; avoid editing the same record in two tabs simultaneously.
 

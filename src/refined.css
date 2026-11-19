@@ -540,3 +540,10 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
 .ability-breakdown .form-grid { margin-top:16px; }
 .ability-breakdown .l-toolbar { justify-content:flex-end; margin-top:18px; }
 .ability-edit-error { color:var(--danger); }
+
+.party-sharing { display: grid; gap: 1rem; margin-block: 1rem 2rem; }
+.party-sharing .l-field { margin-block: .75rem; }
+.party-sharing details { margin: .5rem 0; }
+.party-sharing summary { cursor: pointer; font-weight: 600; }
+.party-sharing .party-detail { margin-inline-start: 1rem; overflow-wrap: anywhere; }
+.party-sharing [aria-label="Live character sheet"] { margin-block-start: 1rem; overflow-wrap: anywhere; }

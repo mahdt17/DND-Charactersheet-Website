@@ -134,5 +134,5 @@ export default function App() {
   }
 
   if (!session && !demo) return <AuthScreen theme={theme} onToggleTheme={toggleTheme} onDemo={()=>setDemo(true)} />;
-  return <div className={`app-theme theme-${theme}`}><LedgerLoadingBoundary><Suspense fallback={<div className="auth-loading" role="status">Opening your ledger…</div>}><LedgerEntry demoRef={demoRef} storage={demo?null:createCloudStorage(supabase,session.user.id)} key={demo?'demo':session.user.id} demo={demo} theme={theme} onToggleTheme={toggleTheme} onSignOut={async()=>{if(demo){setDemo(false);demoRef.current=null;}else{await supabase.auth.signOut();}}}/></Suspense></LedgerLoadingBoundary></div>;
+  return <div className={`app-theme theme-${theme}`}><LedgerLoadingBoundary><Suspense fallback={<div className="auth-loading" role="status">Opening your ledger…</div>}><LedgerEntry userId={demo?null:session.user.id} demoRef={demoRef} storage={demo?null:createCloudStorage(supabase,session.user.id)} key={demo?'demo':session.user.id} demo={demo} theme={theme} onToggleTheme={toggleTheme} onSignOut={async()=>{if(demo){setDemo(false);demoRef.current=null;}else{await supabase.auth.signOut();}}}/></Suspense></LedgerLoadingBoundary></div>;
 }

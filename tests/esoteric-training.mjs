@@ -46,7 +46,8 @@ test('each effective Wizard level grants its two study picks only once',()=>{
   assert.throws(()=>claimStudy(next,c.classLevels[1],5,picks));
 });
 
-import {createShadowArcher,shadowArcherRoadmap} from '../src/lib/shadowArcherPlan.js';
+import {createShadowArcher} from './shadow-archer-fixture.mjs';
+import {shadowArcherRoadmap} from '../src/lib/shadowArcherPlan.js';
 import {advanceClass,eligibleClass} from '../src/lib/advancement.js';
 import {restSpellSlots} from '../src/lib/multiclassCasting.js';
 import {effectiveAbilityScores} from '../src/lib/abilityScores.js';

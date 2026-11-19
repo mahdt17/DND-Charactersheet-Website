@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import {createShadowArcher,shadowArcherRoadmap} from '../src/lib/shadowArcherPlan.js';
+import {createShadowArcher} from './shadow-archer-fixture.mjs';
+import {shadowArcherRoadmap} from '../src/lib/shadowArcherPlan.js';
 import {advanceClass} from '../src/lib/advancement.js';
 import {multiclassTrainingPlan} from '../src/lib/training.js';
 import {arcaneArcherClass} from '../src/lib/arcaneArcher.js';
@@ -24,9 +25,11 @@ export async function checkAffiliationFlow(page) {
   const tab=name=>page.getByRole('tab',{name,exact:true}).click();
   await button('All characters').click();
   await button('Create character').click();
-  await page.getByLabel('Character name',{exact:true}).fill('Institute archer');
-  await page.getByText('Use the Shadow Archer build',{exact:true}).click();
-  await button('Create level 5 Shadow Archer').click();
+  assert.equal(await page.getByText('Use the Shadow Archer build',{exact:true}).count(),0);
+  assert.equal(await page.getByRole('button',{name:/Create level .* Shadow Archer/}).count(),0);
+  await button('Cancel',page.locator('.creation-footer')).click();
+  await page.locator('input[type=file]').setInputFiles({name:'archer.json',mimeType:'application/json',
+    buffer:Buffer.from(JSON.stringify(createShadowArcher('Institute archer',5)))});
   await page.locator('.sheet-identity').filter({hasText:'Institute archer'}).waitFor();
   await tab('Affiliations');
   await page.getByText('Add another affiliation',{exact:true}).click();
