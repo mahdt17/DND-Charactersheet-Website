@@ -1,0 +1,34 @@
+name: Shadow Archer character flow
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'tests/*shadow-archer*'
+      - 'tests/esoteric-training.mjs'
+      - '.github/workflows/shadow-archer.yml'
+permissions:
+  contents: read
+jobs:
+  character-flow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/esoteric-training.mjs
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Play the production Shadow Archer sheet
+        env:
+          SHADOW_ARCHER_TEST_URL: http://127.0.0.1:4173/DND-Charactersheet-Website/
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &
+          for attempt in {1..40}; do
+            if curl --fail --silent "$SHADOW_ARCHER_TEST_URL" >/dev/null; then break; fi
+            sleep 1
+          done
+          node tests/browser-shadow-archer-automation.mjs
