@@ -17,6 +17,10 @@ do $$ begin
  exception when check_violation then null; end;
 end $$;
 insert into public.ledger_campaign_sheets(campaign_id,character_id) values(current_setting('ledger_test.invite')::uuid,'same-id');
+do $$ begin
+ delete from public.ledger_campaigns where id=current_setting('ledger_test.invite')::uuid;
+ if found then raise exception 'Player deleted the DM campaign'; end if;
+end $$;
 update public.characters set data='{"hp":{"current":7}}' where user_id=auth.uid() and id='same-id';
 select set_config('request.jwt.claim.sub','a9702011-13de-4bf7-88d3-b46278accf03',true);
 insert into public.characters(user_id,id,name) values(auth.uid(),'same-id','Different owner');

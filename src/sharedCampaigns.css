@@ -1,0 +1,14 @@
+.party-sharing {display:grid;gap:1rem;min-width:0}
+.party-hub-actions,.party-campaign-list {display:flex;gap:.65rem;align-items:center;flex-wrap:wrap}
+.party-directory {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem}
+.party-directory p {margin:.5rem 0;color:var(--muted)}
+.party-form {display:grid;gap:.8rem;justify-items:start}
+.party-form form,.party-form .l-field {width:min(100%,30rem)}
+.party-membership {display:flex;align-items:center;gap:.6rem}
+.party-membership {justify-content:space-between;padding:.6rem 0}
+.party-membership small {display:block;color:var(--muted)}
+.party-sharing button[aria-pressed=true] {border-color:var(--accent);background:var(--accent-soft)}
+.party-sharing .party-danger {color:var(--danger)}
+.party-player-sheet {min-width:0}
+.party-player-sheet button:disabled,.party-player-sheet :is(input,select):disabled {cursor:default}
+.party-player-sheet .sheet-heading {margin-top:.65rem}

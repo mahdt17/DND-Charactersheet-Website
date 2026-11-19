@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - 'src/SharedCampaigns.jsx'
+      - 'src/SharedCharacterSheet.jsx'
+      - 'src/sharedCampaigns.css'
+      - 'supabase/delete_campaign.sql'
       - 'src/lib/sharedCampaigns.js'
       - 'supabase/shared_campaigns.sql'
       - 'supabase/institute_access.sql'
@@ -35,7 +38,7 @@ jobs:
           eval "$(supabase status -o env)"
           export VITE_SUPABASE_URL="$API_URL"
           export VITE_SUPABASE_PUBLISHABLE_KEY="$ANON_KEY"
-          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/schema.sql -f supabase/shared_campaigns.sql -f supabase/institute_access.sql -f tests/shared-campaigns.sql
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/schema.sql -f supabase/shared_campaigns.sql -f supabase/institute_access.sql -f supabase/delete_campaign.sql -f tests/shared-campaigns.sql
           npm run build
           npx playwright install --with-deps chromium
           npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &
