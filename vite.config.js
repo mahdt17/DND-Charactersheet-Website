@@ -2,6 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 const liveSubclassIds = new Set([
+  "2014:subclass:cleric:twilight",
+  "2014:subclass:paladin:redemption",
+  "2014:subclass:sorcerer:clockwork-soul",
+  "2014:subclass:warlock:hexblade",
   "2014:subclass:wizard:bladesinging",
   "2014:subclass:ranger:gloom-stalker",
   "2014:subclass:fighter:battle-master",

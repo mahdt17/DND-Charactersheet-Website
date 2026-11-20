@@ -36,9 +36,11 @@ try {
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await importSheet('Divine multiclass test',[entry('Paladin',3,'Redemption'),entry('Cleric',2,'Twilight')],{
     race:'Aasimar',subrace:'Fallen Aasimar',raceDefinition:{name:'Aasimar',edition:'2014',catalogId:'2014:aasimar-vgm'},
-    aasimar:{healingMode:'proficiency-d4',darkvision:40},background:'Inheritor'
+    aasimar:{healingMode:'proficiency-d4',darkvision:40},background:'Inheritor',
+    fightingStyles:{choices:[{id:'protection',source:'PHB',edition:'2014',sourceClassName:'Paladin',sourceClassId:'2014:paladin',sourceClassLevel:2}]}
   });
   await tab('Actions');
+  await page.getByRole('heading',{name:'Protection reaction'}).waitFor();
   const racial=page.getByRole('region',{name:'Aasimar racial abilities'});
   assert.match(await racial.innerText(),/Darkvision 40 feet/);
   assert.match(await racial.innerText(),/3d4 HP/);
