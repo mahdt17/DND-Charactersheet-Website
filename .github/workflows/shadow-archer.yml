@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'src/**'
+      - 'tests/browser-level-hit-points.mjs'
       - 'tests/*shadow-archer*'
       - 'tests/esoteric-training.mjs'
       - '.github/workflows/shadow-archer.yml'
@@ -31,5 +32,6 @@ jobs:
             if curl --fail --silent "$SHADOW_ARCHER_TEST_URL" >/dev/null; then break; fi
             sleep 1
           done
+          node tests/browser-level-hit-points.mjs
           node tests/browser-multiclass-imports.mjs
           node tests/browser-shadow-archer-automation.mjs
