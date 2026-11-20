@@ -1,17 +1,25 @@
 import React,{useState} from 'react';
 import {aasimarSource} from './data/aasimar';
-import {aasimarProfile,aasimarActionBlock,useHealingHands,useAasimarTransformation,endAasimarTransformation,aasimarLightSpell} from './lib/aasimar';
+import {aasimarProfile,aasimarActionBlock,healingHandsAmount,useHealingHands,useAasimarTransformation,endAasimarTransformation,aasimarLightSpell} from './lib/aasimar';
 const Button=({children,...props})=><button type="button" className="l-button" {...props}>{children}</button>;
 
 export default function Aasimar({char,patch,abilities}){
  const [selected,setSelected]=useState('healing'),[target,setTarget]=useState('self'),[notice,setNotice]=useState(''),[error,setError]=useState('');
  const p=aasimarProfile(char,abilities);if(!p.active)return null;
  const blocked=aasimarActionBlock(char),variant=p.variant,form=selected==='form'&&variant;
+ function heal(){
+  const amount=healingHandsAmount(p);
+  run(current=>useHealingHands(current,{self:target==='self',amount}),target==='self'?`Healing Hands used: restored up to ${amount} HP to you.`:`The touched creature regains ${amount} HP.`);
+ }
  function run(fn,message){try{patch(fn);setNotice(message);setError('');}catch(e){setError(e.message);}}
  return <section className="l-panel section-spaced" aria-label="Aasimar racial abilities">
-  <h3>{variant?.name||'Aasimar'}</h3><p className="l-muted">{aasimarSource} · Darkvision 60 feet · Radiant and necrotic resistance</p>
+  <h3>{variant?.name||'Aasimar'}</h3><p className="l-muted">{aasimarSource} · Darkvision {p.darkvision} feet · Radiant and necrotic resistance</p>
+  <details className="feature-detail"><summary>Aasimar table rules</summary>
+   <label className="l-field">Racial darkvision (feet)<input type="number" min="0" max="300" defaultValue={p.darkvision} key={p.darkvision} onBlur={e=>{const feet=e.target.valueAsNumber;if(Number.isInteger(feet)&&feet>=0&&feet<=300)patch({aasimar:{...char.aasimar,darkvision:feet}});else e.target.value=p.darkvision;}}/></label>
+   <label className="l-field">Healing Hands amount<select value={p.healingDice?'proficiency-d4':'level'} onChange={e=>patch({aasimar:{...char.aasimar,healingMode:e.target.value}})}><option value="level">Character level (Volo’s)</option><option value="proficiency-d4">Proficiency bonus in d4s</option></select></label>
+  </details>
   <div className="class-ability-picker" role="group" aria-label="Choose an Aasimar ability"><Button aria-label="Healing Hands" aria-pressed={!form} onClick={()=>setSelected('healing')}><strong>Healing Hands</strong><small>Action · {p.healingRemaining} / 1 use</small></Button>{variant&&<Button aria-label={variant.feature} aria-pressed={!!form} onClick={()=>setSelected('form')}><strong>{variant.feature}</strong><small>{p.canTransform?`Action · ${p.transformationRemaining} / 1 use`:'Unlocks at character level 3'}</small></Button>}</div>
-  {!form?<article className="class-ability"><h4>Healing Hands</h4><p>Action · Touch · Restore {p.healing} HP · {p.healingRemaining} / 1 use · Long-rest recovery</p><label className="l-field"><span>Healing Hands target</span><select aria-label="Healing Hands target" value={target} onChange={e=>setTarget(e.target.value)}><option value="self">Myself — apply healing to my HP</option><option value="other">Another creature — resolve healing at the table</option></select></label><Button disabled={!!blocked||!p.healingRemaining} onClick={()=>run(current=>useHealingHands(current,{self:target==='self'}),target==='self'?`Healing Hands used: restored up to ${p.healing} HP to you.`:`Healing Hands used: the touched creature regains ${p.healing} HP. Apply this to its sheet.`)}>Use Healing Hands</Button></article>:<article className="class-ability">
+  {!form?<article className="class-ability"><h4>Healing Hands</h4><p>Action · Touch · Restore {p.healingDice?`${p.healingDice}d4`:p.healing} HP · {p.healingRemaining} / 1 use · Long-rest recovery</p><label className="l-field"><span>Healing Hands target</span><select aria-label="Healing Hands target" value={target} onChange={e=>setTarget(e.target.value)}><option value="self">Myself — apply healing to my HP</option><option value="other">Another creature — resolve healing at the table</option></select></label><Button disabled={!!blocked||!p.healingRemaining} onClick={heal}>Use Healing Hands</Button></article>:<article className="class-ability">
    <h4>{variant.feature}</h4><p>Action to activate · 1 minute · {p.transformationRemaining} / 1 use · Long-rest recovery</p>
    {!p.canTransform&&<p>Available from character level 3.</p>}
    <p>Once on each of your own turns, add <strong>{p.extraDamage} {p.damageType} damage</strong> to one target you damage with an attack or spell.</p>
