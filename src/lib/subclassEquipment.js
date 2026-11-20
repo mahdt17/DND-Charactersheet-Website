@@ -34,6 +34,15 @@ export function monkMartialArtsAvailable(c){return !(c.inventory||[]).filter(i=>
 export function armorModelProfile(c){const p=subclassEquipmentProfiles(c).find(p=>p.record.id.includes(':armorer')),binding=p?.binding['arcane-armor'],item=c.inventory?.find(i=>i.id===binding?.itemId&&equippedForActiveBody(c,i)),d=dataFor(item);return p&&item&&d?.armor_class&&d.index!=='shield'&&(!p.record.playtest||d.armor_category==='Heavy')?{...p,...binding,item}:null;}
 
 export function kenseiWeaponProfile(c,item){const d=dataFor(item),p=subclassEquipmentProfiles(c).find(p=>p.record.id.includes(':kensei'));if(!d?.damage||!p||!p.record.playtest&&d.index!=='longbow'&&d.properties?.some(v=>['heavy','special'].includes(v.index)))return null;const selected=Object.entries(p.state).filter(([k])=>k.includes('kensei')).flatMap(([,v])=>Array.isArray(v)?v:[]),known=selected.some(n=>String(n).toLowerCase()===d.name.toLowerCase())||p.record.playtest&&d.weapon_category==='Martial'&&proficient(c,d);return known?{...p,item,data:d}:null;}
-export function weaponSubclassBonus(c,item){return Math.max(arcaneArcherBowBonus(c,item),forgeBlessingBonus(c,item),kenseiWeaponProfile(c,item)?Math.max(0,...sourceSubclassEffects(c,{stateKey:'sharpen-blade'}).filter(e=>e.itemId===item.id).map(e=>Number(e.bonus)||0)):0);}
+export function boundPactWeapon(c,item){
+ if(!item?.id)return null;
+ return subclassEquipmentProfiles(c).find(p=>p.record.id==='2014:subclass:warlock:hexblade'&&p.row.level>=3&&p.binding['pact-weapon']===item.id);
+}
+export function setImprovedPactWeapon(c,itemId,enabled){
+ const item=c.inventory?.find(i=>i.id===itemId),p=boundPactWeapon(c,item);
+ if(!p)throw Error('Bind your Pact of the Blade weapon first.');
+ return bindingPatch(c,p,'improved-pact-weapon',enabled?item.id:null);
+}
+export function weaponSubclassBonus(c,item){return Math.max(boundPactWeapon(c,item)?.binding['improved-pact-weapon']===item.id?1:0,arcaneArcherBowBonus(c,item),forgeBlessingBonus(c,item),kenseiWeaponProfile(c,item)?Math.max(0,...sourceSubclassEffects(c,{stateKey:'sharpen-blade'}).filter(e=>e.itemId===item.id).map(e=>Number(e.bonus)||0)):0);}
 export function weaponSubclassDamageDice(c,item){const k=kenseiWeaponProfile(c,item);return k&&!k.record.playtest&&k.data.weapon_range==='Ranged'&&sourceSubclassEffects(c,{recordId:k.record.id,stateKey:'kensei-shot'}).length?'+1d4':'';}
 export function weaponSubclassDamageType(c,item){return sourceSubclassEffects(c,{stateKey:'rage-wild-surge'}).find(e=>e.itemId===item.id)?.weaponDamageType||null;}

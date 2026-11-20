@@ -1,6 +1,17 @@
 import {shadowScholarBackground} from './shadowScholar.js';
 export const backgrounds2014 = {
   'Shadow Scholar': shadowScholarBackground,
+  Inheritor: {
+    blurb: 'You carry an inheritance whose significance you and the DM determine.',
+    skills: 'Survival', skillOptions: ['Arcana', 'History', 'Religion'],
+    proficiencies: 'One gaming set or musical instrument', equipment: "Traveler's clothes, inheritance, 15 gp",
+    feature: ['Inheritance', 'Work with the DM to identify what you inherited and how it connects you to the adventure.']
+  },
+  'Arcane Tinkerer / Researcher': {
+    blurb: 'A custom 2014 background for a researcher who builds and studies arcane devices.',
+    skills: 'Arcana, Investigation', proficiencies: "Woodcarver's tools, Tinker's tools", equipment: '',
+    feature: ['Researcher', 'When you lack a piece of lore, you often know where or from whom you might learn it.']
+  },
   Acolyte: { blurb: "You've spent your life in service to a temple.", skills: "Insight, Religion", proficiencies: "Two languages of your choice", equipment: "Holy symbol, prayer book, vestments, common clothes, 15 gp", feature: ["Shelter of the Faithful", "Temples of your faith offer you aid, and you have a priestly contact nearby."] },
   Charlatan: { blurb: "You've always had a gift for telling people what they want to hear.", skills: "Deception, Sleight of Hand", proficiencies: "Disguise kit, forgery kit", equipment: "Fine clothes, disguise kit, forgery tools, 15 gp", feature: ["False Identity", "You have a second identity, complete with documents and contacts, that others can't easily trace to you."] },
   Criminal: { blurb: "You have a history of breaking the law and survived by it.", skills: "Deception, Stealth", proficiencies: "One gaming set, thieves' tools", equipment: "Crowbar, dark common clothes with a hood, 15 gp", feature: ["Criminal Contact", "You have a reliable contact in the criminal underworld who relays messages and can point you to fences."] },
