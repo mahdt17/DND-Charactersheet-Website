@@ -28,14 +28,25 @@ try {
   });
   await tab('Actions');
   const attack=page.locator('.action-row').filter({has:page.getByText('Test pact bow',{exact:true})});
-  await attack.getByRole('button',{name:'+8 to hit',exact:true}).waitFor();
+  assert.deepEqual(failures,[]);
+  assert.match(await attack.innerText({timeout:5000}),/\+8 to hit/);
   await attack.getByRole('button',{name:'1d8+5',exact:true}).waitFor();
   await tab('Spells');
   assert.equal(await page.getByRole('region',{name:'Pact Magic slots'}).getByRole('button').count(),2);
   await page.getByRole('button',{name:'All characters',exact:true}).click();
-  await importSheet('Divine multiclass test',[entry('Paladin',3,'Redemption'),entry('Cleric',2,'Twilight')],{background:'Inheritor'});
+  await importSheet('Divine multiclass test',[entry('Paladin',3,'Redemption'),entry('Cleric',2,'Twilight')],{
+    race:'Aasimar',subrace:'Fallen Aasimar',raceDefinition:{name:'Aasimar',edition:'2014',catalogId:'2014:aasimar-vgm'},
+    aasimar:{healingMode:'proficiency-d4',darkvision:40},background:'Inheritor'
+  });
+  await tab('Actions');
+  const racial=page.getByRole('region',{name:'Aasimar racial abilities'});
+  assert.match(await racial.innerText(),/Darkvision 40 feet/);
+  assert.match(await racial.innerText(),/3d4 HP/);
   await tab('Spells');
   await page.getByLabel('Spellcasting class').selectOption('2014:cleric');
   await page.getByText('Faerie Fire',{exact:true}).first().waitFor();
   assert.deepEqual(failures,[]);
+} catch(error){
+  console.error('Sheet errors:', failures, '\nSheet content:', (await page.locator('body').innerText()).slice(-7500));
+  throw error;
 } finally { await browser.close(); }
