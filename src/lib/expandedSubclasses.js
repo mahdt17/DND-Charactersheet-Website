@@ -102,7 +102,8 @@ export function reconcileExpandedSubclasses(c){
   const map={skills:skillProf,expertise,saves:saveProf}[kind];if(map){previous[kind]||={};if(!(name in previous[kind]))previous[kind][name]=!!base[{skills:'skillProf',expertise:'expertise',saves:'saveProf'}[kind]]?.[name];map[name]=true;if(kind==='expertise'){previous.skills||={};if(!(name in previous.skills))previous.skills[name]=!!base.skillProf[name];skillProf[name]=true;}}
   const slug=norm(name);
   const armorCategory=kind==='armor'&&['light','medium','heavy'].includes(slug);
-  const proficiency={kind:kind==='expertise'?'skills':kind,name:armorCategory?`${slug[0].toUpperCase()}${slug.slice(1)} armor`:name,index:armorCategory?`${slug}-armor`:slug};
+  const weaponCategory=kind==='weapons'&&['simple','martial'].includes(slug);
+  const proficiency={kind:kind==='expertise'?'skills':kind,name:armorCategory?`${slug[0].toUpperCase()}${slug.slice(1)} armor`:weaponCategory?`${name} weapons`:name,index:armorCategory?`${slug}-armor`:weaponCategory?`${slug}-weapons`:slug};
   trainingGrants.push({...meta,classId:`expanded-training:${p.row.catalogId}:${key}:${slug}`,className:p.row.name,edition:'2014',proficiencies:[proficiency]});
  };
  for(const p of expandedSubclassRows(c)){state[p.row.catalogId]={[p.record.id]:p.state};if(specialized.has(p.mechanics?.adapter))continue;

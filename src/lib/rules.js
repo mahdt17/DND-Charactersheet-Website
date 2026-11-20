@@ -1,6 +1,6 @@
 import {isMagicalArrowAttack} from './arcaneArcher.js';
 import {forgeBlessingBonus} from './subclassForge.js';
-import {weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile,weaponSubclassDamageDice,weaponSubclassDamageType,monkMartialArtsAvailable} from './subclassEquipment.js';
+import {boundPactWeapon,weaponSubclassAbility,weaponSubclassBonus,kenseiWeaponProfile,weaponSubclassDamageDice,weaponSubclassDamageType,monkMartialArtsAvailable} from './subclassEquipment.js';
 import {rageProfile} from './rage2014.js';
 import {subclassNumericProfile} from './subclassNumerics.js';
 import {availableSubclasses,findExpandedSubclass,legacySubclassName} from './expandedSubclassCatalog.js';
@@ -136,7 +136,7 @@ export function weaponAttacks(char, abilities) {
     const alternate=weaponSubclassAbility(char,i),rangedWeapon=data.weapon_range==='Ranged';
     const attackAbility=alternate||(finesse?(dex>=str?'dex':'str'):rangedWeapon?'dex':'str');
     const ability=modifier(abilities[attackAbility]),damageAbility=style.offhand&&!style.offhandAbility?Math.min(0,ability):ability;
-    const trained=hasWeaponTraining(char,data,proficiencies);
+    const trained=hasWeaponTraining(char,data,proficiencies)||!!boundPactWeapon(char,i);
     const rp=rageProfile(char),rage=rp.active&&!rp.heavy&&style.melee&&(!alternate||alternate==='str')&&(!finesse||str>=dex)?rp.damage:0;
     const p=entomancerProfile(char,abilities),strike=p.species==='Exo-Gotas'&&p.level>=6&&char.entomancer?.strengthStrike&&style.melee?2:0;
     const kensei=kenseiWeaponProfile(char,i),weaponBonus=weaponSubclassBonus(char,i),monkDie=kensei&&(kensei.record.playtest||monkMartialArtsAvailable(char))?(kensei.row.level>=17?10:kensei.row.level>=11?8:kensei.row.level>=5?6:4):0,weaponDice=monkDie>Number(style.dice.match(/d(\d+)/)?.[1])?`1d${monkDie}`:style.dice;

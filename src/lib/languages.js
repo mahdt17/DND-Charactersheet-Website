@@ -24,7 +24,7 @@ const racial35={
   'Half-Orc':[['Common','Orc'],['Draconic','Giant','Gnoll','Goblin','Abyssal']],
   Halfling:[['Common','Halfling'],['Dwarven','Elven','Gnome','Goblin','Orc']],
 };
-const bgCounts={Acolyte:2,'Guild Artisan':1,Hermit:1,Noble:1,Outlander:1,Sage:2};
+const bgCounts={Inheritor:1,Acolyte:2,'Guild Artisan':1,Hermit:1,Noble:1,Outlander:1,Sage:2};
 
 // Each choice retains its granting feature, so a race/background change cannot
 // carry an ineligible language into the finished character.

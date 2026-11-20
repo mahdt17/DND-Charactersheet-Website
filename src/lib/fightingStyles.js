@@ -1,7 +1,7 @@
 import {rageProfile} from './rage2014.js';
 import {bladesongProfile} from './bladesinging.js';
 import {actorActionBlock,healActiveBody,equippedForActiveBody} from './subclassState.js';
-import {fightingStyleGrants,ownedFightingStyle,rangerFightingStyles,rangerFightingStyleSource,styleLabel} from './fightingStyleGrants.js';
+import {fightingStyleGrants,ownedFightingStyle,rangerFightingStyles,rangerFightingStyleSource,paladinFightingStyles,paladinFightingStyleSource,styleLabel} from './fightingStyleGrants.js';
 import {totemProfile} from './totemWarrior.js';
 import {totalLevel} from './advancement.js';
 import {effectiveAbilityScores} from './abilityScores.js';
@@ -16,17 +16,18 @@ const count=n=>Math.max(0,Math.floor(Number(n)||0));
 const mod=n=>Math.floor((Number(n??10)-10)/2);
 const signed=n=>n>=0?`+${n}`:String(n);
 export function fightingStyleProfile(c,abilities=effectiveAbilityScores(c)){
- const {active,row,fighterRow,rangerRow,max,styles}=fightingStyleGrants(c);
+ const {active,row,fighterRow,rangerRow,paladinRow,max,styles}=fightingStyleGrants(c);
  if(!active)return {active:false,styles:[],ac:0};
  const has=id=>styles.some(s=>s.id===id),worn=(c.inventory||[]).filter(i=>equippedForActiveBody(c,i)).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean),armored=worn.some(e=>e.armor_class&&e.index!=='shield'),shield=worn.some(e=>e.index==='shield'),heavy=worn.some(e=>e.armor_category==='Heavy'),mariner=has('mariner')&&!shield&&!heavy,pb=2+Math.floor((totalLevel(c)-1)/4);
- return {active:true,row,fighterRow,rangerRow,level:row.level,pb,styles,has,armored,shield,heavy,mariner,ac:(has('defense')&&armored?1:0)+(mariner?1:0),max,dc:8+pb+mod(abilities[c.fightingStyles?.dcAbility==='dex'?'dex':'str'])};
+ return {active:true,row,fighterRow,rangerRow,paladinRow,level:row.level,pb,styles,has,armored,shield,heavy,mariner,ac:(has('defense')&&armored?1:0)+(mariner?1:0),max,dc:8+pb+mod(abilities[c.fightingStyles?.dcAbility==='dex'?'dex':'str'])};
 }
 export function styleChoicePlan(c,previous=null,picks={}, {configure=false}={}){
- const {fighterRow,rangerRow,max,styles}=fightingStyleGrants(c);
- if(!fighterRow&&!rangerRow)return {groups:[],patch:{},valid:true};
+ const {fighterRow,rangerRow,paladinRow,max,styles}=fightingStyleGrants(c);
+ if(!fighterRow&&!rangerRow&&!paladinRow)return {groups:[],patch:{},valid:true};
  const state={...c.fightingStyles},groups=[],before=previous?fightingStyleGrants(previous):null;
  const slots=[
   ...(fighterRow?[{row:fighterRow,level:1,list:fightingStyles},...(max===2?[{row:fighterRow,level:10,list:fightingStyles}]:[])]:[]),
+  ...(paladinRow?[{row:paladinRow,level:2,list:paladinFightingStyles}]:[]),
   ...(rangerRow?[{row:rangerRow,level:2,list:rangerFightingStyles}]:[]),
  ].map(slot=>{
   const {row,level,list}=slot,id=`2014:${row.name}:fighting-style:${level}`;
@@ -39,16 +40,16 @@ export function styleChoicePlan(c,previous=null,picks={}, {configure=false}={}){
  const bardStyles=new Set(styles.filter(style=>style.sourceClassName==='Bard').map(style=>style.id));
  let valid=true;
  const savedChoices=slots.flatMap(slot=>{
-  const {row,level,list,id,saved,selected,proposed}=slot,ranger=row.name==='Ranger';
-  const newlyGranted=ranger?(!previous||!before?.rangerRow):(row.level===1||max===2||(previous&&!before?.fighterRow));
+  const {row,level,list,id,saved,selected,proposed}=slot,halfCaster=row.name!=='Fighter';
+  const newlyGranted=halfCaster?(!previous||!(row.name==='Paladin'?before?.paladinRow:before?.rangerRow)):(row.level===1||max===2||(previous&&!before?.fighterRow));
   if(!configure&&!Object.hasOwn(picks,id)&&(saved||!newlyGranted))return saved?[saved]:[];
   const options=list.filter(s=>!bardStyles.has(s.id)&&!slots.some(other=>other!==slot&&other.proposed?.id===s.id)).map(styleLabel);
   const okay=!!proposed&&options.includes(selected[0]);
-  groups.push({id,className:row.name,level,kind:'source-choice',choiceKind:'option',label:level===10?'Additional Fighting Style':'Fighting Style',required:1,options,selected,valid:okay,sourceText:ranger?'Choose one Player’s Handbook style. You cannot choose the same Fighting Style twice.':'Choose one style. You cannot choose the same Fighting Style twice. PHB: Player’s Handbook; TCE: Tasha’s Cauldron of Everything; UA: Unearthed Arcana playtest.',sourceUrl:ranger?rangerFightingStyleSource:'https://dnd5e.wikidot.com/fighter'});
+  groups.push({id,className:row.name,level,kind:'source-choice',choiceKind:'option',label:level===10?'Additional Fighting Style':'Fighting Style',required:1,options,selected,valid:okay,sourceText:halfCaster?'Choose one Player’s Handbook style. You cannot choose the same Fighting Style twice.':'Choose one style. You cannot choose the same Fighting Style twice. PHB: Player’s Handbook; TCE: Tasha’s Cauldron of Everything; UA: Unearthed Arcana playtest.',sourceUrl:row.name==='Paladin'?paladinFightingStyleSource:halfCaster?rangerFightingStyleSource:'https://dnd5e.wikidot.com/fighter'});
   valid&&=okay;
   return okay?[ownedFightingStyle(proposed,row,level)]:saved?[saved]:[];
  });
- const otherChoices=(state.choices||[]).filter(choice=>choice?.sourceClassName==='Ranger'?!rangerRow:!fighterRow);
+ const otherChoices=(state.choices||[]).filter(choice=>choice?.sourceClassName==='Ranger'?!rangerRow:choice?.sourceClassName==='Paladin'?!paladinRow:!fighterRow);
  state.choices=[...otherChoices,...savedChoices];
  if(savedChoices.some(s=>s.id==='superior-technique')){
   const id='2014:Fighter:superior-technique:maneuver',existing=battleMasterManeuvers.find(m=>m.id===state.maneuver),values=picks[id]||(existing?[existing.name]:[]),okay=values.length===1&&battleMasterManeuvers.some(m=>m.name===values[0]);
@@ -71,7 +72,8 @@ export function greatWeaponReroll(original,replacements){
  if(kept.some(n=>!Number.isFinite(n)))throw Error('Roll one replacement per weapon die showing 1 or 2.');
  return {kept,total:kept.reduce((n,x)=>n+x,0)+(original.bonus||0)};
 }
-export function fighterStyleActionBlock(c){if(!fightingStyleProfile(c).fighterRow)return '2014 Fighter levels are required.';if(actorActionBlock(c))return actorActionBlock(c);return conditionNames(c).some(s=>['incapacitated','unconscious','stunned','paralyzed','petrified','dead'].includes(s.toLowerCase()))?'You cannot use this ability while incapacitated.':'';}
+export function fighterStyleActionBlock(c){if(!fightingStyleProfile(c).fighterRow)return '2014 Fighter levels are required.';return fightingStyleActionBlock(c);}
+export function fightingStyleActionBlock(c){if(actorActionBlock(c))return actorActionBlock(c);return conditionNames(c).some(s=>['incapacitated','unconscious','stunned','paralyzed','petrified','dead'].includes(s.toLowerCase()))?'You cannot use this ability while incapacitated.':'';}
 const resourceHasKey=(r,id)=>r?.id===id||r?.classResourceKey===id;
 export const isTechniqueResource=r=>resourceHasKey(r,techniqueId);
 const used=(c,id)=>Math.max(0,...(c.resources||[]).filter(r=>resourceHasKey(r,id)).map(r=>count(r.used)));
@@ -82,6 +84,6 @@ export function useSecondWind(c,result,{maxHP}={}){const blocked=secondWindBlock
 export function techniqueManeuvers(c){const p=fightingStyleProfile(c);if(!p.active||!p.has('superior-technique'))return [];const bm=fighterProfile(c);return [...new Map([battleMasterManeuvers.find(m=>m.id===c.fightingStyles?.maneuver),...(bm.kind==='battle-master'?bm.known:[])].filter(Boolean).map(m=>[m.id,m])).values()];}
 export function techniqueExpression(c,id,{critical=false}={}){const m=techniqueManeuvers(c).find(m=>m.id===id);if(!m)throw Error('Choose a learned maneuver.');const extra=m.extraAbility?mod(effectiveAbilityScores(c)[m.extraAbility]):0;return `${critical&&m.damage?2:1}d6${extra?signed(extra):''}`;}
 export function spendTechnique(c,id){const blocked=fighterStyleActionBlock(c);if(blocked)throw Error(blocked);if(!techniqueManeuvers(c).some(m=>m.id===id))throw Error('Choose a learned maneuver.');const r=styleResources(c)[0];if(!r||r.used>=1)throw Error('No Superior Technique dice remaining.');return {resources:[...(c.resources||[]).filter(r=>!isTechniqueResource(r)),{...r,used:1}]};}
-export function styleReaction(c,id,{trigger=false,equipment=false}={}){const p=fightingStyleProfile(c),blocked=fighterStyleActionBlock(c);if(blocked)throw Error(blocked);if(!['protection','interception'].includes(id)||!p.has(id)||!trigger||!equipment)throw Error('Confirm the reaction trigger and required wielded equipment first.');return id==='interception'?{expression:`1d10+${p.pb}`,guidance:'Reduce the other target’s damage by this amount, to a minimum of 0; resolve the target’s HP at the table.'}:{guidance:'Impose disadvantage on this attack against the other target. This uses your reaction.'};}
+export function styleReaction(c,id,{trigger=false,equipment=false}={}){const p=fightingStyleProfile(c),blocked=fightingStyleActionBlock(c);if(blocked)throw Error(blocked);if(!['protection','interception'].includes(id)||!p.active||!p.has(id)||!trigger||!equipment)throw Error('Confirm the reaction trigger and required wielded equipment first.');return id==='interception'?{expression:`1d10+${p.pb}`,guidance:'Reduce the other target’s damage by this amount, to a minimum of 0; resolve the target’s HP at the table.'}:{guidance:'Impose disadvantage on this attack against the other target. This uses your reaction.'};}
 
 export function styleSpellAttackBonus(c,spell){const p=fightingStyleProfile(c);return p.active&&p.has('close-quarters-shooter')&&(/ranged/i.test(spell?.attack_type||'')||/ranged spell attack/i.test(spell?.description||spell?.desc?.join(' ')||''))?1:0;}
