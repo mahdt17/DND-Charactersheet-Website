@@ -18,6 +18,7 @@ import SpellPicker from "./SpellPicker";
 import EquipmentChoice, { resolveEquipment } from "./StartingEquipment";
 import subraces from "./data/subraces.json";
 import equipmentData from "./data/equipment.json";
+import LevelHitPoints,{useLevelHitPoints} from './LevelHitPoints';
 import { spellCatalog, countsFor, castingAbility, maxSpellLevel, classes as srdClasses, classLevel, subclasses, armorFor } from "./lib/rules";
 import {spellAccess,resolveSpell,spellCounts,castingKey} from './lib/editions';
 import {castingSubclassNames} from './lib/subclassCasting';
@@ -297,10 +298,6 @@ function fmtMod(n) {
 }
 function profBonus(level) {
   return 2 + Math.floor((level - 1) / 4);
-}
-function avgHitDie(die) {
-  const n = parseInt(die.replace("d", ""), 10);
-  return Math.floor(n / 2) + 1;
 }
 function uid() {
   return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
@@ -902,7 +899,8 @@ function CreationWizard({ onCancel, onFinish }) {
 }
 
 
-function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=char.level+1 }) {
+function LevelUpWizard({ char, onCancel, onFinish, onRoll, homebrew=[], characterLevel=char.level+1 }) {
+  const hpChoice=useLevelHitPoints(char.hitDie);
   useWizardFocus(onCancel);
   const targetLevel = Math.min(20, char.level + 1);
   const classData = CLASS_DATA[char.className];
@@ -995,7 +993,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
     const nextAbilities = abilityChanges();
     const nextDraft = { ...char, level: targetLevel, abilities: nextAbilities };
     const nextConMod = abilityMod(effectiveAbilities(nextDraft).con);
-    const gain = Math.max(1, avgHitDie(char.hitDie) + nextConMod)+(char.subrace==="Hill Dwarf"?1:0);
+    const gain = Math.max(1, hpChoice.result + nextConMod)+(char.subrace==="Hill Dwarf"?1:0);
     let next = syncProgression({ ...nextDraft, hp: { ...char.hp, max: char.hp.max + gain + (nextConMod-oldConMod)*char.level, current: char.hp.current + gain + (nextConMod-oldConMod)*char.level } }, targetLevel);
     if (hasASI) next = { ...next, abilityImprovement: { level: targetLevel, mode: abilityPlan.mode, first: abilityPlan.first, second: abilityPlan.mode === "plus-one-two" ? abilityPlan.second : null } };
     if (hasASI && abilityPlan.mode==="feat") next={...next,feats:[...(char.feats||[]),{...feat,level:characterLevel}]};
@@ -1031,9 +1029,9 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
             <div className="review-sections">
               <div><span>New class features</span><strong>{newFeatures.length ? newFeatures.join(" · ") : "No named class feature at this level."}</strong></div>
               <div><span>New proficiency bonus</span><strong>{fmtMod(profBonus(characterLevel))}</strong></div>
-              <div><span>Hit point increase</span><strong>At least {Math.max(1, avgHitDie(char.hitDie) + abilityMod(effectiveAbilities(char).con))} HP before any Constitution change.</strong></div>
               <div><span>New subclass / ASI choices</span><strong>{hasASI || needsSubclass ? "You'll be prompted next." : "None required at this level."}</strong></div>
             </div>
+            <LevelHitPoints hp={hpChoice} conModifier={abilityMod(effectiveNextAbilities.con)} bonus={char.subrace==="Hill Dwarf"?1:0} className={char.className} onRoll={onRoll}/>
           </>}
           {isChoices && <>
             <CreationStepHeader eyebrow="Your choice" title={hasASI ? "Improve your abilities" : "Choose your subclass"} description={hasASI && needsSubclass ? "This level grants both an Ability Score Improvement and a subclass choice." : hasASI ? "Increase one ability by 2 or two abilities by 1. The application will recalculate your modifiers and HP." : "Enter or choose the subclass you are taking at this level. The subclass database will become richer as content is added."}/>
@@ -1058,7 +1056,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
             <div className="review-sections">
               <div><span>Class features</span><strong>{newFeatures.length?newFeatures.join(" · "):"No named features"}</strong></div>
               <div><span>Proficiency bonus</span><strong>{fmtMod(profBonus(characterLevel))}</strong></div>
-              <div><span>Hit points</span><strong>{char.hp.max} → {char.hp.max + Math.max(1, avgHitDie(char.hitDie) + abilityMod(effectiveNextAbilities.con)) + (char.subrace==="Hill Dwarf"?1:0) + (abilityMod(effectiveNextAbilities.con)-abilityMod(effectiveAbilities(char).con))*char.level}</strong></div>
+              <div><span>Hit points</span><strong>{char.hp.max} → {char.hp.max + Math.max(1, hpChoice.result + abilityMod(effectiveNextAbilities.con)) + (char.subrace==="Hill Dwarf"?1:0) + (abilityMod(effectiveNextAbilities.con)-abilityMod(effectiveAbilities(char).con))*(characterLevel-1)}</strong></div>
               <div><span>Subclass</span><strong>{subclass || char.subclass || "No change"}</strong></div>
               {hasASI && <div className="wide"><span>Ability improvement</span><strong>{abilityPlan.mode==="feat"?feat?.name:abilityPlan.mode==="plus-two"?`+2 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label}`:`+1 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label} and +1 ${ABILITIES.find(a=>a.key===abilityPlan.second)?.label}`}</strong></div>}
               {spellcasting && <div className="wide"><span>Spell choices</span><strong>{[...newCantrips,...newSpells].length?([...newCantrips,...newSpells].map(id=>selectable.find(s=>spellKey(s)===id)?.name||id).join(" · ")):`No new known spells selected this level.`}</strong></div>}
