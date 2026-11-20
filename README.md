@@ -31,6 +31,8 @@ Copy `.env.example` to `.env` and provide:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
 
+In Supabase → Authentication → URL Configuration, include `https://mahdt17.github.io/DND-Charactersheet-Website/` in the redirect allowlist. The signup email template should link to `{{ .ConfirmationURL }}` so the verification link carries the app's return address.
+
 Never put a Supabase secret/service-role key in frontend code. Without Supabase configuration, the demo remains usable.
 
 ```sh
