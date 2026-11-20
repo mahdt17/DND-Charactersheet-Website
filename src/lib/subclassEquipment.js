@@ -43,6 +43,9 @@ export function setImprovedPactWeapon(c,itemId,enabled){
  if(!p)throw Error('Bind your Pact of the Blade weapon first.');
  return bindingPatch(c,p,'improved-pact-weapon',enabled?item.id:null);
 }
-export function weaponSubclassBonus(c,item){return Math.max(boundPactWeapon(c,item)?.binding['improved-pact-weapon']===item.id?1:0,arcaneArcherBowBonus(c,item),forgeBlessingBonus(c,item),kenseiWeaponProfile(c,item)?Math.max(0,...sourceSubclassEffects(c,{stateKey:'sharpen-blade'}).filter(e=>e.itemId===item.id).map(e=>Number(e.bonus)||0)):0);}
+export function weaponSubclassBonus(c,item){
+ const pact=boundPactWeapon(c,item);
+ const improved=pact&&pact.binding['improved-pact-weapon']===item.id?1:0;
+ return Math.max(improved,arcaneArcherBowBonus(c,item),forgeBlessingBonus(c,item),kenseiWeaponProfile(c,item)?Math.max(0,...sourceSubclassEffects(c,{stateKey:'sharpen-blade'}).filter(e=>e.itemId===item.id).map(e=>Number(e.bonus)||0)):0);}
 export function weaponSubclassDamageDice(c,item){const k=kenseiWeaponProfile(c,item);return k&&!k.record.playtest&&k.data.weapon_range==='Ranged'&&sourceSubclassEffects(c,{recordId:k.record.id,stateKey:'kensei-shot'}).length?'+1d4':'';}
 export function weaponSubclassDamageType(c,item){return sourceSubclassEffects(c,{stateKey:'rage-wild-surge'}).find(e=>e.itemId===item.id)?.weaponDamageType||null;}
