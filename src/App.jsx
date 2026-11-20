@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import LedgerLoadingBoundary from "./LedgerLoadingBoundary";
 const LedgerEntry=lazy(()=>import("./LedgerEntry"));
 import { ScrollText, Sun, Moon } from "lucide-react";
-import { supabase, supabaseConfigured } from "./lib/supabase";
+import { supabase, signupConfirmationReceived } from "./lib/supabase";
 import { createCloudStorage } from "./lib/storage";
 
 const INK = "#2B2620";
@@ -33,7 +33,7 @@ function AuthScreen({ theme, onToggleTheme, onDemo }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(signupConfirmationReceived ? "Email confirmed. Sign in to your ledger." : "");
 
   async function submit(e) {
     e.preventDefault();
@@ -45,8 +45,16 @@ function AuthScreen({ theme, onToggleTheme, onDemo }) {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
       } else {
-        const { data, error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: new URL(import.meta.env.BASE_URL, window.location.origin).href },
+        });
         if (error) throw error;
+        if (!data.session) {
+          setMode("signin");
+          setPassword("");
+        }
         setMessage(data.session ? "Your account is ready." : "Account created. Check your email to confirm your account.");
       }
     } catch (err) {

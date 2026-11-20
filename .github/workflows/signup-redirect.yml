@@ -1,0 +1,50 @@
+name: Signup confirmation redirect
+on:
+  pull_request:
+    paths:
+      - 'src/App.jsx'
+      - 'src/lib/supabase.js'
+      - 'vite.config.js'
+      - 'tests/browser-signup-redirect.mjs'
+      - '.github/workflows/signup-redirect.yml'
+permissions:
+  contents: read
+jobs:
+  signup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          VITE_SUPABASE_URL: http://127.0.0.1:64321
+          VITE_SUPABASE_PUBLISHABLE_KEY: test-public-key
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise signup and the email landing page
+        env:
+          SIGNUP_TEST_URL: http://127.0.0.1:4173/DND-Charactersheet-Website/
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &
+          curl --fail --silent --retry 12 --retry-connrefused "$SIGNUP_TEST_URL" >/dev/null
+          node tests/browser-signup-redirect.mjs
+      - name: Verify hosted Auth accepts the production Pages destination
+        env:
+          AUTH_URL: ${{ secrets.VITE_SUPABASE_URL }}
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          const site = 'https://mahdt17.github.io/DND-Charactersheet-Website/';
+          const verify = new URL('/auth/v1/verify', process.env.AUTH_URL);
+          // An invalid link exercises the hosted redirect policy without creating an account or sending email.
+          verify.search = new URLSearchParams({ type: 'signup', token: 'invalid-redirect-check', redirect_to: site });
+          const response = await fetch(verify, { redirect: 'manual', headers: { Accept: 'text/html' } });
+          assert.ok(response.status >= 300 && response.status < 400, 'Expected an Auth redirect');
+          const destination = new URL(response.headers.get('location'));
+          assert.equal(destination.origin + destination.pathname, site);
+          NODE
