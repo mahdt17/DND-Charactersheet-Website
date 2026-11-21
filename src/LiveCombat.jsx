@@ -1,4 +1,5 @@
 import React,{useCallback,useEffect,useRef,useState} from 'react';
+import EncounterPicker from './EncounterPicker';
 import {watchRoster} from './lib/sharedCampaigns';
 
 function useEncounter(api,campaignId){
@@ -24,7 +25,7 @@ export function usePlayerCombat(api,characterId){
   const campaignId=membership?.characterId===characterId?membership.campaignId:'';
   const {encounter,error,refresh}=useEncounter(api,campaignId);
   const participant=encounter?.entries.find(row=>row.id===api.userId+':'+characterId);
-  const submitted=participant?.initiative!=null||(encounter&&notice?.id===encounter.id&&notice.ok);
+  const submitted=encounter?.submittedCharacterIds?.includes(characterId)||participant?.initiative!=null||(encounter&&notice?.id===encounter.id&&notice.ok);
   async function initiative(roll){
     if(!encounter)return roll();
     if(submitted||inFlight.current)return;
@@ -44,12 +45,14 @@ export function usePlayerCombat(api,characterId){
   return {encounter,submitted,busy,initiative,error:error||membershipError||(encounter&&notice?.id===encounter.id&&notice.error)};
 }
 
-function InitiativeOrder({encounter,onRemove}){
+function InitiativeOrder({encounter,onRemove,onVisibility,busy}){
   const ordered=[...encounter.entries].sort((a,b)=>(b.initiative??-Infinity)-(a.initiative??-Infinity)||a.name.localeCompare(b.name)||a.id.localeCompare(b.id));
   return ordered.length?<ol className="combat-list" aria-label="Initiative order">
-    {ordered.map(entry=><li key={entry.id}><div><strong>{entry.name}</strong> <small>{entry.kind}</small></div>
+    {ordered.map(entry=><li key={entry.id}><div><strong>{entry.name}</strong> <small>{entry.kind}{onVisibility&&!entry.visible?' · Hidden':''}</small></div>
       <span>{entry.initiative??'Awaiting roll'}</span>
-      {onRemove&&entry.kind!=='Player'&&<button className="l-button" aria-label={'Remove '+entry.name+' from combat'} onClick={()=>onRemove(entry.id)}>Remove</button>}
+      {onVisibility&&<button className="l-button" disabled={busy} aria-label={(entry.visible?'Hide '+entry.name+' from players':'Show '+entry.name+' to players')} onClick={()=>onVisibility(entry)}>
+        {entry.visible?'Hide from players':'Show to players'}</button>}
+      {onRemove&&entry.kind!=='Player'&&<button className="l-button" disabled={busy} aria-label={'Remove '+entry.name+' from combat'} onClick={()=>onRemove(entry.id)}>Remove</button>}
     </li>)}</ol>:<p>Waiting for combatants.</p>;
 }
 
@@ -63,7 +66,7 @@ export function PlayerCombat({combat,onRoll}){
   </section>;
 }
 
-export function DMCombat({api,campaignId,roll}){
+export function DMCombat({api,campaignId,roll,characters,sheetInitiative}){
   const {encounter,error,refresh}=useEncounter(api,campaignId);
   const [title,setTitle]=useState(''),[name,setName]=useState(''),[kind,setKind]=useState('Enemy'),[score,setScore]=useState('');
   const [busy,setBusy]=useState(false),[message,setMessage]=useState(''),[modifier,setModifier]=useState('0'),lock=useRef(false);
@@ -84,7 +87,10 @@ export function DMCombat({api,campaignId,roll}){
         <button className="l-button primary" disabled={busy||!title.trim()}>Start live encounter</button>
       </form>:<>
         <div className="l-section-head"><h4>{encounter.name}</h4><button className="l-button" disabled={busy} onClick={()=>command('end',{})}>End encounter</button></div>
-        <InitiativeOrder encounter={encounter} onRemove={id=>command('remove',{id})}/>
+        <InitiativeOrder encounter={encounter} busy={busy} onVisibility={entry=>command('visibility',{id:entry.id,visible:!entry.visible})} onRemove={id=>command('remove',{id})}/>
+        <EncounterPicker key={encounter.id} characters={characters} sheetInitiative={sheetInitiative} encounter={encounter} userId={api.userId}
+          roll={roll} disabled={busy} submit={async entries=>{await api.combat(campaignId,encounter.id,'add_group',{entries});refresh();}}/>
+        <h4>Custom combatant</h4>
         <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void command('add',{id:crypto.randomUUID(),name:name.trim(),kind,initiative:Number(score)});}}>
           <label className="l-field"><span>Combatant name</span><input required maxLength={120} value={name} onChange={e=>setName(e.target.value)}/></label>
           <label className="l-field"><span>Combatant type</span><select aria-label="Combatant type" value={kind} onChange={e=>setKind(e.target.value)}><option>Enemy</option><option>NPC</option></select></label>

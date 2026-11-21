@@ -26,13 +26,16 @@ async function login(role) {
 const button=(page,name)=>page.getByRole('button',{name,exact:true});
 try {
   const dm=await login('dm'),player=await login('player');
+  const sheet={id:'hero',name:'Arden',level:1,ruleset:'2014',className:'Fighter',race:'Elf',
+    abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},hp:{max:11,current:11,temp:0},ac:15,notes:'First expedition',actions:[{id:'test-action',name:'Shield Bash',description:'Bash with your shield.'}],inventory:[{id:'test-pack',name:'Survey kit',qty:2}]};
+  await dm.locator('input[type=file]').setInputFiles({name:'ranger.json',mimeType:'application/json',
+    buffer:Buffer.from(JSON.stringify({...sheet,name:'Tower ranger',initiativeBonus:3}))});
+  await dm.locator('.sheet-identity').filter({hasText:'Tower ranger'}).waitFor();
   await button(dm,'Campaigns').click();
   await button(dm,'Create campaign').click();
   await dm.getByLabel('Campaign name',{exact:true}).fill('The Violet Archive');
   await button(dm,'Create as DM').click();
   const invite=await dm.getByLabel('Campaign invite code').inputValue();
-  const sheet={id:'hero',name:'Arden',level:1,ruleset:'2014',className:'Fighter',race:'Elf',
-    abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},hp:{max:11,current:11,temp:0},ac:15,notes:'First expedition',actions:[{id:'test-action',name:'Shield Bash',description:'Bash with your shield.'}],inventory:[{id:'test-pack',name:'Survey kit',qty:2}]};
   await player.locator('input[type=file]').setInputFiles({name:'hero.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(sheet))});
   await player.locator('.sheet-identity').filter({hasText:'Arden'}).waitFor();
   const playerTabs=await player.getByRole('tablist',{name:'Character sheet sections'}).getByRole('tab').allTextContents();
@@ -101,15 +104,22 @@ try {
   await dm.getByLabel('Encounter name').fill('Gate ambush');
   await button(dm,'Start live encounter').click();
   await player.getByRole('region',{name:'Live encounter'}).getByText('Gate ambush').waitFor();
+  await button(dm,'Hide Arden from players').click();
+  await player.getByRole('region',{name:'Live encounter'}).getByText('Waiting for combatants.').waitFor();
   await button(player,'Roll encounter initiative').click();
   await button(player,'Initiative submitted').waitFor();
   const dmOrder=dm.getByRole('list',{name:'Initiative order'});
   await dmOrder.locator('li').filter({hasText:'Arden'}).getByText(/^-?\d+$/).waitFor();
+  await button(dm,'Show Arden to players').click();
+  await player.getByRole('list',{name:'Initiative order'}).getByText('Arden').waitFor();
   await dm.getByLabel('Combatant name').fill('Gate guard');
   await dm.getByRole('combobox',{name:'Combatant type',exact:true}).selectOption('NPC');
   await dm.getByLabel('Initiative total').fill('50');
   await button(dm,'Add combatant').click();
   const playerOrder=player.getByRole('list',{name:'Initiative order'});
+  await button(dm,'Show Gate guard to players').waitFor();
+  assert.equal(await playerOrder.getByText('Gate guard').count(),0);
+  await button(dm,'Show Gate guard to players').click();
   await playerOrder.getByText('Gate guard').waitFor();
   assert.match(await playerOrder.locator('li').first().innerText(),/Gate guard/);
   assert.deepEqual(await playerOrder.locator('li > span').allTextContents(),await dmOrder.locator('li > span').allTextContents());
@@ -121,9 +131,29 @@ try {
   const enemyScore=Number(await dm.getByLabel('Initiative total').inputValue());
   assert(enemyScore>=3&&enemyScore<=22);
   await button(dm,'Add combatant').click();
-  await playerOrder.getByText('Goblin').waitFor();
+  await button(dm,'Show Goblin to players').click();
+  await playerOrder.getByText('Goblin',{exact:true}).waitFor();
   await button(dm,'Remove Goblin from combat').click();
   await playerOrder.getByText('Goblin').waitFor({state:'hidden'});
+  await dm.getByLabel('Choose from').selectOption('sheets');
+  await dm.getByRole('checkbox',{name:/Tower ranger/}).check();
+  assert.equal(await dm.getByRole('checkbox',{name:/Arden/}).count(),0);
+  await dm.getByLabel('Choose from').selectOption('monsters');
+  await dm.getByLabel('Search participants').fill('Goblin');
+  await dm.getByRole('checkbox',{name:/^Goblin CR/}).check();
+  await dm.getByLabel('Quantity of Goblin').fill('2');
+  await button(dm,'Roll initiative and add (3)').click();
+  for(const [name,bonus] of [['Tower ranger',5],['Goblin 1',2],['Goblin 2',2]]){
+    await button(dm,'Show '+name+' to players').waitFor();
+    const score=Number(await dmOrder.locator('li').filter({hasText:name}).locator(':scope > span').innerText());
+    assert(score>=1+bonus&&score<=20+bonus);
+    assert.equal(await playerOrder.getByText(name,{exact:true}).count(),0);
+  }
+  await button(dm,'Show Goblin 2 to players').click();
+  await playerOrder.getByText('Goblin 2',{exact:true}).waitFor();
+  assert.equal(await playerOrder.getByText('Goblin 1',{exact:true}).count(),0);
+  await button(dm,'Hide Goblin 2 from players').click();
+  await playerOrder.getByText('Goblin 2',{exact:true}).waitFor({state:'hidden'});
   await button(dm,'End encounter').click();
   await playerOrder.waitFor({state:'hidden'});
   await dm.getByRole('button',{name:/Arden · Level 1 Fighter/}).click();

@@ -65,6 +65,30 @@ do $$ begin
     then raise exception 'Stale sheet restored obsolete journal'; end if;
 end $$;
 select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
+do $$ declare c uuid:=current_setting('fixture.c')::uuid; e uuid:=current_setting('fixture.e')::uuid;
+  target text:='84360000-0000-4000-8000-000000000002:hero';
+  enemy jsonb:='{"id":"84360000-0000-4000-8000-000000000004","name":"Secret dragon","kind":"Enemy","initiative":23,"visible":true}';
+begin
+  perform public.ledger_combat_command(c,e,'add_group',jsonb_build_object('entries',jsonb_build_array(enemy)));
+  perform public.ledger_combat_command(c,e,'add_group',jsonb_build_object('entries',jsonb_build_array(enemy)));
+  perform public.ledger_combat_command(c,e,'visibility',jsonb_build_object('id',target,'visible',false));
+  if jsonb_array_length(public.ledger_combat_state(c)->'entries')<>2 then raise exception 'DM roster incomplete or duplicate'; end if;
+  perform set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000002',true);
+  if public.ledger_combat_state(c)->'entries'<>'[]' or public.ledger_combat_state(c)::text like '%Secret dragon%'
+     or public.ledger_combat_state(c)->'submittedCharacterIds' is distinct from '["hero"]'::jsonb then raise exception 'Hidden encounter data or own roll status incorrect'; end if;
+  if exists(select from public.ledger_campaigns row where row.id=c and (to_jsonb(row) ? 'live_encounter' or to_jsonb(row)::text like '%Secret dragon%')) or
+     exists(select from information_schema.role_table_grants where grantee in ('PUBLIC',current_user) and table_schema='ledger_private' and table_name='campaign_encounters' and privilege_type='SELECT') then raise exception 'Encounter publicly readable'; end if;
+  begin
+    perform public.ledger_combat_command(c,e,'visibility',jsonb_build_object('id',enemy->>'id','visible',true));
+    raise exception 'Player revealed enemy';
+  exception when raise_exception then if sqlerrm='Player revealed enemy' then raise; end if; end;
+  perform set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
+  perform public.ledger_combat_command(c,e,'visibility',jsonb_build_object('id',enemy->>'id','visible',true));
+  perform set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000002',true);
+  if jsonb_array_length(public.ledger_combat_state(c)->'entries')<>1 or public.ledger_combat_state(c)#>>'{entries,0,name}' is distinct from 'Secret dragon' then raise exception 'Revealed enemy missing'; end if;
+  perform set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
+  perform public.ledger_combat_command(c,e,'remove',enemy);
+end $$;
 delete from public.ledger_campaign_sheets where campaign_id=current_setting('fixture.c')::uuid and user_id='84360000-0000-4000-8000-000000000002' and character_id='hero';
 do $$ begin
   begin perform public.ledger_edit_shared_sheet(current_setting('fixture.c')::uuid,'84360000-0000-4000-8000-000000000002','hero','notes','{"before":"DM journal","after":"Invalid"}');
