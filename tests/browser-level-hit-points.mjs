@@ -3,7 +3,7 @@ import {chromium} from 'playwright';
 import classes from '../src/data/classes.json' with {type:'json'};
 import revised from '../src/data/srd2024.json' with {type:'json'};
 
-const browser=await chromium.launch();
+const browser=await chromium.launch({args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage();
 const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
@@ -34,11 +34,14 @@ try{
   await importCharacter('Rolled multiclass HP','2014','Rogue');
   await page.getByLabel('Advancement path').selectOption('normal');
   const chooser=page.getByLabel('Class to advance');
+  await page.getByLabel('Search level-up classes',{exact:true}).fill('Barbarian');
   const barbarian=chooser.locator('option').filter({hasText:/^Barbarian ·/}).first();
   await chooser.selectOption(await barbarian.getAttribute('value'));
   await page.getByLabel(/I reviewed the class/).check();
   await button('Continue to level choices').click();
   await button('Roll 1d12').click();
+  await button('Rolling hit die…').waitFor();
+  assert.equal(await button('Continue').isDisabled(),true);
   const used=page.getByRole('button',{name:/^Use roll of /});
   const value=Number((await used.innerText()).split(' ').at(-1));
   assert(value>=1&&value<=12);
