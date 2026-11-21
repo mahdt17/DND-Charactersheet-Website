@@ -50,7 +50,7 @@ The existing GitHub Actions deployment publishes `main` using the repository’s
 
 ## Storage and reliability
 
-For a new database, apply `supabase/schema.sql` followed by `supabase/shared_campaigns.sql`, `supabase/institute_access.sql` and `supabase/delete_campaign.sql`. Existing installations can apply each missing migration once. Private notebooks, encounters and homebrew stay in the per-user `ledger-workspace` row.
+For a new database, apply `supabase/schema.sql` followed by `supabase/shared_campaigns.sql`, `supabase/institute_access.sql` and `supabase/delete_campaign.sql`, then `supabase/live_campaign_play.sql`. Existing installations can apply each missing migration once. Private notebooks, encounters and homebrew stay in the per-user `ledger-workspace` row.
 
 Signed-in DMs can open **Campaigns → Start a DM campaign** and give players its invite code. Players select their own characters under **Share a character with your DM**. Each character belongs to one shared campaign at a time. The DM can read all saved sheet fields. Saves, assignments and removals update the open roster through Supabase Realtime, with a refresh on reconnect, tab focus and a ten-second fallback. Players can withdraw access from the same panel.
 
@@ -85,3 +85,5 @@ Restored separate 2024 reference datasets from `5e-bits/5e-database/src/2024/en`
 ### Rebuilding licensed edition data
 
 `python scripts/build-edition-data.py /path/to/5e-database /path/to/srd-v3.5` rebuilds the combined edition datasets from local source checkouts. The 3.5 source is [olimot/srd-v3.5](https://github.com/olimot/srd-v3.5); its Open Game Content declaration and complete license are distributed in `public/OGL-1.0a.txt`. Source descriptions are converted to plain text, with tables retained for class progression. Revised data comes from SRD 5.2.1 under CC BY 4.0; see `src/data/LICENSE.md`. DnD Tools entries are name-and-source-link references, not a redistributed copy of all source-book prose.
+
+DMs can open a shared sheet and use **Manage items and feats** to give or remove entries. In the campaign roster, **Start live encounter** opens an initiative order shared with the party. Players roll from their character sheets, and the DM enters NPC or enemy initiative totals.

@@ -1,6 +1,8 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {Plus,LogIn,Trash2} from 'lucide-react';
 import './sharedCampaigns.css';
+import CampaignRewards from './CampaignRewards';
+import {DMCombat} from './LiveCombat';
 import {invitePattern,watchRoster} from './lib/sharedCampaigns';
 
 const memberKey=m=>JSON.stringify([m.user_id,m.character_id]);
@@ -23,11 +25,13 @@ export function LiveCampaignSheet({campaign,member,api,back,renderSheet}){
     },message=>{version++;lastStamp=undefined;setRecord(null);setError(message);});
     return ()=>{active=false;stop();};
   },[api,campaign.id,member,back,retry]);
-  if(record)return renderSheet(record.data);
+  if(record)return <><CampaignRewards char={record.data} change={async(field,adding,entry)=>{
+    await api.reward(campaign.id,member,field,adding,entry);setRetry(n=>n+1);
+  }}/>{renderSheet(record.data)}</>;
   return <><button className="l-button" onClick={back}>Back to party roster</button>{error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry sheet</button></p>:<p role="status">Loading character sheet.</p>}</>;
 }
 
-function PartyRoster({campaign,api,onDelete,onOpen}){
+function PartyRoster({campaign,api,onDelete,onOpen,roll}){
   const [rows,setRows]=useState(null),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const [copied,setCopied]=useState(false);
   useEffect(()=>watchRoster(api,campaign.id,list=>{
@@ -37,6 +41,7 @@ function PartyRoster({campaign,api,onDelete,onOpen}){
     <div className="l-section-head"><h2>{campaign.name}</h2><button className="l-button party-danger" onClick={onDelete}><Trash2 size={16}/>Delete campaign</button></div>
     <label className="l-field"><span>Campaign invite code</span><input value={campaign.id} readOnly onFocus={e=>e.target.select()}/></label>
     <button className="l-button" onClick={async()=>{try{await navigator.clipboard.writeText(campaign.id);setCopied(true);}catch{setCopied(false);}}}>{copied?'Code copied':'Copy invite code'}</button>
+    <DMCombat roll={roll} api={api} campaignId={campaign.id}/>
     <h3>Live party roster</h3>
     {error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry</button></p>:
       !rows?<p role="status">Loading party.</p>:!rows.length?<p>Give players the invite code. Their characters appear here when they share a sheet.</p>:
@@ -44,7 +49,7 @@ function PartyRoster({campaign,api,onDelete,onOpen}){
   </section>;
 }
 
-export default function SharedCampaigns({api,characters,initialCharacterId,initialHost,onOpen}) {
+export default function SharedCampaigns({api,characters,initialCharacterId,initialHost,onOpen,openCharacter,roll}) {
   const [list,setList]=useState({hosted:[],assigned:[]}),[host,setHost]=useState(initialHost||'');
   const [mode,setMode]=useState(initialCharacterId?'join':''),[name,setName]=useState(''),[code,setCode]=useState('');
   const [characterId,setCharacterId]=useState(initialCharacterId||characters[0]?.id||'');
@@ -80,18 +85,19 @@ export default function SharedCampaigns({api,characters,initialCharacterId,initi
       {assignment?<><p>This character is shared with <strong>{assignment.campaign?.name||'your campaign'}</strong>.</p><button className="l-button" disabled={busy} onClick={()=>stop(assignment)}>Stop sharing sheet</button></>:
         <form onSubmit={e=>{e.preventDefault();void perform(async()=>{await api.assign(code,characterId);setCode('');setMode('');setNotice('Sheet shared with your DM.');});}}>
           <label className="l-field"><span>Invite code from your DM</span><input value={code} onChange={e=>setCode(e.target.value)} autoComplete="off" spellCheck={false}/></label>
-          <p>Your DM will see this sheet, its notes, and future saves.</p><button className="l-button primary" disabled={busy||!loaded||!characterId||!invitePattern.test(code.trim())}>Join and share sheet</button></form>}</>:<p>Create a character in Characters to join a campaign.</p>}
+          <p>Your DM can view this sheet and its notes, give or remove items and feats, and start live encounters.</p><button className="l-button primary" disabled={busy||!loaded||!characterId||!invitePattern.test(code.trim())}>Join and share sheet</button></form>}</>:<p>Create a character in Characters to join a campaign.</p>}
       <button type="button" className="l-button" disabled={busy} onClick={()=>open('')}>Close</button></section>}
     {error&&<p role="alert">{error} <button className="l-button" onClick={refresh}>Refresh campaigns</button></p>}{notice&&<p role="status">{notice}</p>}
     <div className="party-directory"><section className="l-panel"><h2>Campaigns you DM</h2>
       {list.hosted.length?<div className="party-campaign-list">{list.hosted.map(c=><button className="l-button" aria-pressed={host===c.id} key={c.id} onClick={()=>{setHost(c.id);open('');}}>{c.name}</button>)}</div>:<p className="l-muted">{loaded?'Your campaigns appear here after you create one.':'Loading campaigns…'}</p>}</section>
       <section className="l-panel"><h2>Campaigns you joined</h2>
         {list.assigned.length?list.assigned.map(a=><div key={a.character_id} className="party-membership"><div><strong>{a.campaign?.name||'Campaign'}</strong><small>{characters.find(c=>c.id===a.character_id)?.name||'Shared character'}</small></div>
+          <button className="l-button" onClick={()=>openCharacter(a.character_id)}>Open sheet for live combat</button>
           <button className="l-button" disabled={busy} onClick={()=>stop(a)} aria-label={'Leave campaign with '+(characters.find(c=>c.id===a.character_id)?.name||'character')}>Leave campaign</button></div>):<p className="l-muted">{loaded?'Use your DM’s invite code to share a character.':'Loading memberships…'}</p>}</section></div>
     {campaign&&mode==='delete'&&<section className="l-panel party-form" role="group" aria-label="Confirm campaign deletion"><h2>Delete {campaign.name}?</h2>
       <p>This ends sharing for everyone in this campaign. Each player keeps their character sheet.</p>
       <div className="party-hub-actions"><button className="l-button party-danger" disabled={busy} onClick={()=>perform(async()=>{await api.removeCampaign(campaign.id);setHost('');setMode('');setNotice('Campaign deleted.');})}>Confirm deletion</button>
       <button className="l-button" autoFocus disabled={busy} onClick={()=>open('')}>Cancel</button></div></section>}
-    {campaign&&<PartyRoster key={campaign.id} campaign={campaign} api={api} onOpen={onOpen} onDelete={()=>open('delete')}/>}
+    {campaign&&<PartyRoster roll={roll} key={campaign.id} campaign={campaign} api={api} onOpen={onOpen} onDelete={()=>open('delete')}/>}
   </section>;
 }

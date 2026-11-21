@@ -12,3 +12,12 @@
 .party-player-sheet {min-width:0}
 .party-player-sheet button:disabled,.party-player-sheet :is(input,select):disabled {cursor:default}
 .party-player-sheet .sheet-heading {margin-top:.65rem}
+
+.campaign-rewards,.campaign-combat {margin-block:1rem}
+.campaign-rewards fieldset {display:grid;gap:.85rem;border:0;margin:1rem 0 0;padding:0;min-width:0}
+.campaign-rewards legend {font-weight:bold;margin-bottom:.6rem}
+.campaign-combat .l-toolbar,.campaign-rewards .l-toolbar {align-items:end;flex-wrap:wrap}
+.combat-list {list-style:none;margin:.6rem 0 1rem;padding:0}
+.combat-list li {display:flex;gap:.75rem;align-items:center;padding:.45rem 0;border-bottom:1px solid var(--border)}
+.combat-list li>:first-child {flex:1;min-width:0;overflow-wrap:anywhere}
+.combat-list small {color:var(--muted)}

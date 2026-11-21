@@ -68,7 +68,6 @@ export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
   function metadata(){
     canvas.dataset.diceIds=diceEntries.map(e=>e.die.id).join(',');
     canvas.dataset.values=diceEntries.map(e=>e.die.value).join(',');
-    // Older dice keep their printed faces even if a later impact turns them over.
     canvas.dataset.topValues=diceEntries.map((e,i)=>e.labels[playback.simulation.tops[i]]).join(',');
     canvas.dataset.collisions=String(playback?.simulation.collisions||0);
     canvas.dataset.collisionPairs=JSON.stringify(playback?.simulation.collisionPairs||[]);
@@ -109,7 +108,16 @@ export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
     diceEntries.slice(0,remove).forEach(({object})=>{scene.remove(object);disposeObject(object);});
     const retained=diceEntries.slice(remove),next=[...retained,...incoming],simulation=simulateDice(next.map(e=>e.die),{aspect:halfWidth/7.5,initialStates});
     diceEntries=next.map((entry,i)=>{
-      if(entry.object)return entry;
+      if(entry.object){
+        const top=simulation.tops[i];
+        if(entry.labels[top]!==simulation.labels[i][top]){
+          const material=entry.object.material;
+          material.map.dispose();
+          material.map=makeAtlas(entry.style,simulation.labels[i]).texture;
+          return {...entry,labels:simulation.labels[i]};
+        }
+        return entry;
+      }
       const labels=simulation.labels[i],radius=simulation.radii[i],object=makeDie(simulation.meshes[i],labels,entry.style,radius);scene.add(object);return {...entry,labels,radius,object};
     });
     playback={simulation,start:performance.now(),duration:Math.max(2100,Math.min(3800,simulation.duration*1000))};
