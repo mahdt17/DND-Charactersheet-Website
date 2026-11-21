@@ -46,3 +46,47 @@ jobs:
           npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &
           curl --fail --silent --retry 12 --retry-connrefused "$DICE_TEST_URL" >/dev/null
           node tests/browser-dice-reveal.mjs
+
+  rolling-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: 1
+            tests: tests/browser-ability-score-breakdown.mjs tests/browser-campaign-play-actions.mjs tests/browser-druid-companion-sheet.mjs tests/browser-lorehold-benefits-sheet.mjs tests/browser-subclass-active.mjs tests/browser-continuous-dice.mjs
+          - group: 2
+            tests: tests/browser-accursed-specter-sheet.mjs tests/browser-companion-traits.mjs tests/browser-echo-sheet.mjs tests/browser-lorehold-healing-spell.mjs tests/browser-thrall-combat.mjs tests/browser-lupin.mjs
+          - group: 3
+            tests: tests/browser-alchemist-elixir-final.mjs tests/browser-dancing-item-sheet.mjs tests/browser-editions.mjs tests/browser-martial-subclasses.mjs tests/browser-vigilant-blessing.mjs tests/browser-ability-rolls.mjs
+          - group: 4
+            tests: tests/browser-artillerist-two-cannons-sheet.mjs tests/browser-divine-strike.mjs tests/browser-fighting-styles.mjs tests/browser-sentinel-raven-sheet.mjs tests/browser-wildfire-enhanced-bond.mjs
+          - group: 5
+            tests: tests/browser-battle-master-priority.mjs tests/browser-drakewarden-sheet.mjs tests/browser-fungal-zombie-sheet.mjs tests/browser-shadow-hound-sheet.mjs tests/browser.mjs
+          - group: 6
+            tests: tests/browser-beast-master-sheet.mjs tests/browser-drakewarden-ua-sheet.mjs tests/browser-leonin.mjs tests/browser-steel-defender-sheet.mjs tests/browser-presentation.mjs
+    name: Roll history group ${{ matrix.group }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Exercise all selected roll controls
+        env:
+          SUITES: ${{ matrix.tests }}
+        run: |
+          mkdir -p test-results
+          result=0
+          for suite in $SUITES; do
+            echo "::group::$suite"
+            if ! node "$suite"; then
+              echo "::error::$suite failed"
+              result=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "$result"

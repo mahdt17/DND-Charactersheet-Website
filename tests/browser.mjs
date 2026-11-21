@@ -1,3 +1,4 @@
+import {waitForRollHistory} from './helpers/roll-history.mjs';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { createServer } from 'vite';
@@ -30,6 +31,7 @@ try {
   await row.getByRole('button',{name:'Cast',exact:true}).click();
   await page.getByRole('button',{name:'Cast & spend slot'}).click();
   assert.match(await page.getByRole('button',{name:/Level 1 slot 1/}).getAttribute('class'),/used/);
+  await waitForRollHistory(page);
   assert.match(await page.locator('.roll-result').first().innerText(),/Magic Missile/);
   await page.getByRole('button',{name:'Close dice roller'}).click();
   await page.getByRole('button',{name:'Rest',exact:true}).click();
@@ -41,6 +43,7 @@ try {
   await page.getByRole('button',{name:'Dice roller',exact:true}).click();
   await page.getByRole('combobox',{name:'D20 roll mode'}).selectOption('disadvantage');
   await page.getByRole('button',{name:'d20',exact:true}).click();
+  await waitForRollHistory(page);
   assert.match(await page.locator('.roll-result').first().innerText(),/disadvantage/);
   await page.getByRole('button',{name:'Close dice roller'}).click();
  });
@@ -103,7 +106,17 @@ try {
   // This assertion measures only the two new initiative dice.
   await page.locator('.dice-stage').waitFor({state:'hidden'});
   await page.getByRole('button',{name:'Roll initiative',exact:true}).click();
-  await page.locator('.dice-canvas[data-ready="true"]').waitFor();const initiativeDice=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(initiativeDice.length,2);const initiativeTotals=await page.getByLabel('Initiative',{exact:true}).evaluateAll(inputs=>inputs.map(input=>Number(input.value)));assert.deepEqual(initiativeTotals.sort((a,b)=>a-b),initiativeDice.map(n=>n+2).sort((a,b)=>a-b));
+  await page.locator('.dice-canvas[data-phase="rolling"]').waitFor();
+  const initiatives=page.getByLabel('Initiative',{exact:true});
+  assert.deepEqual(await initiatives.evaluateAll(inputs=>inputs.map(input=>Number(input.value))),[0,0]);
+  assert.equal(await page.getByRole('button',{name:'Start combat'}).isDisabled(),true);
+  await page.getByLabel('Encounter notes').fill('The bridge is icy.');
+  const faces=await page.locator('.dice-canvas[data-phase="settled"]').getAttribute('data-top-values');
+  await page.getByRole('button',{name:'Roll initiative',exact:true}).waitFor();
+  const totals=await initiatives.evaluateAll(inputs=>inputs.map(input=>Number(input.value)));
+  assert.equal(totals.length,2);
+  assert.deepEqual(totals.sort((a,b)=>a-b),faces.split(',').map(n=>Number(n)+2).sort((a,b)=>a-b));
+  assert.equal(await page.getByLabel('Encounter notes').inputValue(),'The bridge is icy.');
   await page.getByRole('button',{name:'Start combat'}).click();
   await page.getByRole('button',{name:'Next turn'}).click();
   await page.getByRole('button',{name:'Next turn'}).click();

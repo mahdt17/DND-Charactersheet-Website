@@ -1,3 +1,4 @@
+import {waitForRollHistory} from './helpers/roll-history.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
@@ -52,6 +53,7 @@ try {
  assert.equal(await page.locator('.dice-canvas').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
  await page.unroute('**/src/lib/diceRenderer*');
  await page.locator('.dice-canvas[data-ready="true"]').waitFor();
+ await waitForRollHistory(page);
  const recordedRoll=await tray.locator('.roll-result').first().innerText();
  // Reading the results late must not miss the fade already captured in-page.
  await page.locator('.dice-stage').waitFor({state:'hidden'});
@@ -65,17 +67,18 @@ try {
  await page.waitForFunction(previous=>document.querySelector('.dice-stage')?.dataset.rollIds!==previous,fadingRoll);
  await page.locator('.dice-canvas[data-ready="true"]').waitFor();
  assert.equal(await page.locator('.dice-stage').evaluate(e=>getComputedStyle(e).opacity),'1');
+ await waitForRollHistory(page);
  assert.match(await tray.locator('.roll-result').first().innerText(),/1d20/);await expectDissipation();await clear();
 
  for(const [name,id] of [['Emberforge','emberforge'],['Moonstone','moonstone'],['Verdant','verdant'],['Voidglass','voidglass'],['Royal Ivory','royal-ivory']]){
   await tray.getByRole('radio',{name,exact:true}).check();await tray.getByLabel('Dice expression').fill('3d20+4');await tray.getByRole('button',{name:'Roll',exact:true}).click();
-  const canvas=page.locator('.dice-canvas');await page.locator('.dice-canvas[data-ready="true"]').waitFor();assert.equal(await page.locator('.dice-stage').getAttribute('data-style'),id);assert.equal(await canvas.getAttribute('data-engine'),'webgl-physics');assert.equal(await canvas.getAttribute('data-ready'),'true');assert.equal(await canvas.getAttribute('data-top-values'),await canvas.getAttribute('data-values'));
+  const canvas=page.locator('.dice-canvas');await page.locator('.dice-canvas[data-ready="true"]').waitFor();assert.equal(await page.locator('.dice-stage').getAttribute('data-style'),id);assert.equal(await canvas.getAttribute('data-engine'),'webgl-physics');assert.equal(await canvas.getAttribute('data-ready'),'true');await waitForRollHistory(page);assert.equal(await canvas.getAttribute('data-top-values'),await canvas.getAttribute('data-values'));
   const values=(await canvas.getAttribute('data-values')).split(',').map(Number),history=await tray.locator('.roll-result').first().innerText();assert.match(history,new RegExp('\\['+values.join(', ')+'\\]'));assert.equal(Number(await tray.locator('.roll-result>strong').first().innerText()),values.reduce((a,b)=>a+b,4));await capture('dice-'+id);await clear();
  }
  for(const sides of [4,6,8,10,12]){await tray.getByRole('button',{name:`d${sides}`,exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();assert.equal(await page.locator('.dice-canvas').getAttribute('data-top-values'),await page.locator('.dice-canvas').getAttribute('data-values'));await clear();}
- await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-canvas[data-phase="rolling"]').waitFor();await tray.getByRole('button',{name:'d20',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();assert.equal(await page.locator('.dice-stage').count(),1);assert.match(await tray.locator('.roll-result').first().innerText(),/1d20/);await clear();
- await tray.getByLabel('D20 roll mode').selectOption('advantage');await tray.getByRole('button',{name:'d20',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();let values=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(values.length,2);assert.equal(Number(await tray.locator('.roll-result>strong').first().innerText()),Math.max(...values));await clear();
- await tray.getByLabel('D20 roll mode').selectOption('normal');await tray.getByRole('button',{name:'d100',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();values=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(Number(await tray.locator('.roll-result>strong').first().innerText()),values[0]*10+values[1]||100);await clear();
+ await tray.getByRole('button',{name:'d6',exact:true}).click();await page.locator('.dice-canvas[data-phase="rolling"]').waitFor();await tray.getByRole('button',{name:'d20',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();assert.equal(await page.locator('.dice-stage').count(),1);await waitForRollHistory(page);assert.match(await tray.locator('.roll-result').first().innerText(),/1d20/);await clear();
+ await tray.getByLabel('D20 roll mode').selectOption('advantage');await tray.getByRole('button',{name:'d20',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();await waitForRollHistory(page);let values=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(values.length,2);assert.equal(Number(await tray.locator('.roll-result>strong').first().innerText()),Math.max(...values));await clear();
+ await tray.getByLabel('D20 roll mode').selectOption('normal');await tray.getByRole('button',{name:'d100',exact:true}).click();await page.locator('.dice-canvas[data-ready="true"]').waitFor();await waitForRollHistory(page);values=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(Number(await tray.locator('.roll-result>strong').first().innerText()),values[0]*10+values[1]||100);await clear();
  await tray.getByRole('button',{name:'d10',exact:true}).click();await page.locator('.dice-canvas[data-phase="rolling"]').waitFor();await page.setViewportSize({width:1,height:1});await page.setViewportSize({width:1440,height:1000});await page.locator('.dice-canvas[data-ready="true"]').waitFor();await clear();
  await tray.getByLabel('Animated dice',{exact:true}).uncheck();await tray.getByRole('button',{name:'d6',exact:true}).click();assert.equal(await page.locator('.dice-stage').isVisible(),false);assert.equal(await tray.locator('.roll-result').count(),1);await clear();
  await tray.getByLabel('Animated dice',{exact:true}).check();await page.emulateMedia({reducedMotion:'reduce'});await tray.getByRole('button',{name:'d8',exact:true}).click();assert.equal(await page.locator('.dice-stage').isVisible(),false);assert.match(await tray.innerText(),/Reduced motion/);await clear();await page.emulateMedia({reducedMotion:'no-preference'});
