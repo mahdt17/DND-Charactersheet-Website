@@ -967,6 +967,7 @@ function LevelUpWizard({ char, onCancel, onFinish, onRoll, homebrew=[], characte
   const isChoices = steps[step] === "Level choices" || steps[step] === "Ability improvement" || steps[step] === "Subclass";
 
   const valid = () => {
+    if(hpChoice.pending)return false;
     if (isReview && !featValid) return false;
     if ((isSpell||isReview)&&[...newCantrips,...newSpells].some(id=>!selectable.some(s=>spellKey(s)===id))) return false;
     if (steps[step] === "Ability improvement" || steps[step] === "Level choices") {

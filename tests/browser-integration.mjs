@@ -158,7 +158,13 @@ assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels
   assert.match(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Martial weapons/i);assert.doesNotMatch(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Heavy armor/);
   await page.getByRole('button',{name:'Continue to level choices'}).click();
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
-  await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  if(edition==='2014'){
+   const choices=page.getByRole('dialog',{name:'Complete class feature choices'});
+   await choices.getByRole('radio',{name:'Fighter 1 Fighting Style: Defense (PHB)',exact:true}).check();
+   await choices.getByRole('button',{name:'Save level and choices'}).click();
+  }
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();
   c=await waitSaved(weaponName,{level:6});assert.deepEqual(c.saveProf,{int:true,wis:true});assert.equal(c.inventory.length,1);assert(await swordAction().getByRole('button',{name:'+5 to hit',exact:true}).isVisible());
   await page.getByRole('tab',{name:'Traits',exact:true}).click();await page.getByLabel('Longsword proficiency',{exact:true}).uncheck();await page.getByRole('tab',{name:'Actions',exact:true}).click();assert(await swordAction().getByRole('button',{name:'+2 to hit',exact:true}).isVisible());
   await page.getByRole('tab',{name:'Traits',exact:true}).click();await page.getByRole('button',{name:'Use class weapon proficiencies'}).click();await page.getByRole('tab',{name:'Actions',exact:true}).click();assert(await swordAction().getByRole('button',{name:'+5 to hit',exact:true}).isVisible());
