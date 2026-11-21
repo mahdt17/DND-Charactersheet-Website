@@ -4,7 +4,7 @@ import {diceStyles,visualDice} from './lib/presentation';
 import {usePresentation,useReducedMotion} from './PresentationSettings';
 
 const emptyDisplay={results:[],total:0,style:diceStyles[0].id};
-export default function DiceAnimation({rolls,trayOpen=false}) {
+export default function DiceAnimation({rolls,trayOpen=false,onSettled}) {
   const canvas=useRef(null),stage=useRef(null),session=useRef(null),seen=useRef(new Set());
   const [portal]=useState(()=>document.createElement('div')),[display,setDisplay]=useState(emptyDisplay),[phase,setPhase]=useState('idle');
   const {preferences}=usePresentation(),reduced=useReducedMotion();
@@ -34,9 +34,9 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
       if(cancelled||fade||!results.length)return;
       clearTimeout(settleTimer);setPhase(value);
       // The renderer reports settled only after every active batch has finished.
-      if(value==='settled')holdThenFinish();
+      if(value==='settled'){onSettled(results.at(-1).sequence);holdThenFinish();}
     }
-    function fallback(){unavailable=true;node.dataset.ready='false';node.dataset.engine='results-only';if(results.length&&!fade){setPhase('unavailable');holdThenFinish();}}
+    function fallback(){unavailable=true;node.dataset.ready='false';node.dataset.engine='results-only';if(results.length&&!fade){setPhase('unavailable');onSettled(results.at(-1).sequence);holdThenFinish();}}
     function flush(createDiceRenderer){
       if(cancelled||!pending.length)return;
       if(!renderer)renderer=createDiceRenderer(node,{onPhase:renderedPhase,onUnavailable:fallback});
@@ -55,17 +55,20 @@ export default function DiceAnimation({rolls,trayOpen=false}) {
       if(!loading)loading=import('./lib/diceRenderer').then(({createDiceRenderer})=>flush(createDiceRenderer)).catch(()=>{if(!cancelled){fallback();pending=[];}}).finally(()=>{loading=null;});
     }};
     return()=>{cancelled=true;cancelExit();session.current=null;renderer?.dispose();};
-  },[]);
+  },[onSettled]);
   useEffect(()=>{
     const fresh=rolls.filter(r=>!seen.current.has(r.id)).reverse();seen.current=new Set(rolls.map(r=>r.id));
-    if(!preferences.animation||reduced||!rolls.length){session.current.stop();return;}
+    if(!preferences.animation||reduced||!rolls.length){session.current.stop();if(rolls.length)onSettled(rolls[0].sequence);return;}
     if(fresh.length)session.current.add(fresh,preferences.diceStyle);
-  },[rolls,preferences.animation,reduced,preferences.diceStyle]);
+  },[rolls,preferences.animation,reduced,preferences.diceStyle,onSettled]);
+  // A new roll can render before the effect that appends its physics bodies.
+  const showingResults=['settled','dissipating','unavailable'].includes(phase)
+    && display.results.at(-1)?.id===rolls[0]?.id;
   return createPortal(<div ref={stage} className="dice-stage" hidden={phase==='idle'} aria-hidden="true" data-style={display.style} data-tray={trayOpen?'open':'closed'} data-phase={phase} data-roll-ids={display.results.map(r=>r.id).join(',')}>
     <canvas ref={canvas} className="dice-canvas"/>
     <div className="dice-stage-caption"><span>{diceStyles.find(s=>s.id===display.style)?.name}</span>
-      <div className="dice-stage-results">{display.results.map(r=><div key={r.id}><strong>{r.total}</strong><small>{r.label}</small></div>)}</div>
-      <small>{phase==='unavailable'?'3D unavailable · result saved':display.total>18?`Showing 18 of ${display.total} dice · all results in history`:'Result recorded in roll history'}</small>
+      <div className="dice-stage-results">{showingResults&&display.results.map(r=><div key={r.id}><strong>{r.total}</strong><small>{r.label}</small></div>)}</div>
+      <small>{!showingResults?'Rolling…':phase==='unavailable'?'3D unavailable · result saved':display.total>18?`Showing 18 of ${display.total} dice · all results in history`:'Result recorded in roll history'}</small>
     </div>
   </div>,portal);
 }

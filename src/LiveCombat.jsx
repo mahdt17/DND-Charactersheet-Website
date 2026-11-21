@@ -33,6 +33,7 @@ export function usePlayerCombat(api,characterId){
       if(pending.current?.id!==encounter.id){
         const result=roll();
         if(!result)return;
+        await result.settled;
         pending.current={id:encounter.id,total:result.total};
       }
       await api.combat(campaignId,encounter.id,'roll',{character:characterId,initiative:pending.current.total});
@@ -88,9 +89,9 @@ export function DMCombat({api,campaignId,roll}){
           <label className="l-field"><span>Combatant name</span><input required maxLength={120} value={name} onChange={e=>setName(e.target.value)}/></label>
           <label className="l-field"><span>Combatant type</span><select aria-label="Combatant type" value={kind} onChange={e=>setKind(e.target.value)}><option>Enemy</option><option>NPC</option></select></label>
           <label className="l-field"><span>Initiative modifier</span><input type="number" min="-99" max="99" value={modifier} onChange={e=>setModifier(e.target.value)}/></label>
-          <button type="button" className="l-button" disabled={busy||Math.abs(Number(modifier))>99||!Number.isInteger(Number(modifier))} onClick={()=>{
-            const bonus=Number(modifier),result=roll(`1d20${bonus>=0?'+':''}${bonus}`,(name.trim()||kind)+' initiative',{inline:true,mode:'normal'});
-            if(result)setScore(String(result.total));
+          <button type="button" className="l-button" disabled={busy||Math.abs(Number(modifier))>99||!Number.isInteger(Number(modifier))} onClick={async()=>{
+            const bonus=Number(modifier),result=roll(`1d20${bonus>=0?'+':''}${bonus}`,(name.trim()||kind)+' initiative',{inline:true,mode:'normal',waitForDice:true});
+            if(result){setBusy(true);try{await result.settled;setScore(String(result.total));}finally{setBusy(false);}}
           }}>Roll d20</button>
           <label className="l-field"><span>Initiative total</span><input type="number" required min="-999" max="999" value={score} onChange={e=>setScore(e.target.value)}/></label>
           <button disabled={busy} className="l-button">Add combatant</button>

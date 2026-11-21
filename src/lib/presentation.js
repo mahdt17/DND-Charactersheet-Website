@@ -21,10 +21,10 @@ export function writePresentation(value) {
 // The renderer consumes existing results; it never rolls or changes game dice.
 export function visualDice(results,limit=18) {
   const dice=[];
-  for(const result of results) {
+  for(const roll of results) for(const result of [...(roll.groups||[roll]),...(roll.bonusRolls||[])]) {
     const sides=Number(String(result.expression).match(/d(\d+)/i)?.[1]);
     for(const [i,value] of result.rolls.entries()) {
-      const base={id:`${result.id}:${i}`,sides,value,rollId:result.id};
+      const base={id:`${result.id}:${i}`,sides,value,rollId:roll.id};
       if(sides===100){const n=value%100;dice.push({...base,id:base.id+':tens',sides:10,percentile:'tens',value:Math.floor(n/10)},{...base,id:base.id+':units',sides:10,percentile:'units',value:n%10});}
       else dice.push(base);
     }

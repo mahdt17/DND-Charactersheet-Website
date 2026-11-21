@@ -3,6 +3,11 @@ on:
   pull_request:
     paths:
       - 'src/lib/dice*.js'
+      - 'src/lib/presentation.js'
+      - 'src/DiceAnimation.jsx'
+      - 'src/DiceTray.jsx'
+      - 'src/ModernLedger.jsx'
+      - 'tests/browser-dice-reveal.mjs'
       - 'tests/helpers/dice-collisions.mjs'
       - '.github/workflows/dice-collisions.yml'
 permissions:
@@ -32,3 +37,11 @@ jobs:
           try{await verifySharedDiceCollisions(browser,'http://127.0.0.1:5189/',server.config.base);}
           finally{await browser.close();await server.close();}
           NODE
+      - name: Check result timing and advantage in the production bundle
+        env:
+          DICE_TEST_URL: http://127.0.0.1:4173/DND-Charactersheet-Website/
+        run: |
+          npm run build
+          npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &
+          curl --fail --silent --retry 12 --retry-connrefused "$DICE_TEST_URL" >/dev/null
+          node tests/browser-dice-reveal.mjs
