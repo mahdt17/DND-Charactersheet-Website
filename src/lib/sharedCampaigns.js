@@ -44,8 +44,11 @@ export function campaignService(client,userId) {
     reward(campaign,member,field,adding,entry) {
       return result(client.rpc('ledger_change_reward',{p_campaign:campaign,p_owner:member.user_id,p_sheet:member.character_id,p_field:field,p_add:adding,p_entry:entry}));
     },
+    editSheet(campaign,member,edit,value) {
+      return result(client.rpc('ledger_edit_shared_sheet',{p_campaign:campaign,p_owner:member.user_id,p_sheet:member.character_id,p_edit:edit,p_value:value}));
+    },
     async rewardUpdate(character) {
-      return result(client.from('characters').select('inventory:data->inventory,feats:data->feats,suppressed:data->campaignRemovedFeatIds,version:data->campaignRewardVersion')
+      return result(client.from('characters').select('notes:data->notes,inventory:data->inventory,feats:data->feats,suppressed:data->campaignRemovedFeatIds,version:data->campaignRewardVersion')
         .eq('user_id',userId).eq('id',character.id).neq('data->>campaignRewardVersion',String(character.campaignRewardVersion||0)).maybeSingle());
     },
     async membership(characterId) {
