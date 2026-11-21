@@ -139,10 +139,11 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
   const [shareCharacter,setShareCharacter]=useState('');
   const rollSequence=useRef(0),settlementWaiters=useRef(new Map());
   const [revealedThrough,setRevealedThrough]=useState(0);
-  const revealRolls=React.useCallback(sequence=>{
+  const revealRolls=React.useCallback((sequence,landed)=>{
+    if(landed)setRolls(list=>list.map(roll=>landed.get(roll.id)||roll));
     setRevealedThrough(previous=>Math.max(previous,sequence));
-    for(const [number,resolve] of settlementWaiters.current){
-      if(number<=sequence){settlementWaiters.current.delete(number);resolve();}
+    for(const [number,waiter] of settlementWaiters.current){
+      if(number<=sequence){settlementWaiters.current.delete(number);waiter.resolve(landed?.get(waiter.roll.id)||waiter.roll);}
     }
   },[]);
   function clearRolls(){revealRolls(rollSequence.current);setRolls([]);}
@@ -218,9 +219,10 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
   async function finish(next){if(busy)return;next=normalize(next);setBusy(true);try{if(!(await flush()))return;await put(next);const current=charactersRef.current||[],list=current.some(c=>c.id===next.id)?current.map(c=>c.id===next.id?next:c):[...current,next];charactersRef.current=list;setCharacters(list);setSelected(next.id);setPage('characters');setWizard(null);}catch(e){setError(`Could not save your character. ${e.message}`);}finally{setBusy(false);}}
   async function remove(){setBusy(true);try{const key=deleteTarget.id;saveGenerations.current.set(key,(saveGenerations.current.get(key)||0)+1);clearTimeout(timers.current.get(key));await (chains.current.get(key)||Promise.resolve()).catch(()=>{});await window.storage.delete(`char-detail:${key}`);pending.current.delete(key);const list=(charactersRef.current||[]).filter(c=>c.id!==key);charactersRef.current=list;setCharacters(list);if(selected===key)setSelected(null);setDeleteTarget(null);}catch(e){setError(e.message);}finally{setBusy(false);}}
   function roll(expression,label,options={}){try{const result=rollDice(expression,attackRollMode(options,mode));const bonusRolls=(options.bonusDice||[]).map(e=>rollDice(e,'normal')),extra=bonusRolls.reduce((n,r)=>n+r.total,0);const penalty=options.penalty||0;const floorBonus=options.minimumD20?Math.max(0,options.minimumD20-(result.total-result.bonus)):0;const r={...result,total:result.total+penalty+floorBonus+extra,bonus:result.bonus+penalty+floorBonus+extra,bonusRolls,label:(label||expression)+(bonusRolls.length?` (Bonus dice ${bonusRolls.map(r=>`${r.expression}: ${r.total}`).join(', ')})`:'')+(floorBonus?` (d20 minimum ${options.minimumD20})`:'')+(penalty?` (${signed(penalty)} exhaustion)`:'')};const sequence=++rollSequence.current;
-    setRolls(list=>[{...r,sequence},...list].slice(0,50));
+    const queued={...r,sequence,readLanding:!!options.readLanding&&!bonusRolls.length&&!floorBonus&&!options.minimumD20};
+    setRolls(list=>[queued,...list].slice(0,50));
     if(!options.inline)setDiceOpen(true);
-    if(options.waitForDice)return {...r,settled:new Promise(resolve=>settlementWaiters.current.set(sequence,resolve))};
+    if(options.waitForDice)return {...r,settled:new Promise(resolve=>settlementWaiters.current.set(sequence,{roll:queued,resolve}))};
     return r;}catch(e){setError(e.message);return null;}}
   async function importCharacter(event){const file=event.target.files?.[0];event.target.value='';if(!file)return;try{if(file.size>2e6)throw new Error('Use a character JSON file under 2 MB.');const parsed=JSON.parse(await file.text());if(!parsed || typeof parsed.name!=='string'||!parsed.abilities||!Object.keys(parsed.abilities).every(k=>['str','dex','con','int','wis','cha'].includes(k))||!ABILITIES.every(a=>Number.isFinite(parsed.abilities[a.key]))||!Number.isInteger(parsed.level)||parsed.level<1||parsed.level>20||!parsed.hp||!Number.isFinite(parsed.hp.max)||!Number.isFinite(parsed.hp.current)||['inventory','spells','actions'].some(k=>parsed[k]!=null&&!Array.isArray(parsed[k])))throw new Error('This file is not a valid Adventurer’s Ledger character.');await finish(normalize({...parsed,id:id(),instituteAccess:undefined,campaignRewardVersion:undefined,kind:undefined}));}catch(e){setError(e.message);}}
   const char=characters.find(c=>c.id===selected);
@@ -290,7 +292,7 @@ function CharacterSheet({sharing,readOnly=false,manageSharing,char,patchCharacte
   const displayedArmor=ownForm?ownFormArmor(char):sheetArmorFor(char,abilities),subclassNumbers=subclassNumericProfile(char,abilities);
   const combat=usePlayerCombat(sharing,char.id);
   const initiativeBonus=modifier(abilities.dex)+(ownForm?.polymorph?0:(char.initiativeBonus||0)+campaignModifiers(char).initiative+subclassNumbers.initiativeBonus);
-  const rollInitiative=()=>combat.initiative(()=>roll(`1d20${signed(initiativeBonus)}`,'Initiative',{inline:!!combat.encounter,waitForDice:!!combat.encounter}));
+  const rollInitiative=()=>combat.initiative(()=>roll(`1d20${signed(initiativeBonus)}`,'Initiative',{inline:!!combat.encounter,waitForDice:!!combat.encounter,readLanding:true}));
   const activeConditions=Array.isArray(char.conditions)?char.conditions:char.conditions?char.conditions.split(',').map(x=>x.trim()).filter(Boolean):[];
   const patch=values=>readOnly?char:patchCharacter(char.id,current=>{const prepared=preservePsicrystalDestruction(current),resolved=typeof values==='function'?values(prepared):values;let next=reconcileMindlessRageConditions(prepared,observeEntomancerHP(prepared,{...prepared,...resolved}));if(campaignActionBlockReason(next))next={...next,concentration:null};if(entomancerProfile(next).form&&next.hp.current===0)next={...next,entomancer:{...next.entomancer,dead:true}};if(Object.hasOwn(resolved,'subclass'))next.classLevels=characterClasses(next).map((row,i)=>i===0?{...row,subclass:resolved.subclass}:row);next=reconcileBladesinging(reconcileSubclassStates({...next,...reconcileEffects(next,prepared)}));if(next.autoArmor&&!is35(next))next.ac=armorFor(next,effectiveAbilities(next));next.hp={...next.hp,current:Math.min(next.hp.current,conditionEffects(next).maxHP)};return expireInactiveCastConditions(next);});
   const ownerActions=useOwnerCombatActions({char,patch,roll,abilities});

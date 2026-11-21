@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {simulateDice,sampleDiceSimulation} from './dicePhysics';
+import {simulateDice,sampleDiceSimulation,upperFace} from './dicePhysics';
 
 const v=values=>new THREE.Vector3(...values);
 function makeAtlas(style,labels) {
@@ -94,7 +94,17 @@ export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
     const progress=Math.min(1,Math.max(0,(now-playback.start)/playback.duration)),index=progress*(playback.simulation.frames.length-1),lo=Math.floor(index),hi=Math.min(lo+1,playback.simulation.frames.length-1),fraction=index-lo;
     diceEntries.forEach(({object},i)=>{const from=playback.simulation.frames[lo][i],to=playback.simulation.frames[hi][i];pa.fromArray(from);pb.fromArray(to);object.position.copy(pa).lerp(pb,fraction);a.fromArray(from,3);b.fromArray(to,3);object.quaternion.copy(a).slerp(b,fraction);});
     renderer.render(scene,camera);canvas.dataset.ready='true';
-    const phase=progress<1?'rolling':'settled';if(canvas.dataset.phase!==phase){canvas.dataset.phase=phase;onPhase?.(phase);}
+    const phase=progress<1?'rolling':'settled';if(canvas.dataset.phase!==phase){canvas.dataset.phase=phase;
+      if(phase==='settled'){
+        const faces=new Map();
+        diceEntries.forEach((entry,i)=>{
+          const top=upperFace(playback.simulation.meshes[i],entry.object.quaternion.toArray());
+          const value=Number(entry.labels[top]);
+          faces.set(entry.die.id,value);
+          entry.die={...entry.die,readLanding:false,value:entry.die.percentile==='tens'?value/10:value};
+        });
+        metadata();onPhase?.(phase,faces);
+      }else onPhase?.(phase);}
     if(progress<1)wake();
   }
   function addBatches(batches){
@@ -110,7 +120,7 @@ export function createDiceRenderer(canvas,{onPhase,onUnavailable}={}) {
     diceEntries=next.map((entry,i)=>{
       if(entry.object){
         const top=simulation.tops[i];
-        if(entry.labels[top]!==simulation.labels[i][top]){
+        if(!entry.die.readLanding && entry.labels[top]!==simulation.labels[i][top]){
           const material=entry.object.material;
           material.map.dispose();
           material.map=makeAtlas(entry.style,simulation.labels[i]).texture;

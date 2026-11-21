@@ -24,10 +24,35 @@ export function visualDice(results,limit=18) {
   for(const roll of results) for(const result of [...(roll.groups||[roll]),...(roll.bonusRolls||[])]) {
     const sides=Number(String(result.expression).match(/d(\d+)/i)?.[1]);
     for(const [i,value] of result.rolls.entries()) {
-      const base={id:`${result.id}:${i}`,sides,value,rollId:roll.id};
+      const base={id:`${result.id}:${i}`,sides,value,rollId:roll.id,readLanding:!!roll.readLanding};
       if(sides===100){const n=value%100;dice.push({...base,id:base.id+':tens',sides:10,percentile:'tens',value:Math.floor(n/10)},{...base,id:base.id+':units',sides:10,percentile:'units',value:n%10});}
       else dice.push(base);
     }
   }
   return {dice:dice.slice(0,limit),total:dice.length};
+}
+
+// Replace the provisional dice with their printed landing faces before selecting
+// advantage, disadvantage, or the kept dice. Non-rendered dice keep their draw.
+export function landedRoll(roll,faces) {
+  if(!roll.readLanding||!faces.size)return roll;
+  const groups=roll.groups?.map(group=>landedRoll({...group,readLanding:true},faces));
+  const rolls=groups?groups.flatMap(group=>group.rolls):roll.rolls.map((value,index)=>{
+    const key=roll.id+':'+index;
+    if(faces.has(key))return faces.get(key);
+    const tens=faces.get(key+':tens'),units=faces.get(key+':units');
+    if(tens==null&&units==null)return value;
+    return ((tens??Math.floor(value%100/10)*10)+(units??value%10))||100;
+  });
+  let droppedIndices=[];
+  const d20Choice=!groups&&/^1d20(?:[+-]\d+)?$/i.test(roll.expression.replace(/\s/g,''))&&rolls.length>1;
+  if(d20Choice&&['elven-accuracy','advantage','disadvantage'].includes(roll.mode)){
+    const keep=rolls.indexOf(roll.mode==='disadvantage'?Math.min(...rolls):Math.max(...rolls));
+    droppedIndices=rolls.flatMap((_,i)=>i===keep?[]:[i]);
+  }else if(/dl1/i.test(roll.expression)){
+    droppedIndices=[rolls.indexOf(Math.min(...rolls))];
+  }
+  const kept=rolls.filter((_,i)=>!droppedIndices.includes(i));
+  return {...roll,rolls,...(groups?{groups}:{}),...(droppedIndices.length?{droppedIndices,kept,dropped:droppedIndices.map(i=>rolls[i])}:{}),
+    total:kept.reduce((sum,n)=>sum+n,roll.bonus||0)};
 }

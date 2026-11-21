@@ -1,6 +1,6 @@
 import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
-import {diceStyles,visualDice} from './lib/presentation';
+import {diceStyles,visualDice,landedRoll} from './lib/presentation';
 import {usePresentation,useReducedMotion} from './PresentationSettings';
 
 const emptyDisplay={results:[],total:0,style:diceStyles[0].id};
@@ -13,10 +13,10 @@ export default function DiceAnimation({rolls,trayOpen=false,onSettled}) {
   useEffect(()=>()=>portal.remove(),[portal]);
   useEffect(()=>{
     const node=canvas.current,layer=stage.current;
-    let cancelled=false,renderer,loading,pending=[],results=[],total=0,unavailable=false,settleTimer,fade,exitFrame,generation=0;
+    let cancelled=false,renderer,loading,pending=[],results=[],unrevealed=[],total=0,unavailable=false,settleTimer,fade,exitFrame,generation=0;
     function cancelExit(){clearTimeout(settleTimer);cancelAnimationFrame(exitFrame);fade?.cancel();fade=null;}
     function stop(){
-      generation++;cancelExit();layer.hidden=true;pending=[];results=[];total=0;renderer?.clear();
+      generation++;cancelExit();layer.hidden=true;pending=[];results=[];unrevealed=[];total=0;renderer?.clear();
       setDisplay(emptyDisplay);setPhase('idle');
     }
     function finish(){
@@ -30,13 +30,21 @@ export default function DiceAnimation({rolls,trayOpen=false,onSettled}) {
       }).catch(()=>{});
     }
     function holdThenFinish(){clearTimeout(settleTimer);settleTimer=setTimeout(finish,600);}
-    function renderedPhase(value){
+    function reveal(faces=new Map()){
+      if(!unrevealed.length)return;
+      const landed=new Map(unrevealed.map(roll=>[roll.id,landedRoll(roll,faces)]));
+      unrevealed=[];
+      results=results.map(roll=>landed.get(roll.id)||roll);
+      setDisplay(previous=>({...previous,results}));
+      onSettled(results.at(-1).sequence,landed);
+    }
+    function renderedPhase(value,faces){
       if(cancelled||fade||!results.length)return;
       clearTimeout(settleTimer);setPhase(value);
       // The renderer reports settled only after every active batch has finished.
-      if(value==='settled'){onSettled(results.at(-1).sequence);holdThenFinish();}
+      if(value==='settled'){reveal(faces);holdThenFinish();}
     }
-    function fallback(){unavailable=true;node.dataset.ready='false';node.dataset.engine='results-only';if(results.length&&!fade){setPhase('unavailable');onSettled(results.at(-1).sequence);holdThenFinish();}}
+    function fallback(){unavailable=true;node.dataset.ready='false';node.dataset.engine='results-only';if(results.length&&!fade){setPhase('unavailable');reveal();holdThenFinish();}}
     function flush(createDiceRenderer){
       if(cancelled||!pending.length)return;
       if(!renderer)renderer=createDiceRenderer(node,{onPhase:renderedPhase,onUnavailable:fallback});
@@ -46,6 +54,7 @@ export default function DiceAnimation({rolls,trayOpen=false,onSettled}) {
     session.current={stop,add(fresh,styleId){
       generation++;cancelExit();layer.hidden=false;
       const visual=visualDice(fresh),style=diceStyles.find(s=>s.id===styleId)||diceStyles[0];
+      unrevealed.push(...fresh);
       results=[...results,...fresh].slice(-6);total+=visual.total;
       setDisplay({results,total,style:style.id});setPhase(unavailable?'unavailable':renderer?'rolling':'loading');
       pending.push({dice:visual.dice,style});

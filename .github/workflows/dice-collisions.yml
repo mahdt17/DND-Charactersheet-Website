@@ -8,6 +8,7 @@ on:
       - 'src/DiceTray.jsx'
       - 'src/ModernLedger.jsx'
       - 'tests/browser-dice-reveal.mjs'
+      - 'tests/dice-landings.mjs'
       - 'tests/helpers/dice-collisions.mjs'
       - '.github/workflows/dice-collisions.yml'
 permissions:
@@ -23,7 +24,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: node tests/dice-physics.mjs
+      - run: node tests/dice-physics.mjs && node tests/dice-landings.mjs
       - run: npx playwright install --with-deps chromium
       - name: Verify printed faces after collisions in WebGL
         run: |
