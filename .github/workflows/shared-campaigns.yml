@@ -2,6 +2,10 @@ name: Shared campaign live view
 on:
   pull_request:
     paths:
+      - 'src/LiveCombat.jsx'
+      - 'src/CampaignRewards.jsx'
+      - 'supabase/live_campaign_play.sql'
+      - 'tests/live-campaign-play.sql'
       - 'src/SharedCampaigns.jsx'
       - 'src/SharedCharacterSheet.jsx'
       - 'src/sharedCampaigns.css'
@@ -38,7 +42,7 @@ jobs:
           eval "$(supabase status -o env)"
           export VITE_SUPABASE_URL="$API_URL"
           export VITE_SUPABASE_PUBLISHABLE_KEY="$ANON_KEY"
-          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/schema.sql -f supabase/shared_campaigns.sql -f supabase/institute_access.sql -f supabase/delete_campaign.sql -f tests/shared-campaigns.sql
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/schema.sql -f supabase/shared_campaigns.sql -f supabase/institute_access.sql -f supabase/delete_campaign.sql -f supabase/live_campaign_play.sql -f tests/shared-campaigns.sql -f tests/live-campaign-play.sql
           npm run build
           npx playwright install --with-deps chromium
           npm run preview -- --host 127.0.0.1 --port 4173 --strictPort &

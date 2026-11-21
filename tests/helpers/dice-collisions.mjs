@@ -24,7 +24,7 @@ export async function verifySharedDiceCollisions(browser,url,base='/'){
   assert.equal((await canvas.getAttribute('data-top-values')).split(',').at(-1),'17','The new die lands on its recorded value');
   mkdirSync('test-results',{recursive:true});
   await page.waitForTimeout(550);await canvas.screenshot({path:'test-results/dice-collision-moving.png'});
-  await page.locator('#collision-fixture[data-phase="settled"]').waitFor();await canvas.screenshot({path:'test-results/dice-collision-settled.png'});
+  await page.locator('#collision-fixture[data-phase="settled"]').waitFor();assert.equal(await canvas.getAttribute('data-top-values'),await canvas.getAttribute('data-values'),'Every retained die must land on its recorded result after an impact');await canvas.screenshot({path:'test-results/dice-collision-settled.png'});
   // Per-roll styles stay independent even when the lazy-load queue is coalesced.
   await page.evaluate(()=>{const f=window.collisionFixture;f.renderer.clear();f.renderer.addBatches([{dice:[{id:'style-a',sides:20,value:12}],style:f.styles[0]},{dice:[{id:'style-b',sides:6,value:3}],style:f.styles[1]}]);});
   await page.locator('#collision-fixture[data-phase="settled"]').waitFor();assert.equal(await canvas.getAttribute('data-values'),'12,3');assert.equal(await canvas.getAttribute('data-top-values'),'12,3');await canvas.screenshot({path:'test-results/dice-collision-styles.png'});

@@ -41,8 +41,23 @@ export function campaignService(client,userId) {
       if(!row?.sheet)return null;
       return {updated_at:row.sheet.updated_at,data:sheetWithInstituteAccess(row.sheet)};
     },
+    reward(campaign,member,field,adding,entry) {
+      return result(client.rpc('ledger_change_reward',{p_campaign:campaign,p_owner:member.user_id,p_sheet:member.character_id,p_field:field,p_add:adding,p_entry:entry}));
+    },
+    async rewardUpdate(character) {
+      return result(client.from('characters').select('inventory:data->inventory,feats:data->feats,version:data->campaignRewardVersion')
+        .eq('user_id',userId).eq('id',character.id).neq('data->>campaignRewardVersion',String(character.campaignRewardVersion||0)).maybeSingle());
+    },
+    async membership(characterId) {
+      const row=await result(sheets().select('campaign_id').eq('user_id',userId).eq('character_id',characterId).maybeSingle());
+      return row?.campaign_id||'';
+    },
+    encounter(id) { return result(client.rpc('ledger_combat_state',{p_campaign:id})); },
+    combat(id,encounter,action,payload={}) {
+      return result(client.rpc('ledger_combat_command',{p_campaign:id,p_encounter:encounter,p_action:action,p_payload:payload}));
+    },
     subscribe(id,refresh) {
-      const channel=client.channel('dm-campaign-'+id)
+      const channel=client.channel('dm-campaign-'+id+'-'+crypto.randomUUID())
         .on('postgres_changes',{event:'UPDATE',schema:'public',table:'ledger_campaigns',filter:'id=eq.'+id},refresh)
         .subscribe(state=>{if(state==='SUBSCRIBED')refresh();});
       return ()=>{void client.removeChannel(channel);};
@@ -51,7 +66,7 @@ export function campaignService(client,userId) {
 }
 
 // Coalesce notifications during a fetch. Ignore any result that arrives after leaving the view.
-export function watchRoster(api,id,onRows,onError) {
+export function watchRoster(api,id,onRows,onError,read=api.roster) {
   let stopped=false,running=false,again=false;
   async function refresh() {
     if(stopped)return;
@@ -59,12 +74,12 @@ export function watchRoster(api,id,onRows,onError) {
     running=true;
     do {
       again=false;
-      try{const rows=await api.roster(id);if(!stopped)onRows(rows);}
+      try{const rows=await read(id);if(!stopped)onRows(rows);}
       catch(e){if(!stopped)onError(e.message);}
     }while(again&&!stopped);
     running=false;
   }
-  const unsubscribe=api.subscribe(id,refresh);
+  const unsubscribe=id?api.subscribe(id,refresh):()=>{};
   const focus=()=>{if(!document.hidden)void refresh();};
   const timer=setInterval(focus,10000);
   window.addEventListener('focus',focus);

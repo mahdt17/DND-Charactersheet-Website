@@ -21,7 +21,7 @@ export function upperFace(mesh,rotation) {
   const q=new Quaternion(...rotation),normal=new Vec3();
   // Looking down at the table; use the camera-facing normal to break d4 ties.
   let best=-Infinity,index=0;
-  mesh.faces.forEach((face,i)=>{q.vmult(new Vec3(...face.normal),normal);const score=normal.y+normal.z*.001;if(score>best){best=score;index=i;}});
+  mesh.faces.forEach((face,i)=>{q.vmult(new Vec3(...face.normal),normal);const score=normal.y+normal.z*.2;if(score>best){best=score;index=i;}});
   return index;
 }
 
