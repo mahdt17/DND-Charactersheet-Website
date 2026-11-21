@@ -62,17 +62,17 @@ export function PlayerCombat({combat,onRoll}){
   </section>;
 }
 
-export function DMCombat({api,campaignId}){
+export function DMCombat({api,campaignId,roll}){
   const {encounter,error,refresh}=useEncounter(api,campaignId);
   const [title,setTitle]=useState(''),[name,setName]=useState(''),[kind,setKind]=useState('Enemy'),[score,setScore]=useState('');
-  const [busy,setBusy]=useState(false),[message,setMessage]=useState(''),lock=useRef(false);
+  const [busy,setBusy]=useState(false),[message,setMessage]=useState(''),[modifier,setModifier]=useState('0'),lock=useRef(false);
   async function command(action,payload){
     if(lock.current)return;
     lock.current=true;setBusy(true);setMessage('');
     try{
       await api.combat(campaignId,encounter?.id||null,action,payload);refresh();
       if(action==='start')setTitle('');
-      if(action==='add'){setName('');setScore('');}
+      if(action==='add'){setName('');setScore('');setModifier('0');}
     }catch(e){setMessage(e.message);}finally{lock.current=false;setBusy(false);}
   }
   return <section className="campaign-combat" aria-label="DM live combat"><h3>Live combat</h3>
@@ -87,6 +87,11 @@ export function DMCombat({api,campaignId}){
         <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void command('add',{id:crypto.randomUUID(),name:name.trim(),kind,initiative:Number(score)});}}>
           <label className="l-field"><span>Combatant name</span><input required maxLength={120} value={name} onChange={e=>setName(e.target.value)}/></label>
           <label className="l-field"><span>Side</span><select value={kind} onChange={e=>setKind(e.target.value)}><option>Enemy</option><option>NPC</option></select></label>
+          <label className="l-field"><span>Initiative modifier</span><input type="number" min="-99" max="99" value={modifier} onChange={e=>setModifier(e.target.value)}/></label>
+          <button type="button" className="l-button" disabled={busy||Math.abs(Number(modifier))>99||!Number.isInteger(Number(modifier))} onClick={()=>{
+            const bonus=Number(modifier),result=roll(`1d20${bonus>=0?'+':''}${bonus}`,(name.trim()||kind)+' initiative',{inline:true,mode:'normal'});
+            if(result)setScore(String(result.total));
+          }}>Roll d20</button>
           <label className="l-field"><span>Initiative total</span><input type="number" required min="-999" max="999" value={score} onChange={e=>setScore(e.target.value)}/></label>
           <button disabled={busy} className="l-button">Add combatant</button>
         </form></>}

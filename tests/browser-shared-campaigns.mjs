@@ -102,6 +102,16 @@ try {
   await playerOrder.getByText('Gate guard').waitFor();
   assert.match(await playerOrder.locator('li').first().innerText(),/Gate guard/);
   assert.deepEqual(await playerOrder.locator('li > span').allTextContents(),await dmOrder.locator('li > span').allTextContents());
+  await dm.getByLabel('Combatant name').fill('Goblin');
+  await dm.getByLabel('Side',{exact:true}).selectOption('Enemy');
+  await dm.getByLabel('Initiative modifier').fill('2');
+  await button(dm,'Roll d20').click();
+  const enemyScore=Number(await dm.getByLabel('Initiative total').inputValue());
+  assert(enemyScore>=3&&enemyScore<=22);
+  await button(dm,'Add combatant').click();
+  await playerOrder.getByText('Goblin').waitFor();
+  await button(dm,'Remove Goblin from combat').click();
+  await playerOrder.getByText('Goblin').waitFor({state:'hidden'});
   await button(dm,'End encounter').click();
   await playerOrder.waitFor({state:'hidden'});
   await dm.getByRole('button',{name:/Arden · Level 1 Fighter/}).click();
