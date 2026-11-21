@@ -146,7 +146,14 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
       if(number<=sequence){settlementWaiters.current.delete(number);waiter.resolve(landed?.get(waiter.roll.id)||waiter.roll);}
     }
   },[]);
-  function clearRolls(){revealRolls(rollSequence.current);setRolls([]);}
+  function clearRolls(){
+    // Keep in-flight rolls whose final totals are owed to an encounter.
+    if(settlementWaiters.current.size){
+      setRolls(list=>list.filter(roll=>roll.sequence>revealedThrough));
+      return;
+    }
+    revealRolls(rollSequence.current);setRolls([]);
+  }
   const [characters,setCharacters]=useState([]),[workspace,setWorkspace]=useState(workspaceBlank),[ready,setReady]=useState(false),[error,setError]=useState(''),[saveState,setSaveState]=useState('All changes saved');
   const [page,setPage]=useState('characters'),[selected,setSelected]=useState(null),[wizard,setWizard]=useState(null),[search,setSearch]=useState(''),[menu,setMenu]=useState(false),[navCollapsed,setNavCollapsed]=useState(false),[diceOpen,setDiceOpen]=useState(false),[rolls,setRolls]=useState([]),[mode,setMode]=useState('normal'),[detail,setDetail]=useState(null),[deleteTarget,setDeleteTarget]=useState(null);
   const pending=useRef(new Map()),timers=useRef(new Map()),chains=useRef(new Map()),saveGenerations=useRef(new Map()),fileRef=useRef(null),charactersRef=useRef(characters),[busy,setBusy]=useState(false);

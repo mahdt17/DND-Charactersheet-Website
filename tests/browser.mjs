@@ -110,6 +110,9 @@ try {
   const initiatives=page.getByLabel('Initiative',{exact:true});
   assert.deepEqual(await initiatives.evaluateAll(inputs=>inputs.map(input=>Number(input.value))),[0,0]);
   assert.equal(await page.getByRole('button',{name:'Start combat'}).isDisabled(),true);
+  await page.getByRole('button',{name:'Dice roller',exact:true}).click();
+  await page.getByRole('button',{name:'Clear history',exact:true}).click();
+  await page.getByRole('button',{name:'Close dice roller',exact:true}).click();
   await page.getByLabel('Encounter notes').fill('The bridge is icy.');
   const faces=await page.locator('.dice-canvas[data-phase="settled"]').getAttribute('data-top-values');
   await page.getByRole('button',{name:'Roll initiative',exact:true}).waitFor();
@@ -161,6 +164,7 @@ try {
   await page.getByLabel('Sage language 2',{exact:true}).fill('Giant');
   await continueWizard();
   await continueWizard();
+  await page.getByRole('radio',{name:'Fighter 1 Fighting Style: Defense (PHB)',exact:true}).check();
   await page.getByRole('button',{name:'Create Character',exact:true}).click();
   await page.locator('.sheet-identity').filter({hasText:'Bryn Ironwood'}).waitFor();
   await page.getByRole('tab',{name:'Inventory',exact:true}).click();
