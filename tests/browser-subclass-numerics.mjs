@@ -1,3 +1,4 @@
+import {waitForRollHistory} from './helpers/roll-history.mjs';
 import assert from 'node:assert/strict';
 import {mkdirSync} from 'node:fs';
 import {createServer} from 'vite';
@@ -53,8 +54,12 @@ try{
 
  await songTools().getByRole('button',{name:'Start Bladesong',exact:true}).click();
  assert.equal(await armor().innerText(),'17');assert.match(await speed().innerText(),/^40/);
- await songTools().getByRole('button',{name:'Roll concentration save',exact:true}).click();assert.match(await page.locator('body').innerText(),/1d20\+7/);await closeDice();
- await page.locator('.skill-row').filter({has:page.locator('span').filter({hasText:/^Acrobatics/})}).getByRole('button').last().click();assert.match(await page.locator('body').innerText(),/advantage/i);await closeDice();
+ await songTools().getByRole('button',{name:'Roll concentration save',exact:true}).click();
+ await waitForRollHistory(page);
+ assert.match(await page.locator('.roll-result').first().innerText(),/1d20\+7/);await closeDice();
+ await page.locator('.skill-row').filter({has:page.locator('span').filter({hasText:/^Acrobatics/})}).getByRole('button').last().click();
+ await waitForRollHistory(page);
+ assert.match(await page.locator('.roll-result').first().innerText(),/advantage/i);await closeDice();
  await page.getByRole('tab',{name:'Spells',exact:true}).click();
  for(const name of ['Mage Armor','Shield']){const row=page.locator('.spell-item').filter({hasText:name});if(await row.getByRole('button',{name:'Prepare',exact:true}).count())await row.getByRole('button',{name:'Prepare',exact:true}).click();await row.getByRole('button',{name:'Cast',exact:true}).click();if(name==='Mage Armor')await page.getByLabel('Spell recipient',{exact:true}).selectOption('self');await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();}
  assert.equal(await armor().innerText(),'25');let c=await saved('Numerical Bladesinger');assert.equal(c.slotsUsed[1],2);assert.equal(c.resources.filter(r=>r.id==='2014:Wizard:bladesong').length,1);assert.equal(c.resources.find(r=>r.id==='2014:Wizard:bladesong').used,1);
