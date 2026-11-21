@@ -106,6 +106,7 @@ try {
   await dm.getByRole('combobox',{name:'Combatant type',exact:true}).selectOption('Enemy');
   await dm.getByLabel('Initiative modifier').fill('2');
   await button(dm,'Roll d20').click();
+  await dm.waitForFunction(()=>[...document.querySelectorAll('.campaign-combat label')].find(label=>label.textContent.includes('Initiative total'))?.querySelector('input')?.value);
   const enemyScore=Number(await dm.getByLabel('Initiative total').inputValue());
   assert(enemyScore>=3&&enemyScore<=22);
   await button(dm,'Add combatant').click();

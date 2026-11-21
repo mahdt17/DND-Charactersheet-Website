@@ -137,6 +137,16 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
   const {preferences}=usePresentation();
   const sharing=React.useMemo(()=>userId&&supabase?campaignService(supabase,userId):null,[userId]);
   const [shareCharacter,setShareCharacter]=useState('');
+  const rollSequence=useRef(0),settlementWaiters=useRef(new Map());
+  const [revealedThrough,setRevealedThrough]=useState(0);
+  const revealRolls=React.useCallback((sequence,landed)=>{
+    if(landed)setRolls(list=>list.map(roll=>landed.get(roll.id)||roll));
+    setRevealedThrough(previous=>Math.max(previous,sequence));
+    for(const [number,waiter] of settlementWaiters.current){
+      if(number<=sequence){settlementWaiters.current.delete(number);waiter.resolve(landed?.get(waiter.roll.id)||waiter.roll);}
+    }
+  },[]);
+  function clearRolls(){revealRolls(rollSequence.current);setRolls([]);}
   const [characters,setCharacters]=useState([]),[workspace,setWorkspace]=useState(workspaceBlank),[ready,setReady]=useState(false),[error,setError]=useState(''),[saveState,setSaveState]=useState('All changes saved');
   const [page,setPage]=useState('characters'),[selected,setSelected]=useState(null),[wizard,setWizard]=useState(null),[search,setSearch]=useState(''),[menu,setMenu]=useState(false),[navCollapsed,setNavCollapsed]=useState(false),[diceOpen,setDiceOpen]=useState(false),[rolls,setRolls]=useState([]),[mode,setMode]=useState('normal'),[detail,setDetail]=useState(null),[deleteTarget,setDeleteTarget]=useState(null);
   const pending=useRef(new Map()),timers=useRef(new Map()),chains=useRef(new Map()),saveGenerations=useRef(new Map()),fileRef=useRef(null),charactersRef=useRef(characters),[busy,setBusy]=useState(false);
@@ -208,7 +218,12 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
   async function flush(){const entries=[...pending.current.values()];entries.forEach(r=>clearTimeout(timers.current.get(r.id)));const results=await Promise.all(entries.map(r=>save(r,saveGenerations.current.get(r.id)||0)));return results.every(Boolean);}
   async function finish(next){if(busy)return;next=normalize(next);setBusy(true);try{if(!(await flush()))return;await put(next);const current=charactersRef.current||[],list=current.some(c=>c.id===next.id)?current.map(c=>c.id===next.id?next:c):[...current,next];charactersRef.current=list;setCharacters(list);setSelected(next.id);setPage('characters');setWizard(null);}catch(e){setError(`Could not save your character. ${e.message}`);}finally{setBusy(false);}}
   async function remove(){setBusy(true);try{const key=deleteTarget.id;saveGenerations.current.set(key,(saveGenerations.current.get(key)||0)+1);clearTimeout(timers.current.get(key));await (chains.current.get(key)||Promise.resolve()).catch(()=>{});await window.storage.delete(`char-detail:${key}`);pending.current.delete(key);const list=(charactersRef.current||[]).filter(c=>c.id!==key);charactersRef.current=list;setCharacters(list);if(selected===key)setSelected(null);setDeleteTarget(null);}catch(e){setError(e.message);}finally{setBusy(false);}}
-  function roll(expression,label,options={}){try{const result=rollDice(expression,attackRollMode(options,mode));const bonusRolls=(options.bonusDice||[]).map(e=>rollDice(e,'normal')),extra=bonusRolls.reduce((n,r)=>n+r.total,0);const penalty=options.penalty||0;const floorBonus=options.minimumD20?Math.max(0,options.minimumD20-(result.total-result.bonus)):0;const r={...result,total:result.total+penalty+floorBonus+extra,bonus:result.bonus+penalty+floorBonus+extra,bonusRolls,label:(label||expression)+(bonusRolls.length?` (Bonus dice ${bonusRolls.map(r=>`${r.expression}: ${r.total}`).join(', ')})`:'')+(floorBonus?` (d20 minimum ${options.minimumD20})`:'')+(penalty?` (${signed(penalty)} exhaustion)`:'')};setRolls(list=>[r,...list].slice(0,50));if(!options.inline)setDiceOpen(true);return r;}catch(e){setError(e.message);return null;}}
+  function roll(expression,label,options={}){try{const result=rollDice(expression,attackRollMode(options,mode));const bonusRolls=(options.bonusDice||[]).map(e=>rollDice(e,'normal')),extra=bonusRolls.reduce((n,r)=>n+r.total,0);const penalty=options.penalty||0;const floorBonus=options.minimumD20?Math.max(0,options.minimumD20-(result.total-result.bonus)):0;const r={...result,total:result.total+penalty+floorBonus+extra,bonus:result.bonus+penalty+floorBonus+extra,bonusRolls,label:(label||expression)+(bonusRolls.length?` (Bonus dice ${bonusRolls.map(r=>`${r.expression}: ${r.total}`).join(', ')})`:'')+(floorBonus?` (d20 minimum ${options.minimumD20})`:'')+(penalty?` (${signed(penalty)} exhaustion)`:'')};const sequence=++rollSequence.current;
+    const queued={...r,sequence,readLanding:!!options.readLanding&&!bonusRolls.length&&!floorBonus&&!options.minimumD20};
+    setRolls(list=>[queued,...list].slice(0,50));
+    if(!options.inline)setDiceOpen(true);
+    if(options.waitForDice)return {...r,settled:new Promise(resolve=>settlementWaiters.current.set(sequence,{roll:queued,resolve}))};
+    return r;}catch(e){setError(e.message);return null;}}
   async function importCharacter(event){const file=event.target.files?.[0];event.target.value='';if(!file)return;try{if(file.size>2e6)throw new Error('Use a character JSON file under 2 MB.');const parsed=JSON.parse(await file.text());if(!parsed || typeof parsed.name!=='string'||!parsed.abilities||!Object.keys(parsed.abilities).every(k=>['str','dex','con','int','wis','cha'].includes(k))||!ABILITIES.every(a=>Number.isFinite(parsed.abilities[a.key]))||!Number.isInteger(parsed.level)||parsed.level<1||parsed.level>20||!parsed.hp||!Number.isFinite(parsed.hp.max)||!Number.isFinite(parsed.hp.current)||['inventory','spells','actions'].some(k=>parsed[k]!=null&&!Array.isArray(parsed[k])))throw new Error('This file is not a valid Adventurer’s Ledger character.');await finish(normalize({...parsed,id:id(),instituteAccess:undefined,campaignRewardVersion:undefined,kind:undefined}));}catch(e){setError(e.message);}}
   const char=characters.find(c=>c.id===selected);
   const navigate=p=>{setShareCharacter('');setPage(p);setMenu(false);setSearch('');};
@@ -229,8 +244,8 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
     <input ref={fileRef} type="file" accept=".json,application/json" hidden onChange={importCharacter}/>
     {wizard&&<div className="wizard-layer">{error&&<div className="wizard-error" role="alert">{error}</div>}{busy&&<div className="wizard-saving" role="status">Saving character…</div>}{wizard==='create'?<GuidedSetup onRoll={roll} homebrew={workspace.homebrew||[]} onCancel={()=>setWizard(null)} onFinish={finish}/>:<LevelUp onRoll={roll} homebrew={workspace.homebrew||[]} char={char} onCancel={()=>setWizard(null)} onFinish={finish}/>}</div>}
     {!diceOpen&&<button type="button" className="floating-dice" aria-label="Open dice roller" onClick={()=>setDiceOpen(true)}><Dices size={20}/><span>Roll dice</span></button>}
-    <DiceAnimation rolls={rolls} trayOpen={diceOpen}/>
-    {diceOpen&&<DiceTray rolls={rolls} mode={mode} setMode={setMode} roll={roll} clear={()=>setRolls([])} close={()=>setDiceOpen(false)}/>}
+    <DiceAnimation rolls={rolls} trayOpen={diceOpen} onSettled={revealRolls}/>
+    {diceOpen&&<DiceTray rolls={rolls} revealedThrough={revealedThrough} mode={mode} setMode={setMode} roll={roll} clear={clearRolls} close={()=>setDiceOpen(false)}/>}
     {detail&&<Modal title={detail.name||detail.title} onClose={()=>setDetail(null)}><Detail item={detail}/></Modal>}
     {deleteTarget&&<Modal title={`Delete ${deleteTarget.name}?`} onClose={()=>setDeleteTarget(null)}><p>This removes the character and its saved sheet. Export a backup first if you want to keep a copy.</p><div className="l-toolbar"><Button onClick={()=>download(`${deleteTarget.name}.json`,deleteTarget)} icon={Download}>Export backup</Button><Button disabled={busy} onClick={()=>setDeleteTarget(null)}>Cancel</Button><Button danger disabled={busy} onClick={remove}>{busy?'Deleting…':'Delete character'}</Button></div></Modal>}
   </div>;
@@ -277,7 +292,7 @@ function CharacterSheet({sharing,readOnly=false,manageSharing,char,patchCharacte
   const displayedArmor=ownForm?ownFormArmor(char):sheetArmorFor(char,abilities),subclassNumbers=subclassNumericProfile(char,abilities);
   const combat=usePlayerCombat(sharing,char.id);
   const initiativeBonus=modifier(abilities.dex)+(ownForm?.polymorph?0:(char.initiativeBonus||0)+campaignModifiers(char).initiative+subclassNumbers.initiativeBonus);
-  const rollInitiative=()=>combat.initiative(()=>roll(`1d20${signed(initiativeBonus)}`,'Initiative',{inline:!!combat.encounter}));
+  const rollInitiative=()=>combat.initiative(()=>roll(`1d20${signed(initiativeBonus)}`,'Initiative',{inline:!!combat.encounter,waitForDice:!!combat.encounter,readLanding:true}));
   const activeConditions=Array.isArray(char.conditions)?char.conditions:char.conditions?char.conditions.split(',').map(x=>x.trim()).filter(Boolean):[];
   const patch=values=>readOnly?char:patchCharacter(char.id,current=>{const prepared=preservePsicrystalDestruction(current),resolved=typeof values==='function'?values(prepared):values;let next=reconcileMindlessRageConditions(prepared,observeEntomancerHP(prepared,{...prepared,...resolved}));if(campaignActionBlockReason(next))next={...next,concentration:null};if(entomancerProfile(next).form&&next.hp.current===0)next={...next,entomancer:{...next.entomancer,dead:true}};if(Object.hasOwn(resolved,'subclass'))next.classLevels=characterClasses(next).map((row,i)=>i===0?{...row,subclass:resolved.subclass}:row);next=reconcileBladesinging(reconcileSubclassStates({...next,...reconcileEffects(next,prepared)}));if(next.autoArmor&&!is35(next))next.ac=armorFor(next,effectiveAbilities(next));next.hp={...next.hp,current:Math.min(next.hp.current,conditionEffects(next).maxHP)};return expireInactiveCastConditions(next);});
   const ownerActions=useOwnerCombatActions({char,patch,roll,abilities});
