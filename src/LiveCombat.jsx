@@ -86,7 +86,7 @@ export function DMCombat({api,campaignId,roll}){
         <InitiativeOrder encounter={encounter} onRemove={id=>command('remove',{id})}/>
         <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void command('add',{id:crypto.randomUUID(),name:name.trim(),kind,initiative:Number(score)});}}>
           <label className="l-field"><span>Combatant name</span><input required maxLength={120} value={name} onChange={e=>setName(e.target.value)}/></label>
-          <label className="l-field"><span>Side</span><select value={kind} onChange={e=>setKind(e.target.value)}><option>Enemy</option><option>NPC</option></select></label>
+          <label className="l-field"><span>Combatant type</span><select aria-label="Combatant type" value={kind} onChange={e=>setKind(e.target.value)}><option>Enemy</option><option>NPC</option></select></label>
           <label className="l-field"><span>Initiative modifier</span><input type="number" min="-99" max="99" value={modifier} onChange={e=>setModifier(e.target.value)}/></label>
           <button type="button" className="l-button" disabled={busy||Math.abs(Number(modifier))>99||!Number.isInteger(Number(modifier))} onClick={()=>{
             const bonus=Number(modifier),result=roll(`1d20${bonus>=0?'+':''}${bonus}`,(name.trim()||kind)+' initiative',{inline:true,mode:'normal'});

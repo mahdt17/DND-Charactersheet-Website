@@ -95,7 +95,7 @@ try {
   const dmOrder=dm.getByRole('list',{name:'Initiative order'});
   await dmOrder.locator('li').filter({hasText:'Arden'}).getByText(/^-?\d+$/).waitFor();
   await dm.getByLabel('Combatant name').fill('Gate guard');
-  await dm.getByLabel('Side',{exact:true}).selectOption('NPC');
+  await dm.getByRole('combobox',{name:'Combatant type',exact:true}).selectOption('NPC');
   await dm.getByLabel('Initiative total').fill('50');
   await button(dm,'Add combatant').click();
   const playerOrder=player.getByRole('list',{name:'Initiative order'});
@@ -103,7 +103,7 @@ try {
   assert.match(await playerOrder.locator('li').first().innerText(),/Gate guard/);
   assert.deepEqual(await playerOrder.locator('li > span').allTextContents(),await dmOrder.locator('li > span').allTextContents());
   await dm.getByLabel('Combatant name').fill('Goblin');
-  await dm.getByLabel('Side',{exact:true}).selectOption('Enemy');
+  await dm.getByRole('combobox',{name:'Combatant type',exact:true}).selectOption('Enemy');
   await dm.getByLabel('Initiative modifier').fill('2');
   await button(dm,'Roll d20').click();
   const enemyScore=Number(await dm.getByLabel('Initiative total').inputValue());
