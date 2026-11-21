@@ -48,8 +48,8 @@ export function campaignService(client,userId) {
       return result(client.rpc('ledger_edit_shared_sheet',{p_campaign:campaign,p_owner:member.user_id,p_sheet:member.character_id,p_edit:edit,p_value:value}));
     },
     async rewardUpdate(character) {
-      return result(client.from('characters').select('notes:data->notes,inventory:data->inventory,feats:data->feats,suppressed:data->campaignRemovedFeatIds,version:data->campaignRewardVersion')
-        .eq('user_id',userId).eq('id',character.id).neq('data->>campaignRewardVersion',String(character.campaignRewardVersion||0)).maybeSingle());
+      return result(client.from('characters').select('data,institute_access')
+        .eq('user_id',userId).eq('id',character.id).or('data->>campaignRewardVersion.neq.'+(Number(character.campaignRewardVersion)||0)+',live_timer_version.gt.'+(Number(character.combatClockVersion)||0)).maybeSingle());
     },
     async membership(characterId) {
       const row=await result(sheets().select('campaign_id').eq('user_id',userId).eq('character_id',characterId).maybeSingle());
@@ -57,6 +57,7 @@ export function campaignService(client,userId) {
     },
     endedEncounters(id) { return result(client.rpc('ledger_ended_encounters',{p_campaign:id})); },
     downloadEncounter(id,encounter) { return result(client.rpc('ledger_download_encounter',{p_campaign:id,p_encounter:encounter})); },
+    advanceTurn(campaign,encounter,serial) { return result(client.rpc('ledger_advance_turn',{p_campaign:campaign,p_encounter:encounter,p_serial:serial})); },
     encounter(id) { return result(client.rpc('ledger_combat_state',{p_campaign:id})); },
     combat(id,encounter,action,payload={}) {
       return result(client.rpc('ledger_combat_command',{p_campaign:id,p_encounter:encounter,p_action:action,p_payload:payload}));
@@ -87,9 +88,10 @@ export function watchRoster(api,id,onRows,onError,read=api.roster) {
   const unsubscribe=id?api.subscribe(id,refresh):()=>{};
   const focus=()=>{if(!document.hidden)void refresh();};
   const timer=setInterval(focus,10000);
+  if(!id)window.addEventListener('ledger-turn-advanced',focus);
   window.addEventListener('focus',focus);
   document.addEventListener('visibilitychange',focus);
   void refresh();
-  return ()=>{stopped=true;clearInterval(timer);window.removeEventListener('focus',focus);document.removeEventListener('visibilitychange',focus);unsubscribe();};
+  return ()=>{stopped=true;clearInterval(timer);window.removeEventListener('ledger-turn-advanced',focus);window.removeEventListener('focus',focus);document.removeEventListener('visibilitychange',focus);unsubscribe();};
 }
 

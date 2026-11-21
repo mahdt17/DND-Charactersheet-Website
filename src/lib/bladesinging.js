@@ -43,7 +43,7 @@ export function startBladesong(c){
  if(!p.active)throw Error('Bladesinging requires Wizard level 2.');
  if(p.blocked)throw Error(p.blocked);
  if(!p.remaining)throw Error('No Bladesong uses remaining.');
- return {resources:[...(c.resources||[]).filter(r=>!matchesResource(r)),{...bladesongResources(c)[0],used:p.used+1}],activeEffects:[...(c.activeEffects||[]).filter(e=>e.id!==bladesongEffectId),{id:bladesongEffectId,key:bladesongEffectId,name:'Bladesong',remainingSeconds:60,sourceClassId:p.row.catalogId,sourceFeature:'Bladesong'}]};
+ return {resources:[...(c.resources||[]).filter(r=>!matchesResource(r)),{...bladesongResources(c)[0],used:p.used+1}],activeEffects:[...(c.activeEffects||[]).filter(e=>e.id!==bladesongEffectId),{id:bladesongEffectId,timerInstance:crypto.randomUUID(),key:bladesongEffectId,name:'Bladesong',remainingSeconds:60,sourceClassId:p.row.catalogId,sourceFeature:'Bladesong'}]};
 }
 export const endBladesong=c=>({activeEffects:(c.activeEffects||[]).filter(e=>e.id!==bladesongEffectId)});
 export function afterBladesingerAttack(c,{hands=1,weapon=true}={}){return weapon&&hands>=2?endBladesong(c):{};}

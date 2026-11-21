@@ -43,11 +43,13 @@ export function usePlayerCombat(api,characterId){
     }catch(e){setNotice({id:encounter.id,error:e.message});refresh();}
     finally{inFlight.current=false;setBusy(false);}
   }
+  const turnSerial=encounter?.turn?.serial;
+  useEffect(()=>{if(turnSerial!=null)window.dispatchEvent(new Event('ledger-turn-advanced'));},[turnSerial,encounter?.id]);
   return {encounter,submitted,busy,initiative,error:error||membershipError||(encounter&&notice?.id===encounter.id&&notice.error)};
 }
 
 function InitiativeOrder({encounter,onRemove,onVisibility,busy}){
-  const ordered=[...encounter.entries].sort((a,b)=>(b.initiative??-Infinity)-(a.initiative??-Infinity)||a.name.localeCompare(b.name)||a.id.localeCompare(b.id));
+  const ordered=[...encounter.entries].sort((a,b)=>(b.initiative??-Infinity)-(a.initiative??-Infinity)||(a.id<b.id?-1:a.id>b.id?1:0));
   return ordered.length?<ol className="combat-list" aria-label="Initiative order">
     {ordered.map(entry=><li key={entry.id}><div><strong>{entry.name}</strong> <small>{entry.kind}{onVisibility&&!entry.visible?' · Hidden':''}</small></div>
       <span>{entry.initiative??'Awaiting roll'}</span>
@@ -63,6 +65,7 @@ export function PlayerCombat({combat,onRoll}){
     <button className="l-button primary" disabled={combat.busy||combat.submitted} onClick={onRoll}>
       {combat.submitted?'Initiative submitted':'Roll encounter initiative'}</button>
     {combat.error&&<p role="alert">{combat.error}</p>}
+    {combat.encounter.turn&&<p role="status">Round {combat.encounter.turn.round} · {combat.encounter.turn.name||'DM turn'}</p>}
     <InitiativeOrder encounter={combat.encounter}/>
   </section>;
 }
@@ -75,7 +78,9 @@ export function DMCombat({api,campaignId,roll,characters,sheetInitiative}){
     if(lock.current)return;
     lock.current=true;setBusy(true);setMessage('');
     try{
-      await api.combat(campaignId,encounter?.id||null,action,payload);refresh();
+      if(action==='advance')await api.advanceTurn(campaignId,encounter.id,encounter.turn?.serial||0);
+      else await api.combat(campaignId,encounter?.id||null,action,payload);
+      refresh();
       if(action==='start')setTitle('');
       if(action==='add'){setName('');setScore('');setModifier('0');}
     }catch(e){setMessage(e.message);}finally{lock.current=false;setBusy(false);}
@@ -88,6 +93,9 @@ export function DMCombat({api,campaignId,roll,characters,sheetInitiative}){
         <button className="l-button primary" disabled={busy||!title.trim()}>Start live encounter</button>
       </form>:<>
         <div className="l-section-head"><h4>{encounter.name}</h4><button className="l-button" disabled={busy} onClick={()=>command('end',{})}>End encounter</button></div>
+        <div className="l-toolbar">{encounter.turn&&<strong role="status">Round {encounter.turn.round} · {encounter.turn.name||'Combatant removed'}</strong>}
+          <button type="button" className="l-button primary" disabled={busy||!encounter.entries.some(e=>e.initiative!=null)} onClick={()=>command('advance',{})}>{encounter.turn?'Next turn':'Begin turns'}</button>
+        </div>
         <InitiativeOrder encounter={encounter} busy={busy} onVisibility={entry=>command('visibility',{id:entry.id,visible:!entry.visible})} onRemove={id=>command('remove',{id})}/>
         <EncounterPicker key={encounter.id} characters={characters} sheetInitiative={sheetInitiative} encounter={encounter} userId={api.userId}
           roll={roll} disabled={busy} submit={async entries=>{await api.combat(campaignId,encounter.id,'add_group',{entries});refresh();}}/>

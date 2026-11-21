@@ -17,7 +17,10 @@ import {ownFormProfile,ownFormWalkingSpeed,ownFormArmor,damageOwnForm,ownFormDam
 import {rageProfile,mindlessRageActive,reconcileMindlessRageConditions} from './lib/rage2014';
 import {activeFormProfile} from './lib/subclassActive';
 import {subclassNumericProfile,subclassRollTraits} from './lib/subclassNumerics';
-import {actorActionBlock,reconcileSubclassStates} from './lib/subclassState';
+import {bladesongProfile} from './lib/bladesinging';
+import {durationLabel} from './lib/combatDuration';
+import {activeEffects as sheetEffects} from './lib/spellEffects';
+import {actorBodyHP,consciousAtZero,actorDeathBlock,actorActionBlock,reconcileSubclassStates} from './lib/subclassState';
 import {afterBladesingerAttack,reconcileBladesinging} from './lib/bladesinging';
 import SubclassPicker from './SubclassPicker';
 import ExpandedSubclassTools from './ExpandedSubclassTools';
@@ -185,7 +188,7 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
       if(!result||pending.current.has(selected))return;
       const {current,change}=result;
       if(charactersRef.current.find(c=>c.id===selected)!==current)return;
-      const next=normalize({...current,notes:change.notes??'',inventory:change.inventory??[],feats:change.feats??[],campaignRemovedFeatIds:change.suppressed??[],campaignRewardVersion:change.version});
+      const next=normalize({...current,...change.data,instituteAccess:current.instituteAccess});
       const list=charactersRef.current.map(c=>c.id===selected?next:c);
       charactersRef.current=list;setCharacters(list);
     },()=>{},read);
@@ -231,7 +234,7 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
     if(!options.inline)setDiceOpen(true);
     if(options.waitForDice)return {...r,settled:new Promise(resolve=>settlementWaiters.current.set(sequence,{roll:queued,resolve}))};
     return r;}catch(e){setError(e.message);return null;}}
-  async function importCharacter(event){const file=event.target.files?.[0];event.target.value='';if(!file)return;try{if(file.size>2e6)throw new Error('Use a character JSON file under 2 MB.');const parsed=JSON.parse(await file.text());if(!parsed || typeof parsed.name!=='string'||!parsed.abilities||!Object.keys(parsed.abilities).every(k=>['str','dex','con','int','wis','cha'].includes(k))||!ABILITIES.every(a=>Number.isFinite(parsed.abilities[a.key]))||!Number.isInteger(parsed.level)||parsed.level<1||parsed.level>20||!parsed.hp||!Number.isFinite(parsed.hp.max)||!Number.isFinite(parsed.hp.current)||['inventory','spells','actions'].some(k=>parsed[k]!=null&&!Array.isArray(parsed[k])))throw new Error('This file is not a valid Adventurer’s Ledger character.');await finish(normalize({...parsed,id:id(),instituteAccess:undefined,campaignRewardVersion:undefined,kind:undefined}));}catch(e){setError(e.message);}}
+  async function importCharacter(event){const file=event.target.files?.[0];event.target.value='';if(!file)return;try{if(file.size>2e6)throw new Error('Use a character JSON file under 2 MB.');const parsed=JSON.parse(await file.text());if(!parsed || typeof parsed.name!=='string'||!parsed.abilities||!Object.keys(parsed.abilities).every(k=>['str','dex','con','int','wis','cha'].includes(k))||!ABILITIES.every(a=>Number.isFinite(parsed.abilities[a.key]))||!Number.isInteger(parsed.level)||parsed.level<1||parsed.level>20||!parsed.hp||!Number.isFinite(parsed.hp.max)||!Number.isFinite(parsed.hp.current)||['inventory','spells','actions'].some(k=>parsed[k]!=null&&!Array.isArray(parsed[k])))throw new Error('This file is not a valid Adventurer’s Ledger character.');await finish(normalize({...parsed,id:id(),instituteAccess:undefined,campaignRewardVersion:undefined,combatClockVersion:undefined,kind:undefined}));}catch(e){setError(e.message);}}
   const char=characters.find(c=>c.id===selected);
   const navigate=p=>{setShareCharacter('');setPage(p);setMenu(false);setSearch('');};
   return <div className={`ledger-app ${navCollapsed?'nav-collapsed':''}`} data-page={page} data-sheet={char?'open':'closed'} data-backgrounds={preferences.backgrounds?'on':'off'}>
@@ -273,6 +276,7 @@ function CharacterSheet({sharing,readOnly=false,saveJournal,manageSharing,char,p
   };
 
   const [tab,setTab]=useState(()=>entomancerLevel(char)>0?'swarm':campaignProfile(char).active?'class-tools':'actions'),[amount,setAmount]=useState(1),[edit,setEdit]=useState(false),[rest,setRest]=useState(false);
+  const [savingConcentration,setSavingConcentration]=useState(false);
   const [hpNotice,setHPNotice]=useState(''),[hpError,setHPError]=useState('');
   const [abilityEdit,setAbilityEdit]=useState(null);
   const [weaponDamageSource,setWeaponDamageSource]=useState(false);
@@ -305,19 +309,44 @@ function CharacterSheet({sharing,readOnly=false,saveJournal,manageSharing,char,p
   const initiativeBonus=sheetInitiative(char,ownForm,abilities,subclassNumbers);
   const rollInitiative=()=>combat.initiative(()=>roll(`1d20${signed(initiativeBonus)}`,'Initiative',{inline:!!combat.encounter,waitForDice:!!combat.encounter,readLanding:true}));
   const activeConditions=Array.isArray(char.conditions)?char.conditions:char.conditions?char.conditions.split(',').map(x=>x.trim()).filter(Boolean):[];
-  const patch=values=>readOnly?char:patchCharacter(char.id,current=>{const prepared=preservePsicrystalDestruction(current),resolved=typeof values==='function'?values(prepared):values;let next=reconcileMindlessRageConditions(prepared,observeEntomancerHP(prepared,{...prepared,...resolved}));if(campaignActionBlockReason(next))next={...next,concentration:null};if(entomancerProfile(next).form&&next.hp.current===0)next={...next,entomancer:{...next.entomancer,dead:true}};if(Object.hasOwn(resolved,'subclass'))next.classLevels=characterClasses(next).map((row,i)=>i===0?{...row,subclass:resolved.subclass}:row);next=reconcileBladesinging(reconcileSubclassStates({...next,...reconcileEffects(next,prepared)}));if(next.autoArmor&&!is35(next))next.ac=armorFor(next,effectiveAbilities(next));next.hp={...next.hp,current:Math.min(next.hp.current,conditionEffects(next).maxHP)};return expireInactiveCastConditions(next);});
+  const patch=values=>readOnly?char:patchCharacter(char.id,current=>{const prepared=preservePsicrystalDestruction(current),resolved=typeof values==='function'?values(prepared):values;let next=reconcileMindlessRageConditions(prepared,observeEntomancerHP(prepared,{...prepared,...resolved}));if(campaignActionBlockReason(next)||!is35(next)&&next.concentration&&(actorDeathBlock(next)||actorBodyHP(next)<=0&&!consciousAtZero(next)||(Array.isArray(next.conditions)?next.conditions:String(next.conditions||'').split(',')).some(v=>['unconscious','incapacitated','stunned','petrified','paralyzed','dead'].includes(String(v?.name||v).trim().toLowerCase()))))next={...next,concentration:null};if(entomancerProfile(next).form&&next.hp.current===0)next={...next,entomancer:{...next.entomancer,dead:true}};if(Object.hasOwn(resolved,'subclass'))next.classLevels=characterClasses(next).map((row,i)=>i===0?{...row,subclass:resolved.subclass}:row);if(Array.isArray(next.activeEffects))next.activeEffects=next.activeEffects.map(e=>{
+      if(e.timerInstance||e.remainingSeconds==null&&!e.expires)return e;
+      const previous=prepared.activeEffects?.find(old=>old.id===e.id);
+      return previous&&previous===e?e:{...e,timerInstance:previous?.timerInstance||crypto.randomUUID()};
+    });next=reconcileBladesinging(reconcileSubclassStates({...next,...reconcileEffects(next,prepared)}));if(next.autoArmor&&!is35(next))next.ac=armorFor(next,effectiveAbilities(next));next.hp={...next.hp,current:Math.min(next.hp.current,conditionEffects(next).maxHP)};if(next.concentrationChecks?.length&&(!next.concentration||next.concentration!==prepared.concentration||next.archivistCampaign?.concentrationCastId!==prepared.archivistCampaign?.concentrationCastId))next.concentrationChecks=[];return expireInactiveCastConditions(next);});
   const ownerActions=useOwnerCombatActions({char,patch,roll,abilities});
+  async function concentrationSave(check){
+    if(savingConcentration)return;
+    setSavingConcentration(true);
+    try{
+      const bonus=ownerActions.echoOwnerSaveBonus('con')+bladesongProfile(char).concentrationBonus;
+      const dice=roll('1d20'+signed(bonus),'Concentration save · '+check.spell,{kind:'save',inline:true,waitForDice:true,readLanding:true});
+      if(!dice)return;
+      const result=await dice.settled||dice;
+      patch(current=>{
+        if(current.concentration!==check.spell||!current.concentrationChecks?.some(c=>c.id===check.id))return {};
+        return result.total<check.dc?{concentration:null,concentrationChecks:[]}:{concentrationChecks:current.concentrationChecks.filter(c=>c.id!==check.id)};
+      });
+    }finally{setSavingConcentration(false);}
+  }
   function adjustHitPoints(healing=false){
     try{
       const next=patch(current=>{
+        function withDamage(damage,changes){
+          if(!is35(current)&&damage>0&&current.concentration){
+            const dc=Math.max(10,Math.floor(damage/2));
+            return {...changes,concentrationChecks:[...(current.concentrationChecks||[]),{id:crypto.randomUUID(),spell:current.concentration,dc:mechanics(current)==='2024'?Math.min(30,dc):dc}]};
+          }
+          return changes;
+        }
         if(pendingWildSheep(current)&&!ownFormProfile(current)?.polymorph)throw Error('Choose the DM-confirmed sheep profile before applying damage or healing.');
-        if(!healing&&dampenElements&&!dampenElementsAvailable(current,damageType))throw Error('Dampen Elements is unavailable for this damage or reaction.');const pending=!healing&&pendingDrakeResistance(current,'self');if(pending&&amount<=0)throw Error('Enter the triggering damage amount.');const consume=patch=>pending?{...patch,activeEffects:(patch.activeEffects||current.activeEffects||[]).filter(e=>e.id!==pending.id)}:patch;const form=ownFormProfile(current);if(form){if(healing)return healOwnForm(current,amount);return consume(damageOwnForm(current,ownFormDamageAmount(current,amount,{type:damageType,magical:magicalDamage,weapon:weaponDamageSource,attack:attackDamageSource,spellDamage,vulnerable:vulnerableDamage,extraResistance:!!pending||dampenElements}),{type:damageType,attack:attackDamageSource,magical:magicalDamage,spellDamage}));}
+        if(!healing&&dampenElements&&!dampenElementsAvailable(current,damageType))throw Error('Dampen Elements is unavailable for this damage or reaction.');const pending=!healing&&pendingDrakeResistance(current,'self');if(pending&&amount<=0)throw Error('Enter the triggering damage amount.');const consume=patch=>pending?{...patch,activeEffects:(patch.activeEffects||current.activeEffects||[]).filter(e=>e.id!==pending.id)}:patch;const form=ownFormProfile(current);if(form){if(healing)return healOwnForm(current,amount);const damage=ownFormDamageAmount(current,amount,{type:damageType,magical:magicalDamage,weapon:weaponDamageSource,attack:attackDamageSource,spellDamage,vulnerable:vulnerableDamage,extraResistance:!!pending||dampenElements});return withDamage(damage,consume(damageOwnForm(current,damage,{type:damageType,attack:attackDamageSource,magical:magicalDamage,spellDamage})));}
         if(healing&&entomancerLevel(current)&&current.entomancer?.dead)throw Error('Record a revival before healing this character.');
         if(!healing){
           const vulnerable=vulnerableDamage||warEchoesVulnerable(current,damageType),resisted=!!pending||dampenElements||spellDamage&&spellResistanceAvailable(current)||racialDamageResistance(current,damageType)||drakeOwnerResistance(current)===damageType||historyWhimResists(current,damageType)||totemDamageResistance(current,damageType)||rageProfile(current).active&&!rageProfile(current).heavy&&['bludgeoning','piercing','slashing'].includes(damageType)||activeFormProfile(current).resistances.includes(damageType);
           const applied=entomancerLevel(current)?entomancerDamageAmount(current,amount,{type:damageType,magical:magicalDamage,vulnerable,extraResistance:resisted}).amount:typedOwnDamageAmount(current,amount,{type:damageType,resistant:resisted,vulnerable,magical:magicalDamage,weapon:weaponDamageSource,attack:attackDamageSource,spellDamage});
           const damage=entomancerLevel(current)?entomancerDamage(current,amount,{type:damageType,magical:magicalDamage,vulnerable,deadMan:preventDeath,extraResistance:resisted}):{hp:changeHP(current.hp,applied)};
-          return consume({...current,...damage,...(applied-Number(current.hp.temp||0)-current.hp.current>=current.hp.max?{killedOutright:true}: {})});
+          return withDamage(applied,consume({...current,...damage,...(applied-Number(current.hp.temp||0)-current.hp.current>=current.hp.max?{killedOutright:true}: {})}));
         }
         return {hp:{...changeHP({...current.hp,max:conditionEffects(current).maxHP},amount,true),max:current.hp.max},...(current.hp.current===0&&amount>0?{deathSaves:{success:0,failure:0}}:{})};
       });
@@ -329,6 +358,12 @@ function CharacterSheet({sharing,readOnly=false,saveJournal,manageSharing,char,p
     <nav className={`sheet-shortcuts ${swarm.level||campaignProfile(char).active?'has-swarm':''}`} aria-label="Character shortcuts">{sheetTabs.filter(([key])=>['class-tools','swarm','actions','spells','inventory'].includes(key)).map(([key,Icon,label])=><button className="l-button" key={key} onClick={()=>focusSheetTab(key,true)}><Icon size={16}/>{label}</button>)}<button className="l-button" onClick={()=>{checkSection.current?.scrollIntoView({block:'start'});checkSection.current?.querySelector('button')?.focus({preventScroll:true});}}>Checks</button></nav>
     {char.ruleset==='custom'&&<div className="l-notice">Custom character · {editionName(mechanics(char))} base mechanics. Review cross-edition conversions and prerequisites with your DM.</div>}
     <PlayerCombat combat={combat} onRoll={rollInitiative}/>
+    {!readOnly&&char.concentration&&char.concentrationChecks?.[0]?.spell===char.concentration&&<div className="l-panel" role="status">
+      <strong>{char.concentration} · Concentration save required</strong>{' '}
+      <button className="l-button" disabled={savingConcentration} onClick={()=>concentrationSave(char.concentrationChecks[0])}>Roll Constitution save (DC {char.concentrationChecks[0].dc})</button>
+    </div>}
+    {sheetEffects(char).some(e=>e.remainingSeconds!=null||e.expires)&&<section className="l-panel" aria-label="Timed effects"><h3>Timed effects</h3>
+      {sheetEffects(char).filter(e=>e.remainingSeconds!=null||e.expires).map(e=><div className="resource-row" key={e.id}><strong>{e.name}</strong><span>{durationLabel(e)}{e.concentration?' · Concentration':''}</span></div>)}</section>}
     <div className="sheet-vitals"><div className="hp-panel"><span className="l-eyebrow"><Heart size={15}/> HIT POINTS</span><div className="hp-value">{ownForm?ownForm.hp.current:char.hp.current}<span>/ {ownForm?ownForm.hp.max:effects.maxHP}</span><small>{char.hp.temp||0} Temporary</small></div><div className="hp-meter"><span style={{width:`${Math.min(100,Math.max(0,(ownForm?ownForm.hp.current:char.hp.current)/Math.max(1,ownForm?ownForm.hp.max:effects.maxHP)*100))}%`}}/></div><div className="hp-controls"><label className="hp-adjustment"><span>Amount</span><input aria-label="Hit point adjustment" type="number" min="0" value={amount} onChange={e=>{setAmount(Math.max(0,Number(e.target.value)));setHPNotice('');setHPError('');}}/></label><Button danger onClick={()=>adjustHitPoints()}>Damage</Button><Button disabled={!!(swarm.level&&char.entomancer?.dead)} onClick={()=>adjustHitPoints(true)}>Heal</Button></div><TemporaryHPControl hp={char.hp} onChange={hp=>patch({hp})}/>{hpNotice&&<p className="hp-feedback" role="status">{hpNotice}</p>}{hpError&&<p className="hp-feedback" role="alert">{hpError}</p>}</div><div className="vital-tile"><Shield size={21}/><strong>{displayedArmor}</strong><span>Armor class</span></div><button className="vital-tile" disabled={combat.busy||combat.submitted} onClick={rollInitiative}><Zap size={21}/><strong>{signed(initiativeBonus)}</strong><span>Initiative ↗</span></button><div className="vital-tile"><strong>{ownForm?ownFormWalkingSpeed(char):effects.speed}<small>ft.</small></strong><span>Walking speed</span></div><div className="vital-tile"><strong>{signed(pb)}</strong><span>{is35(char)?'Base attack':'Proficiency'}</span></div><div className="vital-tile"><BookOpen size={21}/><strong>{passivePerception}</strong><span>Passive perception</span></div></div>
     {(mechanics(char)==='2014'||ownForm||swarm.level>0||rageProfile(char).level>0||activeFormProfile(char).resistances.length>0||drakeOwnerResistance(char)||historyWhimResists(char,'slashing')||sourceSubclassEffects(char,{stateKey:'lorehold-war-echoes-vulnerability'}).some(e=>e.target==='self'))&&<div className="l-toolbar"><Field label="Incoming damage type"><select aria-label="Incoming damage type" value={damageType} onChange={e=>{setDamageType(e.target.value);setDampenElements(false);}}><option value="">Untyped / already adjusted</option>{['acid','bludgeoning','cold','fire','force','lightning','necrotic','piercing','poison','psychic','radiant','slashing','thunder'].map(t=><option key={t}>{t}</option>)}</select></Field>{(spellResistanceAvailable(char)||spellResistanceAvailableAfterForm(char))&&<label><input type="checkbox" checked={spellDamage} onChange={e=>setSpellDamage(e.target.checked)}/>Raw damage from a spell</label>}{dampenElementsAvailable(char,damageType)&&<label><input type="checkbox" checked={dampenElements} onChange={e=>setDampenElements(e.target.checked)}/>Use Dampen Elements reaction for this damage</label>}<label><input type="checkbox" checked={magicalDamage} onChange={e=>setMagicalDamage(e.target.checked)}/>Magical damage</label><label><input type="checkbox" checked={attackDamageSource} onChange={e=>setAttackDamageSource(e.target.checked)}/>Damage from an attack</label>{ownForm&&<label><input type="checkbox" checked={weaponDamageSource} onChange={e=>setWeaponDamageSource(e.target.checked)}/>Damage from a weapon</label>}<label><input type="checkbox" checked={vulnerableDamage} onChange={e=>setVulnerableDamage(e.target.checked)}/>Vulnerable to this type</label>{swarm.species==='Decomposers'&&swarm.level>=14&&<label><input type="checkbox" checked={preventDeath} onChange={e=>setPreventDeath(e.target.checked)}/>Use Dead Man Walking if reduced to 0 HP</label>}</div>}
     {swarm.level>0&&char.entomancer?.dead&&<p role="alert">Dead — Swarm Form reached 0 HP. Healing and rest cannot revive you. <button className="l-button" onClick={()=>patch({entomancer:{...char.entomancer,dead:false,effects:Object.fromEntries(Object.entries(char.entomancer.effects||{}).filter(([key,effect])=>key!=='swarmForm'&&effect))},hp:{...char.hp,current:1}})}>Record revival by the table</button></p>}
@@ -340,7 +375,7 @@ function CharacterSheet({sharing,readOnly=false,saveJournal,manageSharing,char,p
     {tab==='swarm'&&swarm.level>0&&<Entomancer char={char} patch={patch} roll={roll} onRest={kind=>setRest(kind||'short')} ui={swarmUi} onUiChange={setSwarmUi}/>}
     {classFeatTools(char).length>0&&<div hidden={tab!=='class-tools'}><ClassFeatTools char={char} patch={patch} roll={roll} show={show} homebrew={homebrew} onRest={kind=>setRest(kind)} onSpells={()=>focusSheetTab('spells',true)}/></div>}
     {tab==='actions'&&<Actions char={char} patch={patch} roll={roll} show={show} abilities={abilities} ownerActions={ownerActions} onSwarm={()=>focusSheetTab('swarm',true)} onClassTools={()=>focusSheetTab('class-tools',true)}/>}
-    {tab==='spells'&&<EditionSpellbook char={char} patch={patch} roll={roll} show={show} homebrew={homebrew}/>}
+    {tab==='spells'&&<EditionSpellbook liveTurns={!!combat.encounter?.turn} char={char} patch={patch} roll={roll} show={show} homebrew={homebrew}/>}
     {tab==='spells'&&<CampaignSpells char={char} patch={patch} roll={roll} show={show} mode="cyst"/>}
     {tab==='spells'&&<FeatSpellbook char={char} patch={patch} roll={roll} show={show}/>}
     {tab==='spells'&&<AasimarLight char={char} show={show} abilities={abilities}/>}

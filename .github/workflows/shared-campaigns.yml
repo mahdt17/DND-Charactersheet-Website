@@ -5,6 +5,8 @@ on:
       - 'src/LiveCombat.jsx'
       - 'src/EncounterLogs.jsx'
       - 'supabase/encounter_logs.sql'
+      - 'supabase/live_turn_clock.sql'
+      - 'tests/live-turn-clock.sql'
       - 'src/EncounterPicker.jsx'
       - 'supabase/private_encounter_initiative.sql'
       - 'src/CampaignRewards.jsx'
@@ -50,6 +52,8 @@ jobs:
           psql "$DB_URL" -v ON_ERROR_STOP=1 -f supabase/schema.sql -f supabase/shared_campaigns.sql -f supabase/institute_access.sql -f supabase/delete_campaign.sql -f supabase/live_campaign_play.sql -f supabase/shared_sheet_edits.sql
           psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/private_encounter_initiative.sql
           psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/encounter_logs.sql
+          psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/live_turn_clock.sql
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f tests/live-turn-clock.sql
           psql "$DB_URL" -v ON_ERROR_STOP=1 -f tests/shared-campaigns.sql -f tests/live-campaign-play.sql
           npm run build
           npx playwright install --with-deps chromium
