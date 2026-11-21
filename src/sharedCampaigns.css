@@ -21,3 +21,18 @@
 .combat-list li {display:flex;gap:.75rem;align-items:center;padding:.45rem 0;border-bottom:1px solid var(--border)}
 .combat-list li>:first-child {flex:1;min-width:0;overflow-wrap:anywhere}
 .combat-list small {color:var(--muted)}
+
+.encounter-picker {display:grid;gap:.65rem;min-width:0;padding:1rem;border:1px solid var(--border);border-radius:.5rem}
+.encounter-picker legend {font-weight:bold;padding:0 .35rem}
+.encounter-picker p {margin:0}
+.encounter-picker>.l-button {justify-self:start}
+.encounter-options {max-height:10rem;overflow:auto;border-block:1px solid var(--border)}
+.encounter-options label,.encounter-queue li {display:flex;align-items:center;gap:.65rem;padding:.35rem}
+.encounter-options label {cursor:pointer}
+.encounter-options small,.encounter-queue small {color:var(--muted)}
+.encounter-options input[type=checkbox] {width:1rem;height:1rem}
+.encounter-queue {list-style:none;margin:0;padding:0}
+.encounter-queue li {flex-wrap:wrap}
+.encounter-queue li>span {flex:1}
+.encounter-queue input {width:4rem}
+.campaign-combat .combat-list li {flex-wrap:wrap}

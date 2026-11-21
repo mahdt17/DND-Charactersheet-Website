@@ -37,7 +37,7 @@ export function LiveCampaignSheet({campaign,member,api,back,renderSheet}){
   return <><button className="l-button" onClick={back}>Back to party roster</button>{error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry sheet</button></p>:<p role="status">Loading character sheet.</p>}</>;
 }
 
-function PartyRoster({campaign,api,onDelete,onOpen,roll}){
+function PartyRoster({campaign,api,onDelete,onOpen,roll,characters,sheetInitiative}){
   const [rows,setRows]=useState(null),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const [copied,setCopied]=useState(false),[removing,setRemoving]=useState(''),[busy,setBusy]=useState(false),[notice,setNotice]=useState('');
   async function removeMember(m){
@@ -56,7 +56,7 @@ function PartyRoster({campaign,api,onDelete,onOpen,roll}){
     <div className="l-section-head"><h2>{campaign.name}</h2><button className="l-button party-danger" onClick={onDelete}><Trash2 size={16}/>Delete campaign</button></div>
     <label className="l-field"><span>Campaign invite code</span><input value={campaign.id} readOnly onFocus={e=>e.target.select()}/></label>
     <button className="l-button" onClick={async()=>{try{await navigator.clipboard.writeText(campaign.id);setCopied(true);}catch{setCopied(false);}}}>{copied?'Code copied':'Copy invite code'}</button>
-    <DMCombat roll={roll} api={api} campaignId={campaign.id}/>
+    <DMCombat characters={characters} sheetInitiative={sheetInitiative} roll={roll} api={api} campaignId={campaign.id}/>
     <h3>Live party roster</h3>
     {error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry</button></p>:
       !rows?<p role="status">Loading party.</p>:!rows.length?<p>Give players the invite code. Their characters appear here when they share a sheet.</p>:
@@ -66,7 +66,7 @@ function PartyRoster({campaign,api,onDelete,onOpen,roll}){
   </section>;
 }
 
-export default function SharedCampaigns({api,characters,initialCharacterId,initialHost,onOpen,openCharacter,roll}) {
+export default function SharedCampaigns({api,characters,sheetInitiative,initialCharacterId,initialHost,onOpen,openCharacter,roll}) {
   const [list,setList]=useState({hosted:[],assigned:[]}),[host,setHost]=useState(initialHost||'');
   const [mode,setMode]=useState(initialCharacterId?'join':''),[name,setName]=useState(''),[code,setCode]=useState('');
   const [characterId,setCharacterId]=useState(initialCharacterId||characters[0]?.id||'');
@@ -121,6 +121,6 @@ export default function SharedCampaigns({api,characters,initialCharacterId,initi
       <p>This ends sharing for everyone in this campaign. Each player keeps their character sheet.</p>
       <div className="party-hub-actions"><button className="l-button party-danger" disabled={busy} onClick={()=>perform(async()=>{await api.removeCampaign(campaign.id);setHost('');setMode('');setNotice('Campaign deleted.');})}>Confirm deletion</button>
       <button className="l-button" autoFocus disabled={busy} onClick={()=>open('')}>Cancel</button></div></section>}
-    {campaign&&<PartyRoster roll={roll} key={campaign.id} campaign={campaign} api={api} onOpen={onOpen} onDelete={()=>open('delete')}/>}
+    {campaign&&<PartyRoster characters={characters} sheetInitiative={sheetInitiative} roll={roll} key={campaign.id} campaign={campaign} api={api} onOpen={onOpen} onDelete={()=>open('delete')}/>}
   </section>;
 }
