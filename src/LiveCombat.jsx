@@ -1,4 +1,5 @@
 import React,{useCallback,useEffect,useRef,useState} from 'react';
+import EncounterLogs from './EncounterLogs';
 import EncounterPicker from './EncounterPicker';
 import {watchRoster} from './lib/sharedCampaigns';
 
@@ -102,6 +103,7 @@ export function DMCombat({api,campaignId,roll,characters,sheetInitiative}){
           <label className="l-field"><span>Initiative total</span><input type="number" required min="-999" max="999" value={score} onChange={e=>setScore(e.target.value)}/></label>
           <button disabled={busy} className="l-button">Add combatant</button>
         </form></>}
+    <EncounterLogs key={campaignId} api={api} campaignId={campaignId} activeId={encounter===null?null:encounter?.id}/>
     {message&&<p role="alert">{message}</p>}
   </section>;
 }

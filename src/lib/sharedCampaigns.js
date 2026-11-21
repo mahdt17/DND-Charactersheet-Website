@@ -55,6 +55,8 @@ export function campaignService(client,userId) {
       const row=await result(sheets().select('campaign_id').eq('user_id',userId).eq('character_id',characterId).maybeSingle());
       return row?.campaign_id||'';
     },
+    endedEncounters(id) { return result(client.rpc('ledger_ended_encounters',{p_campaign:id})); },
+    downloadEncounter(id,encounter) { return result(client.rpc('ledger_download_encounter',{p_campaign:id,p_encounter:encounter})); },
     encounter(id) { return result(client.rpc('ledger_combat_state',{p_campaign:id})); },
     combat(id,encounter,action,payload={}) {
       return result(client.rpc('ledger_combat_command',{p_campaign:id,p_encounter:encounter,p_action:action,p_payload:payload}));
