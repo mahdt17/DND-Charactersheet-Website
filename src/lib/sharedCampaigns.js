@@ -57,6 +57,9 @@ export function campaignService(client,userId) {
     },
     endedEncounters(id) { return result(client.rpc('ledger_ended_encounters',{p_campaign:id})); },
     downloadEncounter(id,encounter) { return result(client.rpc('ledger_download_encounter',{p_campaign:id,p_encounter:encounter})); },
+    adjustEffect(campaign,member,effect,seconds) {
+      return result(client.rpc('ledger_adjust_effect',{p_campaign:campaign,p_owner:member.user_id,p_sheet:member.character_id,p_key:effect.timerInstance||effect.id,p_before:effect.remainingSeconds??null,p_seconds:seconds}));
+    },
     advanceTurn(campaign,encounter,serial) { return result(client.rpc('ledger_advance_turn',{p_campaign:campaign,p_encounter:encounter,p_serial:serial})); },
     encounter(id) { return result(client.rpc('ledger_combat_state',{p_campaign:id})); },
     combat(id,encounter,action,payload={}) {

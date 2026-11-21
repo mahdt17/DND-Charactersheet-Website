@@ -33,6 +33,10 @@ begin
   update public.characters set data='{"notes":"offline","concentration":"Focus","activeEffects":[{"id":"test","remainingSeconds":60},{"id":"short","remainingSeconds":6,"concentration":"Focus"},{"id":"shield","expires":"start-next-turn","remainingSeconds":6}]}' where user_id=auth.uid() and id='sheet';
   if not exists(select from public.characters where user_id=auth.uid() and id='sheet' and data#>>'{activeEffects,0,remainingSeconds}'='54' and jsonb_array_length(data->'activeEffects')=1 and data->>'concentration' is null and data->>'notes'='offline') then raise exception 'Concurrent save corrupted clock'; end if;
   perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000001',true);
+  perform public.ledger_adjust_effect(c,'51360000-0000-4000-8000-000000000002','sheet','test',54,18);
+  begin perform public.ledger_adjust_effect(c,'51360000-0000-4000-8000-000000000002','sheet','test',54,0); raise exception 'Stale DM correction applied';
+  exception when raise_exception then if sqlerrm='Stale DM correction applied' then raise; end if; end;
+  perform public.ledger_adjust_effect(c,'51360000-0000-4000-8000-000000000002','sheet','test',18,0);
   perform public.ledger_combat_command(c,e,'end','{}');
   if not exists(select from jsonb_array_elements(public.ledger_download_encounter(c,e)->'events') ev where ev->>'action'='expired') then raise exception 'Missing log expiry'; end if;
 end $$;

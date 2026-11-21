@@ -1,6 +1,9 @@
 import React,{useEffect,useState} from 'react';
 
 const eventText={
+  effect_started:e=>e.participant+' started',
+  effect_ended:e=>e.participant+' ended early',
+  effect_adjusted:e=>'DM correction · '+e.participant,
   expired:e=>e.participant+' expired',
   added:e=>e.participant+' added, hidden from players (initiative '+e.initiative+')',
   initiative:e=>e.participant+' rolled initiative '+e.initiative,

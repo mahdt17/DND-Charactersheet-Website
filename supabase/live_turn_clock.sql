@@ -8,9 +8,20 @@ $$;
 
 -- Preserve clock updates when an older sheet autosave arrives after turn advancement.
 create function ledger_private.preserve_live_timers() returns trigger language plpgsql set search_path='' as $$
-declare seen bigint; current_effect jsonb; e jsonb; kept jsonb:='[]'; expired_concentration text;
+declare seen bigint; current_effect jsonb; e jsonb; kept jsonb:='[]'; expired_concentration text; expired jsonb;
 begin
   if new.live_timer_version<>old.live_timer_version then
+    for expired in select a from jsonb_array_elements(coalesce(old.data->'activeEffects','[]')) a
+      where (jsonb_typeof(a->'remainingSeconds')='number' or a ? 'expires')
+        and not exists(select from jsonb_array_elements(coalesce(new.data->'activeEffects','[]')) b where ledger_private.timer_key(b)=ledger_private.timer_key(a)) loop
+      new.live_timer_expirations:=new.live_timer_expirations||jsonb_build_array(jsonb_build_object('key',ledger_private.timer_key(expired),'v',new.live_timer_version));
+    end loop;
+    if jsonb_array_length(new.live_timer_expirations)>128 then
+      select greatest(old.live_timer_floor,max((value->>'v')::bigint)) into new.live_timer_floor from jsonb_array_elements(new.live_timer_expirations) with ordinality
+        where ordinality<=jsonb_array_length(new.live_timer_expirations)-128;
+      select jsonb_agg(value order by ordinality) into new.live_timer_expirations from jsonb_array_elements(new.live_timer_expirations) with ordinality
+        where ordinality>jsonb_array_length(new.live_timer_expirations)-128;
+    end if;
     new.data:=jsonb_set(new.data,'{combatClockVersion}',to_jsonb(new.live_timer_version));
     return new;
   end if;
@@ -69,8 +80,8 @@ grant execute on function public.ledger_combat_state(uuid) to authenticated;
 create function public.ledger_advance_turn(p_campaign uuid,p_encounter uuid,p_serial bigint) returns void
 language plpgsql security definer set search_path='' as $$
 declare state_row jsonb; prior jsonb; next_actor jsonb; next_key text; next_round int; wrapped boolean;
-  prior_key text; combatants jsonb; sheet record; e jsonb; effects jsonb; sheet_data jsonb; floor_version bigint; anchors jsonb; sheet_anchors jsonb;
-  anchor text; k text; participant text; ticks boolean; ended boolean; starting boolean; ending boolean; expirations jsonb;
+  prior_key text; combatants jsonb; sheet record; e jsonb; effects jsonb; sheet_data jsonb; anchors jsonb; sheet_anchors jsonb;
+  anchor text; k text; participant text; ticks boolean; ended boolean; starting boolean; ending boolean;
 begin
   perform 1 from public.ledger_campaigns where id=p_campaign and dm_id=auth.uid() for update;
   if not found then raise exception 'Only the campaign DM can advance initiative'; end if;
@@ -87,12 +98,12 @@ begin
   wrapped:=prior_key is not null and next_key collate "C"<=prior_key collate "C";
   next_round:=coalesce((prior->>'round')::int,1)+wrapped::int;
   anchors:='{}';
-  for sheet in select c.user_id,c.id,c.name,c.data,c.live_timer_version,c.live_timer_floor,c.live_timer_expirations
+  for sheet in select c.user_id,c.id,c.name,c.data
     from public.ledger_campaign_sheets s join public.characters c on (c.user_id,c.id)=(s.user_id,s.character_id)
     where s.campaign_id=p_campaign and jsonb_typeof(c.data->'activeEffects')='array' and c.data->'activeEffects'<>'[]'::jsonb
     order by c.user_id,c.id for update of c loop
     participant:=sheet.user_id::text||':'||sheet.id;
-    sheet_anchors:='{}'; effects:='[]'; sheet_data:=sheet.data; expirations:=sheet.live_timer_expirations;
+    sheet_anchors:='{}'; effects:='[]'; sheet_data:=sheet.data;
     starting:=participant=next_actor->>'id'; ending:=participant=prior->>'actor';
     for e in select value from jsonb_array_elements(sheet.data->'activeEffects') loop
       k:=ledger_private.timer_key(e);
@@ -107,7 +118,6 @@ begin
         e:=jsonb_set(e,'{remainingSeconds}',to_jsonb((e->>'remainingSeconds')::numeric-6)); ended:=ended or (e->>'remainingSeconds')::numeric<=0;
       end if;
       if ended then
-        expirations:=expirations||jsonb_build_array(jsonb_build_object('key',k,'v',sheet.live_timer_version+1));
         if e->>'concentration'=sheet_data->>'concentration' then sheet_data:=sheet_data||'{"concentration":null,"concentrationChecks":[]}'; end if;
         if e->>'stateKey'='rage' and sheet_data ? 'totemWarrior' then sheet_data:=jsonb_set(sheet_data,'{totemWarrior,activeRage}','false'); end if;
         perform ledger_private.write_encounter_event(p_encounter,'expired',sheet.name||' · '||coalesce(e->>'name','Effect'));
@@ -118,15 +128,8 @@ begin
     end loop;
     if sheet_anchors<>'{}' then anchors:=jsonb_set(anchors,array[participant],sheet_anchors); end if;
     if effects<>sheet.data->'activeEffects' then
-      floor_version:=sheet.live_timer_floor;
-      if jsonb_array_length(expirations)>128 then
-        select greatest(floor_version,max((value->>'v')::bigint)) into floor_version from jsonb_array_elements(expirations) with ordinality
-          where ordinality<=jsonb_array_length(expirations)-128;
-        select jsonb_agg(value order by ordinality) into expirations from jsonb_array_elements(expirations) with ordinality
-          where ordinality>jsonb_array_length(expirations)-128;
-      end if;
-      update public.characters set live_timer_floor=floor_version,data=jsonb_set(sheet_data,'{activeEffects}',effects),live_timer_version=live_timer_version+1,
-        live_timer_expirations=expirations where user_id=sheet.user_id and id=sheet.id;
+      update public.characters set data=jsonb_set(sheet_data,'{activeEffects}',effects),live_timer_version=live_timer_version+1
+        where user_id=sheet.user_id and id=sheet.id;
     end if;
   end loop;
   state_row:=state_row||jsonb_build_object('timerAnchors',anchors,'turn',jsonb_build_object('key',next_key,'actor',next_actor->'id','round',next_round,'serial',p_serial+1));
@@ -135,3 +138,50 @@ begin
 end $$;
 revoke all on function public.ledger_advance_turn(uuid,uuid,bigint) from public,anon;
 grant execute on function public.ledger_advance_turn(uuid,uuid,bigint) to authenticated;
+
+create function ledger_private.log_sheet_effects() returns trigger language plpgsql security definer set search_path='' as $$
+declare encounter uuid; e jsonb;
+begin
+  select (x.state->>'id')::uuid into encounter from public.ledger_campaign_sheets s
+    join ledger_private.campaign_encounters x on x.campaign_id=s.campaign_id where s.user_id=new.user_id and s.character_id=new.id;
+  if encounter is null then return new; end if;
+  for e in select a from jsonb_array_elements(coalesce(new.data->'activeEffects','[]')) a
+    where (a ? 'expires' or jsonb_typeof(a->'remainingSeconds')='number')
+      and not exists(select from jsonb_array_elements(coalesce(old.data->'activeEffects','[]')) b where ledger_private.timer_key(a)=ledger_private.timer_key(b))
+  loop perform ledger_private.write_encounter_event(encounter,'effect_started',new.name||' · '||coalesce(e->>'name','Effect')); end loop;
+  for e in select a from jsonb_array_elements(coalesce(old.data->'activeEffects','[]')) a
+    where (a ? 'expires' or jsonb_typeof(a->'remainingSeconds')='number')
+      and not exists(select from jsonb_array_elements(coalesce(new.data->'activeEffects','[]')) b where ledger_private.timer_key(a)=ledger_private.timer_key(b))
+  loop perform ledger_private.write_encounter_event(encounter,'effect_ended',new.name||' · '||coalesce(e->>'name','Effect')); end loop;
+  return new;
+end $$;
+revoke all on function ledger_private.log_sheet_effects() from public,anon,authenticated;
+create trigger log_sheet_effects after update of data on public.characters for each row
+  when (new.live_timer_version=old.live_timer_version and (new.data->'activeEffects') is distinct from (old.data->'activeEffects'))
+  execute function ledger_private.log_sheet_effects();
+
+create function public.ledger_adjust_effect(p_campaign uuid,p_owner uuid,p_sheet text,p_key text,p_before numeric,p_seconds int)
+returns void language plpgsql security definer set search_path='' as $$
+declare encounter uuid; sheet jsonb; effect jsonb; pos int; actor_name text;
+begin
+  perform 1 from public.ledger_campaigns where id=p_campaign and dm_id=auth.uid() for update;
+  if not found then raise exception 'Only the campaign DM can adjust effects'; end if;
+  select (x.state->>'id')::uuid into encounter from ledger_private.campaign_encounters x where x.campaign_id=p_campaign;
+  if encounter is null then raise exception 'Start a live encounter to adjust an effect'; end if;
+  perform 1 from public.ledger_campaign_sheets where campaign_id=p_campaign and user_id=p_owner and character_id=p_sheet for share;
+  if not found then raise exception 'Character is no longer shared'; end if;
+  select data,name into sheet,actor_name from public.characters where user_id=p_owner and id=p_sheet for update;
+  select value,ordinality-1 into effect,pos from jsonb_array_elements(sheet->'activeEffects') with ordinality where ledger_private.timer_key(value)=p_key;
+  if effect is null or (effect->>'remainingSeconds')::numeric is distinct from p_before then raise exception 'Effect changed. Review the current duration.'; end if;
+  if p_seconds is null or p_seconds<0 or (p_seconds>0 and (p_before is null or effect ? 'expires')) then raise exception 'Choose a valid duration'; end if;
+  if p_seconds=0 then
+    sheet:=jsonb_set(sheet,'{activeEffects}',(sheet->'activeEffects')-pos);
+    if effect->>'concentration'=sheet->>'concentration' then sheet:=sheet||'{"concentration":null,"concentrationChecks":[]}'; end if;
+    if effect->>'stateKey'='rage' and sheet ? 'totemWarrior' then sheet:=jsonb_set(sheet,'{totemWarrior,activeRage}','false'); end if;
+  else sheet:=jsonb_set(sheet,array['activeEffects',pos::text,'remainingSeconds'],to_jsonb(p_seconds)); end if;
+  update public.characters set data=sheet,live_timer_version=live_timer_version+1 where user_id=p_owner and id=p_sheet;
+  perform ledger_private.write_encounter_event(encounter,'effect_adjusted',actor_name||' · '||coalesce(effect->>'name','Effect')||case when p_seconds=0 then ' ended' else ' · '||p_seconds::text||' seconds remaining' end);
+  update public.ledger_campaigns set revision=revision+1 where id=p_campaign;
+end $$;
+revoke all on function public.ledger_adjust_effect(uuid,uuid,text,text,numeric,int) from public,anon;
+grant execute on function public.ledger_adjust_effect(uuid,uuid,text,text,numeric,int) to authenticated;
