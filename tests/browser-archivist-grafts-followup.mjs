@@ -1,3 +1,4 @@
+import {waitForRollHistory} from './helpers/roll-history.mjs';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {createServer} from 'vite';
@@ -13,7 +14,8 @@ try{
  let c=createArchivistCampaign('Heart browser');c.id='heart';c.hp={current:10,max:100,temp:0};c.archivistCampaign.grafts=[{recipeId:'heart'}];c=addCampaignCreature(c,{name:'Heart creature'});let id=c.archivistCampaign.creatures[0].id;c=updateCreature(c,id,n=>({...n,hp:{current:10,max:100,temp:0},grafts:[{recipeId:'heart'}]}));c.archivistCampaign.projects=[{id:'paid',kind:'graft',name:'Saved graft',recipe:{id:'chitin',ac:2},cost:2000,hours:40,worked:3,status:'active',targetId:'self'}];c.feats=[...c.feats,{name:'Graft Flesh: Silthilar'}];
  await page.addInitScript(c=>{if(!localStorage.getItem('psi:char-detail:heart'))localStorage.setItem('psi:char-detail:heart',JSON.stringify(c));},c);await page.goto('http://127.0.0.1:5407/__psi');await page.locator('.character-card').filter({hasText:'Heart browser'}).getByRole('button',{name:'Open character'}).click();await page.locator('.sheet-identity').waitFor();
  await page.getByLabel('Hit point adjustment').fill('10');await page.getByRole('button',{name:'Damage',exact:true}).first().click();await page.waitForFunction(()=>document.querySelector('.hp-value')?.textContent.match(/^([2-5]\d|[6-9]\d)/));
- assert.match(await page.locator('body').innerText(),/Silthilar Heart/);
+ await waitForRollHistory(page);
+ assert.match(await page.locator('.roll-history').innerText(),/Silthilar Heart/);
  await page.getByLabel('Close dice roller').click();
  await openClassTools(page,'Companions','Encounter');await openClassDisclosure(page,'Creatures and follower combat sheets');const sheet=page.locator(`[data-creature-id="${id}"]`);await sheet.locator('summary').first().click();await sheet.getByLabel('Heart creature HP adjustment').fill('10');await sheet.getByRole('button',{name:'Damage Heart creature'}).click();await page.waitForFunction(id=>Number(document.querySelector(`[data-creature-id="${id}"] [role=progressbar]`)?.getAttribute('aria-valuenow'))>=24,id);await page.getByLabel('Close dice roller').click();
  await openClassTools(page,'Projects','Graft Flesh: Silthilar');await page.getByLabel('Hours completed — Saved graft').fill('25.5');await page.getByRole('button',{name:'Set completed hours for Saved graft'}).click();

@@ -61,9 +61,9 @@ jobs:
           - group: 3
             tests: tests/browser-alchemist-elixir-final.mjs tests/browser-dancing-item-sheet.mjs tests/browser-editions.mjs tests/browser-martial-subclasses.mjs tests/browser-vigilant-blessing.mjs tests/browser-ability-rolls.mjs
           - group: 4
-            tests: tests/browser-artillerist-two-cannons-sheet.mjs tests/browser-divine-strike.mjs tests/browser-fighting-styles.mjs tests/browser-sentinel-raven-sheet.mjs tests/browser-wildfire-enhanced-bond.mjs
+            tests: tests/browser-artillerist-two-cannons-sheet.mjs tests/browser-divine-strike.mjs tests/browser-fighting-styles.mjs tests/browser-sentinel-raven-sheet.mjs tests/browser-wildfire-enhanced-bond.mjs tests/browser-subclass-numerics.mjs
           - group: 5
-            tests: tests/browser-battle-master-priority.mjs tests/browser-drakewarden-sheet.mjs tests/browser-fungal-zombie-sheet.mjs tests/browser-shadow-hound-sheet.mjs tests/browser.mjs
+            tests: tests/browser-battle-master-priority.mjs tests/browser-drakewarden-sheet.mjs tests/browser-fungal-zombie-sheet.mjs tests/browser-shadow-hound-sheet.mjs tests/browser.mjs tests/browser-archivist-grafts-followup.mjs
           - group: 6
             tests: tests/browser-beast-master-sheet.mjs tests/browser-drakewarden-ua-sheet.mjs tests/browser-leonin.mjs tests/browser-steel-defender-sheet.mjs tests/browser-presentation.mjs
     name: Roll history group ${{ matrix.group }}
