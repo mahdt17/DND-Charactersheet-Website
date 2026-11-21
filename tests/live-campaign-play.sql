@@ -36,7 +36,40 @@ begin
   perform public.ledger_combat_command(c,encounter,'roll','{"character":"hero","initiative":20}');
   if public.ledger_combat_state(c)#>>'{entries,0,initiative}' is distinct from '-2' then raise exception 'Initiative overwritten'; end if;
 end $$;
-delete from public.ledger_campaign_sheets where user_id=auth.uid() and character_id='hero';
+do $$ begin
+  begin perform public.ledger_edit_shared_sheet(current_setting('fixture.c')::uuid,auth.uid(),'hero','notes','{"before":"","after":"Invalid"}');
+    raise exception 'Player used DM editor'; exception when raise_exception then if sqlerrm='Player used DM editor' then raise; end if; end;
+end $$;
+select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
+do $$ declare c uuid:=current_setting('fixture.c')::uuid; player uuid:='84360000-0000-4000-8000-000000000002';
+begin
+  perform public.ledger_edit_shared_sheet(c,player,'hero','remove_quantity','{"item":{"id":"s","qty":2},"amount":1}');
+  begin perform public.ledger_edit_shared_sheet(c,player,'hero','remove_quantity','{"item":{"id":"s","qty":2},"amount":1}');
+    raise exception 'Stale removal applied twice'; exception when raise_exception then if sqlerrm='Stale removal applied twice' then raise; end if; end;
+  perform public.ledger_edit_shared_sheet(c,player,'hero','notes','{"before":"","after":"DM journal"}');
+  begin perform public.ledger_edit_shared_sheet(c,player,'hero','notes','{"before":"","after":"Stale draft"}');
+    raise exception 'Stale notes overwrote player'; exception when raise_exception then if sqlerrm='Stale notes overwrote player' then raise; end if; end;
+end $$;
+select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000002',true);
+update public.characters set data='{"campaignRewardVersion":2,"hp":{"current":5},"inventory":[{"id":"s","qty":2,"notes":"Player annotation"}]}' where user_id=auth.uid() and id='hero';
+do $$ declare sheet jsonb;
+begin
+  select data into sheet from public.characters where user_id=auth.uid() and id='hero';
+  if sheet->>'notes' is distinct from 'DM journal' or sheet#>>'{inventory,0,qty}' is distinct from '1'
+     or sheet#>>'{inventory,0,notes}' is distinct from 'Player annotation' then raise exception 'Stale save lost shared edits'; end if;
+end $$;
+update public.characters set data=jsonb_set(data,'{notes}','"Player follow-up"') where user_id=auth.uid() and id='hero';
+update public.characters set data='{"campaignRewardVersion":2,"hp":{"current":7},"inventory":[{"id":"s","qty":2}]}' where user_id=auth.uid() and id='hero';
+do $$ begin
+  if (select data->>'notes' from public.characters where user_id=auth.uid() and id='hero') is distinct from 'Player follow-up'
+    then raise exception 'Stale sheet restored obsolete journal'; end if;
+end $$;
+select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
+delete from public.ledger_campaign_sheets where campaign_id=current_setting('fixture.c')::uuid and user_id='84360000-0000-4000-8000-000000000002' and character_id='hero';
+do $$ begin
+  begin perform public.ledger_edit_shared_sheet(current_setting('fixture.c')::uuid,'84360000-0000-4000-8000-000000000002','hero','notes','{"before":"DM journal","after":"Invalid"}');
+    raise exception 'DM edited removed character'; exception when raise_exception then if sqlerrm='DM edited removed character' then raise; end if; end;
+end $$;
 select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
 do $$ declare c uuid:=current_setting('fixture.c')::uuid;
 begin

@@ -25,15 +25,30 @@ export function LiveCampaignSheet({campaign,member,api,back,renderSheet}){
     },message=>{version++;lastStamp=undefined;setRecord(null);setError(message);});
     return ()=>{active=false;stop();};
   },[api,campaign.id,member,back,retry]);
-  if(record)return <><CampaignRewards char={record.data} change={async(field,adding,entry)=>{
-    await api.reward(campaign.id,member,field,adding,entry);setRetry(n=>n+1);
-  }}/>{renderSheet(record.data)}</>;
+  if(record)return <><CampaignRewards char={record.data} change={async(field,adding,entry,amount)=>{
+    try{
+      if(!adding&&field==='inventory')await api.editSheet(campaign.id,member,'remove_quantity',{item:entry,amount});
+      else await api.reward(campaign.id,member,field,adding,entry);
+    }finally{setRetry(n=>n+1);}
+  }}/>{renderSheet(record.data,async(before,after)=>{
+    try{await api.editSheet(campaign.id,member,'notes',{before,after});}
+    finally{setRetry(n=>n+1);}
+  })}</>;
   return <><button className="l-button" onClick={back}>Back to party roster</button>{error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry sheet</button></p>:<p role="status">Loading character sheet.</p>}</>;
 }
 
 function PartyRoster({campaign,api,onDelete,onOpen,roll}){
   const [rows,setRows]=useState(null),[error,setError]=useState(''),[retry,setRetry]=useState(0);
-  const [copied,setCopied]=useState(false);
+  const [copied,setCopied]=useState(false),[removing,setRemoving]=useState(''),[busy,setBusy]=useState(false),[notice,setNotice]=useState('');
+  async function removeMember(m){
+    setBusy(true);setNotice('');
+    try{
+      await api.leave(campaign.id,m.user_id,m.character_id);
+      setRows(list=>list?.filter(row=>memberKey(row)!==memberKey(m)));
+      setRemoving('');setNotice(m.sheet.name+' was removed from the campaign.');
+    }catch(e){setNotice(e.message);}
+    finally{setBusy(false);setRetry(n=>n+1);}
+  }
   useEffect(()=>watchRoster(api,campaign.id,list=>{
     setError('');setRows(list.slice().sort((a,b)=>a.sheet.name.localeCompare(b.sheet.name)));
   },message=>{setRows(null);setError(message);}),[api,campaign.id,retry]);
@@ -45,7 +60,9 @@ function PartyRoster({campaign,api,onDelete,onOpen,roll}){
     <h3>Live party roster</h3>
     {error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry</button></p>:
       !rows?<p role="status">Loading party.</p>:!rows.length?<p>Give players the invite code. Their characters appear here when they share a sheet.</p>:
-      <div className="party-campaign-list">{rows.map(m=><button key={memberKey(m)} className="l-button" onClick={()=>onOpen({campaign,member:m})}>{m.sheet.name} · Level {m.sheet.level} {m.sheet.class_name}</button>)}</div>}
+      <div>{rows.map(m=><div className="party-membership" key={memberKey(m)}><button className="l-button" onClick={()=>onOpen({campaign,member:m})}>{m.sheet.name} · Level {m.sheet.level} {m.sheet.class_name}</button>
+        {removing===memberKey(m)?<div className="l-toolbar"><span>End sharing for {m.sheet.name}? The player keeps their sheet.</span><button className="l-button" disabled={busy} onClick={()=>setRemoving('')}>Cancel</button><button className="l-button party-danger" disabled={busy} onClick={()=>removeMember(m)}>Confirm removal</button></div>:<button className="l-button party-danger" disabled={busy} aria-label={'Remove '+m.sheet.name+' from campaign'} onClick={()=>{setRemoving(memberKey(m));setNotice('');}}>Remove from campaign</button>}</div>)}</div>}
+    {notice&&<p role="status">{notice}</p>}
   </section>;
 }
 
@@ -61,7 +78,13 @@ export default function SharedCampaigns({api,characters,initialCharacterId,initi
     try{const next=await api.list();if(id===sequence.current){setList(next);setLoaded(true);setError('');}}
     catch(e){if(id===sequence.current)setError(e.message);}
   }
-  useEffect(()=>{void refresh();window.addEventListener('focus',refresh);return ()=>{sequence.current++;window.removeEventListener('focus',refresh);};},[api]);
+  useEffect(()=>{
+    void refresh();
+    const sync=()=>{if(!document.hidden&&!pending.current)void refresh();};
+    const timer=setInterval(sync,10000);
+    window.addEventListener('focus',sync);
+    return ()=>{sequence.current++;clearInterval(timer);window.removeEventListener('focus',sync);};
+  },[api]);
   async function perform(action){
     if(pending.current)return;
     pending.current=true;setBusy(true);setError('');setNotice('');
@@ -85,7 +108,7 @@ export default function SharedCampaigns({api,characters,initialCharacterId,initi
       {assignment?<><p>This character is shared with <strong>{assignment.campaign?.name||'your campaign'}</strong>.</p><button className="l-button" disabled={busy} onClick={()=>stop(assignment)}>Stop sharing sheet</button></>:
         <form onSubmit={e=>{e.preventDefault();void perform(async()=>{await api.assign(code,characterId);setCode('');setMode('');setNotice('Sheet shared with your DM.');});}}>
           <label className="l-field"><span>Invite code from your DM</span><input value={code} onChange={e=>setCode(e.target.value)} autoComplete="off" spellCheck={false}/></label>
-          <p>Your DM can view this sheet and its notes, give or remove items and feats, and start live encounters.</p><button className="l-button primary" disabled={busy||!loaded||!characterId||!invitePattern.test(code.trim())}>Join and share sheet</button></form>}</>:<p>Create a character in Characters to join a campaign.</p>}
+          <p>Your DM can view this sheet, edit its journal, manage items and feats, and include the character in live encounters.</p><button className="l-button primary" disabled={busy||!loaded||!characterId||!invitePattern.test(code.trim())}>Join and share sheet</button></form>}</>:<p>Create a character in Characters to join a campaign.</p>}
       <button type="button" className="l-button" disabled={busy} onClick={()=>open('')}>Close</button></section>}
     {error&&<p role="alert">{error} <button className="l-button" onClick={refresh}>Refresh campaigns</button></p>}{notice&&<p role="status">{notice}</p>}
     <div className="party-directory"><section className="l-panel"><h2>Campaigns you DM</h2>

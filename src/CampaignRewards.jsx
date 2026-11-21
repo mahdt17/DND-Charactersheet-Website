@@ -3,16 +3,29 @@ import CatalogItems from './CatalogItems';
 import FeatChoices from './FeatChoices';
 import equipment from './data/equipment.json';
 
+function RemoveEntry({entry,inventory,remove}){
+  const [quantity,setQuantity]=useState('1');
+  const available=Number(entry.qty??1),stack=inventory&&available>1;
+  const amount=stack?Number(quantity):available===0?0:1;
+  return <li><span>{entry.name}{stack?' × '+available:''}</span>
+    {stack&&<label className="l-field"><span>Quantity to remove</span><input aria-label={'Quantity of '+entry.name+' to remove'}
+      type="number" min="1" max={available} step="1" value={quantity} onChange={e=>setQuantity(e.target.value)}/></label>}
+    <button className="l-button party-danger" aria-label={'Remove '+entry.name}
+      disabled={stack&&(!Number.isInteger(amount)||amount<1||amount>available)}
+      onClick={()=>remove(amount)}>Remove</button>
+  </li>;
+}
+
 export default function CampaignRewards({char,change}){
   const [open,setOpen]=useState(false),[field,setField]=useState('inventory'),[name,setName]=useState(''),[qty,setQty]=useState(1);
   const [busy,setBusy]=useState(false),[message,setMessage]=useState(''),[error,setError]=useState('');
   const pending=useRef(false),entries=char[field]||[];
-  async function apply(adding,entry){
+  async function apply(adding,entry,amount){
     if(pending.current)return;
     pending.current=true;setBusy(true);setMessage('');setError('');
     try{
-      await change(field,adding,entry);
-      setMessage(adding?`Gave ${entry.name} to ${char.name}.`:`Removed ${entry.name} from ${char.name}.`);
+      await change(field,adding,entry,amount);
+      setMessage(adding?`Gave ${entry.name} to ${char.name}.`:`Removed ${amount>1?amount+' × ':''}${entry.name} from ${char.name}.`);
       if(adding){setName('');setQty(1);}
     }catch(e){setError(e.message);}finally{pending.current=false;setBusy(false);}
   }
@@ -36,8 +49,7 @@ export default function CampaignRewards({char,change}){
         <CatalogItems char={char} onAdd={item=>apply(true,item)}/>
       </>:<FeatChoices char={char} patch={({feats})=>apply(true,feats.at(-1))}/>}
       <h3>{field==='inventory'?'Carried items':'Current feats'}</h3>
-      {entries.length?<ul className="combat-list">{entries.map((entry,i)=><li key={entry.id||i}><span>{entry.name}{field==='inventory'&&entry.qty>1?' × '+entry.qty:''}</span>
-        <button className="l-button party-danger" aria-label={'Remove '+entry.name} onClick={()=>apply(false,entry)}>Remove</button></li>)}</ul>:<p>None on this sheet.</p>}
+      {entries.length?<ul className="combat-list">{entries.map((entry,i)=><RemoveEntry key={(entry.id||i)+':'+(entry.qty??1)} entry={entry} inventory={field==='inventory'} remove={amount=>apply(false,entry,amount)}/>)}</ul>:<p>None on this sheet.</p>}
     </fieldset>}
     {message&&<p role="status">{message}</p>}{error&&<p role="alert">{error}</p>}
   </section>;
