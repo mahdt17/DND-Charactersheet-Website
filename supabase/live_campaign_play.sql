@@ -19,7 +19,7 @@ begin
 end $$;
 
 create function ledger_private.apply_sheet_reward(sheet jsonb, field text, adding boolean, entry jsonb)
-returns jsonb language plpgsql immutable set search_path='' as $
+returns jsonb language plpgsql immutable set search_path='' as $$
 declare suppressed jsonb:=coalesce(sheet->'campaignRemovedFeatIds','[]');
 begin
   sheet:=jsonb_set(sheet,array[field],ledger_private.apply_reward(sheet->field,adding,entry));
@@ -31,7 +31,7 @@ begin
     end if;
   end if;
   return sheet;
-end $;
+end $$;
 
 create function ledger_private.preserve_rewards() returns trigger language plpgsql security definer set search_path='' as $$
 declare change ledger_private.sheet_rewards; seen bigint; latest bigint;
