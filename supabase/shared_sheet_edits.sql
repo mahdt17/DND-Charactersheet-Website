@@ -31,13 +31,23 @@ begin
 end $$;
 
 create or replace function ledger_private.preserve_rewards() returns trigger language plpgsql security definer set search_path='' as $$
-declare change ledger_private.sheet_rewards; seen bigint; latest bigint;
+declare change ledger_private.sheet_rewards; seen bigint; latest bigint; restored_notes boolean:=false;
 begin
   if not (old.data ? 'campaignRewardVersion') then return new; end if;
   seen := case when new.data->>'campaignRewardVersion' ~ '^[0-9]{1,16}$' then (new.data->>'campaignRewardVersion')::bigint else 0 end;
   for change in select * from ledger_private.sheet_rewards where owner_id=old.user_id and sheet_id=old.id
     and version>seen order by version loop
-    new.data := ledger_private.replay_sheet_edit(new.data,change.field,change.adding,change.entry);
+    if change.field='notes' then
+      if not restored_notes then
+        if coalesce(new.data->>'notes','') not in (change.entry->>'before',coalesce(old.data->>'notes','')) then
+          raise exception 'The journal changed on another screen. Copy your draft, reload the sheet, and review the latest notes before saving.';
+        end if;
+        new.data:=jsonb_set(new.data,'{notes}',to_jsonb(coalesce(old.data->>'notes','')));
+        restored_notes:=true;
+      end if;
+    else
+      new.data:=ledger_private.replay_sheet_edit(new.data,change.field,change.adding,change.entry);
+    end if;
   end loop;
   select max(version) into latest from ledger_private.sheet_rewards where owner_id=old.user_id and sheet_id=old.id;
   if latest is not null then new.data:=jsonb_set(new.data,'{campaignRewardVersion}',to_jsonb(latest)); end if;

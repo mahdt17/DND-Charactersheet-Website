@@ -108,7 +108,7 @@ export default function SharedCampaigns({api,characters,initialCharacterId,initi
       {assignment?<><p>This character is shared with <strong>{assignment.campaign?.name||'your campaign'}</strong>.</p><button className="l-button" disabled={busy} onClick={()=>stop(assignment)}>Stop sharing sheet</button></>:
         <form onSubmit={e=>{e.preventDefault();void perform(async()=>{await api.assign(code,characterId);setCode('');setMode('');setNotice('Sheet shared with your DM.');});}}>
           <label className="l-field"><span>Invite code from your DM</span><input value={code} onChange={e=>setCode(e.target.value)} autoComplete="off" spellCheck={false}/></label>
-          <p>Your DM can view this sheet and its notes, give or remove items and feats, and start live encounters.</p><button className="l-button primary" disabled={busy||!loaded||!characterId||!invitePattern.test(code.trim())}>Join and share sheet</button></form>}</>:<p>Create a character in Characters to join a campaign.</p>}
+          <p>Your DM can view this sheet, edit its journal, manage items and feats, and include the character in live encounters.</p><button className="l-button primary" disabled={busy||!loaded||!characterId||!invitePattern.test(code.trim())}>Join and share sheet</button></form>}</>:<p>Create a character in Characters to join a campaign.</p>}
       <button type="button" className="l-button" disabled={busy} onClick={()=>open('')}>Close</button></section>}
     {error&&<p role="alert">{error} <button className="l-button" onClick={refresh}>Refresh campaigns</button></p>}{notice&&<p role="status">{notice}</p>}
     <div className="party-directory"><section className="l-panel"><h2>Campaigns you DM</h2>

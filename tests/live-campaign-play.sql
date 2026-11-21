@@ -58,6 +58,12 @@ begin
   if sheet->>'notes' is distinct from 'DM journal' or sheet#>>'{inventory,0,qty}' is distinct from '1'
      or sheet#>>'{inventory,0,notes}' is distinct from 'Player annotation' then raise exception 'Stale save lost shared edits'; end if;
 end $$;
+update public.characters set data=jsonb_set(data,'{notes}','"Player follow-up"') where user_id=auth.uid() and id='hero';
+update public.characters set data='{"campaignRewardVersion":2,"hp":{"current":7},"inventory":[{"id":"s","qty":2}]}' where user_id=auth.uid() and id='hero';
+do $$ begin
+  if (select data->>'notes' from public.characters where user_id=auth.uid() and id='hero') is distinct from 'Player follow-up'
+    then raise exception 'Stale sheet restored obsolete journal'; end if;
+end $$;
 select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
 delete from public.ledger_campaign_sheets where campaign_id=current_setting('fixture.c')::uuid and user_id='84360000-0000-4000-8000-000000000002' and character_id='hero';
 do $$ begin
