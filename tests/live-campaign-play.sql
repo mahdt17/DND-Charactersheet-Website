@@ -5,7 +5,7 @@ select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001'
 insert into public.ledger_campaigns(name) values ('Reward and combat fixture');
 select set_config('fixture.c',(select id::text from public.ledger_campaigns where name='Reward and combat fixture'),true);
 select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000002',true);
-insert into public.characters(user_id,id,name,data) values(auth.uid(),'hero','Arden','{"feats":[{"name":"Old feat"}]}');
+insert into public.characters(user_id,id,name,data) values(auth.uid(),'hero','Arden','{"feats":[{"id":"class:fixture","name":"Old feat","automatic":true}]}');
 insert into public.ledger_campaign_sheets(character_id,campaign_id) values('hero',current_setting('fixture.c')::uuid);
 do $$ declare c uuid:=current_setting('fixture.c')::uuid;
 begin
@@ -16,7 +16,7 @@ select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001'
 do $$ declare c uuid:=current_setting('fixture.c')::uuid; player uuid:='84360000-0000-4000-8000-000000000002';
 begin
   perform public.ledger_change_reward(c,player,'hero','inventory',true,'{"id":"s","name":"Seal","qty":2}');
-  perform public.ledger_change_reward(c,player,'hero','feats',false,'{"name":"Old feat"}');
+  perform public.ledger_change_reward(c,player,'hero','feats',false,'{"id":"class:fixture","name":"Old feat","automatic":true}');
   perform public.ledger_combat_command(c,null,'start','{"name":"Gate"}');
   perform set_config('fixture.e',public.ledger_combat_state(c)->>'id',true);
 end $$;
@@ -27,11 +27,11 @@ begin
   begin perform public.ledger_combat_command(c,current_setting('fixture.e')::uuid,'roll','{"character":"hero","initiative":20}'); raise exception 'Outsider rolled'; exception when raise_exception then if sqlerrm='Outsider rolled' then raise; end if; end;
 end $$;
 select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000002',true);
-update public.characters set data='{"hp":{"current":8},"feats":[{"name":"Old feat"}],"inventory":[{"id":"p","name":"Player item"}]}' where id='hero' and user_id=auth.uid();
+update public.characters set data='{"hp":{"current":8},"feats":[{"id":"class:fixture","name":"Old feat","automatic":true}],"inventory":[{"id":"p","name":"Player item"}]}' where id='hero' and user_id=auth.uid();
 do $$ declare c uuid:=current_setting('fixture.c')::uuid; encounter uuid:=current_setting('fixture.e')::uuid; sheet jsonb;
 begin
   select data into sheet from public.characters where id='hero' and user_id=auth.uid();
-  if sheet->'feats'<>'[]' or jsonb_array_length(sheet->'inventory')<>2 or sheet#>>'{hp,current}'<>'8' then raise exception 'Stale save lost edits'; end if;
+  if sheet->'feats'<>'[]' or sheet->'campaignRemovedFeatIds' is distinct from '["class:fixture"]'::jsonb or jsonb_array_length(sheet->'inventory')<>2 or sheet#>>'{hp,current}'<>'8' then raise exception 'Stale save lost edits'; end if;
   perform public.ledger_combat_command(c,encounter,'roll','{"character":"hero","initiative":-2}');
   perform public.ledger_combat_command(c,encounter,'roll','{"character":"hero","initiative":20}');
   if public.ledger_combat_state(c)#>>'{entries,0,initiative}' is distinct from '-2' then raise exception 'Initiative overwritten'; end if;

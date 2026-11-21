@@ -18,6 +18,21 @@ begin
   return rows;
 end $$;
 
+create function ledger_private.apply_sheet_reward(sheet jsonb, field text, adding boolean, entry jsonb)
+returns jsonb language plpgsql immutable set search_path='' as $
+declare suppressed jsonb:=coalesce(sheet->'campaignRemovedFeatIds','[]');
+begin
+  sheet:=jsonb_set(sheet,array[field],ledger_private.apply_reward(sheet->field,adding,entry));
+  if field='feats' and entry->>'id' is not null then
+    if not adding and entry->'automatic'='true'::jsonb and not (suppressed ? (entry->>'id')) then
+      sheet:=jsonb_set(sheet,'{campaignRemovedFeatIds}',suppressed||jsonb_build_array(entry->>'id'));
+    elsif adding and suppressed ? (entry->>'id') then
+      sheet:=jsonb_set(sheet,'{campaignRemovedFeatIds}',suppressed-(entry->>'id'));
+    end if;
+  end if;
+  return sheet;
+end $;
+
 create function ledger_private.preserve_rewards() returns trigger language plpgsql security definer set search_path='' as $$
 declare change ledger_private.sheet_rewards; seen bigint; latest bigint;
 begin
@@ -25,7 +40,7 @@ begin
   seen := case when new.data->>'campaignRewardVersion' ~ '^[0-9]{1,16}$' then (new.data->>'campaignRewardVersion')::bigint else 0 end;
   for change in select * from ledger_private.sheet_rewards where owner_id=old.user_id and sheet_id=old.id
     and version>seen order by version loop
-    new.data := jsonb_set(new.data,array[change.field],ledger_private.apply_reward(new.data->change.field,change.adding,change.entry));
+    new.data := ledger_private.apply_sheet_reward(new.data,change.field,change.adding,change.entry);
   end loop;
   select max(version) into latest from ledger_private.sheet_rewards where owner_id=old.user_id and sheet_id=old.id;
   if latest is not null then new.data:=jsonb_set(new.data,'{campaignRewardVersion}',to_jsonb(latest)); end if;
@@ -46,11 +61,15 @@ begin
        or nullif(p_entry->>'id','') is null) then raise exception 'A reward needs a name and ID'; end if;
   select data into strict sheet from public.characters where user_id=p_owner and id=p_sheet for update;
   entries:=coalesce(nullif(sheet->p_field,'null'),'[]');
-  changed:=ledger_private.apply_reward(entries,p_add,p_entry);
-  if changed=entries then return; end if;
+  if not p_add and p_entry->>'id' is not null then
+    select e into p_entry from jsonb_array_elements(entries) e where e->>'id'=p_entry->>'id' limit 1;
+    if not found then return; end if;
+  end if;
+  changed:=ledger_private.apply_sheet_reward(sheet,p_field,p_add,p_entry);
+  if changed=sheet then return; end if;
   select coalesce(max(version),0)+1 into revision from ledger_private.sheet_rewards where owner_id=p_owner and sheet_id=p_sheet;
   insert into ledger_private.sheet_rewards values(p_owner,p_sheet,revision,p_field,p_add,p_entry);
-  update public.characters set data=jsonb_set(jsonb_set(data,array[p_field],changed),'{campaignRewardVersion}',to_jsonb(revision))
+  update public.characters set data=jsonb_set(changed,'{campaignRewardVersion}',to_jsonb(revision))
     where user_id=p_owner and id=p_sheet;
 end $$;
 
@@ -114,6 +133,6 @@ begin
   end if;
   update public.ledger_campaigns set live_encounter=encounter,revision=revision+1 where id=p_campaign;
 end $$;
-revoke all on function ledger_private.apply_reward(jsonb,boolean,jsonb),ledger_private.preserve_rewards() from public,anon,authenticated;
+revoke all on function ledger_private.apply_reward(jsonb,boolean,jsonb),ledger_private.apply_sheet_reward(jsonb,text,boolean,jsonb),ledger_private.preserve_rewards() from public,anon,authenticated;
 revoke all on function public.ledger_change_reward(uuid,uuid,text,text,boolean,jsonb),public.ledger_combat_state(uuid),public.ledger_combat_command(uuid,uuid,text,jsonb) from public,anon;
 grant execute on function public.ledger_change_reward(uuid,uuid,text,text,boolean,jsonb),public.ledger_combat_state(uuid),public.ledger_combat_command(uuid,uuid,text,jsonb) to authenticated;

@@ -79,9 +79,9 @@ try {
   await button(dm,'Add custom feat').click();
   await dm.getByText('Gave Archive ward to Arden.').waitFor();
   await player.getByRole('tab',{name:'Feats',exact:true}).click();
-  await player.getByRole('tabpanel').getByText('Archive ward',{exact:true}).first().waitFor();
+  await player.getByRole('tabpanel').locator('summary').filter({hasText:'Archive ward'}).first().waitFor();
   await button(dm,'Remove Archive ward').click();
-  await player.getByRole('tabpanel').getByText('Archive ward',{exact:true}).first().waitFor({state:'hidden'});
+  await player.getByRole('tabpanel').locator('summary').filter({hasText:'Archive ward'}).first().waitFor({state:'hidden'});
   await dm.getByLabel('Manage collection').selectOption('inventory');
   await dm.locator('.campaign-rewards').getByRole('button',{name:'Remove Silver seal',exact:true}).click();
   await player.getByRole('tab',{name:'Inventory',exact:true}).click();

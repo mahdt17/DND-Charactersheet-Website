@@ -120,7 +120,9 @@ const id = () => crypto.randomUUID();
 const workspaceBlank = () => ({id:'ledger-workspace',name:'Ledger workspace',kind:'workspace',campaigns:[],encounters:[],homebrew:[]});
 const get = async key => {const r=await window.storage.get(`char-detail:${key}`);return r?JSON.parse(r.value):null;};
 const put = record => window.storage.set(`char-detail:${record.id}`,JSON.stringify(record));
-function normalize(record) { const base=normalizeAdvancement({...blankCharacter(record.name),...record,abilities:{...blankCharacter().abilities,...record.abilities},hp:{current:10,max:10,temp:0,...record.hp},inventory:record.inventory||[],spells:record.spells||[],actions:record.actions||[]}); const next=reconcileLupin(reconcileLeonin(reconcileTotemWarrior(reconcileFighterSubclass(reconcileShadowScholar(reconcileShadarKai(reconcileAasimar(reconcileEladrin(reconcileEntomancerActivity(reconcileCampaign(reconcileClassGrants(base))))))))))); return {...next,resources:characterResources(next,effectiveAbilities(next))}; }
+function normalize(record) { const base=normalizeAdvancement({...blankCharacter(record.name),...record,abilities:{...blankCharacter().abilities,...record.abilities},hp:{current:10,max:10,temp:0,...record.hp},inventory:record.inventory||[],spells:record.spells||[],actions:record.actions||[]}); const next=reconcileLupin(reconcileLeonin(reconcileTotemWarrior(reconcileFighterSubclass(reconcileShadowScholar(reconcileShadarKai(reconcileAasimar(reconcileEladrin(reconcileEntomancerActivity(reconcileCampaign(reconcileClassGrants(base))))))))))); const suppressed=new Set(Array.isArray(record.campaignRemovedFeatIds)?record.campaignRemovedFeatIds:[]);
+  const sheet=suppressed.size?{...next,feats:(next.feats||[]).filter(feat=>!suppressed.has(feat.id))}:next;
+  return {...sheet,resources:characterResources(sheet,effectiveAbilities(sheet))}; }
 function download(name, value) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 const classColors={Wizard:'#9b8cff',Sorcerer:'#c587e8',Warlock:'#b58fff',Fighter:'#e59c6b',Barbarian:'#ee7e81',Rogue:'#91a7c1',Ranger:'#7acbaa',Druid:'#7acbaa',Cleric:'#ebc76e',Paladin:'#ebc76e',Bard:'#e38db8',Monk:'#7cc9e0'};
 function Avatar({char,large=false}) {return <div className={`ledger-avatar ${large?'large':''}`} style={{'--class-color':classColors[char.className]||'#9b8cff'}}><Sword size={large?36:24}/><span>{char.name?.slice(0,1).toUpperCase()}</span></div>;}
@@ -166,7 +168,7 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
       if(!result||pending.current.has(selected))return;
       const {current,change}=result;
       if(charactersRef.current.find(c=>c.id===selected)!==current)return;
-      const next=normalize({...current,inventory:change.inventory??[],feats:change.feats??[],campaignRewardVersion:change.version});
+      const next=normalize({...current,inventory:change.inventory??[],feats:change.feats??[],campaignRemovedFeatIds:change.suppressed??[],campaignRewardVersion:change.version});
       const list=charactersRef.current.map(c=>c.id===selected?next:c);
       charactersRef.current=list;setCharacters(list);
     },()=>{},read);
