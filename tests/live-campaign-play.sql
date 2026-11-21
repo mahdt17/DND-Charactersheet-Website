@@ -100,4 +100,23 @@ begin
   if public.ledger_combat_state(c)->'entries'<>'[]' then raise exception 'Departed character remained in combat'; end if;
   begin perform public.ledger_change_reward(c,'84360000-0000-4000-8000-000000000002','hero','inventory',false,'{"id":"s"}'); raise exception 'DM edited departed character'; exception when raise_exception then if sqlerrm='DM edited departed character' then raise; end if; end;
 end $$;
+do $$ declare c uuid:=current_setting('fixture.c')::uuid; e uuid:=current_setting('fixture.e')::uuid; report jsonb;
+begin
+  perform public.ledger_combat_command(c,e,'end','{}');
+  report:=public.ledger_download_encounter(c,e);
+  if report is null or report#>>'{events,0,action}' is distinct from 'initiative' or
+     (select count(*) from public.ledger_ended_encounters(c))<>1 then raise exception 'Missing DM archive'; end if;
+  perform set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000002',true);
+  insert into public.ledger_campaign_sheets(character_id,campaign_id) values('hero',c);
+  if public.ledger_download_encounter(c,e) is not null or exists(select from public.ledger_ended_encounters(c))
+    then raise exception 'Player accessed DM archive'; end if;
+end $$;
+reset role;
+update ledger_private.encounter_logs set ended_at=now()-interval '7 days' where id=current_setting('fixture.e')::uuid;
+set local role authenticated;
+select set_config('request.jwt.claim.sub','84360000-0000-4000-8000-000000000001',true);
+do $$ begin
+  if public.ledger_download_encounter(current_setting('fixture.c')::uuid,current_setting('fixture.e')::uuid) is not null
+    then raise exception 'Expired log was downloadable'; end if;
+end $$;
 rollback;

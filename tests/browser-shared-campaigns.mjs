@@ -1,3 +1,4 @@
+import {readFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {createClient} from '@supabase/supabase-js';
 import {chromium} from 'playwright';
@@ -155,6 +156,22 @@ try {
   await button(dm,'Hide Goblin 2 from players').click();
   await playerOrder.getByText('Goblin 2',{exact:true}).waitFor({state:'hidden'});
   await button(dm,'End encounter').click();
+  const logButton=button(dm,'Download log for Gate ambush');
+  async function downloadLog(){
+    const [file]=await Promise.all([dm.waitForEvent('download'),logButton.click()]);
+    return {name:file.suggestedFilename(),text:await readFile(await file.path(),'utf8')};
+  }
+  const txt=await downloadLog();
+  assert.match(txt.name,/^Gate-ambush-.*\.txt$/);
+  assert.match(txt.text,/Goblin 2 hidden from players/);
+  assert.match(txt.text,/Goblin removed from the encounter/);
+  assert.match(txt.text,/Final initiative order/);
+  await dm.getByLabel('Log format').selectOption('json');
+  const json=JSON.parse((await downloadLog()).text);
+  assert.equal(json.encounter,'Gate ambush');
+  assert(json.events.some(e=>e.action==='initiative'&&e.participant==='Arden'));
+  assert(json.finalOrder.some(e=>e.name==='Goblin 2'&&!e.visible));
+  assert.equal(await button(player,'Download log for Gate ambush').count(),0);
   await playerOrder.waitFor({state:'hidden'});
   await dm.getByRole('button',{name:/Arden · Level 1 Fighter/}).click();
   await viewer.getByRole('tab',{name:'Notes',exact:true}).click();
@@ -165,6 +182,7 @@ try {
   assert.equal(await dm.getByRole('article',{name:'Live character sheet'}).count(),0);
   await dm.reload();await button(dm,'Campaigns').click();
   await button(dm,'The Violet Archive').click();
+  await logButton.waitFor();
   await dm.getByText(/Their characters appear here/).waitFor();
   await button(player,'Join campaign').click();
   await player.getByLabel('Invite code from your DM').fill(invite);
