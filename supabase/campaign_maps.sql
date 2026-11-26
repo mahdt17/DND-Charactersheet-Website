@@ -23,6 +23,20 @@ create table ledger_private.scene_rooms (
   depth_ft integer not null check(depth_ft>=5 and depth_ft<=150-y_ft)
 );
 create index scene_rooms_floor_idx on ledger_private.scene_rooms(floor_id);
+create table ledger_private.floor_passages (
+  id uuid primary key,
+  from_floor uuid not null references ledger_private.scene_floors(id) on delete cascade,
+  to_floor uuid not null references ledger_private.scene_floors(id) on delete cascade,
+  from_x integer not null check(from_x between 0 and 200), from_y integer not null check(from_y between 0 and 150),
+  to_x integer not null check(to_x between 0 and 200), to_y integer not null check(to_y between 0 and 150),
+  kind text not null check(kind in ('stairs','ladder','pit')),
+  erased boolean not null default false,
+  check(from_floor<>to_floor)
+);
+create index floor_passages_from_idx on ledger_private.floor_passages(from_floor);
+create index floor_passages_to_idx on ledger_private.floor_passages(to_floor);
+alter table ledger_private.floor_passages enable row level security;
+revoke all on ledger_private.floor_passages from public,anon,authenticated;
 alter table ledger_private.scenes enable row level security;
 alter table ledger_private.scene_floors enable row level security;
 alter table ledger_private.scene_rooms enable row level security;
@@ -42,7 +56,11 @@ create function public.ledger_map_floor(p_campaign uuid,p_floor uuid)
 returns jsonb language sql stable security definer set search_path='' as $$
  select jsonb_build_object('id',f.id,'rooms',(select coalesce(jsonb_agg(jsonb_build_object(
    'id',r.id,'x',r.x_ft,'y',r.y_ft,'width',r.width_ft,'depth',r.depth_ft) order by r.id),'[]')
-   from ledger_private.scene_rooms r where r.floor_id=f.id and not r.erased))
+   from ledger_private.scene_rooms r where r.floor_id=f.id and not r.erased),
+   'passages',(select coalesce(jsonb_agg(jsonb_build_object(
+     'id',p.id,'kind',p.kind,'fromFloor',p.from_floor,'toFloor',p.to_floor,
+     'fromX',p.from_x,'fromY',p.from_y,'toX',p.to_x,'toY',p.to_y) order by p.id),'[]')
+     from ledger_private.floor_passages p where (p.from_floor=f.id or p.to_floor=f.id) and not p.erased))
  from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
  join public.ledger_campaigns c on c.id=s.campaign_id where c.id=p_campaign and c.dm_id=auth.uid() and f.id=p_floor
 $$;
@@ -77,6 +95,26 @@ begin
    x:=(p_value->>'x')::int; y:=(p_value->>'y')::int; w:=(p_value->>'width')::int; d:=(p_value->>'depth')::int;
    insert into ledger_private.scene_rooms(id,floor_id,x_ft,y_ft,width_ft,depth_ft) values(p_id,p_parent,x,y,w,d) on conflict(id) do nothing;
    if not exists(select from ledger_private.scene_rooms where id=p_id and floor_id=p_parent and (x_ft,y_ft,width_ft,depth_ft)=(x,y,w,d)) then raise exception 'Map change conflict'; end if;
+ when 'passage' then
+   perform 1 from ledger_private.scene_floors a join ledger_private.scenes s on s.id=a.scene_id
+     join ledger_private.scene_floors b on b.scene_id=s.id
+     where a.id=p_parent and b.id=(p_value->>'toFloor')::uuid and a.id<>b.id and s.campaign_id=p_campaign
+       and (p_value->>'kind'<>'pit' or b.elevation_ft<a.elevation_ft);
+   if not found then raise exception 'Choose a different floor in this map. Pits must lead down.'; end if;
+   if not exists(select from ledger_private.floor_passages where id=p_id) and exists(
+     select from (values(p_parent),((p_value->>'toFloor')::uuid)) as ends(floor_id) where
+     (select count(*) from ledger_private.floor_passages p where p.from_floor=ends.floor_id or p.to_floor=ends.floor_id)>=256
+   ) then raise exception 'Floor passage limit reached'; end if;
+   insert into ledger_private.floor_passages(id,from_floor,to_floor,kind,from_x,from_y,to_x,to_y)
+   values(p_id,p_parent,(p_value->>'toFloor')::uuid,p_value->>'kind',(p_value->>'fromX')::int,
+     (p_value->>'fromY')::int,(p_value->>'toX')::int,(p_value->>'toY')::int) on conflict(id) do nothing;
+   if not exists(select from ledger_private.floor_passages where id=p_id and from_floor=p_parent and
+     (to_floor,kind,from_x,from_y,to_x,to_y)=((p_value->>'toFloor')::uuid,p_value->>'kind',(p_value->>'fromX')::int,
+     (p_value->>'fromY')::int,(p_value->>'toX')::int,(p_value->>'toY')::int)) then raise exception 'Passage change conflict'; end if;
+ when 'erase_passage' then
+   update ledger_private.floor_passages p set erased=true from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
+     where p.id=p_id and f.id in (p.from_floor,p.to_floor) and f.id=p_parent and s.campaign_id=p_campaign;
+   if not found then raise exception 'Passage unavailable'; end if;
  when 'erase' then
    update ledger_private.scene_rooms r set erased=true from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
      where r.id=p_id and r.floor_id=f.id and f.id=p_parent and s.campaign_id=p_campaign;

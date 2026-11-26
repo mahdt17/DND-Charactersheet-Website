@@ -1,14 +1,14 @@
 begin;
 insert into auth.users(id) values ('61260000-0000-4000-8000-000000000001'),('61260000-0000-4000-8000-000000000002'),('61260000-0000-4000-8000-000000000003');
 do $$ begin
-  if has_table_privilege('authenticated','ledger_private.scene_rooms','SELECT') or has_schema_privilege('authenticated','ledger_private','USAGE')
+  if has_table_privilege('authenticated','ledger_private.scene_rooms','SELECT') or has_table_privilege('authenticated','ledger_private.floor_passages','SELECT') or has_schema_privilege('authenticated','ledger_private','USAGE')
     then raise exception 'Private scene data granted to clients'; end if;
 end $$;
 set local role authenticated;
 select set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000001',true);
 insert into public.ledger_campaigns(name) values ('Map fixture');
 select set_config('map.c',(select id::text from public.ledger_campaigns where name='Map fixture'),true);
-do $$ declare c uuid:=current_setting('map.c')::uuid; scene uuid:=gen_random_uuid(); floor uuid:=gen_random_uuid(); room uuid:=gen_random_uuid(); shape jsonb:='{"x":10,"y":15,"width":20,"depth":25}';
+do $$ declare c uuid:=current_setting('map.c')::uuid; scene uuid:=gen_random_uuid(); floor uuid:=gen_random_uuid(); room uuid:=gen_random_uuid(); passage uuid:=gen_random_uuid(); other_scene uuid:=gen_random_uuid(); link jsonb; shape jsonb:='{"x":10,"y":15,"width":20,"depth":25}';
 begin
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
@@ -17,6 +17,17 @@ begin
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   if jsonb_array_length(public.ledger_map_catalog(c))<>1 or public.ledger_map_catalog(c)#>>'{0,floors,0,elevation}' is distinct from '-30' or
      jsonb_array_length(public.ledger_map_floor(c,floor)->'rooms')<>1 then raise exception 'Map creation or replay failed'; end if;
+  link:=jsonb_build_object('kind','pit','toFloor',floor,'fromX',20,'fromY',15,'toX',25,'toY',30);
+  perform public.ledger_prepare_map(c,'passage',passage,scene,link);
+  perform public.ledger_prepare_map(c,'passage',passage,scene,link);
+  if jsonb_array_length(public.ledger_map_floor(c,scene)->'passages')<>1 or public.ledger_map_floor(c,floor)#>>'{passages,0,fromFloor}' is distinct from scene::text then raise exception 'Passage endpoints or replay incorrect'; end if;
+  begin perform public.ledger_prepare_map(c,'passage',passage,scene,link||'{"toY":50}'); raise exception 'Changed passage on replay';
+  exception when raise_exception then if sqlerrm<>'Passage change conflict' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'passage',gen_random_uuid(),floor,link||jsonb_build_object('toFloor',scene)); raise exception 'Uphill pit accepted';
+  exception when raise_exception then if sqlerrm not like 'Choose a different floor%' then raise; end if; end;
+  perform public.ledger_prepare_map(c,'scene',other_scene,null,'{"name":"Other map"}');
+  begin perform public.ledger_prepare_map(c,'passage',gen_random_uuid(),other_scene,link); raise exception 'Cross-map passage accepted';
+  exception when raise_exception then if sqlerrm not like 'Choose a different floor%' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'room',room,floor,shape||'{"width":35}');raise exception 'Overwrote committed room';
   exception when raise_exception then if sqlerrm='Overwrote committed room' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'room',gen_random_uuid(),floor,shape||'{"width":200}');raise exception 'Out of bounds room';
@@ -30,11 +41,16 @@ begin
   insert into public.ledger_campaign_sheets(character_id,campaign_id) values('hero',c);
   if public.ledger_map_catalog(c)<>'[]' or public.ledger_map_floor(c,floor) is not null
     then raise exception 'Player accessed private floor'; end if;
+  begin perform public.ledger_prepare_map(c,'erase_passage',passage,floor,'{}');raise exception 'Player erased passage';
+  exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'erase',room,floor,'{}');raise exception 'Player erased room';
   exception when raise_exception then if sqlerrm='Player erased room' then raise; end if; end;
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000003',true);
   if public.ledger_map_floor(c,floor) is not null or public.ledger_map_catalog(c)<>'[]' then raise exception 'Nonmember read map'; end if;
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000001',true);
+  perform public.ledger_prepare_map(c,'erase_passage',passage,floor,'{}');
+  perform public.ledger_prepare_map(c,'passage',passage,scene,link);
+  if public.ledger_map_floor(c,scene)->'passages'<>'[]' or public.ledger_map_floor(c,floor)->'passages'<>'[]' then raise exception 'Erased passage reappeared'; end if;
   perform public.ledger_prepare_map(c,'erase',room,floor,'{}');
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   if public.ledger_map_floor(c,floor)->'rooms'<>'[]' then raise exception 'Late request resurrected an erased room'; end if;
