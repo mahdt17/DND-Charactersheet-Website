@@ -22,7 +22,9 @@ try{
   else assert.equal(await page.getByLabel('Ability increase 1',{exact:true}).count(),0);
   await next();assert(await page.getByRole('button',{name:'Perception',exact:true}).isDisabled());await page.getByRole('button',{name:'Acrobatics',exact:true}).click();await page.getByRole('button',{name:'Survival',exact:true}).click();
   if(version==='motm'){await page.getByLabel('Replacement background skill',{exact:true}).selectOption('Stealth');await page.getByLabel('Shadar-kai language 1',{exact:true}).fill('Elvish');}
-  await next();await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:name}).waitFor();let c=await saved(name);console.log('Created '+name);created.push(c);
+  await next();await next();
+  await page.getByRole('radio',{name:'Fighter 1 Fighting Style: Defense (PHB)',exact:true}).check();
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:name}).waitFor();let c=await saved(name);console.log('Created '+name);created.push(c);
   assert.equal(c.raceDefinition.catalogId,`2014:shadar-kai-${version}`);assert.deepEqual(c.abilityBonuses,version==='motm'?{wis:2,dex:1}:{dex:2,con:1});assert(c.skillProf.Perception);assert.equal(c.speed,30);assert.match(c.languages,/Common/);assert.match(c.languages,/Elvish/);assert(c.traits.some(t=>t.name==='Necrotic Resistance'));if(version==='motm'){assert(c.skillProf.Stealth);assert.deepEqual(c.shadarKai.trance,['lute','herbalism-kit']);}
   await page.getByRole('tab',{name:'Actions',exact:true}).click();assert.match(await panel().innerText(),new RegExp(String(year)));assert.match(await panel().innerText(),/level 3/i);assert.equal(await panel().getByRole('button',{name:'Start next turn',exact:true}).count(),0);
   const max=version==='motm'?2:1;for(let i=0;i<max;i++)await panel().getByRole('button',{name:'Use Blessing of the Raven Queen',exact:true}).click();assert(await panel().getByRole('button',{name:'Use Blessing of the Raven Queen',exact:true}).isDisabled());

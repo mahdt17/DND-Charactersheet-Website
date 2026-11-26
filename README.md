@@ -50,7 +50,7 @@ The existing GitHub Actions deployment publishes `main` using the repository’s
 
 ## Storage and reliability
 
-For a new database, apply `supabase/schema.sql` followed by `supabase/shared_campaigns.sql`, `supabase/institute_access.sql` and `supabase/delete_campaign.sql`, then `supabase/live_campaign_play.sql` followed by `supabase/shared_sheet_edits.sql`, `supabase/private_encounter_initiative.sql`, and `supabase/encounter_logs.sql` (run each of the last two files in one transaction). Existing installations can apply each missing migration once. Private notebooks, encounters and homebrew stay in the per-user `ledger-workspace` row.
+For a new database, apply `supabase/schema.sql` followed by `supabase/shared_campaigns.sql`, `supabase/institute_access.sql` and `supabase/delete_campaign.sql`, then `supabase/live_campaign_play.sql` followed by `supabase/shared_sheet_edits.sql`, `supabase/private_encounter_initiative.sql`, `supabase/encounter_logs.sql`, and `supabase/live_turn_clock.sql` (run each of the last three files in one transaction). Existing installations can apply each missing migration once. Private notebooks, encounters and homebrew stay in the per-user `ledger-workspace` row.
 
 Signed-in DMs can open **Campaigns → Start a DM campaign** and give players its invite code. Players select their own characters under **Share a character with your DM**. Each character belongs to one shared campaign at a time. The DM can read all saved sheet fields. Saves, assignments and removals update the open roster through Supabase Realtime, with a refresh on reconnect, tab focus and a ten-second fallback. Players can withdraw access from the same panel.
 
