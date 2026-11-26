@@ -33,10 +33,22 @@ begin
   update public.characters set data='{"notes":"offline","concentration":"Focus","activeEffects":[{"id":"test","remainingSeconds":60},{"id":"short","remainingSeconds":6,"concentration":"Focus"},{"id":"shield","expires":"start-next-turn","remainingSeconds":6}]}' where user_id=auth.uid() and id='sheet';
   if not exists(select from public.characters where user_id=auth.uid() and id='sheet' and data#>>'{activeEffects,0,remainingSeconds}'='54' and jsonb_array_length(data->'activeEffects')=1 and data->>'concentration' is null and data->>'notes'='offline') then raise exception 'Concurrent save corrupted clock'; end if;
   perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000001',true);
+  -- Start a separate minute-long effect at the player's initiative position.
+  perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000002',true);
+  begin perform public.ledger_adjust_effect(c,auth.uid(),'sheet','test',54,999); raise exception 'Player used DM correction';
+  exception when raise_exception then if sqlerrm='Player used DM correction' then raise; end if; end;
+  update public.characters set data=jsonb_set(data,'{activeEffects}',(data->'activeEffects')||'[{"id":"minute","name":"Minute","remainingSeconds":60}]')
+    where user_id=auth.uid() and id='sheet';
+  perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000001',true);
   perform public.ledger_adjust_effect(c,'51360000-0000-4000-8000-000000000002','sheet','test',54,18);
   begin perform public.ledger_adjust_effect(c,'51360000-0000-4000-8000-000000000002','sheet','test',54,0); raise exception 'Stale DM correction applied';
   exception when raise_exception then if sqlerrm='Stale DM correction applied' then raise; end if; end;
   perform public.ledger_adjust_effect(c,'51360000-0000-4000-8000-000000000002','sheet','test',18,0);
+  for serial in 4..21 loop perform public.ledger_advance_turn(c,e,serial); end loop;
+  if (select data#>>'{activeEffects,0,remainingSeconds}' from public.characters where id='sheet') is distinct from '6' then raise exception 'Wrong duration after nine rotations'; end if;
+  perform public.ledger_advance_turn(c,e,22);
+  perform public.ledger_advance_turn(c,e,23);
+  if (select data->'activeEffects' from public.characters where id='sheet') is distinct from '[]'::jsonb then raise exception 'Minute did not expire after ten full rotations'; end if;
   perform public.ledger_combat_command(c,e,'end','{}');
   if not exists(select from jsonb_array_elements(public.ledger_download_encounter(c,e)->'events') ev where ev->>'action'='expired') then raise exception 'Missing log expiry'; end if;
 end $$;
