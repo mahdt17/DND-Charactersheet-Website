@@ -2,6 +2,18 @@
 alter table public.characters add column live_timer_version bigint not null default 0,
   add column live_timer_floor bigint not null default 0,
   add column live_timer_expirations jsonb not null default '[]';
+-- Limit browser writes to fields supported by existing sheet/import clients.
+-- The initiative clock and its reconciliation history are server-owned.
+revoke all on public.characters from public,anon,authenticated;
+grant select,delete on public.characters to authenticated;
+grant insert(user_id,id,name,race,class_name,level,data,institute_access),
+  update(user_id,id,name,race,class_name,level,data,institute_access) on public.characters to authenticated;
+
+-- Clock and DM correction commands already notify once after updating the sheets.
+drop trigger ledger_shared_sheet_saved on public.characters;
+create trigger ledger_shared_sheet_saved after update on public.characters for each row
+  when (old.live_timer_version=new.live_timer_version) execute function ledger_private.notify_campaign();
+
 create function ledger_private.timer_key(effect jsonb) returns text language sql immutable set search_path='' as $$
   select coalesce($1->>'timerInstance',$1->>'id')
 $$;
@@ -101,7 +113,7 @@ begin
   for sheet in select c.user_id,c.id,c.name,c.data
     from public.ledger_campaign_sheets s join public.characters c on (c.user_id,c.id)=(s.user_id,s.character_id)
     where s.campaign_id=p_campaign and jsonb_typeof(c.data->'activeEffects')='array' and c.data->'activeEffects'<>'[]'::jsonb
-    order by c.user_id,c.id for update of c loop
+    order by c.user_id,c.id for update of c nowait loop
     participant:=sheet.user_id::text||':'||sheet.id;
     sheet_anchors:='{}'; effects:='[]'; sheet_data:=sheet.data;
     starting:=participant=next_actor->>'id'; ending:=participant=prior->>'actor';
@@ -135,7 +147,9 @@ begin
   state_row:=state_row||jsonb_build_object('timerAnchors',anchors,'turn',jsonb_build_object('key',next_key,'actor',next_actor->'id','round',next_round,'serial',p_serial+1));
   update ledger_private.campaign_encounters set state=state_row where campaign_id=p_campaign;
   update public.ledger_campaigns set revision=revision+1 where id=p_campaign;
-end $$;
+exception when lock_not_available then
+  raise exception 'A player is saving a sheet. Retry advancing the turn.' using errcode='55P03';
+end $;
 revoke all on function public.ledger_advance_turn(uuid,uuid,bigint) from public,anon;
 grant execute on function public.ledger_advance_turn(uuid,uuid,bigint) to authenticated;
 
@@ -170,7 +184,7 @@ begin
   if encounter is null then raise exception 'Start a live encounter to adjust an effect'; end if;
   perform 1 from public.ledger_campaign_sheets where campaign_id=p_campaign and user_id=p_owner and character_id=p_sheet for share;
   if not found then raise exception 'Character is no longer shared'; end if;
-  select data,name into sheet,actor_name from public.characters where user_id=p_owner and id=p_sheet for update;
+  select data,name into sheet,actor_name from public.characters where user_id=p_owner and id=p_sheet for update nowait;
   select value,ordinality-1 into effect,pos from jsonb_array_elements(sheet->'activeEffects') with ordinality where ledger_private.timer_key(value)=p_key;
   if effect is null or (effect->>'remainingSeconds')::numeric is distinct from p_before then raise exception 'Effect changed. Review the current duration.'; end if;
   if p_seconds is null or p_seconds<0 or (p_seconds>0 and (p_before is null or effect ? 'expires')) then raise exception 'Choose a valid duration'; end if;
@@ -182,6 +196,8 @@ begin
   update public.characters set data=sheet,live_timer_version=live_timer_version+1 where user_id=p_owner and id=p_sheet;
   perform ledger_private.write_encounter_event(encounter,'effect_adjusted',actor_name||' · '||coalesce(effect->>'name','Effect')||case when p_seconds=0 then ' ended' else ' · '||p_seconds::text||' seconds remaining' end);
   update public.ledger_campaigns set revision=revision+1 where id=p_campaign;
-end $$;
+exception when lock_not_available then
+  raise exception 'The sheet is being saved. Retry the correction.' using errcode='55P03';
+end $;
 revoke all on function public.ledger_adjust_effect(uuid,uuid,text,text,numeric,int) from public,anon;
 grant execute on function public.ledger_adjust_effect(uuid,uuid,text,text,numeric,int) to authenticated;
