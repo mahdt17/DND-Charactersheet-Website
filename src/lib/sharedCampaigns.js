@@ -78,31 +78,41 @@ export function campaignService(client,userId) {
     combat(id,encounter,action,payload={}) {
       return result(client.rpc('ledger_combat_command',{p_campaign:id,p_encounter:encounter,p_action:action,p_payload:payload}));
     },
-    subscribe(id,refresh,onConnection=()=>{}) {
-      const listener={refresh,onConnection};
+    subscribe(id,refresh) {
       let entry=channels.get(id);
       if(entry){
-        entry.listeners.add(listener);
-        onConnection(entry.connected);
+        entry.listeners.add(refresh);
       }else{
-        const listeners=new Set([listener]);
+        const listeners=new Set([refresh]);
         const channel=client.channel('dm-campaign-'+id+'-'+crypto.randomUUID());
-        entry={listeners,channel,connected:false};
+        entry={listeners,channel};
         channels.set(id,entry);
-        channel.on('postgres_changes',{event:'UPDATE',schema:'public',table:'ledger_campaigns',filter:'id=eq.'+id},()=>{
-          for(const watcher of listeners)watcher.refresh();
-        }).subscribe(state=>{
-          entry.connected=state==='SUBSCRIBED';
-          for(const watcher of listeners){
-            watcher.onConnection(entry.connected);
-            if(entry.connected)watcher.refresh();
-          }
-        });
+        let lastRevision,reading=false;
+        function notify(){for(const watcher of listeners)watcher();}
+        function observe(revision){
+          if(lastRevision===revision)return;
+          lastRevision=revision;notify();
+        }
+        // A connected socket can miss a change. Compare one small revision for all
+        // views, then fetch their content only when the campaign actually changes.
+        async function checkRevision(){
+          if(document.hidden||reading)return;
+          reading=true;
+          const before=lastRevision;
+          try{
+            const row=await result(campaigns().select('revision').eq('id',id).maybeSingle());
+            if(lastRevision===before)observe(row?.revision??null);
+          }catch{notify();}finally{reading=false;}
+        }
+        entry.timer=setInterval(checkRevision,10000);
+        channel.on('postgres_changes',{event:'UPDATE',schema:'public',table:'ledger_campaigns',filter:'id=eq.'+id},event=>{
+          if(event.new?.revision!=null)observe(event.new.revision);else notify();
+        }).subscribe(state=>{if(state==='SUBSCRIBED')notify();});
       }
       return ()=>{
-        entry.listeners.delete(listener);
+        entry.listeners.delete(refresh);
         if(!entry.listeners.size&&channels.get(id)===entry){
-          channels.delete(id);void client.removeChannel(entry.channel);
+          channels.delete(id);clearInterval(entry.timer);void client.removeChannel(entry.channel);
         }
       };
     },
@@ -123,14 +133,9 @@ export function watchRoster(api,id,onRows,onError,read=api.roster,{refreshOnTurn
     }while(again&&!stopped);
     running=false;
   }
-  let interval;
   const focus=()=>{if(!document.hidden)void refresh();};
-  function poll(connected){
-    clearInterval(interval);
-    interval=setInterval(focus,connected?60000:10000);
-  }
-  poll(false);
-  const unsubscribe=id?api.subscribe(id,focus,poll):()=>{};
+  const interval=id?null:setInterval(focus,10000);
+  const unsubscribe=id?api.subscribe(id,focus):()=>{};
   if(refreshOnTurn)window.addEventListener('ledger-turn-advanced',focus);
   window.addEventListener('focus',focus);
   document.addEventListener('visibilitychange',focus);

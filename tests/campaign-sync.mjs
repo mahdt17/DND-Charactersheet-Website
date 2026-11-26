@@ -17,9 +17,9 @@ test('campaign views share a filtered channel and one in-flight encounter read',
   const leaveSecond=api.subscribe('one',()=>second++);
   const leaveOther=api.subscribe('two',()=>{});
   assert.deepEqual(channels.map(c=>c.filter.filter),['id=eq.one','id=eq.two']);
-  channels[0].state('SUBSCRIBED');channels[0].refresh();
+  channels[0].state('SUBSCRIBED');channels[0].refresh({new:{}});
   assert.deepEqual([first,second],[2,2]);
-  leaveFirst();channels[0].refresh();assert.deepEqual([first,second],[2,3]);assert.deepEqual(removed,[]);
+  leaveFirst();channels[0].refresh({new:{}});assert.deepEqual([first,second],[2,3]);assert.deepEqual(removed,[]);
   leaveSecond();leaveOther();assert.equal(removed.length,2);
   const a=api.encounter('one'),b=api.encounter('one'),other=api.encounter('two');
   assert.deepEqual(requests,['one','two']);
@@ -29,20 +29,28 @@ test('campaign views share a filtered channel and one in-flight encounter read',
   const next=api.encounter('one');reads[3]({data:{round:2}});assert.deepEqual(await next,{round:2});
 });
 
-test('healthy sessions back off, hidden changes wait for focus, disconnected views recover',async t=>{
-  globalThis.window=new EventTarget();globalThis.document=new EventTarget();document.hidden=false;
+test('one revision read catches missed events and idle views avoid content refetches',async t=>{
+  const timers=new Set();
+  t.mock.method(globalThis,'setInterval',(fn,delay)=>{assert.equal(delay,10000);timers.add(fn);return fn;});
+  t.mock.method(globalThis,'clearInterval',fn=>timers.delete(fn));
+  globalThis.document=new EventTarget();globalThis.window=new EventTarget();document.hidden=false;
   t.after(()=>{delete globalThis.document;delete globalThis.window;});
-  const intervals=new Map();
-  t.mock.method(globalThis,'setInterval',(callback,ms)=>{const key=Symbol();intervals.set(key,{callback,ms});return key;});
-  t.mock.method(globalThis,'clearInterval',key=>intervals.delete(key));
-  let changed,connection,reads=0;
-  const api={subscribe(id,onChange,onConnection){changed=onChange;connection=onConnection;return ()=>{};}};
-  const stop=watchRoster(api,'one',()=>{},assert.fail,async()=>++reads);
-  await Promise.resolve();assert.equal(reads,1);
-  assert.deepEqual([...intervals.values()].map(t=>t.ms),[10000]);
-  connection(true);assert.deepEqual([...intervals.values()].map(t=>t.ms),[60000]);
-  document.hidden=true;changed();[...intervals.values()][0].callback();assert.equal(reads,1);
-  document.hidden=false;document.dispatchEvent(new Event('visibilitychange'));await Promise.resolve();assert.equal(reads,2);
-  connection(false);assert.deepEqual([...intervals.values()].map(t=>t.ms),[10000]);
-  stop();assert.equal(intervals.size,0);
+  let revision=1,revisionReads=0,contentReads=0,deliver;
+  const api=campaignService({
+    channel:()=>({on(event,filter,listener){deliver=listener;return this;},subscribe(){return this;}}),
+    removeChannel(){},
+    from:()=>({select(columns){assert.equal(columns,'revision');return this;},eq(){return this;},
+      async maybeSingle(){revisionReads++;return {data:revision==null?null:{revision}};}})
+  },'first');
+  const read=async()=>++contentReads;
+  const a=watchRoster(api,'one',()=>{},assert.fail,read),b=watchRoster(api,'one',()=>{},assert.fail,read);
+  await Promise.resolve();assert.equal(timers.size,1);
+  const check=[...timers][0];await check();const baseline=contentReads;
+  await check();await check();assert.equal(contentReads,baseline);assert.equal(revisionReads,3);
+  revision=2;await check();assert.equal(contentReads,baseline+2);
+  deliver({new:{revision:2}});assert.equal(contentReads,baseline+2);
+  document.hidden=true;revision=3;await check();assert.equal(revisionReads,4);
+  document.hidden=false;await check();assert.equal(contentReads,baseline+4);
+  revision=null;await check();assert.equal(contentReads,baseline+6);
+  a();assert.equal(timers.size,1);b();assert.equal(timers.size,0);
 });
