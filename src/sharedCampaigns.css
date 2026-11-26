@@ -36,3 +36,5 @@
 .encounter-queue li>span {flex:1}
 .encounter-queue input {width:4rem}
 .campaign-combat .combat-list li {flex-wrap:wrap}
+
+.map-drawing-board { display: block; width: 100%; height: auto; border: 1px solid currentColor; border-radius: 4px; cursor: crosshair; margin: .75rem 0; }

@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - 'src/LiveCombat.jsx'
+      - 'src/CampaignMaps.jsx'
+      - 'supabase/campaign_maps.sql'
+      - 'tests/campaign-maps.sql'
       - 'src/EncounterLogs.jsx'
       - 'supabase/encounter_logs.sql'
       - 'supabase/live_turn_clock.sql'
@@ -53,6 +56,8 @@ jobs:
           psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/private_encounter_initiative.sql
           psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/encounter_logs.sql
           psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/live_turn_clock.sql
+          psql "$DB_URL" -1 -v ON_ERROR_STOP=1 -f supabase/campaign_maps.sql
+          psql "$DB_URL" -v ON_ERROR_STOP=1 -f tests/campaign-maps.sql
           psql "$DB_URL" -v ON_ERROR_STOP=1 -f tests/live-turn-clock.sql
           psql "$DB_URL" -v ON_ERROR_STOP=1 -f tests/shared-campaigns.sql -f tests/live-campaign-play.sql
           npm run build

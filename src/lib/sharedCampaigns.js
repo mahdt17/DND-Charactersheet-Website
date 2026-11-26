@@ -55,6 +55,11 @@ export function campaignService(client,userId) {
       const row=await result(sheets().select('campaign_id').eq('user_id',userId).eq('character_id',characterId).maybeSingle());
       return row?.campaign_id||'';
     },
+    mapCatalog(id) { return result(client.rpc('ledger_map_catalog',{p_campaign:id})); },
+    mapFloor(id,floor) { return result(client.rpc('ledger_map_floor',{p_campaign:id,p_floor:floor})); },
+    prepareMap(campaign,operation,id,parent,value) {
+      return result(client.rpc('ledger_prepare_map',{p_campaign:campaign,p_operation:operation,p_id:id,p_parent:parent,p_value:value}));
+    },
     endedEncounters(id) { return result(client.rpc('ledger_ended_encounters',{p_campaign:id})); },
     downloadEncounter(id,encounter) { return result(client.rpc('ledger_download_encounter',{p_campaign:id,p_encounter:encounter})); },
     adjustEffect(campaign,member,effect,seconds) {
