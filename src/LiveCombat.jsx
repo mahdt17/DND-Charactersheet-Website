@@ -26,26 +26,27 @@ export function usePlayerCombat(api,characterId){
   const campaignId=membership?.characterId===characterId?membership.campaignId:'';
   const {encounter,error,refresh}=useEncounter(api,campaignId);
   const participant=encounter?.entries.find(row=>row.id===api.userId+':'+characterId);
-  const submitted=encounter?.submittedCharacterIds?.includes(characterId)||participant?.initiative!=null||(encounter&&notice?.id===encounter.id&&notice.ok);
+  const rollKey=JSON.stringify([encounter?.id,api?.userId,characterId]);
+  const submitted=encounter?.submittedCharacterIds?.includes(characterId)||participant?.initiative!=null||(encounter&&notice?.key===rollKey&&notice.ok);
   async function initiative(roll){
     if(!encounter)return roll();
     if(submitted||inFlight.current)return;
     inFlight.current=true;setBusy(true);setNotice(null);
     try{
-      if(pending.current?.id!==encounter.id){
+      if(pending.current?.key!==rollKey){
         const result=roll();
         if(!result)return;
         const final=await result.settled||result;
-        pending.current={id:encounter.id,total:final.total};
+        pending.current={key:rollKey,total:final.total};
       }
       await api.combat(campaignId,encounter.id,'roll',{character:characterId,initiative:pending.current.total});
-      setNotice({id:encounter.id,ok:true});refresh();
-    }catch(e){setNotice({id:encounter.id,error:e.message});refresh();}
+      setNotice({key:rollKey,ok:true});refresh();
+    }catch(e){setNotice({key:rollKey,error:e.message});refresh();}
     finally{inFlight.current=false;setBusy(false);}
   }
   const turnSerial=encounter?.turn?.serial;
   useEffect(()=>{if(turnSerial!=null)window.dispatchEvent(new Event('ledger-turn-advanced'));},[turnSerial,encounter?.id]);
-  return {encounter,submitted,busy,initiative,error:error||membershipError||(encounter&&notice?.id===encounter.id&&notice.error)};
+  return {encounter,submitted,busy,initiative,error:error||membershipError||(encounter&&notice?.key===rollKey&&notice.error)};
 }
 
 function InitiativeOrder({encounter,onRemove,onVisibility,busy}){
