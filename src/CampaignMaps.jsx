@@ -1,9 +1,9 @@
-import React,{useEffect,useRef,useState} from 'react';
+import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Dialog from './Dialog';
 
 const width=200,depth=150;
 const emptyRoom={x:0,y:0,width:20,depth:20};
-function draw(canvas,rooms,grid,corner){
+function draw(canvas,rooms,grid,corner,ruler){
   const ctx=canvas.getContext('2d');
   if(!ctx)return;
   const colors=getComputedStyle(canvas);
@@ -21,11 +21,20 @@ function draw(canvas,rooms,grid,corner){
     ctx.globalAlpha=1;ctx.lineWidth=.5;ctx.strokeStyle=colors.color;ctx.strokeRect(room.x,room.y,room.width,room.depth);
   }
   if(corner){ctx.fillStyle=colors.color;ctx.beginPath();ctx.arc(corner.x,corner.y,1.2,0,Math.PI*2);ctx.fill();}
+  if(ruler){
+    const {from,to}=ruler;
+    ctx.strokeStyle=colors.color;ctx.lineWidth=.7;ctx.setLineDash([2,1]);
+    ctx.beginPath();ctx.moveTo(from.x,from.y);ctx.lineTo(to.x,to.y);ctx.stroke();ctx.setLineDash([]);
+    for(const point of [from,to]){ctx.beginPath();ctx.arc(point.x,point.y,1.3,0,Math.PI*2);ctx.fillStyle=colors.color;ctx.fill();}
+  }
   ctx.restore();
 }
 function FloorEditor({api,campaignId,id}){
   const [rooms,setRooms]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
   const [room,setRoom]=useState(emptyRoom),[grid,setGrid]=useState(true),[corner,setCorner]=useState(null),[retry,setRetry]=useState(0);
+  const [tool,setTool]=useState('room'),[snap,setSnap]=useState(false),[zoom,setZoom]=useState(1);
+  const [ruler,setRuler]=useState({from:{x:0,y:0},to:{x:0,y:0}});
+  const viewport=useRef(null),viewCenter=useRef(null);
   const canvas=useRef(null),pending=useRef(null),lock=useRef(false),sequence=useRef(0);
   useEffect(()=>{
     let active=true;
@@ -33,12 +42,32 @@ function FloorEditor({api,campaignId,id}){
     api.mapFloor(campaignId,id).then(floor=>{if(active&&request===sequence.current){if(!floor)throw Error('Floor unavailable');setRooms(floor.rooms);setError('');}}).catch(e=>{if(active)setError(e.message);});
     return ()=>{active=false;};
   },[api,campaignId,id,retry]);
-  useEffect(()=>{if(canvas.current)draw(canvas.current,rooms||[],grid,corner);},[rooms,grid,corner]);
+  useEffect(()=>{
+    if(canvas.current)draw(canvas.current,rooms||[],grid,corner,tool==='measure'?ruler:null);
+  },[rooms,grid,corner,tool,ruler]);
+  useLayoutEffect(()=>{
+    const view=viewport.current,center=viewCenter.current;
+    if(!view||!center)return;
+    view.scrollLeft=center.x*view.scrollWidth-view.clientWidth/2;
+    view.scrollTop=center.y*view.scrollHeight-view.clientHeight/2;
+    viewCenter.current=null;
+  },[zoom]);
+  function changeZoom(next){
+    const view=viewport.current;
+    if(view)viewCenter.current={x:(view.scrollLeft+view.clientWidth/2)/view.scrollWidth,y:(view.scrollTop+view.clientHeight/2)/view.scrollHeight};
+    setZoom(next);
+  }
   function point(event){
     const bounds=event.currentTarget.getBoundingClientRect();
-    const x=Math.min(width,Math.max(0,Math.round((event.clientX-bounds.left)*width/bounds.width)));
-    const y=Math.min(depth,Math.max(0,Math.round((event.clientY-bounds.top)*depth/bounds.height)));
-    if(!corner){setCorner({x,y});return;}
+    const step=snap?5:1;
+    const x=Math.min(width,Math.max(0,Math.round((event.clientX-bounds.left)*width/bounds.width/step)*step));
+    const y=Math.min(depth,Math.max(0,Math.round((event.clientY-bounds.top)*depth/bounds.height/step)*step));
+    if(!corner){
+      setCorner({x,y});
+      if(tool==='measure')setRuler({from:{x,y},to:{x,y}});
+      return;
+    }
+    if(tool==='measure'){setRuler({from:corner,to:{x,y}});setCorner(null);return;}
     setRoom({x:Math.min(x,corner.x),y:Math.min(y,corner.y),width:Math.abs(x-corner.x),depth:Math.abs(y-corner.y)});setCorner(null);
   }
   async function change(kind,oldRoom){
@@ -58,11 +87,26 @@ function FloorEditor({api,campaignId,id}){
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>
     <label><input type="checkbox" checked={grid} onChange={e=>setGrid(e.target.checked)}/> Show 5-ft grid</label>
     <button type="button" className="l-button" disabled={busy} onClick={()=>setRetry(n=>n+1)}>Refresh floor</button></div>
-    {rooms!==null&&<><canvas ref={canvas} width={800} height={600} className="map-drawing-board" aria-label="Floor drawing, with a room list below" onClick={point}/>
-      <p>{corner?'Choose the opposite corner.':'Choose two corners or enter room dimensions in feet.'}</p>
+    {rooms!==null&&<><div className="l-toolbar">
+      <label className="l-field">Tool<select aria-label="Map tool" value={tool} onChange={e=>{setTool(e.target.value);setCorner(null);}}>
+        <option value="room">Draw room</option><option value="measure">Measure distance</option></select></label>
+      <label className="l-field">Zoom<select aria-label="Map zoom" value={zoom} onChange={e=>changeZoom(Number(e.target.value))}>
+        {[1,1.5,2,3].map(z=><option key={z} value={z}>{z*100}%</option>)}</select></label>
+      <label><input type="checkbox" checked={snap} onChange={e=>setSnap(e.target.checked)}/> Snap clicks to 5 ft</label></div>
+      <div className="map-viewport" ref={viewport} role="region" aria-label="Scrollable floor map" tabIndex={0}>
+        <canvas ref={canvas} width={800} height={600} style={{width:zoom*100+'%'}} className="map-drawing-board" aria-label="Floor drawing" onClick={point}/>
+      </div>
+      {tool==='measure'?<fieldset><legend>Distance ruler</legend>
+        <p>{corner?'Choose the end point.':'Choose two points on the map or enter coordinates in feet.'}</p>
+        <div className="l-toolbar">{['from','to'].map(end=>['x','y'].map(axis=><label key={end+axis} className="l-field">
+          {(end==='from'?'Start ':'End ')+axis.toUpperCase()+' (ft)'}<input type="number" min={0} max={axis==='x'?width:depth} value={ruler[end][axis]}
+            onChange={e=>{const n=Math.min(axis==='x'?width:depth,Math.max(0,Number(e.target.value)));setCorner(null);setRuler({...ruler,[end]:{...ruler[end],[axis]:n}});}}/>
+        </label>))}</div>
+        <output aria-label="Straight-line distance">{Number(Math.hypot(ruler.to.x-ruler.from.x,ruler.to.y-ruler.from.y).toFixed(1))} ft</output>
+      </fieldset>:<><p>{corner?'Choose the opposite corner.':'Choose two corners or enter room dimensions in feet.'}</p>
       <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void change('room');}}>
         {Object.entries({x:'Left',y:'Top',width:'Width',depth:'Depth'}).map(([key,label])=><label className="l-field" key={key}>{label} (ft)<input type="number" value={room[key]} onChange={e=>setRoom({...room,[key]:e.target.value})}/></label>)}
-        <button className="l-button primary" disabled={busy||!valid}>Draw room</button></form>
+        <button className="l-button primary" disabled={busy||!valid}>Draw room</button></form></>}
       {!!rooms.length&&<ul aria-label="Rooms on floor">{rooms.map(r=><li key={r.id}>{r.width} × {r.depth} ft at ({r.x}, {r.y}){' '}
         <button type="button" className="l-button" disabled={busy} aria-label={'Erase room at '+r.x+', '+r.y} onClick={()=>change('erase',r)}>Erase</button></li>)}</ul>}</>}
     {error&&<p role="alert">{error}</p>}</section>;
