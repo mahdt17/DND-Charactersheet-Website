@@ -1,10 +1,10 @@
 begin;
-do $ begin
+do $$ begin
   if has_table_privilege('anon','public.characters','TRUNCATE') or has_table_privilege('authenticated','public.characters','TRUNCATE')
     or has_column_privilege('authenticated','public.characters','live_timer_version','UPDATE')
     or has_column_privilege('authenticated','public.characters','live_timer_expirations','INSERT')
     or not has_column_privilege('authenticated','public.characters','data','UPDATE') then raise exception 'Unexpected sheet grants'; end if;
-end $;
+end $$;
 insert into auth.users(id) values ('51360000-0000-4000-8000-000000000001'),('51360000-0000-4000-8000-000000000002');
 set local role authenticated;
 select set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000001',true);

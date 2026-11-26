@@ -149,7 +149,7 @@ begin
   update public.ledger_campaigns set revision=revision+1 where id=p_campaign;
 exception when lock_not_available then
   raise exception 'A player is saving a sheet. Retry advancing the turn.' using errcode='55P03';
-end $;
+end $$;
 revoke all on function public.ledger_advance_turn(uuid,uuid,bigint) from public,anon;
 grant execute on function public.ledger_advance_turn(uuid,uuid,bigint) to authenticated;
 
@@ -198,6 +198,6 @@ begin
   update public.ledger_campaigns set revision=revision+1 where id=p_campaign;
 exception when lock_not_available then
   raise exception 'The sheet is being saved. Retry the correction.' using errcode='55P03';
-end $;
+end $$;
 revoke all on function public.ledger_adjust_effect(uuid,uuid,text,text,numeric,int) from public,anon;
 grant execute on function public.ledger_adjust_effect(uuid,uuid,text,text,numeric,int) to authenticated;
