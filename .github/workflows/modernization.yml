@@ -12,7 +12,9 @@ concurrency:
   group: modernization-v3-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  validate:
+  preflight:
+    outputs:
+      mode: ${{ steps.scope.outputs.mode }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -126,93 +128,6 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run expanded subclass browser smoke tests
         run: npm run test:browser:expanded-smoke
-      - name: Run browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser
-      - name: Run 2014 Arcane Archer browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-arcane-archer-2014.mjs
-      - name: Run Shadow Archer combat browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-shadow-archer-automation.mjs
-      - name: Run edition browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-editions.mjs
-      - name: Run casting/setup browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-casting-setup.mjs
-      - name: Run catalog and advancement browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-integration.mjs
-      - name: Run class spell access browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-spell-access.mjs
-      - name: Run ability rolls and martial subclass browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:martial-subclasses
-      - name: Run subclass and feat magic browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-subclass-feat-magic.mjs
-      - name: Run domain, power, invocation and ritual browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-casting-gaps.mjs
-      - name: Run Archivist campaign browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:archivist
-      - name: Run Lupin conversion browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:lupin
-      - name: Run Leonin creation and racial ability browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:leonin
-      - name: Run Aasimar creation and racial ability browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:aasimar
-      - name: Run Shadar-kai creation and racial ability browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:shadar-kai
-      - name: Run ability score breakdown browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:ability-score-breakdown
-      - name: Run Variant Human creation browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:variant-human
-      - name: Run Shadow Scholar background browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:shadow-scholar
-      - name: Run Entomancer browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:entomancer
-      - name: Validate player usability
-        if: steps.scope.outputs.mode == 'full'
-        run: npm run test:browser:usability
-      - name: Run creation choices and Custom Entomancer browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-creation-choices.mjs
-      - name: Run class resource tracker browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-resources.mjs
-      - name: Run guided feature choice browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-feature-choices.mjs
-      - name: Run structured class effects browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-class-effects35.mjs
-      - name: Run shared source prerequisite browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-source-prerequisites35.mjs
-      - name: Run casting prerequisite browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-casting-prerequisites35.mjs
-      - name: Run level-up feat browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-feat-selection.mjs
-      - name: Run fantasy presentation and dice browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-presentation.mjs
-      - name: Run continuous dice browser tests
-        if: steps.scope.outputs.mode == 'full'
-        run: node tests/browser-continuous-dice.mjs
       - name: Run production loading browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-loading.mjs
@@ -227,3 +142,137 @@ jobs:
             test-results/spell-validation-scope.json
             test-results/changed-spell-regressions.txt
             test-results/
+
+  browser:
+    needs: preflight
+    if: needs.preflight.outputs.mode == 'full'
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [sheet, casting, creation]
+    name: Browser / ${{ matrix.group }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: chromium
+        run: npx playwright install --with-deps chromium
+      - run: mkdir -p test-results
+      - name: Run browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: npm run test:browser
+      - name: Run 2014 Arcane Archer browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-arcane-archer-2014.mjs
+      - name: Run Shadow Archer combat browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-shadow-archer-automation.mjs
+      - name: Run edition browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-editions.mjs
+      - name: Run casting/setup browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-casting-setup.mjs
+      - name: Run catalog and advancement browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-integration.mjs
+      - name: Run class spell access browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-spell-access.mjs
+      - name: Run ability rolls and martial subclass browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'casting' }}
+        run: npm run test:browser:martial-subclasses
+      - name: Run subclass and feat magic browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'casting' }}
+        run: node tests/browser-subclass-feat-magic.mjs
+      - name: Run domain, power, invocation and ritual browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'casting' }}
+        run: node tests/browser-casting-gaps.mjs
+      - name: Run Archivist campaign browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'casting' }}
+        run: npm run test:browser:archivist
+      - name: Run Lupin conversion browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:lupin
+      - name: Run Leonin creation and racial ability browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:leonin
+      - name: Run Aasimar creation and racial ability browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:aasimar
+      - name: Run Shadar-kai creation and racial ability browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:shadar-kai
+      - name: Run ability score breakdown browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:ability-score-breakdown
+      - name: Run Variant Human creation browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:variant-human
+      - name: Run Shadow Scholar background browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'creation' }}
+        run: npm run test:browser:shadow-scholar
+      - name: Run Entomancer browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'casting' }}
+        run: npm run test:browser:entomancer
+      - name: Validate player usability
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: npm run test:browser:usability
+      - name: Run creation choices and Custom Entomancer browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-creation-choices.mjs
+      - name: Run class resource tracker browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-resources.mjs
+      - name: Run guided feature choice browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-feature-choices.mjs
+      - name: Run structured class effects browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-class-effects35.mjs
+      - name: Run shared source prerequisite browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-source-prerequisites35.mjs
+      - name: Run casting prerequisite browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-casting-prerequisites35.mjs
+      - name: Run level-up feat browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-feat-selection.mjs
+      - name: Run fantasy presentation and dice browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-presentation.mjs
+      - name: Run continuous dice browser tests
+        if: ${{ !cancelled() && steps.chromium.outcome == 'success' && matrix.group == 'sheet' }}
+        run: node tests/browser-continuous-dice.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modernization-browser-${{ matrix.group }}
+          path: test-results/
+          if-no-files-found: ignore
+
+  validate:
+    needs: [preflight, browser]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require the expected checks
+        env:
+          PREFLIGHT: ${{ needs.preflight.result }}
+          MODE: ${{ needs.preflight.outputs.mode }}
+          BROWSERS: ${{ needs.browser.result }}
+        run: |
+          test "$PREFLIGHT" = success
+          case "$MODE" in
+            full) test "$BROWSERS" = success ;;
+            targeted) test "$BROWSERS" = skipped ;;
+            *) exit 1 ;;
+          esac
