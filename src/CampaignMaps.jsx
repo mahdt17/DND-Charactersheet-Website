@@ -94,8 +94,8 @@ function Maps({api,campaignId,close}){
   return <Dialog wide title="DM maps" onClose={close}><p>Private campaign maps · distances in feet</p>
     <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void add('scene');}}><label className="l-field">Map name<input maxLength={100} value={name} onChange={e=>setName(e.target.value)}/></label><button className="l-button" disabled={!maps||busy||!name.trim()}>Create map</button></form>
     {!maps&&!error&&<p role="status">Loading maps…</p>}
-    {scene&&<><div className="l-toolbar"><label className="l-field">Map<select value={scene.id} onChange={e=>{setSceneId(e.target.value);setFloorId('');}}>{maps.map(m=><option key={m.id} value={m.id}>{m.name}</option>)}</select></label>
-      <label className="l-field">Floor<select value={floor?.id||''} onChange={e=>setFloorId(e.target.value)}>{scene.floors.map(f=><option key={f.id} value={f.id}>{f.name} ({f.elevation} ft)</option>)}</select></label></div>
+    {scene&&<><div className="l-toolbar"><div className="l-field"><label htmlFor="campaign-map-select">Map</label><select id="campaign-map-select" value={scene.id} onChange={e=>{setSceneId(e.target.value);setFloorId('');}}>{maps.map(m=><option key={m.id} value={m.id}>{m.name}</option>)}</select></div>
+      <div className="l-field"><label htmlFor="campaign-floor-select">Floor</label><select id="campaign-floor-select" value={floor?.id||''} onChange={e=>setFloorId(e.target.value)}>{scene.floors.map(f=><option key={f.id} value={f.id}>{f.name} ({f.elevation} ft)</option>)}</select></div></div>
       <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void add('floor');}}><label className="l-field">Floor name<input maxLength={100} value={floorName} onChange={e=>setFloorName(e.target.value)}/></label>
         <label className="l-field">Elevation (ft)<input type="number" required min={-100000} max={100000} step="1" value={elevation} onChange={e=>setElevation(e.target.value)}/></label>
         <button className="l-button" disabled={busy||!floorName.trim()}>Add floor</button></form>

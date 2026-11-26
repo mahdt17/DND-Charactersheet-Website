@@ -50,7 +50,7 @@ try {
   await maps.getByLabel('Show 5-ft grid').uncheck();
   await button(maps,'Close dialog').click();
   await button(dm,'DM maps').click();
-  const floorSelect=maps.getByLabel('Floor',{exact:true});
+  const floorSelect=maps.getByRole('combobox',{name:'Floor',exact:true});
   await floorSelect.selectOption({label:'Ground floor (0 ft)'});
   await button(maps,'Draw room').waitFor();
   assert.equal(await maps.getByRole('list',{name:'Rooms on floor'}).count(),0);
