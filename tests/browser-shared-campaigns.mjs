@@ -72,6 +72,10 @@ try {
   await button(maps,'Close dialog').click();
   await button(dm,'DM maps').click();
   const floorSelect=maps.getByRole('combobox',{name:'Floor',exact:true});
+  await floorSelect.locator('option:checked').filter({hasText:'Cellar (-15 ft)'}).waitFor({state:'attached'});
+  assert.equal(await maps.getByLabel('Show 5-ft grid').isChecked(),false);
+  assert.equal(await maps.getByLabel('Map zoom').inputValue(),'2');
+  assert.equal(await maps.getByLabel('Snap clicks to 5 ft').isChecked(),true);
   await floorSelect.selectOption({label:'Ground floor (0 ft)'});
   await button(maps,'Draw room').waitFor();
   assert.equal(await maps.getByRole('list',{name:'Rooms on floor'}).count(),0);

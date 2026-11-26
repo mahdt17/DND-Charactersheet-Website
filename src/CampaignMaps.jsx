@@ -29,10 +29,23 @@ function draw(canvas,rooms,grid,corner,ruler){
   }
   ctx.restore();
 }
-function FloorEditor({api,campaignId,id}){
+const defaultView={sceneId:'',floorId:'',grid:true,snap:false,zoom:1};
+function readView(key){
+  try{
+    const saved=JSON.parse(localStorage.getItem(key))||{};
+    return {
+      sceneId:typeof saved.sceneId==='string'?saved.sceneId:'',
+      floorId:typeof saved.floorId==='string'?saved.floorId:'',
+      grid:saved.grid!==false,snap:saved.snap===true,
+      zoom:[1,1.5,2,3].includes(saved.zoom)?saved.zoom:1
+    };
+  }catch{return defaultView;}
+}
+function FloorEditor({api,campaignId,id,view,updateView}){
+  const {grid,snap,zoom}=view;
   const [rooms,setRooms]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
-  const [room,setRoom]=useState(emptyRoom),[grid,setGrid]=useState(true),[corner,setCorner]=useState(null),[retry,setRetry]=useState(0);
-  const [tool,setTool]=useState('room'),[snap,setSnap]=useState(false),[zoom,setZoom]=useState(1);
+  const [room,setRoom]=useState(emptyRoom),[corner,setCorner]=useState(null),[retry,setRetry]=useState(0);
+  const [tool,setTool]=useState('room');
   const [ruler,setRuler]=useState({from:{x:0,y:0},to:{x:0,y:0}});
   const viewport=useRef(null),viewCenter=useRef(null);
   const canvas=useRef(null),pending=useRef(null),lock=useRef(false),sequence=useRef(0);
@@ -55,7 +68,7 @@ function FloorEditor({api,campaignId,id}){
   function changeZoom(next){
     const view=viewport.current;
     if(view)viewCenter.current={x:(view.scrollLeft+view.clientWidth/2)/view.scrollWidth,y:(view.scrollTop+view.clientHeight/2)/view.scrollHeight};
-    setZoom(next);
+    updateView({zoom:next});
   }
   function point(event){
     const bounds=event.currentTarget.getBoundingClientRect();
@@ -85,14 +98,14 @@ function FloorEditor({api,campaignId,id}){
   }
   const valid=Object.values(room).every(v=>v!==''&&Number.isInteger(Number(v)))&&Number(room.x)>=0&&Number(room.y)>=0&&Number(room.width)>=5&&Number(room.depth)>=5&&Number(room.x)+Number(room.width)<=width&&Number(room.y)+Number(room.depth)<=depth;
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>
-    <label><input type="checkbox" checked={grid} onChange={e=>setGrid(e.target.checked)}/> Show 5-ft grid</label>
+    <label><input type="checkbox" checked={grid} onChange={e=>updateView({grid:e.target.checked})}/> Show 5-ft grid</label>
     <button type="button" className="l-button" disabled={busy} onClick={()=>setRetry(n=>n+1)}>Refresh floor</button></div>
     {rooms!==null&&<><div className="l-toolbar">
       <label className="l-field">Tool<select aria-label="Map tool" value={tool} onChange={e=>{setTool(e.target.value);setCorner(null);}}>
         <option value="room">Draw room</option><option value="measure">Measure distance</option></select></label>
       <label className="l-field">Zoom<select aria-label="Map zoom" value={zoom} onChange={e=>changeZoom(Number(e.target.value))}>
         {[1,1.5,2,3].map(z=><option key={z} value={z}>{z*100}%</option>)}</select></label>
-      <label><input type="checkbox" checked={snap} onChange={e=>setSnap(e.target.checked)}/> Snap clicks to 5 ft</label></div>
+      <label><input type="checkbox" checked={snap} onChange={e=>updateView({snap:e.target.checked})}/> Snap clicks to 5 ft</label></div>
       <div className="map-viewport" ref={viewport} role="region" aria-label="Scrollable floor map" tabIndex={0}>
         <canvas ref={canvas} width={800} height={600} style={{width:zoom*100+'%'}} className="map-drawing-board" aria-label="Floor drawing" onClick={point}/>
       </div>
@@ -112,7 +125,13 @@ function FloorEditor({api,campaignId,id}){
     {error&&<p role="alert">{error}</p>}</section>;
 }
 function Maps({api,campaignId,close}){
-  const [maps,setMaps]=useState(null),[sceneId,setSceneId]=useState(''),[floorId,setFloorId]=useState('');
+  const preferenceKey='ledger:dm-map-view:'+api.userId+':'+campaignId;
+  const [view,setView]=useState(()=>readView(preferenceKey)),[maps,setMaps]=useState(null);
+  const {sceneId,floorId}=view;
+  function updateView(change){setView(current=>({...current,...change}));}
+  useEffect(()=>{
+    try{localStorage.setItem(preferenceKey,JSON.stringify(view));}catch{/* Device storage is optional. */}
+  },[preferenceKey,view]);
   const [name,setName]=useState(''),[floorName,setFloorName]=useState(''),[elevation,setElevation]=useState(0);
   const [busy,setBusy]=useState(false),[error,setError]=useState(''),[retry,setRetry]=useState(0);
   const pending=useRef(null),lock=useRef(false);
@@ -121,7 +140,7 @@ function Maps({api,campaignId,close}){
     api.mapCatalog(campaignId).then(rows=>{if(active){setMaps(rows);setError('');}}).catch(e=>{if(active)setError(e.message);});
     return ()=>{active=false;};
   },[api,campaignId,retry]);
-  const scene=maps?.find(m=>m.id===sceneId)||maps?.[0],floor=scene?.floors.find(f=>f.id===floorId)||scene?.floors[0];
+  const scene=maps?.find(m=>m.id===sceneId)||maps?.[0],floor=scene?.floors.find(f=>f.id===floorId)||scene?.floors.find(f=>f.id===scene.id)||scene?.floors[0];
   async function add(kind){
     if(lock.current)return;
     const parent=kind==='floor'?scene.id:null,value=kind==='floor'?{name:floorName.trim(),elevation:Number(elevation)}:{name:name.trim()};
@@ -132,21 +151,21 @@ function Maps({api,campaignId,close}){
     try{
       await api.prepareMap(campaignId,kind,id,parent,value);
       const rows=await api.mapCatalog(campaignId);setMaps(rows);
-      setSceneId(parent||id);setFloorId(id);setName('');setFloorName('');pending.current=null;
+      updateView({sceneId:parent||id,floorId:id});setName('');setFloorName('');pending.current=null;
     }catch(e){setError(e.message);}finally{lock.current=false;setBusy(false);}
   }
   return <Dialog wide title="DM maps" onClose={close}><p>Private campaign maps · distances in feet</p>
     <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void add('scene');}}><label className="l-field">Map name<input maxLength={100} value={name} onChange={e=>setName(e.target.value)}/></label><button className="l-button" disabled={!maps||busy||!name.trim()}>Create map</button></form>
     {!maps&&!error&&<p role="status">Loading maps…</p>}
-    {scene&&<><div className="l-toolbar"><div className="l-field"><label htmlFor="campaign-map-select">Map</label><select id="campaign-map-select" value={scene.id} onChange={e=>{setSceneId(e.target.value);setFloorId('');}}>{maps.map(m=><option key={m.id} value={m.id}>{m.name}</option>)}</select></div>
-      <div className="l-field"><label htmlFor="campaign-floor-select">Floor</label><select id="campaign-floor-select" value={floor?.id||''} onChange={e=>setFloorId(e.target.value)}>{scene.floors.map(f=><option key={f.id} value={f.id}>{f.name} ({f.elevation} ft)</option>)}</select></div></div>
+    {scene&&<><div className="l-toolbar"><div className="l-field"><label htmlFor="campaign-map-select">Map</label><select id="campaign-map-select" value={scene.id} onChange={e=>updateView({sceneId:e.target.value,floorId:''})}>{maps.map(m=><option key={m.id} value={m.id}>{m.name}</option>)}</select></div>
+      <div className="l-field"><label htmlFor="campaign-floor-select">Floor</label><select id="campaign-floor-select" value={floor?.id||''} onChange={e=>updateView({floorId:e.target.value})}>{scene.floors.map(f=><option key={f.id} value={f.id}>{f.name} ({f.elevation} ft)</option>)}</select></div></div>
       <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void add('floor');}}><label className="l-field">Floor name<input maxLength={100} value={floorName} onChange={e=>setFloorName(e.target.value)}/></label>
         <label className="l-field">Elevation (ft)<input type="number" required min={-100000} max={100000} step="1" value={elevation} onChange={e=>setElevation(e.target.value)}/></label>
         <button className="l-button" disabled={busy||!floorName.trim()}>Add floor</button></form>
-      {floor&&<FloorEditor key={floor.id} api={api} campaignId={campaignId} id={floor.id}/>}</>}
+      {floor&&<FloorEditor key={floor.id} api={api} campaignId={campaignId} id={floor.id} view={view} updateView={updateView}/>}</>}
     {error&&<p role="alert">{error} <button type="button" className="l-button" onClick={()=>setRetry(n=>n+1)}>Reload maps</button></p>}</Dialog>;
 }
 export default function CampaignMaps({api,campaignId}){
   const [open,setOpen]=useState(false);
-  return <><button className="l-button" onClick={()=>setOpen(true)}>DM maps</button>{open&&<Maps api={api} campaignId={campaignId} close={()=>setOpen(false)}/>}</>;
+  return <><button className="l-button" onClick={()=>setOpen(true)}>DM maps</button>{open&&<Maps key={api.userId+':'+campaignId} api={api} campaignId={campaignId} close={()=>setOpen(false)}/>}</>;
 }
