@@ -191,7 +191,7 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false,u
       const next=normalize({...current,...change.data,instituteAccess:current.instituteAccess});
       const list=charactersRef.current.map(c=>c.id===selected?next:c);
       charactersRef.current=list;setCharacters(list);
-    },()=>{},read);
+    },()=>{},read,{refreshOnTurn:true});
   },[sharing,selected,ready]);
   function schedule(record){
     const generation=(saveGenerations.current.get(record.id)||0)+1;
@@ -375,7 +375,7 @@ function CharacterSheet({sharing,readOnly=false,saveJournal,manageSharing,char,p
     {tab==='swarm'&&swarm.level>0&&<Entomancer char={char} patch={patch} roll={roll} onRest={kind=>setRest(kind||'short')} ui={swarmUi} onUiChange={setSwarmUi}/>}
     {classFeatTools(char).length>0&&<div hidden={tab!=='class-tools'}><ClassFeatTools char={char} patch={patch} roll={roll} show={show} homebrew={homebrew} onRest={kind=>setRest(kind)} onSpells={()=>focusSheetTab('spells',true)}/></div>}
     {tab==='actions'&&<Actions char={char} patch={patch} roll={roll} show={show} abilities={abilities} ownerActions={ownerActions} onSwarm={()=>focusSheetTab('swarm',true)} onClassTools={()=>focusSheetTab('class-tools',true)}/>}
-    {tab==='spells'&&<EditionSpellbook liveTurns={!!combat.encounter?.turn} char={char} patch={patch} roll={roll} show={show} homebrew={homebrew}/>}
+    {tab==='spells'&&<EditionSpellbook liveTurns={!!combat.encounter?.turn&&combat.submitted} char={char} patch={patch} roll={roll} show={show} homebrew={homebrew}/>}
     {tab==='spells'&&<CampaignSpells char={char} patch={patch} roll={roll} show={show} mode="cyst"/>}
     {tab==='spells'&&<FeatSpellbook char={char} patch={patch} roll={roll} show={show}/>}
     {tab==='spells'&&<AasimarLight char={char} show={show} abilities={abilities}/>}

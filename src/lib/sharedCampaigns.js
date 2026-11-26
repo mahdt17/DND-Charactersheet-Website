@@ -11,6 +11,8 @@ async function result(query) {
 export function campaignService(client,userId) {
   const campaigns=()=>client.from('ledger_campaigns');
   const sheets=()=>client.from('ledger_campaign_sheets');
+  const channels=new Map();
+  const encounterReads=new Map();
   return {
     userId,
     async list() {
@@ -66,21 +68,49 @@ export function campaignService(client,userId) {
       return result(client.rpc('ledger_adjust_effect',{p_campaign:campaign,p_owner:member.user_id,p_sheet:member.character_id,p_key:effect.timerInstance||effect.id,p_before:effect.remainingSeconds??null,p_seconds:seconds}));
     },
     advanceTurn(campaign,encounter,serial) { return result(client.rpc('ledger_advance_turn',{p_campaign:campaign,p_encounter:encounter,p_serial:serial})); },
-    encounter(id) { return result(client.rpc('ledger_combat_state',{p_campaign:id})); },
+    encounter(id) {
+      if(!encounterReads.has(id)){
+        const read=result(client.rpc('ledger_combat_state',{p_campaign:id})).finally(()=>encounterReads.delete(id));
+        encounterReads.set(id,read);
+      }
+      return encounterReads.get(id);
+    },
     combat(id,encounter,action,payload={}) {
       return result(client.rpc('ledger_combat_command',{p_campaign:id,p_encounter:encounter,p_action:action,p_payload:payload}));
     },
-    subscribe(id,refresh) {
-      const channel=client.channel('dm-campaign-'+id+'-'+crypto.randomUUID())
-        .on('postgres_changes',{event:'UPDATE',schema:'public',table:'ledger_campaigns',filter:'id=eq.'+id},refresh)
-        .subscribe(state=>{if(state==='SUBSCRIBED')refresh();});
-      return ()=>{void client.removeChannel(channel);};
+    subscribe(id,refresh,onConnection=()=>{}) {
+      const listener={refresh,onConnection};
+      let entry=channels.get(id);
+      if(entry){
+        entry.listeners.add(listener);
+        onConnection(entry.connected);
+      }else{
+        const listeners=new Set([listener]);
+        const channel=client.channel('dm-campaign-'+id+'-'+crypto.randomUUID());
+        entry={listeners,channel,connected:false};
+        channels.set(id,entry);
+        channel.on('postgres_changes',{event:'UPDATE',schema:'public',table:'ledger_campaigns',filter:'id=eq.'+id},()=>{
+          for(const watcher of listeners)watcher.refresh();
+        }).subscribe(state=>{
+          entry.connected=state==='SUBSCRIBED';
+          for(const watcher of listeners){
+            watcher.onConnection(entry.connected);
+            if(entry.connected)watcher.refresh();
+          }
+        });
+      }
+      return ()=>{
+        entry.listeners.delete(listener);
+        if(!entry.listeners.size&&channels.get(id)===entry){
+          channels.delete(id);void client.removeChannel(entry.channel);
+        }
+      };
     },
   };
 }
 
 // Coalesce notifications during a fetch. Ignore any result that arrives after leaving the view.
-export function watchRoster(api,id,onRows,onError,read=api.roster) {
+export function watchRoster(api,id,onRows,onError,read=api.roster,{refreshOnTurn=false}={}) {
   let stopped=false,running=false,again=false;
   async function refresh() {
     if(stopped)return;
@@ -93,13 +123,18 @@ export function watchRoster(api,id,onRows,onError,read=api.roster) {
     }while(again&&!stopped);
     running=false;
   }
-  const unsubscribe=id?api.subscribe(id,refresh):()=>{};
+  let interval;
   const focus=()=>{if(!document.hidden)void refresh();};
-  const timer=setInterval(focus,10000);
-  if(!id)window.addEventListener('ledger-turn-advanced',focus);
+  function poll(connected){
+    clearInterval(interval);
+    interval=setInterval(focus,connected?60000:10000);
+  }
+  poll(false);
+  const unsubscribe=id?api.subscribe(id,focus,poll):()=>{};
+  if(refreshOnTurn)window.addEventListener('ledger-turn-advanced',focus);
   window.addEventListener('focus',focus);
   document.addEventListener('visibilitychange',focus);
   void refresh();
-  return ()=>{stopped=true;clearInterval(timer);window.removeEventListener('ledger-turn-advanced',focus);window.removeEventListener('focus',focus);document.removeEventListener('visibilitychange',focus);unsubscribe();};
+  return ()=>{stopped=true;clearInterval(interval);window.removeEventListener('ledger-turn-advanced',focus);window.removeEventListener('focus',focus);document.removeEventListener('visibilitychange',focus);unsubscribe();};
 }
 

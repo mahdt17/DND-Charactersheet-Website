@@ -15,6 +15,8 @@ select set_config('clock.e',public.ledger_combat_state(current_setting('clock.c'
 select set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000002',true);
 insert into public.characters(user_id,id,name,data) values(auth.uid(),'sheet','Solo','{}');
 insert into public.ledger_campaign_sheets(character_id,campaign_id) values('sheet',current_setting('clock.c')::uuid);
+insert into public.characters(user_id,id,name,data) values(auth.uid(),'reserve','Reserve','{"activeEffects":[{"id":"reserve-effect","remainingSeconds":60}]}');
+insert into public.ledger_campaign_sheets(character_id,campaign_id) values('reserve',current_setting('clock.c')::uuid);
 do $$ declare c uuid:=current_setting('clock.c')::uuid; e uuid:=current_setting('clock.e')::uuid; before_tick bigint;
 begin
   perform public.ledger_combat_command(c,e,'roll','{"character":"sheet","initiative":5}');
@@ -38,8 +40,8 @@ begin
   perform public.ledger_advance_turn(c,e,3);
   if (select revision from public.ledger_campaigns where id=c)<>before_tick+1 then raise exception 'A turn with sheet changes must send one campaign notification'; end if;
   perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000002',true);
-  update public.characters set data='{"notes":"offline","concentration":"Focus","activeEffects":[{"id":"test","remainingSeconds":60},{"id":"short","remainingSeconds":6,"concentration":"Focus"},{"id":"shield","expires":"start-next-turn","remainingSeconds":6}]}' where user_id=auth.uid() and id='sheet';
-  if not exists(select from public.characters where user_id=auth.uid() and id='sheet' and data#>>'{activeEffects,0,remainingSeconds}'='54' and jsonb_array_length(data->'activeEffects')=1 and data->>'concentration' is null and data->>'notes'='offline') then raise exception 'Concurrent save corrupted clock'; end if;
+  update public.characters set data='{"notes":"offline","concentration":"Focus","concentrationChecks":[{"dc":10}],"activeEffects":[{"id":"test","remainingSeconds":60},{"id":"short","remainingSeconds":6,"concentration":"Focus"},{"id":"shield","expires":"start-next-turn","remainingSeconds":6}]}' where user_id=auth.uid() and id='sheet';
+  if not exists(select from public.characters where user_id=auth.uid() and id='sheet' and data#>>'{activeEffects,0,remainingSeconds}'='54' and jsonb_array_length(data->'activeEffects')=1 and data->>'concentration' is null and data->'concentrationChecks'='[]'::jsonb and data->>'notes'='offline') then raise exception 'Concurrent save corrupted clock'; end if;
   perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000001',true);
   -- Start a separate minute-long effect at the player's initiative position.
   perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000002',true);
@@ -57,6 +59,19 @@ begin
   perform public.ledger_advance_turn(c,e,22);
   perform public.ledger_advance_turn(c,e,23);
   if (select data->'activeEffects' from public.characters where id='sheet') is distinct from '[]'::jsonb then raise exception 'Minute did not expire after ten full rotations'; end if;
+  if (select data#>>'{activeEffects,0,remainingSeconds}' from public.characters where id='reserve') is distinct from '60' then raise exception 'A reserve character lost duration before joining initiative'; end if;
+  -- Cast during the enemy turn, then remove that enemy from initiative.
+  perform public.ledger_advance_turn(c,e,24);
+  perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000002',true);
+  update public.characters set data=jsonb_set(data,'{activeEffects}','[{"id":"anchor","remainingSeconds":12},{"id":"boundary","expires":"end-next-turn","remainingSeconds":6}]') where id='sheet' and user_id=auth.uid();
+  perform set_config('request.jwt.claim.sub','51360000-0000-4000-8000-000000000001',true);
+  perform public.ledger_combat_command(c,e,'remove','{"id":"51360000-0000-4000-8000-000000000004"}');
+  perform public.ledger_advance_turn(c,e,25);
+  if not exists(select from public.characters where id='sheet' and data#>>'{activeEffects,0,remainingSeconds}'='12' and data#>>'{activeEffects,1,expires}'='end-turn') then raise exception 'Removed anchor or next-turn boundary advanced early'; end if;
+  perform public.ledger_advance_turn(c,e,26);
+  if not exists(select from public.characters where id='sheet' and data#>>'{activeEffects,0,remainingSeconds}'='6' and jsonb_array_length(data->'activeEffects')=1) then raise exception 'Missed removed anchor or end-of-turn expiry'; end if;
+  perform public.ledger_advance_turn(c,e,27);
+  if (select data->'activeEffects' from public.characters where id='sheet') is distinct from '[]'::jsonb then raise exception 'Removed anchor never expired'; end if;
   perform public.ledger_combat_command(c,e,'end','{}');
   if not exists(select from jsonb_array_elements(public.ledger_download_encounter(c,e)->'events') ev where ev->>'action'='expired') then raise exception 'Missing log expiry'; end if;
 end $$;

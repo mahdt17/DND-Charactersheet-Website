@@ -55,7 +55,7 @@ begin
     end loop;
     new.data:=jsonb_set(new.data,'{activeEffects}',kept);
     if new.data->>'concentration'=expired_concentration and not exists(select from jsonb_array_elements(kept) k where k->>'concentration'=expired_concentration)
-      then new.data:=new.data||'{"concentration":null}'; end if;
+      then new.data:=new.data||'{"concentration":null,"concentrationChecks":[]}'; end if;
     if new.data#>>'{totemWarrior,activeRage}'='true' and old.data#>>'{totemWarrior,activeRage}'='false'
       and not exists(select from jsonb_array_elements(kept) k where k->>'stateKey'='rage') then
       new.data:=jsonb_set(new.data,'{totemWarrior,activeRage}','false'); end if;
@@ -112,7 +112,8 @@ begin
   anchors:='{}';
   for sheet in select c.user_id,c.id,c.name,c.data
     from public.ledger_campaign_sheets s join public.characters c on (c.user_id,c.id)=(s.user_id,s.character_id)
-    where s.campaign_id=p_campaign and jsonb_typeof(c.data->'activeEffects')='array' and c.data->'activeEffects'<>'[]'::jsonb
+    where s.campaign_id=p_campaign and (state_row->'rolls') ? (c.user_id::text||':'||c.id)
+      and jsonb_typeof(c.data->'activeEffects')='array' and c.data->'activeEffects'<>'[]'::jsonb
     order by c.user_id,c.id for update of c nowait loop
     participant:=sheet.user_id::text||':'||sheet.id;
     sheet_anchors:='{}'; effects:='[]'; sheet_data:=sheet.data;
