@@ -73,7 +73,17 @@ try {
   await canvas.click({position:{x:Math.round(width*.099),y:Math.round(height*.066)}});
   assert.deepEqual(mapRequests,[]);
   dm.off('request',countMapRequest);
-  await button(maps,'Add wall').click();
+  const floorRead='**/rpc/ledger_map_floor';
+  let releaseRead;
+  const holdRead=new Promise(resolve=>{releaseRead=resolve;});
+  await dm.route(floorRead,async route=>{await holdRead;await route.continue();},{times:1});
+  try{
+    await Promise.all([dm.waitForRequest(floorRead),button(maps,'Add wall').click()]);
+    assert(await maps.getByLabel('Map tool').isDisabled());
+    assert.equal(await canvas.getAttribute('aria-disabled'),'true');
+    await canvas.dispatchEvent('click',{clientX:0,clientY:0});
+    assert.equal(await maps.getByLabel('First X (ft)').inputValue(),'10');
+  }finally{releaseRead();}
   const barriers=maps.getByRole('list',{name:'Walls and doors on floor'});
   await barriers.getByText('Wall (10, 10) to (20, 10)',{exact:true}).waitFor();
   await maps.getByLabel('Map tool').selectOption('door');

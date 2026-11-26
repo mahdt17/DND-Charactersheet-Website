@@ -98,6 +98,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     updateView({zoom:next});
   }
   function point(event){
+    if(lock.current)return;
     const {x,y}=drawingPoint(event.clientX,event.clientY,event.currentTarget.getBoundingClientRect(),snap);
     if(tool==='passage'){setPassage(current=>({...current,fromX:x,fromY:y}));return;}
     if(!corner){
@@ -129,13 +130,13 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     <label><input type="checkbox" checked={grid} onChange={e=>updateView({grid:e.target.checked})}/> Show 5-ft grid</label>
     <button type="button" className="l-button" disabled={busy} onClick={()=>setRetry(n=>n+1)}>Refresh floor</button></div>
     {rooms!==null&&<><div className="l-toolbar">
-      <label className="l-field">Tool<select aria-label="Map tool" value={tool} onChange={e=>{setTool(e.target.value);setCorner(null);setSegment(emptyBarrier);}}>
+      <label className="l-field">Tool<select aria-label="Map tool" disabled={busy} value={tool} onChange={e=>{setTool(e.target.value);setCorner(null);setSegment(emptyBarrier);}}>
         <option value="room">Draw room</option><option value="wall">Draw wall</option><option value="door">Draw door</option><option value="measure">Measure distance</option>{otherFloors.length>0&&<option value="passage">Connect floors</option>}</select></label>
       <label className="l-field">Zoom<select aria-label="Map zoom" value={zoom} onChange={e=>changeZoom(Number(e.target.value))}>
         {[1,1.5,2,3].map(z=><option key={z} value={z}>{z*100}%</option>)}</select></label>
       <label><input type="checkbox" checked={snap} onChange={e=>updateView({snap:e.target.checked})}/> Snap clicks to 5 ft</label></div>
       <div className="map-viewport" ref={viewport} role="region" aria-label="Scrollable floor map" tabIndex={0}>
-        <canvas ref={canvas} width={800} height={600} style={{width:zoom*100+'%'}} className="map-drawing-board" aria-label="Floor drawing" onClick={point}/>
+        <canvas ref={canvas} width={800} height={600} style={{width:zoom*100+'%'}} className="map-drawing-board" aria-label="Floor drawing" aria-disabled={busy} onClick={point}/>
       </div>
       {drawingBarrier?<form onSubmit={e=>{e.preventDefault();void change('barrier',null,{kind:tool,...segment});}}>
         <fieldset disabled={busy}><legend>{tool==='door'?'Door':'Wall'} endpoints</legend>
