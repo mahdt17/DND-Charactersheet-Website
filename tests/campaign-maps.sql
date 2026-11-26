@@ -1,5 +1,9 @@
 begin;
 insert into auth.users(id) values ('61260000-0000-4000-8000-000000000001'),('61260000-0000-4000-8000-000000000002'),('61260000-0000-4000-8000-000000000003');
+do $$ begin
+  if has_table_privilege('authenticated','ledger_private.scene_rooms','SELECT') or has_schema_privilege('authenticated','ledger_private','USAGE')
+    then raise exception 'Private scene data granted to clients'; end if;
+end $$;
 set local role authenticated;
 select set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000001',true);
 insert into public.ledger_campaigns(name) values ('Map fixture');
@@ -24,7 +28,7 @@ begin
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000002',true);
   insert into public.characters(user_id,id,name) values(auth.uid(),'hero','Scout');
   insert into public.ledger_campaign_sheets(character_id,campaign_id) values('hero',c);
-  if public.ledger_map_catalog(c)<>'[]' or public.ledger_map_floor(c,floor) is not null or has_table_privilege(current_user,'ledger_private.scene_rooms','SELECT')
+  if public.ledger_map_catalog(c)<>'[]' or public.ledger_map_floor(c,floor) is not null
     then raise exception 'Player accessed private floor'; end if;
   begin perform public.ledger_prepare_map(c,'erase',room,floor,'{}');raise exception 'Player erased room';
   exception when raise_exception then if sqlerrm='Player erased room' then raise; end if; end;
