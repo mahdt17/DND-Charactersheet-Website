@@ -1,7 +1,7 @@
 begin;
 insert into auth.users(id) values ('61260000-0000-4000-8000-000000000001'),('61260000-0000-4000-8000-000000000002'),('61260000-0000-4000-8000-000000000003');
 do $$ begin
-  if has_table_privilege('authenticated','ledger_private.scene_rooms','SELECT') or has_table_privilege('authenticated','ledger_private.floor_passages','SELECT') or has_schema_privilege('authenticated','ledger_private','USAGE')
+  if has_table_privilege('authenticated','ledger_private.scene_barriers','SELECT') or has_table_privilege('authenticated','ledger_private.scene_rooms','SELECT') or has_table_privilege('authenticated','ledger_private.floor_passages','SELECT') or has_schema_privilege('authenticated','ledger_private','USAGE')
     then raise exception 'Private scene data granted to clients'; end if;
 end $$;
 set local role authenticated;
@@ -9,12 +9,36 @@ select set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000001'
 insert into public.ledger_campaigns(name) values ('Map fixture');
 select set_config('map.c',(select id::text from public.ledger_campaigns where name='Map fixture'),true);
 do $$ declare c uuid:=current_setting('map.c')::uuid; scene uuid:=gen_random_uuid(); floor uuid:=gen_random_uuid(); room uuid:=gen_random_uuid(); passage uuid:=gen_random_uuid(); other_scene uuid:=gen_random_uuid(); link jsonb; shape jsonb:='{"x":10,"y":15,"width":20,"depth":25}';
+  door uuid:=gen_random_uuid(); wall uuid:=gen_random_uuid();
+  endpoints jsonb:='{"kind":"door","x1":0,"y1":0,"x2":5,"y2":10}';
 begin
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
   perform public.ledger_prepare_map(c,'floor',floor,scene,'{"name":"Secret vault","elevation":-30}');
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
+  perform public.ledger_prepare_map(c,'barrier',door,floor,endpoints);
+  perform public.ledger_prepare_map(c,'barrier',door,floor,endpoints);
+  if jsonb_array_length(public.ledger_map_floor(c,floor)->'barriers') is distinct from 1
+     or public.ledger_map_floor(c,scene)->'barriers' is distinct from '[]'::jsonb then raise exception 'Barrier floor or retry incorrect'; end if;
+  begin perform public.ledger_prepare_map(c,'barrier',door,floor,endpoints||'{"x2":7}');raise exception 'Changed barrier on replay';
+  exception when raise_exception then if sqlerrm<>'Barrier change conflict' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'barrier',gen_random_uuid(),floor,endpoints||'{"x2":0,"y2":0}');raise exception 'Zero length accepted';
+  exception when check_violation then null; end;
+  begin perform public.ledger_prepare_map(c,'barrier',gen_random_uuid(),floor,endpoints||'{"y2":151}');raise exception 'Outside floor accepted';
+  exception when check_violation then null; end;
+  perform public.ledger_prepare_map(c,'door_state',door,floor,'{"revision":0,"open":true}');
+  perform public.ledger_prepare_map(c,'door_state',door,floor,'{"revision":0,"open":true}');
+  perform public.ledger_prepare_map(c,'door_state',door,floor,'{"revision":1,"open":false}');
+  begin perform public.ledger_prepare_map(c,'door_state',door,floor,'{"revision":0,"open":true}');raise exception 'Stale door reopened';
+  exception when raise_exception then if sqlerrm<>'Door changed. Refresh the floor.' then raise; end if; end;
+  if public.ledger_map_floor(c,floor)#>'{barriers,0,revision}' is distinct from '2'::jsonb or
+     public.ledger_map_floor(c,floor)#>'{barriers,0,open}' is distinct from 'false'::jsonb then raise exception 'Door state incorrect'; end if;
+  perform public.ledger_prepare_map(c,'barrier',wall,floor,endpoints||'{"kind":"wall"}');
+  begin perform public.ledger_prepare_map(c,'door_state',wall,floor,'{"revision":0,"open":true}');raise exception 'Wall opened';
+  exception when raise_exception then if sqlerrm<>'Door unavailable' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'erase_barrier',wall,scene,'{}');raise exception 'Erased from wrong floor';
+  exception when raise_exception then if sqlerrm<>'Barrier unavailable' then raise; end if; end;
   if jsonb_array_length(public.ledger_map_catalog(c))<>1 or public.ledger_map_catalog(c)#>>'{0,floors,0,elevation}' is distinct from '-30' or
      jsonb_array_length(public.ledger_map_floor(c,floor)->'rooms')<>1 then raise exception 'Map creation or replay failed'; end if;
   link:=jsonb_build_object('kind','pit','toFloor',floor,'fromX',20,'fromY',15,'toX',25,'toY',30);
@@ -43,12 +67,20 @@ begin
     then raise exception 'Player accessed private floor'; end if;
   begin perform public.ledger_prepare_map(c,'erase_passage',passage,floor,'{}');raise exception 'Player erased passage';
   exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'door_state',door,floor,'{"revision":2,"open":true}');raise exception 'Player opened door';
+  exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'erase',room,floor,'{}');raise exception 'Player erased room';
   exception when raise_exception then if sqlerrm='Player erased room' then raise; end if; end;
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000003',true);
   if public.ledger_map_floor(c,floor) is not null or public.ledger_map_catalog(c)<>'[]' then raise exception 'Nonmember read map'; end if;
+  begin perform public.ledger_prepare_map(c,'erase_barrier',wall,floor,'{}');raise exception 'Nonmember erased wall';
+  exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000001',true);
   perform public.ledger_prepare_map(c,'erase_passage',passage,floor,'{}');
+  perform public.ledger_prepare_map(c,'erase_barrier',door,floor,'{}');
+  perform public.ledger_prepare_map(c,'barrier',door,floor,endpoints);
+  if public.ledger_map_floor(c,floor)#>>'{barriers,0,id}' is distinct from wall::text or
+     jsonb_array_length(public.ledger_map_floor(c,floor)->'barriers')<>1 then raise exception 'Erased door reappeared'; end if;
   perform public.ledger_prepare_map(c,'passage',passage,scene,link);
   if public.ledger_map_floor(c,scene)->'passages'<>'[]' or public.ledger_map_floor(c,floor)->'passages'<>'[]' then raise exception 'Erased passage reappeared'; end if;
   perform public.ledger_prepare_map(c,'erase',room,floor,'{}');

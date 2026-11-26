@@ -23,6 +23,20 @@ create table ledger_private.scene_rooms (
   depth_ft integer not null check(depth_ft>=5 and depth_ft<=150-y_ft)
 );
 create index scene_rooms_floor_idx on ledger_private.scene_rooms(floor_id);
+create table ledger_private.scene_barriers (
+  id uuid primary key,
+  floor_id uuid not null references ledger_private.scene_floors(id) on delete cascade,
+  kind text not null check(kind in ('wall','door')),
+  x1 integer not null check(x1 between 0 and 200), y1 integer not null check(y1 between 0 and 150),
+  x2 integer not null check(x2 between 0 and 200), y2 integer not null check(y2 between 0 and 150),
+  is_open boolean not null default false check(kind='door' or not is_open),
+  revision integer not null default 0,
+  erased boolean not null default false,
+  check(x1<>x2 or y1<>y2)
+);
+create index scene_barriers_floor_idx on ledger_private.scene_barriers(floor_id);
+alter table ledger_private.scene_barriers enable row level security;
+revoke all on ledger_private.scene_barriers from public,anon,authenticated;
 create table ledger_private.floor_passages (
   id uuid primary key,
   from_floor uuid not null references ledger_private.scene_floors(id) on delete cascade,
@@ -57,6 +71,10 @@ returns jsonb language sql stable security definer set search_path='' as $$
  select jsonb_build_object('id',f.id,'rooms',(select coalesce(jsonb_agg(jsonb_build_object(
    'id',r.id,'x',r.x_ft,'y',r.y_ft,'width',r.width_ft,'depth',r.depth_ft) order by r.id),'[]')
    from ledger_private.scene_rooms r where r.floor_id=f.id and not r.erased),
+   'barriers',(select coalesce(jsonb_agg(jsonb_build_object(
+     'id',b.id,'kind',b.kind,'x1',b.x1,'y1',b.y1,'x2',b.x2,'y2',b.y2,
+     'open',b.is_open,'revision',b.revision) order by b.id),'[]')
+     from ledger_private.scene_barriers b where b.floor_id=f.id and not b.erased),
    'passages',(select coalesce(jsonb_agg(jsonb_build_object(
      'id',p.id,'kind',p.kind,'fromFloor',p.from_floor,'toFloor',p.to_floor,
      'fromX',p.from_x,'fromY',p.from_y,'toX',p.to_x,'toY',p.to_y) order by p.id),'[]')
@@ -70,6 +88,8 @@ $$;
 create function public.ledger_prepare_map(p_campaign uuid,p_operation text,p_id uuid,p_parent uuid,p_value jsonb)
 returns void language plpgsql security definer set search_path='' as $$
 declare n text:=btrim(p_value->>'name'); elevation integer; x integer;y integer;w integer;d integer;
+  barrier ledger_private.scene_barriers%rowtype;
+  expected_revision integer; requested_open boolean;
 begin
  perform 1 from public.ledger_campaigns where id=p_campaign and dm_id=auth.uid() for update;
  if not found or p_id is null then raise exception 'Map preparation unavailable'; end if;
@@ -95,6 +115,37 @@ begin
    x:=(p_value->>'x')::int; y:=(p_value->>'y')::int; w:=(p_value->>'width')::int; d:=(p_value->>'depth')::int;
    insert into ledger_private.scene_rooms(id,floor_id,x_ft,y_ft,width_ft,depth_ft) values(p_id,p_parent,x,y,w,d) on conflict(id) do nothing;
    if not exists(select from ledger_private.scene_rooms where id=p_id and floor_id=p_parent and (x_ft,y_ft,width_ft,depth_ft)=(x,y,w,d)) then raise exception 'Map change conflict'; end if;
+ when 'barrier' then
+   perform 1 from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
+     where f.id=p_parent and s.campaign_id=p_campaign;
+   if not found then raise exception 'Map unavailable'; end if;
+   if not exists(select from ledger_private.scene_barriers where id=p_id) and
+     (select count(*) from ledger_private.scene_barriers where floor_id=p_parent)>=2048 then raise exception 'Floor barrier limit reached'; end if;
+   insert into ledger_private.scene_barriers(id,floor_id,kind,x1,y1,x2,y2)
+     values(p_id,p_parent,p_value->>'kind',(p_value->>'x1')::integer,(p_value->>'y1')::integer,
+       (p_value->>'x2')::integer,(p_value->>'y2')::integer) on conflict(id) do nothing;
+   if not exists(select from ledger_private.scene_barriers b where b.id=p_id and b.floor_id=p_parent
+     and (b.kind,b.x1,b.y1,b.x2,b.y2)=(p_value->>'kind',(p_value->>'x1')::integer,(p_value->>'y1')::integer,
+       (p_value->>'x2')::integer,(p_value->>'y2')::integer)) then raise exception 'Barrier change conflict'; end if;
+ when 'door_state' then
+   select b.* into barrier from ledger_private.scene_barriers b
+     join ledger_private.scene_floors f on f.id=b.floor_id join ledger_private.scenes s on s.id=f.scene_id
+     where b.id=p_id and b.floor_id=p_parent and s.campaign_id=p_campaign and b.kind='door' and not b.erased;
+   if not found then raise exception 'Door unavailable'; end if;
+   expected_revision:=(p_value->>'revision')::integer;
+   if expected_revision is null or expected_revision<0 or jsonb_typeof(p_value->'open') is distinct from 'boolean'
+     then raise exception 'Invalid door state'; end if;
+   requested_open:=(p_value->>'open')::boolean;
+   if barrier.revision=expected_revision and barrier.is_open<>requested_open then
+     update ledger_private.scene_barriers set is_open=requested_open,revision=revision+1 where id=p_id;
+   elsif not (barrier.is_open=requested_open and barrier.revision in (expected_revision,expected_revision::bigint+1)) then
+     raise exception 'Door changed. Refresh the floor.';
+   end if;
+ when 'erase_barrier' then
+   update ledger_private.scene_barriers b set erased=true from ledger_private.scene_floors f
+     join ledger_private.scenes s on s.id=f.scene_id
+     where b.id=p_id and b.floor_id=f.id and f.id=p_parent and s.campaign_id=p_campaign;
+   if not found then raise exception 'Barrier unavailable'; end if;
  when 'passage' then
    perform 1 from ledger_private.scene_floors a join ledger_private.scenes s on s.id=a.scene_id
      join ledger_private.scene_floors b on b.scene_id=s.id
