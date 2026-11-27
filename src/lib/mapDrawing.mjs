@@ -1,5 +1,10 @@
 export const floorWidth=200, floorDepth=150;
 
+export function validRoom({x,y,width,depth}){
+  return [x,y,width,depth].every(Number.isInteger)&&x>=0&&y>=0&&width>=5&&depth>=5
+    &&x+width<=floorWidth&&y+depth<=floorDepth;
+}
+
 export function drawingPoint(clientX,clientY,bounds,snap){
   const step=snap?5:1;
   function coordinate(offset,pixels,feet){

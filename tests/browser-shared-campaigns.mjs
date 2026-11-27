@@ -50,6 +50,18 @@ try {
   const mapRequests=[];
   const countMapRequest=request=>{if(request.url().includes('/rpc/ledger_')&&request.url().includes('map'))mapRequests.push(request.url());};
   dm.on('request',countMapRequest);
+  await button(maps,'Edit room at 0, 0').click();
+  await maps.getByLabel('Left (ft)',{exact:true}).fill('15');
+  await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
+  assert.deepEqual(mapRequests,[]);
+  await button(maps,'Cancel room edit').click();
+  await button(maps,'Edit room at 0, 0').click();
+  assert.equal(await maps.getByLabel('Width (ft)',{exact:true}).inputValue(),'20');
+  await maps.getByLabel('Left (ft)',{exact:true}).fill('15');
+  await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
+  await button(maps,'Save room').click();
+  await button(maps,'Edit room at 15, 0').waitFor();
+  mapRequests.length=0;
   await maps.getByLabel('Map tool').selectOption('measure');
   await maps.getByLabel('End X (ft)').fill('30');
   await maps.getByLabel('End Y (ft)').fill('40');
@@ -99,6 +111,7 @@ try {
   assert.equal(await maps.getByLabel('Show 5-ft grid').isChecked(),false);
   assert.equal(await maps.getByLabel('Map zoom').inputValue(),'2');
   assert.equal(await maps.getByLabel('Snap clicks to 5 ft').isChecked(),true);
+  await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/30 × 20 ft at \(15, 0\)/).waitFor();
   await button(barriers,'Close door').click();
   await button(barriers,'Open door').waitFor();
   await button(barriers,'Erase wall').click();
@@ -119,7 +132,7 @@ try {
   assert.match(await links.innerText(),/at \(0, 25\)/);
   await button(links,'Remove passage').click();
   await links.waitFor({state:'hidden'});
-  await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/20 × 20 ft/).waitFor();
+  await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/30 × 20 ft/).waitFor();
   await button(maps,'Close dialog').click();
   await player.locator('input[type=file]').setInputFiles({name:'hero.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(sheet))});
   await player.locator('.sheet-identity').filter({hasText:'Arden'}).waitFor();
@@ -234,11 +247,13 @@ try {
   await dm.getByLabel('Search participants').fill('Goblin');
   await dm.getByRole('checkbox',{name:/^Goblin CR/}).check();
   await dm.getByLabel('Quantity of Goblin').fill('2');
+  // The imported 2014 elf has base Dex 14, +2 racial Dex and a +3 initiative bonus.
+  await dm.locator('.encounter-queue li').filter({hasText:'Tower ranger'}).getByText('+6 initiative',{exact:true}).waitFor();
   await button(dm,'Roll initiative and add (3)').click();
-  for(const [name,bonus] of [['Tower ranger',5],['Goblin 1',2],['Goblin 2',2]]){
+  for(const [name,bonus] of [['Tower ranger',6],['Goblin 1',2],['Goblin 2',2]]){
     await button(dm,'Show '+name+' to players').waitFor();
     const score=Number(await dmOrder.locator('li').filter({hasText:name}).locator(':scope > span').innerText());
-    assert(score>=1+bonus&&score<=20+bonus);
+    assert(score>=1+bonus&&score<=20+bonus,`${name} rolled ${score} with a +${bonus} modifier`);
     assert.equal(await playerOrder.getByText(name,{exact:true}).count(),0);
   }
   await button(dm,'Show Goblin 2 to players').click();

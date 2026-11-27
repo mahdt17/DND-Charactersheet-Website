@@ -17,6 +17,17 @@ begin
   perform public.ledger_prepare_map(c,'floor',floor,scene,'{"name":"Secret vault","elevation":-30}');
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
+  perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}');
+  perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}');
+  begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"width":24,"revision":0}');raise exception 'Stale room edit accepted';
+  exception when raise_exception then if sqlerrm<>'Room changed. Refresh the floor and select it again.' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'edit_room',room,scene,shape||'{"revision":1}');raise exception 'Edited wrong floor';
+  exception when raise_exception then if sqlerrm<>'Room unavailable' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"width":200,"revision":1}');raise exception 'Resized outside floor';
+  exception when check_violation then null; end;
+  perform public.ledger_prepare_map(c,'room',room,floor,shape);
+  if public.ledger_map_floor(c,floor)#>>'{rooms,0,width}' is distinct from '30' or
+     public.ledger_map_floor(c,floor)#>>'{rooms,0,revision}' is distinct from '1' then raise exception 'Room edit or replay failed'; end if;
   perform public.ledger_prepare_map(c,'barrier',door,floor,endpoints);
   perform public.ledger_prepare_map(c,'barrier',door,floor,endpoints);
   if jsonb_array_length(public.ledger_map_floor(c,floor)->'barriers') is distinct from 1
@@ -59,7 +70,7 @@ begin
   -- A new encounter references the same persistent campaign. Closing it preserves the map.
   perform public.ledger_combat_command(c,null,'start','{"name":"Vault fight"}');
   perform public.ledger_combat_command(c,(public.ledger_combat_state(c)->>'id')::uuid,'end','{}');
-  if public.ledger_map_floor(c,floor)#>>'{rooms,0,width}' is distinct from '20' then raise exception 'Map reset'; end if;
+  if public.ledger_map_floor(c,floor)#>>'{rooms,0,width}' is distinct from '30' then raise exception 'Map reset'; end if;
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000002',true);
   insert into public.characters(user_id,id,name) values(auth.uid(),'hero','Scout');
   insert into public.ledger_campaign_sheets(character_id,campaign_id) values('hero',c);
@@ -71,6 +82,8 @@ begin
   exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'erase',room,floor,'{}');raise exception 'Player erased room';
   exception when raise_exception then if sqlerrm='Player erased room' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"revision":1}');raise exception 'Player edited room';
+  exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000003',true);
   if public.ledger_map_floor(c,floor) is not null or public.ledger_map_catalog(c)<>'[]' then raise exception 'Nonmember read map'; end if;
   begin perform public.ledger_prepare_map(c,'erase_barrier',wall,floor,'{}');raise exception 'Nonmember erased wall';
@@ -84,6 +97,8 @@ begin
   perform public.ledger_prepare_map(c,'passage',passage,scene,link);
   if public.ledger_map_floor(c,scene)->'passages'<>'[]' or public.ledger_map_floor(c,floor)->'passages'<>'[]' then raise exception 'Erased passage reappeared'; end if;
   perform public.ledger_prepare_map(c,'erase',room,floor,'{}');
+  begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"revision":1}');raise exception 'Edited erased room';
+  exception when raise_exception then if sqlerrm<>'Room unavailable' then raise; end if; end;
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   if public.ledger_map_floor(c,floor)->'rooms'<>'[]' then raise exception 'Late request resurrected an erased room'; end if;
 end $$;

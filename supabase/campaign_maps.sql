@@ -16,6 +16,8 @@ create table ledger_private.scene_floors (
 create index scene_floors_scene_idx on ledger_private.scene_floors(scene_id,elevation_ft);
 create table ledger_private.scene_rooms (
   id uuid primary key,
+  revision integer not null default 0,
+  original_bounds integer[], -- Keep the creation receipt only when the first edit changes it.
   erased boolean not null default false,
   floor_id uuid not null references ledger_private.scene_floors(id) on delete cascade,
   x_ft integer not null check(x_ft between 0 and 195), y_ft integer not null check(y_ft between 0 and 145),
@@ -69,7 +71,7 @@ $$;
 create function public.ledger_map_floor(p_campaign uuid,p_floor uuid)
 returns jsonb language sql stable security definer set search_path='' as $$
  select jsonb_build_object('id',f.id,'rooms',(select coalesce(jsonb_agg(jsonb_build_object(
-   'id',r.id,'x',r.x_ft,'y',r.y_ft,'width',r.width_ft,'depth',r.depth_ft) order by r.id),'[]')
+   'id',r.id,'x',r.x_ft,'y',r.y_ft,'width',r.width_ft,'depth',r.depth_ft,'revision',r.revision) order by r.id),'[]')
    from ledger_private.scene_rooms r where r.floor_id=f.id and not r.erased),
    'barriers',(select coalesce(jsonb_agg(jsonb_build_object(
      'id',b.id,'kind',b.kind,'x1',b.x1,'y1',b.y1,'x2',b.x2,'y2',b.y2,
@@ -89,6 +91,7 @@ create function public.ledger_prepare_map(p_campaign uuid,p_operation text,p_id 
 returns void language plpgsql security definer set search_path='' as $$
 declare n text:=btrim(p_value->>'name'); elevation integer; x integer;y integer;w integer;d integer;
   barrier ledger_private.scene_barriers%rowtype;
+  target_room ledger_private.scene_rooms%rowtype;
   expected_revision integer; requested_open boolean;
 begin
  perform 1 from public.ledger_campaigns where id=p_campaign and dm_id=auth.uid() for update;
@@ -114,7 +117,23 @@ begin
    if not exists(select from ledger_private.scene_rooms where id=p_id) and (select count(*) from ledger_private.scene_rooms where floor_id=p_parent)>=2048 then raise exception 'Floor drawing limit reached'; end if;
    x:=(p_value->>'x')::int; y:=(p_value->>'y')::int; w:=(p_value->>'width')::int; d:=(p_value->>'depth')::int;
    insert into ledger_private.scene_rooms(id,floor_id,x_ft,y_ft,width_ft,depth_ft) values(p_id,p_parent,x,y,w,d) on conflict(id) do nothing;
-   if not exists(select from ledger_private.scene_rooms where id=p_id and floor_id=p_parent and (x_ft,y_ft,width_ft,depth_ft)=(x,y,w,d)) then raise exception 'Map change conflict'; end if;
+   if not exists(select from ledger_private.scene_rooms where id=p_id and floor_id=p_parent
+     and coalesce(original_bounds,array[x_ft,y_ft,width_ft,depth_ft])=array[x,y,w,d]) then raise exception 'Map change conflict'; end if;
+ when 'edit_room' then
+   select r.* into target_room from ledger_private.scene_rooms r
+     join ledger_private.scene_floors f on f.id=r.floor_id join ledger_private.scenes s on s.id=f.scene_id
+     where r.id=p_id and f.id=p_parent and s.campaign_id=p_campaign and not r.erased;
+   if not found then raise exception 'Room unavailable'; end if;
+   expected_revision:=(p_value->>'revision')::integer;
+   x:=(p_value->>'x')::integer; y:=(p_value->>'y')::integer;
+   w:=(p_value->>'width')::integer; d:=(p_value->>'depth')::integer;
+   if expected_revision is null or expected_revision<0 or x is null or y is null or w is null or d is null
+     then raise exception 'Invalid room edit'; end if;
+   if (target_room.x_ft,target_room.y_ft,target_room.width_ft,target_room.depth_ft)=(x,y,w,d)
+     and target_room.revision in (expected_revision,expected_revision::bigint+1) then return; end if;
+   if target_room.revision<>expected_revision then raise exception 'Room changed. Refresh the floor and select it again.'; end if;
+   update ledger_private.scene_rooms set original_bounds=coalesce(original_bounds,array[x_ft,y_ft,width_ft,depth_ft]),
+     x_ft=x,y_ft=y,width_ft=w,depth_ft=d,revision=revision+1 where id=p_id;
  when 'barrier' then
    perform 1 from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
      where f.id=p_parent and s.campaign_id=p_campaign;

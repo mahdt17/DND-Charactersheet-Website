@@ -1,6 +1,14 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {drawingPoint, validBarrier} from '../src/lib/mapDrawing.mjs';
+import {drawingPoint, validBarrier, validRoom} from '../src/lib/mapDrawing.mjs';
+
+test('edited rooms fit the floor and retain a five-foot minimum',()=>{
+  const edge={x:195,y:145,width:5,depth:5};
+  assert.equal(validRoom(edge),true);
+  for(const change of [{x:-1},{y:''},{width:6},{depth:4},{width:5.5}]){
+    assert.equal(validRoom({...edge,...change}),false);
+  }
+});
 
 test('canvas clicks use the zoomed bounds and optional five-foot snap',()=>{
   const bounds={left:40,top:-60,width:1600,height:1200};

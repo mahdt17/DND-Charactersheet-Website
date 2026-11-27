@@ -1,6 +1,6 @@
 import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Dialog from './Dialog';
-import {drawingPoint,floorWidth as width,floorDepth as depth,validBarrier} from './lib/mapDrawing.mjs';
+import {drawingPoint,floorWidth as width,floorDepth as depth,validBarrier,validRoom} from './lib/mapDrawing.mjs';
 
 const passageNames={stairs:'Stairs',ladder:'Ladder',pit:'Pit'};
 const emptyRoom={x:0,y:0,width:20,depth:20};
@@ -16,7 +16,7 @@ function drawBarrier(ctx,barrier,preview=false){
   }
   ctx.restore();
 }
-function draw(canvas,rooms,grid,corner,ruler,passages,floorId,barriers,draft){
+function draw(canvas,rooms,grid,corner,ruler,passages,floorId,barriers,draft,roomPreview){
   const ctx=canvas.getContext('2d');
   if(!ctx)return;
   const colors=getComputedStyle(canvas);
@@ -34,6 +34,10 @@ function draw(canvas,rooms,grid,corner,ruler,passages,floorId,barriers,draft){
     ctx.globalAlpha=1;ctx.lineWidth=.5;ctx.strokeStyle=colors.color;ctx.strokeRect(room.x,room.y,room.width,room.depth);
   }
   ctx.fillStyle=colors.color;ctx.strokeStyle=colors.color;
+  if(roomPreview&&validRoom(roomPreview)){
+    ctx.save();ctx.lineWidth=.8;ctx.setLineDash([2,1]);
+    ctx.strokeRect(roomPreview.x,roomPreview.y,roomPreview.width,roomPreview.depth);ctx.restore();
+  }
   for(const barrier of barriers)drawBarrier(ctx,barrier);
   if(draft&&validBarrier(draft))drawBarrier(ctx,draft,true);
   ctx.font='3px sans-serif';ctx.textBaseline='middle';
@@ -70,6 +74,12 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   const {grid,snap,zoom}=view;
   const [rooms,setRooms]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
   const [room,setRoom]=useState(emptyRoom),[corner,setCorner]=useState(null),[retry,setRetry]=useState(0);
+  const [editing,setEditing]=useState(null);
+  function resetRoom(){setEditing(null);setRoom(emptyRoom);setCorner(null);}
+  function editRoom(r){
+    setEditing({id:r.id,revision:r.revision});setRoom({x:r.x,y:r.y,width:r.width,depth:r.depth});
+    setTool('room');setCorner(null);setError('');
+  }
   const [tool,setTool]=useState('room');
   const [barriers,setBarriers]=useState([]),[segment,setSegment]=useState(emptyBarrier);
   const drawingBarrier=tool==='wall'||tool==='door';
@@ -83,8 +93,8 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     return ()=>{active=false;};
   },[api,campaignId,id,retry]);
   useEffect(()=>{
-    if(canvas.current)draw(canvas.current,rooms||[],grid,corner,tool==='measure'?ruler:null,passages,id,barriers,drawingBarrier?{...segment,kind:tool}:null);
-  },[rooms,grid,corner,tool,ruler,passages,id,barriers,drawingBarrier,segment]);
+    if(canvas.current)draw(canvas.current,rooms||[],grid,corner,tool==='measure'?ruler:null,passages,id,barriers,drawingBarrier?{...segment,kind:tool}:null,editing?room:null);
+  },[rooms,grid,corner,tool,ruler,passages,id,barriers,drawingBarrier,segment,editing,room]);
   useLayoutEffect(()=>{
     const view=viewport.current,center=viewCenter.current;
     if(!view||!center)return;
@@ -100,6 +110,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   function point(event){
     if(lock.current)return;
     const {x,y}=drawingPoint(event.clientX,event.clientY,event.currentTarget.getBoundingClientRect(),snap);
+    if(editing){setRoom(r=>({...r,x,y}));return;}
     if(tool==='passage'){setPassage(current=>({...current,fromX:x,fromY:y}));return;}
     if(!corner){
       setCorner({x,y});
@@ -123,14 +134,14 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
       if(!floor)throw Error('Floor unavailable');
       setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);pending.current=null;setCorner(null);
       if(kind==='barrier')setSegment(emptyBarrier);
+      if(kind==='edit_room'||(kind==='erase'&&editing?.id===existing?.id))resetRoom();
     }catch(e){setError(e.message);}finally{lock.current=false;setBusy(false);}
   }
-  const valid=Object.values(room).every(v=>v!==''&&Number.isInteger(Number(v)))&&Number(room.x)>=0&&Number(room.y)>=0&&Number(room.width)>=5&&Number(room.depth)>=5&&Number(room.x)+Number(room.width)<=width&&Number(room.y)+Number(room.depth)<=depth;
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>
     <label><input type="checkbox" checked={grid} onChange={e=>updateView({grid:e.target.checked})}/> Show 5-ft grid</label>
-    <button type="button" className="l-button" disabled={busy} onClick={()=>setRetry(n=>n+1)}>Refresh floor</button></div>
+    <button type="button" className="l-button" disabled={busy} onClick={()=>{if(editing)resetRoom();setRetry(n=>n+1);}}>Refresh floor</button></div>
     {rooms!==null&&<><div className="l-toolbar">
-      <label className="l-field">Tool<select aria-label="Map tool" disabled={busy} value={tool} onChange={e=>{setTool(e.target.value);setCorner(null);setSegment(emptyBarrier);}}>
+      <label className="l-field">Tool<select aria-label="Map tool" disabled={busy} value={tool} onChange={e=>{if(editing)resetRoom();setTool(e.target.value);setCorner(null);setSegment(emptyBarrier);}}>
         <option value="room">Draw room</option><option value="wall">Draw wall</option><option value="door">Draw door</option><option value="measure">Measure distance</option>{otherFloors.length>0&&<option value="passage">Connect floors</option>}</select></label>
       <label className="l-field">Zoom<select aria-label="Map zoom" value={zoom} onChange={e=>changeZoom(Number(e.target.value))}>
         {[1,1.5,2,3].map(z=><option key={z} value={z}>{z*100}%</option>)}</select></label>
@@ -164,10 +175,11 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
               onChange={e=>setPassage({...passage,[key]:e.target.value===''?'':Number(e.target.value)})}/></label>)}</div>
           {passage.kind==='pit'&&<p>A pit leads one way to a lower floor.</p>}
           <button className="l-button primary" disabled={busy||!passage.toFloor}>Add passage</button>
-        </fieldset></form>:<><p>{corner?'Choose the opposite corner.':'Choose two corners or enter room dimensions in feet.'}</p>
-      <form className="l-toolbar" onSubmit={e=>{e.preventDefault();void change('room');}}>
-        {Object.entries({x:'Left',y:'Top',width:'Width',depth:'Depth'}).map(([key,label])=><label className="l-field" key={key}>{label} (ft)<input type="number" value={room[key]} onChange={e=>setRoom({...room,[key]:e.target.value})}/></label>)}
-        <button className="l-button primary" disabled={busy||!valid}>Draw room</button></form></>}
+        </fieldset></form>:<><p>{editing?'Click to move the top-left corner, or edit the position and size below.':corner?'Choose the opposite corner.':'Choose two corners or enter room dimensions in feet.'}</p>
+      <form className="l-toolbar" onSubmit={e=>{e.preventDefault();if(editing)void change('edit_room',editing,{...room,revision:editing.revision});else void change('room');}}>
+        {Object.entries({x:'Left',y:'Top',width:'Width',depth:'Depth'}).map(([key,label])=><label className="l-field" key={key}>{label} (ft)<input type="number" disabled={busy} required value={room[key]} onChange={e=>setRoom({...room,[key]:e.target.value===''?'':Number(e.target.value)})}/></label>)}
+        <button className="l-button primary" disabled={busy||!validRoom(room)}>{editing?'Save room':'Draw room'}</button>
+        {editing&&<button type="button" className="l-button" disabled={busy} onClick={resetRoom}>Cancel room edit</button>}</form></>}
       {!!barriers.length&&<ul aria-label="Walls and doors on floor">{barriers.map(b=><li key={b.id}>
         <span>{b.kind==='door'?'Door':'Wall'} ({b.x1}, {b.y1}) to ({b.x2}, {b.y2})</span>{' '}
         {b.kind==='door'&&<>{b.open?'Open':'Closed'}{' '}
@@ -182,6 +194,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
           <button type="button" className="l-button" disabled={busy} onClick={()=>change('erase_passage',p)}>Remove passage</button></li>;
       })}</ul>}
       {!!rooms.length&&<ul aria-label="Rooms on floor">{rooms.map(r=><li key={r.id}>{r.width} × {r.depth} ft at ({r.x}, {r.y}){' '}
+        <button type="button" className="l-button" disabled={busy} aria-label={'Edit room at '+r.x+', '+r.y} onClick={()=>editRoom(r)}>Edit</button>{' '}
         <button type="button" className="l-button" disabled={busy} aria-label={'Erase room at '+r.x+', '+r.y} onClick={()=>change('erase',r)}>Erase</button></li>)}</ul>}</>}
     {error&&<p role="alert">{error}</p>}</section>;
 }
