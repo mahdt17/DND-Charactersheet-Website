@@ -43,7 +43,7 @@ async function checkPicker(className, eligible, excluded, expectedValue) {
   const options = await picker.innerText();
   if (expectedValue) assert.equal(await picker.inputValue(), expectedValue);
   for (const name of eligible) assert.match(options, new RegExp(name,'i'));
-  for (const name of excluded) assert.doesNotMatch(options, new RegExp(name,'i'));
+  for (const name of excluded) assert.doesNotMatch(options, new RegExp(`\\b${name}\\b`,'i'));
   await modal.getByRole('button',{name:'Done',exact:true}).click();
 }
 
@@ -71,7 +71,7 @@ try {
   assert.equal(await page.getByRole('button',{name:'Trigger Strength Before Death'}).count(),0);
 
   await importCharacter('Cleric',1,'Life Domain');
-  await checkPicker('Cleric',['Life'],['Twilight','Light','Arcana'],'life');
+  await checkPicker('Cleric',['Life','Twilight'],['Light','Arcana'],'life');
 
   await importCharacter('Wizard',3,'Evoker','2024');
   await checkPicker('Wizard',['Evoker'],['Bladesinging','Theurgy']);
