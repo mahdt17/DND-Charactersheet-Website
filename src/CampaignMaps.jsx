@@ -75,6 +75,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   const [rooms,setRooms]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
   const [room,setRoom]=useState(emptyRoom),[corner,setCorner]=useState(null),[retry,setRetry]=useState(0);
   const [editing,setEditing]=useState(null);
+  const [refreshing,setRefreshing]=useState(false);
   function resetRoom(){setEditing(null);setRoom(emptyRoom);setCorner(null);}
   function editRoom(r){
     setEditing({id:r.id,revision:r.revision});setRoom({x:r.x,y:r.y,width:r.width,depth:r.depth});
@@ -89,7 +90,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   useEffect(()=>{
     let active=true;
     const request=++sequence.current;
-    api.mapFloor(campaignId,id).then(floor=>{if(active&&request===sequence.current){if(!floor)throw Error('Floor unavailable');setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);setError('');}}).catch(e=>{if(active&&request===sequence.current)setError(e.message);});
+    api.mapFloor(campaignId,id).then(floor=>{if(active&&request===sequence.current){if(!floor)throw Error('Floor unavailable');setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);setError('');}}).catch(e=>{if(active&&request===sequence.current)setError(e.message);}).finally(()=>{if(active)setRefreshing(false);});
     return ()=>{active=false;};
   },[api,campaignId,id,retry]);
   useEffect(()=>{
@@ -139,7 +140,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   }
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>
     <label><input type="checkbox" checked={grid} onChange={e=>updateView({grid:e.target.checked})}/> Show 5-ft grid</label>
-    <button type="button" className="l-button" disabled={busy} onClick={()=>{if(editing)resetRoom();setRetry(n=>n+1);}}>Refresh floor</button></div>
+    <button type="button" className="l-button" disabled={busy||refreshing} onClick={()=>{if(editing)resetRoom();setRefreshing(true);setRetry(n=>n+1);}}>Refresh floor</button></div>
     {rooms!==null&&<><div className="l-toolbar">
       <label className="l-field">Tool<select aria-label="Map tool" disabled={busy} value={tool} onChange={e=>{if(editing)resetRoom();setTool(e.target.value);setCorner(null);setSegment(emptyBarrier);}}>
         <option value="room">Draw room</option><option value="wall">Draw wall</option><option value="door">Draw door</option><option value="measure">Measure distance</option>{otherFloors.length>0&&<option value="passage">Connect floors</option>}</select></label>
@@ -194,8 +195,8 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
           <button type="button" className="l-button" disabled={busy} onClick={()=>change('erase_passage',p)}>Remove passage</button></li>;
       })}</ul>}
       {!!rooms.length&&<ul aria-label="Rooms on floor">{rooms.map(r=><li key={r.id}>{r.width} × {r.depth} ft at ({r.x}, {r.y}){' '}
-        <button type="button" className="l-button" disabled={busy} aria-label={'Edit room at '+r.x+', '+r.y} onClick={()=>editRoom(r)}>Edit</button>{' '}
-        <button type="button" className="l-button" disabled={busy} aria-label={'Erase room at '+r.x+', '+r.y} onClick={()=>change('erase',r)}>Erase</button></li>)}</ul>}</>}
+        <button type="button" className="l-button" disabled={busy||refreshing} aria-label={'Edit room at '+r.x+', '+r.y} onClick={()=>editRoom(r)}>Edit</button>{' '}
+        <button type="button" className="l-button" disabled={busy||refreshing} aria-label={'Erase room at '+r.x+', '+r.y} onClick={()=>change('erase',r,{revision:r.revision})}>Erase</button></li>)}</ul>}</>}
     {error&&<p role="alert">{error}</p>}</section>;
 }
 function Maps({api,campaignId,close}){

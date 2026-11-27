@@ -21,6 +21,10 @@ begin
   perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}');
   begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"width":24,"revision":0}');raise exception 'Stale room edit accepted';
   exception when raise_exception then if sqlerrm<>'Room changed. Refresh the floor and select it again.' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'erase',room,floor,'{"revision":0}');raise exception 'Stale tab erased moved room';
+  exception when raise_exception then if sqlerrm<>'Room changed. Refresh the floor and select it again.' then raise; end if; end;
+  begin perform public.ledger_prepare_map(c,'erase',room,floor,'{}');raise exception 'Older client erased moved room';
+  exception when raise_exception then if sqlerrm<>'Room changed. Refresh the floor and select it again.' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'edit_room',room,scene,shape||'{"revision":1}');raise exception 'Edited wrong floor';
   exception when raise_exception then if sqlerrm<>'Room unavailable' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"width":200,"revision":1}');raise exception 'Resized outside floor';
@@ -96,7 +100,8 @@ begin
      jsonb_array_length(public.ledger_map_floor(c,floor)->'barriers')<>1 then raise exception 'Erased door reappeared'; end if;
   perform public.ledger_prepare_map(c,'passage',passage,scene,link);
   if public.ledger_map_floor(c,scene)->'passages'<>'[]' or public.ledger_map_floor(c,floor)->'passages'<>'[]' then raise exception 'Erased passage reappeared'; end if;
-  perform public.ledger_prepare_map(c,'erase',room,floor,'{}');
+  perform public.ledger_prepare_map(c,'erase',room,floor,'{"revision":1}');
+  perform public.ledger_prepare_map(c,'erase',room,floor,'{"revision":1}');
   begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"revision":1}');raise exception 'Edited erased room';
   exception when raise_exception then if sqlerrm<>'Room unavailable' then raise; end if; end;
   perform public.ledger_prepare_map(c,'room',room,floor,shape);

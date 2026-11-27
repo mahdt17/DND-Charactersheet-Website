@@ -186,9 +186,13 @@ begin
      where p.id=p_id and f.id in (p.from_floor,p.to_floor) and f.id=p_parent and s.campaign_id=p_campaign;
    if not found then raise exception 'Passage unavailable'; end if;
  when 'erase' then
-   update ledger_private.scene_rooms r set erased=true from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
-     where r.id=p_id and r.floor_id=f.id and f.id=p_parent and s.campaign_id=p_campaign;
+   select r.* into target_room from ledger_private.scene_rooms r join ledger_private.scene_floors f on f.id=r.floor_id
+     join ledger_private.scenes s on s.id=f.scene_id where r.id=p_id and f.id=p_parent and s.campaign_id=p_campaign;
    if not found then raise exception 'Room unavailable'; end if;
+   -- Older clients can erase rooms that have never been moved or resized.
+   expected_revision:=coalesce((p_value->>'revision')::integer,0);
+   if target_room.revision<>expected_revision then raise exception 'Room changed. Refresh the floor and select it again.'; end if;
+   if not target_room.erased then update ledger_private.scene_rooms set erased=true where id=p_id; end if;
  else raise exception 'Unknown map command';
  end case;
 end $$;

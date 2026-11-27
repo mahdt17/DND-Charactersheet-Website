@@ -25,6 +25,16 @@ async function login(role) {
   return page;
 }
 const button=(page,name)=>page.getByRole('button',{name,exact:true});
+async function duringFloorRead(page,action,inspect){
+  const path='**/rpc/ledger_map_floor';
+  let release;
+  const hold=new Promise(resolve=>{release=resolve;});
+  await page.route(path,async route=>{await hold;await route.continue();},{times:1});
+  try{
+    await Promise.all([page.waitForRequest(path),action()]);
+    await inspect();
+  }finally{release();}
+}
 try {
   const dm=await login('dm'),player=await login('player');
   const sheet={id:'hero',name:'Arden',level:1,ruleset:'2014',className:'Fighter',race:'Elf',
@@ -61,6 +71,13 @@ try {
   await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
   await button(maps,'Save room').click();
   await button(maps,'Edit room at 15, 0').waitFor();
+  await duringFloorRead(dm,()=>button(maps,'Refresh floor').click(),async()=>{
+    assert(await button(maps,'Edit room at 15, 0').isDisabled());
+    assert(await button(maps,'Erase room at 15, 0').isDisabled());
+  });
+  await button(maps,'Edit room at 15, 0').click();
+  assert.equal(await maps.getByLabel('Width (ft)',{exact:true}).inputValue(),'30');
+  await button(maps,'Cancel room edit').click();
   mapRequests.length=0;
   await maps.getByLabel('Map tool').selectOption('measure');
   await maps.getByLabel('End X (ft)').fill('30');
@@ -85,17 +102,12 @@ try {
   await canvas.click({position:{x:Math.round(width*.099),y:Math.round(height*.066)}});
   assert.deepEqual(mapRequests,[]);
   dm.off('request',countMapRequest);
-  const floorRead='**/rpc/ledger_map_floor';
-  let releaseRead;
-  const holdRead=new Promise(resolve=>{releaseRead=resolve;});
-  await dm.route(floorRead,async route=>{await holdRead;await route.continue();},{times:1});
-  try{
-    await Promise.all([dm.waitForRequest(floorRead),button(maps,'Add wall').click()]);
+  await duringFloorRead(dm,()=>button(maps,'Add wall').click(),async()=>{
     assert(await maps.getByLabel('Map tool').isDisabled());
     assert.equal(await canvas.getAttribute('aria-disabled'),'true');
     await canvas.dispatchEvent('click',{clientX:0,clientY:0});
     assert.equal(await maps.getByLabel('First X (ft)').inputValue(),'10');
-  }finally{releaseRead();}
+  });
   const barriers=maps.getByRole('list',{name:'Walls and doors on floor'});
   await barriers.getByText('Wall (10, 10) to (20, 10)',{exact:true}).waitFor();
   await maps.getByLabel('Map tool').selectOption('door');
