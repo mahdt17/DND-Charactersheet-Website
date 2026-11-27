@@ -135,26 +135,28 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     if(lock.current)return;
     const payload=kind==='room'?Object.fromEntries(Object.entries(room).map(([k,v])=>[k,Number(v)])):(value||{});
     const signature=JSON.stringify([kind,existing?.id,payload]);
-    if(pending.current?.signature!==signature)pending.current={signature,id:existing?.id||crypto.randomUUID()};
+    if(pending.current?.signature!==signature)pending.current={signature,id:existing?.id||crypto.randomUUID(),
+      commandId:kind==='edit_room'?crypto.randomUUID():null};
     lock.current=true;++sequence.current;setBusy(true);setError('');
     try{
-      await api.prepareMap(campaignId,kind,pending.current.id,id,payload);
-      const floor=await api.mapFloor(campaignId,id);
-      if(!floor)throw Error('Floor unavailable');
-      setHistory(previous=>{
-        let next=previous;
-        if(kind==='edit_room'){
-          const saved=floor.rooms.find(r=>r.id===existing.id);
-          if(saved&&Object.keys(emptyRoom).every(key=>saved[key]===payload[key])){
-            next=roomHistoryAfterEdit(previous,action,existing,saved);
-          }
-        }
-        return reconcileRoomHistory(next,floor.rooms);
-      });
-      setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);pending.current=null;
+      const {id:target,commandId}=pending.current;
+      await api.prepareMap(campaignId,kind,target,id,commandId?{...payload,commandId}:payload);
+      pending.current=null;
+      if(kind==='edit_room'&&Object.keys(emptyRoom).some(key=>existing[key]!==payload[key])){
+        const saved={id:target,...roomBounds(payload),revision:existing.revision+1};
+        setHistory(previous=>roomHistoryAfterEdit(previous,action,existing,saved));
+      }
       if(action==='edit')setCorner(null);
       if(kind==='barrier')setSegment(emptyBarrier);
       if(editing&&(kind==='edit_room'||(kind==='erase'&&editing.id===existing?.id)))resetRoom();
+      try{
+        const floor=await api.mapFloor(campaignId,id);
+        if(!floor)throw Error('Floor unavailable');
+        setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);
+        setHistory(previous=>reconcileRoomHistory(previous,floor.rooms));
+      }catch{
+        setRooms(null);setError('Change saved. Refresh the floor to reload it.');
+      }
     }catch(e){setError(e.message);}finally{lock.current=false;setBusy(false);}
   }
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>

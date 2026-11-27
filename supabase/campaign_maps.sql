@@ -17,6 +17,7 @@ create index scene_floors_scene_idx on ledger_private.scene_floors(scene_id,elev
 create table ledger_private.scene_rooms (
   id uuid primary key,
   revision integer not null default 0,
+  last_edit_command uuid,
   original_bounds integer[], -- Keep the creation receipt only when the first edit changes it.
   erased boolean not null default false,
   floor_id uuid not null references ledger_private.scene_floors(id) on delete cascade,
@@ -130,10 +131,11 @@ begin
    if expected_revision is null or expected_revision<0 or x is null or y is null or w is null or d is null
      then raise exception 'Invalid room edit'; end if;
    if (target_room.x_ft,target_room.y_ft,target_room.width_ft,target_room.depth_ft)=(x,y,w,d)
-     and target_room.revision in (expected_revision,expected_revision::bigint+1) then return; end if;
+     and (target_room.revision=expected_revision or (target_room.revision=expected_revision::bigint+1
+       and target_room.last_edit_command is not distinct from (p_value->>'commandId')::uuid)) then return; end if;
    if target_room.revision<>expected_revision then raise exception 'Room changed. Refresh the floor and select it again.'; end if;
    update ledger_private.scene_rooms set original_bounds=coalesce(original_bounds,array[x_ft,y_ft,width_ft,depth_ft]),
-     x_ft=x,y_ft=y,width_ft=w,depth_ft=d,revision=revision+1 where id=p_id;
+     x_ft=x,y_ft=y,width_ft=w,depth_ft=d,revision=revision+1,last_edit_command=(p_value->>'commandId')::uuid where id=p_id;
  when 'barrier' then
    perform 1 from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
      where f.id=p_parent and s.campaign_id=p_campaign;

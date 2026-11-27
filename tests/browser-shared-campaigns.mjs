@@ -71,7 +71,12 @@ try {
   await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
   await button(maps,'Save room').click();
   await button(maps,'Edit room at 15, 0').waitFor();
+  // The undo commits before this read fails. Refresh must retain the redo entry.
+  await dm.route('**/rpc/ledger_map_floor',route=>route.fulfill({status:400,contentType:'application/json',
+    body:JSON.stringify({message:'Injected floor read failure'})}),{times:1});
   await button(maps,'Undo room edit').click();
+  await maps.getByRole('alert').filter({hasText:'Change saved.'}).waitFor();
+  await button(maps,'Refresh floor').click();
   await button(maps,'Edit room at 0, 0').waitFor();
   await button(maps,'Redo room edit').click();
   await button(maps,'Edit room at 15, 0').waitFor();

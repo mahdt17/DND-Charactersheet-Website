@@ -10,6 +10,7 @@ insert into public.ledger_campaigns(name) values ('Map fixture');
 select set_config('map.c',(select id::text from public.ledger_campaigns where name='Map fixture'),true);
 do $$ declare c uuid:=current_setting('map.c')::uuid; scene uuid:=gen_random_uuid(); floor uuid:=gen_random_uuid(); room uuid:=gen_random_uuid(); passage uuid:=gen_random_uuid(); other_scene uuid:=gen_random_uuid(); link jsonb; shape jsonb:='{"x":10,"y":15,"width":20,"depth":25}';
   door uuid:=gen_random_uuid(); wall uuid:=gen_random_uuid();
+  edit_request uuid:=gen_random_uuid();
   endpoints jsonb:='{"kind":"door","x1":0,"y1":0,"x2":5,"y2":10}';
 begin
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
@@ -17,8 +18,10 @@ begin
   perform public.ledger_prepare_map(c,'floor',floor,scene,'{"name":"Secret vault","elevation":-30}');
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
-  perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}');
-  perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}');
+  perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}'||jsonb_build_object('commandId',edit_request));
+  perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}'||jsonb_build_object('commandId',edit_request));
+  begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}'||jsonb_build_object('commandId',gen_random_uuid()));raise exception 'Distinct stale command claimed room edit';
+  exception when raise_exception then if sqlerrm<>'Room changed. Refresh the floor and select it again.' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"width":24,"revision":0}');raise exception 'Stale room edit accepted';
   exception when raise_exception then if sqlerrm<>'Room changed. Refresh the floor and select it again.' then raise; end if; end;
   begin perform public.ledger_prepare_map(c,'erase',room,floor,'{"revision":0}');raise exception 'Stale tab erased moved room';
