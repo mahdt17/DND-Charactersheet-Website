@@ -1,5 +1,28 @@
 export const floorWidth=200, floorDepth=150;
 
+export function roomBounds({x,y,width,depth}){return {x,y,width,depth};}
+
+export function reconcileRoomHistory(history,rooms){
+  const revisions=new Map(rooms.map(room=>[room.id,room.revision]));
+  const current=entry=>revisions.get(entry.id)===entry.revision;
+  return {undo:history.undo.filter(current),redo:history.redo.filter(current)};
+}
+
+export function roomHistoryAfterEdit(history,action,before,after){
+  if(after.revision!==before.revision+1)return history;
+  // Only our own confirmed edit advances the expected revision of earlier entries.
+  const advance=entries=>entries.filter(e=>e.id!==before.id||e.revision===before.revision)
+    .map(e=>e.id===before.id?{...e,revision:after.revision}:e);
+  const undo=advance(history.undo),redo=advance(history.redo);
+  if(action==='undo'){if(undo.length)redo.push(undo.pop());}
+  else if(action==='redo'){if(redo.length)undo.push(redo.pop());}
+  else{
+    undo.push({id:before.id,before:roomBounds(before),after:roomBounds(after),revision:after.revision});
+    return {undo:undo.slice(-32),redo:[]};
+  }
+  return {undo,redo};
+}
+
 export function validRoom({x,y,width,depth}){
   return [x,y,width,depth].every(Number.isInteger)&&x>=0&&y>=0&&width>=5&&depth>=5
     &&x+width<=floorWidth&&y+depth<=floorDepth;

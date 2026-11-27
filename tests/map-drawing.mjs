@@ -1,6 +1,40 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {drawingPoint, validBarrier, validRoom} from '../src/lib/mapDrawing.mjs';
+import {drawingPoint, validBarrier, validRoom, roomHistoryAfterEdit, reconcileRoomHistory} from '../src/lib/mapDrawing.mjs';
+
+test('room undo and redo follow committed edits across rooms and successive revisions',()=>{
+  const a={id:'a',x:0,y:0,width:20,depth:20,revision:0}, b={...a,id:'b'};
+  let history={undo:[],redo:[]};
+  const moved={...a,x:5,revision:1},resized={...moved,width:30,revision:2};
+  history=roomHistoryAfterEdit(history,'edit',a,moved);
+  history=roomHistoryAfterEdit(history,'edit',b,{...b,y:10,revision:1});
+  history=roomHistoryAfterEdit(history,'edit',moved,resized);
+  history=roomHistoryAfterEdit(history,'undo',resized,{...moved,revision:3});
+  assert.equal(history.redo.at(-1).after.width,30);
+  assert.equal(history.undo[0].revision,3);
+  assert.equal(history.undo.at(-1).id,'b');
+  history=roomHistoryAfterEdit(history,'redo',{...moved,revision:3},{...resized,revision:4});
+  assert.equal(history.undo.at(-1).revision,4);
+  const external={...resized,revision:5};
+  history=reconcileRoomHistory(history,[external,{...b,y:10,revision:1}]);
+  assert.deepEqual(history.undo.map(row=>row.id),['b']);
+  assert.deepEqual(reconcileRoomHistory(history,[]),{undo:[],redo:[]});
+});
+
+test('a new room edit clears redo, a no-op preserves it, and history is bounded',()=>{
+  let room={id:'one',x:0,y:0,width:20,depth:20,revision:0},history={undo:[],redo:[]};
+  for(let n=1;n<=40;n++){
+    const next={...room,x:n,revision:n};
+    history=roomHistoryAfterEdit(history,'edit',room,next);
+    room=next;
+  }
+  assert.equal(history.undo.length,32);
+  const previous={...room,x:39,revision:41};
+  history=roomHistoryAfterEdit(history,'undo',room,previous);
+  assert.equal(roomHistoryAfterEdit(history,'edit',previous,previous),history);
+  history=roomHistoryAfterEdit(history,'edit',previous,{...previous,x:60,revision:42});
+  assert.equal(history.redo.length,0);
+});
 
 test('edited rooms fit the floor and retain a five-foot minimum',()=>{
   const edge={x:195,y:145,width:5,depth:5};

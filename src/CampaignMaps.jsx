@@ -1,6 +1,6 @@
 import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Dialog from './Dialog';
-import {drawingPoint,floorWidth as width,floorDepth as depth,validBarrier,validRoom} from './lib/mapDrawing.mjs';
+import {drawingPoint,floorWidth as width,floorDepth as depth,validBarrier,validRoom,roomBounds,roomHistoryAfterEdit,reconcileRoomHistory} from './lib/mapDrawing.mjs';
 
 const passageNames={stairs:'Stairs',ladder:'Ladder',pit:'Pit'};
 const emptyRoom={x:0,y:0,width:20,depth:20};
@@ -75,10 +75,11 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   const [rooms,setRooms]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
   const [room,setRoom]=useState(emptyRoom),[corner,setCorner]=useState(null),[retry,setRetry]=useState(0);
   const [editing,setEditing]=useState(null);
+  const [history,setHistory]=useState({undo:[],redo:[]});
   const [refreshing,setRefreshing]=useState(false);
   function resetRoom(){setEditing(null);setRoom(emptyRoom);setCorner(null);}
   function editRoom(r){
-    setEditing({id:r.id,revision:r.revision});setRoom({x:r.x,y:r.y,width:r.width,depth:r.depth});
+    setEditing(r);setRoom(roomBounds(r));
     setTool('room');setCorner(null);setError('');
   }
   const [tool,setTool]=useState('room');
@@ -90,7 +91,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   useEffect(()=>{
     let active=true;
     const request=++sequence.current;
-    api.mapFloor(campaignId,id).then(floor=>{if(active&&request===sequence.current){if(!floor)throw Error('Floor unavailable');setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);setError('');}}).catch(e=>{if(active&&request===sequence.current)setError(e.message);}).finally(()=>{if(active)setRefreshing(false);});
+    api.mapFloor(campaignId,id).then(floor=>{if(active&&request===sequence.current){if(!floor)throw Error('Floor unavailable');setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);setHistory(h=>reconcileRoomHistory(h,floor.rooms));setError('');}}).catch(e=>{if(active&&request===sequence.current)setError(e.message);}).finally(()=>{if(active)setRefreshing(false);});
     return ()=>{active=false;};
   },[api,campaignId,id,retry]);
   useEffect(()=>{
@@ -123,7 +124,14 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     if(drawingBarrier){setSegment({x1:corner.x,y1:corner.y,x2:x,y2:y});setCorner(null);return;}
     setRoom({x:Math.min(x,corner.x),y:Math.min(y,corner.y),width:Math.abs(x-corner.x),depth:Math.abs(y-corner.y)});setCorner(null);
   }
-  async function change(kind,existing,value){
+  function replayRoomEdit(action){
+    const entry=history[action].at(-1);
+    const current=rooms.find(r=>r.id===entry.id&&r.revision===entry.revision);
+    if(!current)return;
+    const bounds=action==='undo'?entry.before:entry.after;
+    void change('edit_room',current,{...bounds,revision:entry.revision},action);
+  }
+  async function change(kind,existing,value,action='edit'){
     if(lock.current)return;
     const payload=kind==='room'?Object.fromEntries(Object.entries(room).map(([k,v])=>[k,Number(v)])):(value||{});
     const signature=JSON.stringify([kind,existing?.id,payload]);
@@ -133,15 +141,29 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
       await api.prepareMap(campaignId,kind,pending.current.id,id,payload);
       const floor=await api.mapFloor(campaignId,id);
       if(!floor)throw Error('Floor unavailable');
-      setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);pending.current=null;setCorner(null);
+      setHistory(previous=>{
+        let next=previous;
+        if(kind==='edit_room'){
+          const saved=floor.rooms.find(r=>r.id===existing.id);
+          if(saved&&Object.keys(emptyRoom).every(key=>saved[key]===payload[key])){
+            next=roomHistoryAfterEdit(previous,action,existing,saved);
+          }
+        }
+        return reconcileRoomHistory(next,floor.rooms);
+      });
+      setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);pending.current=null;
+      if(action==='edit')setCorner(null);
       if(kind==='barrier')setSegment(emptyBarrier);
-      if(kind==='edit_room'||(kind==='erase'&&editing?.id===existing?.id))resetRoom();
+      if(editing&&(kind==='edit_room'||(kind==='erase'&&editing.id===existing?.id)))resetRoom();
     }catch(e){setError(e.message);}finally{lock.current=false;setBusy(false);}
   }
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>
     <label><input type="checkbox" checked={grid} onChange={e=>updateView({grid:e.target.checked})}/> Show 5-ft grid</label>
     <button type="button" className="l-button" disabled={busy||refreshing} onClick={()=>{if(editing)resetRoom();setRefreshing(true);setRetry(n=>n+1);}}>Refresh floor</button></div>
     {rooms!==null&&<><div className="l-toolbar">
+      {['undo','redo'].map(action=><button type="button" key={action} className="l-button"
+        disabled={busy||refreshing||!!editing||!history[action].length} onClick={()=>replayRoomEdit(action)}>
+        {action==='undo'?'Undo room edit':'Redo room edit'}</button>)}
       <label className="l-field">Tool<select aria-label="Map tool" disabled={busy} value={tool} onChange={e=>{if(editing)resetRoom();setTool(e.target.value);setCorner(null);setSegment(emptyBarrier);}}>
         <option value="room">Draw room</option><option value="wall">Draw wall</option><option value="door">Draw door</option><option value="measure">Measure distance</option>{otherFloors.length>0&&<option value="passage">Connect floors</option>}</select></label>
       <label className="l-field">Zoom<select aria-label="Map zoom" value={zoom} onChange={e=>changeZoom(Number(e.target.value))}>

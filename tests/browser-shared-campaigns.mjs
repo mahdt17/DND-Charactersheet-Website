@@ -71,6 +71,28 @@ try {
   await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
   await button(maps,'Save room').click();
   await button(maps,'Edit room at 15, 0').waitFor();
+  await button(maps,'Undo room edit').click();
+  await button(maps,'Edit room at 0, 0').waitFor();
+  await button(maps,'Redo room edit').click();
+  await button(maps,'Edit room at 15, 0').waitFor();
+
+  // A different DM tab moves the room and moves it back. Equal bounds still have a newer revision.
+  const secondTab=await dm.context().newPage();
+  try{
+    await secondTab.goto(appUrl);
+    await button(secondTab,'Campaigns').click();
+    await button(secondTab,'The Violet Archive').click();
+    await button(secondTab,'DM maps').click();
+    const otherMap=secondTab.getByRole('dialog',{name:'DM maps'});
+    await button(otherMap,'Edit room at 15, 0').click();
+    await otherMap.getByLabel('Left (ft)',{exact:true}).fill('25');
+    await button(otherMap,'Save room').click();
+    await button(otherMap,'Edit room at 25, 0').waitFor();
+    await button(otherMap,'Undo room edit').click();
+    await button(otherMap,'Edit room at 15, 0').waitFor();
+  }finally{await secondTab.close();}
+  await button(maps,'Undo room edit').click();
+  await maps.getByRole('alert').filter({hasText:'Room changed.'}).waitFor();
   await duringFloorRead(dm,()=>button(maps,'Refresh floor').click(),async()=>{
     assert(await button(maps,'Edit room at 15, 0').isDisabled());
     assert(await button(maps,'Erase room at 15, 0').isDisabled());
@@ -78,6 +100,8 @@ try {
   await button(maps,'Edit room at 15, 0').click();
   assert.equal(await maps.getByLabel('Width (ft)',{exact:true}).inputValue(),'30');
   await button(maps,'Cancel room edit').click();
+  assert(await button(maps,'Undo room edit').isDisabled());
+  assert(await button(maps,'Redo room edit').isDisabled());
   mapRequests.length=0;
   await maps.getByLabel('Map tool').selectOption('measure');
   await maps.getByLabel('End X (ft)').fill('30');
