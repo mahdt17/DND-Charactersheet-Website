@@ -20,7 +20,9 @@ try{
    if(custom){assert.equal(await page.getByLabel('Replacement background skill',{exact:true}).count(),1,'Custom training must expose the required background replacement');await page.getByLabel('Replacement background skill',{exact:true}).selectOption('Stealth');if(version==='motm')await page.getByLabel('Shadar-kai language 1',{exact:true}).fill('Elvish');assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isEnabled());}
    else{
     assert.equal(await page.getByLabel('Trance proficiency 2',{exact:true}).count(),1,'A new background conflict must be correctable on Training');assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());await page.getByLabel('Trance proficiency 2',{exact:true}).selectOption('poisoners-kit');
-    await page.getByRole('button',{name:'Acrobatics',exact:true}).click();await page.getByRole('button',{name:'Survival',exact:true}).click();await page.getByLabel('Shadar-kai language 1',{exact:true}).fill('Elvish');await page.getByLabel('Hermit language 1',{exact:true}).fill('Giant');await next();await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:scenario}).waitFor();
+    await page.getByRole('button',{name:'Acrobatics',exact:true}).click();await page.getByRole('button',{name:'Survival',exact:true}).click();await page.getByLabel('Shadar-kai language 1',{exact:true}).fill('Elvish');await page.getByLabel('Hermit language 1',{exact:true}).fill('Giant');await next();await next();
+    await page.getByRole('radio',{name:'Fighter 1 Fighting Style: Defense (PHB)',exact:true}).check();
+    await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:scenario}).waitFor();
     await page.getByRole('tab',{name:'Traits',exact:true}).click();assert.match(await page.getByRole('region',{name:'Training and proficiencies'}).innerText(),/Poisoner's Kit/);
    }
    assert.deepEqual(errors,[]);console.log('PASS '+scenario);

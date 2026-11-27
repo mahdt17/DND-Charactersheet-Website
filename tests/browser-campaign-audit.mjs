@@ -4,7 +4,7 @@ import {createServer} from 'vite';
 import {chromium} from 'playwright';
 import {campaignClasses,campaignPowers,conversionFeats} from '../src/data/archivistCampaign.js';
 import {createArchivistCampaign} from '../src/lib/archivistCampaign.js';
-import {chooseCreatureAction,castSpellRow,openSpellCast,openClassTools,openClassDisclosure,chooseClassPower} from './helpers/class-tools.mjs';
+import {chooseCreatureAction,openSpellCast,openClassTools,openClassDisclosure,chooseClassPower} from './helpers/class-tools.mjs';
 
 const server=await createServer({server:{host:'127.0.0.1',port:5211,strictPort:true,hmr:false}});await server.listen();
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH,args:['--no-sandbox']});
@@ -48,7 +48,14 @@ try{
   await openClassTools(page,'Companions');if(level>=6)assert.match(await tools().innerText(),new RegExp('Maximum thrall level: '+thralls[level-6]+'\\.'));
   const book=await prayerbook();const shown=await book.locator('.slot-level').allInnerTexts();assert.equal(shown.length,slots[a].length);
   for(let i=0;i<shown.length;i++)assert.match(shown[i],new RegExp(`Level ${i+1}\\s*${slots[a][i]} / ${slots[a][i]} slots`));
-  await castSpellRow(page,'Cure Wounds');assert.match(await book.locator('.slot-level').first().innerText(),new RegExp(`${slots[a][0]-1} / ${slots[a][0]} slots`));
+  const cure=await openSpellCast(page,'Cure Wounds');
+  await cure.getByLabel('Spell recipient').selectOption('self');
+  await cure.getByRole('button',{name:'Cast & spend slot',exact:true}).click();
+  await book.getByRole('status').filter({hasText:'Cure Wounds cast'}).waitFor();
+  const diceTray=page.getByRole('complementary',{name:'Dice roller'});
+  await diceTray.getByRole('button',{name:'Close dice roller'}).click();
+  await diceTray.waitFor({state:'hidden'});
+  assert.match(await book.locator('.slot-level').first().innerText(),new RegExp(`${slots[a][0]-1} / ${slots[a][0]} slots`));
   await openClassTools(page);await tools().getByRole('button',{name:'Long rest · restore resources',exact:true}).click();await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
   assert.equal(await reserve('Dark Knowledge').innerText(),`${dark[level-1]} / ${dark[level-1]}`);if(level>=2){await chooseClassPower(page,'Mindlink');assert.equal(await reserve('Power Points').innerText(),'3 / 3');}
   console.log(`PASS guide character level ${level}: class tools, abilities, slots, spending, lore, roster and recovery`);

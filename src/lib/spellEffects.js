@@ -1,3 +1,4 @@
+import {durationSeconds} from './combatDuration.js';
 import {healHP} from './subclassActionUtils.js';
 import equipment from '../data/equipment.json' with {type:'json'};
 import {blessedHealerPatch} from './subclassHealing.js';
@@ -31,7 +32,7 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell
  if(spellName(spell)==='warding bond'&&recipient==='self')throw Error('Warding Bond requires another creature as its recipient.');
  if(spellName(spell)==='mage armor'&&recipient==='self'&&armored(c))throw Error('Remove worn armor before casting Mage Armor on yourself.');
  let effects=activeEffects(c).filter(e=>!e.breaksOnAttackOrCast&&!(e.stateKey==='wild-surge-max-damage'&&plan?.rolls?.some(r=>/damage/i.test(r.label)))&&!(e.stateKey==='wild-surge-save-disadvantage'&&plan?.save)),patch={};
- if(spell.concentration){effects=effects.filter(e=>!e.concentration);patch.concentration=spell.name;}
+ if(spell.concentration){effects=effects.filter(e=>!e.concentration);patch.concentration=spell.name;if(c.concentrationChecks?.length)patch.concentrationChecks=[];}
  if(temporaryHpSpell(spell)){
   const result=rolls.find(r=>/^temporary HP$/i.test(r.label));
   if(!result||!Number.isFinite(result.total)||result.total<0)throw Error('A valid temporary HP roll result is required before spending a slot.');
@@ -52,7 +53,9 @@ export function castEffectPatch(c,spell,{recipient,rolls=[],plan,slotLevel=spell
  if(name==='shield of faith'&&recipient==='self')effect={key:name,name:spell.name,acBonus:2,remainingSeconds:600};
  if(name==='haste'&&recipient==='self')effect={key:name,name:spell.name,acBonus:2,remainingSeconds:60};
  if(name==='barkskin'&&recipient==='self')effect={key:name,name:spell.name,minimumAC:(spell.edition||c.mechanics||c.ruleset)==='2024'?17:16,remainingSeconds:3600};
- if(effect){effect={...effect,id:`spell:${name.replaceAll(' ','-')}`,...(spell.concentration?{concentration:spell.name}:{})};effects=[...effects.filter(e=>e.key!==effect.key),effect];}
+ const seconds=durationSeconds(spell.duration);
+ if(!effect&&seconds>0)effect={key:name,name:spell.name,remainingSeconds:seconds};
+ if(effect){effect={...effect,timerInstance:crypto.randomUUID(),id:`spell:${name.replaceAll(' ','-')}`,...(spell.concentration?{concentration:spell.name}:{})};effects=[...effects.filter(e=>e.key!==effect.key),effect];}
  if(effect||spell.concentration||effects.length!==activeEffects(c).length)patch.activeEffects=effects;
  return {...wardCastPatch(c,spell,slotLevel),...patch,...blessedHealerPatch({...c,...patch},spell,{recipient,slotLevel,maxHP})};
 }

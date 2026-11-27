@@ -1,4 +1,4 @@
-import {castSpellRow,openSpellCast,openClassTools} from './helpers/class-tools.mjs';
+import {openSpellCast,openClassTools} from './helpers/class-tools.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
@@ -18,7 +18,10 @@ try{
  await page.getByRole('button',{name:'Create character',exact:true}).click();await page.getByLabel('Character name').filter({visible:true}).fill('Independent Archivist');await next();await page.getByLabel('Search class').filter({visible:true}).fill('Archivist');await choose('Archivist');await next();await choose('Human');await next();await choose('Noble');await next();await next();
  await page.getByRole('button',{name:'Arcana',exact:true}).click();await page.getByRole('button',{name:'Religion',exact:true}).click();await page.getByLabel('Human language 1',{exact:true}).filter({visible:true}).fill('Dwarvish');await page.getByLabel('Noble language 1',{exact:true}).filter({visible:true}).fill('Elvish');await next();
  await pickSpells('Starting spells',['Cure Wounds','Bless','Healing Word','Guiding Bolt']);await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'Independent Archivist'}).waitFor();assert.match(await page.locator('.sheet-identity').innerText(),/Archivist 1/);
- await page.getByRole('tab',{name:'Spells',exact:true}).click();await castSpellRow(page,'Cure Wounds');await page.getByRole('status').filter({hasText:'Cure Wounds cast'}).waitFor();
+ await page.getByRole('tab',{name:'Spells',exact:true}).click();const cure=await openSpellCast(page,'Cure Wounds');await cure.getByLabel('Spell recipient').selectOption('self');await cure.getByRole('button',{name:'Cast & spend slot',exact:true}).click();await page.getByRole('status').filter({hasText:'Cure Wounds cast'}).waitFor();
+ const diceTray=page.getByRole('complementary',{name:'Dice roller'});
+ await diceTray.getByRole('button',{name:'Close dice roller'}).click();
+ await diceTray.waitFor({state:'hidden'});
  await page.getByRole('button',{name:'Manage spells',exact:true}).click();await page.getByLabel('Spell acquisition').filter({visible:true}).selectOption('outside');await page.getByLabel('Approved spell source').filter({visible:true}).fill('Approved scroll');await page.getByLabel('DM confirmed source eligibility and copying is complete').filter({visible:true}).check();await page.getByLabel('Search spells').filter({visible:true}).fill('Detect Magic');await page.locator('[data-catalog-id="2014:detect-magic"]:visible').getByRole('button',{name:'Record Detect Magic',exact:true}).click();await page.getByRole('button',{name:'Done',exact:true}).click();
  await beginLevel();await page.getByLabel('Lore Mastery 1',{exact:true}).filter({visible:true}).selectOption('Religion');await next();assert.match(await page.getByRole('region',{name:'New spells',exact:true}).innerText(),/0 \/ 2/);await pickSpells('New spells',['Command','Shield of Faith']);await finishLevel();await page.locator('.sheet-identity').filter({hasText:'Archivist 2'}).waitFor();
  await beginLevel('normal','homebrew:darkdonte:telepath');for(const power of ['Mindlink','Inertial Armor','Attraction'])await page.getByRole('button',{name:'Learn '+power,exact:true}).click();await feat(page.getByRole('region',{name:'Converted class choices'}),'Psicrystal Affinity');await next();await finishLevel();await page.locator('.sheet-identity').filter({hasText:'Psion (Telepath) 1'}).waitFor();

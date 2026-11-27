@@ -105,6 +105,14 @@ try {
   // The continuous dice tray can still contain rolls from earlier checks.
   // This assertion measures only the two new initiative dice.
   await page.locator('.dice-stage').waitFor({state:'hidden'});
+  await page.evaluate(()=>{
+   window.encounterFaces=null;
+   const observer=new MutationObserver(()=>{
+    const canvas=document.querySelector('.dice-canvas[data-phase="settled"]');
+    if(canvas?.dataset.topValues){window.encounterFaces=canvas.dataset.topValues;observer.disconnect();}
+   });
+   observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['data-phase','data-top-values']});
+  });
   await page.getByRole('button',{name:'Roll initiative',exact:true}).click();
   await page.locator('.dice-canvas[data-phase="rolling"]').waitFor();
   const initiatives=page.getByLabel('Initiative',{exact:true});
@@ -114,7 +122,7 @@ try {
   await page.getByRole('button',{name:'Clear history',exact:true}).click();
   await page.getByRole('button',{name:'Close dice roller',exact:true}).click();
   await page.getByLabel('Encounter notes').fill('The bridge is icy.');
-  const faces=await page.locator('.dice-canvas[data-phase="settled"]').getAttribute('data-top-values');
+  const faces=await (await page.waitForFunction(()=>window.encounterFaces)).jsonValue();
   await page.getByRole('button',{name:'Roll initiative',exact:true}).waitFor();
   const totals=await initiatives.evaluateAll(inputs=>inputs.map(input=>Number(input.value)));
   assert.equal(totals.length,2);

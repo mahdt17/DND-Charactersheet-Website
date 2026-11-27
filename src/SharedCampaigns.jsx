@@ -1,6 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {Plus,LogIn,Trash2} from 'lucide-react';
 import './sharedCampaigns.css';
+import EffectCorrection from './EffectCorrection';
 import CampaignRewards from './CampaignRewards';
 import {DMCombat} from './LiveCombat';
 import {invitePattern,watchRoster} from './lib/sharedCampaigns';
@@ -25,7 +26,11 @@ export function LiveCampaignSheet({campaign,member,api,back,renderSheet}){
     },message=>{version++;lastStamp=undefined;setRecord(null);setError(message);});
     return ()=>{active=false;stop();};
   },[api,campaign.id,member,back,retry]);
-  if(record)return <><CampaignRewards char={record.data} change={async(field,adding,entry,amount)=>{
+  const [activeEncounter,setActiveEncounter]=useState(null);
+  useEffect(()=>watchRoster(api,campaign.id,setActiveEncounter,()=>setActiveEncounter(null),api.encounter),[api,campaign.id]);
+  if(record)return <>{activeEncounter&&<EffectCorrection effects={record.data.activeEffects} save={async(effect,seconds)=>{
+    try{await api.adjustEffect(campaign.id,member,effect,seconds);}finally{setRetry(n=>n+1);}
+  }}/>}<CampaignRewards char={record.data} change={async(field,adding,entry,amount)=>{
     try{
       if(!adding&&field==='inventory')await api.editSheet(campaign.id,member,'remove_quantity',{item:entry,amount});
       else await api.reward(campaign.id,member,field,adding,entry);

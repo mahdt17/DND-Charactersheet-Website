@@ -28,7 +28,7 @@ const button=(page,name)=>page.getByRole('button',{name,exact:true});
 try {
   const dm=await login('dm'),player=await login('player');
   const sheet={id:'hero',name:'Arden',level:1,ruleset:'2014',className:'Fighter',race:'Elf',
-    abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},hp:{max:11,current:11,temp:0},ac:15,notes:'First expedition',actions:[{id:'test-action',name:'Shield Bash',description:'Bash with your shield.'}],inventory:[{id:'test-pack',name:'Survey kit',qty:2}]};
+    abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},hp:{max:11,current:11,temp:0},ac:15,activeEffects:[{id:'watch',name:'Scout’s watch',remainingSeconds:60}],notes:'First expedition',actions:[{id:'test-action',name:'Shield Bash',description:'Bash with your shield.'}],inventory:[{id:'test-pack',name:'Survey kit',qty:2}]};
   await dm.locator('input[type=file]').setInputFiles({name:'ranger.json',mimeType:'application/json',
     buffer:Buffer.from(JSON.stringify({...sheet,name:'Tower ranger',initiativeBonus:3}))});
   await dm.locator('.sheet-identity').filter({hasText:'Tower ranger'}).waitFor();
@@ -120,6 +120,13 @@ try {
   const playerOrder=player.getByRole('list',{name:'Initiative order'});
   await button(dm,'Show Gate guard to players').waitFor();
   assert.equal(await playerOrder.getByText('Gate guard').count(),0);
+  await button(dm,'Begin turns').click();
+  await player.getByText('Round 1 · DM turn',{exact:true}).waitFor();
+  await button(dm,'Next turn').click();
+  await player.getByText('Round 1 · Arden',{exact:true}).waitFor();
+  await button(dm,'Next turn').click();
+  await player.getByText('Round 2 · DM turn',{exact:true}).waitFor();
+  await player.getByRole('region',{name:'Timed effects'}).getByText('0:54 · 9 rounds',{exact:true}).waitFor();
   await button(dm,'Show Gate guard to players').click();
   await playerOrder.getByText('Gate guard').waitFor();
   assert.match(await playerOrder.locator('li').first().innerText(),/Gate guard/);
@@ -143,11 +150,13 @@ try {
   await dm.getByLabel('Search participants').fill('Goblin');
   await dm.getByRole('checkbox',{name:/^Goblin CR/}).check();
   await dm.getByLabel('Quantity of Goblin').fill('2');
+  // The imported 2014 elf has base Dex 14, +2 racial Dex and a +3 initiative bonus.
+  await dm.locator('.encounter-queue li').filter({hasText:'Tower ranger'}).getByText('+6 initiative',{exact:true}).waitFor();
   await button(dm,'Roll initiative and add (3)').click();
-  for(const [name,bonus] of [['Tower ranger',5],['Goblin 1',2],['Goblin 2',2]]){
+  for(const [name,bonus] of [['Tower ranger',6],['Goblin 1',2],['Goblin 2',2]]){
     await button(dm,'Show '+name+' to players').waitFor();
     const score=Number(await dmOrder.locator('li').filter({hasText:name}).locator(':scope > span').innerText());
-    assert(score>=1+bonus&&score<=20+bonus);
+    assert(score>=1+bonus&&score<=20+bonus,`${name} rolled ${score} with a +${bonus} modifier`);
     assert.equal(await playerOrder.getByText(name,{exact:true}).count(),0);
   }
   await button(dm,'Show Goblin 2 to players').click();

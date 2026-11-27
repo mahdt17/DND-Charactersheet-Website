@@ -1,6 +1,10 @@
 import React,{useEffect,useState} from 'react';
 
 const eventText={
+  effect_started:e=>e.participant+' started',
+  effect_ended:e=>e.participant+' ended early',
+  effect_adjusted:e=>'DM correction · '+e.participant,
+  expired:e=>e.participant+' expired',
   added:e=>e.participant+' added, hidden from players (initiative '+e.initiative+')',
   initiative:e=>e.participant+' rolled initiative '+e.initiative,
   hidden:e=>e.participant+' hidden from players',
@@ -13,7 +17,7 @@ function plainText(log){
     log.encounter+' — '+log.campaign,'DM encounter log (includes hidden combatants)',
     log.startedAt?'Started '+time(log.startedAt):'Recording began during this encounter.',
     'Ended '+time(log.endedAt),'','Encounter activity',
-    ...log.events.map(e=>time(e.at)+'  '+eventText[e.action](e)),
+    ...log.events.map(e=>time(e.at)+'  '+(eventText[e.action]?.(e)??(e.participant+' · '+e.action))),
     ...(log.events.length?[]:['No initiative or roster changes recorded.']),
     '','Final initiative order',
     ...log.finalOrder.map(e=>(e.initiative??'Awaiting roll')+'  '+e.name+' ('+e.kind+(e.visible?'':', hidden')+')'),

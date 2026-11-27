@@ -25,7 +25,9 @@ try{
   await next();await choose('Soldier');await next();await next();
   await page.getByRole('button',{name:'Perception',exact:true}).click();await page.getByRole('button',{name:'Survival',exact:true}).click();
   assert.match(await page.getByRole('dialog',{name:'Guided character setup'}).innerText(),/Common/);assert.match(await page.getByRole('dialog',{name:'Guided character setup'}).innerText(),/Celestial/);
-  await next();await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
+  await next();await next();
+  await page.getByRole('radio',{name:'Fighter 1 Fighting Style: Defense (PHB)',exact:true}).check();
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
   const c=await saved(name);created.push(c);assert.deepEqual(c.abilityBonuses,{cha:2,[bonus]:1});assert.equal(c.speed,30);assert.equal(c.subrace,variant);assert.match(c.languages,/Common/);assert.match(c.languages,/Celestial/);assert(c.traits.some(t=>t.name===feature));assert.equal(c.spells.length,0);
   await page.getByRole('tab',{name:'Actions',exact:true}).click();await panel().getByRole('button',{name:feature,exact:true}).click();assert(await panel().getByRole('button',{name:'Activate '+feature,exact:true}).isDisabled());
   await page.getByRole('tab',{name:'Spells',exact:true}).click();const light=page.getByRole('region',{name:'Aasimar Light Bearer',exact:true});assert.match(await light.innerText(),/Charisma.*DC 10/s);
