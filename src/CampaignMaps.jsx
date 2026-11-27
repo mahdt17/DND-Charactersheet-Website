@@ -146,9 +146,6 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
         const saved={id:target,...roomBounds(payload),revision:existing.revision+1};
         setHistory(previous=>roomHistoryAfterEdit(previous,action,existing,saved));
       }
-      if(action==='edit')setCorner(null);
-      if(kind==='barrier')setSegment(emptyBarrier);
-      if(editing&&(kind==='edit_room'||(kind==='erase'&&editing.id===existing?.id)))resetRoom();
       try{
         const floor=await api.mapFloor(campaignId,id);
         if(!floor)throw Error('Floor unavailable');
@@ -157,6 +154,9 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
       }catch{
         setRooms(null);setError('Change saved. Refresh the floor to reload it.');
       }
+      if(action==='edit')setCorner(null);
+      if(kind==='barrier')setSegment(emptyBarrier);
+      if(editing&&(kind==='edit_room'||(kind==='erase'&&editing.id===existing?.id)))resetRoom();
     }catch(e){setError(e.message);}finally{lock.current=false;setBusy(false);}
   }
   return <section aria-label="Floor editor"><div className="l-toolbar"><strong>200 × 150 ft</strong>
