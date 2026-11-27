@@ -150,11 +150,13 @@ try {
   await dm.getByLabel('Search participants').fill('Goblin');
   await dm.getByRole('checkbox',{name:/^Goblin CR/}).check();
   await dm.getByLabel('Quantity of Goblin').fill('2');
+  // The imported 2014 elf has base Dex 14, +2 racial Dex and a +3 initiative bonus.
+  await dm.locator('.encounter-queue li').filter({hasText:'Tower ranger'}).getByText('+6 initiative',{exact:true}).waitFor();
   await button(dm,'Roll initiative and add (3)').click();
-  for(const [name,bonus] of [['Tower ranger',5],['Goblin 1',2],['Goblin 2',2]]){
+  for(const [name,bonus] of [['Tower ranger',6],['Goblin 1',2],['Goblin 2',2]]){
     await button(dm,'Show '+name+' to players').waitFor();
     const score=Number(await dmOrder.locator('li').filter({hasText:name}).locator(':scope > span').innerText());
-    assert(score>=1+bonus&&score<=20+bonus);
+    assert(score>=1+bonus&&score<=20+bonus,`${name} rolled ${score} with a +${bonus} modifier`);
     assert.equal(await playerOrder.getByText(name,{exact:true}).count(),0);
   }
   await button(dm,'Show Goblin 2 to players').click();
