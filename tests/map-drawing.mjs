@@ -12,6 +12,10 @@ test('strokes keep both ends within a bounded point budget and polygons enclose 
   assert(!validSketch('polygon',[[0,0],[5,5],[10,10]]));
   assert(!validSketch('polygon',[[0,0],[10,0],[10,5],[0,0]]));
   assert(!validSketch('freehand',[[0,0],[201,0]]));
+  let retraced=[];
+  for(let x=0;x<=200;x++)retraced=appendSketchPoint(retraced,[x,50],true);
+  for(let x=199;x>=0;x--)retraced=appendSketchPoint(retraced,[x,50],true);
+  assert.equal(Math.max(...retraced.map(p=>p[0])),200);
 });
 import test from 'node:test';
 import {drawingPoint, validBarrier, validRoom, roomHistoryAfterEdit, reconcileRoomHistory} from '../src/lib/mapDrawing.mjs';

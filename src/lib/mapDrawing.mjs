@@ -2,6 +2,11 @@ export const floorWidth=200, floorDepth=150;
 export const sketchPointLimit=128;
 const samePoint=(a,b)=>a&&a[0]===b[0]&&a[1]===b[1];
 const turnArea=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
+function segmentError(a,b,c){
+  const dx=c[0]-a[0],dy=c[1]-a[1],length=dx*dx+dy*dy;
+  const fraction=length?Math.max(0,Math.min(1,((b[0]-a[0])*dx+(b[1]-a[1])*dy)/length)):0;
+  return (b[0]-a[0]-fraction*dx)**2+(b[1]-a[1]-fraction*dy)**2;
+}
 
 export function appendSketchPoint(points,point,freehand){
   if(samePoint(points.at(-1),point))return points;
@@ -9,10 +14,10 @@ export function appendSketchPoint(points,point,freehand){
   if(!freehand)return points;
   // Retain the endpoints and sharp turns as the stroke grows.
   const next=[...points,point];
-  let leastArea=Infinity,remove=1;
+  let leastError=Infinity,remove=1;
   for(let i=1;i<next.length-1;i++){
-    const area=Math.abs(turnArea(next[i-1],next[i],next[i+1]));
-    if(area<leastArea){leastArea=area;remove=i;}
+    const error=segmentError(next[i-1],next[i],next[i+1]);
+    if(error<leastError){leastError=error;remove=i;}
   }
   next.splice(remove,1);
   return next.filter((p,i)=>!i||!samePoint(next[i-1],p));

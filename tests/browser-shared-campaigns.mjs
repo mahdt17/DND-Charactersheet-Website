@@ -166,12 +166,27 @@ try {
   dm.on('request',countMapRequest);
   await dm.mouse.move(sx,sy);await dm.mouse.down();
   await dm.mouse.move(sx+80,sy+20,{steps:8});await dm.mouse.move(sx+100,sy+50,{steps:6});await dm.mouse.up();
+  const pointCount=maps.getByLabel('Drawing point count');
+  const beforeTap=await pointCount.innerText();
+  await dm.mouse.click(sx,sy);
+  assert.equal(await pointCount.innerText(),beforeTap);
   assert.deepEqual(mapRequests,[]);
   dm.off('request',countMapRequest);
-  await button(maps,'Save stroke').click();
+  async function loseDrawingResponse(label){
+    await dm.route('**/rpc/ledger_prepare_map',async route=>{
+      const saved=await route.fetch();assert(saved.ok());
+      await route.fulfill({status:400,contentType:'application/json',body:JSON.stringify({message:'Drawing response lost in test'})});
+    },{times:1});
+    await button(maps,label).click();
+    await maps.getByRole('alert').filter({hasText:'Drawing response lost in test'}).waitFor();
+    await button(maps,'Refresh floor').click();
+    await maps.getByRole('alert').waitFor({state:'hidden'});
+  }
+  await loseDrawingResponse('Save stroke');
   const stroke=drawings.getByText(/Freehand stroke/);
   await stroke.waitFor();
-  await button(maps,'Undo drawing').click();await stroke.waitFor({state:'hidden'});
+  assert.equal(await pointCount.innerText(),'0 / 128');
+  await loseDrawingResponse('Undo drawing');await stroke.waitFor({state:'hidden'});
   await button(maps,'Redo drawing').click();await stroke.waitFor();
   await button(maps,'Close dialog').click();
   await button(dm,'DM maps').click();

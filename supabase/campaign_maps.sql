@@ -104,7 +104,7 @@ returns jsonb language sql stable security definer set search_path='' as $$
  select jsonb_build_object('id',f.id,'rooms',(select coalesce(jsonb_agg(jsonb_build_object(
    'id',r.id,'x',r.x_ft,'y',r.y_ft,'width',r.width_ft,'depth',r.depth_ft,'revision',r.revision) order by r.id),'[]')
    from ledger_private.scene_rooms r where r.floor_id=f.id and not r.erased),
-   'sketches',(select coalesce(jsonb_agg(jsonb_build_object('id',s.id,'revision',s.revision,'visible',s.visible)
+   'sketches',(select coalesce(jsonb_agg(jsonb_build_object('id',s.id,'revision',s.revision,'visible',s.visible,'lastCommand',s.last_command)
      || case when s.visible then jsonb_build_object('kind',s.kind,'points',s.points) else '{}'::jsonb end
      order by s.created_at,s.id),'[]') from ledger_private.floor_sketches s where s.floor_id=f.id),
    'barriers',(select coalesce(jsonb_agg(jsonb_build_object(

@@ -112,6 +112,7 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   const [sketchHistory,setSketchHistory]=useState({undo:[],redo:[]});
   const [sketches,setSketches]=useState([]),[points,setPoints]=useState([]);
   const gesture=useRef(null);
+  const unconfirmedSketches=useRef(new Map());
   const [refreshing,setRefreshing]=useState(false);
   function resetRoom(){setEditing(null);setRoom(emptyRoom);setCorner(null);}
   function editRoom(r){
@@ -126,7 +127,19 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
   const [ruler,setRuler]=useState({from:{x:0,y:0},to:{x:0,y:0}});
   const viewport=useRef(null),viewCenter=useRef(null);
   const canvas=useRef(null),pending=useRef(null),lock=useRef(false),sequence=useRef(0);
+  function recordSketch(change){
+    setSketchHistory(h=>historyAfterChange(h,change.action,change.id,change.revision,change.revision+1,!change.visible,change.visible));
+  }
   function applyFloor(floor){
+    for(const [key,change] of unconfirmedSketches.current){
+      const saved=floor.sketches?.find(s=>s.id===change.id);
+      if(saved&&(change.draft||saved.lastCommand===key)){
+        if(saved.revision===change.revision+1)recordSketch(change);
+        if(change.draft)setPoints(current=>current===change.draft?[]:current);
+        if(pending.current?.signature===change.signature)pending.current=null;
+      }
+    }
+    unconfirmedSketches.current.clear();
     setRooms(floor.rooms);setPassages(floor.passages||[]);setBarriers(floor.barriers||[]);
     setSketches(floor.sketches||[]);
     setHistory(h=>reconcileRoomHistory(h,floor.rooms));
@@ -176,10 +189,11 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     if(event.type==='pointerdown'){
       if(!event.isPrimary||event.button!==0||gesture.current)return;
       event.currentTarget.setPointerCapture(event.pointerId);
-      gesture.current={id:event.pointerId,previous:points};setPoints([[x,y]]);return;
+      gesture.current={id:event.pointerId,previous:points,x,y,moved:false};setPoints([[x,y]]);return;
     }
     if(gesture.current?.id!==event.pointerId)return;
-    if(event.type==='pointercancel'||event.type==='lostpointercapture'){
+    if(x!==gesture.current.x||y!==gesture.current.y)gesture.current.moved=true;
+    if(event.type==='pointercancel'||event.type==='lostpointercapture'||(event.type==='pointerup'&&!gesture.current.moved)){
       setPoints(gesture.current.previous);gesture.current=null;return;
     }
     setPoints(p=>appendSketchPoint(p,[x,y],true));
@@ -205,10 +219,17 @@ function FloorEditor({api,campaignId,id,floors,view,updateView}){
     lock.current=true;++sequence.current;setBusy(true);setError('');
     try{
       const {id:target,commandId}=pending.current;
+      if(unconfirmedSketches.current.size&&!unconfirmedSketches.current.has(commandId||target)){
+        const floor=await api.mapFloor(campaignId,id);
+        if(!floor)throw Error('Floor unavailable');
+        applyFloor(floor);
+      }
+      const sketchChange=kind==='sketch'?{action:'edit',id:target,revision:-1,visible:true,draft:points,signature}:
+        kind==='sketch_state'?{action,id:target,revision:payload.revision,visible:payload.visible,signature}:null;
+      if(sketchChange)unconfirmedSketches.current.set(commandId||target,sketchChange);
       await api.prepareMap(campaignId,kind,target,id,commandId?{...payload,commandId}:payload);
       pending.current=null;
-      if(kind==='sketch')setSketchHistory(h=>historyAfterChange(h,'edit',target,-1,0,false,true));
-      if(kind==='sketch_state')setSketchHistory(h=>historyAfterChange(h,action,target,payload.revision,payload.revision+1,!payload.visible,payload.visible));
+      if(sketchChange){unconfirmedSketches.current.delete(commandId||target);recordSketch(sketchChange);}
       if(kind==='edit_room'&&Object.keys(emptyRoom).some(key=>existing[key]!==payload[key])){
         const saved={id:target,...roomBounds(payload),revision:existing.revision+1};
         setHistory(previous=>roomHistoryAfterEdit(previous,action,existing,saved));
