@@ -159,16 +159,18 @@ try {
   await button(maps,'Save polygon').click();
   await drawings.getByText(/Polygon · 4 points/).waitFor();
   await maps.getByLabel('Map tool').selectOption('freehand');
-  await canvas.scrollIntoViewIfNeeded();
   await mapView.evaluate(v=>{v.scrollLeft=0;v.scrollTop=0;});
-  const viewBox=await mapView.boundingBox();
-  const sx=viewBox.x+30,sy=viewBox.y+30;
+  const firstPoint={x:Math.round(width*.048),y:Math.round(height*.064)};
   dm.on('request',countMapRequest);
-  await dm.mouse.move(sx,sy);await dm.mouse.down();
-  await dm.mouse.move(sx+80,sy+20,{steps:8});await dm.mouse.move(sx+100,sy+50,{steps:6});await dm.mouse.up();
+  await canvas.hover({position:firstPoint});await dm.mouse.down();
+  for(const [x,y] of [[.08,.08],[.11,.09],[.13,.13]]){
+    await canvas.hover({position:{x:Math.round(width*x),y:Math.round(height*y)}});
+  }
+  await dm.mouse.up();
   const pointCount=maps.getByLabel('Drawing point count');
   const beforeTap=await pointCount.innerText();
-  await dm.mouse.click(sx,sy);
+  assert(Number.parseInt(beforeTap,10)>=2,'Dragging across the floor must produce a stroke');
+  await canvas.click({position:firstPoint});
   assert.equal(await pointCount.innerText(),beforeTap);
   assert.deepEqual(mapRequests,[]);
   dm.off('request',countMapRequest);
