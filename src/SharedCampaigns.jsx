@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {Plus,LogIn,Trash2} from 'lucide-react';
 import './sharedCampaigns.css';
 import EffectCorrection from './EffectCorrection';
+import CampaignMaps from './CampaignMaps';
 import CampaignRewards from './CampaignRewards';
 import {DMCombat} from './LiveCombat';
 import {invitePattern,watchRoster} from './lib/sharedCampaigns';
@@ -61,6 +62,7 @@ function PartyRoster({campaign,api,onDelete,onOpen,roll,characters,sheetInitiati
     <div className="l-section-head"><h2>{campaign.name}</h2><button className="l-button party-danger" onClick={onDelete}><Trash2 size={16}/>Delete campaign</button></div>
     <label className="l-field"><span>Campaign invite code</span><input value={campaign.id} readOnly onFocus={e=>e.target.select()}/></label>
     <button className="l-button" onClick={async()=>{try{await navigator.clipboard.writeText(campaign.id);setCopied(true);}catch{setCopied(false);}}}>{copied?'Code copied':'Copy invite code'}</button>
+    <CampaignMaps api={api} campaignId={campaign.id}/>
     <DMCombat characters={characters} sheetInitiative={sheetInitiative} roll={roll} api={api} campaignId={campaign.id}/>
     <h3>Live party roster</h3>
     {error?<p role="alert">{error} <button className="l-button" onClick={()=>setRetry(n=>n+1)}>Retry</button></p>:

@@ -25,6 +25,16 @@ async function login(role) {
   return page;
 }
 const button=(page,name)=>page.getByRole('button',{name,exact:true});
+async function duringFloorRead(page,action,inspect){
+  const path='**/rpc/ledger_map_floor';
+  let release;
+  const hold=new Promise(resolve=>{release=resolve;});
+  await page.route(path,async route=>{await hold;await route.continue();},{times:1});
+  try{
+    await Promise.all([page.waitForRequest(path),action()]);
+    await inspect();
+  }finally{release();}
+}
 try {
   const dm=await login('dm'),player=await login('player');
   const sheet={id:'hero',name:'Arden',level:1,ruleset:'2014',className:'Fighter',race:'Elf',
@@ -37,6 +47,185 @@ try {
   await dm.getByLabel('Campaign name',{exact:true}).fill('The Violet Archive');
   await button(dm,'Create as DM').click();
   const invite=await dm.getByLabel('Campaign invite code').inputValue();
+  await button(dm,'DM maps').click();
+  const maps=dm.getByRole('dialog',{name:'DM maps'});
+  await maps.getByLabel('Map name',{exact:true}).fill('Tower');
+  await button(maps,'Create map').click();
+  await maps.getByLabel('Floor name',{exact:true}).fill('Cellar');
+  await maps.getByLabel('Elevation (ft)',{exact:true}).fill('-15');
+  await button(maps,'Add floor').click();
+  await maps.getByRole('combobox',{name:'Floor',exact:true}).locator('option:checked').filter({hasText:'Cellar (-15 ft)'}).waitFor({state:'attached'});
+  await button(maps,'Draw room').click();
+  await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/20 × 20 ft/).waitFor();
+  const mapRequests=[];
+  const countMapRequest=request=>{if(request.url().includes('/rpc/ledger_')&&request.url().includes('map'))mapRequests.push(request.url());};
+  dm.on('request',countMapRequest);
+  await button(maps,'Edit room at 0, 0').click();
+  await maps.getByLabel('Left (ft)',{exact:true}).fill('15');
+  await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
+  assert.deepEqual(mapRequests,[]);
+  await button(maps,'Cancel room edit').click();
+  await button(maps,'Edit room at 0, 0').click();
+  assert.equal(await maps.getByLabel('Width (ft)',{exact:true}).inputValue(),'20');
+  await maps.getByLabel('Left (ft)',{exact:true}).fill('15');
+  await maps.getByLabel('Width (ft)',{exact:true}).fill('30');
+  await button(maps,'Save room').click();
+  await button(maps,'Edit room at 15, 0').waitFor();
+  // The undo commits before this read fails. Refresh must retain the redo entry.
+  await dm.route('**/rpc/ledger_map_floor',route=>route.fulfill({status:400,contentType:'application/json',
+    body:JSON.stringify({message:'Injected floor read failure'})}),{times:1});
+  await button(maps,'Undo room edit').click();
+  await maps.getByRole('alert').filter({hasText:'Change saved.'}).waitFor();
+  await button(maps,'Refresh floor').click();
+  await button(maps,'Edit room at 0, 0').waitFor();
+  await button(maps,'Redo room edit').click();
+  await button(maps,'Edit room at 15, 0').waitFor();
+
+  // A different DM tab moves the room and moves it back. Equal bounds still have a newer revision.
+  const secondTab=await dm.context().newPage();
+  try{
+    await secondTab.goto(appUrl);
+    await button(secondTab,'Campaigns').click();
+    await button(secondTab,'The Violet Archive').click();
+    await button(secondTab,'DM maps').click();
+    const otherMap=secondTab.getByRole('dialog',{name:'DM maps'});
+    await button(otherMap,'Edit room at 15, 0').click();
+    await otherMap.getByLabel('Left (ft)',{exact:true}).fill('25');
+    await button(otherMap,'Save room').click();
+    await button(otherMap,'Edit room at 25, 0').waitFor();
+    await button(otherMap,'Undo room edit').click();
+    await button(otherMap,'Edit room at 15, 0').waitFor();
+  }finally{await secondTab.close();}
+  await button(maps,'Undo room edit').click();
+  await maps.getByRole('alert').filter({hasText:'Room changed.'}).waitFor();
+  await duringFloorRead(dm,()=>button(maps,'Refresh floor').click(),async()=>{
+    assert(await button(maps,'Edit room at 15, 0').isDisabled());
+    assert(await button(maps,'Erase room at 15, 0').isDisabled());
+  });
+  await button(maps,'Edit room at 15, 0').click();
+  assert.equal(await maps.getByLabel('Width (ft)',{exact:true}).inputValue(),'30');
+  await button(maps,'Cancel room edit').click();
+  assert(await button(maps,'Undo room edit').isDisabled());
+  assert(await button(maps,'Redo room edit').isDisabled());
+  mapRequests.length=0;
+  await maps.getByLabel('Map tool').selectOption('measure');
+  await maps.getByLabel('End X (ft)').fill('30');
+  await maps.getByLabel('End Y (ft)').fill('40');
+  const distance=maps.getByLabel('Straight-line distance');
+  assert.equal(await distance.textContent(),'50 ft');
+  await maps.getByLabel('Map zoom').selectOption('2');
+  await maps.getByLabel('Show 5-ft grid').uncheck();
+  assert.equal(await distance.textContent(),'50 ft');
+  const mapView=maps.getByRole('region',{name:'Scrollable floor map'});
+  assert(await mapView.evaluate(view=>view.scrollWidth>view.clientWidth));
+  await mapView.evaluate(view=>{view.scrollLeft=0;view.scrollTop=0;});
+  const canvas=maps.getByLabel('Floor drawing',{exact:true});
+  const {width,height}=await canvas.boundingBox();
+  await maps.getByLabel('Snap clicks to 5 ft').check();
+  await canvas.click({position:{x:Math.round(width*.048),y:Math.round(height*.064)}});
+  await canvas.click({position:{x:Math.round(width*.099),y:Math.round(height*.066)}});
+  assert.equal(await distance.textContent(),'10 ft');
+  assert.deepEqual(mapRequests,[]);
+  await maps.getByLabel('Map tool').selectOption('wall');
+  await canvas.click({position:{x:Math.round(width*.048),y:Math.round(height*.064)}});
+  await canvas.click({position:{x:Math.round(width*.099),y:Math.round(height*.066)}});
+  assert.deepEqual(mapRequests,[]);
+  dm.off('request',countMapRequest);
+  await duringFloorRead(dm,()=>button(maps,'Add wall').click(),async()=>{
+    assert(await maps.getByLabel('Map tool').isDisabled());
+    assert.equal(await canvas.getAttribute('aria-disabled'),'true');
+    await canvas.dispatchEvent('click',{clientX:0,clientY:0});
+    assert.equal(await maps.getByLabel('First X (ft)').inputValue(),'10');
+  });
+  const barriers=maps.getByRole('list',{name:'Walls and doors on floor'});
+  await barriers.getByText('Wall (10, 10) to (20, 10)',{exact:true}).waitFor();
+  await maps.getByLabel('Map tool').selectOption('door');
+  await maps.getByLabel('First X (ft)').fill('20');
+  await maps.getByLabel('Last X (ft)').fill('25');
+  await button(maps,'Add door').click();
+  await button(barriers,'Open door').click();
+  await button(barriers,'Close door').waitFor();
+  const drawings=maps.getByRole('list',{name:'Drawings on floor'});
+  mapRequests.length=0;
+  dm.on('request',countMapRequest);
+  await maps.getByLabel('Map tool').selectOption('polygon');
+  for(const [x,y] of [[10,10],[40,10],[30,25],[10,30]]){
+    await maps.getByLabel('Point X (ft)').fill(String(x));
+    await maps.getByLabel('Point Y (ft)').fill(String(y));
+    await button(maps,'Add point').click();
+  }
+  assert.deepEqual(mapRequests,[]);
+  dm.off('request',countMapRequest);
+  await button(maps,'Save polygon').click();
+  await drawings.getByText(/Polygon · 4 points/).waitFor();
+  await maps.getByLabel('Map tool').selectOption('freehand');
+  await mapView.evaluate(v=>{v.scrollLeft=0;v.scrollTop=0;});
+  const firstPoint={x:Math.round(width*.048),y:Math.round(height*.064)};
+  dm.on('request',countMapRequest);
+  await canvas.hover({position:firstPoint});await dm.mouse.down();
+  for(const [x,y] of [[.08,.08],[.11,.09],[.13,.13]]){
+    await canvas.hover({position:{x:Math.round(width*x),y:Math.round(height*y)}});
+  }
+  await dm.mouse.up();
+  const pointCount=maps.getByLabel('Drawing point count');
+  const beforeTap=await pointCount.innerText();
+  assert(Number.parseInt(beforeTap,10)>=2,'Dragging across the floor must produce a stroke');
+  await canvas.click({position:firstPoint});
+  assert.equal(await pointCount.innerText(),beforeTap);
+  assert.deepEqual(mapRequests,[]);
+  dm.off('request',countMapRequest);
+  async function loseDrawingResponse(label){
+    await dm.route('**/rpc/ledger_prepare_map',async route=>{
+      const saved=await route.fetch();assert(saved.ok());
+      await route.fulfill({status:400,contentType:'application/json',body:JSON.stringify({message:'Drawing response lost in test'})});
+    },{times:1});
+    await button(maps,label).click();
+    await maps.getByRole('alert').filter({hasText:'Drawing response lost in test'}).waitFor();
+    await button(maps,'Refresh floor').click();
+    await maps.getByRole('alert').waitFor({state:'hidden'});
+  }
+  await loseDrawingResponse('Save stroke');
+  const stroke=drawings.getByText(/Freehand stroke/);
+  await stroke.waitFor();
+  assert.equal(await pointCount.innerText(),'0 / 128');
+  await loseDrawingResponse('Undo drawing');await stroke.waitFor({state:'hidden'});
+  await button(maps,'Redo drawing').click();await stroke.waitFor();
+  await button(maps,'Close dialog').click();
+  await button(dm,'DM maps').click();
+  const floorSelect=maps.getByRole('combobox',{name:'Floor',exact:true});
+  await floorSelect.locator('option:checked').filter({hasText:'Cellar (-15 ft)'}).waitFor({state:'attached'});
+  assert.equal(await maps.getByLabel('Show 5-ft grid').isChecked(),false);
+  assert.equal(await maps.getByLabel('Map zoom').inputValue(),'2');
+  assert.equal(await maps.getByLabel('Snap clicks to 5 ft').isChecked(),true);
+  await drawings.getByText(/Polygon · 4 points/).waitFor();await stroke.waitFor();
+  await button(drawings.getByRole('listitem').filter({hasText:'Polygon'}),'Erase drawing').click();
+  await drawings.getByText(/Polygon/).waitFor({state:'hidden'});
+  await button(maps,'Undo drawing').click();
+  await drawings.getByText(/Polygon · 4 points/).waitFor();
+  await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/30 × 20 ft at \(15, 0\)/).waitFor();
+  await button(barriers,'Close door').click();
+  await button(barriers,'Open door').waitFor();
+  await button(barriers,'Erase wall').click();
+  await barriers.getByText('Wall (10, 10) to (20, 10)',{exact:true}).waitFor({state:'hidden'});
+  await floorSelect.selectOption({label:'Ground floor (0 ft)'});
+  await button(maps,'Draw room').waitFor();
+  assert.equal(await maps.getByRole('list',{name:'Rooms on floor'}).count(),0);
+  assert.equal(await barriers.count(),0);
+  assert.equal(await drawings.count(),0);
+  await maps.getByLabel('Map tool').selectOption('passage');
+  await maps.getByLabel('Passage kind').selectOption('stairs');
+  await maps.getByLabel('Destination floor').selectOption({label:'Cellar (-15 ft)'});
+  await maps.getByLabel('Entrance X (ft)').fill('10');
+  await maps.getByLabel('Exit Y (ft)').fill('25');
+  await button(maps,'Add passage').click();
+  const links=maps.getByRole('list',{name:'Passages on floor'});
+  await button(links,'View Cellar').click();
+  await button(links,'View Ground floor').waitFor();
+  assert.match(await links.innerText(),/at \(0, 25\)/);
+  await button(links,'Remove passage').click();
+  await links.waitFor({state:'hidden'});
+  await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/30 × 20 ft/).waitFor();
+  await button(maps,'Close dialog').click();
   await player.locator('input[type=file]').setInputFiles({name:'hero.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(sheet))});
   await player.locator('.sheet-identity').filter({hasText:'Arden'}).waitFor();
   const playerTabs=await player.getByRole('tablist',{name:'Character sheet sections'}).getByRole('tab').allTextContents();
