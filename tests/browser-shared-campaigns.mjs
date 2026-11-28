@@ -145,6 +145,34 @@ try {
   await button(maps,'Add door').click();
   await button(barriers,'Open door').click();
   await button(barriers,'Close door').waitFor();
+  const drawings=maps.getByRole('list',{name:'Drawings on floor'});
+  mapRequests.length=0;
+  dm.on('request',countMapRequest);
+  await maps.getByLabel('Map tool').selectOption('polygon');
+  for(const [x,y] of [[10,10],[40,10],[30,25],[10,30]]){
+    await maps.getByLabel('Point X (ft)').fill(String(x));
+    await maps.getByLabel('Point Y (ft)').fill(String(y));
+    await button(maps,'Add point').click();
+  }
+  assert.deepEqual(mapRequests,[]);
+  dm.off('request',countMapRequest);
+  await button(maps,'Save polygon').click();
+  await drawings.getByText(/Polygon · 4 points/).waitFor();
+  await maps.getByLabel('Map tool').selectOption('freehand');
+  await canvas.scrollIntoViewIfNeeded();
+  await mapView.evaluate(v=>{v.scrollLeft=0;v.scrollTop=0;});
+  const viewBox=await mapView.boundingBox();
+  const sx=viewBox.x+30,sy=viewBox.y+30;
+  dm.on('request',countMapRequest);
+  await dm.mouse.move(sx,sy);await dm.mouse.down();
+  await dm.mouse.move(sx+80,sy+20,{steps:8});await dm.mouse.move(sx+100,sy+50,{steps:6});await dm.mouse.up();
+  assert.deepEqual(mapRequests,[]);
+  dm.off('request',countMapRequest);
+  await button(maps,'Save stroke').click();
+  const stroke=drawings.getByText(/Freehand stroke/);
+  await stroke.waitFor();
+  await button(maps,'Undo drawing').click();await stroke.waitFor({state:'hidden'});
+  await button(maps,'Redo drawing').click();await stroke.waitFor();
   await button(maps,'Close dialog').click();
   await button(dm,'DM maps').click();
   const floorSelect=maps.getByRole('combobox',{name:'Floor',exact:true});
@@ -152,6 +180,11 @@ try {
   assert.equal(await maps.getByLabel('Show 5-ft grid').isChecked(),false);
   assert.equal(await maps.getByLabel('Map zoom').inputValue(),'2');
   assert.equal(await maps.getByLabel('Snap clicks to 5 ft').isChecked(),true);
+  await drawings.getByText(/Polygon · 4 points/).waitFor();await stroke.waitFor();
+  await button(drawings.getByRole('listitem').filter({hasText:'Polygon'}),'Erase drawing').click();
+  await drawings.getByText(/Polygon/).waitFor({state:'hidden'});
+  await button(maps,'Undo drawing').click();
+  await drawings.getByText(/Polygon · 4 points/).waitFor();
   await maps.getByRole('list',{name:'Rooms on floor'}).getByText(/30 × 20 ft at \(15, 0\)/).waitFor();
   await button(barriers,'Close door').click();
   await button(barriers,'Open door').waitFor();
@@ -161,6 +194,7 @@ try {
   await button(maps,'Draw room').waitFor();
   assert.equal(await maps.getByRole('list',{name:'Rooms on floor'}).count(),0);
   assert.equal(await barriers.count(),0);
+  assert.equal(await drawings.count(),0);
   await maps.getByLabel('Map tool').selectOption('passage');
   await maps.getByLabel('Passage kind').selectOption('stairs');
   await maps.getByLabel('Destination floor').selectOption({label:'Cellar (-15 ft)'});

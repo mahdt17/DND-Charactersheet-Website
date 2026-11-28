@@ -1,6 +1,7 @@
 begin;
 insert into auth.users(id) values ('61260000-0000-4000-8000-000000000001'),('61260000-0000-4000-8000-000000000002'),('61260000-0000-4000-8000-000000000003');
 do $$ begin
+  if has_table_privilege('authenticated','ledger_private.floor_sketches','SELECT') then raise exception 'Private sketches granted'; end if;
   if has_table_privilege('authenticated','ledger_private.scene_barriers','SELECT') or has_table_privilege('authenticated','ledger_private.scene_rooms','SELECT') or has_table_privilege('authenticated','ledger_private.floor_passages','SELECT') or has_schema_privilege('authenticated','ledger_private','USAGE')
     then raise exception 'Private scene data granted to clients'; end if;
 end $$;
@@ -11,11 +12,30 @@ select set_config('map.c',(select id::text from public.ledger_campaigns where na
 do $$ declare c uuid:=current_setting('map.c')::uuid; scene uuid:=gen_random_uuid(); floor uuid:=gen_random_uuid(); room uuid:=gen_random_uuid(); passage uuid:=gen_random_uuid(); other_scene uuid:=gen_random_uuid(); link jsonb; shape jsonb:='{"x":10,"y":15,"width":20,"depth":25}';
   door uuid:=gen_random_uuid(); wall uuid:=gen_random_uuid();
   edit_request uuid:=gen_random_uuid();
+  sketch uuid:=gen_random_uuid(); sketch_command uuid:=gen_random_uuid();
+  polygon jsonb:='{"kind":"polygon","points":[[0,0],[20,0],[10,5],[0,10]]}';
   endpoints jsonb:='{"kind":"door","x1":0,"y1":0,"x2":5,"y2":10}';
 begin
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
   perform public.ledger_prepare_map(c,'scene',scene,null,'{"name":"Private tower"}');
   perform public.ledger_prepare_map(c,'floor',floor,scene,'{"name":"Secret vault","elevation":-30}');
+  perform public.ledger_prepare_map(c,'sketch',sketch,floor,polygon);
+  perform public.ledger_prepare_map(c,'sketch',sketch,floor,polygon);
+  if jsonb_array_length(public.ledger_map_floor(c,floor)->'sketches')<>1 or
+     public.ledger_map_floor(c,floor)#>'{sketches,0,points}' is distinct from polygon->'points' or
+     public.ledger_map_floor(c,scene)->'sketches' is distinct from '[]'::jsonb then raise exception 'Drawing or floor mismatch'; end if;
+  begin perform public.ledger_prepare_map(c,'sketch',gen_random_uuid(),floor,'{"kind":"polygon","points":[[1,1],[2,2],[3,3]]}');raise exception 'Zero area polygon accepted';
+  exception when check_violation then null; end;
+  begin perform public.ledger_prepare_map(c,'sketch',gen_random_uuid(),floor,'{"kind":"freehand","points":[[1,1],[201,0]]}');raise exception 'Stroke outside floor accepted';
+  exception when check_violation then null; end;
+  perform public.ledger_prepare_map(c,'sketch_state',sketch,floor,jsonb_build_object('commandId',sketch_command,'revision',0,'visible',false));
+  perform public.ledger_prepare_map(c,'sketch_state',sketch,floor,jsonb_build_object('commandId',sketch_command,'revision',0,'visible',false));
+  perform public.ledger_prepare_map(c,'sketch',sketch,floor,polygon);
+  if public.ledger_map_floor(c,floor)#>'{sketches,0,points}' is not null or public.ledger_map_floor(c,floor)#>>'{sketches,0,revision}' is distinct from '1' then raise exception 'Erased drawing replay or projection incorrect'; end if;
+  begin perform public.ledger_prepare_map(c,'sketch_state',sketch,floor,jsonb_build_object('commandId',gen_random_uuid(),'revision',0,'visible',false));raise exception 'Stale sketch erase accepted';
+  exception when raise_exception then if sqlerrm<>'Drawing changed. Refresh the floor.' then raise; end if; end;
+  perform public.ledger_prepare_map(c,'sketch_state',sketch,floor,jsonb_build_object('commandId',gen_random_uuid(),'revision',1,'visible',true));
+  if public.ledger_map_floor(c,floor)#>'{sketches,0,points}' is distinct from polygon->'points' then raise exception 'Redo changed drawing geometry'; end if;
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   perform public.ledger_prepare_map(c,'room',room,floor,shape);
   perform public.ledger_prepare_map(c,'edit_room',room,floor,shape||'{"x":15,"width":30,"revision":0}'||jsonb_build_object('commandId',edit_request));
@@ -81,6 +101,8 @@ begin
   perform set_config('request.jwt.claim.sub','61260000-0000-4000-8000-000000000002',true);
   insert into public.characters(user_id,id,name) values(auth.uid(),'hero','Scout');
   insert into public.ledger_campaign_sheets(character_id,campaign_id) values('hero',c);
+  begin perform public.ledger_prepare_map(c,'sketch',gen_random_uuid(),floor,polygon);raise exception 'Player created drawing';
+  exception when raise_exception then if sqlerrm<>'Map preparation unavailable' then raise; end if; end;
   if public.ledger_map_catalog(c)<>'[]' or public.ledger_map_floor(c,floor) is not null
     then raise exception 'Player accessed private floor'; end if;
   begin perform public.ledger_prepare_map(c,'erase_passage',passage,floor,'{}');raise exception 'Player erased passage';

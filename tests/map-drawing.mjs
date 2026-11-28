@@ -1,4 +1,18 @@
 import assert from 'node:assert/strict';
+import {appendSketchPoint,validSketch} from '../src/lib/mapDrawing.mjs';
+
+test('strokes keep both ends within a bounded point budget and polygons enclose area',()=>{
+  let points=[];
+  for(let i=0;i<=200;i++)points=appendSketchPoint(points,[i,i%7],true);
+  assert.deepEqual(points[0],[0,0]);assert.deepEqual(points.at(-1),[200,4]);
+  assert.equal(points.length,128);
+  assert.equal(appendSketchPoint(points,[200,4],true),points);
+  assert(validSketch('freehand',points));
+  assert(validSketch('polygon',[[0,0],[20,0],[10,5],[0,10]]));
+  assert(!validSketch('polygon',[[0,0],[5,5],[10,10]]));
+  assert(!validSketch('polygon',[[0,0],[10,0],[10,5],[0,0]]));
+  assert(!validSketch('freehand',[[0,0],[201,0]]));
+});
 import test from 'node:test';
 import {drawingPoint, validBarrier, validRoom, roomHistoryAfterEdit, reconcileRoomHistory} from '../src/lib/mapDrawing.mjs';
 

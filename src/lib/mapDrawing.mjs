@@ -1,4 +1,30 @@
 export const floorWidth=200, floorDepth=150;
+export const sketchPointLimit=128;
+const samePoint=(a,b)=>a&&a[0]===b[0]&&a[1]===b[1];
+const turnArea=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
+
+export function appendSketchPoint(points,point,freehand){
+  if(samePoint(points.at(-1),point))return points;
+  if(points.length<sketchPointLimit)return [...points,point];
+  if(!freehand)return points;
+  // Retain the endpoints and sharp turns as the stroke grows.
+  const next=[...points,point];
+  let leastArea=Infinity,remove=1;
+  for(let i=1;i<next.length-1;i++){
+    const area=Math.abs(turnArea(next[i-1],next[i],next[i+1]));
+    if(area<leastArea){leastArea=area;remove=i;}
+  }
+  next.splice(remove,1);
+  return next.filter((p,i)=>!i||!samePoint(next[i-1],p));
+}
+
+export function validSketch(kind,points){
+  if(!['freehand','polygon'].includes(kind)||points.length<(kind==='polygon'?3:2)||points.length>sketchPointLimit)return false;
+  if(!points.every((p,i)=>Array.isArray(p)&&p.length===2&&p.every(Number.isInteger)
+    &&p[0]>=0&&p[0]<=floorWidth&&p[1]>=0&&p[1]<=floorDepth&&(!i||!samePoint(points[i-1],p))))return false;
+  if(kind==='freehand')return true;
+  return !samePoint(points[0],points.at(-1))&&points.reduce((sum,p,i)=>sum+turnArea([0,0],p,points[(i+1)%points.length]),0)!==0;
+}
 
 export function roomBounds({x,y,width,depth}){return {x,y,width,depth};}
 
@@ -10,14 +36,17 @@ export function reconcileRoomHistory(history,rooms){
 
 export function roomHistoryAfterEdit(history,action,before,after){
   if(after.revision!==before.revision+1)return history;
+  return historyAfterChange(history,action,before.id,before.revision,after.revision,roomBounds(before),roomBounds(after));
+}
+export function historyAfterChange(history,action,id,priorRevision,revision,before,after){
   // Only our own confirmed edit advances the expected revision of earlier entries.
-  const advance=entries=>entries.filter(e=>e.id!==before.id||e.revision===before.revision)
-    .map(e=>e.id===before.id?{...e,revision:after.revision}:e);
+  const advance=entries=>entries.filter(e=>e.id!==id||e.revision===priorRevision)
+    .map(e=>e.id===id?{...e,revision}:e);
   const undo=advance(history.undo),redo=advance(history.redo);
   if(action==='undo'){if(undo.length)redo.push(undo.pop());}
   else if(action==='redo'){if(redo.length)undo.push(redo.pop());}
   else{
-    undo.push({id:before.id,before:roomBounds(before),after:roomBounds(after),revision:after.revision});
+    undo.push({id,before,after,revision});
     return {undo:undo.slice(-32),redo:[]};
   }
   return {undo,redo};

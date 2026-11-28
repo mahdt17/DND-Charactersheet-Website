@@ -14,6 +14,36 @@ create table ledger_private.scene_floors (
   created_at timestamptz not null default now()
 );
 create index scene_floors_scene_idx on ledger_private.scene_floors(scene_id,elevation_ft);
+create function ledger_private.valid_sketch_points(kind text, points jsonb) returns boolean
+language plpgsql immutable strict set search_path='' as $$
+declare p jsonb; first_point jsonb; previous jsonb; area integer:=0;
+begin
+  if jsonb_typeof(points)<>'array' then return false; end if;
+  if jsonb_array_length(points) not between (case when kind='polygon' then 3 else 2 end) and 128 then return false; end if;
+  for p in select value from jsonb_array_elements(points) loop
+    if jsonb_typeof(p)<>'array' then return false; end if;
+    if jsonb_array_length(p)<>2 or jsonb_typeof(p->0)<>'number' or jsonb_typeof(p->1)<>'number'
+       or (p->>0)!~'^[0-9]{1,3}$' or (p->>1)!~'^[0-9]{1,3}$' then return false; end if;
+    if (p->>0)::int>200 or (p->>1)::int>150 or p=previous then return false; end if;
+    if previous is null then first_point:=p;
+    else area:=area+(previous->>0)::int*(p->>1)::int-(p->>0)::int*(previous->>1)::int; end if;
+    previous:=p;
+  end loop;
+  return kind='freehand' or (previous<>first_point and
+    area+(previous->>0)::int*(first_point->>1)::int-(first_point->>0)::int*(previous->>1)::int<>0);
+end $$;
+create table ledger_private.floor_sketches (
+  id uuid primary key,
+  floor_id uuid not null references ledger_private.scene_floors(id) on delete cascade,
+  kind text not null check(kind in ('freehand','polygon')),
+  points jsonb not null check(ledger_private.valid_sketch_points(kind,points)),
+  visible boolean not null default true, revision integer not null default 0,
+  last_command uuid, created_at timestamptz not null default clock_timestamp()
+);
+create index floor_sketches_floor_idx on ledger_private.floor_sketches(floor_id);
+alter table ledger_private.floor_sketches enable row level security;
+revoke all on ledger_private.floor_sketches from public,anon,authenticated;
+revoke all on function ledger_private.valid_sketch_points(text,jsonb) from public,anon,authenticated;
 create table ledger_private.scene_rooms (
   id uuid primary key,
   revision integer not null default 0,
@@ -74,6 +104,9 @@ returns jsonb language sql stable security definer set search_path='' as $$
  select jsonb_build_object('id',f.id,'rooms',(select coalesce(jsonb_agg(jsonb_build_object(
    'id',r.id,'x',r.x_ft,'y',r.y_ft,'width',r.width_ft,'depth',r.depth_ft,'revision',r.revision) order by r.id),'[]')
    from ledger_private.scene_rooms r where r.floor_id=f.id and not r.erased),
+   'sketches',(select coalesce(jsonb_agg(jsonb_build_object('id',s.id,'revision',s.revision,'visible',s.visible)
+     || case when s.visible then jsonb_build_object('kind',s.kind,'points',s.points) else '{}'::jsonb end
+     order by s.created_at,s.id),'[]') from ledger_private.floor_sketches s where s.floor_id=f.id),
    'barriers',(select coalesce(jsonb_agg(jsonb_build_object(
      'id',b.id,'kind',b.kind,'x1',b.x1,'y1',b.y1,'x2',b.x2,'y2',b.y2,
      'open',b.is_open,'revision',b.revision) order by b.id),'[]')
@@ -93,6 +126,7 @@ returns void language plpgsql security definer set search_path='' as $$
 declare n text:=btrim(p_value->>'name'); elevation integer; x integer;y integer;w integer;d integer;
   barrier ledger_private.scene_barriers%rowtype;
   target_room ledger_private.scene_rooms%rowtype;
+  sketch ledger_private.floor_sketches%rowtype; command_id uuid; show_sketch boolean;
   expected_revision integer; requested_open boolean;
 begin
  perform 1 from public.ledger_campaigns where id=p_campaign and dm_id=auth.uid() for update;
@@ -136,6 +170,28 @@ begin
    if target_room.revision<>expected_revision then raise exception 'Room changed. Refresh the floor and select it again.'; end if;
    update ledger_private.scene_rooms set original_bounds=coalesce(original_bounds,array[x_ft,y_ft,width_ft,depth_ft]),
      x_ft=x,y_ft=y,width_ft=w,depth_ft=d,revision=revision+1,last_edit_command=(p_value->>'commandId')::uuid where id=p_id;
+ when 'sketch','sketch_state' then
+   perform 1 from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
+     where f.id=p_parent and s.campaign_id=p_campaign;
+   if not found then raise exception 'Floor unavailable'; end if;
+   if p_operation='sketch' then
+     if not exists(select from ledger_private.floor_sketches where id=p_id) and
+       (select count(*) from ledger_private.floor_sketches where floor_id=p_parent)>=256 then raise exception 'Floor drawing limit reached'; end if;
+     insert into ledger_private.floor_sketches(id,floor_id,kind,points)
+       values(p_id,p_parent,p_value->>'kind',p_value->'points') on conflict(id) do nothing;
+     if not exists(select from ledger_private.floor_sketches where id=p_id and floor_id=p_parent
+       and kind=p_value->>'kind' and points=p_value->'points') then raise exception 'Drawing change conflict'; end if;
+   else
+     select * into sketch from ledger_private.floor_sketches where id=p_id and floor_id=p_parent;
+     if not found then raise exception 'Drawing unavailable'; end if;
+     expected_revision:=(p_value->>'revision')::integer; command_id:=(p_value->>'commandId')::uuid;
+     if expected_revision is null or expected_revision<0 or command_id is null or jsonb_typeof(p_value->'visible') is distinct from 'boolean'
+       then raise exception 'Invalid drawing change'; end if;
+     show_sketch:=(p_value->>'visible')::boolean;
+     if sketch.revision=expected_revision::bigint+1 and sketch.last_command=command_id and sketch.visible=show_sketch then return; end if;
+     if sketch.revision<>expected_revision or sketch.visible=show_sketch then raise exception 'Drawing changed. Refresh the floor.'; end if;
+     update ledger_private.floor_sketches set visible=show_sketch,revision=revision+1,last_command=command_id where id=p_id;
+   end if;
  when 'barrier' then
    perform 1 from ledger_private.scene_floors f join ledger_private.scenes s on s.id=f.scene_id
      where f.id=p_parent and s.campaign_id=p_campaign;
